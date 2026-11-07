@@ -116,6 +116,35 @@ def run_pipeline(
     if not index_candidate.exists() and (output_path / "index_2025.json").exists():
         index_candidate = output_path / "index_2025.json"
 
+    def _hidratar_obra_existente(o: dict[str, Any]) -> dict[str, Any]:
+        item_copy = dict(o)
+        if "cdUnidadeGestora" not in item_copy and "unidadeGestora" in item_copy:
+            item_copy["cdUnidadeGestora"] = item_copy["unidadeGestora"]
+        if "sgOrgao" not in item_copy and "unidadeGestora" in item_copy:
+            item_copy["sgOrgao"] = item_copy["unidadeGestora"]
+        if "nuContratoSigef" not in item_copy and "numeroContrato" in item_copy:
+            item_copy["nuContratoSigef"] = item_copy["numeroContrato"]
+        if "dsObjeto" not in item_copy and "objeto" in item_copy:
+            item_copy["dsObjeto"] = item_copy["objeto"]
+        if "vlOriginal" not in item_copy and "valorOriginal" in item_copy:
+            item_copy["vlOriginal"] = item_copy["valorOriginal"]
+        if "vlAtualizado" not in item_copy and "valorContratualVigente" in item_copy:
+            item_copy["vlAtualizado"] = item_copy["valorContratualVigente"]
+        if "dsSituacao" not in item_copy and "situacao" in item_copy:
+            item_copy["dsSituacao"] = item_copy["situacao"]
+        if "nmCredor" not in item_copy and "credor" in item_copy:
+            item_copy["nmCredor"] = item_copy["credor"]
+        if "nuDocumentoCredor" not in item_copy and "cnpj" in item_copy:
+            item_copy["nuDocumentoCredor"] = item_copy["cnpj"]
+        if item_copy.get("nivel") == "Bairro":
+            pb_val = item_copy.get("prefeitura_bairro") or item_copy.get("prefeituraBairro")
+            if pb_val:
+                pb_clean = normalizar_nome_prefeitura_bairro(pb_val)
+                item_copy["prefeitura_bairro"] = pb_clean
+                item_copy["prefeituraBairro"] = pb_clean
+        return item_copy
+
+    existing_obras: list[dict[str, Any]] = []
     if not full_refresh and index_candidate.exists():
         try:
             with open(index_candidate, "r", encoding="utf-8") as f:
@@ -131,40 +160,17 @@ def run_pipeline(
 
             if closed_mandates_reused:
                 mandatos_consultar = [m for m in mandatos_lista if m not in closed_mandates_reused]
-                reused_obras: list[dict[str, Any]] = []
-                for o in existing_obras:
-                    if any(m in closed_mandates_reused for m in o.get("mandatos", [])):
-                        item_copy = dict(o)
-                        if "cdUnidadeGestora" not in item_copy and "unidadeGestora" in item_copy:
-                            item_copy["cdUnidadeGestora"] = item_copy["unidadeGestora"]
-                        if "sgOrgao" not in item_copy and "unidadeGestora" in item_copy:
-                            item_copy["sgOrgao"] = item_copy["unidadeGestora"]
-                        if "nuContratoSigef" not in item_copy and "numeroContrato" in item_copy:
-                            item_copy["nuContratoSigef"] = item_copy["numeroContrato"]
-                        if "dsObjeto" not in item_copy and "objeto" in item_copy:
-                            item_copy["dsObjeto"] = item_copy["objeto"]
-                        if "vlOriginal" not in item_copy and "valorOriginal" in item_copy:
-                            item_copy["vlOriginal"] = item_copy["valorOriginal"]
-                        if "vlAtualizado" not in item_copy and "valorContratualVigente" in item_copy:
-                            item_copy["vlAtualizado"] = item_copy["valorContratualVigente"]
-                        if "dsSituacao" not in item_copy and "situacao" in item_copy:
-                            item_copy["dsSituacao"] = item_copy["situacao"]
-                        if "nmCredor" not in item_copy and "credor" in item_copy:
-                            item_copy["nmCredor"] = item_copy["credor"]
-                        if "nuDocumentoCredor" not in item_copy and "cnpj" in item_copy:
-                            item_copy["nuDocumentoCredor"] = item_copy["cnpj"]
-                        if item_copy.get("nivel") == "Bairro":
-                            pb_val = item_copy.get("prefeitura_bairro") or item_copy.get("prefeituraBairro")
-                            if pb_val:
-                                pb_clean = normalizar_nome_prefeitura_bairro(pb_val)
-                                item_copy["prefeitura_bairro"] = pb_clean
-                                item_copy["prefeituraBairro"] = pb_clean
-                        reused_obras.append(item_copy)
+                reused_obras = [
+                    _hidratar_obra_existente(o)
+                    for o in existing_obras
+                    if any(m in closed_mandates_reused for m in o.get("mandatos", []))
+                ]
                 raw_grid.extend(reused_obras)
         except Exception:
             closed_mandates_reused.clear()
             mandatos_consultar = list(mandatos_lista)
 
+    sample_ids = {"1001", "1002", "1003", "1004", "1005"}
     for m in mandatos_consultar:
         info = MANDATOS_MUNICIPAIS.get(m)
         if info:
@@ -177,6 +183,15 @@ def run_pipeline(
                 year=year,
                 payload_customizado=payload,
             )
+            if not full_refresh and existing_obras:
+                ids_retornados = {str(x.get("id")) for x in itens_mandato}
+                existing_mandato = [
+                    _hidratar_obra_existente(o)
+                    for o in existing_obras
+                    if m in o.get("mandatos", []) and str(o.get("id")) not in sample_ids
+                ]
+                if ids_retornados <= sample_ids and len(existing_mandato) > len(sample_ids):
+                    itens_mandato = existing_mandato
             raw_grid.extend(itens_mandato)
         else:
             raw_grid.extend(transparencia.fetch_grid_detalhada(year=year))

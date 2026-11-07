@@ -2,8 +2,8 @@
   "id": "02698373-a31d-4569-9f61-19ffa960d1c2",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2026CT005291",
-  "numeroContratoOriginal": "0152026",
-  "nuProcesso": "1443202026",
+  "numeroContratoOriginal": "2026CT005291",
+  "nuProcesso": null,
   "objeto": "Contratação de empresa capacitada para fornecimento e instalação de arquibancadas retráteis e seus assentos para o Complexo Multiuso Arena Salvador, localizado Avenida Otávio Mangabeira ¿ Boca do Rio - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
@@ -16,15 +16,15 @@
     "outrasObrasIds": []
   },
   "vigencia": {
-    "dataInicio": "15/09/2026",
+    "dataInicio": "2026-09-15T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "13/03/2027",
+    "dataTerminoAtualizado": "2027-03-13T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-09-15T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 5990000.0,
@@ -44,27 +44,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "2c31288b-5bc0-4ed1-bf83-d2fc4202ecb8",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2026NE001157",
-      "dataEmpenho": "15/09/2026",
-      "nomeCredor": "RECOMA CONSTRUCOES, COMERCIO E INDUSTRIA LTDA",
-      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Edifícios Públicos",
-      "valEmpenhado": "5.990.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Mobilidade, Pavimentação e Drenagem",
@@ -78,7 +58,7 @@
   },
   "nivel": "Bairro",
   "bairro": "Boca do Rio",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
   "estagioAlocacao": "Cache"

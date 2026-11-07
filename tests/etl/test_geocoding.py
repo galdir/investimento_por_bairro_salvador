@@ -331,3 +331,42 @@ def test_estagio_2_nominatim_com_mock_validando_ponto_em_salvador(sample_centroi
     assert resultado["latitude"] == -12.995
     assert resultado["longitude"] == -38.455
     assert "Nominatim" in resultado["estagio"]
+
+
+def test_cache_reavalia_entrada_nao_localizada_contra_malha_oficial(sample_centroides, sample_cache) -> None:
+    """Verifica se uma obra previamente salva no cache como Não-Localizado é reconciliada para Bairro quando a malha oficial contém o topônimo."""
+    obra = {
+        "id": 7777,
+        "cdUnidadeGestora": 2401,
+        "nuContratoSigef": "777/2024",
+        "dsObjeto": "Requalificação viária e drenagem na Pituba",
+    }
+    # Simula entrada obsoleta gravada no cache antes da normalização da malha
+    sample_cache.set(
+        2401,
+        "777/2024",
+        obra["dsObjeto"],
+        {
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeitura_bairro": None,
+            "latitude": None,
+            "longitude": None,
+            "estagio": "Não-Localizado (Transparência Opaca)",
+        },
+    )
+
+    resultado = classificar_alocacao_territorial(
+        obra=obra,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+    )
+
+    assert resultado["nivel"] == "Bairro"
+    assert resultado["bairro"] == "Pituba"
+    assert resultado["prefeitura_bairro"] == "Barra/Pituba"
+    assert resultado["latitude"] == sample_centroides["Pituba"][0]
+    assert resultado["longitude"] == sample_centroides["Pituba"][1]
+    assert resultado["estagio"] == "Cache"
+

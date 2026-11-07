@@ -2,39 +2,38 @@
   "id": "535f14e3-08cb-4081-a5d9-06970a00f1d4",
   "unidadeGestora": "SEMAN",
   "numeroContrato": "2026CT004073",
-  "numeroContratoOriginal": "502026",
-  "nuProcesso": "1328502026",
+  "numeroContratoOriginal": "2026CT004073",
+  "nuProcesso": null,
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA REFORMA PÁTIO FABRIL DA DESAL.",
   "situacao": "Em Execução",
   "empreiteira": {
     "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
     "cnpj": "",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 989961.73,
-    "outrasObrasCount": 2,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 567704.54,
+    "outrasObrasCount": 1,
     "outrasObrasIds": [
-      "634cc837-d278-4986-8644-576089b5d535",
-      "d083af0e-fc5b-4722-b9b3-83589fdb42eb"
+      "634cc837-d278-4986-8644-576089b5d535"
     ]
   },
   "vigencia": {
-    "dataInicio": "01/07/2026",
+    "dataInicio": "2026-07-01T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "28/09/2026",
+    "dataTerminoAtualizado": "2026-09-28T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-07-01T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 98134.83,
     "valorContratualVigente": 98134.83,
-    "valorEmpenhado": 96000.0,
-    "valorLiquidado": 91776.0,
-    "valorPago": 96000.0,
+    "valorEmpenhado": 98134.83,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 93.52,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -47,107 +46,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "3e39130b-8c16-444c-97cd-3769381fdca7",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "cdUnGestora": "567002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "notaEmpenho": "2026NE000788",
-      "dataEmpenho": "08/07/2026",
-      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "96.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "966840e3-757c-4b38-88d6-60cbd439ca74",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000788",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
-      "notaLiquidacao": "2026NL005243",
-      "notaLancamento": "2026NL005243",
-      "numProcesso": "01485802026",
-      "dataLiquidacao": "10/07/2026",
-      "valLiqLiquidacao": "91.776,00",
-      "valBrutLiquidacao": "96.000,00",
-      "valEmpenho": "96.000,00",
-      "descObsLiquidacao": "WFC SERVIÇOS - REFORMA DO PATIO FABRIL DA DESAL - PROC 148580/2026 - NF 2026046 - NFTS 123",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "292e916f-c576-4391-8637-0f9226b2724d",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000788",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2026OB041030",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "96.000,00",
-      "dataPagamento": "13/07/2026",
-      "pago": "768,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "65516b3a-0185-4bd4-9941-ac48b6bf3488",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000788",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
-      "notaLiquidacao": "2026NL005243",
-      "ordBancaria": "2026OB041027",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "96.000,00",
-      "dataPagamento": "13/07/2026",
-      "pago": "91.008,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "85d49a2d-6b31-442a-bf5b-2f740bdb7538",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000788",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2026OB048869",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "96.000,00",
-      "dataPagamento": "18/08/2026",
-      "pago": "4.224,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERMELHO",

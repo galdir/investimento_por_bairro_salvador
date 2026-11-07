@@ -9,13 +9,14 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "EBISA ENGENHARIA BRASILEIRA, INDUSTRIA E SANEAMENTO LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 18760731.42,
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 78567783.92,
     "obrasIds": [
       "36232396-8f61-4283-b386-43cdc8934c9a",
       "a43c924e-06ec-445c-a278-6cd57b5cacf9",
-      "d5bbf943-19be-4e98-b5bf-d78aff853f03"
+      "d5bbf943-19be-4e98-b5bf-d78aff853f03",
+      "e8917499-ce8c-40aa-9668-04ed702dd0c8"
     ]
   },
   "vigencia": {

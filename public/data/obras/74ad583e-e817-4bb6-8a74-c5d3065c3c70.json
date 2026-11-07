@@ -9,13 +9,15 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 17935834.25,
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 37014155.68,
     "obrasIds": [
       "ee55eaab-39c9-4b01-b677-c98ed6bdc62e",
       "63e28305-5f4d-44a6-ab8f-4dc97fdd7534",
-      "74ad583e-e817-4bb6-8a74-c5d3065c3c70"
+      "74ad583e-e817-4bb6-8a74-c5d3065c3c70",
+      "f13f818b-8609-49d9-a219-cf6212a0b74b",
+      "2976e5f8-1c18-42d0-a4ff-73b26a20474b"
     ]
   },
   "vigencia": {

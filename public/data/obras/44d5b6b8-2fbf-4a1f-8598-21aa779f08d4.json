@@ -9,9 +9,9 @@
   "empreiteira": {
     "cnpj": "33.833.880/0001-36",
     "razaoSocial": "CS CONSTRUCOES E EMPREENDIMENTOS LTDA",
-    "totalObras": 13,
-    "totalObrasAtivas": 13,
-    "valorTotalContratado": 179712091.6,
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 187704008.39,
     "obrasIds": [
       "0ed5e5b0-4cc6-4cac-843a-9535f1f74fdb",
       "dff72cd7-ac92-4eda-9833-81b5f2d27c61",
@@ -25,7 +25,8 @@
       "bfe91c60-8075-4187-b048-11dab8811720",
       "4c8d81f6-0a25-4abd-a29f-1e0030c45b6c",
       "9617ae1a-6739-4578-bec4-96645d222bd8",
-      "4f9faafd-484f-46ef-9c76-db4401d02150"
+      "4f9faafd-484f-46ef-9c76-db4401d02150",
+      "9febeb8e-1b81-45ec-9a9f-5984121e3874"
     ]
   },
   "vigencia": {

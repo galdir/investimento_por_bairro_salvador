@@ -9,12 +9,13 @@
   "empreiteira": {
     "cnpj": "02.214.613/0001-57",
     "razaoSocial": "800-D ENGENHARIA LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 30593827.91,
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 36205140.19,
     "obrasIds": [
       "1d7e4700-6fac-4332-9e46-c79caeec9f37",
-      "3bdf1453-d6c8-4953-abe2-9d55a275e2f8"
+      "3bdf1453-d6c8-4953-abe2-9d55a275e2f8",
+      "82731bf7-2cbe-45c2-8b8b-f3cd14a0e412"
     ]
   },
   "vigencia": {

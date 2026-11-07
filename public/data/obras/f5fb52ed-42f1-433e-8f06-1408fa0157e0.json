@@ -9,11 +9,12 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "EMPRESA BRASILEIRA DE CONSTRUCAO LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 12313647.9,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 22956250.44,
     "obrasIds": [
-      "f5fb52ed-42f1-433e-8f06-1408fa0157e0"
+      "f5fb52ed-42f1-433e-8f06-1408fa0157e0",
+      "0cba3166-70fc-4936-a56a-150ddeecebc8"
     ]
   },
   "vigencia": {

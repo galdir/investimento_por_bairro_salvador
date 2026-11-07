@@ -2,8 +2,8 @@
   "id": "212eded6-7db9-4b6e-917f-b85d5a5b5195",
   "unidadeGestora": "SMS",
   "numeroContrato": "2025CT004659",
-  "numeroContratoOriginal": "4392025",
-  "nuProcesso": "203774/2024",
+  "numeroContratoOriginal": "2025CT004659",
+  "nuProcesso": null,
   "objeto": "Construção do Centro de Atenção Psicossocial - CAPS III, São Caetano.",
   "situacao": "Em Execução",
   "empreiteira": {
@@ -16,22 +16,22 @@
     "outrasObrasIds": []
   },
   "vigencia": {
-    "dataInicio": "11/08/2025",
-    "dataFimOriginal": "10/10/2026",
-    "dataTerminoAtualizado": "10/10/2026",
-    "prazoOriginal": "425",
-    "prazoAtualizado": "425"
+    "dataInicio": "2025-08-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-10-10T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "9088",
-    "dataPublicacao": "13/08/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-08-11T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 1706775.53,
     "valorContratualVigente": 1706775.53,
-    "valorEmpenhado": 11399.12,
-    "valorLiquidado": 10897.56,
-    "valorPago": 11399.120000000003,
+    "valorEmpenhado": 1706775.53,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 0.64,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,126 +44,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "2e226ce0-086c-4be6-a7eb-3dfa5693c300",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "cdUnGestora": "301110",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "notaEmpenho": "2025NE020475",
-      "dataEmpenho": "05/11/2025",
-      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
-      "fonteRecurso": "Transfer. Fundo a Fundo de Rec SUS Gov Fed- B. de Invest - Estrut Unid Especializada",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Hospitais e Unidades de Saúde",
-      "valEmpenhado": "11.399,12",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "b1499426-9eaa-4231-96e1-c37eae2b4db4",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2025NE020475",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
-      "notaLiquidacao": "2025NL136664",
-      "notaLancamento": "2025NL136664",
-      "numProcesso": "02002042025",
-      "dataLiquidacao": "05/11/2025",
-      "valLiqLiquidacao": "10.897,56",
-      "valBrutLiquidacao": "11.399,12",
-      "valEmpenho": "11.399,12",
-      "descObsLiquidacao": "0439/2025#2025CT004659 NFTS 19817 - NFE  361776 - OBRAS/REFORMAS - CONSTRUÇÃO DO CENTRO DE",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "e4bfaeba-36f0-415e-84e4-0273b46d3f68",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2025NE020475",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2025OB066159",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "11.399,12",
-      "dataPagamento": "18/11/2025",
-      "pago": "501,56",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "9f1b1bf2-c945-4dbc-8da1-c61e19acbb85",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2025NE020475",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2025OB069736",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "11.399,12",
-      "dataPagamento": "08/12/2025",
-      "pago": "227,98",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "c158ac70-d31d-44e4-a2bc-58b389827987",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2025NE020475",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
-      "notaLiquidacao": "2025NL136664",
-      "ordBancaria": "2025OB069736",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "11.399,12",
-      "dataPagamento": "08/12/2025",
-      "pago": "10.532,79",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "b0b9c374-10b2-46c6-92b0-dabb7d022c14",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2025NE020475",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2025OB069736",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "11.399,12",
-      "dataPagamento": "08/12/2025",
-      "pago": "136,79",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Saúde",
   "semaforo": {
     "status": "VERMELHO",
@@ -175,7 +58,7 @@
   },
   "nivel": "Bairro",
   "bairro": "São Caetano",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Liberdade/São Caetano",
   "latitude": -12.933649,
   "longitude": -38.4795,
   "estagioAlocacao": "Cache"

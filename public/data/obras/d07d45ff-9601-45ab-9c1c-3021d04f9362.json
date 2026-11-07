@@ -9,9 +9,9 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "PEJOTA CONSTRUCOES LTDA",
-    "totalObras": 13,
-    "totalObrasAtivas": 13,
-    "valorTotalContratado": 377331949.27,
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 411733312.41,
     "obrasIds": [
       "24a9dcd8-2863-472b-a56f-c12e042ec0ea",
       "2a780e5b-f76c-47ea-8efc-41be2d799fc1",
@@ -25,7 +25,8 @@
       "d07d45ff-9601-45ab-9c1c-3021d04f9362",
       "c557e7d8-2851-4eeb-b1f1-9da3d628bfca",
       "8694f2b7-a663-4c16-b561-851d0f022077",
-      "84412e14-522a-41ea-a184-4429660512e1"
+      "84412e14-522a-41ea-a184-4429660512e1",
+      "ac55a2c2-40f7-43ec-b427-9c1f79ec00f4"
     ]
   },
   "vigencia": {

@@ -2,36 +2,42 @@
   "id": "40d0cfb0-93e2-4d2b-93fc-e93154f73add",
   "unidadeGestora": "SEMAN",
   "numeroContrato": "2025CT000527",
-  "numeroContratoOriginal": "012025",
-  "nuProcesso": "263072/2024",
+  "numeroContratoOriginal": "2025CT000527",
+  "nuProcesso": null,
   "objeto": "EXECUÇÃO DE SERVIÇOS DE ENGENHARIA PARA RECUPERAÇÃO DE ESCADA METÁLICA DO PALÁCIO\r\nTOMÉ DE SOUZA, SITUADO NO CENTRO HISTÓRICO DO MUNICÍPIO DE SALVADOR.",
   "situacao": "Em Execução",
   "empreiteira": {
     "razaoSocial": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
     "cnpj": "36.162.788/0001-80",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 96531.02,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 1387227.1,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "cb86d0e9-98e4-4555-9867-8ba391ed6bd6",
+      "78ad3c7f-185c-49c8-a65e-02e10c903f3d",
+      "4a18342e-671d-44d3-a024-80f4d2d4cc9b",
+      "ecfb54a4-20f7-470c-a150-f9a3d4363135",
+      "f660abc1-a14a-4433-b349-15d462dcb536"
+    ]
   },
   "vigencia": {
-    "dataInicio": "23/01/2025",
-    "dataFimOriginal": "22/05/2025",
-    "dataTerminoAtualizado": "22/05/2025",
-    "prazoOriginal": "119",
-    "prazoAtualizado": "119"
+    "dataInicio": "2025-01-23T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-05-22T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8892",
-    "dataPublicacao": "06/02/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-01-23T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 96531.02,
     "valorContratualVigente": 96531.02,
     "valorEmpenhado": 96531.02,
-    "valorLiquidado": 86067.27,
-    "valorPago": 96531.02,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 89.16,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,107 +50,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "5d3fce6d-fb3a-44ec-997b-a565c492faf8",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "cdUnGestora": "567002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "notaEmpenho": "2025NE000104",
-      "dataEmpenho": "06/02/2025",
-      "nomeCredor": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "96.531,02",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "e2c5aa6f-2091-490d-be91-06db06df6d5e",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2025NE000104",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
-      "notaLiquidacao": "2025NL000603",
-      "notaLancamento": "2025NL000603",
-      "numProcesso": "00253642025",
-      "dataLiquidacao": "10/02/2025",
-      "valLiqLiquidacao": "86.067,27",
-      "valBrutLiquidacao": "96.531,02",
-      "valEmpenho": "96.531,02",
-      "descObsLiquidacao": "MONTRAÇO - MNONTAGEM E SERVIÇOS DA CONSTRUÇÃO LTDA - SERVIÇO DE ENGENHARIA PARA RECUPERAÇÃ",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "a9ec76df-b792-410d-9827-7fc178149e14",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2025NE000104",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2025OB005462",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "96.531,02",
-      "dataPagamento": "12/02/2025",
-      "pago": "1.902,50",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "0ba2203f-e191-4e40-a14d-a161c45a4b67",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2025NE000104",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
-      "notaLiquidacao": "2025NL000603",
-      "ordBancaria": "2025OB005461",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "96.531,02",
-      "dataPagamento": "12/02/2025",
-      "pago": "84.164,77",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "65c87b36-a191-4d44-bb4f-314108944638",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2025NE000104",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2025OB012143",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "96.531,02",
-      "dataPagamento": "18/03/2025",
-      "pago": "10.463,75",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERMELHO",
@@ -154,10 +62,10 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
   "estagioAlocacao": "Cache"
 }

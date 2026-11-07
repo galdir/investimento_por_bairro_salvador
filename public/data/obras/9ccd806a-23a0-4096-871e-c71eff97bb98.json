@@ -2,29 +2,31 @@
   "id": "9ccd806a-23a0-4096-871e-c71eff97bb98",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2025CT002899",
-  "numeroContratoOriginal": "0192025",
-  "nuProcesso": "123864/2024",
+  "numeroContratoOriginal": "2025CT002899",
+  "nuProcesso": null,
   "objeto": "Contratação de empresa capacitada para execução da obra de Implantação do CRAS - Centro de \r\nReferência da Assistência Social -Mané Dendê em Ilha Amarela - Salvador/BA.",
   "situacao": "Cancelado",
   "empreiteira": {
     "razaoSocial": "CONSTRUTORA LAM LTDA",
     "cnpj": "03.522.765/0001-80",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 3685297.94,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 8216555.66,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "88f5f246-ce99-450d-a2de-f1de2cda15c0"
+    ]
   },
   "vigencia": {
-    "dataInicio": "05/05/2025",
-    "dataFimOriginal": "29/04/2026",
-    "dataTerminoAtualizado": "29/04/2026",
-    "prazoOriginal": "359",
-    "prazoAtualizado": "359"
+    "dataInicio": "2025-05-05T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-04-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8860",
-    "dataPublicacao": "05/05/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-05-05T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 3685297.94,
@@ -56,10 +58,10 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
+  "nivel": "Bairro",
+  "bairro": "Rio Sena",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.881,
+  "longitude": -38.469748,
   "estagioAlocacao": "Cache"
 }

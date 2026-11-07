@@ -2,29 +2,37 @@
   "id": "f9e0aeaa-3bf7-4ca1-b45d-4825cd9afe2b",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2025CT002988",
-  "numeroContratoOriginal": "0262024",
-  "nuProcesso": "083585/2024",
+  "numeroContratoOriginal": "2025CT002988",
+  "nuProcesso": null,
   "objeto": "Valor ref. a obra de construção de imóveis para atendimento da demanda de implantação e implementação do Centro de Referencia Especializado de Assistência Social (CREAS)",
   "situacao": "Cancelado",
   "empreiteira": {
     "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
     "cnpj": "13.585.696/0001-07",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 9563865.78,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 48674967.2,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "9208c854-72bd-4426-8840-e45516fbea2a",
+      "cb044ead-8b90-4807-b07e-6bb2b3a3988d",
+      "d188bf22-9f7c-42b8-9e4b-761e6c1125ae",
+      "e1921fc5-f51a-4c81-9a99-1f8efc0a0e48",
+      "9e33d5e7-563c-4c1e-905c-a31050ad2972",
+      "19e2a758-213d-4251-8a33-2a3727e76884",
+      "81570855-cce0-4642-b53d-f383d79589a4"
+    ]
   },
   "vigencia": {
-    "dataInicio": "19/05/2025",
-    "dataFimOriginal": "14/03/2026",
-    "dataTerminoAtualizado": "14/03/2026",
-    "prazoOriginal": "299",
-    "prazoAtualizado": "299"
+    "dataInicio": "2025-05-19T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-03-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8892",
-    "dataPublicacao": "19/05/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-05-19T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 9563865.78,
@@ -44,65 +52,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "d7b2f790-c44d-4db8-a0a2-8a01ff46ec88",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE000569",
-      "dataEmpenho": "19/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "50.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "002c44bd-600b-4e93-bf6d-225ffa1f2ee5",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE001146",
-      "dataEmpenho": "19/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-409,81",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "72aeade9-9014-41c3-9ccb-9075af384ab4",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE000780",
-      "dataEmpenho": "19/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-49.590,19",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",

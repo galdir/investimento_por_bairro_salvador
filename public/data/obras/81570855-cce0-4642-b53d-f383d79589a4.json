@@ -2,29 +2,37 @@
   "id": "81570855-cce0-4642-b53d-f383d79589a4",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2025CT002882",
-  "numeroContratoOriginal": "0262024",
-  "nuProcesso": "083585/2024",
+  "numeroContratoOriginal": "2025CT002882",
+  "nuProcesso": null,
   "objeto": "Contratação de empresas Centro de Referência Especializado de Assistência Social (CREAS): em Brotas, Paripe e Parque São Cristóvão",
   "situacao": "Cancelado",
   "empreiteira": {
     "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
     "cnpj": "13.585.696/0001-07",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 9563865.78,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 48674967.2,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "9208c854-72bd-4426-8840-e45516fbea2a",
+      "cb044ead-8b90-4807-b07e-6bb2b3a3988d",
+      "d188bf22-9f7c-42b8-9e4b-761e6c1125ae",
+      "e1921fc5-f51a-4c81-9a99-1f8efc0a0e48",
+      "9e33d5e7-563c-4c1e-905c-a31050ad2972",
+      "f9e0aeaa-3bf7-4ca1-b45d-4825cd9afe2b",
+      "19e2a758-213d-4251-8a33-2a3727e76884"
+    ]
   },
   "vigencia": {
-    "dataInicio": "05/05/2025",
-    "dataFimOriginal": "28/02/2026",
-    "dataTerminoAtualizado": "28/02/2026",
-    "prazoOriginal": "299",
-    "prazoAtualizado": "299"
+    "dataInicio": "2025-05-05T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-02-28T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8892",
-    "dataPublicacao": "05/05/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-05-05T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 9563865.78,
@@ -44,46 +52,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "0c40f32b-4ff6-4f19-b653-72729ae69193",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE000524",
-      "dataEmpenho": "05/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "50.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "53de2fb9-4ed5-4e60-99dd-0579e6c4bd19",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE000568",
-      "dataEmpenho": "05/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-50.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Praças, Esporte e Lazer",
@@ -97,7 +66,7 @@
   },
   "nivel": "Bairro",
   "bairro": "Paripe",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.835351,
   "longitude": -38.468212,
   "estagioAlocacao": "Cache"

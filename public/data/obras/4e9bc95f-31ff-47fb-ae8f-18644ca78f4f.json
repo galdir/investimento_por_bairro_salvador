@@ -2,8 +2,8 @@
   "id": "4e9bc95f-31ff-47fb-ae8f-18644ca78f4f",
   "unidadeGestora": "SMS",
   "numeroContrato": "2025CT005387",
-  "numeroContratoOriginal": "3762025",
-  "nuProcesso": "107560/2024",
+  "numeroContratoOriginal": "2025CT005387",
+  "nuProcesso": null,
   "objeto": "CONSTRUÇÃO DA UNIDADE DE SAÚDE DA FAMÍLIA CALÇADA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
@@ -16,15 +16,15 @@
     "outrasObrasIds": []
   },
   "vigencia": {
-    "dataInicio": "17/06/2025",
-    "dataFimOriginal": "16/06/2026",
-    "dataTerminoAtualizado": "16/06/2026",
-    "prazoOriginal": "364",
-    "prazoAtualizado": "364"
+    "dataInicio": "2025-06-17T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-06-16T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "9057",
-    "dataPublicacao": "12/09/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-06-17T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 3574184.34,
@@ -56,10 +56,10 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
+  "nivel": "Bairro",
+  "bairro": "Calçada",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.943451,
+  "longitude": -38.498601,
   "estagioAlocacao": "Cache"
 }

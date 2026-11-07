@@ -771,6 +771,65 @@ def classificar_alocacao_territorial(
                         resultado_cached["prefeitura_bairro"] = pb_hidratada
                         modificado = True
 
+            elif resultado_cached.get("nivel") == "Escopo Cidade (Não-Localizado)":
+                eq_rec = _buscar_equipamento_no_objeto(objeto_norm, equipamentos)
+                if eq_rec:
+                    eq_bairro = eq_rec.get("bairro")
+                    eq_pb = eq_rec.get("prefeitura_bairro")
+                    if not eq_pb and eq_bairro:
+                        eq_pb = bairro_para_pb.get(eq_bairro) or bairro_para_pb_norm.get(normalizar_nome(eq_bairro))
+                    if eq_pb:
+                        eq_pb = normalizar_nome_prefeitura_bairro(eq_pb)
+                    resultado_cached = {
+                        "nivel": "Pontual",
+                        "bairro": eq_bairro,
+                        "prefeitura_bairro": eq_pb,
+                        "latitude": eq_rec.get("latitude"),
+                        "longitude": eq_rec.get("longitude"),
+                        "estagio": "Stage 1 (Equipamento Oficial)",
+                    }
+                    modificado = True
+                else:
+                    pb_lote_rec = _buscar_lote_regional_no_objeto(objeto_norm, dicionario_lotes)
+                    if pb_lote_rec and "RUA " not in objeto_norm and "AVENIDA " not in objeto_norm:
+                        resultado_cached = {
+                            "nivel": "Regional (Prefeitura-Bairro)",
+                            "bairro": None,
+                            "prefeitura_bairro": normalizar_nome_prefeitura_bairro(pb_lote_rec),
+                            "latitude": None,
+                            "longitude": None,
+                            "estagio": "Stage 1 (Lote Regional)",
+                        }
+                        modificado = True
+                    else:
+                        bairro_rec = _buscar_bairro_ou_sublocalidade(
+                            objeto_norm,
+                            bairros_nomes,
+                            dicionario_sublocalidades,
+                        )
+                        if bairro_rec:
+                            b_canonico = reconciliar_bairro_canonico(bairro_rec, bairros_nomes, sublocalidades_norm)
+                            bairro_final = b_canonico or bairro_rec
+                            centroide = (
+                                bairros_centroides.get(bairro_final)
+                                or bairros_centroides_norm.get(normalizar_nome(bairro_final))
+                            )
+                            pb_bairro = (
+                                bairro_para_pb.get(bairro_final)
+                                or bairro_para_pb_norm.get(normalizar_nome(bairro_final))
+                            )
+                            if pb_bairro:
+                                pb_bairro = normalizar_nome_prefeitura_bairro(pb_bairro)
+                            resultado_cached = {
+                                "nivel": "Bairro",
+                                "bairro": bairro_final,
+                                "prefeitura_bairro": pb_bairro,
+                                "latitude": centroide[0] if centroide else None,
+                                "longitude": centroide[1] if centroide else None,
+                                "estagio": "Stage 1 (Bairro / Sublocalidade)",
+                            }
+                            modificado = True
+
             if modificado:
                 cache.set(cd_ug, nu_contrato, ds_objeto, resultado_cached)
 

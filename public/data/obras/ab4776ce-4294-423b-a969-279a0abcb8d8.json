@@ -2,19 +2,18 @@
   "id": "ab4776ce-4294-423b-a969-279a0abcb8d8",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2026CT001524",
-  "numeroContratoOriginal": "0012026",
-  "nuProcesso": "2410612025",
+  "numeroContratoOriginal": "2026CT001524",
+  "nuProcesso": null,
   "objeto": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
   "situacao": "Cancelado",
   "empreiteira": {
     "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
     "cnpj": "",
-    "totalObras": 7,
-    "totalObrasAtivas": 7,
-    "valorTotalContratado": 8127118.91,
-    "outrasObrasCount": 6,
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 5448890.76,
+    "outrasObrasCount": 5,
     "outrasObrasIds": [
-      "8a9c1053-18e7-426c-a4e8-6d10130d3df9",
       "be7097dd-0708-4dff-b8e1-0821104fe262",
       "28c9ec5f-76f3-4c5d-8838-779b07883db1",
       "22fed42b-b2fc-43b8-8ba5-dcd0ade77a15",
@@ -23,15 +22,15 @@
     ]
   },
   "vigencia": {
-    "dataInicio": "20/01/2026",
+    "dataInicio": "2026-01-20T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "19/04/2026",
+    "dataTerminoAtualizado": "2026-04-19T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-01-20T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 999671.05,

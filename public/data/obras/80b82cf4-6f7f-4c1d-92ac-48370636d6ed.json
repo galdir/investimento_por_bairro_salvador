@@ -2,8 +2,8 @@
   "id": "80b82cf4-6f7f-4c1d-92ac-48370636d6ed",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2026CT004856",
-  "numeroContratoOriginal": "0102026",
-  "nuProcesso": "0559922026",
+  "numeroContratoOriginal": "2026CT004856",
+  "nuProcesso": null,
   "objeto": "Contratação de empresa capacitada para o Fornecimento e Instalação de Assentos Rebatíveis para Arquibancadas Fixas do Complexo Multiuso Arena Salvador, localizado Avenida Otávio Mangabeira ¿ Boca do Rio - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
@@ -16,15 +16,15 @@
     "outrasObrasIds": []
   },
   "vigencia": {
-    "dataInicio": "19/08/2026",
+    "dataInicio": "2026-08-19T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "16/12/2026",
+    "dataTerminoAtualizado": "2026-12-16T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-08-19T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 2506412.84,
@@ -44,84 +44,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "1ea5dd91-63fd-4332-8271-635e6d710ac8",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2026NE001089",
-      "dataEmpenho": "27/08/2026",
-      "nomeCredor": "DACOR SPORTS LTDA",
-      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
-      "valEmpenhado": "2.396.411,84",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "35fb0e73-9da1-4b6c-8b45-663ebd9c59a3",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2026NE001090",
-      "dataEmpenho": "27/08/2026",
-      "nomeCredor": "DACOR SPORTS LTDA",
-      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
-      "valEmpenhado": "110.001,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "c08cd59f-f52e-4b21-a345-c14a6a7e632c",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2026NE001091",
-      "dataEmpenho": "27/08/2026",
-      "nomeCredor": "DACOR SPORTS LTDA",
-      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
-      "valEmpenhado": "-110.001,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "ac1388d6-7e3c-4eaa-ac96-2c2875bfb3b7",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2026NE001092",
-      "dataEmpenho": "27/08/2026",
-      "nomeCredor": "DACOR SPORTS LTDA",
-      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
-      "valEmpenhado": "110.001,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Mobilidade, Pavimentação e Drenagem",
@@ -135,7 +58,7 @@
   },
   "nivel": "Bairro",
   "bairro": "Boca do Rio",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
   "estagioAlocacao": "Cache"

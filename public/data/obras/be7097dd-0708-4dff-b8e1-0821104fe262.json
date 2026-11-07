@@ -9,14 +9,16 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 3397236.51,
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 5448890.76,
     "obrasIds": [
       "be7097dd-0708-4dff-b8e1-0821104fe262",
       "28c9ec5f-76f3-4c5d-8838-779b07883db1",
       "22fed42b-b2fc-43b8-8ba5-dcd0ade77a15",
-      "8f97d918-9081-4caa-abf1-aea50ee8ea26"
+      "8f97d918-9081-4caa-abf1-aea50ee8ea26",
+      "ab4776ce-4294-423b-a969-279a0abcb8d8",
+      "a2ab8302-0df2-4ab7-8b3b-224b3d84ee0a"
     ]
   },
   "vigencia": {

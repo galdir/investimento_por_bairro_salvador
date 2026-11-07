@@ -9,12 +9,13 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "JB MONTAGENS E ENGENHARIA LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 4032823.83,
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 4131795.49,
     "obrasIds": [
       "cf9b3729-452c-422e-a911-c0d1eadb7590",
-      "706f081d-901f-40db-b128-c5a882b930e3"
+      "706f081d-901f-40db-b128-c5a882b930e3",
+      "b829d58f-cb7f-43e9-9749-120df8b17e33"
     ]
   },
   "vigencia": {

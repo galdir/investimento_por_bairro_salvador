@@ -9,11 +9,12 @@
   "empreiteira": {
     "cnpj": "10.862.653/0001-33",
     "razaoSocial": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 96397.32,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 215747.32,
     "obrasIds": [
-      "4867ebff-bc0d-4ea4-b896-b8bb248edda5"
+      "4867ebff-bc0d-4ea4-b896-b8bb248edda5",
+      "9b1c6820-2ed2-4fe4-9132-80a13e3075e1"
     ]
   },
   "vigencia": {

@@ -9,16 +9,17 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "QUALY ENGENHARIA LTDA",
-    "totalObras": 6,
-    "totalObrasAtivas": 6,
-    "valorTotalContratado": 59799041.56,
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 119570199.06,
     "obrasIds": [
       "54da7939-b5b3-4a2a-b1b3-db48fb4e69ad",
       "53f7ff30-6da3-4478-b040-c9b070947a34",
       "2026a2fc-5efb-45be-b304-42d23bb46391",
       "978084b1-1fb7-4460-9308-2ece70008f21",
       "455b5d0a-b602-4bb9-9aee-9e8d81622e2a",
-      "1c92dccd-33e5-4473-8727-5782bf27bd55"
+      "1c92dccd-33e5-4473-8727-5782bf27bd55",
+      "0b376eca-bb70-4f87-9f96-94e2d52cc825"
     ]
   },
   "vigencia": {
