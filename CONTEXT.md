@@ -11,7 +11,7 @@ Unidade territorial básica de Salvador delimitada pela malha vigente do municí
 _Avoid_: Distrito, subdistrito, zona, setor censitário
 
 **Zona Especial Não-Residencial**:
-Bairro Oficial cuja ocupação é predominantemente institucional, aeroportuária ou logística e que possui população residente nula ou residual no Censo 2022 (`Aeroporto`, `Porto Seco Pirajá` e `Centro Administrativo da Bahia - CAB`), sendo excluído do ranking de Investimento por Habitante para evitar distorções per capita.
+Bairro Oficial cuja ocupação é predominantemente institucional, aeroportuária ou logística e que possui população residente nula ou residual no Censo 2022 (`Aeroporto`, `Porto Seco Pirajá` e `Centro Administrativo da Bahia - CAB`), sendo isento do cálculo de Investimento por Habitante e de vulnerabilidade para evitar distorções estatísticas per capita, mas contabilizado normalmente em montante absoluto e quantidade de obras.
 _Avoid_: Bairro sem dados, bairro inválido, bairro deserto
 
 **Prefeitura-Bairro**:
@@ -63,8 +63,12 @@ Razão entre a soma financeira das Obras Públicas alocadas a um recorte territo
 _Avoid_: Gasto médio por pessoa, renda per capita, cota por morador
 
 **Índice de Vulnerabilidade do Bairro**:
-Métrica sociodemográfica e de déficit de infraestrutura de cada Bairro Oficial extraída dos agregados do Censo 2022 do IBGE, utilizada para confrontar o Investimento por Habitante com o grau de necessidade social do território.
+Métrica sociodemográfica e de déficit de infraestrutura de cada Bairro Oficial residencial extraída dos agregados do Censo 2022 do IBGE (e consolidada por média ponderada populacional para cada Prefeitura-Bairro), utilizada para confrontar a alocação de recursos com o grau de necessidade social do território.
 _Avoid_: Índice de pobreza, nota social
+
+**Ranking Territorial**:
+Ordenação comparativa de Bairros Oficiais ou de Prefeituras-Bairro segundo critérios de justiça distributiva e execução (Investimento por Habitante, Valor Total Alocado, Quantidade de Obras ou Índice de Vulnerabilidade), permitindo identificar tanto os territórios com maior concentração de recursos quanto os mais vulneráveis e desassistidos.
+_Avoid_: Top bairros, placar de obras, lista de prefeituras
 
 **Semáforo da Obra**:
 Classificação automática de risco e andamento de cada Obra Pública pela pior condição observada:
