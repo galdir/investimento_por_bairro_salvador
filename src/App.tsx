@@ -17,7 +17,11 @@ import {
   TemaObra,
   TerritorySelection,
 } from "./types";
-import { createBairroSelection, createPrefeituraSelection } from "./utils/territory";
+import {
+  calculateTerritorialRollup,
+  createBairroSelection,
+  createPrefeituraSelection,
+} from "./utils/territory";
 
 const TEMAS_PADRAO: TemaObra[] = [
   "Encostas e Contenção",
@@ -156,26 +160,12 @@ export const App: React.FC = () => {
     return Array.from(orgs).sort();
   }, [indexData]);
 
-  // Filtragem combinada de Obras Públicas (incluindo filtro de território selecionado)
-  const filteredObras = useMemo(() => {
+  // 1. Filtragem das Obras Públicas exclusivamente pelos filtros superiores da tela (Camada A / Top Filters)
+  const topFilteredObras = useMemo(() => {
     if (!indexData) return [];
 
     return indexData.obras.filter((obra) => {
-      // 1. Filtro por Território Selecionado no Mapa ou Ranking
-      if (selectedTerritory) {
-        if (selectedTerritory.tipo === "bairro") {
-          if (obra.bairro !== selectedTerritory.nome) {
-            return false;
-          }
-        } else if (selectedTerritory.tipo === "prefeitura_bairro") {
-          const pbObra = obra.prefeituraBairro || obra.prefeitura_bairro;
-          if (pbObra !== selectedTerritory.nome) {
-            return false;
-          }
-        }
-      }
-
-      // 2. Filtro por Mandato Municipal
+      // Filtro por Mandato Municipal
       if (filters.mandato && filters.mandato !== "todos") {
         const target = filters.mandato.replace("–", "-").trim();
         const mandatosObra = (obra.mandatos || []).map((m) => m.replace("–", "-").trim());
@@ -199,19 +189,19 @@ export const App: React.FC = () => {
       if (filters.ano && filters.ano !== "todos" && obra.ano && obra.ano !== filters.ano) {
         return false;
       }
-      // 3. Filtro por Órgão
+      // Filtro por Órgão
       if (filters.orgao !== "todos" && obra.unidadeGestora !== filters.orgao) {
         return false;
       }
-      // 4. Filtro por Tema da Obra
+      // Filtro por Tema da Obra
       if (filters.tema !== "todos" && obra.tema !== filters.tema) {
         return false;
       }
-      // 5. Filtro por cor do Semáforo da Obra
+      // Filtro por cor do Semáforo da Obra
       if (filters.semaforo !== "todos" && obra.semaforo?.status !== filters.semaforo) {
         return false;
       }
-      // 6. Busca textual no Objeto, Razão Social da Construtora ou CNPJ
+      // Busca textual no Objeto, Razão Social da Construtora ou CNPJ
       if (filters.busca.trim()) {
         const query = filters.busca.toLowerCase();
         const objMatch = (obra.objeto || "").toLowerCase().includes(query);
@@ -221,7 +211,71 @@ export const App: React.FC = () => {
       }
       return true;
     });
-  }, [indexData, filters, selectedTerritory]);
+  }, [indexData, filters]);
+
+  // 2. Recálculo dinâmico da Camada A (Bairros e Prefeituras-Bairro) a partir de topFilteredObras
+  const isTopFiltered =
+    (filters.mandato && filters.mandato !== "todos") ||
+    (filters.ano && filters.ano !== "todos") ||
+    filters.orgao !== "todos" ||
+    filters.tema !== "todos" ||
+    filters.semaforo !== "todos" ||
+    filters.busca.trim() !== "" ||
+    filters.metricType === "executado";
+
+  const { bairros: recalculatedBairros, prefeituras: recalculatedPrefeituras } = useMemo(() => {
+    if (!indexData) {
+      return { bairros: [], prefeituras: [] };
+    }
+    // Preservação de Fallback quando nenhum filtro superior está ativo (Pitfall 4)
+    if (!isTopFiltered) {
+      return {
+        bairros: indexData.bairros,
+        prefeituras: indexData.prefeituras_bairro,
+      };
+    }
+    return calculateTerritorialRollup(
+      indexData.bairros,
+      indexData.prefeituras_bairro,
+      topFilteredObras
+    );
+  }, [indexData, topFilteredObras, isTopFiltered]);
+
+  // 3. Sincronização reativa do território selecionado com o rollup recalculado sob os filtros ativos
+  const activeSelectedTerritory = useMemo<TerritorySelection | null>(() => {
+    if (!selectedTerritory) return null;
+    if (selectedTerritory.tipo === "bairro") {
+      const b = recalculatedBairros.find(
+        (item) => item.nome === selectedTerritory.nome || item.id === selectedTerritory.id
+      );
+      if (b) {
+        return createBairroSelection(b);
+      }
+    } else {
+      const pb = recalculatedPrefeituras.find(
+        (item) => item.nome === selectedTerritory.nome || item.id === selectedTerritory.id
+      );
+      if (pb) {
+        return createPrefeituraSelection(pb);
+      }
+    }
+    return selectedTerritory;
+  }, [selectedTerritory, recalculatedBairros, recalculatedPrefeituras]);
+
+  // 4. Filtragem combinada para pinos no mapa e linhas da tabela (aplicando filtro de território selecionado)
+  const filteredObras = useMemo(() => {
+    if (!activeSelectedTerritory) return topFilteredObras;
+
+    return topFilteredObras.filter((obra) => {
+      if (activeSelectedTerritory.tipo === "bairro") {
+        return obra.bairro === activeSelectedTerritory.nome;
+      } else if (activeSelectedTerritory.tipo === "prefeitura_bairro") {
+        const pbObra = obra.prefeituraBairro || obra.prefeitura_bairro;
+        return pbObra === activeSelectedTerritory.nome;
+      }
+      return true;
+    });
+  }, [topFilteredObras, activeSelectedTerritory]);
 
   // Recálculo dinâmico dos KPIs superiores sob filtros e métrica ativa
   const dynamicKpis: GlobalKpis = useMemo(() => {
@@ -252,12 +306,12 @@ export const App: React.FC = () => {
       filters.semaforo !== "todos" ||
       filters.busca.trim() !== "" ||
       filters.metricType === "executado" ||
-      selectedTerritory !== null;
+      activeSelectedTerritory !== null;
 
     // População de referência para per capita
     let populacaoReferencia = indexData.bairros.reduce((acc, b) => acc + (b.populacao || 0), 0);
-    if (selectedTerritory) {
-      populacaoReferencia = selectedTerritory.populacao || 1;
+    if (activeSelectedTerritory) {
+      populacaoReferencia = activeSelectedTerritory.populacao || 1;
     }
 
     // Se nenhum filtro estiver ativo e a métrica for a padrão contratual, usa os KPIs originais
@@ -330,7 +384,7 @@ export const App: React.FC = () => {
       valorNaoLocalizado: valorNaoLocalizadoRecalc,
       percentualNaoLocalizado: percNaoLocalizado,
     };
-  }, [indexData, filteredObras, filters, selectedTerritory]);
+  }, [indexData, filteredObras, filters, activeSelectedTerritory]);
 
   const handleFilterChange = (updated: Partial<FilterState>) => {
     setFilters((prev) => ({ ...prev, ...updated }));
@@ -421,7 +475,7 @@ export const App: React.FC = () => {
       />
 
       {/* Indicador de Filtro Territorial Ativo */}
-      {selectedTerritory && (
+      {activeSelectedTerritory && (
         <div
           data-testid="banner-territorio-filtrado"
           className="bg-emerald-50 border-b border-emerald-200 px-4 sm:px-6 py-2 flex items-center justify-between text-xs text-emerald-900"
@@ -431,8 +485,8 @@ export const App: React.FC = () => {
               Filtro Territorial Ativo
             </span>
             <span>
-              Exibindo apenas obras de: <strong>{selectedTerritory.nome}</strong> (
-              {selectedTerritory.tipo === "bairro" ? "Bairro Oficial" : "Prefeitura-Bairro"})
+              Exibindo apenas obras de: <strong>{activeSelectedTerritory.nome}</strong> (
+              {activeSelectedTerritory.tipo === "bairro" ? "Bairro Oficial" : "Prefeitura-Bairro"})
             </span>
           </div>
           <button
@@ -511,18 +565,19 @@ export const App: React.FC = () => {
             <InteractiveMap
               activeLayer={activeLayer}
               onToggleLayer={setActiveLayer}
-              bairros={indexData.bairros}
-              prefeituras={indexData.prefeituras_bairro}
+              bairros={recalculatedBairros}
+              prefeituras={recalculatedPrefeituras}
               bairrosGeoJson={bairrosGeo}
               prefeiturasGeoJson={prefeiturasGeo}
               obras={filteredObras}
-              selectedTerritory={selectedTerritory}
+              selectedTerritory={activeSelectedTerritory}
               onSelectTerritory={setSelectedTerritory}
               onSelectObra={handleSelectObra}
+              metricType={filters.metricType}
             />
 
             <TerritorySidebar
-              territorio={selectedTerritory}
+              territorio={activeSelectedTerritory}
               onClear={() => setSelectedTerritory(null)}
               onViewWorksInTable={() => setActiveTab("tabela")}
             />
@@ -534,10 +589,10 @@ export const App: React.FC = () => {
             <div className="flex-1 p-4 sm:p-6 overflow-y-auto">
               <div className="max-w-4xl mx-auto">
                 <PrefeiturasRanking
-                  prefeituras={indexData.prefeituras_bairro}
-                  bairros={indexData.bairros}
+                  prefeituras={recalculatedPrefeituras}
+                  bairros={recalculatedBairros}
                   metricType={filters.metricType}
-                  selectedNome={selectedTerritory?.nome}
+                  selectedNome={activeSelectedTerritory?.nome}
                   onSelectPrefeitura={handleSelectPrefeituraFromRanking}
                   onSelectBairro={(b: BairroResumo) => setSelectedTerritory(createBairroSelection(b))}
                 />
@@ -545,7 +600,7 @@ export const App: React.FC = () => {
             </div>
 
             <TerritorySidebar
-              territorio={selectedTerritory}
+              territorio={activeSelectedTerritory}
               onClear={() => setSelectedTerritory(null)}
               onViewWorksInTable={() => setActiveTab("tabela")}
             />

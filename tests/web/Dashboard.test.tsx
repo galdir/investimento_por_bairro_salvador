@@ -860,4 +860,211 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     // Deve exibir a data formatada de início da vigência (10/01/2024)
     expect(screen.getByTestId("data-inicio-obra-1001")).toHaveTextContent("10/01/2024");
   });
+
+  it("recalcula dinamicamente a Camada A (Ranking, Seletores e Raio-X) ao filtrar por Tema da Obra", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-tema")).toBeInTheDocument();
+    });
+
+    // Filtra por Tema: "Encostas e Contenção" (onde apenas a Obra 1002 em Liberdade existe)
+    fireEvent.change(screen.getByTestId("filtro-tema"), {
+      target: { value: "Encostas e Contenção" },
+    });
+
+    // 1. No seletor rápido de territórios do mapa:
+    // Pituba (obra 1001) não pertence a este tema: deve ter R$ 0/hab
+    await waitFor(() => {
+      const seletorPituba = screen.getByTestId("territory-selector-pituba");
+      expect(seletorPituba).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+    });
+
+    // Liberdade (obra 1002) pertence ao tema: deve ter R$ 50/hab
+    const seletorLiberdade = screen.getByTestId("territory-selector-liberdade");
+    expect(seletorLiberdade).toHaveTextContent(/R\$\s*50(\,00)?\/hab/);
+
+    // 2. No Ranking de Prefeituras-Bairro:
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+    await waitFor(() => {
+      // Liberdade/São Caetano agora lidera o ranking com R$ 50
+      expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Liberdade/São Caetano");
+      expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent(/R\$\s*50/);
+    });
+
+    // 3. No Raio-X do Bairro:
+    fireEvent.click(screen.getByTestId("tab-mapa"));
+    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+    expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 0");
+    expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent(/R\$\s*0/);
+    expect(screen.getByTestId("raio-x-obras-verde")).toHaveTextContent("0");
+  });
+
+  it("sincroniza reativamente o Raio-X aberto quando um filtro superior (mandato) é alterado", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("territory-selector-liberdade")).toBeInTheDocument();
+    });
+
+    // 1. Abre o Raio-X de Liberdade com todos os mandatos ativos
+    fireEvent.click(screen.getByTestId("territory-selector-liberdade"));
+
+    expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Liberdade");
+    expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 2.400.000");
+    expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent(/R\$\s*50/);
+    expect(screen.getByTestId("raio-x-obras-amarelo")).toHaveTextContent("1");
+
+    // 2. Muda o Mandato para 2021-2024 (a Obra 1002 da Liberdade é de 2025-2028 e não existe em 2021-2024)
+    fireEvent.change(screen.getByTestId("filtro-mandato"), {
+      target: { value: "2021-2024" },
+    });
+
+    // O painel do Raio-X deve permanecer aberto em Liberdade, mas os valores devem zerar imediatamente
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Liberdade");
+      expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 0");
+      expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent(/R\$\s*0/);
+      expect(screen.getByTestId("raio-x-obras-amarelo")).toHaveTextContent("0");
+    });
+  });
+
+  it("recalcula dinamicamente a ordenação do Ranking de Prefeituras-Bairro e seletores ao alternar Mandatos Municipais", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-mandato")).toBeInTheDocument();
+    });
+
+    // 1. Filtra por 2021-2024
+    fireEvent.change(screen.getByTestId("filtro-mandato"), {
+      target: { value: "2021-2024" },
+    });
+
+    // No seletor rápido: Pituba tem obra (1001), Liberdade não tem (obra 1002 é exclusiva 2025-2028)
+    await waitFor(() => {
+      const seletorPituba = screen.getByTestId("territory-selector-pituba");
+      expect(seletorPituba).toHaveTextContent(/R\$\s*184,62\/hab/);
+    });
+    const seletorLiberdade = screen.getByTestId("territory-selector-liberdade");
+    expect(seletorLiberdade).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+
+    // No Ranking de Prefeituras-Bairro:
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+    await waitFor(() => {
+      // 1º Barra/Pituba (R$ 184,62), 2º Subúrbio/Ilhas (R$ 50,00 via regional), 3º Liberdade/São Caetano (R$ 0)
+      expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
+      expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("R$ 184,62");
+      expect(screen.getByTestId("ranking-item-2")).toHaveTextContent("Subúrbio/Ilhas");
+      expect(screen.getByTestId("ranking-valor-2")).toHaveTextContent(/R\$\s*50/);
+      expect(screen.getByTestId("ranking-item-3")).toHaveTextContent("Liberdade/São Caetano");
+      expect(screen.getByTestId("ranking-valor-3")).toHaveTextContent(/R\$\s*0/);
+    });
+
+    // 2. Alterna para 2025-2028
+    fireEvent.change(screen.getByTestId("filtro-mandato"), {
+      target: { value: "2025-2028" },
+    });
+
+    await waitFor(() => {
+      // 1º Barra/Pituba (R$ 184,62), 2º Liberdade/São Caetano (R$ 50,00 via Liberdade), 3º Subúrbio/Ilhas (R$ 0)
+      expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
+      expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("R$ 184,62");
+      expect(screen.getByTestId("ranking-item-2")).toHaveTextContent("Liberdade/São Caetano");
+      expect(screen.getByTestId("ranking-valor-2")).toHaveTextContent(/R\$\s*50/);
+      expect(screen.getByTestId("ranking-item-3")).toHaveTextContent("Subúrbio/Ilhas");
+      expect(screen.getByTestId("ranking-valor-3")).toHaveTextContent(/R\$\s*0/);
+    });
+  });
+
+  it("recalcula dinamicamente a Camada A ao filtrar por Órgão contratante", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-orgao")).toBeInTheDocument();
+    });
+
+    // Filtra por SUCOP (apenas obra 1001 na Pituba)
+    fireEvent.change(screen.getByTestId("filtro-orgao"), {
+      target: { value: "SUCOP" },
+    });
+
+    await waitFor(() => {
+      const seletorPituba = screen.getByTestId("territory-selector-pituba");
+      expect(seletorPituba).toHaveTextContent(/R\$\s*184,62\/hab/);
+    });
+    const seletorLiberdade = screen.getByTestId("territory-selector-liberdade");
+    expect(seletorLiberdade).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
+      expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("R$ 184,62");
+      // As demais prefeituras sem obras SUCOP devem exibir R$ 0
+      expect(screen.getByTestId("ranking-valor-2")).toHaveTextContent(/R\$\s*0/);
+      expect(screen.getByTestId("ranking-valor-3")).toHaveTextContent(/R\$\s*0/);
+    });
+  });
+
+  it("recalcula dinamicamente a Camada A ao filtrar por Semáforo Crítico (VERMELHO)", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-semaforo")).toBeInTheDocument();
+    });
+
+    // Filtra por Semáforo VERMELHO (apenas obra 1003 regional de Subúrbio/Ilhas)
+    fireEvent.change(screen.getByTestId("filtro-semaforo"), {
+      target: { value: "VERMELHO" },
+    });
+
+    // Ambos os bairros Pituba e Liberdade devem estar zerados
+    await waitFor(() => {
+      expect(screen.getByTestId("territory-selector-pituba")).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+      expect(screen.getByTestId("territory-selector-liberdade")).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+    });
+
+    // No ranking, Subúrbio/Ilhas lidera com R$ 50,00 e as outras estão zeradas
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Subúrbio/Ilhas");
+      expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent(/R\$\s*50/);
+      expect(screen.getByTestId("ranking-valor-2")).toHaveTextContent(/R\$\s*0/);
+    });
+  });
+
+  it("recalcula dinamicamente a Camada A ao alternar a métrica financeira para Executado / Pago", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("btn-metrica-executado")).toBeInTheDocument();
+    });
+
+    // Alterna a métrica financeira para "Valor Executado / Pago"
+    fireEvent.click(screen.getByTestId("btn-metrica-executado"));
+
+    // No seletor rápido:
+    // Pituba: 7.860.000 / 65.000 = R$ 120,92/hab
+    // Liberdade: 1.200.000 / 48.000 = R$ 25,00/hab
+    await waitFor(() => {
+      const seletorPituba = screen.getByTestId("territory-selector-pituba");
+      expect(seletorPituba).toHaveTextContent(/R\$\s*120,92\/hab/);
+    });
+    const seletorLiberdade = screen.getByTestId("territory-selector-liberdade");
+    expect(seletorLiberdade).toHaveTextContent(/R\$\s*25(\,00)?\/hab/);
+
+    // No Ranking de Prefeituras-Bairro:
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+    await waitFor(() => {
+      // 1º Barra/Pituba (R$ 120,92)
+      expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
+      expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("R$ 120,92");
+      // 2º Liberdade/São Caetano (R$ 25,00)
+      expect(screen.getByTestId("ranking-item-2")).toHaveTextContent("Liberdade/São Caetano");
+      expect(screen.getByTestId("ranking-valor-2")).toHaveTextContent(/R\$\s*25/);
+      // 3º Subúrbio/Ilhas (R$ 10,00)
+      expect(screen.getByTestId("ranking-item-3")).toHaveTextContent("Subúrbio/Ilhas");
+      expect(screen.getByTestId("ranking-valor-3")).toHaveTextContent(/R\$\s*10/);
+    });
+  });
 });

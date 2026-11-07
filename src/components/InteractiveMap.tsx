@@ -4,12 +4,17 @@ import "leaflet/dist/leaflet.css";
 import {
   BairroResumo,
   ChoroplethMetric,
+  MetricType,
   ObraCompacta,
   PrefeituraBairroResumo,
   TerritorySelection,
 } from "../types";
 import { formatCurrency, formatNumber } from "../utils/formatters";
-import { createBairroSelection, createPrefeituraSelection } from "../utils/territory";
+import {
+  createBairroSelection,
+  createPrefeituraSelection,
+  normalizeName,
+} from "../utils/territory";
 
 export const SALVADOR_CENTER: L.LatLngTuple = [-12.9777, -38.48];
 export const SALVADOR_DEFAULT_ZOOM = 12;
@@ -25,6 +30,7 @@ interface InteractiveMapProps {
   selectedTerritory: TerritorySelection | null;
   onSelectTerritory: (territorio: TerritorySelection) => void;
   onSelectObra?: (obra: ObraCompacta) => void;
+  metricType?: MetricType;
 }
 
 export function normalizeTestId(nome: string): string {
@@ -75,14 +81,15 @@ function getVulnerabilidadeColor(vuln: number): string {
 export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   activeLayer,
   onToggleLayer,
-  bairros,
-  prefeituras,
+  bairros = [],
+  prefeituras = [],
   bairrosGeoJson,
   prefeiturasGeoJson,
   obras,
   selectedTerritory,
   onSelectTerritory,
   onSelectObra,
+  metricType = "vigente",
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
@@ -151,18 +158,50 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     };
   }, []);
 
-  // Calcula os limites de quantis para a escala coroplética de Investimento por Habitante
+  // Mapas indexados por nome normalizado para lookup dinâmico do recálculo territorial
+  const currentBairroMap = useMemo(() => {
+    const m = new Map<string, BairroResumo>();
+    bairros.forEach((bairro) => {
+      m.set(normalizeName(bairro.nome), bairro);
+    });
+    return m;
+  }, [bairros]);
+
+  const currentPrefeituraMap = useMemo(() => {
+    const m = new Map<string, PrefeituraBairroResumo>();
+    prefeituras.forEach((prefeitura) => {
+      m.set(normalizeName(prefeitura.nome), prefeitura);
+    });
+    return m;
+  }, [prefeituras]);
+
+  // Calcula os limites de quantis para a escala coroplética de Investimento por Habitante (vigente ou executado)
   const breaksInvestimento = useMemo(() => {
-    const valores = bairros
-      .filter((b) => !b.is_zona_especial_nao_residencial && !b.isZonaEspecialNaoResidencial && (b.investimentoPorHabitante ?? 0) > 0)
-      .map((b) => b.investimentoPorHabitante ?? 0)
+    const list = activeLayer === "bairros" ? bairros : prefeituras;
+    const isExecutado = metricType === "executado";
+    const valores = list
+      .filter((item: BairroResumo | PrefeituraBairroResumo) => {
+        const isZonaEsp =
+          "is_zona_especial_nao_residencial" in item
+            ? !!(item.is_zona_especial_nao_residencial || item.isZonaEspecialNaoResidencial)
+            : false;
+        const valor = isExecutado
+          ? (item.investimentoPorHabitantePago ?? item.investimentoPorHabitante ?? 0)
+          : (item.investimentoPorHabitante ?? 0);
+        return !isZonaEsp && valor > 0;
+      })
+      .map((item) =>
+        isExecutado
+          ? (item.investimentoPorHabitantePago ?? item.investimentoPorHabitante ?? 0)
+          : (item.investimentoPorHabitante ?? 0)
+      )
       .sort((a, b) => a - b);
 
     if (valores.length === 0) return [20, 50, 100, 200];
 
     const q = (p: number) => valores[Math.floor((valores.length - 1) * p)];
     return [q(0.2), q(0.4), q(0.6), q(0.8)];
-  }, [bairros]);
+  }, [activeLayer, bairros, prefeituras, metricType]);
 
   // Atualização dos polígonos GeoJSON no Leaflet
   useEffect(() => {
@@ -183,19 +222,34 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       const layer = L.geoJSON(geoData, {
         style: (feature) => {
           const props = feature?.properties || {};
-          const nome = props.nome || props.NM_BAIRRO || props.NM_PREFEITURA_BAIRRO || "";
-          const isSelected = selectedTerritory?.nome === nome;
-          const isZonaEspecial = !!(props.is_zona_especial_nao_residencial || props.isZonaEspecialNaoResidencial);
+          const rawNome = (props.nome || props.NM_BAIRRO || props.NM_PREFEITURA_BAIRRO || "").trim();
+          const lookupKey = normalizeName(rawNome);
+          const dynamicBairro = activeLayer === "bairros" ? currentBairroMap.get(lookupKey) : undefined;
+          const dynamicPrefeitura = activeLayer === "prefeituras" ? currentPrefeituraMap.get(lookupKey) : undefined;
+
+          const isSelected =
+            selectedTerritory?.nome === rawNome ||
+            (dynamicBairro && selectedTerritory?.nome === dynamicBairro.nome) ||
+            (dynamicPrefeitura && selectedTerritory?.nome === dynamicPrefeitura.nome);
+
+          const isZonaEspecial = dynamicBairro
+            ? !!(dynamicBairro.is_zona_especial_nao_residencial || dynamicBairro.isZonaEspecialNaoResidencial)
+            : !!(props.is_zona_especial_nao_residencial || props.isZonaEspecialNaoResidencial);
 
           let fillColor = "#cbd5e1";
 
           if (isZonaEspecial) {
             fillColor = "#fef3c7";
           } else if (choroplethMetric === "investimentoPorHabitante") {
-            const inv = props.investimentoPorHabitante ?? 0;
+            const isExec = metricType === "executado";
+            const inv = dynamicBairro
+              ? (isExec ? (dynamicBairro.investimentoPorHabitantePago ?? dynamicBairro.investimentoPorHabitante ?? 0) : (dynamicBairro.investimentoPorHabitante ?? 0))
+              : dynamicPrefeitura
+              ? (isExec ? (dynamicPrefeitura.investimentoPorHabitantePago ?? dynamicPrefeitura.investimentoPorHabitante ?? 0) : (dynamicPrefeitura.investimentoPorHabitante ?? 0))
+              : (props.investimentoPorHabitante ?? 0);
             fillColor = getInvestimentoColor(inv, breaksInvestimento);
           } else {
-            const vuln = props.indice_vulnerabilidade ?? 0.5;
+            const vuln = dynamicBairro?.indice_vulnerabilidade ?? props.indice_vulnerabilidade ?? 0.5;
             fillColor = getVulnerabilidadeColor(vuln);
           }
 
@@ -209,18 +263,24 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         },
         onEachFeature: (feature, layerItem) => {
           const props = feature.properties || {};
-          const nome = props.nome || props.NM_BAIRRO || props.NM_PREFEITURA_BAIRRO || "";
+          const rawNome = (props.nome || props.NM_BAIRRO || props.NM_PREFEITURA_BAIRRO || "").trim();
+          const lookupKey = normalizeName(rawNome);
+          const dynamicBairro = activeLayer === "bairros" ? currentBairroMap.get(lookupKey) : undefined;
+          const dynamicPrefeitura = activeLayer === "prefeituras" ? currentPrefeituraMap.get(lookupKey) : undefined;
+          const isZonaEspecial = dynamicBairro
+            ? !!(dynamicBairro.is_zona_especial_nao_residencial || dynamicBairro.isZonaEspecialNaoResidencial)
+            : !!(props.is_zona_especial_nao_residencial || props.isZonaEspecialNaoResidencial);
 
           layerItem.on({
             click: () => {
               if (activeLayer === "bairros") {
-                const b = bairros.find((item) => item.nome === nome) || {
+                const b: BairroResumo = dynamicBairro || bairros.find((item) => item.nome === rawNome) || {
                   id: props.id || 0,
-                  nome,
+                  nome: rawNome,
                   prefeitura_bairro: props.prefeitura_bairro || "",
                   populacao: props.populacao || 0,
                   indice_vulnerabilidade: props.indice_vulnerabilidade || 0.5,
-                  is_zona_especial_nao_residencial: !!(props.is_zona_especial_nao_residencial || props.isZonaEspecialNaoResidencial),
+                  is_zona_especial_nao_residencial: isZonaEspecial,
                   valorTotal: props.valorTotal,
                   valorPago: props.valorPago,
                   totalObras: props.totalObras,
@@ -232,9 +292,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 };
                 onSelectTerritory(createBairroSelection(b));
               } else {
-                const pb = prefeituras.find((item) => item.nome === nome) || {
+                const pb: PrefeituraBairroResumo = dynamicPrefeitura || prefeituras.find((item) => item.nome === rawNome) || {
                   id: props.id || 0,
-                  nome,
+                  nome: rawNome,
                   populacao_total: props.populacao_total || 0,
                   valorTotal: props.valorTotal,
                   valorPago: props.valorPago,
@@ -284,6 +344,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     bairros,
     prefeituras,
     onSelectTerritory,
+    currentBairroMap,
+    currentPrefeituraMap,
   ]);
 
   // Renderização dos Pinos de Obras Públicas com dispersão determinística anti-sobreposição
@@ -587,7 +649,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-500" title="Zona Especial Não-Residencial"></span>
                     )}
                     <span className="text-[10px] opacity-75">
-                      ({formatNumber(b.populacao)} hab • {formatCurrency(b.investimentoPorHabitante ?? 0)}/hab)
+                      ({formatNumber(b.populacao)} hab • {formatCurrency(metricType === "executado" ? (b.investimentoPorHabitantePago ?? b.investimentoPorHabitante ?? 0) : (b.investimentoPorHabitante ?? 0))}/hab)
                     </span>
                   </button>
                 );
@@ -609,7 +671,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   >
                     <span>{pb.nome}</span>
                     <span className="text-[10px] opacity-75">
-                      ({formatNumber(pb.populacao_total)} hab • {formatCurrency(pb.investimentoPorHabitante ?? 0)}/hab)
+                      ({formatNumber(pb.populacao_total)} hab • {formatCurrency(metricType === "executado" ? (pb.investimentoPorHabitantePago ?? pb.investimentoPorHabitante ?? 0) : (pb.investimentoPorHabitante ?? 0))}/hab)
                     </span>
                   </button>
                 );
