@@ -2,34 +2,32 @@
   "id": "023fafb3-c1fc-43d4-be6d-0a0ca9164bb1",
   "unidadeGestora": "SEMPRE",
   "numeroContrato": "2021CT004128",
-  "numeroContratoOriginal": "000033/2020",
-  "nuProcesso": "115746/2021",
+  "numeroContratoOriginal": "2021CT004128",
+  "nuProcesso": null,
   "objeto": "Execução dos serviços remanescentes de construção e de recuperação de quadras e campos de\r\nfutebol localizados no município do Salvador/BA, LOTE 03- Prefeituras Bairros: III, V e VI, sob regime de\r\nempreitada por preços unitários, com fornecimento de mão de obra, materiais, equipamentos, e o que for\r\nnecessário para a execução destes serviços",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "ROBLE SERVICOS LTDA",
     "cnpj": "",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 153056317.84,
-    "outrasObrasCount": 4,
-    "outrasObrasIds": [
+    "razaoSocial": "ROBLE SERVICOS LTDA",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 17355001.24,
+    "obrasIds": [
+      "023fafb3-c1fc-43d4-be6d-0a0ca9164bb1",
       "21923172-06b5-47e2-b106-b6d10312896c",
-      "b436c663-a747-4000-a02f-a9f2b92fd7ae",
-      "0914893f-ee88-4eec-8e9a-6763b6aeff83",
-      "dee2aa39-80f9-47c0-b31a-93b5c4e22449"
+      "0914893f-ee88-4eec-8e9a-6763b6aeff83"
     ]
   },
   "vigencia": {
-    "dataInicio": "11/05/2021",
+    "dataInicio": "2021-05-11T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "07/11/2021",
+    "dataTerminoAtualizado": "2021-11-07T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2021-05-11T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 17764.14,
@@ -44,51 +42,12 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Revitalização e Requalificação de Equipamentos Esportivos e de Lazer",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Obras e Instalações"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "64a69d21-07fd-4281-b224-c3c60cfd5e83",
-      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
-      "cdUnGestora": "520002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
-      "notaEmpenho": "2021NE002131",
-      "dataEmpenho": "22/12/2021",
-      "nomeCredor": "ROBLE SERVICOS LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
-      "valEmpenhado": "-17.764,14",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "73b60a0e-81cf-473e-a168-06739cc2aad1",
-      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
-      "cdUnGestora": "520002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
-      "notaEmpenho": "2021NE001443",
-      "dataEmpenho": "30/09/2021",
-      "nomeCredor": "ROBLE SERVICOS LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
-      "valEmpenhado": "17.764,14",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Praças, Esporte e Lazer",
@@ -105,5 +64,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

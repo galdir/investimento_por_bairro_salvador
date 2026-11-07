@@ -2,36 +2,37 @@
   "id": "1b885af7-e125-4a81-b72f-ea04354cdc20",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2021CT001515",
-  "numeroContratoOriginal": "000004/2021",
-  "nuProcesso": "000350/2020",
+  "numeroContratoOriginal": "2021CT001515",
+  "nuProcesso": null,
   "objeto": "FORNECIMENTO E INSTALAÇÃO DE EQUIPAMENTOS CLIMATIZAÇÃO PARA A ADEQUADA OPERAÇÃO E MONITORAMENTO DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 03",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ARQTEC-COMERCIO E SERVICOS LTDA",
     "cnpj": "",
+    "razaoSocial": "ARQTEC-COMERCIO E SERVICOS LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 30989.72,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "1b885af7-e125-4a81-b72f-ea04354cdc20"
+    ]
   },
   "vigencia": {
-    "dataInicio": "14/03/2021",
+    "dataInicio": "2021-03-14T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "09/09/2021",
+    "dataTerminoAtualizado": "2021-09-09T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2021-03-14T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 30989.72,
     "valorContratualVigente": 30989.72,
     "valorEmpenhado": 30989.72,
-    "valorLiquidado": 30989.72,
-    "valorPago": 30989.72,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -39,169 +40,14 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Implantação de Corredores de Transportes Públicos Integrados",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Equipamentos e Material Permanente"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "06a6f051-9b79-47cc-bd6e-67190a3baa69",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2021NE000428",
-      "dataEmpenho": "01/04/2021",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "subElemDespesa": "Equipamento de Refrigeração",
-      "valEmpenhado": "30.989,72",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "18f218a9-191c-45a0-9696-6f69c8ba860b",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2021NE000428",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "notaLiquidacao": "2021NL004932",
-      "notaLancamento": "2021NL004932",
-      "numProcesso": "01401042021",
-      "dataLiquidacao": "20/07/2021",
-      "valLiqLiquidacao": "30.989,72",
-      "valBrutLiquidacao": "30.989,72",
-      "valEmpenho": "30.989,72",
-      "descObsLiquidacao": "FORNECIM. E INSTALAÇÃO DE EQUIPAMENTO, LOTE 03, (CLIMAT.), P/ ADEQUAR OPER. E MONIT. DAS ESTAÇÕES  HIPER E CIDADELA DO EMPREEN. BRT SALVADOR, - NFSE 3031, CONTR. 004/21, PER. JUNHO/21",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "728d2430-a872-44b7-b9f7-97f1c27f7af2",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2021NE000428",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2021PP002350",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "valEmpenhado": "30.989,72",
-      "dataPagamento": "21/07/2021",
-      "pago": "1.549,49",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "309ff1c7-13d4-481a-92be-85b05ca88ea9",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2021NE000428",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2021PP002351",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "valEmpenhado": "30.989,72",
-      "dataPagamento": "21/07/2021",
-      "pago": "1.549,49",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "e3f0d2ad-51cf-4dd7-8b41-a99bfbc25805",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2021NE000428",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2021PP002351",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "valEmpenhado": "30.989,72",
-      "dataPagamento": "21/07/2021",
-      "pago": "-1.549,49",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "0c4032f0-ddcd-406b-9527-bcabc2a5c2aa",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2021NE000428",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2021OB030262",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "valEmpenhado": "30.989,72",
-      "dataPagamento": "22/07/2021",
-      "pago": "-1.549,49",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "2f921f8a-3158-4718-8dbb-0f815ff1bcb7",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2021NE000428",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "notaLiquidacao": "2021NL004932",
-      "ordBancaria": "2021OB030281",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "valEmpenhado": "30.989,72",
-      "dataPagamento": "22/07/2021",
-      "pago": "29.440,23",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "e2fa7fc4-130b-4c95-9669-83de98e69bae",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2021NE000428",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "ARQTEC-COMERCIO E SERVICOS LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2021OB030262",
-      "elemDespesa": "Equipamentos e Material Permanente",
-      "valEmpenhado": "30.989,72",
-      "dataPagamento": "22/07/2021",
-      "pago": "1.549,49",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERDE",
@@ -216,5 +62,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

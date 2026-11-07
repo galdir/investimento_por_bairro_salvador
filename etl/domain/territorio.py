@@ -33,6 +33,133 @@ def parse_float(val: Any) -> float:
         return 0.0
 
 
+def normalizar_nome_prefeitura_bairro(raw_nome: str) -> str:
+    """Extrai o nome canônico de uma Prefeitura-Bairro removendo prefixos romanos e padronizando barras."""
+    if not raw_nome:
+        return ""
+    nome = str(raw_nome).strip()
+    nome = re.sub(r"^Prefeitura-bairro\s*", "", nome, flags=re.IGNORECASE).strip()
+    nome = re.sub(r"^[IVXLC]+\s*-\s*", "", nome).strip()
+    return nome.replace(" / ", "/").strip()
+
+
+def _point_in_poly(x: float, y: float, poly: list[list[float]]) -> bool:
+    """Verifica se um ponto (x, y) está dentro de um anel poligonal simples."""
+    inside = False
+    n = len(poly)
+    if n < 3:
+        return False
+    p1x, p1y = poly[0]
+    for i in range(n + 1):
+        p2x, p2y = poly[i % n]
+        if y > min(p1y, p2y):
+            if y <= max(p1y, p2y):
+                if x <= max(p1x, p2x):
+                    if p1y != p2y:
+                        xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
+                    if p1x == p2x or x <= xinters:
+                        inside = not inside
+        p1x, p1y = p2x, p2y
+    return inside
+
+
+def _get_centroid_geom(geom: dict[str, Any]) -> tuple[float, float]:
+    """Calcula centróide geométrico preliminar a partir das coordenadas do anel principal."""
+    gtype = geom.get("type")
+    coords: list[list[float]] = []
+    if gtype == "Polygon":
+        coords = geom.get("coordinates", [[]])[0]
+    elif gtype == "MultiPolygon":
+        multi = geom.get("coordinates", [[[]]])
+        if multi:
+            coords = max(multi, key=lambda p: len(p[0]) if p and len(p) > 0 else 0)[0]
+    if not coords:
+        return 0.0, 0.0
+    xs = [pt[0] for pt in coords]
+    ys = [pt[1] for pt in coords]
+    return sum(xs) / len(xs), sum(ys) / len(ys)
+
+
+def normalizar_e_vincular_malhas_geosalvador(
+    bairros_fc: dict[str, Any],
+    prefeituras_fc: dict[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Normaliza as propriedades das Prefeituras-Bairro e vincula Bairros Oficiais espacialmente.
+
+    Garante que:
+    1. Todas as features de prefeituras_fc tenham NM_PREFEITURA_BAIRRO e NOMES padronizados para o
+       nome canônico (sem algarismos romanos nem prefixo 'Prefeitura-bairro') e CD_PREFEITURA_BAIRRO preenchido.
+    2. Todas as features de bairros_fc tenham NM_BAIRRO, CD_BAIRRO e PREFEITURA_BAIRRO preenchidos.
+       Se PREFEITURA_BAIRRO estiver ausente, vazio ou com prefixo romano, determina a Prefeitura-Bairro
+       canônica por ponto-no-polígono do centróide (com fallback para São João do Cabrito -> Subúrbio/Ilhas
+       e centróide mais próximo).
+    """
+    # 1. Normaliza as Prefeituras-Bairro
+    pb_polys: list[tuple[str, dict[str, Any], tuple[float, float]]] = []
+    for f in prefeituras_fc.get("features", []):
+        props = f.get("properties", {})
+        raw_name = (
+            props.get("NM_PREFEITURA_BAIRRO")
+            or props.get("SUBCLASSES")
+            or props.get("NOMES")
+            or props.get("nome")
+            or ""
+        )
+        clean_name = normalizar_nome_prefeitura_bairro(raw_name)
+        props["NM_PREFEITURA_BAIRRO"] = clean_name
+        props["NOMES"] = clean_name
+        props["nome"] = clean_name
+        props["CD_PREFEITURA_BAIRRO"] = props.get("CD_PREFEITURA_BAIRRO") or props.get("OBJECTID", 0)
+        geom = f.get("geometry", {})
+        cx, cy = _get_centroid_geom(geom)
+        pb_polys.append((clean_name, geom, (cx, cy)))
+
+    # 2. Normaliza os Bairros Oficiais e vincula à Prefeitura-Bairro
+    for idx, f in enumerate(bairros_fc.get("features", []), start=1):
+        props = f.get("properties", {})
+        b_name = (props.get("NM_BAIRRO") or props.get("NOME_BAIRR") or props.get("nome") or "").strip()
+        props["NM_BAIRRO"] = b_name
+        props["nome"] = b_name
+        props["CD_BAIRRO"] = props.get("CD_BAIRRO") or props.get("OBJECTID") or idx
+
+        pb_atual = props.get("PREFEITURA_BAIRRO") or props.get("prefeitura_bairro") or ""
+        pb_limpa = normalizar_nome_prefeitura_bairro(pb_atual)
+
+        if pb_limpa:
+            props["PREFEITURA_BAIRRO"] = pb_limpa
+            props["prefeitura_bairro"] = pb_limpa
+        elif b_name == "São João do Cabrito":
+            props["PREFEITURA_BAIRRO"] = "Subúrbio/Ilhas"
+            props["prefeitura_bairro"] = "Subúrbio/Ilhas"
+        else:
+            cx, cy = _get_centroid_geom(f.get("geometry", {}))
+            found_pb = None
+            for pb_name, geom, _ in pb_polys:
+                gtype = geom.get("type")
+                if gtype == "Polygon":
+                    rings = geom.get("coordinates", [])
+                    if rings and _point_in_poly(cx, cy, rings[0]):
+                        found_pb = pb_name
+                        break
+                elif gtype == "MultiPolygon":
+                    for poly in geom.get("coordinates", []):
+                        if poly and _point_in_poly(cx, cy, poly[0]):
+                            found_pb = pb_name
+                            break
+                    if found_pb:
+                        break
+
+            if not found_pb and pb_polys:
+                def dist_sq(p: tuple[str, dict[str, Any], tuple[float, float]]) -> float:
+                    return (cx - p[2][0]) ** 2 + (cy - p[2][1]) ** 2
+                found_pb = min(pb_polys, key=dist_sq)[0]
+
+            props["PREFEITURA_BAIRRO"] = found_pb or "Centro/Brotas"
+            props["prefeitura_bairro"] = props["PREFEITURA_BAIRRO"]
+
+    return bairros_fc, prefeituras_fc
+
+
 def normalizar_nome(nome: str) -> str:
     """Normaliza um nome textual removendo acentos e convertendo para maiúsculas.
 

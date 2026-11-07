@@ -2,36 +2,37 @@
   "id": "83f99e6f-e43e-4adc-99d0-5cb68f1aaf77",
   "unidadeGestora": "SEMAN",
   "numeroContrato": "2024CT006897",
-  "numeroContratoOriginal": "78/2024",
-  "nuProcesso": "127566/2024",
+  "numeroContratoOriginal": "2024CT006897",
+  "nuProcesso": null,
   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA SUBSTITUIÇÃO DE CONJUNTO MOTOR-BOMBA DA REDE DE INCÊNDIO, QUADRO DE COMANDO E OUTROS AFINS INSTALADOS NA SEDE DA DESAL",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
     "cnpj": "",
+    "razaoSocial": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 82800.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "83f99e6f-e43e-4adc-99d0-5cb68f1aaf77"
+    ]
   },
   "vigencia": {
-    "dataInicio": "15/07/2024",
+    "dataInicio": "2024-07-15T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "11/12/2024",
+    "dataTerminoAtualizado": "2024-12-11T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2024-07-15T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 82800.0,
     "valorContratualVigente": 82800.0,
     "valorEmpenhado": 82800.0,
-    "valorLiquidado": 82800.0,
-    "valorPago": 82800.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,145 +45,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "19cbbddf-07dd-4afd-a3bc-c39e2db70c4b",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "cdUnGestora": "567002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "notaEmpenho": "2024NE000693",
-      "dataEmpenho": "24/07/2024",
-      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "82.800,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "7beee7d8-c344-4ae5-bbba-a03d630ee319",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2024NE000693",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
-      "notaLiquidacao": "2024NL005212",
-      "notaLancamento": "2024NL005212",
-      "numProcesso": "01716042024",
-      "dataLiquidacao": "19/08/2024",
-      "valLiqLiquidacao": "42.800,00",
-      "valBrutLiquidacao": "42.800,00",
-      "valEmpenho": "82.800,00",
-      "descObsLiquidacao": "NIRHALL ENGENHARIA - CONSULTORIA ESPECIALIZADA EM SEGURANÇA DO TRABALHO - PROC 171604/2024",
-      "pago": "0,00"
-    },
-    {
-      "id": "f321d746-3927-495f-b96a-f7fccabdc603",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2024NE000693",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
-      "notaLiquidacao": "2024NL006465",
-      "notaLancamento": "2024NL006465",
-      "numProcesso": "01979592024",
-      "dataLiquidacao": "23/09/2024",
-      "valLiqLiquidacao": "40.000,00",
-      "valBrutLiquidacao": "40.000,00",
-      "valEmpenho": "82.800,00",
-      "descObsLiquidacao": "NIRHALL ENGENHARIA - CONSULTORIA ESPECIALIZADA EM SEGURANÇA DO TRABALHO - PROC 197959/2024",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "df740f92-912c-4508-bb17-4b37c6fc7d92",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2024NE000693",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
-      "notaLiquidacao": "2024NL005212",
-      "ordBancaria": "2024OB058115",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "82.800,00",
-      "dataPagamento": "21/08/2024",
-      "pago": "41.944,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "c4ab6193-5adf-4273-8c1b-220338f37b25",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2024NE000693",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2024OB058116",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "82.800,00",
-      "dataPagamento": "21/08/2024",
-      "pago": "856,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "2e273846-c84f-4381-a7a8-e0ee501645cd",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2024NE000693",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2024OB066840",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "82.800,00",
-      "dataPagamento": "24/09/2024",
-      "pago": "800,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "663a6971-3374-4c54-9e28-5c5cc1717bd2",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2024NE000693",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
-      "notaLiquidacao": "2024NL006465",
-      "ordBancaria": "2024OB066839",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "82.800,00",
-      "dataPagamento": "24/09/2024",
-      "pago": "39.200,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Saúde",
   "semaforo": {
     "status": "VERDE",
@@ -197,5 +62,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

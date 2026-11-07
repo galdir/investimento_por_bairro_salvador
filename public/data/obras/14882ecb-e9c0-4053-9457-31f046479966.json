@@ -2,31 +2,31 @@
   "id": "14882ecb-e9c0-4053-9457-31f046479966",
   "unidadeGestora": "SEFAZ",
   "numeroContrato": "2021CT005077",
-  "numeroContratoOriginal": "000042/2021",
-  "nuProcesso": "151583/2021",
+  "numeroContratoOriginal": "2021CT005077",
+  "nuProcesso": null,
   "objeto": "Credenciar pessoas jurídicas devidamente registradas no CREA/CAU, cujo objeto social contemple atividades de levantamento tipográfico de imóveis urbanos do Município de Salvador",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
     "cnpj": "",
+    "razaoSocial": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 94865.38,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
+    "obrasIds": [
+      "14882ecb-e9c0-4053-9457-31f046479966",
       "ae7ed4ed-a147-4dce-a47a-7c5ef7564c01"
     ]
   },
   "vigencia": {
-    "dataInicio": "03/12/2021",
+    "dataInicio": "2021-12-03T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "02/12/2022",
+    "dataTerminoAtualizado": "2022-12-02T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2021-12-03T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 20000.0,
@@ -41,89 +41,12 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SEFAZ",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "731d06cb-a2bd-49d7-aa09-b18719fa5f0c",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE000102",
-      "dataEmpenho": "03/01/2022",
-      "nomeCredor": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "65f5f249-aa6d-42ea-b0ed-b0680e25723c",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE001178",
-      "dataEmpenho": "06/12/2021",
-      "nomeCredor": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "1.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "a79de643-9a02-4288-afab-cd70a4868368",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE001367",
-      "dataEmpenho": "23/12/2021",
-      "nomeCredor": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-1.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "5ad31f4a-6baa-4838-9e44-3a64b7dd7ce5",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE001421",
-      "dataEmpenho": "27/12/2022",
-      "nomeCredor": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
@@ -140,5 +63,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

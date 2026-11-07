@@ -2,31 +2,30 @@
   "id": "9d628cb0-99cf-45c3-972a-506d7c313c20",
   "unidadeGestora": "SEMPRE",
   "numeroContrato": "2019CT004315",
-  "numeroContratoOriginal": "000003/2019",
-  "nuProcesso": "001398/2018",
+  "numeroContratoOriginal": "2019CT004315",
+  "nuProcesso": null,
   "objeto": "SERVIÇO DE ENGENHARIA PARA MANUTENÇÃO PREDIAL NAS UNIDADES DE ASSISTÊNCIA SOCIAL",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "MAINAN ENGENHARIA LTDA",
     "cnpj": "",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 42785883.16,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "9082639d-5748-4499-8d9c-bdd6f58b16d2"
+    "razaoSocial": "MAINAN ENGENHARIA LTDA",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 36634392.6,
+    "obrasIds": [
+      "9d628cb0-99cf-45c3-972a-506d7c313c20"
     ]
   },
   "vigencia": {
-    "dataInicio": "06/06/2019",
+    "dataInicio": "2019-06-06T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "07/09/2024",
+    "dataTerminoAtualizado": "2024-09-07T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2019-06-06T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 4507000.0,
@@ -41,9 +40,9 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Reforma de Equipamentos Socioassistências",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
   "empenhos": [],
@@ -64,5 +63,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

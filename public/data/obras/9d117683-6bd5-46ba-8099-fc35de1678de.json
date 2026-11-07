@@ -2,29 +2,36 @@
   "id": "9d117683-6bd5-46ba-8099-fc35de1678de",
   "unidadeGestora": "SMED",
   "numeroContrato": "2024CT000228",
-  "numeroContratoOriginal": "000009/2024",
-  "nuProcesso": "132143/2023",
+  "numeroContratoOriginal": "2024CT000228",
+  "nuProcesso": null,
   "objeto": "PRESTAÇÃO DE SERVIÇO TÉCNICOS DE ELABORAÇÃO DE PROJETOS BÁSICOS, EXECUTIVO DE ARQUITETURA E ENGENHARIA E EXECUÇÃO DA OBRA DE CONSTRUÇÃO DA ESCOLA MUNICIPAL DO BAIRRO DA PAZ.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "QUALY ENGENHARIA LTDA",
     "cnpj": "05.903.304/0001-82",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 16274991.76,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "razaoSocial": "QUALY ENGENHARIA LTDA",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 94640038.88,
+    "obrasIds": [
+      "29975769-22f0-43ff-8a26-6f9c411dad0d",
+      "cc251ac3-e5ca-464d-9988-cfeedcd77ac8",
+      "de8ef004-b733-4a12-a5bd-0e202e981521",
+      "9d117683-6bd5-46ba-8099-fc35de1678de",
+      "72e0de96-0bb1-4e3f-b49c-afe0d96b8f10",
+      "822abd48-e5fd-421c-ab4a-88217af3bb33",
+      "311c2496-eb74-4b1e-b0bb-ef37a7eaec87"
+    ]
   },
   "vigencia": {
-    "dataInicio": "12/01/2024",
-    "dataFimOriginal": "12/05/2025",
-    "dataTerminoAtualizado": "12/05/2025",
-    "prazoOriginal": "486",
-    "prazoAtualizado": "486"
+    "dataInicio": "2024-01-12T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-05-12T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8704",
-    "dataPublicacao": "17/01/2024"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-01-12T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 16274991.76,

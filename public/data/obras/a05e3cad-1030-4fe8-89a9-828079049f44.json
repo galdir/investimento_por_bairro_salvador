@@ -2,31 +2,31 @@
   "id": "a05e3cad-1030-4fe8-89a9-828079049f44",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2023CT004800",
-  "numeroContratoOriginal": "000024/2023",
-  "nuProcesso": "202781/2022",
+  "numeroContratoOriginal": "2023CT004800",
+  "nuProcesso": null,
   "objeto": "Execução de obras de Requalificação do Acesso à Estação Pirajá e Implantação de duas Alças do Viaduto de Pirajá do Km 621+550 da pista Oeste da BR 324, Salvador/BA.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "MHR ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "MHR ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 8906588.81,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "1f926d19-ae20-48b6-894c-7c962774b455"
+    "obrasIds": [
+      "1f926d19-ae20-48b6-894c-7c962774b455",
+      "a05e3cad-1030-4fe8-89a9-828079049f44"
     ]
   },
   "vigencia": {
-    "dataInicio": "26/06/2023",
+    "dataInicio": "2023-06-26T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "22/12/2023",
+    "dataTerminoAtualizado": "2023-12-22T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2023-06-26T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 4755259.08,
@@ -46,65 +46,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "6f5a2468-4636-4780-89dd-bf6601e47f53",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "RP2671152",
-      "dataEmpenho": "19/04/2024",
-      "nomeCredor": "MHR ENGENHARIA LTDA",
-      "fonteRecurso": "Outros Recursos Não ",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-100.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "19b31f55-6c44-408c-8463-d54cd23aeb52",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2023NE000894",
-      "dataEmpenho": "26/06/2023",
-      "nomeCredor": "MHR ENGENHARIA LTDA",
-      "fonteRecurso": "Outros Recursos Não Vinculados - Tesouro - S/Emenda",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "100.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "5d8ba842-f42a-4d1b-a9b0-901b92dfd5eb",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "RP9968548",
-      "dataEmpenho": "31/12/2024",
-      "nomeCredor": "MHR ENGENHARIA LTDA",
-      "fonteRecurso": "Outros Recursos Não ",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "0,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Mobilidade, Pavimentação e Drenagem",
@@ -121,5 +63,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

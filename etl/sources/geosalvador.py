@@ -16,6 +16,7 @@ from etl.config import (
     LAYER_BAIRROS_OFICIAIS,
     LAYER_PREFEITURAS_BAIRRO,
 )
+from etl.domain.territorio import normalizar_nome_prefeitura_bairro
 
 
 def _query_arcgis_geojson(layer_id: int, where_clause: str = "1=1", timeout: int = 15) -> dict[str, Any]:
@@ -120,4 +121,19 @@ def fetch_prefeituras_geojson() -> dict[str, Any]:
     Erros:
         Não interrompe a execução caso esteja sem rede externa; utiliza fallback de referência.
     """
-    return _query_arcgis_geojson(LAYER_PREFEITURAS_BAIRRO)
+    data = _query_arcgis_geojson(LAYER_PREFEITURAS_BAIRRO)
+    for feat in data.get("features", []):
+        props = feat.get("properties", {})
+        raw_name = (
+            props.get("NM_PREFEITURA_BAIRRO")
+            or props.get("SUBCLASSES")
+            or props.get("NOMES")
+            or props.get("nome")
+            or ""
+        )
+        clean = normalizar_nome_prefeitura_bairro(raw_name)
+        if clean:
+            props["NM_PREFEITURA_BAIRRO"] = clean
+            props["NOMES"] = clean
+            props["nome"] = clean
+    return data

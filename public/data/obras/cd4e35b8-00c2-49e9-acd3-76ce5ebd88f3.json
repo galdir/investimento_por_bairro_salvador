@@ -2,34 +2,33 @@
   "id": "cd4e35b8-00c2-49e9-acd3-76ce5ebd88f3",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2023CT007759",
-  "numeroContratoOriginal": "035/2023",
-  "nuProcesso": "123418/2023",
+  "numeroContratoOriginal": "2023CT007759",
+  "nuProcesso": null,
   "objeto": "Execução de obras de Construção da Escola de Artes e Tecnologia e Casa de Espetáculos, na Rua Santos Dumont, Comércio-Salvador/BA.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA NM LTDA",
     "cnpj": "",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 208674663.21,
-    "outrasObrasCount": 4,
-    "outrasObrasIds": [
-      "602421ab-571a-498f-83da-1b5c2354f3fa",
+    "razaoSocial": "CONSTRUTORA NM LTDA",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 126401455.31,
+    "obrasIds": [
+      "cd4e35b8-00c2-49e9-acd3-76ce5ebd88f3",
       "4374164e-b6f0-4064-8735-45d1a1da9279",
       "6bb966ce-92bf-4f42-ace2-9bb71899eeb8",
       "b3974eb2-a2b2-420b-8019-6153511e54f3"
     ]
   },
   "vigencia": {
-    "dataInicio": "06/10/2023",
+    "dataInicio": "2023-10-06T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "29/09/2024",
+    "dataTerminoAtualizado": "2024-09-29T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2023-10-06T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 69958906.14,
@@ -49,46 +48,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "70667209-e7bf-49ab-9c04-9306a58b4ee4",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2023NE001507",
-      "dataEmpenho": "06/10/2023",
-      "nomeCredor": "CONSTRUTORA NM LTDA",
-      "fonteRecurso": "Recursos de Operações de Crédito Externa - Principal - Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Edifícios Públicos",
-      "valEmpenhado": "500.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "125013b5-8003-484a-a72e-134ab61b7256",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2023NE001600",
-      "dataEmpenho": "06/10/2023",
-      "nomeCredor": "CONSTRUTORA NM LTDA",
-      "fonteRecurso": "Recursos de Operações de Crédito Externa - Principal - Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Edifícios Públicos",
-      "valEmpenhado": "-500.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Educação e Escolas",
@@ -102,8 +62,8 @@
   },
   "nivel": "Bairro",
   "bairro": "Comércio",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+  "estagioAlocacao": "Cache"
 }

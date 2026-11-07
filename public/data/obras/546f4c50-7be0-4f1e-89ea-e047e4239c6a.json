@@ -2,33 +2,31 @@
   "id": "546f4c50-7be0-4f1e-89ea-e047e4239c6a",
   "unidadeGestora": "SECULT",
   "numeroContrato": "2023CT002859",
-  "numeroContratoOriginal": "000023/2023",
-  "nuProcesso": "130693/2022",
+  "numeroContratoOriginal": "2023CT002859",
+  "nuProcesso": null,
   "objeto": "Supervisão da obra de requalificação urbano-ambiental da orla marítima de Salvador/BA ¿ trecho Praia do Flamengo",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "UFC ENGENHARIA SA",
     "cnpj": "",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 16326463.35,
-    "outrasObrasCount": 3,
-    "outrasObrasIds": [
-      "5b9e2dfa-5bee-4431-8022-4404c12c1fa2",
-      "a9c66a2c-477d-4eee-9e8d-8e6149920062",
+    "razaoSocial": "UFC ENGENHARIA SA",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 2908016.37,
+    "obrasIds": [
+      "546f4c50-7be0-4f1e-89ea-e047e4239c6a",
       "105a3e4d-1617-4fbc-9f07-f11adec1f585"
     ]
   },
   "vigencia": {
-    "dataInicio": "05/04/2023",
+    "dataInicio": "2023-04-05T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "05/06/2024",
+    "dataTerminoAtualizado": "2024-06-05T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2023-04-05T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 1331330.81,
@@ -61,9 +59,9 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Praia do Flamengo",
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+  "bairro": "Stella Maris",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.929128,
+  "longitude": -38.329038,
+  "estagioAlocacao": "Cache"
 }

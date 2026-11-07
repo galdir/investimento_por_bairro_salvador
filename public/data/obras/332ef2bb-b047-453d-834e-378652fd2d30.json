@@ -2,29 +2,33 @@
   "id": "332ef2bb-b047-453d-834e-378652fd2d30",
   "unidadeGestora": "SEMGE",
   "numeroContrato": "2024CT005904",
-  "numeroContratoOriginal": "000298/2024",
-  "nuProcesso": "194131/2023",
+  "numeroContratoOriginal": "2024CT005904",
+  "nuProcesso": null,
   "objeto": "SERVIÇO DE ADEQUAÇÃO ELÉTRICA NECESSÁRIA PARA POSSIBILITAR A CLIMATIZAÇÃO COM EXECUÇÃO DE TODOS OS ITENS PERTENCENTES DESDE A DERIVAÇÃO DO RAMAL COELBA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
     "cnpj": "11.630.923/0001-43",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 13673467.7,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 566307854.75,
+    "obrasIds": [
+      "332ef2bb-b047-453d-834e-378652fd2d30",
+      "b4241703-06a0-41b2-8ffa-57a899733459",
+      "16ffb4f4-83eb-49bd-b2bd-24c18d5a2398",
+      "a655ee6e-1825-4eee-abc0-bef1d24635d6"
+    ]
   },
   "vigencia": {
-    "dataInicio": "11/06/2024",
-    "dataFimOriginal": "11/06/2025",
-    "dataTerminoAtualizado": "12/10/2026",
-    "prazoOriginal": "365",
-    "prazoAtualizado": "853"
+    "dataInicio": "2024-06-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-10-12T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8803",
-    "dataPublicacao": "12/06/2024"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-06-11T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 12355970.51,
@@ -36,38 +40,7 @@
     "valorAditivos": 1317497.19,
     "deltaPercentualAditivos": 10.66
   },
-  "aditivos": [
-    {
-      "nuAditivo": "1",
-      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
-      "dsObjetoAditivo": "ACRÉSCIMO DE VALOR NO PERCENTAL APROXIMADO DE 10,66% COM BASE NO ART. 65,I, a e b, DA LEI FEDERAL  8.666/93 E PRORROGAÇÃO DO PRAZO DE EXECUÇÃO E VIGÊNCIA DO CT. 298/2024 PELO PERÍODO DE 10(DEZ) MESES COM INÍCIO EM 12/06/2025 E TÉRMINO EM 12/04/2026.",
-      "dtAssinatura": "11/06/2025",
-      "dtTerminoVigencia": "12/04/2026",
-      "dtPublicacao": "13/06/2025",
-      "nuDom": "9050",
-      "vlAditivo": 1317497.19
-    },
-    {
-      "nuAditivo": "2",
-      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
-      "dsObjetoAditivo": "SERVIÇO DE ADEQUAÇÃO ELÉTRICA.",
-      "dtAssinatura": "01/05/2026",
-      "dtTerminoVigencia": "12/04/2027",
-      "dtPublicacao": "01/05/2026",
-      "nuDom": "0000",
-      "vlAditivo": 13673467.69
-    },
-    {
-      "nuAditivo": "3",
-      "dsTipoAlteracao": "Redução de prazo com redução de valor",
-      "dsObjetoAditivo": "adequação elétrica\r\nnecessária para possibilitar a climatização nas diversas unidades da Secretaria Municipal da\r\nEducação.",
-      "dtAssinatura": "01/05/2026",
-      "dtTerminoVigencia": "12/10/2026",
-      "dtPublicacao": "25/05/2026",
-      "nuDom": "25052026",
-      "vlAditivo": 13673467.69
-    }
-  ],
+  "aditivos": [],
   "dotacao": [
     {
       "subacao": "Infraestrutura Urbana Municipal",

@@ -2,36 +2,37 @@
   "id": "446f1b16-3e84-4072-9abd-2959509af291",
   "unidadeGestora": "SEMAN",
   "numeroContrato": "2023CT008265",
-  "numeroContratoOriginal": "119/2023",
-  "nuProcesso": "197162/2023",
+  "numeroContratoOriginal": "2023CT008265",
+  "nuProcesso": null,
   "objeto": "SERVIÇOS COMUNS DE ENGENHARIA PARA A PRODUÇÃO DE GRADIL COM DESENHO ARTÍSTICO EM ELEMENTOS METÁLICOS COM UM PORTÃO DE PEDESTRE E OUTRO PARA VEÍCULOS. INCLUSO INSUMOS, OS EQUIPAMENTOS E FERMENTARIAS.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
     "cnpj": "",
+    "razaoSocial": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 97500.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "446f1b16-3e84-4072-9abd-2959509af291"
+    ]
   },
   "vigencia": {
-    "dataInicio": "01/11/2023",
+    "dataInicio": "2023-11-01T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "28/04/2024",
+    "dataTerminoAtualizado": "2024-04-28T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2023-11-01T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 97500.0,
     "valorContratualVigente": 97500.0,
     "valorEmpenhado": 97500.0,
-    "valorLiquidado": 97500.0,
-    "valorPago": 97500.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,69 +45,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "07710034-77dd-4768-a2fe-b313fb7845e8",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "cdUnGestora": "567002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "notaEmpenho": "2023NE000796",
-      "dataEmpenho": "08/11/2023",
-      "nomeCredor": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
-      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "97.500,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "6b44527d-5f85-4b8b-b346-b27f3d85b556",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2023NE000796",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
-      "notaLiquidacao": "2023NL007100",
-      "notaLancamento": "2023NL007100",
-      "numProcesso": "02250892023",
-      "dataLiquidacao": "23/11/2023",
-      "valLiqLiquidacao": "97.500,00",
-      "valBrutLiquidacao": "97.500,00",
-      "valEmpenho": "97.500,00",
-      "descObsLiquidacao": "QUEIROZ OLIVEIRA COMERCIO INDUSTRIAL LTDA - SERVIÇO DE BENEFICIAMENTO GRADIL/COLUNAS - PRO",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "b3643e95-34e5-4ac9-b7df-f80deadc9fbf",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2023NE000796",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
-      "notaLiquidacao": "2023NL007100",
-      "ordBancaria": "2023OB074274",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
-      "valEmpenhado": "97.500,00",
-      "dataPagamento": "24/11/2023",
-      "pago": "97.500,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERDE",
@@ -121,5 +62,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

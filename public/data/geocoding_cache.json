@@ -82,7 +82,7 @@
   "616002_2026CT005734_4866122d8308759e": {
     "nivel": "Bairro",
     "bairro": "Arenoso",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
     "latitude": -12.948165,
     "longitude": -38.441257,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -98,7 +98,7 @@
   "616002_2026CT005291_c69de70aa65df207": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -122,7 +122,7 @@
   "616002_2026CT004908_2ebac145d402ec17": {
     "nivel": "Bairro",
     "bairro": "Paripe",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.835351,
     "longitude": -38.468212,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -130,7 +130,7 @@
   "616002_2026CT004856_ff64783c5d12d2b3": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -161,10 +161,10 @@
   },
   "616002_2026CT004325_29b7a20816a298a9": {
     "nivel": "Bairro",
-    "bairro": "Jaguaribe",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
+    "bairro": "Patamares",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9473,
+    "longitude": -38.403517,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
   },
   "616002_2026CT004316_e7d30b44f371fc84": {
@@ -178,7 +178,7 @@
   "616002_2026CT004227_99a22d22697458d2": {
     "nivel": "Bairro",
     "bairro": "Pernambués",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
     "latitude": -12.970924,
     "longitude": -38.464563,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -226,7 +226,7 @@
   "520002_2026CT005609_7da742cf73928876": {
     "nivel": "Bairro",
     "bairro": "Águas Claras",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
     "latitude": -12.890699,
     "longitude": -38.435616,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -282,7 +282,7 @@
   "616002_2026CT003890_3d49bf7cf9609020": {
     "nivel": "Bairro",
     "bairro": "Federação",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.99875,
     "longitude": -38.50501,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -418,7 +418,7 @@
   "450002_2026CT002605_2f4d268c71b217dd": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -746,7 +746,7 @@
   "616002_2025CT005355_e134ee9eeccbb537": {
     "nivel": "Bairro",
     "bairro": "Garcia",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.991747,
     "longitude": -38.513277,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -754,7 +754,7 @@
   "301110_2025CT004659_3f0637eb6a155d74": {
     "nivel": "Bairro",
     "bairro": "São Caetano",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Liberdade/São Caetano",
     "latitude": -12.933649,
     "longitude": -38.4795,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -842,7 +842,7 @@
   "616002_2025CT005028_8bae997d43133346": {
     "nivel": "Bairro",
     "bairro": "Paripe",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.835351,
     "longitude": -38.468212,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -858,7 +858,7 @@
   "616002_2025CT002882_22728a15010a3e2f": {
     "nivel": "Bairro",
     "bairro": "Paripe",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.835351,
     "longitude": -38.468212,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
@@ -889,10 +889,10 @@
   },
   "616002_2025CT000587_ef02a7e2b065a741": {
     "nivel": "Bairro",
-    "bairro": "Tancredo Neves",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
+    "bairro": "Beiru/Tancredo Neves",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.945674,
+    "longitude": -38.44836,
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
   },
   "567002_2025CT000527_268bcb9209507e5b": {
@@ -1033,19 +1033,19 @@
   },
   "616002_2024CT009064_8557d667f565d7ad": {
     "nivel": "Bairro",
-    "bairro": "Campo Grande",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Centro",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.985173,
+    "longitude": -38.51879,
+    "estagio": "Cache"
   },
   "520002_2024CT009053_1f0c1f419f34f5c1": {
     "nivel": "Bairro",
     "bairro": "Paripe",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.835351,
     "longitude": -38.468212,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "567002_2024CT009245_82413561466d6288": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1065,19 +1065,19 @@
   },
   "616002_2024CT008417_8557d667f565d7ad": {
     "nivel": "Bairro",
-    "bairro": "Campo Grande",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Centro",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.985173,
+    "longitude": -38.51879,
+    "estagio": "Cache"
   },
   "616002_2024CT008334_ba4be1b8f1d865ec": {
     "nivel": "Bairro",
-    "bairro": "Tancredo Neves",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Beiru/Tancredo Neves",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.945674,
+    "longitude": -38.44836,
+    "estagio": "Cache"
   },
   "567002_2024CT008404_722f59240fed6501": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1122,10 +1122,10 @@
   "616002_2024CT007773_6e4080f3636454b5": {
     "nivel": "Bairro",
     "bairro": "Itapuã",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.939631,
     "longitude": -38.358185,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "567002_2024CT007572_1e9b5d304e65de09": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1162,10 +1162,10 @@
   "520002_2024CT006680_7178cac8a9163346": {
     "nivel": "Bairro",
     "bairro": "Águas Claras",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
     "latitude": -12.890699,
     "longitude": -38.435616,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2024CT006616_4af696dac420bb69": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1178,10 +1178,10 @@
   "616002_2024CT006517_20e7e340ec814f18": {
     "nivel": "Bairro",
     "bairro": "Itapuã",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.939631,
     "longitude": -38.358185,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "610002_2024CT006494_1ec3386d4de665a0": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1218,10 +1218,10 @@
   "616002_2024CT005715_b25b9800e7488890": {
     "nivel": "Bairro",
     "bairro": "Centro",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.985173,
     "longitude": -38.51879,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2024CT004935_6e2f535ae584557a": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1322,10 +1322,10 @@
   "450002_2024CT005507_641d0702534dc9c9": {
     "nivel": "Bairro",
     "bairro": "Periperi",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.865263,
     "longitude": -38.468467,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "301110_2024CT003385_693ebf9876372dc5": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1377,11 +1377,11 @@
   },
   "616002_2024CT002733_e4cf63b51262c678": {
     "nivel": "Bairro",
-    "bairro": "Jaguaribe",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Patamares",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9473,
+    "longitude": -38.403517,
+    "estagio": "Cache"
   },
   "616002_2024CT002731_8bbbd07a77a3ef92": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1393,11 +1393,11 @@
   },
   "616002_2024CT002751_236119a956eeaf61": {
     "nivel": "Bairro",
-    "bairro": "Jaguaribe",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Patamares",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9473,
+    "longitude": -38.403517,
+    "estagio": "Cache"
   },
   "567002_2024CT002945_b227a478f6c3052f": {
     "nivel": "Regional (Prefeitura-Bairro)",
@@ -1578,18 +1578,18 @@
   "616002_2023CT009595_a7bdd2481d7e7ca0": {
     "nivel": "Bairro",
     "bairro": "Paripe",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.835351,
     "longitude": -38.468212,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT009404_7c0e5dea995b21ee": {
     "nivel": "Bairro",
     "bairro": "Brotas",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.985735,
     "longitude": -38.481645,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "536002_2023CT009309_643176287dbda89d": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1666,10 +1666,10 @@
   "301110_2023CT008965_95c8b61915c3d30f": {
     "nivel": "Bairro",
     "bairro": "Federação",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.99875,
     "longitude": -38.50501,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2023CT008819_fe58049279cf59cf": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1738,18 +1738,18 @@
   "616002_2023CT008196_29673ab2c05411e8": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2023CT008264_e5d1da2618805ee9": {
     "nivel": "Bairro",
     "bairro": "Nazaré",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.976919,
     "longitude": -38.50577,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2023CT008263_811cb31bd0af1817": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1786,18 +1786,18 @@
   "616002_2023CT007488_d2cf162bf13c8c14": {
     "nivel": "Bairro",
     "bairro": "Barris",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.986317,
     "longitude": -38.513577,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT007487_9ace720115c6be37": {
     "nivel": "Bairro",
     "bairro": "Rio Vermelho",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -13.009939,
     "longitude": -38.489939,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2023CT007484_bf5c061f568c1323": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1842,10 +1842,10 @@
   "616002_2023CT006773_aa84232abe6c3187": {
     "nivel": "Bairro",
     "bairro": "Bonfim",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cidade Baixa",
     "latitude": -12.927206,
     "longitude": -38.507667,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT006855_e25e7b35ee22e565": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1930,10 +1930,10 @@
   "616002_2023CT005103_0c417ef86225e9f5": {
     "nivel": "Bairro",
     "bairro": "Caminho das Árvores",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.982567,
     "longitude": -38.458986,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT005095_68c04299e945f5b2": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -1970,10 +1970,10 @@
   "616002_2023CT004548_0f65ba673cff5689": {
     "nivel": "Bairro",
     "bairro": "Caminho das Árvores",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.982567,
     "longitude": -38.458986,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2023CT004576_18e7cc14590a64ac": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2458,10 +2458,10 @@
   "301110_2016CT001386_6c5b7c9b58d916cd": {
     "nivel": "Bairro",
     "bairro": "Periperi",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.865263,
     "longitude": -38.468467,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "567002_2024CT006897_d1e6bbf53a9d7a0a": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2506,10 +2506,10 @@
   "450002_2024CT007728_60a6820ce4f503c0": {
     "nivel": "Bairro",
     "bairro": "Paripe",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.835351,
     "longitude": -38.468212,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "301110_2024CT004275_0aacff3d5716b66c": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2530,10 +2530,10 @@
   "616002_2024CT002145_8083afce831c3785": {
     "nivel": "Bairro",
     "bairro": "Plataforma",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.896157,
     "longitude": -38.482727,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "450002_2024CT000202_568c1492b0c67f1e": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2626,10 +2626,10 @@
   "616002_2023CT007759_29673ab2c05411e8": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "450002_2024CT002639_a2a4aa5f59168484": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2642,10 +2642,10 @@
   "450002_2024CT005497_44c0056e43aaa639": {
     "nivel": "Bairro",
     "bairro": "Narandiba",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
     "latitude": -12.959192,
     "longitude": -38.440945,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "450002_2024CT005498_d27524c733a1f0e8": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2674,18 +2674,18 @@
   "450002_2023CT009200_b748510a8225c128": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "450002_2024CT003702_68f11f3aab776095": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "610002_2023CT006515_8a73c0089c310be8": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2738,26 +2738,26 @@
   "616002_2023CT005109_298bc9cb2c3aa6f6": {
     "nivel": "Bairro",
     "bairro": "Federação",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.99875,
     "longitude": -38.50501,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT005096_0c417ef86225e9f5": {
     "nivel": "Bairro",
     "bairro": "Caminho das Árvores",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.982567,
     "longitude": -38.458986,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT001079_b8a733f73d5b7233": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "567002_2023CT005012_3a558874241931ba": {
     "nivel": "Regional (Prefeitura-Bairro)",
@@ -2858,10 +2858,10 @@
   "616002_2023CT002950_44894822838733bd": {
     "nivel": "Bairro",
     "bairro": "Imbuí",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.970029,
     "longitude": -38.436722,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT002947_bce823f309a7d268": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2873,27 +2873,27 @@
   },
   "540002_2023CT002761_d2dbc651fb182afa": {
     "nivel": "Bairro",
-    "bairro": "Praia do Flamengo",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Stella Maris",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.929128,
+    "longitude": -38.329038,
+    "estagio": "Cache"
   },
   "540002_2023CT002859_6e5d9dbf8d57c3a9": {
     "nivel": "Bairro",
-    "bairro": "Praia do Flamengo",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Stella Maris",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.929128,
+    "longitude": -38.329038,
+    "estagio": "Cache"
   },
   "540002_2023CT002951_6e5d9dbf8d57c3a9": {
     "nivel": "Bairro",
-    "bairro": "Praia do Flamengo",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Stella Maris",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.929128,
+    "longitude": -38.329038,
+    "estagio": "Cache"
   },
   "616002_2023CT002601_d0c73c06486d3e9c": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2914,10 +2914,10 @@
   "616002_2023CT002521_f5fd2c16cefc791b": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT002520_7fe1d59f231559ce": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2946,10 +2946,10 @@
   "616002_2023CT002288_3c34ae40e03ff54c": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "567002_2023CT002369_c7522e7c08770273": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2978,10 +2978,10 @@
   "616002_2023CT002171_9707ae3193052d64": {
     "nivel": "Bairro",
     "bairro": "Barris",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.986317,
     "longitude": -38.513577,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT002169_cf323d2aeb0361d3": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -2994,10 +2994,10 @@
   "616002_2023CT001794_c8d2f90e4895da76": {
     "nivel": "Bairro",
     "bairro": "São Cristóvão",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.910504,
     "longitude": -38.363597,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "520002_2023CT001373_649b53e3532f0d16": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3034,10 +3034,10 @@
   "616002_2023CT003672_b8a733f73d5b7233": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT001077_70e6e40985b4a780": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3058,10 +3058,10 @@
   "616002_2023CT003697_b8a733f73d5b7233": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT001078_926672507fea5b72": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3090,18 +3090,18 @@
   "616002_2023CT000430_da634254b08ebb00": {
     "nivel": "Bairro",
     "bairro": "São Cristóvão",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.910504,
     "longitude": -38.363597,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT000426_e54811dbb085ee58": {
     "nivel": "Bairro",
     "bairro": "Rio Vermelho",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -13.009939,
     "longitude": -38.489939,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT000427_772fe873bea6d361": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3114,18 +3114,18 @@
   "616002_2023CT000424_9649bdd92873b0e4": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2023CT000433_75112ada208a4f59": {
     "nivel": "Bairro",
     "bairro": "Engenho Velho de Brotas",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.988371,
     "longitude": -38.501321,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "530002_2022CT007355_40b305943aadf17a": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3138,10 +3138,10 @@
   "301110_2022CT007466_f57bdfeeab51ea0b": {
     "nivel": "Bairro",
     "bairro": "Brotas",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.985735,
     "longitude": -38.481645,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT007070_a84aea3ecf3e2b70": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3162,18 +3162,18 @@
   "616002_2022CT006925_8b51c07886db96bd": {
     "nivel": "Bairro",
     "bairro": "Stella Maris",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.929128,
     "longitude": -38.329038,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT006475_de1a4a32a42e98c1": {
     "nivel": "Bairro",
-    "bairro": "Tancredo Neves",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Beiru/Tancredo Neves",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.945674,
+    "longitude": -38.44836,
+    "estagio": "Cache"
   },
   "531010_2022CT006698_900799753986cbf7": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3186,18 +3186,18 @@
   "616002_2022CT006478_70f7594778b95faf": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT006473_18b8459982de1d87": {
     "nivel": "Bairro",
     "bairro": "Cosme de Farias",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.980673,
     "longitude": -38.489068,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT006474_b3afa43b83431b6c": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3210,26 +3210,26 @@
   "616002_2022CT006344_69055eefa4b54127": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT006276_fb62ba2df17d8e65": {
     "nivel": "Bairro",
     "bairro": "Nazaré",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.976919,
     "longitude": -38.50577,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT006197_6efbaec67b15cd3d": {
     "nivel": "Bairro",
     "bairro": "Caminho das Árvores",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.982567,
     "longitude": -38.458986,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT006196_0e828bfff5b749b4": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3250,10 +3250,10 @@
   "616002_2022CT005677_76f6e91dbf669046": {
     "nivel": "Bairro",
     "bairro": "Castelo Branco",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
     "latitude": -12.90416,
     "longitude": -38.432149,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT005543_ffcf9cc03f066e8d": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3281,11 +3281,11 @@
   },
   "616002_2022CT004779_c8b0820b771db3ad": {
     "nivel": "Bairro",
-    "bairro": "Tancredo Neves",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Beiru/Tancredo Neves",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.945674,
+    "longitude": -38.44836,
+    "estagio": "Cache"
   },
   "616002_2022CT003977_fdbe5ac3524d432a": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3306,18 +3306,18 @@
   "450002_2022CT005827_f9e741d4a995ffc9": {
     "nivel": "Bairro",
     "bairro": "Plataforma",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.896157,
     "longitude": -38.482727,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "450002_2022CT004793_b82bec9cb0f1c1eb": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT003580_61ce8bbfa0c4c31c": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3361,11 +3361,11 @@
   },
   "616002_2022CT003066_24eabd67dd4f3c9e": {
     "nivel": "Bairro",
-    "bairro": "Stiep",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "STIEP",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.981124,
+    "longitude": -38.447243,
+    "estagio": "Cache"
   },
   "567002_2022CT002880_58b8d4a8c8730458": {
     "nivel": "Regional (Prefeitura-Bairro)",
@@ -3410,34 +3410,34 @@
   "616002_2022CT002640_083c225121d3ab1f": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT002641_8d6c4478454d6b54": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT002639_083c225121d3ab1f": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT002634_8d6c4478454d6b54": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT002373_a08d87802969469e": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3458,10 +3458,10 @@
   "616002_2022CT002034_a4f1de40868fc2f2": {
     "nivel": "Bairro",
     "bairro": "Águas Claras",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
     "latitude": -12.890699,
     "longitude": -38.435616,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "301110_2022CT001916_15370b881869845b": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3474,18 +3474,18 @@
   "560002_2022CT001469_97f3a702db9eb62e": {
     "nivel": "Bairro",
     "bairro": "Federação",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.99875,
     "longitude": -38.50501,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2022CT001130_08482ad801bdcda5": {
     "nivel": "Bairro",
-    "bairro": "Tancredo Neves",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Beiru/Tancredo Neves",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.945674,
+    "longitude": -38.44836,
+    "estagio": "Cache"
   },
   "441010_2022CT000960_f03ad7eb0c480970": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3562,10 +3562,10 @@
   "441010_2021CT005391_b00409e0d688078f": {
     "nivel": "Bairro",
     "bairro": "Itapuã",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.939631,
     "longitude": -38.358185,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2021CT005430_93acf5b82847d6ad": {
     "nivel": "Regional (Prefeitura-Bairro)",
@@ -3578,10 +3578,10 @@
   "441010_2021CT005432_c1ecfdb66b9c3709": {
     "nivel": "Bairro",
     "bairro": "Itapuã",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.939631,
     "longitude": -38.358185,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2021CT005394_c330420e1a11f716": {
     "nivel": "Regional (Prefeitura-Bairro)",
@@ -3594,10 +3594,10 @@
   "441010_2021CT005431_e1f9d4fcc6df0bd7": {
     "nivel": "Bairro",
     "bairro": "São Caetano",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Liberdade/São Caetano",
     "latitude": -12.933649,
     "longitude": -38.4795,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2021CT005383_91e457f2ae58f359": {
     "nivel": "Regional (Prefeitura-Bairro)",
@@ -3610,10 +3610,10 @@
   "520002_2021CT005406_1f15af534a637bca": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2021CT005166_d5628c7fce7ef05d": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3890,18 +3890,18 @@
   "450002_2021CT001688_3389e3aa3955fbcc": {
     "nivel": "Bairro",
     "bairro": "Plataforma",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.896157,
     "longitude": -38.482727,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2021CT001664_13f57c4d0626112e": {
     "nivel": "Bairro",
     "bairro": "Periperi",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.865263,
     "longitude": -38.468467,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2021CT001337_736f264c3abee331": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3954,10 +3954,10 @@
   "540002_2021CT003034_f3aafd7fdb0e0d54": {
     "nivel": "Bairro",
     "bairro": "Bonfim",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cidade Baixa",
     "latitude": -12.927206,
     "longitude": -38.507667,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "270002_2021CT001158_d555514a8c7fce61": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -3986,18 +3986,18 @@
   "616002_2021CT000654_cdbf3d26dcd8dc29": {
     "nivel": "Bairro",
     "bairro": "Ondina",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -13.00631,
     "longitude": -38.509647,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2021CT000513_8d5e41505f7bafe8": {
     "nivel": "Bairro",
     "bairro": "Itapuã",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.939631,
     "longitude": -38.358185,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "270002_2021CT000699_8a8b900f394c236b": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4018,10 +4018,10 @@
   "301110_2021CT000146_c18456f940257352": {
     "nivel": "Bairro",
     "bairro": "São Marcos",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Pau da Lima",
     "latitude": -12.925931,
     "longitude": -38.437574,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "430002_2020CT007364_bf00dc4a2e46fcf1": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4050,10 +4050,10 @@
   "301110_2020CT006748_170b6b5f7c6a1c57": {
     "nivel": "Bairro",
     "bairro": "Periperi",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.865263,
     "longitude": -38.468467,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2020CT006667_23c62251cc767231": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4201,11 +4201,11 @@
   },
   "616002_2020CT005339_69b012159d17e81a": {
     "nivel": "Bairro",
-    "bairro": "Tancredo Neves",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Beiru/Tancredo Neves",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.945674,
+    "longitude": -38.44836,
+    "estagio": "Cache"
   },
   "270002_2020CT005522_d2d4adb0a84b08a0": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4266,10 +4266,10 @@
   "616002_2020CT005137_39a8bce4b5e60ea8": {
     "nivel": "Bairro",
     "bairro": "Caminho das Árvores",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.982567,
     "longitude": -38.458986,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "567002_2020CT005057_72e0f4b4b740b289": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4282,18 +4282,18 @@
   "616002_2020CT004930_7db605fb9d9ae4f5": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "301110_2020CT005202_ea5eb2d728d821fb": {
     "nivel": "Bairro",
     "bairro": "Rio Vermelho",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -13.009939,
     "longitude": -38.489939,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2020CT004958_c9aed547b27dbf98": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4322,10 +4322,10 @@
   "616002_2020CT004848_a7a0536cd1e839b1": {
     "nivel": "Bairro",
     "bairro": "São Cristóvão",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.910504,
     "longitude": -38.363597,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2020CT004433_d92d7c5e7e0d8112": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4354,10 +4354,10 @@
   "616002_2020CT004210_98fafa533393222d": {
     "nivel": "Bairro",
     "bairro": "Periperi",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.865263,
     "longitude": -38.468467,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2020CT004219_96fd936c65740070": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4385,11 +4385,11 @@
   },
   "616002_2020CT003969_4bc6e016a7a20167": {
     "nivel": "Bairro",
-    "bairro": "Tancredo Neves",
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "bairro": "Beiru/Tancredo Neves",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.945674,
+    "longitude": -38.44836,
+    "estagio": "Cache"
   },
   "616002_2020CT004212_84b86b42299320b6": {
     "nivel": "Regional (Prefeitura-Bairro)",
@@ -4442,10 +4442,10 @@
   "540002_2020CT003525_c3c1bb41ab9a7eec": {
     "nivel": "Bairro",
     "bairro": "Stella Maris",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.929128,
     "longitude": -38.329038,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "270002_2020CT003706_ca853ba1ba358ebe": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4490,10 +4490,10 @@
   "560002_2020CT003461_56f213e83299be4d": {
     "nivel": "Bairro",
     "bairro": "Paripe",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.835351,
     "longitude": -38.468212,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "560002_2020CT002990_c2d040fa0b4dce2d": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4530,10 +4530,10 @@
   "441010_2020CT001912_3d53fb85fb856a77": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2020CT001793_744a9cb1905308c4": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4546,10 +4546,10 @@
   "441010_2020CT001787_3d53fb85fb856a77": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2020CT001791_f911e11c79d89a97": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4666,10 +4666,10 @@
   "616002_2019CT008973_a7b5688e9106bfad": {
     "nivel": "Bairro",
     "bairro": "Periperi",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.865263,
     "longitude": -38.468467,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2019CT008760_71279af06176a8a4": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4682,10 +4682,10 @@
   "616002_2019CT008516_2ddc69dd690e3c20": {
     "nivel": "Bairro",
     "bairro": "Itapuã",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.939631,
     "longitude": -38.358185,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2019CT008330_b9203bfdb6fca351": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4698,10 +4698,10 @@
   "616002_2019CT008134_351448c27f247765": {
     "nivel": "Bairro",
     "bairro": "Comércio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9632,
     "longitude": -38.507445,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "540002_2019CT008040_f126c66e4b690fe3": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4714,18 +4714,18 @@
   "616002_2019CT007925_5885123509d805f9": {
     "nivel": "Bairro",
     "bairro": "São Caetano",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Liberdade/São Caetano",
     "latitude": -12.933649,
     "longitude": -38.4795,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2019CT007924_c855b4b5bf1f95a8": {
     "nivel": "Bairro",
     "bairro": "São Marcos",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Pau da Lima",
     "latitude": -12.925931,
     "longitude": -38.437574,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2019CT008043_553a168ba9cecd52": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4762,10 +4762,10 @@
   "616002_2019CT006786_12846cd8d9cc34d9": {
     "nivel": "Bairro",
     "bairro": "São Marcos",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Pau da Lima",
     "latitude": -12.925931,
     "longitude": -38.437574,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "600002_2019CT006571_a369c1e3a22aa28d": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4826,10 +4826,10 @@
   "616002_2019CT004902_6774438a6ae555c0": {
     "nivel": "Bairro",
     "bairro": "Bonfim",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Cidade Baixa",
     "latitude": -12.927206,
     "longitude": -38.507667,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2019CT004977_d5b7843264cccc7a": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -4978,10 +4978,10 @@
   "441010_2018CT007138_6da1f0c5c80e4317": {
     "nivel": "Bairro",
     "bairro": "Engenho Velho da Federação",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -13.000544,
     "longitude": -38.495976,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "270002_2018CT007135_e7b3498576066732": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -5002,10 +5002,10 @@
   "441010_2018CT006393_b225f14a951c3615": {
     "nivel": "Bairro",
     "bairro": "Plataforma",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.896157,
     "longitude": -38.482727,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "441010_2018CT006283_7062994371c0e5f2": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -5018,10 +5018,10 @@
   "616002_2018CT005548_a219c199803ddec5": {
     "nivel": "Bairro",
     "bairro": "Barbalho",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.964932,
     "longitude": -38.500043,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2018CT005192_b2ec1668bc55f553": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -5042,10 +5042,10 @@
   "616002_2018CT003834_45230b2cab15a56e": {
     "nivel": "Bairro",
     "bairro": "Itapuã",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.939631,
     "longitude": -38.358185,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "451010_2018CT003689_f67abf39692baf7f": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -5066,10 +5066,10 @@
   "616002_2018CT000094_b0ae7f9622620314": {
     "nivel": "Bairro",
     "bairro": "Ondina",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
     "latitude": -13.00631,
     "longitude": -38.509647,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "616002_2018CT001246_1ff462c94052f4ec": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -5130,10 +5130,10 @@
   "441010_2017CT005692_2be85c355689af50": {
     "nivel": "Bairro",
     "bairro": "Boca do Rio",
-    "prefeitura_bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
     "latitude": -12.975454,
     "longitude": -38.428853,
-    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+    "estagio": "Cache"
   },
   "270002_2017CT002187_e7b3498576066732": {
     "nivel": "Escopo Cidade (Não-Localizado)",
@@ -5142,5 +5142,13 @@
     "latitude": null,
     "longitude": null,
     "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "1501_015/2024_a800bd9b2e8537e4": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
   }
 }

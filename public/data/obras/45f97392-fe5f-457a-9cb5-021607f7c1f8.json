@@ -2,34 +2,33 @@
   "id": "45f97392-fe5f-457a-9cb5-021607f7c1f8",
   "unidadeGestora": "SEFAZ",
   "numeroContrato": "2021CT002911",
-  "numeroContratoOriginal": "020/2021",
-  "nuProcesso": "120689/2021",
+  "numeroContratoOriginal": "2021CT002911",
+  "nuProcesso": null,
   "objeto": "CONFECÇÃO DE PLANTAS COM MEMORIAL",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "LUZ & BARROS ENGENHARIA LTDA",
     "cnpj": "",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 480000.0,
-    "outrasObrasCount": 4,
-    "outrasObrasIds": [
+    "razaoSocial": "LUZ & BARROS ENGENHARIA LTDA",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 320000.0,
+    "obrasIds": [
       "be25188f-0280-4fd2-a6ff-1861d850d82b",
-      "c25f9ea4-651a-4833-a6c2-1d9cd82ae796",
+      "45f97392-fe5f-457a-9cb5-021607f7c1f8",
       "46b7fcfe-e37d-4ab5-a8d1-5fc1d9c06198",
       "c89916d4-9fbd-4e1a-91a9-6cc7ee0e5a3f"
     ]
   },
   "vigencia": {
-    "dataInicio": "09/07/2021",
+    "dataInicio": "2021-07-09T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "08/07/2022",
+    "dataTerminoAtualizado": "2022-07-08T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2021-07-09T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 100000.0,
@@ -44,89 +43,12 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SEFAZ",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "65411ba8-5712-4c03-a5c9-b56d6707edcc",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE000046",
-      "dataEmpenho": "03/01/2022",
-      "nomeCredor": "LUZ & BARROS ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "c6611d92-47ee-44aa-b3ad-7fe6090a39a7",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE000614",
-      "dataEmpenho": "09/07/2021",
-      "nomeCredor": "LUZ & BARROS ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "10.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "d20a28d7-98c4-457a-904d-a1a5aad4177c",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE001376",
-      "dataEmpenho": "23/12/2021",
-      "nomeCredor": "LUZ & BARROS ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-10.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "2885191b-8f4f-4f80-a07e-51b4623ebeaf",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE001432",
-      "dataEmpenho": "28/12/2022",
-      "nomeCredor": "LUZ & BARROS ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
@@ -143,5 +65,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

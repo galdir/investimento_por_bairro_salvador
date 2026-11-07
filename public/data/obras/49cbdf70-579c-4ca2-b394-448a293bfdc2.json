@@ -2,38 +2,38 @@
   "id": "49cbdf70-579c-4ca2-b394-448a293bfdc2",
   "unidadeGestora": "SEFAZ",
   "numeroContrato": "2017CT002187",
-  "numeroContratoOriginal": "000007/2017",
-  "nuProcesso": "052680/2016",
+  "numeroContratoOriginal": "2017CT002187",
+  "nuProcesso": null,
   "objeto": "SERVIÇOS DE AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "APICE ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "APICE ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 271600.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "b2f08048-65b4-43d1-8c0f-a8cc94afcea5"
+    "obrasIds": [
+      "b2f08048-65b4-43d1-8c0f-a8cc94afcea5",
+      "49cbdf70-579c-4ca2-b394-448a293bfdc2"
     ]
   },
   "vigencia": {
-    "dataInicio": "27/04/2017",
+    "dataInicio": "2017-04-27T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "27/04/2021",
+    "dataTerminoAtualizado": "2021-04-27T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2017-04-27T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 10000.0,
     "valorContratualVigente": 231600.0,
     "valorEmpenhado": 231600.0,
-    "valorLiquidado": 1200.0,
-    "valorPago": 1200.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 0.52,
     "valorAditivos": 221600.0,
     "deltaPercentualAditivos": 2216.0
@@ -41,54 +41,14 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Salvador Legal - Execução de Ações para Combater a Inadimplência e a Sonegação de Tributos",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
   "empenhos": [],
-  "liquidacoes": [
-    {
-      "id": "c5d33d2d-f7ec-4964-9a7a-c8490c484503",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "siglaOrgao": "SEFAZ",
-      "notaEmpenho": "2017NE000306",
-      "codUnGestora": "270002",
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "siglaUnGestora": "SEFAZ",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "notaLiquidacao": "2017NL005973",
-      "notaLancamento": "2017NL005973",
-      "numProcesso": "00535752017",
-      "dataLiquidacao": "09/11/2017",
-      "valLiqLiquidacao": "1.200,00",
-      "valBrutLiquidacao": "1.200,00",
-      "valEmpenho": "2.000,00",
-      "descObsLiquidacao": "PAGTº DA NF: 201700000000043 - REF. À SERVIÇOS DE AVALIAÇÃO DE IMÓVEIS URBANOS DO MUNICÍPIO DE SALVADOR-BA. MÊS10/2017.",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "b08e698c-efe7-4d36-86c5-fa970add7403",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "siglaOrgao": "SEFAZ",
-      "notaEmpenho": "2017NE000306",
-      "codUnGestora": "270002",
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "siglaUnGestora": "SEFAZ",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "notaLiquidacao": "2017NL005973",
-      "ordBancaria": "2017OB029222",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "2.000,00",
-      "dataPagamento": "09/11/2017",
-      "pago": "1.200,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERMELHO",
@@ -104,5 +64,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

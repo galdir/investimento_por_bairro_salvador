@@ -2,36 +2,37 @@
   "id": "0df4d160-dedc-4d83-a011-9a2526472ef3",
   "unidadeGestora": "SEMDEC",
   "numeroContrato": "2022CT003036",
-  "numeroContratoOriginal": "000010/2022",
-  "nuProcesso": "050323/2022",
+  "numeroContratoOriginal": "2022CT003036",
+  "nuProcesso": null,
   "objeto": "Elaboração de Projeto Arquitetônico de Interiores para Layout do SIMM/SAC Náutico",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "JOSUEL ALBUQUERQUE DOS SANTOS",
     "cnpj": "",
+    "razaoSocial": "JOSUEL ALBUQUERQUE DOS SANTOS",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 11668.78,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "0df4d160-dedc-4d83-a011-9a2526472ef3"
+    ]
   },
   "vigencia": {
-    "dataInicio": "25/05/2022",
+    "dataInicio": "2022-05-25T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "22/08/2022",
+    "dataTerminoAtualizado": "2022-08-22T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2022-05-25T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 11668.78,
     "valorContratualVigente": 11668.78,
-    "valorEmpenhado": 4240.48,
-    "valorLiquidado": 4240.48,
-    "valorPago": 4240.48,
+    "valorEmpenhado": 11668.78,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 36.34,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,69 +45,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "cf7f3cfb-4b77-4ec5-b37a-c43a0155896d",
-      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
-      "cdUnGestora": "590002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEMDEC - Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
-      "notaEmpenho": "2022NE000206",
-      "dataEmpenho": "03/06/2022",
-      "nomeCredor": "OCAN ARQUITETURA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "4.240,48",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "0b8e8271-bb87-41b5-b005-b908b28331c7",
-      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
-      "siglaOrgao": "SEMDEC",
-      "notaEmpenho": "2022NE000206",
-      "codUnGestora": "590002",
-      "descUnGestora": "UG SEMDEC - Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
-      "siglaUnGestora": "SEMDEC",
-      "nomeCredor": "OCAN ARQUITETURA LTDA",
-      "notaLiquidacao": "2022NL005664",
-      "notaLancamento": "2022NL005664",
-      "numProcesso": "01375012022",
-      "dataLiquidacao": "21/09/2022",
-      "valLiqLiquidacao": "4.240,48",
-      "valBrutLiquidacao": "4.240,48",
-      "valEmpenho": "4.240,48",
-      "descObsLiquidacao": "Pgto. PRESTAÇÃO DE SERVIÇOS DE PROJETO ARQUITETÔNICO DO SAC NÁUTICO - SEMDEC - ref. Ago/2022.\r\nProc: 137501/2022 NF: 0010 e NFTS: 706.",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "4dbe4143-95a5-4b01-9550-116df05a0b4b",
-      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
-      "siglaOrgao": "SEMDEC",
-      "notaEmpenho": "2022NE000206",
-      "codUnGestora": "590002",
-      "descUnGestora": "UG SEMDEC - Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
-      "siglaUnGestora": "SEMDEC",
-      "nomeCredor": "OCAN ARQUITETURA LTDA",
-      "notaLiquidacao": "2022NL005664",
-      "ordBancaria": "2022OB048668",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "4.240,48",
-      "dataPagamento": "22/09/2022",
-      "pago": "4.240,48",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERMELHO",
@@ -121,5 +62,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

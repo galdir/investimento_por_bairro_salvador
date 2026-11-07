@@ -2,31 +2,31 @@
   "id": "b2f08048-65b4-43d1-8c0f-a8cc94afcea5",
   "unidadeGestora": "SEFAZ",
   "numeroContrato": "2021CT005070",
-  "numeroContratoOriginal": "000040/2021",
-  "nuProcesso": "178714/2021",
+  "numeroContratoOriginal": "2021CT005070",
+  "nuProcesso": null,
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "APICE ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "APICE ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 271600.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
+    "obrasIds": [
+      "b2f08048-65b4-43d1-8c0f-a8cc94afcea5",
       "49cbdf70-579c-4ca2-b394-448a293bfdc2"
     ]
   },
   "vigencia": {
-    "dataInicio": "02/12/2021",
+    "dataInicio": "2021-12-02T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "02/12/2023",
+    "dataTerminoAtualizado": "2023-12-02T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2021-12-02T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 20000.0,
@@ -41,127 +41,12 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SEFAZ",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "4a18b4ff-d5b1-4916-b5d7-5413735a2952",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2023NE000048",
-      "dataEmpenho": "02/01/2023",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "5ce78e8b-ec35-4aa8-bf26-2587935999cf",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE000091",
-      "dataEmpenho": "03/01/2022",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "a6bbe768-5983-4020-883f-17ad6a1116d3",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE001175",
-      "dataEmpenho": "03/12/2021",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "1.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "b9bfbeb9-f65d-4bff-850e-3c57d6295bb0",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE001345",
-      "dataEmpenho": "23/12/2021",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-1.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "d016072a-daa3-4c74-b893-52219e2ceb7b",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE001418",
-      "dataEmpenho": "27/12/2022",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "07938b3d-e887-4abe-8645-d9d0ffde2be5",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2023NE001680",
-      "dataEmpenho": "28/12/2023",
-      "nomeCredor": "APICE ENGENHARIA LTDA",
-      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
@@ -179,5 +64,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

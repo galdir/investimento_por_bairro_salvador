@@ -2,29 +2,35 @@
   "id": "2d40fce7-4da8-4011-b3c3-722677550251",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2024CT002733",
-  "numeroContratoOriginal": "000003/2024",
-  "nuProcesso": "191105/2023",
+  "numeroContratoOriginal": "2024CT002733",
+  "nuProcesso": null,
   "objeto": "Execução das obras de Requalificação Urbana da Orla de Jaguaribe - Salvador/BA",
   "situacao": "Rescindido",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA BSM LTDA",
     "cnpj": "07.324.514/0001-41",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 30843557.31,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "razaoSocial": "CONSTRUTORA BSM LTDA",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 262408502.22,
+    "obrasIds": [
+      "08230d53-3467-48b9-8588-40f750fc524d",
+      "2d40fce7-4da8-4011-b3c3-722677550251",
+      "828c73a7-376c-40c3-a57a-4f7685639fb9",
+      "1ef40f5b-5c85-4495-9b08-7e614df5fff6",
+      "b2afceaa-ec2f-4eb7-86c6-cb018c25c831",
+      "03f895bc-2869-46f1-ba95-bf81f082f1c5"
+    ]
   },
   "vigencia": {
-    "dataInicio": "11/03/2024",
-    "dataFimOriginal": "05/03/2025",
-    "dataTerminoAtualizado": "05/03/2025",
-    "prazoOriginal": "359",
-    "prazoAtualizado": "359"
+    "dataInicio": "2024-03-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-03-05T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8737",
-    "dataPublicacao": "11/03/2024"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-03-11T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 30843557.31,
@@ -44,46 +50,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "3ff5b8d0-cf6b-45c1-b19c-6c7f62c190b0",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2024NE000294",
-      "dataEmpenho": "11/03/2024",
-      "nomeCredor": "CONSTRUTORA BSM LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-100.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "db617799-d7fe-4ee5-b908-d75fb3073466",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2024NE000293",
-      "dataEmpenho": "11/03/2024",
-      "nomeCredor": "CONSTRUTORA BSM LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "100.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Mobilidade, Pavimentação e Drenagem",
@@ -97,9 +64,9 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Jaguaribe",
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
+  "bairro": "Patamares",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.9473,
+  "longitude": -38.403517,
   "estagioAlocacao": "Cache"
 }

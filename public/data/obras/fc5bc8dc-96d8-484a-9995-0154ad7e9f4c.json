@@ -2,34 +2,33 @@
   "id": "fc5bc8dc-96d8-484a-9995-0154ad7e9f4c",
   "unidadeGestora": "SMED",
   "numeroContrato": "2020CT001787",
-  "numeroContratoOriginal": "000059/2019",
-  "nuProcesso": "002758/2019",
+  "numeroContratoOriginal": "2020CT001787",
+  "nuProcesso": null,
   "objeto": "PRESTAÇÃO DE SERVIÇOS TÉCNICOS DE ELABORAÇÃO DE PROJETOS BÁSICO E EXECUTIVO DE ARQUITETURA E ENGENHARIA, E EXECUÇÃO DA OBRA DE RECONSTRUÇÃO DO CMEI UNIÃO BOCA DO RIO.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA VOLQUE LTDA",
     "cnpj": "",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 32144731.56,
-    "outrasObrasCount": 4,
-    "outrasObrasIds": [
-      "9f393ccf-9966-4c20-920a-eb3ad210b3ac",
+    "razaoSocial": "CONSTRUTORA VOLQUE LTDA",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 20888372.41,
+    "obrasIds": [
       "ad447dbc-2f97-4217-9a58-9b9047675554",
       "bace807f-a61b-457a-9098-34c4d4a75d3f",
-      "12dc32d0-87e5-4d25-b789-4f2d59340972"
+      "12dc32d0-87e5-4d25-b789-4f2d59340972",
+      "fc5bc8dc-96d8-484a-9995-0154ad7e9f4c"
     ]
   },
   "vigencia": {
-    "dataInicio": "03/02/2020",
+    "dataInicio": "2020-02-03T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "04/04/2021",
+    "dataTerminoAtualizado": "2021-04-04T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2020-02-03T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 3419149.07,
@@ -44,51 +43,12 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Construção e Reconstrução de Centros Municipais de Educação Infantil",
-      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
-      "classificacao": "Obras e Instalações"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "406b6b01-92cd-4a61-b7c2-f8b38b6d1919",
-      "descOrgao": "Secretaria Municipal da Educação",
-      "cdUnGestora": "441010",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG FME - Fundo Municipal de Educação",
-      "notaEmpenho": "2020NE000781",
-      "dataEmpenho": "03/02/2020",
-      "nomeCredor": "CONSTRUTORA VOLQUE LTDA",
-      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Educacional",
-      "valEmpenhado": "100.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "0a73b5be-146d-427b-ba6c-d65b64d80fbc",
-      "descOrgao": "Secretaria Municipal da Educação",
-      "cdUnGestora": "441010",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG FME - Fundo Municipal de Educação",
-      "notaEmpenho": "2020NE000847",
-      "dataEmpenho": "03/02/2020",
-      "nomeCredor": "CONSTRUTORA VOLQUE LTDA",
-      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Educacional",
-      "valEmpenhado": "-100.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Educação e Escolas",
@@ -102,8 +62,8 @@
   },
   "nivel": "Bairro",
   "bairro": "Boca do Rio",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
-  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+  "estagioAlocacao": "Cache"
 }

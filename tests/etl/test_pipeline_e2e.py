@@ -233,3 +233,129 @@ def test_pipeline_cli_reuses_and_updates_incremental_geocoding_cache(
         assert second_run["cache_hits"] == len(SAMPLE_TRANSPARENCIA_GRID)
         assert (tmp_path / "obras" / "1001.json").exists()
 
+
+def test_pipeline_normalizes_raw_online_geosalvador_and_sidra_payloads_and_computes_semaforo_rollups(
+    tmp_path: Path,
+) -> None:
+    """Valida que o pipeline normaliza malhas brutas do GeoSalvador e demografia do SIDRA e calcula o semáforo nos rollups.
+
+    Sumário:
+        Injeta payloads brutos idênticos ao retorno de rede do ArcGIS (sem NM_BAIRRO/PREFEITURA_BAIRRO e com
+        prefixos romanos) e do SIDRA (com sufixo ' - Salvador - BA' e variável percentual), assegurando que o
+        pipeline normalize os 10 nomes de Prefeituras-Bairro, vincule os 171 bairros e preencha semáforos e vulnerabilidades.
+    """
+    from etl.runner import run_pipeline
+
+    ref_dir = Path("etl/reference")
+    with open(ref_dir / "geosalvador_bairros_real.geojson", "r", encoding="utf-8") as f:
+        raw_bairros_fresh = json.load(f)
+    with open(ref_dir / "geosalvador_prefeituras_real.geojson", "r", encoding="utf-8") as f:
+        raw_pbs_fresh = json.load(f)
+    with open(ref_dir / "ibge_censo_salvador.json", "r", encoding="utf-8") as f:
+        raw_censo_fresh = json.load(f)
+
+    import io
+
+    class MockHTTPResponse:
+        def __init__(self, data: bytes):
+            self._io = io.BytesIO(data)
+        def read(self, *args, **kwargs):
+            return self._io.read(*args, **kwargs)
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            pass
+
+    mock_resp = MockHTTPResponse(json.dumps(raw_censo_fresh).encode("utf-8"))
+
+    # Simula retorno online do GeoSalvador e SIDRA pela camada HTTP
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=raw_bairros_fresh),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=raw_pbs_fresh),
+        patch("urllib.request.urlopen", return_value=mock_resp),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value=SAMPLE_TRANSPARENCIA_TOTALIZADOR),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=SAMPLE_TRANSPARENCIA_GRID),
+    ):
+        result = run_pipeline(output_dir=tmp_path, year=2025)
+
+    assert result["success"] is True
+
+    index_file = tmp_path / "index_2025.json"
+    assert index_file.exists()
+    with open(index_file, "r", encoding="utf-8") as f:
+        index_data = json.load(f)
+
+    prefeituras = index_data.get("prefeituras_bairro", [])
+    bairros = index_data.get("bairros", [])
+    obras = index_data.get("obras", [])
+    kpis = index_data.get("kpis_globais", {})
+
+    # 1. 10 Prefeituras-Bairro canônicas sem prefixos romanos
+    expected_pbs = {
+        "Centro/Brotas",
+        "Subúrbio/Ilhas",
+        "Cajazeiras",
+        "Itapuã/Ipitanga",
+        "Cidade Baixa",
+        "Barra/Pituba",
+        "Liberdade/São Caetano",
+        "Cabula/Tancredo Neves",
+        "Pau da Lima",
+        "Valéria",
+    }
+    nomes_pbs = {pb["nome"] for pb in prefeituras}
+    assert nomes_pbs == expected_pbs, f"Divergência nas Prefeituras-Bairro: {nomes_pbs ^ expected_pbs}"
+
+    # 2. Todas as 10 Prefeituras-Bairro devem ter população > 0 coerente com seus bairros
+    pop_por_pb: dict[str, int] = {}
+    for b in bairros:
+        pb_nome = b.get("prefeitura_bairro")
+        assert pb_nome in expected_pbs, f"Bairro '{b.get('nome')}' tem prefeitura_bairro inválida: '{pb_nome}'"
+        pop_por_pb[pb_nome] = pop_por_pb.get(pb_nome, 0) + int(b.get("populacao", 0))
+
+    for pb in prefeituras:
+        assert pb["populacao_total"] > 0, f"Prefeitura '{pb['nome']}' tem populacao_total zerada."
+        assert pb["populacao_total"] == pop_por_pb[pb["nome"]]
+
+    # 3. Nenhum dos 171 bairros tem prefeitura_bairro vazia
+    assert len(bairros) == 171
+    for b in bairros:
+        assert b.get("prefeitura_bairro"), f"Bairro '{b.get('nome')}' está sem prefeitura_bairro."
+
+    # 4. Rollup de semáforo: obrasVerde + obrasAmarelo + obrasVermelho == totalObras em todos os territórios
+    for b in bairros:
+        soma_semaforo = b.get("obrasVerde", 0) + b.get("obrasAmarelo", 0) + b.get("obrasVermelho", 0)
+        assert soma_semaforo == b.get("totalObras", 0), f"Bairro '{b['nome']}' semáforos ({soma_semaforo}) != totalObras ({b.get('totalObras')})"
+
+    for pb in prefeituras:
+        soma_semaforo = pb.get("obrasVerde", 0) + pb.get("obrasAmarelo", 0) + pb.get("obrasVermelho", 0)
+        assert soma_semaforo == pb.get("totalObras", 0), f"Prefeitura '{pb['nome']}' semáforos ({soma_semaforo}) != totalObras ({pb.get('totalObras')})"
+
+    # 5. Índice de vulnerabilidade determinístico e diferenciado (> 10 valores distintos)
+    vulns = {b.get("indice_vulnerabilidade") for b in bairros}
+    assert len(vulns) > 10, f"Índices de vulnerabilidade colapsados: apenas {len(vulns)} valores distintos: {vulns}"
+
+    bairros_by_name = {b["nome"]: b for b in bairros}
+    assert bairros_by_name["Pituba"]["indice_vulnerabilidade"] == 0.12
+    assert bairros_by_name["Liberdade"]["indice_vulnerabilidade"] == 0.78
+    assert bairros_by_name["Cabula"]["indice_vulnerabilidade"] == 0.55
+    assert bairros_by_name["Aeroporto"]["indice_vulnerabilidade"] == 0.05
+    assert bairros_by_name["Porto Seco Pirajá"]["indice_vulnerabilidade"] == 0.20
+    cab_bairro = bairros_by_name.get("Centro Administrativo da Bahia - CAB") or bairros_by_name.get("Centro Administrativo da Bahia")
+    assert cab_bairro is not None
+    assert cab_bairro["indice_vulnerabilidade"] == 0.08
+
+    # 6. Obras de nível Bairro possuem latitude, longitude, bairro canônico e prefeitura_bairro
+    obras_bairro = [o for o in obras if o.get("nivel") == "Bairro"]
+    assert len(obras_bairro) > 0
+    for o in obras_bairro:
+        assert o.get("latitude") is not None, f"Obra {o.get('id')} de nível Bairro sem latitude."
+        assert o.get("longitude") is not None, f"Obra {o.get('id')} de nível Bairro sem longitude."
+        assert o.get("prefeitura_bairro") in expected_pbs, f"Obra {o.get('id')} com prefeitura_bairro inválida: {o.get('prefeitura_bairro')}"
+        assert o.get("bairro") in bairros_by_name, f"Obra {o.get('id')} com bairro não oficial: {o.get('bairro')}"
+
+    # 7. KPIs globais consistentes
+    assert kpis.get("valorTotal", 0.0) >= kpis.get("valorNaoLocalizado", 0.0)
+    assert 0 <= kpis.get("percentualNaoLocalizado", 0.0) <= 100
+
+

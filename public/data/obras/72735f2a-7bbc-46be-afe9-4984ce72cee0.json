@@ -2,31 +2,31 @@
   "id": "72735f2a-7bbc-46be-afe9-4984ce72cee0",
   "unidadeGestora": "SEDUR",
   "numeroContrato": "2023CT003986",
-  "numeroContratoOriginal": "06/2023",
-  "nuProcesso": "000551/2023",
+  "numeroContratoOriginal": "2023CT003986",
+  "nuProcesso": null,
   "objeto": "Contratagao de empresa para prestação de serviços técnicos para Elaboração de Projeto Executivo de Requalificação U rbanistica de trecho da Avenida Dom Joao VI, da Rua Odilon D6rea e trecho da Rua Teixeira Barros.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "PRADO VALLADARES ARQUITETOS LTDA",
     "cnpj": "",
+    "razaoSocial": "PRADO VALLADARES ARQUITETOS LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 1290184.84,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "82cece80-193e-41f9-9916-34a994b42f93"
+    "obrasIds": [
+      "82cece80-193e-41f9-9916-34a994b42f93",
+      "72735f2a-7bbc-46be-afe9-4984ce72cee0"
     ]
   },
   "vigencia": {
-    "dataInicio": "22/03/2023",
+    "dataInicio": "2023-03-22T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "17/10/2023",
+    "dataTerminoAtualizado": "2023-10-17T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2023-03-22T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 645092.42,
@@ -63,5 +63,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

@@ -15,43 +15,6 @@ from etl.domain.territorio import normalizar_nome
 _REF_DIR = Path(__file__).parent
 
 
-def _point_in_poly(x: float, y: float, poly: list[list[float]]) -> bool:
-    """Verifica se um ponto (x, y) está dentro de um anel poligonal simples."""
-    inside = False
-    n = len(poly)
-    if n < 3:
-        return False
-    p1x, p1y = poly[0]
-    for i in range(n + 1):
-        p2x, p2y = poly[i % n]
-        if y > min(p1y, p2y):
-            if y <= max(p1y, p2y):
-                if x <= max(p1x, p2x):
-                    if p1y != p2y:
-                        xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
-                    if p1x == p2x or x <= xinters:
-                        inside = not inside
-        p1x, p1y = p2x, p2y
-    return inside
-
-
-def _get_centroid(geom: dict[str, Any]) -> tuple[float, float]:
-    """Calcula centróide geométrico preliminar a partir das coordenadas do anel principal."""
-    gtype = geom.get("type")
-    coords: list[list[float]] = []
-    if gtype == "Polygon":
-        coords = geom.get("coordinates", [[]])[0]
-    elif gtype == "MultiPolygon":
-        multi = geom.get("coordinates", [[[]]])
-        if multi:
-            coords = max(multi, key=lambda p: len(p[0]) if p and len(p) > 0 else 0)[0]
-    if not coords:
-        return 0.0, 0.0
-    xs = [pt[0] for pt in coords]
-    ys = [pt[1] for pt in coords]
-    return sum(xs) / len(xs), sum(ys) / len(ys)
-
-
 def _carregar_catalogo_referencia() -> tuple[dict[str, Any], dict[str, Any], dict[str, dict[str, Any]]]:
     """Carrega as bases oficiais completas dos 170+ bairros, prefeituras-bairro e censo 2022."""
     bairros_path = _REF_DIR / "geosalvador_bairros_real.geojson"
@@ -65,91 +28,11 @@ def _carregar_catalogo_referencia() -> tuple[dict[str, Any], dict[str, Any], dic
     with open(censo_path, "r", encoding="utf-8") as f:
         censo_raw = json.load(f)
 
-    # 1. Mapeia polígonos das Prefeituras-Bairro e normaliza nomes canônicos
-    pb_polys: list[tuple[str, dict[str, Any]]] = []
-    for f in pbs_geo.get("features", []):
-        props = f.get("properties", {})
-        subclass = props.get("SUBCLASSES", "")
-        raw_name = subclass.replace("Prefeitura-bairro ", "").strip()
-        clean_name = re.sub(r"^[IVXLC]+\s*-\s*", "", raw_name).strip().replace(" / ", "/")
-        props["NM_PREFEITURA_BAIRRO"] = clean_name
-        props["CD_PREFEITURA_BAIRRO"] = props.get("OBJECTID", 0)
-        pb_polys.append((clean_name, f.get("geometry", {})))
+    from etl.domain.territorio import normalizar_e_vincular_malhas_geosalvador
+    from etl.sources.ibge_censo import normalizar_registros_censo_2022
 
-    # 2. Enriquece bairros oficiais com centróides e vínculo com Prefeitura-Bairro
-    for f in bairros_geo.get("features", []):
-        props = f.get("properties", {})
-        b_name = props.get("NOME_BAIRR", "")
-        props["NM_BAIRRO"] = b_name
-        props["CD_BAIRRO"] = props.get("OBJECTID", 0)
-
-        if b_name == "São João do Cabrito":
-            props["PREFEITURA_BAIRRO"] = "Subúrbio/Ilhas"
-        else:
-            cx, cy = _get_centroid(f.get("geometry", {}))
-            found_pb = None
-            for pb_name, geom in pb_polys:
-                gtype = geom.get("type")
-                if gtype == "Polygon":
-                    rings = geom.get("coordinates", [])
-                    if rings and _point_in_poly(cx, cy, rings[0]):
-                        found_pb = pb_name
-                        break
-                elif gtype == "MultiPolygon":
-                    for poly in geom.get("coordinates", []):
-                        if poly and _point_in_poly(cx, cy, poly[0]):
-                            found_pb = pb_name
-                            break
-                    if found_pb:
-                        break
-            if not found_pb:
-                raise ValueError(f"Bairro '{b_name}' não foi localizado dentro de nenhuma Prefeitura-Bairro oficial.")
-            props["PREFEITURA_BAIRRO"] = found_pb
-
-    # 3. Mapeia população residente e índices de vulnerabilidade do Censo 2022
-    censo_pop: dict[str, int] = {}
-    for item in censo_raw:
-        if item.get("D2C") == "93" or item.get("MN") == "Pessoas":
-            raw = item.get("D1N", "").replace(" - Salvador - BA", "").strip()
-            censo_pop[normalizar_nome(raw)] = int(item.get("V", 0))
-
-    aliases = {
-        normalizar_nome("Nordeste de Amaralina"): normalizar_nome("Nordeste do Amaralina"),
-        normalizar_nome("Centro Administrativo da Bahia"): normalizar_nome("Centro Administrativo da Bahia - CAB"),
-        normalizar_nome("Ilha dos Frades/Ilha de Santo Antônio"): normalizar_nome("Ilha dos Frades / Ilha de Santo Antônio"),
-        normalizar_nome("Ilha de Bom Jesus dos Passos"): normalizar_nome("Ilha Bom Jesus dos Passos"),
-        normalizar_nome("Beiru/Tancredo Neves"): normalizar_nome("Beiru / Tancredo Neves"),
-        normalizar_nome("Caixa D´Água"): normalizar_nome("Caixa D'água"),
-        normalizar_nome("Vila Ruy Barbosa\\Jardim Cruzeiro"): normalizar_nome("Vila Ruy Barbosa / Jardim Cruzeiro"),
-    }
-
-    demografia: dict[str, dict[str, Any]] = {}
-    for f in bairros_geo.get("features", []):
-        name = f.get("properties", {}).get("NOME_BAIRR", "")
-        norm = normalizar_nome(name)
-        target_norm = aliases.get(norm, norm)
-        pop = censo_pop.get(target_norm, 0)
-
-        # Vulnerabilidade socioeconômica de referência e calibração das Zonas Especiais
-        if norm == "AEROPORTO":
-            vuln = 0.05
-        elif norm == "PORTO SECO PIRAJA":
-            vuln = 0.20
-        elif "CENTRO ADMINISTRATIVO" in norm or norm == "CAB":
-            vuln = 0.08
-        elif norm == "PITUBA":
-            vuln = 0.12
-        elif norm == "LIBERDADE":
-            vuln = 0.78
-        elif norm == "CABULA":
-            vuln = 0.55
-        else:
-            vuln = 0.50
-
-        demografia[name] = {
-            "populacao": pop,
-            "indice_vulnerabilidade": vuln,
-        }
+    bairros_geo, pbs_geo = normalizar_e_vincular_malhas_geosalvador(bairros_geo, pbs_geo)
+    demografia = normalizar_registros_censo_2022(censo_raw)
 
     return bairros_geo, pbs_geo, demografia
 

@@ -2,36 +2,33 @@
   "id": "8f97d918-9081-4caa-abf1-aea50ee8ea26",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2022CT002634",
-  "numeroContratoOriginal": "014/2022",
-  "nuProcesso": "025037/2022",
+  "numeroContratoOriginal": "2022CT002634",
+  "nuProcesso": null,
   "objeto": "Objeto da presente licitação a contratação de empresa especializada para execução das obras de Recuperação Estrutural da Ponte do Antigo Clube do Bahia, Boca do Rio ¿ Salvador/BA",
   "situacao": "Rescindido",
   "empreiteira": {
-    "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
     "cnpj": "",
-    "totalObras": 7,
-    "totalObrasAtivas": 7,
-    "valorTotalContratado": 8127118.91,
-    "outrasObrasCount": 6,
-    "outrasObrasIds": [
-      "8a9c1053-18e7-426c-a4e8-6d10130d3df9",
+    "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 3397236.51,
+    "obrasIds": [
       "be7097dd-0708-4dff-b8e1-0821104fe262",
       "28c9ec5f-76f3-4c5d-8838-779b07883db1",
       "22fed42b-b2fc-43b8-8ba5-dcd0ade77a15",
-      "ab4776ce-4294-423b-a969-279a0abcb8d8",
-      "a2ab8302-0df2-4ab7-8b3b-224b3d84ee0a"
+      "8f97d918-9081-4caa-abf1-aea50ee8ea26"
     ]
   },
   "vigencia": {
-    "dataInicio": "19/05/2022",
+    "dataInicio": "2022-05-19T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "15/09/2022",
+    "dataTerminoAtualizado": "2022-09-15T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2022-05-19T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 654108.68,
@@ -66,8 +63,8 @@
   },
   "nivel": "Bairro",
   "bairro": "Boca do Rio",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
-  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+  "estagioAlocacao": "Cache"
 }

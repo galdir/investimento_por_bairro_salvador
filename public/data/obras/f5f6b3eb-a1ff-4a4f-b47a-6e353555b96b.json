@@ -2,36 +2,37 @@
   "id": "f5f6b3eb-a1ff-4a4f-b47a-6e353555b96b",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2024CT002145",
-  "numeroContratoOriginal": "001/2024",
-  "nuProcesso": "073240/2023",
+  "numeroContratoOriginal": "2024CT002145",
+  "nuProcesso": null,
   "objeto": "contratação de serviços de Engenharia Especializada que consista na realização de Testes de\r\nCarga, Análise Estrutural e Laudo Técnico de Tirante T10 da Plataforma de Acesso à Estação da Lapa,\r\nlocalizada no Município de Salvador/BA.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
     "cnpj": "",
+    "razaoSocial": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 73000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "f5f6b3eb-a1ff-4a4f-b47a-6e353555b96b"
+    ]
   },
   "vigencia": {
-    "dataInicio": "05/02/2024",
+    "dataInicio": "2024-02-05T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "04/04/2024",
+    "dataTerminoAtualizado": "2024-04-04T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2024-02-05T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 73000.0,
     "valorContratualVigente": 73000.0,
     "valorEmpenhado": 73000.0,
-    "valorLiquidado": 73000.0,
-    "valorPago": 73000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,88 +45,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "5e5e43f9-6800-4806-ad08-483d6f2b793c",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2024NE000195",
-      "dataEmpenho": "05/02/2024",
-      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "73.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "18a29481-ed66-4619-8111-b35b6c8aec3f",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2024NE000195",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
-      "notaLiquidacao": "2024NL007813",
-      "notaLancamento": "2024NL007813",
-      "numProcesso": "01202692024",
-      "dataLiquidacao": "12/06/2024",
-      "valLiqLiquidacao": "73.000,00",
-      "valBrutLiquidacao": "73.000,00",
-      "valEmpenho": "73.000,00",
-      "descObsLiquidacao": "SERVS. DE ENGª ESPECIAL., QUE CONSIST NA REALIZAÇÃO DE TESTE DE CARGA, ANALISE ESTRUT. E L",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "c4a26d4e-0c18-4ea4-8af8-0ed9881cf7e3",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2024NE000195",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2024OB041005",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "73.000,00",
-      "dataPagamento": "14/06/2024",
-      "pago": "3.650,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "95807fea-5d70-4745-938b-31edb5e4711d",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "siglaOrgao": "SEINFRA",
-      "notaEmpenho": "2024NE000195",
-      "codUnGestora": "616002",
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "siglaUnGestora": "SUCOP",
-      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
-      "notaLiquidacao": "2024NL007813",
-      "ordBancaria": "2024OB041003",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "73.000,00",
-      "dataPagamento": "14/06/2024",
-      "pago": "69.350,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERDE",
@@ -137,8 +59,8 @@
   },
   "nivel": "Bairro",
   "bairro": "Plataforma",
-  "prefeituraBairro": null,
+  "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.896157,
   "longitude": -38.482727,
-  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+  "estagioAlocacao": "Cache"
 }

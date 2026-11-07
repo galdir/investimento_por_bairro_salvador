@@ -17,10 +17,27 @@ import urllib.request
 
 from shapely.geometry import Point, shape
 
-from etl.domain.territorio import normalizar_nome
+from etl.domain.territorio import normalizar_nome, normalizar_nome_prefeitura_bairro
 
 # Diretório base dos dicionários de referência
 REF_DIR = Path(__file__).resolve().parent.parent / "reference"
+
+
+def reconciliar_bairro_canonico(
+    nome_candidato: str,
+    bairros_nomes: list[str],
+    sublocalidades_norm: dict[str, str],
+) -> Optional[str]:
+    """Reconcilia um topônimo contra a lista oficial de Bairros Oficiais ou sublocalidades."""
+    if not nome_candidato:
+        return None
+    b_norm = normalizar_nome(nome_candidato)
+    for nb in bairros_nomes:
+        if normalizar_nome(nb) == b_norm:
+            return nb
+    if b_norm in sublocalidades_norm:
+        return sublocalidades_norm[b_norm]
+    return None
 
 
 class GeocodingCache:
@@ -197,6 +214,89 @@ class GeocodingCache:
                 json.dump(self._entries, f, ensure_ascii=False, indent=2)
         except Exception:
             pass
+
+    def reconciliar_entradas(
+        self,
+        bairros_geojson: dict[str, Any],
+        bairros_centroides: dict[str, tuple[float, float]],
+    ) -> int:
+        """Higieniza todas as entradas gravadas no cache, reconciliando Bairros e hidratando coordenadas e PB.
+
+        Retornos:
+            Quantidade de entradas atualizadas e regravadas.
+        """
+        dicionario_sublocalidades = _carregar_json_referencia("sublocalidades.json") or {}
+        sublocalidades_norm = {normalizar_nome(k): v for k, v in dicionario_sublocalidades.items()}
+
+        bairro_para_pb: dict[str, str] = {}
+        for feat in bairros_geojson.get("features", []):
+            p = feat.get("properties", {})
+            nb = p.get("NM_BAIRRO") or p.get("nome") or ""
+            npb = p.get("PREFEITURA_BAIRRO") or p.get("prefeitura_bairro") or ""
+            if nb:
+                bairro_para_pb[nb] = normalizar_nome_prefeitura_bairro(npb)
+
+        bairros_nomes = list(bairro_para_pb.keys())
+        bairro_para_pb_norm = {normalizar_nome(k): v for k, v in bairro_para_pb.items()}
+        bairros_centroides_norm = {normalizar_nome(k): v for k, v in bairros_centroides.items()}
+
+        atualizadas = 0
+        for entry in self._entries.values():
+            if not isinstance(entry, dict):
+                continue
+            modificado = False
+            if entry.get("nivel") == "Bairro":
+                b_atual = entry.get("bairro") or ""
+                b_canonico = reconciliar_bairro_canonico(b_atual, bairros_nomes, sublocalidades_norm)
+                if b_canonico and entry.get("bairro") != b_canonico:
+                    entry["bairro"] = b_canonico
+                    modificado = True
+
+                b_chave = entry.get("bairro") or ""
+                pb_atual = entry.get("prefeitura_bairro")
+                pb_norm = normalizar_nome_prefeitura_bairro(str(pb_atual or ""))
+                if not pb_atual or pb_norm != pb_atual:
+                    pb_hid = bairro_para_pb.get(b_chave) or bairro_para_pb_norm.get(normalizar_nome(b_chave))
+                    if pb_hid and pb_hid != pb_atual:
+                        entry["prefeitura_bairro"] = pb_hid
+                        modificado = True
+
+                if entry.get("latitude") is None or entry.get("longitude") is None:
+                    coords = bairros_centroides.get(b_chave) or bairros_centroides_norm.get(normalizar_nome(b_chave))
+                    if coords:
+                        entry["latitude"] = coords[0]
+                        entry["longitude"] = coords[1]
+                        modificado = True
+
+            elif entry.get("nivel") == "Regional (Prefeitura-Bairro)":
+                pb_atual = entry.get("prefeitura_bairro")
+                if pb_atual:
+                    pb_norm = normalizar_nome_prefeitura_bairro(pb_atual)
+                    if pb_norm != pb_atual:
+                        entry["prefeitura_bairro"] = pb_norm
+                        modificado = True
+
+            elif entry.get("nivel") == "Pontual":
+                pb_atual = entry.get("prefeitura_bairro")
+                if pb_atual:
+                    pb_norm = normalizar_nome_prefeitura_bairro(pb_atual)
+                    if pb_norm != pb_atual:
+                        entry["prefeitura_bairro"] = pb_norm
+                        modificado = True
+                elif entry.get("bairro"):
+                    b_chave = entry["bairro"]
+                    pb_hid = bairro_para_pb.get(b_chave) or bairro_para_pb_norm.get(normalizar_nome(b_chave))
+                    if pb_hid:
+                        entry["prefeitura_bairro"] = pb_hid
+                        modificado = True
+
+            if modificado:
+                atualizadas += 1
+
+        if atualizadas > 0:
+            self.save()
+
+        return atualizadas
 
 
 def _carregar_json_referencia(nome_arquivo: str) -> Any:
@@ -588,20 +688,13 @@ def classificar_alocacao_territorial(
     nu_contrato = obra.get("nuContratoSigef") or obra.get("numeroContrato") or "S_N"
     ds_objeto = str(obra.get("dsObjeto") or obra.get("objeto") or "")
 
-    # 1. Verificação no Cache Incremental
-    if cache is not None:
-        cached = cache.get(cd_ug, nu_contrato, ds_objeto)
-        if cached:
-            resultado_cached = dict(cached)
-            resultado_cached["estagio"] = "Cache"
-            return resultado_cached
-
     objeto_norm = normalizar_nome(ds_objeto)
 
-    # 2. Carrega catálogos e dicionários locais
+    # 1. Carrega catálogos e dicionários locais para referência e hidratação
     equipamentos = _extrair_equipamentos_oficiais()
     dicionario_lotes = _carregar_json_referencia("lotes_regionais.json") or {}
     dicionario_sublocalidades = _carregar_json_referencia("sublocalidades.json") or {}
+    sublocalidades_norm = {normalizar_nome(k): v for k, v in dicionario_sublocalidades.items()}
 
     # Mapeamento auxiliar de bairros para suas respectivas Prefeituras-Bairro
     bairro_para_pb: dict[str, str] = {}
@@ -610,17 +703,94 @@ def classificar_alocacao_territorial(
         nb = p.get("NM_BAIRRO") or p.get("nome") or ""
         npb = p.get("PREFEITURA_BAIRRO") or p.get("prefeitura_bairro") or ""
         if nb:
-            bairro_para_pb[nb] = npb
+            bairro_para_pb[nb] = normalizar_nome_prefeitura_bairro(npb)
 
     bairros_nomes = list(bairro_para_pb.keys())
+    bairro_para_pb_norm = {normalizar_nome(k): v for k, v in bairro_para_pb.items()}
+    bairros_centroides_norm = {normalizar_nome(k): v for k, v in bairros_centroides.items()}
+
+    # 2. Verificação no Cache Incremental com Reconciliação e Hidratação de Bairro
+    if cache is not None:
+        cached = cache.get(cd_ug, nu_contrato, ds_objeto)
+        if cached:
+            resultado_cached = dict(cached)
+            modificado = False
+
+            # Se for nível Bairro, reconcilia contra os 171 Bairros Oficiais e hidrata coordenadas/PB
+            if resultado_cached.get("nivel") == "Bairro":
+                b_atual = resultado_cached.get("bairro") or ""
+                b_canonico = reconciliar_bairro_canonico(b_atual, bairros_nomes, sublocalidades_norm)
+                if b_canonico and resultado_cached.get("bairro") != b_canonico:
+                    resultado_cached["bairro"] = b_canonico
+                    modificado = True
+
+                b_chave = resultado_cached.get("bairro") or ""
+                pb_cached = resultado_cached.get("prefeitura_bairro")
+                pb_norm = normalizar_nome_prefeitura_bairro(str(pb_cached or ""))
+                if not pb_cached or pb_norm != pb_cached:
+                    pb_hidratada = (
+                        bairro_para_pb.get(b_chave)
+                        or bairro_para_pb_norm.get(normalizar_nome(b_chave))
+                    )
+                    if pb_hidratada and pb_hidratada != pb_cached:
+                        resultado_cached["prefeitura_bairro"] = pb_hidratada
+                        modificado = True
+
+                if resultado_cached.get("latitude") is None or resultado_cached.get("longitude") is None:
+                    coords = (
+                        bairros_centroides.get(b_chave)
+                        or bairros_centroides_norm.get(normalizar_nome(b_chave))
+                    )
+                    if coords:
+                        resultado_cached["latitude"] = coords[0]
+                        resultado_cached["longitude"] = coords[1]
+                        modificado = True
+
+            elif resultado_cached.get("nivel") == "Regional (Prefeitura-Bairro)":
+                pb_cached = resultado_cached.get("prefeitura_bairro")
+                if pb_cached:
+                    pb_norm = normalizar_nome_prefeitura_bairro(pb_cached)
+                    if pb_norm != pb_cached:
+                        resultado_cached["prefeitura_bairro"] = pb_norm
+                        modificado = True
+
+            elif resultado_cached.get("nivel") == "Pontual":
+                pb_cached = resultado_cached.get("prefeitura_bairro")
+                if pb_cached:
+                    pb_norm = normalizar_nome_prefeitura_bairro(pb_cached)
+                    if pb_norm != pb_cached:
+                        resultado_cached["prefeitura_bairro"] = pb_norm
+                        modificado = True
+                elif resultado_cached.get("bairro"):
+                    b_chave = resultado_cached["bairro"]
+                    pb_hidratada = (
+                        bairro_para_pb.get(b_chave)
+                        or bairro_para_pb_norm.get(normalizar_nome(b_chave))
+                    )
+                    if pb_hidratada:
+                        resultado_cached["prefeitura_bairro"] = pb_hidratada
+                        modificado = True
+
+            if modificado:
+                cache.set(cd_ug, nu_contrato, ds_objeto, resultado_cached)
+
+            resultado_cached["estagio"] = "Cache"
+            return resultado_cached
 
     # --- ESTÁGIO 1A: Equipamento Público Oficial (Escolas ou Saúde) ---
     eq_encontrado = _buscar_equipamento_no_objeto(objeto_norm, equipamentos)
     if eq_encontrado:
+        eq_bairro = eq_encontrado.get("bairro")
+        eq_pb = eq_encontrado.get("prefeitura_bairro")
+        if not eq_pb and eq_bairro:
+            eq_pb = bairro_para_pb.get(eq_bairro) or bairro_para_pb_norm.get(normalizar_nome(eq_bairro))
+        if eq_pb:
+            eq_pb = normalizar_nome_prefeitura_bairro(eq_pb)
+
         resultado = {
             "nivel": "Pontual",
-            "bairro": eq_encontrado.get("bairro"),
-            "prefeitura_bairro": eq_encontrado.get("prefeitura_bairro") or bairro_para_pb.get(eq_encontrado.get("bairro", "")),
+            "bairro": eq_bairro,
+            "prefeitura_bairro": eq_pb,
             "latitude": eq_encontrado.get("latitude"),
             "longitude": eq_encontrado.get("longitude"),
             "estagio": "Stage 1 (Equipamento Oficial)",
@@ -635,7 +805,7 @@ def classificar_alocacao_territorial(
         resultado = {
             "nivel": "Regional (Prefeitura-Bairro)",
             "bairro": None,
-            "prefeitura_bairro": pb_lote,
+            "prefeitura_bairro": normalizar_nome_prefeitura_bairro(pb_lote),
             "latitude": None,
             "longitude": None,
             "estagio": "Stage 1 (Lote Regional)",
@@ -651,14 +821,25 @@ def classificar_alocacao_territorial(
         dicionario_sublocalidades,
     )
     if bairro_detectado:
-        centroide = bairros_centroides.get(bairro_detectado)
+        b_canonico = reconciliar_bairro_canonico(bairro_detectado, bairros_nomes, sublocalidades_norm)
+        bairro_final = b_canonico or bairro_detectado
+
+        centroide = (
+            bairros_centroides.get(bairro_final)
+            or bairros_centroides_norm.get(normalizar_nome(bairro_final))
+        )
         lat = centroide[0] if centroide else None
         lon = centroide[1] if centroide else None
-        pb_bairro = bairro_para_pb.get(bairro_detectado)
+        pb_bairro = (
+            bairro_para_pb.get(bairro_final)
+            or bairro_para_pb_norm.get(normalizar_nome(bairro_final))
+        )
+        if pb_bairro:
+            pb_bairro = normalizar_nome_prefeitura_bairro(pb_bairro)
 
         resultado = {
             "nivel": "Bairro",
-            "bairro": bairro_detectado,
+            "bairro": bairro_final,
             "prefeitura_bairro": pb_bairro,
             "latitude": lat,
             "longitude": lon,

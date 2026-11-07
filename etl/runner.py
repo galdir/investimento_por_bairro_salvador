@@ -33,7 +33,9 @@ from etl.domain.tema import classificar_tema
 from etl.domain.territorio import (
     calcular_rollup_territorial,
     is_zona_especial_nao_residencial,
+    normalizar_e_vincular_malhas_geosalvador,
     normalizar_nome,
+    normalizar_nome_prefeitura_bairro,
     parse_float,
 )
 from etl.generator import (
@@ -96,9 +98,10 @@ def run_pipeline(
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
-    # 1. Extração das fontes de dados externas
+    # 1. Extração das fontes de dados externas e normalização das malhas
     raw_bairros = geosalvador.fetch_bairros_geojson()
     raw_prefeituras = geosalvador.fetch_prefeituras_geojson()
+    raw_bairros, raw_prefeituras = normalizar_e_vincular_malhas_geosalvador(raw_bairros, raw_prefeituras)
     demografia_map = ibge_censo.fetch_demografia_censo_2022()
     totalizador = transparencia.fetch_totalizador(year=year)
 
@@ -150,6 +153,12 @@ def run_pipeline(
                             item_copy["nmCredor"] = item_copy["credor"]
                         if "nuDocumentoCredor" not in item_copy and "cnpj" in item_copy:
                             item_copy["nuDocumentoCredor"] = item_copy["cnpj"]
+                        if item_copy.get("nivel") == "Bairro":
+                            pb_val = item_copy.get("prefeitura_bairro") or item_copy.get("prefeituraBairro")
+                            if pb_val:
+                                pb_clean = normalizar_nome_prefeitura_bairro(pb_val)
+                                item_copy["prefeitura_bairro"] = pb_clean
+                                item_copy["prefeituraBairro"] = pb_clean
                         reused_obras.append(item_copy)
                 raw_grid.extend(reused_obras)
         except Exception:
@@ -184,6 +193,7 @@ def run_pipeline(
     # 3. Funil de Alocação Territorial com Cache Incremental
     cache_path = Path(cache_file) if cache_file is not None else (output_path / "geocoding_cache.json")
     cache = GeocodingCache(cache_file_path=cache_path)
+    cache.reconciliar_entradas(raw_bairros, bairros_centroides)
     cache_hits = 0
 
     for obra in grid_obras:
@@ -249,6 +259,11 @@ def run_pipeline(
             "nome": nome,
             "populacao_total": pop_total,
         })
+
+    # Classificação de Tema e Semáforo da Obra antes do rollup territorial
+    for obra in grid_obras:
+        obra["tema"] = classificar_tema(obra)
+        obra["semaforo"] = classificar_semaforo(obra)
 
     # 6. Agregações e Rollup Territorial (Camada A)
     bairros_rollup, prefeituras_rollup, opacidade = calcular_rollup_territorial(

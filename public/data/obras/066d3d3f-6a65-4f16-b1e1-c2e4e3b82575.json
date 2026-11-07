@@ -2,32 +2,31 @@
   "id": "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575",
   "unidadeGestora": "SEFAZ",
   "numeroContrato": "2021CT001062",
-  "numeroContratoOriginal": "007/2021",
-  "nuProcesso": "030153/2020",
+  "numeroContratoOriginal": "2021CT001062",
+  "nuProcesso": null,
   "objeto": "Serviços de levantamento topográfico de imóveis nos Municípios de Salvador e Lauro de Freitas.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
     "cnpj": "",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 3814184.34,
-    "outrasObrasCount": 2,
-    "outrasObrasIds": [
+    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 240000.0,
+    "obrasIds": [
       "9b6c5b23-6cdb-492c-a35d-c5961d65ac87",
-      "4e9bc95f-31ff-47fb-ae8f-18644ca78f4f"
+      "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575"
     ]
   },
   "vigencia": {
-    "dataInicio": "24/02/2021",
+    "dataInicio": "2021-02-24T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "24/02/2022",
+    "dataTerminoAtualizado": "2022-02-24T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2021-02-24T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 120000.0,
@@ -42,89 +41,12 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SEFAZ",
-      "fonteRecurso": "Tesouro",
-      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "739ba808-fb1c-4e9a-a980-1baa891f2ca6",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE000308",
-      "dataEmpenho": "01/03/2021",
-      "nomeCredor": "OSOLEV CONSTRUTORA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "97b910c1-27cd-43c0-96e1-734b656680cb",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE000039",
-      "dataEmpenho": "03/01/2022",
-      "nomeCredor": "OSOLEV CONSTRUTORA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "4d2db4aa-4b3d-4c54-a0b5-c038a5edc88d",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2021NE001399",
-      "dataEmpenho": "23/12/2021",
-      "nomeCredor": "OSOLEV CONSTRUTORA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "c6fa715f-10e3-4997-9766-c1939fa0c99e",
-      "descOrgao": "Secretaria Municipal da Fazenda",
-      "cdUnGestora": "270002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
-      "notaEmpenho": "2022NE001429",
-      "dataEmpenho": "28/12/2022",
-      "nomeCredor": "OSOLEV CONSTRUTORA LTDA",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "-5.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
@@ -141,5 +63,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

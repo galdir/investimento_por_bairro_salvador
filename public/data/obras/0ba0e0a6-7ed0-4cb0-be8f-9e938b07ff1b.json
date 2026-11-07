@@ -2,22 +2,17 @@
   "id": "0ba0e0a6-7ed0-4cb0-be8f-9e938b07ff1b",
   "unidadeGestora": "SEDUR",
   "numeroContrato": "2019CT006571",
-  "numeroContratoOriginal": "000014/2019",
-  "nuProcesso": "054530/2018",
+  "numeroContratoOriginal": "2019CT006571",
+  "nuProcesso": null,
   "objeto": "G3 POLARIS - Contratação de empresa especializada para execução de obra, construção, recuperação e manutenção de passeios e pavimentos rígidos e semi-rígidos nos diversos logradouros do Município de Salvador-Ba, nas áreas correspondentes as respectivas Prefeituras de Bairro I, II, III, IV, V, VI, VII, VIII, IX e X, conforme Anexo I deste contrato.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "G3 POLARIS SERVICOS LTDA",
     "cnpj": "",
-    "totalObras": 15,
-    "totalObrasAtivas": 15,
-    "valorTotalContratado": 87418748.28,
-    "outrasObrasCount": 14,
-    "outrasObrasIds": [
-      "7bec087d-5c3a-4490-8061-861e7d4bedf3",
-      "2c928ca4-2fd4-49af-96d0-de6e00ee1dcf",
-      "75dd9a42-cc82-49c9-922e-3139a06486e5",
-      "b375a170-3b29-4915-84b4-b39a586f49ec",
+    "razaoSocial": "G3 POLARIS SERVICOS LTDA",
+    "totalObras": 11,
+    "totalObrasAtivas": 11,
+    "valorTotalContratado": 52128812.16,
+    "obrasIds": [
       "90fc8a72-ab21-4a8e-8f63-f4d2e5fde67e",
       "3426399c-5e93-4e81-8daf-4c4be63ff8c7",
       "164411b8-378f-4378-979a-cc3a2aa5a1e1",
@@ -27,19 +22,20 @@
       "d0046eef-f52b-4652-a397-dffdb0bd62ef",
       "13a4b700-8639-4525-a732-77b9d2bc480f",
       "7dfbadc0-ec22-42d4-8489-4e3cb116d14e",
+      "0ba0e0a6-7ed0-4cb0-be8f-9e938b07ff1b",
       "45016892-6cc4-473d-9e14-f37db4c7f76b"
     ]
   },
   "vigencia": {
-    "dataInicio": "02/09/2019",
+    "dataInicio": "2019-09-02T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "01/09/2021",
+    "dataTerminoAtualizado": "2021-09-01T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2019-09-02T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 2800000.0,
@@ -54,89 +50,12 @@
   "aditivos": [],
   "dotacao": [
     {
-      "subacao": "Requalificação de Calçadas Públicas",
-      "fonteRecurso": "Tesouro",
-      "classificacao": " Obras e Instalações"
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "03a73aac-eb3d-493f-aacd-72727a41f3f9",
-      "descOrgao": "Secretaria Municipal de Desenvolvimento e Urbanismo",
-      "cdUnGestora": "600002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEDUR - Secretaria Municipal de Desenvolvimento e Urbanismo",
-      "notaEmpenho": "2019NE000793",
-      "dataEmpenho": "05/09/2019",
-      "nomeCredor": "G3 POLARIS SERVICOS EIRELI",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": " Obras e Instalações",
-      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
-      "valEmpenhado": "200.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "4d24b373-e1cf-4810-aeca-13a2d152b0ab",
-      "descOrgao": "Secretaria Municipal de Desenvolvimento e Urbanismo",
-      "cdUnGestora": "600002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEDUR - Secretaria Municipal de Desenvolvimento e Urbanismo",
-      "notaEmpenho": "2019NE001237",
-      "dataEmpenho": "19/12/2019",
-      "nomeCredor": "G3 POLARIS SERVICOS EIRELI",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": " Obras e Instalações",
-      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
-      "valEmpenhado": "-200.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "2949eb9d-6ec1-4926-85f6-00a7379793ee",
-      "descOrgao": "Secretaria Municipal de Desenvolvimento e Urbanismo",
-      "cdUnGestora": "600002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEDUR - Secretaria Municipal de Desenvolvimento e  Urbanismo",
-      "notaEmpenho": "2020NE001123",
-      "dataEmpenho": "23/12/2020",
-      "nomeCredor": "G3 POLARIS SERVICOS EIRELI",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-400.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "5cbe0e33-7db9-48de-b56d-6322b7973498",
-      "descOrgao": "Secretaria Municipal de Desenvolvimento e Urbanismo",
-      "cdUnGestora": "600002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEDUR - Secretaria Municipal de Desenvolvimento e  Urbanismo",
-      "notaEmpenho": "2020NE000147",
-      "dataEmpenho": "30/01/2020",
-      "nomeCredor": "G3 POLARIS SERVICOS EIRELI",
-      "fonteRecurso": "Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "400.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
@@ -153,5 +72,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

@@ -2,32 +2,32 @@
   "id": "29268381-91ab-44f9-a771-06eb5cf509cb",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2022CT003515",
-  "numeroContratoOriginal": "005/2022",
-  "nuProcesso": "007915/2022",
+  "numeroContratoOriginal": "2022CT003515",
+  "nuProcesso": null,
   "objeto": "Proc. Licitatório nº 7915/22 (TP003) - Requalificação de Ruas - Rua Direta Éden do Vale - Mata Escura",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "A J CONSTRUTORA LTDA",
     "cnpj": "",
+    "razaoSocial": "A J CONSTRUTORA LTDA",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 7463869.35,
-    "outrasObrasCount": 2,
-    "outrasObrasIds": [
+    "obrasIds": [
+      "29268381-91ab-44f9-a771-06eb5cf509cb",
       "987c505c-4cf1-4b42-9abe-4a992948e8c1",
       "cc314c89-64c4-41fe-8645-197c25503b8f"
     ]
   },
   "vigencia": {
-    "dataInicio": "22/06/2022",
+    "dataInicio": "2022-06-22T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "19/10/2022",
+    "dataTerminoAtualizado": "2022-10-19T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2022-06-22T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 1014290.81,
@@ -47,65 +47,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "9d66be56-486a-47c7-b005-f74742ce16d2",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2022NE000728",
-      "dataEmpenho": "22/06/2022",
-      "nomeCredor": "A J CONSTRUTORA LTDA",
-      "fonteRecurso": "Transferências de Convênio - Outros",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "955.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "67c22eca-a400-40ee-9e65-25e1a4498828",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "RP8252496",
-      "dataEmpenho": "22/12/2023",
-      "nomeCredor": "A J CONSTRUTORA LTDA",
-      "fonteRecurso": "Outras Tranf de Convênios ou Instrumentos Congêneres da União - Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-955.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "36b8e2ab-a5ed-4444-816e-5683398df67a",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "RP8545971",
-      "dataEmpenho": "31/12/2023",
-      "nomeCredor": "A J CONSTRUTORA LTDA",
-      "fonteRecurso": "Outras Tranf de Convênios ou Instrumentos Congêneres da União - Tesouro",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "0,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Mobilidade, Pavimentação e Drenagem",
@@ -122,5 +64,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

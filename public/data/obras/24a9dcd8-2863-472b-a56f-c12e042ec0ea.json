@@ -2,24 +2,19 @@
   "id": "24a9dcd8-2863-472b-a56f-c12e042ec0ea",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2023CT006515",
-  "numeroContratoOriginal": "000008/2023",
-  "nuProcesso": "072901/2022",
+  "numeroContratoOriginal": "2023CT006515",
+  "nuProcesso": null,
   "objeto": "Execução das Obras de Melhorias Habitacionais e Ligações Intradomiciliares do Programa de Saneamento Ambiental e Urbanização da Bacia do Rio Mané Dendê.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "PEJOTA CONSTRUCOES LTDA",
     "cnpj": "",
-    "totalObras": 19,
-    "totalObrasAtivas": 19,
-    "valorTotalContratado": 956027056.42,
-    "outrasObrasCount": 18,
-    "outrasObrasIds": [
-      "39279a69-fc68-49a7-8ec4-60ed75f2b7ea",
-      "6d9aa89d-c5f6-40c1-84fd-78dbeca59a78",
-      "04fbd311-bbc4-4a83-b69f-50c47e2a6e36",
-      "8c28c73f-1693-4ef7-a403-26f269e2e261",
+    "razaoSocial": "PEJOTA CONSTRUCOES LTDA",
+    "totalObras": 13,
+    "totalObrasAtivas": 13,
+    "valorTotalContratado": 377331949.27,
+    "obrasIds": [
+      "24a9dcd8-2863-472b-a56f-c12e042ec0ea",
       "2a780e5b-f76c-47ea-8efc-41be2d799fc1",
-      "08160843-45f2-42a3-ba86-e0233c626d17",
       "5cd450c2-83f1-4863-9c79-10ebf821b7fc",
       "7766d790-e655-4952-a36c-d6bd3516013f",
       "a0d3cce7-4c8f-4149-b50e-52d6e7e892ad",
@@ -30,20 +25,19 @@
       "d07d45ff-9601-45ab-9c1c-3021d04f9362",
       "c557e7d8-2851-4eeb-b1f1-9da3d628bfca",
       "8694f2b7-a663-4c16-b561-851d0f022077",
-      "84412e14-522a-41ea-a184-4429660512e1",
-      "ac55a2c2-40f7-43ec-b427-9c1f79ec00f4"
+      "84412e14-522a-41ea-a184-4429660512e1"
     ]
   },
   "vigencia": {
-    "dataInicio": "22/08/2023",
+    "dataInicio": "2023-08-22T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "22/08/2024",
+    "dataTerminoAtualizado": "2024-08-22T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2023-08-22T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 8255291.14,
@@ -63,46 +57,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "edc59e32-7ab5-4f11-acd9-1854148b9654",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "610002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEINFRA - Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "notaEmpenho": "2023NE001974",
-      "dataEmpenho": "13/12/2023",
-      "nomeCredor": "PJ CONSTRUCOES E TERRAPLANAGEM LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção de Apartamentos e Casas p/ Habitação Popular",
-      "valEmpenhado": "-250.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "87051fe4-ee68-423d-86f1-a78e2c86cdd8",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "610002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SEINFRA - Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "notaEmpenho": "2023NE001211",
-      "dataEmpenho": "30/08/2023",
-      "nomeCredor": "PJ CONSTRUCOES E TERRAPLANAGEM LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção de Apartamentos e Casas p/ Habitação Popular",
-      "valEmpenhado": "250.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
@@ -119,5 +74,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }

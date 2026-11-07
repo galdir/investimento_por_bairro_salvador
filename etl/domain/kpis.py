@@ -78,11 +78,27 @@ def calcular_kpis_globais(
     )
 
     # Se o totalizador não trouxe valor financeiro, soma a partir das obras detalhadas
-    if valor_total == 0.0 and obras_detalhadas:
-        valor_total = sum(parse_float(obra.get("vlAtualizado") or obra.get("vlOriginal") or 0.0) for obra in obras_detalhadas)
+    soma_obras = sum(
+        parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
+        for obra in obras_detalhadas
+    )
+    count_obras = len(obras_detalhadas)
+    is_plurianual = soma_obras > valor_total
 
-    # Contabiliza obras ativas (situação diferente de Concluída, Cancelada ou Rescindida)
-    situacoes_inativas = {"CONCLUÍDA", "CONCLUIDA", "CANCELADA", "RESCINDIDA"}
+    if valor_total == 0.0 and obras_detalhadas:
+        valor_total = round(soma_obras, 2)
+    elif is_plurianual:
+        # Quando a carteira plurianual consolidada supera o snapshot anual do totalizador, adota a soma real da carteira
+        valor_total = round(soma_obras, 2)
+        total_obras = max(total_obras, count_obras)
+
+    # Contabiliza obras ativas (situação diferente de Concluída, Cancelada, Rescindida ou Paralisada)
+    situacoes_inativas = {
+        "CONCLUÍDA", "CONCLUIDA", "CONCLUÍDO", "CONCLUIDO",
+        "CANCELADA", "CANCELADO",
+        "RESCINDIDA", "RESCINDIDO",
+        "PARALISADA", "PARALISADO",
+    }
     obras_ativas_count = 0
     obras_criticas_count = 0
     total_aditivos_reais = 0.0
@@ -111,8 +127,10 @@ def calcular_kpis_globais(
             delta_perc = ((vl_atua - vl_orig) / vl_orig) * 100.0
             deltas_percentuais.append(delta_perc)
 
-    # Se a lista de obras for menor que o total geral, usa ao menos a contagem observada
-    if obras_ativas_count == 0 and total_obras > 0:
+    total_ativas_transp = totalizador_transparencia.get("totalAtivas")
+    if total_ativas_transp is not None and not is_plurianual:
+        obras_ativas_count = int(total_ativas_transp)
+    elif obras_ativas_count == 0 and total_obras > 0:
         obras_ativas_count = total_obras
 
     percentual_criticas = 0.0
@@ -137,7 +155,10 @@ def calcular_kpis_globais(
     if indicador_opacidade:
         total_nao_localizado = int(indicador_opacidade.get("totalNaoLocalizado", 0))
         valor_nao_localizado = float(indicador_opacidade.get("valorNaoLocalizado", 0.0))
-        percentual_nao_localizado = float(indicador_opacidade.get("percentualNaoLocalizado", 0.0))
+        if valor_total > 0:
+            percentual_nao_localizado = round((valor_nao_localizado / valor_total) * 100.0, 1)
+        else:
+            percentual_nao_localizado = float(indicador_opacidade.get("percentualNaoLocalizado", 0.0))
 
     return {
         "totalObras": total_obras,

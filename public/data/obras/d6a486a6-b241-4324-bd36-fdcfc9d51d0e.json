@@ -2,36 +2,37 @@
   "id": "d6a486a6-b241-4324-bd36-fdcfc9d51d0e",
   "unidadeGestora": "SMS",
   "numeroContrato": "2024CT004275",
-  "numeroContratoOriginal": "020/2024",
-  "nuProcesso": "135542/2023",
+  "numeroContratoOriginal": "2024CT004275",
+  "nuProcesso": null,
   "objeto": "reforma da Unidade de Saúde da Família Fazenda Coutos II ¿ USF Fazenda Coutos II ¿ situada na Rua Cristóvão Barreto, s/n, Quadra 32, Bairro de Fazenda Coutos II, Distrito Sanitário Subúrbio Ferroviário, nesta Cidade do Salvador-BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "REIS LAGO CONSTRUTORA LTDA",
     "cnpj": "",
+    "razaoSocial": "REIS LAGO CONSTRUTORA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 268103.46,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "d6a486a6-b241-4324-bd36-fdcfc9d51d0e"
+    ]
   },
   "vigencia": {
-    "dataInicio": "04/03/2024",
+    "dataInicio": "2024-03-04T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "31/07/2024",
+    "dataTerminoAtualizado": "2024-07-31T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2024-03-04T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 268103.46,
     "valorContratualVigente": 268103.46,
-    "valorEmpenhado": 19907.190000000002,
-    "valorLiquidado": 19210.44,
-    "valorPago": 19907.190000000002,
+    "valorEmpenhado": 268103.46,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 7.17,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,126 +45,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "8d89a7e7-caa8-4086-aed7-3157e622481f",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "cdUnGestora": "301110",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "notaEmpenho": "2024NE007577",
-      "dataEmpenho": "03/05/2024",
-      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
-      "fonteRecurso": "Transfer. de Recursos SUS do Gov Fed - Bloco de Custeio - PAB Fixo",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
-      "valEmpenhado": "100.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "97336e20-6e5b-4ee6-a439-cc2ddbfb85e6",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "cdUnGestora": "301110",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "notaEmpenho": "2024NE014518",
-      "dataEmpenho": "21/08/2024",
-      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
-      "fonteRecurso": "Transfer. de Recursos SUS do Gov Fed - Bloco de Custeio - PAB Fixo",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
-      "valEmpenhado": "-80.092,81",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "098ac035-548b-4a53-8ced-0042bd99e836",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2024NE007577",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
-      "notaLiquidacao": "2024NL091988",
-      "notaLancamento": "2024NL091988",
-      "numProcesso": "01452242024",
-      "dataLiquidacao": "23/07/2024",
-      "valLiqLiquidacao": "19.210,44",
-      "valBrutLiquidacao": "19.907,19",
-      "valEmpenho": "100.000,00",
-      "descObsLiquidacao": "03/2024#00020/2024#0145224/2024#NFE 22 - 1ª MEDIÇÃO - REFORMA DA UNIDADE USF FAZENDA COUTO",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "5c4ef55b-e585-4499-b025-8e8a2d2f7d2d",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2024NE007577",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
-      "notaLiquidacao": "2024NL091988",
-      "ordBancaria": "2024OB051736",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "100.000,00",
-      "dataPagamento": "26/07/2024",
-      "pago": "18.438,04",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "b5986cc1-7920-49e9-9eca-09c4d62ee9ee",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2024NE007577",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2024OB051736",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "100.000,00",
-      "dataPagamento": "26/07/2024",
-      "pago": "772,40",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "704c7c41-5ea6-4acf-869a-6c980c77e393",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2024NE007577",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2024OB058578",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "100.000,00",
-      "dataPagamento": "20/08/2024",
-      "pago": "696,75",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Saúde",
   "semaforo": {
     "status": "VERMELHO",
@@ -178,5 +62,5 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+  "estagioAlocacao": "Cache"
 }
