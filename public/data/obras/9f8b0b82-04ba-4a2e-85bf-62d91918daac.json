@@ -1,0 +1,96 @@
+{
+  "id": "9f8b0b82-04ba-4a2e-85bf-62d91918daac",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT004227",
+  "numeroContratoOriginal": "0182024",
+  "nuProcesso": "0818032024",
+  "objeto": "Execução da obra de implantação de Via de Ligação da AV. Luís Eduardo Magalhães com a Rua Saturno, no Bairro de Pernambués - Salvador/BA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+    "cnpj": "",
+    "totalObras": 11,
+    "totalObrasAtivas": 11,
+    "valorTotalContratado": 788383859.89,
+    "outrasObrasCount": 10,
+    "outrasObrasIds": [
+      "332ef2bb-b047-453d-834e-378652fd2d30",
+      "b4241703-06a0-41b2-8ffa-57a899733459",
+      "16ffb4f4-83eb-49bd-b2bd-24c18d5a2398",
+      "0045f4fa-23bb-4b9f-8291-fbf99d4c81f4",
+      "f416db4d-19d2-4228-bfca-87aa74167bb3",
+      "a655ee6e-1825-4eee-abc0-bef1d24635d6",
+      "10e3bc41-5b34-40fd-9b19-765ebe3fe54b",
+      "0ae88bfe-920c-41d5-93ed-15f3a3074565",
+      "9907044d-9227-43a6-9ce3-c0519e3fac0a",
+      "4b1520f8-f1ff-4886-98b7-46eb97112db4"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "10/07/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "29/02/2028",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 12740679.25,
+    "valorContratualVigente": 12740679.25,
+    "valorEmpenhado": 50000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "c995be17-fcbb-47fe-919b-1f5de4cb33b9",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE000846",
+      "dataEmpenho": "10/07/2026",
+      "nomeCredor": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Ampliação e Recuperação de Ruas e Vias de Acesso",
+      "valEmpenhado": "50.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Pernambués",
+  "prefeituraBairro": null,
+  "latitude": -12.970924,
+  "longitude": -38.464563,
+  "estagioAlocacao": "Cache"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "83930d7b-7856-4307-9710-ff3734f96a5d",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2024CT006680",
+  "numeroContratoOriginal": "43/2024",
+  "nuProcesso": "041796/2024",
+  "objeto": "Realização de obras de requalificação e modernização do QUADRA POLIESPORTIVA da Rua Lourival Costa com a Rua\r\nJoinville, Águas Claras - Salvador/Ba e do CAMPO DE FUTEBOL. Convênio n° 911864/2021. Proc: 41796/2024.\r\nDeclaramos para os devidos fins legais que a referida despesa possui adequação orçamentária e financeira com a LOA e\r\ncompatibilidade com a LDO e PPA",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "R.N ENGENHARIA LTDA",
+    "cnpj": "26.757.074/0001-60",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 223374.6,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "09/07/2024",
+    "dataFimOriginal": "09/07/2025",
+    "dataTerminoAtualizado": "09/07/2025",
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
+  },
+  "dom": {
+    "nuDom": "8820",
+    "dataPublicacao": "15/07/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 223374.6,
+    "valorContratualVigente": 223374.6,
+    "valorEmpenhado": 223374.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a013aa38-7b74-46bf-afdf-ea10aebc3106",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2024NE002198",
+      "dataEmpenho": "15/07/2024",
+      "nomeCredor": "R.N ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Confecção de uniformes, bandeiras e flamulas",
+      "valEmpenhado": "3.148,23",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "8271085a-b403-4e90-a5bb-c682226fce4c",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2024NE003188",
+      "dataEmpenho": "18/11/2024",
+      "nomeCredor": "R.N ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Confecção de uniformes, bandeiras e flamulas",
+      "valEmpenhado": "-3.148,23",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 09/07/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Águas Claras",
+  "prefeituraBairro": null,
+  "latitude": -12.890699,
+  "longitude": -38.435616,
+  "estagioAlocacao": "Cache"
+}

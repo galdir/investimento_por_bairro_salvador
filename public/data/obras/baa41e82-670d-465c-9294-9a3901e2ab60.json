@@ -1,0 +1,168 @@
+{
+  "id": "baa41e82-670d-465c-9294-9a3901e2ab60",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2026CT003687",
+  "numeroContratoOriginal": "462026",
+  "nuProcesso": "0883162026",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA PINTURA ELETROSTÁTICA PARA DIVERSOS \r\nPRÉ-FABRICADOS METÁLICOS DA DESAL, INCLUINDO OS INSUMOS, EQUIPAMENTOS E FERRAMENTAS NECESSÁRIAS.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ZIOBER BRASIL LTDA",
+    "cnpj": "",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 478094.0,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "1883b4b1-1c35-4df0-942d-e9a0ee9f996b",
+      "d1d675c1-a507-446e-8fb5-d33b187bcc4b",
+      "8a9ff472-4d34-4d01-ad33-90f36dabde3d",
+      "190b2e6b-8e21-47ef-b4f4-a1fc4f26ebd6"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "09/06/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "06/09/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 91675.0,
+    "valorContratualVigente": 91675.0,
+    "valorEmpenhado": 91675.0,
+    "valorLiquidado": 87641.3,
+    "valorPago": 91675.0,
+    "percentualExecutado": 95.6,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "16642fc3-3c84-4aa2-b4f7-359a5b30e742",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2026NE000699",
+      "dataEmpenho": "09/06/2026",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "91.675,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "f8251f7a-0503-415f-ad8d-f85a47880933",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000699",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": "2026NL004205",
+      "notaLancamento": "2026NL004205",
+      "numProcesso": "01274882026",
+      "dataLiquidacao": "10/06/2026",
+      "valLiqLiquidacao": "87.641,30",
+      "valBrutLiquidacao": "91.675,00",
+      "valEmpenho": "91.675,00",
+      "descObsLiquidacao": "ZIOBER - PINTURA ELETROESTATICA PARA DIVERSOS APARELHOS PRÉ-FABRICADOS - PROC 127488/2026 ",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "76cf96d3-c0d5-4376-99a8-d7177579fa44",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000699",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": "2026NL004205",
+      "ordBancaria": "2026OB033754",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "91.675,00",
+      "dataPagamento": "11/06/2026",
+      "pago": "83.057,55",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6397cb12-c168-4ff7-aabe-0566bb88bfde",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000699",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB033759",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "91.675,00",
+      "dataPagamento": "11/06/2026",
+      "pago": "4.583,75",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8454f619-bd59-4e46-bb09-8ee909bb961a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000699",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB041523",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "91.675,00",
+      "dataPagamento": "17/07/2026",
+      "pago": "4.033,70",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 06/09/2026 com execução física incompleta (95.6%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

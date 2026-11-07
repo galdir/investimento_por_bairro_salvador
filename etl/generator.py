@@ -13,6 +13,7 @@ from etl.domain.empreiteiras import formatar_cnpj
 from etl.domain.mandato import (
     MANDATOS_MUNICIPAIS,
     classificar_mandatos_obra,
+    extrair_ano_data,
     resolver_datas_vigencia,
 )
 from etl.domain.semaforo import classificar_semaforo
@@ -220,13 +221,17 @@ def generate_index_json(
         tema = classificar_tema(o)
         semaforo = o.get("semaforo") or classificar_semaforo(o)
 
+        # Mandatos Municipais e vigência
+        mandatos_obra = o.get("mandatos") or classificar_mandatos_obra(o)
+        dt_inicio, dt_fim = resolver_datas_vigencia(o)
+
         # Extração de ano da obra
-        ano_obra = year
-        if o.get("dtInicioVigencia"):
-            try:
-                ano_obra = int(str(o["dtInicioVigencia"])[:4])
-            except Exception:
-                pass
+        ano_obra = (
+            extrair_ano_data(dt_inicio)
+            or extrair_ano_data(o.get("dtInicioVigencia"))
+            or extrair_ano_data(o.get("ano"))
+            or year
+        )
 
         # Atributos de alocação territorial
         nivel = o.get("nivel") or "Escopo Cidade (Não-Localizado)"
@@ -236,10 +241,6 @@ def generate_index_json(
         lon = o.get("longitude")
         estagio = o.get("estagioAlocacao")
         cnpj_credor = formatar_cnpj(str(o.get("nuDocumentoCredor") or o.get("cnpj") or o.get("cnpjCredor") or ""))
-
-        # Mandatos Municipais e vigência
-        mandatos_obra = o.get("mandatos") or classificar_mandatos_obra(o)
-        dt_inicio, dt_fim = resolver_datas_vigencia(o)
 
         obras_compactas.append({
             "id": o.get("id"),

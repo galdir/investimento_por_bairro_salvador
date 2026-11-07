@@ -1,0 +1,112 @@
+{
+  "id": "eeccad62-750b-4050-a2ad-eeedb27ac5f3",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT005096",
+  "numeroContratoOriginal": "026/2023",
+  "nuProcesso": "019426/2023",
+  "objeto": "Execução das obras de IMPLANTAÇÃO DA INTERVENÇÃO \"C\" - VIADUTO DIRECIONAL SENTIDO ACESSO NORTE-Caminho das Árvores, Salvador/BA.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MP2 CONSTRUCOES LTDA",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 11712650.34,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "ca9cb53b-f375-476a-839e-a57ca997a1ed",
+      "c964101d-9607-4f75-a482-45d0d74d3dc2",
+      "9eb1e12b-e55a-4d2b-afb7-d5ae1a0d4436",
+      "103da8bf-2993-4464-a05f-ef87110bb37d",
+      "16587535-375d-4eeb-a4a4-7b49d0b3c12c",
+      "8938ad85-ed90-4811-b4fe-cbe977f84753",
+      "f27f36de-7804-49db-b0bb-a8c2902b1a24"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "03/07/2023",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "29/12/2023",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 757614.46,
+    "valorContratualVigente": 757614.46,
+    "valorEmpenhado": 757614.46,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "5017f20f-ec70-4355-8df5-991ba7c0e00b",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000932",
+      "dataEmpenho": "04/07/2023",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "-10.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c6d3a430-8fe8-424f-baa0-094cdf46cbee",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000921",
+      "dataEmpenho": "04/07/2023",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "10.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/12/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": null,
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+}

@@ -1,0 +1,156 @@
+{
+  "id": "5b29aaae-e175-4725-9f84-653882635e7d",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2024CT009245",
+  "numeroContratoOriginal": "1192024",
+  "nuProcesso": "190798/2024",
+  "objeto": "SERVIÇOS PARA FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE EQUIPAMENTOS DE GINÁSTICA CALISTÊNICA PARA DIVERSAS PRAÇAS EM LOGRADOUROS PÚBLICOS NO MUNICÍPIO DE SALVADOR, INCLUINDO INSUMOS NECESSÁRIOS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "40.315.678 JORLAN FERREIRA SILVA",
+    "cnpj": "40.315.678/0001-88",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 47200.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "02/10/2024",
+    "dataFimOriginal": "30/03/2025",
+    "dataTerminoAtualizado": "24/08/2026",
+    "prazoOriginal": "179",
+    "prazoAtualizado": "691"
+  },
+  "dom": {
+    "nuDom": "8880",
+    "dataPublicacao": "06/12/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 47200.0,
+    "valorContratualVigente": 47200.0,
+    "valorEmpenhado": 11800.0,
+    "valorLiquidado": 11800.0,
+    "valorPago": 11800.0,
+    "percentualExecutado": 25.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [
+    {
+      "nuAditivo": "1",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "SERVIÇOS PARA FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE EQUIPAMENTOS DE GINÁSTICA CALISTÊNICA PARA DIVERSAS PRAÇAS EM LOGRADOUROS PÚBLICOS NO MUNICÍPIO DE SALVADOR, INCLUINDO INSUMOS NECESSÁRIOS",
+      "dtAssinatura": "20/02/2025",
+      "dtTerminoVigencia": "28/09/2025",
+      "dtPublicacao": "21/02/2025",
+      "nuDom": "8978",
+      "vlAditivo": 0.0
+    },
+    {
+      "nuAditivo": "2",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "CONTRATAÇÃO DE EMPRESA PARA PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA E ASSESSORIA DE CARÁTER TÉCNICO ESPECIALIZADO, NA ÁREA DE LICITAÇÕES E CONTRATOS ADMINISTRATIVOS, E DE REVISÃO DOS  INSTRUMENTOS JURÍDICOS OBRIGATÓRIOS",
+      "dtAssinatura": "06/10/2025",
+      "dtTerminoVigencia": "27/03/2026",
+      "dtPublicacao": "06/10/2025",
+      "nuDom": "9125",
+      "vlAditivo": 0.0
+    },
+    {
+      "nuAditivo": "3",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "SERVIÇOS PARA FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE EQUIPAMENTOS DE GINÁSTICA CALISTÊNICA PARA DIVERSAS PRAÇAS EM LOGRADOUROS PÚBLICOS NO MUNICÍPIO DE SALVADOR, INCLUINDO INSUMOS NECESSÁRIOS",
+      "dtAssinatura": "15/04/2026",
+      "dtTerminoVigencia": "24/08/2026",
+      "dtPublicacao": "15/04/2026",
+      "nuDom": "9246",
+      "vlAditivo": 0.0
+    }
+  ],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "09ec0b13-acdc-41d0-8d00-7bf4cdd4c86f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2024NE001260",
+      "dataEmpenho": "27/12/2024",
+      "nomeCredor": "40.315.678 JORLAN FERREIRA SILVA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "11.800,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "f130ee52-9ec1-4ab1-8423-2ded76ee2aea",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001260",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "40.315.678 JORLAN FERREIRA SILVA",
+      "notaLiquidacao": "2025NL000190",
+      "notaLancamento": "2025NL000190",
+      "numProcesso": "00095982025",
+      "dataLiquidacao": "22/01/2025",
+      "valLiqLiquidacao": "11.800,00",
+      "valBrutLiquidacao": "11.800,00",
+      "valEmpenho": "11.800,00",
+      "descObsLiquidacao": "JORLAN FERREIRA - FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE EQUIPAMENTO DE GINASTICA - PROC 9",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "16756205-a678-4029-b596-d190fcaac566",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001260",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "40.315.678 JORLAN FERREIRA SILVA",
+      "notaLiquidacao": "2025NL000190",
+      "ordBancaria": "2025OB001884",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "11.800,00",
+      "dataPagamento": "27/01/2025",
+      "pago": "11.800,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Praças, Esporte e Lazer",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 24/08/2026 com execução física incompleta (25.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

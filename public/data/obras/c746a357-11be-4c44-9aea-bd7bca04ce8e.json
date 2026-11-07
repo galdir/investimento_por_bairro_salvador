@@ -1,0 +1,96 @@
+{
+  "id": "c746a357-11be-4c44-9aea-bd7bca04ce8e",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2024CT008404",
+  "numeroContratoOriginal": "103/2024",
+  "nuProcesso": "132514/2024",
+  "objeto": "SERVIÇOS COMUNS DE FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE CORRIMÃO / GUARDA CORPO EM TUBO DE AÇO INOX NAVAL 316L",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "R.N ENGENHARIA LTDA",
+    "cnpj": "26.757.074/0001-60",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 184998.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "06/09/2024",
+    "dataFimOriginal": "04/03/2025",
+    "dataTerminoAtualizado": "27/07/2026",
+    "prazoOriginal": "179",
+    "prazoAtualizado": "689"
+  },
+  "dom": {
+    "nuDom": "8866",
+    "dataPublicacao": "12/09/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 184998.0,
+    "valorContratualVigente": 184998.0,
+    "valorEmpenhado": 184998.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [
+    {
+      "nuAditivo": "1",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "SERVIÇOS COMUNS DE FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE CORRIMÃO / GUARDA CORPO EM TUBO DE AÇO INOX NAVAL 316L",
+      "dtAssinatura": "11/03/2025",
+      "dtTerminoVigencia": "31/08/2025",
+      "dtPublicacao": "11/03/2025",
+      "nuDom": "8284",
+      "vlAditivo": 0.0
+    },
+    {
+      "nuAditivo": "2",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "SERVIÇOS COMUNS DE FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE  CORRIMÃO / GUARDA CORPO EM TUBO DE AÇO INOX NAVAL 316L",
+      "dtAssinatura": "03/09/2025",
+      "dtTerminoVigencia": "27/02/2026",
+      "dtPublicacao": "03/09/2025",
+      "nuDom": "9099",
+      "vlAditivo": 0.0
+    },
+    {
+      "nuAditivo": "3",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "SERVIÇOS COMUNS DE FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE \r\nCORRIMÃO / GUARDA CORPO EM TUBO DE AÇO INOX NAVAL 316L",
+      "dtAssinatura": "10/03/2026",
+      "dtTerminoVigencia": "27/07/2026",
+      "dtPublicacao": "10/03/2026",
+      "nuDom": "9222",
+      "vlAditivo": 0.0
+    }
+  ],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 27/07/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

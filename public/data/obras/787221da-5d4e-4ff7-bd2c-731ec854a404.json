@@ -1,0 +1,163 @@
+{
+  "id": "787221da-5d4e-4ff7-bd2c-731ec854a404",
+  "unidadeGestora": "SEMOP",
+  "numeroContrato": "2024CT000202",
+  "numeroContratoOriginal": "000009/2024",
+  "nuProcesso": "190893/2023",
+  "objeto": "Contratação de empresa para prestação de serviço comum de engenharia para locação de postos avançados com mobiliários e equipamentos, incluindo transporte, montagem e desmontagem, destinada como bases operacionais, durante o Carnaval de Salvador/BA em 2024 da Secretaria Municipal de Ordem Pública de Salvador.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "AT PROMOCOES E EVENTOS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 700399.99,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "10/01/2024",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "08/05/2024",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 700399.99,
+    "valorContratualVigente": 700399.99,
+    "valorEmpenhado": 700399.99,
+    "valorLiquidado": 696547.79,
+    "valorPago": 700399.99,
+    "percentualExecutado": 99.45,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "44ca92cb-05bd-4328-b9bd-b2ce0a487dfd",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2024NE000070",
+      "dataEmpenho": "19/01/2024",
+      "nomeCredor": "AT PROMOCOES E EVENTOS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Locação de Bens Móveis",
+      "valEmpenhado": "700.399,99",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "10c570cc-dc90-4ebc-80d3-7b1336917368",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000070",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "AT PROMOCOES E EVENTOS LTDA",
+      "notaLiquidacao": "2024NL001716",
+      "notaLancamento": "2024NL001716",
+      "numProcesso": "00318962024",
+      "dataLiquidacao": "27/02/2024",
+      "valLiqLiquidacao": "696.547,79",
+      "valBrutLiquidacao": "700.399,99",
+      "valEmpenho": "700.399,99",
+      "descObsLiquidacao": "Pgto da AT Promoções, NF 1702, Ref. a postos para o Carnaval/2024 - CT 009/2024",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "79f13043-1c12-458b-90c4-db0960c9fd65",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000070",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "AT PROMOCOES E EVENTOS LTDA",
+      "notaLiquidacao": "2024NL001716",
+      "ordBancaria": "2024OB013158",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "700.399,99",
+      "dataPagamento": "28/02/2024",
+      "pago": "661.527,79",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "be840e37-2785-4a29-bdd3-43273d52790d",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000070",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "AT PROMOCOES E EVENTOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB013167",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "700.399,99",
+      "dataPagamento": "28/02/2024",
+      "pago": "35.020,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "d33e4656-420e-4609-90be-40e26ecd81e4",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000070",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "AT PROMOCOES E EVENTOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB019133",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "700.399,99",
+      "dataPagamento": "20/03/2024",
+      "pago": "3.852,20",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 08/05/2024 com execução física incompleta (99.45%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

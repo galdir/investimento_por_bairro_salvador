@@ -1,0 +1,68 @@
+{
+  "id": "9d628cb0-99cf-45c3-972a-506d7c313c20",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2019CT004315",
+  "numeroContratoOriginal": "000003/2019",
+  "nuProcesso": "001398/2018",
+  "objeto": "SERVIÇO DE ENGENHARIA PARA MANUTENÇÃO PREDIAL NAS UNIDADES DE ASSISTÊNCIA SOCIAL",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "MAINAN ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 42785883.16,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "9082639d-5748-4499-8d9c-bdd6f58b16d2"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "06/06/2019",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "07/09/2024",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4507000.0,
+    "valorContratualVigente": 36634392.6,
+    "valorEmpenhado": 36634392.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 32127392.6,
+    "deltaPercentualAditivos": 712.83
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Reforma de Equipamentos Socioassistências",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 07/09/2024 com execução física incompleta (0.0%)",
+      "Aditivo de valor superior a 25% (+712.83%) acumulado em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 712.83
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

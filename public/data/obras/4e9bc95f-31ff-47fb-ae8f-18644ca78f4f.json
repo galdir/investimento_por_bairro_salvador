@@ -1,0 +1,65 @@
+{
+  "id": "4e9bc95f-31ff-47fb-ae8f-18644ca78f4f",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2025CT005387",
+  "numeroContratoOriginal": "3762025",
+  "nuProcesso": "107560/2024",
+  "objeto": "CONSTRUÇÃO DA UNIDADE DE SAÚDE DA FAMÍLIA CALÇADA.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
+    "cnpj": "16.607.359/0001-61",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 3574184.34,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "17/06/2025",
+    "dataFimOriginal": "16/06/2026",
+    "dataTerminoAtualizado": "16/06/2026",
+    "prazoOriginal": "364",
+    "prazoAtualizado": "364"
+  },
+  "dom": {
+    "nuDom": "9057",
+    "dataPublicacao": "12/09/2025"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3574184.34,
+    "valorContratualVigente": 3574184.34,
+    "valorEmpenhado": 3574184.34,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 16/06/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

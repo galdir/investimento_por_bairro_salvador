@@ -1,0 +1,72 @@
+{
+  "id": "ab4776ce-4294-423b-a969-279a0abcb8d8",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT001524",
+  "numeroContratoOriginal": "0012026",
+  "nuProcesso": "2410612025",
+  "objeto": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
+    "cnpj": "",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 8127118.91,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "8a9c1053-18e7-426c-a4e8-6d10130d3df9",
+      "be7097dd-0708-4dff-b8e1-0821104fe262",
+      "28c9ec5f-76f3-4c5d-8838-779b07883db1",
+      "22fed42b-b2fc-43b8-8ba5-dcd0ade77a15",
+      "8f97d918-9081-4caa-abf1-aea50ee8ea26",
+      "a2ab8302-0df2-4ab7-8b3b-224b3d84ee0a"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "20/01/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "19/04/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 999671.05,
+    "valorContratualVigente": 999671.05,
+    "valorEmpenhado": 999671.05,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 19/04/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

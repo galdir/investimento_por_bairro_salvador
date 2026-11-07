@@ -1,0 +1,65 @@
+{
+  "id": "e423dcbb-f3b2-4753-91b5-cb3c380e0df3",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2025CT006146",
+  "numeroContratoOriginal": "3782025",
+  "nuProcesso": "107563/2024",
+  "objeto": "Ampliação da Unidade de Saúde da Família Úrsula Catarino. Lote 02",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "MACJ ENGENHARIA E CONSTRUCAO LTDA",
+    "cnpj": "47.465.824/0001-09",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 333986.06,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "18/06/2025",
+    "dataFimOriginal": "17/06/2026",
+    "dataTerminoAtualizado": "17/06/2026",
+    "prazoOriginal": "364",
+    "prazoAtualizado": "364"
+  },
+  "dom": {
+    "nuDom": "9063",
+    "dataPublicacao": "11/11/2025"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 333986.06,
+    "valorContratualVigente": 333986.06,
+    "valorEmpenhado": 333986.06,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 17/06/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

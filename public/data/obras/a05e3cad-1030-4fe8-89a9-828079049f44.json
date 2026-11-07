@@ -1,0 +1,125 @@
+{
+  "id": "a05e3cad-1030-4fe8-89a9-828079049f44",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT004800",
+  "numeroContratoOriginal": "000024/2023",
+  "nuProcesso": "202781/2022",
+  "objeto": "Execução de obras de Requalificação do Acesso à Estação Pirajá e Implantação de duas Alças do Viaduto de Pirajá do Km 621+550 da pista Oeste da BR 324, Salvador/BA.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MHR ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 8906588.81,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "1f926d19-ae20-48b6-894c-7c962774b455"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "26/06/2023",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "22/12/2023",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4755259.08,
+    "valorContratualVigente": 4755259.08,
+    "valorEmpenhado": 4755259.08,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "6f5a2468-4636-4780-89dd-bf6601e47f53",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP2671152",
+      "dataEmpenho": "19/04/2024",
+      "nomeCredor": "MHR ENGENHARIA LTDA",
+      "fonteRecurso": "Outros Recursos Não ",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "19b31f55-6c44-408c-8463-d54cd23aeb52",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000894",
+      "dataEmpenho": "26/06/2023",
+      "nomeCredor": "MHR ENGENHARIA LTDA",
+      "fonteRecurso": "Outros Recursos Não Vinculados - Tesouro - S/Emenda",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "5d8ba842-f42a-4d1b-a9b0-901b92dfd5eb",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP9968548",
+      "dataEmpenho": "31/12/2024",
+      "nomeCredor": "MHR ENGENHARIA LTDA",
+      "fonteRecurso": "Outros Recursos Não ",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 22/12/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

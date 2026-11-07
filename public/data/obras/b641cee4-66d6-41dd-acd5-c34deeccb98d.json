@@ -1,0 +1,145 @@
+{
+  "id": "b641cee4-66d6-41dd-acd5-c34deeccb98d",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2021CT005559",
+  "numeroContratoOriginal": "000046/2021",
+  "nuProcesso": "196638/2021",
+  "objeto": "Credenciamento de Pessoas Jurídicas devidamente registradas no CREA/CAU para a prestação dos\r\nserviços de Confecção de Plantas com Memorial Descritivo, Implantações de Marcos\r\nGeorreferenciados e Entrega dos Convites aos Confrontantes de Imóveis Urbanos, nos Municípios de\r\nSalvador, Lauro de Freitas e Simões Filho",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 220000.0,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "528a1862-920e-40c3-9a67-bff0345486b3",
+      "ee3af7eb-f415-421e-88b4-a905b2440873"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "01/12/2021",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "01/12/2022",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 20000.0,
+    "valorContratualVigente": 20000.0,
+    "valorEmpenhado": 20000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SEFAZ",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "b8e92ae6-7f82-4038-bb0a-2fcc5c4b388b",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2022NE000001",
+      "dataEmpenho": "02/01/2022",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "5fd50c43-2665-4553-bd86-750d3d81d458",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2021NE001328",
+      "dataEmpenho": "20/12/2021",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "1.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "a06914da-f6ed-411f-b0cf-307b22b15937",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2021NE001388",
+      "dataEmpenho": "23/12/2021",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-1.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "d68a92a3-014d-4c40-aa41-7b766a74a9e3",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2022NE001431",
+      "dataEmpenho": "28/12/2022",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 01/12/2022 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

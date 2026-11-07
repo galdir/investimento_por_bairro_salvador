@@ -1,0 +1,165 @@
+{
+  "id": "4356d562-c194-4fa7-8026-0fecc91ddf74",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT001080",
+  "numeroContratoOriginal": "003/2023",
+  "nuProcesso": "185523/2022",
+  "objeto": "obras de REQUALIFICAÇÃO DA RUA DIRETA DO ÉDEN DO VALE ¿ Mata Escura",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "EPTA EMPREENDIMENTOS EIRELI",
+    "cnpj": "",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 16322380.38,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "817d8f6a-efaf-4ffc-a76b-95d95ac43204",
+      "8086a856-bed3-46c1-ba42-57bd54b67a28",
+      "6cb50e40-0bb0-4e84-b986-4321b6986f73"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "07/02/2023",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "03/11/2023",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1377523.26,
+    "valorContratualVigente": 1377523.26,
+    "valorEmpenhado": 1377523.26,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "c16ad44d-0897-4009-88db-6649aef0cc70",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE002111",
+      "dataEmpenho": "01/12/2023",
+      "nomeCredor": "EPTA EMPREENDIMENTOS EIRELI",
+      "fonteRecurso": "Ex. Anterior - ROYALTIES - Fundo Esp. Petroleo / Comp. Fin. Exploração Recursos Minerais  - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Ampliação e Recuperação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-200.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "06fd17f9-66ff-4ee6-ac96-994614411e67",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000169",
+      "dataEmpenho": "07/02/2023",
+      "nomeCredor": "EPTA EMPREENDIMENTOS EIRELI",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "89293360-70e7-4c21-b413-5564458012dc",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000563",
+      "dataEmpenho": "20/04/2023",
+      "nomeCredor": "EPTA EMPREENDIMENTOS EIRELI",
+      "fonteRecurso": "Ex. Anterior - ROYALTIES - Fundo Esp. Petroleo / Comp. Fin. Exploração Recursos Minerais  - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Ampliação e Recuperação de Ruas e Vias de Acesso",
+      "valEmpenhado": "200.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "23da8b93-12e1-4704-9668-ca1345d21a92",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP6356021",
+      "dataEmpenho": "30/08/2024",
+      "nomeCredor": "EPTA EMPREENDIMENTOS EIRELI",
+      "fonteRecurso": "Recursos Não Vincula",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "d9fc8b02-9c93-4a43-880f-1b6acc108676",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP9968527",
+      "dataEmpenho": "31/12/2024",
+      "nomeCredor": "EPTA EMPREENDIMENTOS EIRELI",
+      "fonteRecurso": "Recursos Não Vincula",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 03/11/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

@@ -1,0 +1,155 @@
+{
+  "id": "0aad6214-2ea4-464a-b96f-2e7d926c7f3c",
+  "unidadeGestora": "SEMOP",
+  "numeroContrato": "2024CT005497",
+  "numeroContratoOriginal": "000002/2023",
+  "nuProcesso": "112487/2024",
+  "objeto": "Prestação de serviço de construção de cobertura em áreas públicas em Narandiba, conforme AFM 2024007579.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "SANTA FE ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 13,
+    "totalObrasAtivas": 13,
+    "valorTotalContratado": 29578669.12,
+    "outrasObrasCount": 12,
+    "outrasObrasIds": [
+      "de3dd412-542f-4f89-ae1a-954ebc94839e",
+      "cd37a506-377c-4bc4-b1c0-b5c7c99adcdf",
+      "46decade-abb6-4b54-8f24-dfa90fc1e1a4",
+      "4297f372-71ec-4e56-8e51-37faf4ae3e6a",
+      "f14a87eb-d323-4f37-b10e-3192f854374b",
+      "4a095113-2028-4d76-bd3b-4a102e12b8bf",
+      "ec1ac42f-c0cb-497f-b99c-9b9dea9f1a46",
+      "d83b4b2a-7139-41c4-8bab-34d61b89809c",
+      "df8bc5f7-cd8a-4bdf-9ad8-8e1d80f6cea4",
+      "0dac6ea8-7318-4320-97fe-38e8a0149f3c",
+      "0e6571d3-a095-435c-97b4-68f0b39ed299",
+      "dbe0db85-b16d-498a-8b7e-013aa46dc337"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "04/10/2023",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "02/10/2024",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 263144.0,
+    "valorContratualVigente": 263144.0,
+    "valorEmpenhado": 263144.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "4e3c8274-2f7e-4325-a9d2-ba0081ad3a55",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2024NE000475",
+      "dataEmpenho": "04/06/2024",
+      "nomeCredor": "SANTA FE ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Feiras e Mercados Populares",
+      "valEmpenhado": "263.144,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "cdff410a-557b-4bdd-8e53-a98a19dcddf8",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2024NE000474",
+      "dataEmpenho": "04/06/2024",
+      "nomeCredor": "SANTA FE ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Feiras e Mercados Populares",
+      "valEmpenhado": "-263.144,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "76c2a461-2fd2-4b86-ae4d-8b306f80877a",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2024NE000470",
+      "dataEmpenho": "04/06/2024",
+      "nomeCredor": "SANTA FE ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Feiras e Mercados Populares",
+      "valEmpenhado": "263.144,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9ddacab1-7088-4ac8-bf94-06f8afbc57a1",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2024NE000532",
+      "dataEmpenho": "20/06/2024",
+      "nomeCredor": "SANTA FE ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Feiras e Mercados Populares",
+      "valEmpenhado": "-263.144,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 02/10/2024 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Narandiba",
+  "prefeituraBairro": null,
+  "latitude": -12.959192,
+  "longitude": -38.440945,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+}

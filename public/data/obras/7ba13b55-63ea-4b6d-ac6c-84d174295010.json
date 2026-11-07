@@ -1,0 +1,106 @@
+{
+  "id": "7ba13b55-63ea-4b6d-ac6c-84d174295010",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2024CT006081",
+  "numeroContratoOriginal": "68/2024",
+  "nuProcesso": "102035/2024",
+  "objeto": "CONTRATAÇÃO DO FORNECIMENTO E MONTAGEM DE MARCO DE INAUGURAÇÃO EM GRANITO CINZA ANDORINHA DESTINADOS AOS ESPAÇOS URBANOS REQUALIFICADOS DO MUNICÍPIO DE SALVADOR",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "ELIANA COSTA BRITO LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 97211.98,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "609dea10-101f-4b5a-b6d4-5c7a85581c4c"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "17/06/2024",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "13/12/2024",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 48300.0,
+    "valorContratualVigente": 48300.0,
+    "valorEmpenhado": 48300.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a7e6fbc0-4658-4f2f-abff-1cf4ea9dfb6e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2024NE000640",
+      "dataEmpenho": "12/07/2024",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "fonteRecurso": "Outros Recursos Não Vinculados - Tesouro - S/Emenda",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-48.300,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "a8ae9333-ab34-4c3b-ac6e-a75c53e3bf1b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2024NE000581",
+      "dataEmpenho": "20/06/2024",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "fonteRecurso": "Outros Recursos Não Vinculados - Tesouro - S/Emenda",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "48.300,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 13/12/2024 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

@@ -1,0 +1,164 @@
+{
+  "id": "46952693-9435-42e8-947c-8cb69feca19c",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2026CT002070",
+  "numeroContratoOriginal": "022026",
+  "nuProcesso": "0876252025",
+  "objeto": "Contratação de empresa para a prestação de serviços técnicos especializados para elaboração de Projeto de Arquitetura e Engenharia para a Recuperação da Sede da Secretaria da Fazenda do Município de Salvador- SEFAZ.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 1105440.0,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "3ed7ac54-7d90-40ad-a260-d96ed12c334c"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "10/02/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "07/10/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 552720.0,
+    "valorContratualVigente": 552720.0,
+    "valorEmpenhado": 552720.0,
+    "valorLiquidado": 66326.40000000001,
+    "valorPago": 66326.4,
+    "percentualExecutado": 12.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [
+    {
+      "id": "cc56a527-c5cc-40b2-a322-64d4bddbf871",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000491",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007816",
+      "notaLancamento": "2026NL007816",
+      "numProcesso": "01467252026",
+      "dataLiquidacao": "10/07/2026",
+      "valLiqLiquidacao": "6.632,64",
+      "valBrutLiquidacao": "6.632,64",
+      "valEmpenho": "54.000,00",
+      "descObsLiquidacao": "PAGTº DA NF: 0125 -  REF. A SERVIÇOS DE ARQUITETURA, MÊS: 06/2026",
+      "pago": "0,00"
+    },
+    {
+      "id": "5df2df9a-2bd8-4ecd-afdf-8d6d7e34dada",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000493",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007818",
+      "notaLancamento": "2026NL007818",
+      "numProcesso": "01467252026",
+      "dataLiquidacao": "10/07/2026",
+      "valLiqLiquidacao": "59.693,76",
+      "valBrutLiquidacao": "59.693,76",
+      "valEmpenho": "498.720,00",
+      "descObsLiquidacao": "PAGTº DA NF: 0125 -  REF. A SERVIÇOS DE ARQUITETURA, MÊS: 06/2026",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "51fcaee5-9ef8-4d24-87ab-59cfa8d5ffc2",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000493",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007818",
+      "ordBancaria": "2026OB044789",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "498.720,00",
+      "dataPagamento": "28/07/2026",
+      "pago": "59.693,76",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "f4abb94a-83d4-4315-b565-67a9943f0c1a",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000491",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB044788",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "54.000,00",
+      "dataPagamento": "28/07/2026",
+      "pago": "1.326,53",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "348a32b1-2111-4c70-9a43-cff5bcc598f1",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000491",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007816",
+      "ordBancaria": "2026OB044788",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "54.000,00",
+      "dataPagamento": "28/07/2026",
+      "pago": "5.306,11",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 07/10/2026 com execução física incompleta (12.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

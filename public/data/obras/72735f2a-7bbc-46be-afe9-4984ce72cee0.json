@@ -1,0 +1,67 @@
+{
+  "id": "72735f2a-7bbc-46be-afe9-4984ce72cee0",
+  "unidadeGestora": "SEDUR",
+  "numeroContrato": "2023CT003986",
+  "numeroContratoOriginal": "06/2023",
+  "nuProcesso": "000551/2023",
+  "objeto": "Contratagao de empresa para prestação de serviços técnicos para Elaboração de Projeto Executivo de Requalificação U rbanistica de trecho da Avenida Dom Joao VI, da Rua Odilon D6rea e trecho da Rua Teixeira Barros.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "PRADO VALLADARES ARQUITETOS LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 1290184.84,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "82cece80-193e-41f9-9916-34a994b42f93"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "22/03/2023",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "17/10/2023",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 645092.42,
+    "valorContratualVigente": 645092.42,
+    "valorEmpenhado": 645092.42,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 17/10/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

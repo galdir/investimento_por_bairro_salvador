@@ -1,0 +1,66 @@
+{
+  "id": "5c2534eb-06d3-4dea-855f-2dc8bc29e76c",
+  "unidadeGestora": "SEDUR",
+  "numeroContrato": "2023CT001084",
+  "numeroContratoOriginal": "000002/2023",
+  "nuProcesso": "180126/2022",
+  "objeto": "Constituio bjeto deste contrato a prestagao dos servigos de sondagens, realizagao de ensaios de solos e determinagao das deflex6es peta m6todo da viga Benkelman em pavimento, em diversos Logradouros da Cidade do Salvador/BA.",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "DSOARES EMPREENDIMENTOS E CONSTRUCOES EIRELI",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 1225998.78,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "08/02/2023",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "07/02/2024",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1225998.78,
+    "valorContratualVigente": 1225998.78,
+    "valorEmpenhado": 1225998.78,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 07/02/2024 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

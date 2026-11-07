@@ -1,0 +1,115 @@
+{
+  "id": "0045f4fa-23bb-4b9f-8291-fbf99d4c81f4",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT001077",
+  "numeroContratoOriginal": "005/2023",
+  "nuProcesso": "122660/2022",
+  "objeto": "Valor ref. a obras da Via de Ligação BR 324 X MATA ESCURA",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+    "cnpj": "",
+    "totalObras": 11,
+    "totalObrasAtivas": 11,
+    "valorTotalContratado": 788383859.89,
+    "outrasObrasCount": 10,
+    "outrasObrasIds": [
+      "332ef2bb-b047-453d-834e-378652fd2d30",
+      "b4241703-06a0-41b2-8ffa-57a899733459",
+      "16ffb4f4-83eb-49bd-b2bd-24c18d5a2398",
+      "f416db4d-19d2-4228-bfca-87aa74167bb3",
+      "a655ee6e-1825-4eee-abc0-bef1d24635d6",
+      "10e3bc41-5b34-40fd-9b19-765ebe3fe54b",
+      "0ae88bfe-920c-41d5-93ed-15f3a3074565",
+      "9907044d-9227-43a6-9ce3-c0519e3fac0a",
+      "9f8b0b82-04ba-4a2e-85bf-62d91918daac",
+      "4b1520f8-f1ff-4886-98b7-46eb97112db4"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "07/02/2023",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "03/11/2023",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 100000.0,
+    "valorContratualVigente": 100000.0,
+    "valorEmpenhado": 100000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "8f5c778a-f4fa-4a5f-9ddd-4c53a6d0b34d",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000166",
+      "dataEmpenho": "07/02/2023",
+      "nomeCredor": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "ed626212-ab0d-4321-981b-64e984b0ecf2",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000165",
+      "dataEmpenho": "07/02/2023",
+      "nomeCredor": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 03/11/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

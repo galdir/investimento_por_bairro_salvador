@@ -1,0 +1,223 @@
+{
+  "id": "a1d9d09e-cf4d-48a8-80b3-1b5de0d160a8",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT005407",
+  "numeroContratoOriginal": "0172026",
+  "nuProcesso": "0246872026",
+  "objeto": "Contratação de empresa de engenharia para prestação de serviços de assessoria técnica à SUCOP na Elaboração de Projetos de Engenharia: Infraestrutura, Contenção de Encostas, Drenagem, Construção/Recuperação de Viadutos (OAE) e projetos complementares; além de Apoio Técnico em análises de projetos e documentos técnicos, em orçamentações e/ou quaisquer outras assessorias técnicas demandadas pela Con",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 29436992.18,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "9f63fbff-45b9-4401-84e0-dbea0963c2d2",
+      "d10d74ac-fb13-49cd-9a7f-c02eb5206143"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "21/09/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "20/09/2027",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 8212118.64,
+    "valorContratualVigente": 8212118.64,
+    "valorEmpenhado": 264540.22,
+    "valorLiquidado": 264540.22,
+    "valorPago": 264540.22000000003,
+    "percentualExecutado": 3.22,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a128abeb-5afa-43b4-a3aa-aac2ab661f90",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001373",
+      "dataEmpenho": "20/10/2026",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "164.540,22",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "fde08b49-d3d9-439e-adb3-09c901684a21",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001258",
+      "dataEmpenho": "21/09/2026",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "7424fac7-aa90-4d8f-a0b4-cad476cd6e98",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021715",
+      "notaLancamento": "2026NL021715",
+      "numProcesso": "02350552026",
+      "dataLiquidacao": "20/10/2026",
+      "valLiqLiquidacao": "164.540,22",
+      "valBrutLiquidacao": "164.540,22",
+      "valEmpenho": "164.540,22",
+      "descObsLiquidacao": "ELABORAÇÃO DE PROJETOS DE ENGª. INFRAESTR., CONT. DE ENCOSTAS, DRENAG., CONSTR./RECUP. DE ",
+      "pago": "0,00"
+    },
+    {
+      "id": "2169da52-e78f-4c99-bf9a-ebe5a4a23a9d",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001258",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021717",
+      "notaLancamento": "2026NL021717",
+      "numProcesso": "02350552026",
+      "dataLiquidacao": "20/10/2026",
+      "valLiqLiquidacao": "100.000,00",
+      "valBrutLiquidacao": "100.000,00",
+      "valEmpenho": "100.000,00",
+      "descObsLiquidacao": "ELABORAÇÃO DE PROJETOS DE ENGª. INFRAESTR., CONT. DE ENCOSTAS, DRENAG., CONSTR./RECUP. DE ",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "bd04c02a-a00a-441e-8c8b-29581f0bcb34",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001258",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021717",
+      "ordBancaria": "2026OB064102",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "100.000,00",
+      "dataPagamento": "27/10/2026",
+      "pago": "100.000,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "cf6a6235-d1df-4f30-b86e-2cd5d0eedb52",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021715",
+      "ordBancaria": "2026OB064102",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "164.540,22",
+      "dataPagamento": "27/10/2026",
+      "pago": "138.615,28",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "a27a98e9-00e2-43cb-8e0e-49384d00a850",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB064107",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "164.540,22",
+      "dataPagamento": "27/10/2026",
+      "pago": "13.227,01",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b93578bd-dc8c-4ca2-9b09-f2a644a59cf5",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB064107",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "164.540,22",
+      "dataPagamento": "27/10/2026",
+      "pago": "12.697,93",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Encostas e Contenção",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}
