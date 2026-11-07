@@ -1,11 +1,11 @@
 """Cálculo e agregação de KPIs globais de Obras Públicas de Salvador.
 
 Consolida totalizadores financeiros, contagem de obras ativas, indicadores
-do Semáforo da Obra (críticas e atrasadas), aditivos contratuais e médias de
-investimento por habitante em âmbito municipal.
+do Semáforo da Obra (críticas e atrasadas), aditivos contratuais, médias de
+investimento por habitante em âmbito municipal e transparência opaca (Escopo Cidade).
 """
 
-from typing import Any
+from typing import Any, Optional
 from etl.domain.semaforo import classificar_semaforo
 
 
@@ -13,11 +13,12 @@ def calcular_kpis_globais(
     totalizador_transparencia: dict[str, Any],
     obras_detalhadas: list[dict[str, Any]],
     populacao_total_cidade: int,
+    indicador_opacidade: Optional[dict[str, Any]] = None,
 ) -> dict[str, Any]:
     """Calcula os indicadores macroeconômicos e de transparência de Salvador.
 
     Sumário:
-        Consolida volume financeiro, obras ativas, críticas, aditivos e investimento per capita.
+        Consolida volume financeiro, obras ativas, críticas, aditivos, investimento per capita e opacidade.
 
     Descrição Estendida:
         Combina os dados agregados do totalizador oficial da Transparência de Salvador
@@ -26,13 +27,15 @@ def calcular_kpis_globais(
         - Contagem e percentual de obras críticas/atrasadas (Semáforo Vermelho);
         - Volume financeiro total de aditivos de valor e acréscimo percentual médio;
         - Investimento por Habitante médio da cidade (Total Investido dividido pela População
-          Residente Total do Censo 2022). Todas as fórmulas utilizam operações de divisão
-          protegidas contra divisão por zero.
+          Residente Total do Censo 2022);
+        - Indicador de Transparência Opaca: volume financeiro e percentual de contratos classificados
+          como Escopo Cidade (Não-Localizado) que não possuem endereço ou lote regional mapeado.
 
     Argumentos:
         totalizador_transparencia: Dicionário contendo os totais reportados pela API (/obraspublicas/totalizador).
         obras_detalhadas: Lista de dicionários contendo os contratos detalhados (/obraspublicas/gridDetalhada).
         populacao_total_cidade: Inteiro com a população residente total de Salvador segundo o Censo 2022.
+        indicador_opacidade: Dicionário opcional contendo métricas calculadas de transparência opaca.
 
     Retornos:
         Dicionário com a estrutura de KPIs globais contendo:
@@ -47,6 +50,9 @@ def calcular_kpis_globais(
         - totalLiquidado: Valor total medido e liquidado.
         - totalPago: Valor total pago às empresas.
         - investimentoPorHabitanteCidade: Valor investido dividido pela população residente da cidade.
+        - totalNaoLocalizado: Quantidade de obras em Escopo Cidade (Não-Localizado).
+        - valorNaoLocalizado: Volume financeiro em contratos sem alocação territorial identificada.
+        - percentualNaoLocalizado: Percentual do total financeiro que está em transparência opaca.
 
     Erros:
         Não lança exceções; utiliza valores padrão zero caso os campos estejam ausentes.
@@ -110,6 +116,16 @@ def calcular_kpis_globais(
     if populacao_total_cidade > 0:
         investimento_por_hab = round(valor_total / populacao_total_cidade, 2)
 
+    # Indicador de Transparência Opaca (Escopo Cidade)
+    total_nao_localizado = 0
+    valor_nao_localizado = 0.0
+    percentual_nao_localizado = 0.0
+
+    if indicador_opacidade:
+        total_nao_localizado = int(indicador_opacidade.get("totalNaoLocalizado", 0))
+        valor_nao_localizado = float(indicador_opacidade.get("valorNaoLocalizado", 0.0))
+        percentual_nao_localizado = float(indicador_opacidade.get("percentualNaoLocalizado", 0.0))
+
     return {
         "totalObras": total_obras,
         "valorTotal": valor_total,
@@ -122,4 +138,7 @@ def calcular_kpis_globais(
         "totalLiquidado": total_liquidado,
         "totalPago": total_pago,
         "investimentoPorHabitanteCidade": investimento_por_hab,
+        "totalNaoLocalizado": total_nao_localizado,
+        "valorNaoLocalizado": valor_nao_localizado,
+        "percentualNaoLocalizado": percentual_nao_localizado,
     }

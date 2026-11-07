@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-11-07T02:13:43.604967+00:00",
+    "generatedAt": "2026-11-07T11:23:13.236865+00:00",
     "anoReferencia": 2025
   },
   "kpis_globais": {
@@ -14,1599 +14,154 @@
     "totalEmpenhado": 120000000.0,
     "totalLiquidado": 95000000.0,
     "totalPago": 90000000.0,
-    "investimentoPorHabitanteCidade": 64.51
+    "investimentoPorHabitanteCidade": 1034.36,
+    "totalNaoLocalizado": 2,
+    "valorNaoLocalizado": 5500000.0,
+    "percentualNaoLocalizado": 19.5
   },
   "prefeituras_bairro": [
     {
       "id": 1,
-      "nome": "Subúrbio / Ilhas",
-      "populacao_total": 258495
+      "nome": "Barra/Pituba",
+      "populacao_total": 65000,
+      "valorTotal": 12000000.0,
+      "valorPago": 0.0,
+      "totalObras": 1,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 184.62,
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 2,
-      "nome": "Cidade Baixa",
-      "populacao_total": 132902
+      "nome": "Liberdade/São Caetano",
+      "populacao_total": 48000,
+      "valorTotal": 4200000.0,
+      "valorPago": 0.0,
+      "totalObras": 1,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 87.5,
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 3,
-      "nome": "Barra / Pituba",
-      "populacao_total": 303244
-    },
-    {
-      "id": 4,
-      "nome": "Itapuã / Ipitanga",
-      "populacao_total": 388097
-    },
-    {
-      "id": 5,
-      "nome": "Centro / Brotas",
-      "populacao_total": 239424
-    },
-    {
-      "id": 6,
-      "nome": "Liberdade / São Caetano",
-      "populacao_total": 281976
-    },
-    {
-      "id": 7,
-      "nome": "Cabula / Tancredo Neves",
-      "populacao_total": 279594
-    },
-    {
-      "id": 8,
-      "nome": "Pau da Lima",
-      "populacao_total": 173172
-    },
-    {
-      "id": 9,
-      "nome": "Cajazeiras",
-      "populacao_total": 192680
-    },
-    {
-      "id": 10,
-      "nome": "Valéria",
-      "populacao_total": 75740
+      "nome": "Cabula/Tancredo Neves",
+      "populacao_total": 32005,
+      "valorTotal": 0,
+      "valorPago": 0,
+      "totalObras": 0,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 0.0,
+      "investimentoPorHabitantePago": 0.0
     }
   ],
   "bairros": [
     {
-      "id": 11,
-      "nome": "Itaigara",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 9261,
-      "indice_vulnerabilidade": 0.32,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 12,
-      "nome": "Horto Florestal",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 8342,
-      "indice_vulnerabilidade": 0.71,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 13,
-      "nome": "Lapinha",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 4085,
-      "indice_vulnerabilidade": 0.58,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 14,
-      "nome": "Nazaré",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 9018,
-      "indice_vulnerabilidade": 0.32,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 15,
-      "nome": "Tororó",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 3632,
-      "indice_vulnerabilidade": 0.59,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 16,
-      "nome": "Barris",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 4343,
-      "indice_vulnerabilidade": 0.42,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 17,
-      "nome": "Garcia",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 11490,
-      "indice_vulnerabilidade": 0.39,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 18,
-      "nome": "Macaúbas",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 6109,
-      "indice_vulnerabilidade": 0.72,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 19,
-      "nome": "Barbalho",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 7195,
-      "indice_vulnerabilidade": 0.24,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 20,
-      "nome": "Saúde",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 3702,
-      "indice_vulnerabilidade": 0.74,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 21,
-      "nome": "Santo Antônio",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 2888,
-      "indice_vulnerabilidade": 0.41,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 22,
-      "nome": "Vitória",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 4416,
-      "indice_vulnerabilidade": 0.29,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 23,
-      "nome": "Canela",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 4813,
-      "indice_vulnerabilidade": 0.43,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 24,
-      "nome": "Dom Avelar",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 9627,
-      "indice_vulnerabilidade": 0.61,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 1,
-      "nome": "Patamares",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 21086,
-      "indice_vulnerabilidade": 0.2,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 2,
-      "nome": "Imbuí",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 29664,
-      "indice_vulnerabilidade": 0.57,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 3,
-      "nome": "Águas Claras",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 32961,
-      "indice_vulnerabilidade": 0.74,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 4,
-      "nome": "Caminho das Árvores",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 13612,
-      "indice_vulnerabilidade": 0.69,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 5,
-      "nome": "STIEP",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 13277,
-      "indice_vulnerabilidade": 0.67,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 6,
-      "nome": "Alto das Pombas",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 4986,
-      "indice_vulnerabilidade": 0.34,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 7,
-      "nome": "Nordeste de Amaralina",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 0,
-      "indice_vulnerabilidade": 0.31,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 8,
-      "nome": "Vale das Pedrinhas",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 6129,
-      "indice_vulnerabilidade": 0.64,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 9,
-      "nome": "Chapada do Rio Vermelho",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 20106,
-      "indice_vulnerabilidade": 0.55,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 10,
-      "nome": "Santa Cruz",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 21494,
-      "indice_vulnerabilidade": 0.8,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 30,
-      "nome": "Retiro",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 754,
-      "indice_vulnerabilidade": 0.83,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 31,
-      "nome": "Centro Administrativo da Bahia",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 173,
-      "indice_vulnerabilidade": 0.05,
-      "is_zona_especial_nao_residencial": true,
-      "isZonaEspecialNaoResidencial": true
-    },
-    {
-      "id": 32,
-      "nome": "Novo Horizonte",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 14985,
-      "indice_vulnerabilidade": 0.7,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 45,
-      "nome": "Engomadeira",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 8581,
-      "indice_vulnerabilidade": 0.44,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 47,
-      "nome": "Arenoso",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 11506,
-      "indice_vulnerabilidade": 0.73,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 48,
-      "nome": "Cabula VI",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 10014,
-      "indice_vulnerabilidade": 0.26,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 49,
-      "nome": "Calabar",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 6046,
-      "indice_vulnerabilidade": 0.43,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 50,
-      "nome": "Lobato",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 25946,
-      "indice_vulnerabilidade": 0.42,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 51,
-      "nome": "Ribeira",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 16308,
-      "indice_vulnerabilidade": 0.48,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 52,
-      "nome": "Massaranduba",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 16294,
-      "indice_vulnerabilidade": 0.36,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 53,
-      "nome": "Santa Luzia",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 5642,
-      "indice_vulnerabilidade": 0.29,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 54,
-      "nome": "Bonfim",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 8037,
-      "indice_vulnerabilidade": 0.38,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 55,
-      "nome": "Mangueira",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 9897,
-      "indice_vulnerabilidade": 0.51,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 33,
-      "nome": "Nova Constituinte",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 9368,
-      "indice_vulnerabilidade": 0.38,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 34,
-      "nome": "Ilha de Maré",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 4036,
-      "indice_vulnerabilidade": 0.26,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 35,
-      "nome": "Ilha dos Frades/Ilha de Santo Antônio",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 0,
-      "indice_vulnerabilidade": 0.81,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 36,
-      "nome": "Ilha de Bom Jesus dos Passos",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 0,
-      "indice_vulnerabilidade": 0.53,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 37,
-      "nome": "Nova Sussuarana",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 9815,
-      "indice_vulnerabilidade": 0.62,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 38,
-      "nome": "Sussuarana",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 25693,
-      "indice_vulnerabilidade": 0.22,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 39,
-      "nome": "Granjas Rurais Presidente Vargas",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 2951,
-      "indice_vulnerabilidade": 0.36,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 40,
-      "nome": "Calabetão",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 7372,
-      "indice_vulnerabilidade": 0.8,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 41,
-      "nome": "Jardim Santo Inácio",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 6512,
-      "indice_vulnerabilidade": 0.25,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 42,
-      "nome": "Mata Escura",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 25385,
-      "indice_vulnerabilidade": 0.76,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 43,
-      "nome": "Arraial do Retiro",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 6758,
-      "indice_vulnerabilidade": 0.46,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 44,
-      "nome": "Barreiras",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 16847,
-      "indice_vulnerabilidade": 0.44,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 46,
-      "nome": "Beiru/Tancredo Neves",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 0,
-      "indice_vulnerabilidade": 0.29,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 25,
-      "nome": "Porto Seco Pirajá",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 48,
-      "indice_vulnerabilidade": 0.05,
-      "is_zona_especial_nao_residencial": true,
-      "isZonaEspecialNaoResidencial": true
-    },
-    {
-      "id": 26,
-      "nome": "Santa Mônica",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 4677,
-      "indice_vulnerabilidade": 0.35,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 27,
-      "nome": "Cidade Nova",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 13292,
-      "indice_vulnerabilidade": 0.84,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 28,
-      "nome": "Pau Miúdo",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 15793,
-      "indice_vulnerabilidade": 0.7,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 29,
-      "nome": "IAPI",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 19941,
-      "indice_vulnerabilidade": 0.48,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 70,
-      "nome": "Engenho Velho de Brotas",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 20225,
-      "indice_vulnerabilidade": 0.51,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 71,
-      "nome": "Acupe",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 13074,
-      "indice_vulnerabilidade": 0.7,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 72,
-      "nome": "Praia Grande",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 5780,
-      "indice_vulnerabilidade": 0.65,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 73,
-      "nome": "Cosme de Farias",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 27832,
-      "indice_vulnerabilidade": 0.22,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 74,
-      "nome": "Boa Vista de Brotas",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 2600,
-      "indice_vulnerabilidade": 0.65,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 75,
-      "nome": "Cajazeiras II",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 2275,
-      "indice_vulnerabilidade": 0.67,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 76,
-      "nome": "Cajazeiras VII",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 3800,
-      "indice_vulnerabilidade": 0.24,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 77,
-      "nome": "Capelinha",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 11238,
-      "indice_vulnerabilidade": 0.44,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 78,
-      "nome": "Boa Vista de São Caetano",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 13496,
-      "indice_vulnerabilidade": 0.5,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 79,
-      "nome": "São Caetano",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 40303,
-      "indice_vulnerabilidade": 0.27,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 80,
-      "nome": "Fazenda Grande do Retiro",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 41056,
-      "indice_vulnerabilidade": 0.26,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 81,
-      "nome": "Bom Juá",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 9918,
-      "indice_vulnerabilidade": 0.84,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 56,
-      "nome": "Campinas de Pirajá",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 9166,
-      "indice_vulnerabilidade": 0.6,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 57,
-      "nome": "Marechal Rondon",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 17312,
-      "indice_vulnerabilidade": 0.37,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 58,
-      "nome": "Alto do Cabrito",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 15654,
-      "indice_vulnerabilidade": 0.41,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 59,
-      "nome": "São Gonçalo",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 14817,
-      "indice_vulnerabilidade": 0.66,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 60,
-      "nome": "Resgate",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 5946,
-      "indice_vulnerabilidade": 0.37,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 61,
-      "nome": "Saramandaia",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 9879,
-      "indice_vulnerabilidade": 0.69,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 62,
-      "nome": "Narandiba",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 16758,
-      "indice_vulnerabilidade": 0.75,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 63,
-      "nome": "Saboeiro",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 6742,
-      "indice_vulnerabilidade": 0.38,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 64,
-      "nome": "Doron",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 4471,
-      "indice_vulnerabilidade": 0.68,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 65,
-      "nome": "Moradas da Lagoa",
-      "prefeitura_bairro": "Valéria",
-      "populacao": 11849,
-      "indice_vulnerabilidade": 0.48,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 66,
-      "nome": "Vila Laura",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 14831,
-      "indice_vulnerabilidade": 0.66,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 67,
-      "nome": "Luiz Anselmo",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 13759,
-      "indice_vulnerabilidade": 0.2,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 68,
-      "nome": "Matatu",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 8599,
-      "indice_vulnerabilidade": 0.5,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 69,
-      "nome": "Santo Agostinho",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 2925,
-      "indice_vulnerabilidade": 0.2,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 84,
-      "nome": "Cabula",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 21825,
-      "indice_vulnerabilidade": 0.64,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 85,
-      "nome": "Pernambués",
-      "prefeitura_bairro": "Cabula / Tancredo Neves",
-      "populacao": 52564,
-      "indice_vulnerabilidade": 0.27,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 86,
-      "nome": "Alto do Coqueirinho",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 11005,
-      "indice_vulnerabilidade": 0.57,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 98,
-      "nome": "Castelo Branco",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 29534,
-      "indice_vulnerabilidade": 0.83,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 99,
-      "nome": "Vila Canária",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 10430,
-      "indice_vulnerabilidade": 0.27,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 100,
-      "nome": "Jardim Cajazeiras",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 8385,
-      "indice_vulnerabilidade": 0.27,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
       "id": 101,
-      "nome": "Pau da Lima",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 20665,
-      "indice_vulnerabilidade": 0.54,
+      "nome": "Pituba",
+      "prefeitura_bairro": "Barra/Pituba",
+      "populacao": 65000,
+      "indice_vulnerabilidade": 0.12,
       "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
+      "isZonaEspecialNaoResidencial": false,
+      "valorTotal": 12000000.0,
+      "valorPago": 0.0,
+      "totalObras": 1,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 184.62,
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 102,
-      "nome": "Fazenda Grande II",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 17158,
-      "indice_vulnerabilidade": 0.21,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 103,
-      "nome": "São Marcos",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 22962,
-      "indice_vulnerabilidade": 0.41,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 104,
-      "nome": "São Rafael",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 21019,
-      "indice_vulnerabilidade": 0.41,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 105,
-      "nome": "Baixa de Quintas",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 1459,
-      "indice_vulnerabilidade": 0.29,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 106,
-      "nome": "Caixa D´Água",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 0,
-      "indice_vulnerabilidade": 0.76,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 107,
-      "nome": "Liberdade",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 34451,
-      "indice_vulnerabilidade": 0.41,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 108,
-      "nome": "Pero Vaz",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 17988,
-      "indice_vulnerabilidade": 0.51,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 87,
-      "nome": "Itapuã",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 60968,
-      "indice_vulnerabilidade": 0.26,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 88,
-      "nome": "Mussurunga",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 30874,
-      "indice_vulnerabilidade": 0.38,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 89,
-      "nome": "São Cristóvão",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 46658,
-      "indice_vulnerabilidade": 0.28,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 90,
-      "nome": "Vale dos Lagos",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 10204,
-      "indice_vulnerabilidade": 0.36,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 91,
-      "nome": "Jardim das Margaridas",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 20637,
-      "indice_vulnerabilidade": 0.66,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 92,
-      "nome": "Trobogy",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 9487,
-      "indice_vulnerabilidade": 0.21,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 93,
-      "nome": "Nova Brasília",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 18746,
-      "indice_vulnerabilidade": 0.64,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 94,
-      "nome": "Canabrava",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 17211,
-      "indice_vulnerabilidade": 0.4,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 95,
-      "nome": "Jardim Nova Esperança",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 13827,
-      "indice_vulnerabilidade": 0.36,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 96,
-      "nome": "Novo Marotinho",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 3715,
-      "indice_vulnerabilidade": 0.58,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 97,
-      "nome": "Sete de Abril",
-      "prefeitura_bairro": "Pau da Lima",
-      "populacao": 16473,
-      "indice_vulnerabilidade": 0.29,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 82,
-      "nome": "Federação",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 30732,
-      "indice_vulnerabilidade": 0.45,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 83,
-      "nome": "Engenho Velho da Federação",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 19862,
-      "indice_vulnerabilidade": 0.8,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 125,
-      "nome": "Fazenda Grande I",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 11167,
-      "indice_vulnerabilidade": 0.55,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 126,
-      "nome": "Caminho de Areia",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 8906,
-      "indice_vulnerabilidade": 0.41,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 127,
-      "nome": "Monte Serrat",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 5893,
-      "indice_vulnerabilidade": 0.22,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 128,
-      "nome": "Itacaranha",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 14997,
-      "indice_vulnerabilidade": 0.8,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 129,
-      "nome": "Alto da Terezinha",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 12121,
-      "indice_vulnerabilidade": 0.71,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 130,
-      "nome": "Fazenda Coutos",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 20328,
-      "indice_vulnerabilidade": 0.64,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 131,
-      "nome": "Bairro da Paz",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 20933,
-      "indice_vulnerabilidade": 0.63,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 132,
-      "nome": "Jardim Armação",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 6591,
-      "indice_vulnerabilidade": 0.64,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 133,
-      "nome": "Vila Ruy Barbosa\\Jardim Cruzeiro",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 0,
-      "indice_vulnerabilidade": 0.44,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 134,
-      "nome": "Amaralina",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 3506,
-      "indice_vulnerabilidade": 0.33,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 135,
-      "nome": "Rio Vermelho",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 17526,
-      "indice_vulnerabilidade": 0.34,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 136,
-      "nome": "São Tomé",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 8821,
-      "indice_vulnerabilidade": 0.25,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 109,
-      "nome": "Curuzu",
-      "prefeitura_bairro": "Liberdade / São Caetano",
-      "populacao": 11393,
-      "indice_vulnerabilidade": 0.71,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 110,
-      "nome": "Cajazeiras X",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 7231,
-      "indice_vulnerabilidade": 0.55,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 111,
-      "nome": "Cajazeiras VIII",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 13678,
-      "indice_vulnerabilidade": 0.5,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 112,
-      "nome": "Jaguaripe I",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 8028,
-      "indice_vulnerabilidade": 0.3,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 113,
-      "nome": "Fazenda Grande IV",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 7921,
-      "indice_vulnerabilidade": 0.68,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 114,
-      "nome": "Fazenda Grande III",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 8749,
-      "indice_vulnerabilidade": 0.71,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 115,
-      "nome": "Boca da Mata",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 8761,
-      "indice_vulnerabilidade": 0.23,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 116,
-      "nome": "São João do Cabrito",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 19809,
-      "indice_vulnerabilidade": 0.36,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 137,
-      "nome": "Paripe",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 52469,
-      "indice_vulnerabilidade": 0.83,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 138,
-      "nome": "Valéria",
-      "prefeitura_bairro": "Valéria",
-      "populacao": 30817,
-      "indice_vulnerabilidade": 0.62,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 117,
-      "nome": "Calçada",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 3961,
-      "indice_vulnerabilidade": 0.42,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 118,
-      "nome": "Mares",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 973,
-      "indice_vulnerabilidade": 0.35,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 119,
-      "nome": "Roma",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 3038,
-      "indice_vulnerabilidade": 0.21,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 120,
-      "nome": "Boa Viagem",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 1553,
-      "indice_vulnerabilidade": 0.22,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 121,
-      "nome": "Uruguai",
-      "prefeitura_bairro": "Cidade Baixa",
-      "populacao": 26454,
-      "indice_vulnerabilidade": 0.35,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 122,
-      "nome": "Cajazeiras VI",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 7266,
-      "indice_vulnerabilidade": 0.44,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 123,
-      "nome": "Cajazeiras IV",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 3262,
-      "indice_vulnerabilidade": 0.25,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 124,
-      "nome": "Cajazeiras V",
-      "prefeitura_bairro": "Cajazeiras",
-      "populacao": 5488,
-      "indice_vulnerabilidade": 0.67,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 141,
-      "nome": "Cassange",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 8183,
-      "indice_vulnerabilidade": 0.49,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 142,
-      "nome": "Itinga",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 15913,
-      "indice_vulnerabilidade": 0.34,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 143,
-      "nome": "Nova Esperança",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 16376,
-      "indice_vulnerabilidade": 0.36,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 157,
-      "nome": "Graça",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 14996,
-      "indice_vulnerabilidade": 0.63,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 158,
-      "nome": "Ondina",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 13874,
-      "indice_vulnerabilidade": 0.39,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 159,
-      "nome": "Plataforma",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 25752,
-      "indice_vulnerabilidade": 0.46,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 160,
-      "nome": "Pirajá",
-      "prefeitura_bairro": "Valéria",
-      "populacao": 27873,
-      "indice_vulnerabilidade": 0.62,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 161,
-      "nome": "Rio Sena",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 14553,
-      "indice_vulnerabilidade": 0.42,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 162,
-      "nome": "Chame-Chame",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 2187,
-      "indice_vulnerabilidade": 0.57,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 163,
-      "nome": "Periperi",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 37887,
-      "indice_vulnerabilidade": 0.72,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 164,
-      "nome": "Dois de Julho",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 3583,
-      "indice_vulnerabilidade": 0.59,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 165,
-      "nome": "Ilha Amarela",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 5473,
-      "indice_vulnerabilidade": 0.49,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 166,
-      "nome": "Mirantes de Periperi",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 2590,
-      "indice_vulnerabilidade": 0.29,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 167,
-      "nome": "Vista Alegre",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 4663,
-      "indice_vulnerabilidade": 0.23,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 168,
-      "nome": "Barra",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 15094,
-      "indice_vulnerabilidade": 0.49,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 169,
-      "nome": "Brotas",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 51296,
-      "indice_vulnerabilidade": 0.54,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 170,
-      "nome": "Colinas de Periperi",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 2485,
-      "indice_vulnerabilidade": 0.3,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 144,
-      "nome": "Stella Maris",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 18981,
-      "indice_vulnerabilidade": 0.55,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 145,
-      "nome": "Pituaçu",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 18935,
-      "indice_vulnerabilidade": 0.8,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 146,
-      "nome": "Boca do Rio",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 38804,
-      "indice_vulnerabilidade": 0.41,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 147,
       "nome": "Aeroporto",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
+      "prefeitura_bairro": "Itapuã/Ipitanga",
       "populacao": 0,
       "indice_vulnerabilidade": 0.05,
       "is_zona_especial_nao_residencial": true,
-      "isZonaEspecialNaoResidencial": true
+      "isZonaEspecialNaoResidencial": true,
+      "valorTotal": 0,
+      "valorPago": 0,
+      "totalObras": 0,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 0.0,
+      "investimentoPorHabitantePago": 0.0
     },
     {
-      "id": 148,
-      "nome": "Piatã",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 19875,
-      "indice_vulnerabilidade": 0.84,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 149,
-      "nome": "Costa Azul",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 16842,
-      "indice_vulnerabilidade": 0.62,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 151,
-      "nome": "Areia Branca",
-      "prefeitura_bairro": "Itapuã / Ipitanga",
-      "populacao": 9205,
-      "indice_vulnerabilidade": 0.65,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 152,
-      "nome": "Candeal",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 13276,
-      "indice_vulnerabilidade": 0.38,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 153,
-      "nome": "Centro",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 8042,
-      "indice_vulnerabilidade": 0.3,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 154,
-      "nome": "Centro Histórico",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 1692,
-      "indice_vulnerabilidade": 0.6,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 155,
-      "nome": "Comércio",
-      "prefeitura_bairro": "Centro / Brotas",
-      "populacao": 971,
-      "indice_vulnerabilidade": 0.74,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 156,
-      "nome": "Coutos",
-      "prefeitura_bairro": "Subúrbio / Ilhas",
-      "populacao": 17363,
-      "indice_vulnerabilidade": 0.57,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 139,
-      "nome": "Palestina",
-      "prefeitura_bairro": "Valéria",
-      "populacao": 5201,
-      "indice_vulnerabilidade": 0.35,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
-    },
-    {
-      "id": 140,
-      "nome": "Cajazeiras XI",
+      "id": 103,
+      "nome": "Porto Seco Pirajá",
       "prefeitura_bairro": "Cajazeiras",
-      "populacao": 15774,
-      "indice_vulnerabilidade": 0.46,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
+      "populacao": 12,
+      "indice_vulnerabilidade": 0.2,
+      "is_zona_especial_nao_residencial": true,
+      "isZonaEspecialNaoResidencial": true,
+      "valorTotal": 0,
+      "valorPago": 0,
+      "totalObras": 0,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 0.0,
+      "investimentoPorHabitantePago": 0.0
     },
     {
-      "id": 321,
-      "nome": "Aquarius",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 0,
-      "indice_vulnerabilidade": 0.34,
-      "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
+      "id": 104,
+      "nome": "Centro Administrativo da Bahia - CAB",
+      "prefeitura_bairro": "Cabula/Tancredo Neves",
+      "populacao": 5,
+      "indice_vulnerabilidade": 0.08,
+      "is_zona_especial_nao_residencial": true,
+      "isZonaEspecialNaoResidencial": true,
+      "valorTotal": 0,
+      "valorPago": 0,
+      "totalObras": 0,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 0.0,
+      "investimentoPorHabitantePago": 0.0
     },
     {
-      "id": 322,
-      "nome": "Pituba",
-      "prefeitura_bairro": "Barra / Pituba",
-      "populacao": 57894,
-      "indice_vulnerabilidade": 0.59,
+      "id": 105,
+      "nome": "Liberdade",
+      "prefeitura_bairro": "Liberdade/São Caetano",
+      "populacao": 48000,
+      "indice_vulnerabilidade": 0.78,
       "is_zona_especial_nao_residencial": false,
-      "isZonaEspecialNaoResidencial": false
+      "isZonaEspecialNaoResidencial": false,
+      "valorTotal": 4200000.0,
+      "valorPago": 0.0,
+      "totalObras": 1,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 87.5,
+      "investimentoPorHabitantePago": 0.0
+    },
+    {
+      "id": 106,
+      "nome": "Cabula",
+      "prefeitura_bairro": "Cabula/Tancredo Neves",
+      "populacao": 32000,
+      "indice_vulnerabilidade": 0.55,
+      "is_zona_especial_nao_residencial": false,
+      "isZonaEspecialNaoResidencial": false,
+      "valorTotal": 0,
+      "valorPago": 0,
+      "totalObras": 0,
+      "obrasVerde": 0,
+      "obrasAmarelo": 0,
+      "obrasVermelho": 0,
+      "investimentoPorHabitante": 0.0,
+      "investimentoPorHabitantePago": 0.0
     }
   ],
   "obras": [
@@ -1632,7 +187,14 @@
         ],
         "deltaPercentualValor": 0.0
       },
-      "ano": 2024
+      "ano": 2024,
+      "nivel": "Bairro",
+      "bairro": "Pituba",
+      "prefeituraBairro": "Barra/Pituba",
+      "prefeitura_bairro": "Barra/Pituba",
+      "latitude": -12.995,
+      "longitude": -38.455,
+      "estagioAlocacao": "Cache"
     },
     {
       "id": 1002,
@@ -1657,7 +219,14 @@
         ],
         "deltaPercentualValor": 20.0
       },
-      "ano": 2024
+      "ano": 2024,
+      "nivel": "Bairro",
+      "bairro": "Liberdade",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "prefeitura_bairro": "Liberdade/São Caetano",
+      "latitude": -12.955,
+      "longitude": -38.485,
+      "estagioAlocacao": "Cache"
     },
     {
       "id": 1003,
@@ -1683,7 +252,14 @@
         ],
         "deltaPercentualValor": 30.0
       },
-      "ano": 2024
+      "ano": 2024,
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "bairro": null,
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "prefeitura_bairro": "Subúrbio/Ilhas",
+      "latitude": null,
+      "longitude": null,
+      "estagioAlocacao": "Cache"
     },
     {
       "id": 1004,
@@ -1707,7 +283,14 @@
         ],
         "deltaPercentualValor": 0.0
       },
-      "ano": 2024
+      "ano": 2024,
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "prefeitura_bairro": null,
+      "latitude": null,
+      "longitude": null,
+      "estagioAlocacao": "Cache"
     },
     {
       "id": 1005,
@@ -1731,7 +314,14 @@
         ],
         "deltaPercentualValor": 0.0
       },
-      "ano": 2024
+      "ano": 2024,
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "prefeitura_bairro": null,
+      "latitude": null,
+      "longitude": null,
+      "estagioAlocacao": "Cache"
     }
   ]
 }

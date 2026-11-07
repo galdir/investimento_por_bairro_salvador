@@ -1,0 +1,42 @@
+{
+  "2401_001/2024_6bc7c9bbe8f99b81": {
+    "nivel": "Bairro",
+    "bairro": "Pituba",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.995,
+    "longitude": -38.455,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "2401_002/2024_a06134542279eb83": {
+    "nivel": "Bairro",
+    "bairro": "Liberdade",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.955,
+    "longitude": -38.485,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "1501_015/2024_c047329865dda736": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "3101_042/2024_9404d5ae4eeadb0c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "1801_088/2024_b2c5ce6831b1756d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { TerritorySelection } from "../types";
-import { formatDecimal, formatNumber } from "../utils/formatters";
+import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
 
 interface TerritorySidebarProps {
   /**
@@ -11,41 +11,69 @@ interface TerritorySidebarProps {
    * Callback para limpar a seleção e fechar o painel.
    */
   onClear: () => void;
+  /**
+   * Callback opcional para navegar diretamente para a visão de tabela com filtro do território.
+   */
+  onViewWorksInTable?: () => void;
 }
 
 /**
  * Painel lateral "Raio-X do Bairro / Prefeitura-Bairro".
  *
- * @summary Apresenta o perfil demográfico e social detalhado da área selecionada no mapa.
+ * @summary Apresenta o perfil demográfico, social e financeiro detalhado da área selecionada no mapa.
  * @description Exibe o nome do território, seu vínculo regional com a Prefeitura-Bairro,
- * a contagem de população residente oficial do Censo 2022 do IBGE, o Índice de Vulnerabilidade
- * do Bairro e a indicação especial quando o bairro é uma Zona Especial Não-Residencial
- * (Aeroporto, Porto Seco Pirajá e CAB), explicando o motivo de ser excluído do ranking per capita.
+ * a contagem de população residente oficial do Censo 2022 do IBGE, o montante total investido,
+ * o Investimento por Habitante (R$/hab), o Índice de Vulnerabilidade do Bairro, a distribuição
+ * de obras pelo Semáforo (Verde, Amarelo e Vermelho) e a indicação especial quando o bairro é
+ * uma Zona Especial Não-Residencial (Aeroporto, Porto Seco Pirajá e CAB).
  *
- * @param props - Propriedades contendo o território ativo e função de fechamento.
+ * @param props - Propriedades contendo o território ativo e funções de fechamento e navegação.
  * @returns Elemento JSX do painel lateral.
  * @throws Não lança exceções.
  */
-export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({ territorio, onClear }) => {
+export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
+  territorio,
+  onClear,
+  onViewWorksInTable,
+}) => {
   if (!territorio) {
     return (
       <aside className="w-full md:w-96 bg-white border-l border-slate-200 p-6 flex flex-col justify-center items-center text-center shadow-sm">
         <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mb-4">
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
           </svg>
         </div>
         <h3 className="text-base font-semibold text-slate-700">Nenhum território selecionado</h3>
         <p className="text-sm text-slate-500 mt-2 max-w-xs">
-          Clique em qualquer Bairro Oficial ou Prefeitura-Bairro no mapa ou na lista ao lado para inspecionar os indicadores demográficos e de vulnerabilidade social.
+          Clique em qualquer Bairro Oficial ou Prefeitura-Bairro no mapa ou no ranking para inspecionar o perfil socioeconômico, investimentos e obras locais.
         </p>
       </aside>
     );
   }
 
-  const ehZonaEspecial = !!(territorio.is_zona_especial_nao_residencial || territorio.isZonaEspecialNaoResidencial);
+  const ehZonaEspecial = !!(
+    territorio.is_zona_especial_nao_residencial || territorio.isZonaEspecialNaoResidencial
+  );
   const ehBairro = territorio.tipo === "bairro";
+
+  const totalInvestido = territorio.valorTotal ?? 0;
+  const invPerCapita = territorio.investimentoPorHabitante ?? 0;
+  const totalObras = territorio.totalObras ?? 0;
+  const obrasVerde = territorio.obrasVerde ?? 0;
+  const obrasAmarelo = territorio.obrasAmarelo ?? 0;
+  const obrasVermelho = territorio.obrasVermelho ?? 0;
 
   return (
     <aside className="w-full md:w-96 bg-white border-l border-slate-200 p-6 flex flex-col shadow-lg overflow-y-auto">
@@ -63,7 +91,8 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({ territorio, 
           </h2>
           {territorio.prefeitura_bairro && (
             <p className="text-xs text-slate-500 mt-0.5">
-              Prefeitura-Bairro: <span className="font-medium text-slate-700">{territorio.prefeitura_bairro}</span>
+              Prefeitura-Bairro:{" "}
+              <span className="font-medium text-slate-700">{territorio.prefeitura_bairro}</span>
             </p>
           )}
         </div>
@@ -86,7 +115,11 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({ territorio, 
         >
           <div className="font-semibold flex items-center gap-1.5 text-amber-900">
             <svg className="w-4 h-4 text-amber-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+              <path
+                fillRule="evenodd"
+                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                clipRule="evenodd"
+              />
             </svg>
             Zona Especial Não-Residencial
           </div>
@@ -96,61 +129,137 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({ territorio, 
         </div>
       )}
 
+      {/* Métricas Principais: Investimento Total e Per Capita */}
+      <div className="mt-4 grid grid-cols-2 gap-2">
+        <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
+            Total Investido
+          </span>
+          <span
+            data-testid="raio-x-total-investido"
+            className="text-base sm:text-lg font-bold text-slate-900 mt-0.5 block"
+          >
+            {formatCurrency(totalInvestido)}
+          </span>
+          <span className="text-[10px] text-slate-400">{totalObras} contratos</span>
+        </div>
+
+        <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
+            R$ / Habitante
+          </span>
+          <span
+            data-testid="raio-x-investimento-per-capita"
+            className="text-base sm:text-lg font-bold text-emerald-600 mt-0.5 block"
+          >
+            {ehZonaEspecial ? "Isento" : formatCurrency(invPerCapita)}
+          </span>
+          <span className="text-[10px] text-slate-400">
+            {ehZonaEspecial ? "Zona Especial" : "por morador"}
+          </span>
+        </div>
+      </div>
+
+      {/* Breakdown de Obras por Semáforo */}
+      <div className="mt-4 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-semibold text-slate-700">
+            Obras por Semáforo de Risco:
+          </span>
+          <span className="text-xs text-slate-400 font-medium">{totalObras} total</span>
+        </div>
+        <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
+          <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-2 text-emerald-800">
+            <span className="block font-bold text-sm" data-testid="raio-x-obras-verde">
+              {obrasVerde}
+            </span>
+            <span className="text-[10px] text-emerald-700">No Prazo</span>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 text-amber-800">
+            <span className="block font-bold text-sm" data-testid="raio-x-obras-amarelo">
+              {obrasAmarelo}
+            </span>
+            <span className="text-[10px] text-amber-700">Atenção</span>
+          </div>
+          <div className="bg-rose-50 border border-rose-200 rounded-lg p-2 text-rose-800">
+            <span className="block font-bold text-sm" data-testid="raio-x-obras-vermelho">
+              {obrasVermelho}
+            </span>
+            <span className="text-[10px] text-rose-700">Crítica</span>
+          </div>
+        </div>
+      </div>
+
       {/* Métricas Demográficas */}
-      <div className="mt-5 space-y-4">
+      <div className="mt-4 space-y-3">
         {/* População Residente */}
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-          <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+          <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
             População Residente (Censo 2022)
           </span>
-          <div className="mt-1 flex items-baseline gap-2">
+          <div className="mt-0.5 flex items-baseline gap-2">
             <span
               data-testid="raio-x-populacao"
-              className="text-2xl font-bold text-slate-900"
+              className="text-xl font-bold text-slate-900"
             >
               {formatNumber(territorio.populacao)}
             </span>
             <span className="text-xs text-slate-500">habitantes</span>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
-            Fonte: IBGE, Agregados por Setores Censitários e Bairros
-          </p>
         </div>
 
         {/* Índice de Vulnerabilidade do Bairro */}
         {ehBairro && territorio.indice_vulnerabilidade !== undefined && (
-          <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+              <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
                 Índice de Vulnerabilidade
               </span>
               <span
                 data-testid="raio-x-vulnerabilidade"
-                className="text-sm font-bold text-slate-900"
+                className="text-xs font-bold text-slate-900"
               >
                 {formatDecimal(territorio.indice_vulnerabilidade)}
               </span>
             </div>
             {/* Barra Visual de Intensidade */}
-            <div className="w-full bg-slate-200 h-2.5 rounded-full mt-2 overflow-hidden">
+            <div className="w-full bg-slate-200 h-2 rounded-full mt-2 overflow-hidden">
               <div
-                className="bg-indigo-600 h-2.5 rounded-full transition-all duration-300"
+                className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
                 style={{
                   width: `${Math.min(100, Math.max(5, (territorio.indice_vulnerabilidade || 0) * 100))}%`,
                 }}
               ></div>
             </div>
-            <p className="text-xs text-slate-400 mt-2">
-              Escala de 0,00 (menor carência) a 1,00 (maior carência socioeconômica e infraestrutura).
-            </p>
           </div>
         )}
       </div>
 
-      <div className="mt-auto pt-6 border-t border-slate-100">
+      {/* Botões de Ação na Base */}
+      <div className="mt-auto pt-4 border-t border-slate-100 space-y-2">
+        {onViewWorksInTable && (
+          <button
+            type="button"
+            data-testid="btn-ver-obras-tabela"
+            onClick={onViewWorksInTable}
+            className="w-full py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            Ver obras deste território na tabela ({totalObras})
+          </button>
+        )}
         <button
+          type="button"
+          data-testid="btn-limpar-selecao-territorio"
           onClick={onClear}
-          className="w-full py-2 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors"
+          className="w-full py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors"
         >
           Limpar Seleção do Mapa
         </button>

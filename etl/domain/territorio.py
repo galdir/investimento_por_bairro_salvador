@@ -1,11 +1,14 @@
 """Regras e classificações do domínio territorial de Salvador.
 
-Gerencia o pareamento de Bairros Oficiais com Prefeituras-Bairro e a identificação
-estrita de Zonas Especiais Não-Residenciais para prevenção de distorções per capita.
+Gerencia o pareamento de Bairros Oficiais com Prefeituras-Bairro, a identificação
+estrita de Zonas Especiais Não-Residenciais para prevenção de distorções per capita,
+e o cálculo das agregações financeiras e per capita em múltiplos níveis territoriais.
 """
 
 import re
+from typing import Any
 import unicodedata
+
 from etl.config import ZONAS_ESPECIAIS_NAO_RESIDENCIAIS
 
 
@@ -77,9 +80,7 @@ def is_zona_especial_nao_residencial(nome_bairro: str) -> bool:
         return True
 
     # 4. Caso estrito de sigla isolada CAB (utiliza limite de palavra para não casar Cabula/Cabula VI)
-    # Exige que seja a palavra CAB isolada (ex: "BAIRRO CAB" ou "SETOR CAB"), nunca "CABULA"
     if re.search(r"\bCAB\b", nome_norm) and "CABULA" not in nome_norm:
-        # Se for apenas CAB ou associado a Centro Administrativo
         if nome_norm == "CAB" or "ADMINISTRATIVO" in nome_norm:
             return True
 
@@ -88,3 +89,200 @@ def is_zona_especial_nao_residencial(nome_bairro: str) -> bool:
         return True
 
     return False
+
+
+def calcular_rollup_territorial(
+    bairros_resumo: list[dict[str, Any]],
+    prefeituras_resumo: list[dict[str, Any]],
+    obras_alocadas: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
+    """Calcula as agregações financeiras e per capita por Bairro Oficial e Prefeitura-Bairro.
+
+    Sumário:
+        Aplica as regras de rollup territorial (Camada A) sem rateio artificial de contratos guarda-chuva.
+
+    Descrição Estendida:
+        Regras aplicadas rigorosamente:
+        1. Bairro Oficial: soma apenas obras com Nível de Alocação Territorial 'Pontual' e 'Bairro'
+           alocadas especificamente para aquele bairro.
+        2. Prefeitura-Bairro: soma todas as obras de seus bairros constituintes mais as obras de nível
+           'Regional (Prefeitura-Bairro)' atribuídas a ela, sem rateio artificial para os bairros.
+        3. Escopo Cidade (Não-Localizado): contratos não alocados a nenhum bairro ou lote regional não
+           inflam nenhum território e são consolidados no indicador de transparência opaca.
+        4. Zonas Especiais Não-Residenciais: mantêm seus valores brutos e contagem de obras, mas seu
+           Investimento por Habitante é zerado/excluído do ranking para prevenir distorções per capita.
+
+    Argumentos:
+        bairros_resumo: Lista de resumos de Bairros Oficiais com população e vulnerabilidade.
+        prefeituras_resumo: Lista de resumos de Prefeituras-Bairro com população total.
+        obras_alocadas: Lista de obras classificadas com nível de alocação, valores e semáforo.
+
+    Retornos:
+        Tupla de 3 elementos:
+        - Lista atualizada de Bairros Oficiais com atributos financeiros e per capita.
+        - Lista atualizada de Prefeituras-Bairro com atributos financeiros e per capita.
+        - Dicionário do indicador de transparência opaca (Escopo Cidade).
+
+    Erros:
+        Não lança exceções; utiliza valores padrão zero caso os campos estejam ausentes.
+    """
+    # 1. Total geral de investimentos de todas as obras (para cálculo percentual de opacidade)
+    valor_total_todas_obras = 0.0
+
+    # 2. Agrupadores auxiliares
+    obras_por_bairro: dict[str, list[dict[str, Any]]] = {}
+    obras_regionais_por_pb: dict[str, list[dict[str, Any]]] = {}
+    obras_escopo_cidade: list[dict[str, Any]] = []
+
+    for obra in obras_alocadas:
+        vl_atua = float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
+        valor_total_todas_obras += vl_atua
+
+        nivel = obra.get("nivel") or "Escopo Cidade (Não-Localizado)"
+        bairro_nome = obra.get("bairro")
+        pb_nome = obra.get("prefeitura_bairro")
+
+        if nivel in {"Pontual", "Bairro"} and bairro_nome:
+            b_norm = normalizar_nome(bairro_nome)
+            obras_por_bairro.setdefault(b_norm, []).append(obra)
+
+        elif nivel == "Regional (Prefeitura-Bairro)" and pb_nome:
+            pb_norm = normalizar_nome(pb_nome)
+            obras_regionais_por_pb.setdefault(pb_norm, []).append(obra)
+
+        else:
+            obras_escopo_cidade.append(obra)
+
+    # 3. Consolidação de Bairros Oficiais
+    bairros_atualizados: list[dict[str, Any]] = []
+    # Mapeamento de prefeitura_bairro para bairros filhos
+    bairros_por_pb: dict[str, list[str]] = {}
+
+    for b in bairros_resumo:
+        nome_bairro = b.get("nome", "")
+        b_norm = normalizar_nome(nome_bairro)
+        pb_nome = b.get("prefeitura_bairro", "")
+        pb_norm = normalizar_nome(pb_nome)
+        if pb_norm:
+            bairros_por_pb.setdefault(pb_norm, []).append(b_norm)
+
+        obras_do_bairro = obras_por_bairro.get(b_norm, [])
+
+        vl_total_bairro = sum(
+            float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
+            for o in obras_do_bairro
+        )
+        vl_pago_bairro = sum(
+            float(o.get("vlPago") or o.get("valorPago") or 0.0)
+            for o in obras_do_bairro
+        )
+
+        verde_count = sum(1 for o in obras_do_bairro if (o.get("semaforo") or {}).get("status") == "VERDE")
+        amarelo_count = sum(1 for o in obras_do_bairro if (o.get("semaforo") or {}).get("status") == "AMARELO")
+        vermelho_count = sum(1 for o in obras_do_bairro if (o.get("semaforo") or {}).get("status") == "VERMELHO")
+
+        populacao = int(b.get("populacao", 0))
+        eh_zona_especial = is_zona_especial_nao_residencial(nome_bairro) or b.get("is_zona_especial_nao_residencial", False)
+
+        # Regra: Zonas Especiais Não-Residenciais têm per capita zerado para evitar distorção
+        inv_per_capita = 0.0
+        inv_per_capita_pago = 0.0
+        if not eh_zona_especial and populacao > 0:
+            inv_per_capita = round(vl_total_bairro / populacao, 2)
+            inv_per_capita_pago = round(vl_pago_bairro / populacao, 2)
+
+        bairro_dict = dict(b)
+        bairro_dict.update({
+            "valorTotal": round(vl_total_bairro, 2),
+            "valorPago": round(vl_pago_bairro, 2),
+            "totalObras": len(obras_do_bairro),
+            "obrasVerde": verde_count,
+            "obrasAmarelo": amarelo_count,
+            "obrasVermelho": vermelho_count,
+            "investimentoPorHabitante": inv_per_capita,
+            "investimentoPorHabitantePago": inv_per_capita_pago,
+            "is_zona_especial_nao_residencial": eh_zona_especial,
+            "isZonaEspecialNaoResidencial": eh_zona_especial,
+        })
+        bairros_atualizados.append(bairro_dict)
+
+    # 4. Consolidação de Prefeituras-Bairro
+    prefeituras_atualizadas: list[dict[str, Any]] = []
+
+    # Cria índice rápido de bairros atualizados
+    bairros_index = {normalizar_nome(b["nome"]): b for b in bairros_atualizados}
+
+    for pb in prefeituras_resumo:
+        nome_pb = pb.get("nome", "")
+        pb_norm = normalizar_nome(nome_pb)
+
+        # Bairros que compõem esta prefeitura-bairro
+        bairros_filhos_nomes = bairros_por_pb.get(pb_norm, [])
+        bairros_filhos = [bairros_index[bn] for bn in bairros_filhos_nomes if bn in bairros_index]
+
+        # Soma os totais dos bairros
+        vl_bairros = sum(b.get("valorTotal", 0.0) for b in bairros_filhos)
+        vl_pago_bairros = sum(b.get("valorPago", 0.0) for b in bairros_filhos)
+        obras_bairros_count = sum(b.get("totalObras", 0) for b in bairros_filhos)
+        verde_pb = sum(b.get("obrasVerde", 0) for b in bairros_filhos)
+        amarelo_pb = sum(b.get("obrasAmarelo", 0) for b in bairros_filhos)
+        vermelho_pb = sum(b.get("obrasVermelho", 0) for b in bairros_filhos)
+
+        # Soma as obras regionais mapeadas diretamente para a prefeitura-bairro
+        obras_regionais = obras_regionais_por_pb.get(pb_norm, [])
+        vl_regionais = sum(
+            float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
+            for o in obras_regionais
+        )
+        vl_pago_regionais = sum(
+            float(o.get("vlPago") or o.get("valorPago") or 0.0)
+            for o in obras_regionais
+        )
+
+        verde_pb += sum(1 for o in obras_regionais if (o.get("semaforo") or {}).get("status") == "VERDE")
+        amarelo_pb += sum(1 for o in obras_regionais if (o.get("semaforo") or {}).get("status") == "AMARELO")
+        vermelho_pb += sum(1 for o in obras_regionais if (o.get("semaforo") or {}).get("status") == "VERMELHO")
+
+        vl_total_pb = vl_bairros + vl_regionais
+        vl_pago_pb = vl_pago_bairros + vl_pago_regionais
+        total_obras_pb = obras_bairros_count + len(obras_regionais)
+
+        pop_total = int(pb.get("populacao_total", 0))
+        inv_per_capita_pb = round(vl_total_pb / pop_total, 2) if pop_total > 0 else 0.0
+        inv_per_capita_pago_pb = round(vl_pago_pb / pop_total, 2) if pop_total > 0 else 0.0
+
+        pb_dict = dict(pb)
+        pb_dict.update({
+            "valorTotal": round(vl_total_pb, 2),
+            "valorPago": round(vl_pago_pb, 2),
+            "totalObras": total_obras_pb,
+            "obrasVerde": verde_pb,
+            "obrasAmarelo": amarelo_pb,
+            "obrasVermelho": vermelho_pb,
+            "investimentoPorHabitante": inv_per_capita_pb,
+            "investimentoPorHabitantePago": inv_per_capita_pago_pb,
+        })
+        prefeituras_atualizadas.append(pb_dict)
+
+    # 5. Indicador de Transparência Opaca (Escopo Cidade)
+    vl_nao_localizado = sum(
+        float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
+        for o in obras_escopo_cidade
+    )
+    vl_pago_nao_localizado = sum(
+        float(o.get("vlPago") or o.get("valorPago") or 0.0)
+        for o in obras_escopo_cidade
+    )
+
+    percentual_opaco = 0.0
+    if valor_total_todas_obras > 0:
+        percentual_opaco = round((vl_nao_localizado / valor_total_todas_obras) * 100.0, 1)
+
+    indicador_opacidade = {
+        "totalNaoLocalizado": len(obras_escopo_cidade),
+        "valorNaoLocalizado": round(vl_nao_localizado, 2),
+        "valorPagoNaoLocalizado": round(vl_pago_nao_localizado, 2),
+        "percentualNaoLocalizado": percentual_opaco,
+    }
+
+    return bairros_atualizados, prefeituras_atualizadas, indicador_opacidade

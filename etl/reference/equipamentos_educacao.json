@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "nome": "ESCOLA MUNICIPAL PROFESSORA MARIA QUITERIA",
+    "tipo": "ESCOLA",
+    "bairro": "Pituba",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.9965,
+    "longitude": -38.4552
+  },
+  {
+    "id": 2,
+    "nome": "ESCOLA MUNICIPAL JORGE AMADO",
+    "tipo": "ESCOLA",
+    "bairro": "Liberdade",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.9550,
+    "longitude": -38.4850
+  },
+  {
+    "id": 3,
+    "nome": "CMEI PITUBA",
+    "tipo": "CMEI",
+    "bairro": "Pituba",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.9980,
+    "longitude": -38.4570
+  },
+  {
+    "id": 4,
+    "nome": "ESCOLA MUNICIPAL PROFESSOR EDGARD SANTOS",
+    "tipo": "ESCOLA",
+    "bairro": "Cabula",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.9580,
+    "longitude": -38.4680
+  },
+  {
+    "id": 5,
+    "nome": "CMEI SAO CAETANO",
+    "tipo": "CMEI",
+    "bairro": "São Caetano",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.9420,
+    "longitude": -38.4910
+  },
+  {
+    "id": 6,
+    "nome": "ESCOLA MUNICIPAL ALVARO DA SILVA",
+    "tipo": "ESCOLA",
+    "bairro": "Paripe",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.8250,
+    "longitude": -38.4720
+  }
+]

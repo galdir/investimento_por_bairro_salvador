@@ -358,9 +358,31 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     <p className="font-semibold text-slate-800 line-clamp-2" title={o.objeto}>
                       {o.objeto}
                     </p>
-                    <span className="text-[10px] text-slate-400 mt-0.5 block">
-                      Contrato: {o.numeroContrato || "S/N"} • Situação: {o.situacao || "Não informada"}
-                    </span>
+                    <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-slate-500">
+                      <span>Contrato: {o.numeroContrato || "S/N"}</span>
+                      <span>•</span>
+                      <span>Situação: {o.situacao || "Não informada"}</span>
+                      {o.nivel && (
+                        <>
+                          <span>•</span>
+                          <span
+                            data-testid={`badge-nivel-${o.id}`}
+                            className={`font-medium px-1.5 py-0.5 rounded border ${
+                              o.nivel === "Pontual"
+                                ? "text-emerald-700 bg-emerald-50 border-emerald-200"
+                                : o.nivel === "Bairro"
+                                ? "text-sky-700 bg-sky-50 border-sky-200"
+                                : o.nivel === "Regional (Prefeitura-Bairro)"
+                                ? "text-indigo-700 bg-indigo-50 border-indigo-200"
+                                : "text-purple-700 bg-purple-50 border-purple-200"
+                            }`}
+                          >
+                            {o.nivel}
+                            {o.bairro ? `: ${o.bairro}` : o.prefeituraBairro ? `: ${o.prefeituraBairro}` : ""}
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </td>
 
                   {/* Órgão */}

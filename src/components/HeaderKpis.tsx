@@ -18,15 +18,16 @@ interface HeaderKpisProps {
 }
 
 /**
- * Componente de cabeçalho com os 5 KPIs Superiores do Painel de Obras de Salvador.
+ * Componente de cabeçalho com os KPIs Superiores e o Indicador de Transparência Opaca de Salvador.
  *
  * @summary Exibe os cartões superiores dinâmicos de auditoria social e execução orçamentária.
- * @description Apresenta em 5 blocos responsivos as métricas fundamentais de controle:
+ * @description Apresenta em blocos responsivos as métricas fundamentais de controle:
  * 1. Total Investido (recalculado conforme a métrica financeira ativa);
  * 2. Obras Ativas em relação ao total de contratos;
  * 3. Obras Críticas e Atrasadas (classificadas no Semáforo Vermelho);
  * 4. Aditivos de Preço (total financeiro em R$ e variação percentual média);
- * 5. Investimento Médio por Habitante de Salvador (base populacional Censo 2022).
+ * 5. Investimento Médio por Habitante de Salvador (base populacional Censo 2022);
+ * 6. Indicador de Transparência Opaca: volume financeiro e percentual de contratos com Escopo Cidade (Não-Localizado).
  *
  * @param props - Propriedades contendo o objeto de KPIs, o ano de referência e a métrica ativa.
  * @returns Elemento JSX com a grade de cartões de indicadores.
@@ -38,6 +39,12 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
   const percentualCriticas = kpis.percentualCriticas ?? 0;
   const totalAditivos = kpis.totalAditivosValor ?? 0;
   const percentualMedioAditivos = kpis.percentualMedioAditivos ?? 0;
+  const totalNaoLocalizado = kpis.totalNaoLocalizado ?? 0;
+  const valorNaoLocalizado =
+    metricType === "vigente"
+      ? (kpis.valorNaoLocalizado ?? 0)
+      : (kpis.valorPagoNaoLocalizado ?? kpis.valorNaoLocalizado ?? 0);
+  const percentualNaoLocalizado = kpis.percentualNaoLocalizado ?? 0;
 
   return (
     <header className="bg-slate-900 text-white shadow-md border-b border-slate-800">
@@ -58,8 +65,8 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
           </div>
         </div>
 
-        {/* Grade com os 5 KPIs Superiores do Painel */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mt-4">
+        {/* Grade com os KPIs Superiores do Painel */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 mt-4">
           {/* Card 1: Total Investido em Obras */}
           <div className="bg-slate-800/90 rounded-xl p-3.5 border border-slate-700/80 shadow-sm flex flex-col justify-between">
             <span className="text-[11px] font-medium uppercase tracking-wider text-slate-400">
@@ -68,11 +75,11 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
             <div className="mt-1.5">
               <span
                 data-testid="kpi-total-investido"
-                className="text-xl sm:text-2xl font-extrabold text-white tracking-tight"
+                className="text-lg sm:text-xl font-extrabold text-white tracking-tight"
               >
                 {formatCurrency(kpis.valorTotal)}
               </span>
-              <p className="text-[11px] text-emerald-400 mt-0.5">
+              <p className="text-[10px] text-emerald-400 mt-0.5">
                 {isVigente ? "Valor Contratual Vigente" : "Valor Executado / Pago"}
               </p>
             </div>
@@ -86,25 +93,25 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
             <div className="mt-1.5">
               <span
                 data-testid="kpi-obras-ativas"
-                className="text-xl sm:text-2xl font-extrabold text-sky-400 tracking-tight"
+                className="text-lg sm:text-xl font-extrabold text-sky-400 tracking-tight"
               >
                 {formatNumber(kpis.totalAtivas)} / {formatNumber(kpis.totalObras)}
               </span>
-              <p className="text-[11px] text-slate-400 mt-0.5">Contratos vigentes no exercício</p>
+              <p className="text-[10px] text-slate-400 mt-0.5">Contratos vigentes no exercício</p>
             </div>
           </div>
 
           {/* Card 3: Obras Críticas / Atrasadas */}
           <div className="bg-slate-800/90 rounded-xl p-3.5 border border-slate-700/80 shadow-sm flex flex-col justify-between">
             <span className="text-[11px] font-medium uppercase tracking-wider text-rose-400 flex items-center justify-between">
-              <span>Obras Críticas / Atrasadas</span>
+              <span>Obras Críticas</span>
               <span className="w-2 h-2 rounded-full bg-rose-500"></span>
             </span>
             <div className="mt-1.5">
               <div className="flex items-baseline gap-1.5">
                 <span
                   data-testid="kpi-obras-criticas"
-                  className="text-xl sm:text-2xl font-extrabold text-rose-400 tracking-tight"
+                  className="text-lg sm:text-xl font-extrabold text-rose-400 tracking-tight"
                 >
                   {formatNumber(totalCriticas)}
                 </span>
@@ -112,7 +119,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
                   ({percentualCriticas.toFixed(1).replace(".", ",")}%)
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 mt-0.5">Semáforo Vermelho (Risco Alto)</p>
+              <p className="text-[10px] text-slate-400 mt-0.5">Semáforo Vermelho (Risco)</p>
             </div>
           </div>
 
@@ -124,12 +131,12 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
             <div className="mt-1.5">
               <span
                 data-testid="kpi-aditivos-preco"
-                className="text-xl sm:text-2xl font-extrabold text-amber-300 tracking-tight"
+                className="text-lg sm:text-xl font-extrabold text-amber-300 tracking-tight"
               >
                 {formatCurrency(totalAditivos)}
               </span>
-              <p className="text-[11px] text-slate-400 mt-0.5">
-                Acréscimo médio de {percentualMedioAditivos.toFixed(1).replace(".", ",")}%
+              <p className="text-[10px] text-slate-400 mt-0.5">
+                Acréscimo de {percentualMedioAditivos.toFixed(1).replace(".", ",")}%
               </p>
             </div>
           </div>
@@ -142,11 +149,40 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
             <div className="mt-1.5">
               <span
                 data-testid="kpi-investimento-per-capita"
-                className="text-xl sm:text-2xl font-extrabold text-emerald-400 tracking-tight"
+                className="text-lg sm:text-xl font-extrabold text-emerald-400 tracking-tight"
               >
                 {formatCurrency(kpis.investimentoPorHabitanteCidade)}
               </span>
-              <p className="text-[11px] text-slate-400 mt-0.5">Média municipal (Censo 2022)</p>
+              <p className="text-[10px] text-slate-400 mt-0.5">Média da cidade (Censo 2022)</p>
+            </div>
+          </div>
+
+          {/* Card 6: Transparência Opaca (Escopo Cidade / Não-Localizado) */}
+          <div
+            data-testid="kpi-transparencia-opaca"
+            className="bg-slate-800/90 rounded-xl p-3.5 border border-purple-500/30 shadow-sm flex flex-col justify-between"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-medium uppercase tracking-wider text-purple-300">
+                Transparência Opaca
+              </span>
+              <span
+                className="w-2 h-2 rounded-full bg-purple-400"
+                title="Contratos em Escopo Cidade sem localização identificada"
+              ></span>
+            </div>
+            <div className="mt-1.5">
+              <div className="flex items-baseline gap-1.5">
+                <span
+                  data-testid="kpi-valor-nao-localizado"
+                  className="text-lg sm:text-xl font-extrabold text-purple-300 tracking-tight"
+                >
+                  {formatCurrency(valorNaoLocalizado)}
+                </span>
+              </div>
+              <p className="text-[10px] text-purple-200 mt-0.5">
+                {percentualNaoLocalizado.toFixed(1).replace(".", ",")}% do total ({totalNaoLocalizado} contratos sem local)
+              </p>
             </div>
           </div>
         </div>

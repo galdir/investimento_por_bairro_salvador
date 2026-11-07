@@ -1,0 +1,47 @@
+[
+  {
+    "id": 101,
+    "nome": "UNIDADE DE SAUDE DA FAMILIA - USF PITUBA",
+    "tipo": "USF",
+    "bairro": "Pituba",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.9970,
+    "longitude": -38.4560
+  },
+  {
+    "id": 102,
+    "nome": "UNIDADE BASICA DE SAUDE - UBS LIBERDADE",
+    "tipo": "UBS",
+    "bairro": "Liberdade",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.9560,
+    "longitude": -38.4860
+  },
+  {
+    "id": 103,
+    "nome": "UNIDADE DE PRONTO ATENDIMENTO - UPA VALE DOS BARRIS",
+    "tipo": "UPA",
+    "bairro": "Barris",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.9860,
+    "longitude": -38.5130
+  },
+  {
+    "id": 104,
+    "nome": "UNIDADE DE SAUDE DA FAMILIA - USF CABULA",
+    "tipo": "USF",
+    "bairro": "Cabula",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.9590,
+    "longitude": -38.4690
+  },
+  {
+    "id": 105,
+    "nome": "MULTICENTRO DE SAUDE LIBERDADE",
+    "tipo": "MULTICENTRO",
+    "bairro": "Liberdade",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.9570,
+    "longitude": -38.4870
+  }
+]

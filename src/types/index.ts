@@ -21,6 +21,14 @@ export type TemaObra =
 
 export type MetricType = "vigente" | "executado";
 
+export type ChoroplethMetric = "investimentoPorHabitante" | "vulnerabilidade";
+
+export type NivelAlocacaoTerritorial =
+  | "Pontual"
+  | "Bairro"
+  | "Regional (Prefeitura-Bairro)"
+  | "Escopo Cidade (Não-Localizado)";
+
 export interface GlobalKpis {
   totalObras: number;
   valorTotal: number;
@@ -33,6 +41,10 @@ export interface GlobalKpis {
   totalLiquidado: number;
   totalPago: number;
   investimentoPorHabitanteCidade: number;
+  totalNaoLocalizado?: number;
+  valorNaoLocalizado?: number;
+  valorPagoNaoLocalizado?: number;
+  percentualNaoLocalizado?: number;
 }
 
 export interface BairroResumo {
@@ -43,12 +55,28 @@ export interface BairroResumo {
   indice_vulnerabilidade: number;
   is_zona_especial_nao_residencial: boolean;
   isZonaEspecialNaoResidencial?: boolean;
+  valorTotal?: number;
+  valorPago?: number;
+  totalObras?: number;
+  obrasVerde?: number;
+  obrasAmarelo?: number;
+  obrasVermelho?: number;
+  investimentoPorHabitante?: number;
+  investimentoPorHabitantePago?: number;
 }
 
 export interface PrefeituraBairroResumo {
   id: number | string;
   nome: string;
   populacao_total: number;
+  valorTotal?: number;
+  valorPago?: number;
+  totalObras?: number;
+  obrasVerde?: number;
+  obrasAmarelo?: number;
+  obrasVermelho?: number;
+  investimentoPorHabitante?: number;
+  investimentoPorHabitantePago?: number;
 }
 
 export interface ObraCompacta {
@@ -67,6 +95,13 @@ export interface ObraCompacta {
   tema?: TemaObra | string;
   semaforo?: SemaforoInfo;
   ano?: number;
+  nivel?: NivelAlocacaoTerritorial | string;
+  bairro?: string | null;
+  prefeituraBairro?: string | null;
+  prefeitura_bairro?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  estagioAlocacao?: string | null;
 }
 
 export interface IndexData {
@@ -89,6 +124,14 @@ export interface TerritorySelection {
   indice_vulnerabilidade?: number;
   is_zona_especial_nao_residencial?: boolean;
   isZonaEspecialNaoResidencial?: boolean;
+  valorTotal?: number;
+  valorPago?: number;
+  totalObras?: number;
+  obrasVerde?: number;
+  obrasAmarelo?: number;
+  obrasVermelho?: number;
+  investimentoPorHabitante?: number;
+  investimentoPorHabitantePago?: number;
 }
 
 export interface FilterState {
