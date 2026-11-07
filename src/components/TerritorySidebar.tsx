@@ -1,5 +1,5 @@
 import React from "react";
-import { TerritorySelection } from "../types";
+import { MetricType, TerritorySelection } from "../types";
 import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
 
 interface TerritorySidebarProps {
@@ -15,6 +15,10 @@ interface TerritorySidebarProps {
    * Callback opcional para navegar diretamente para a visão de tabela com filtro do território.
    */
   onViewWorksInTable?: () => void;
+  /**
+   * Métrica financeira ativa na barra superior: "vigente" (Valor Contratual Vigente) ou "executado" (Valor Executado / Pago).
+   */
+  metricType?: MetricType;
 }
 
 /**
@@ -35,6 +39,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   territorio,
   onClear,
   onViewWorksInTable,
+  metricType = "vigente",
 }) => {
   if (!territorio) {
     return (
@@ -68,8 +73,13 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   );
   const ehBairro = territorio.tipo === "bairro";
 
-  const totalInvestido = territorio.valorTotal ?? 0;
-  const invPerCapita = territorio.investimentoPorHabitante ?? 0;
+  const isExecutado = metricType === "executado";
+  const totalInvestido = isExecutado
+    ? (territorio.valorPago ?? 0)
+    : (territorio.valorTotal ?? 0);
+  const investimentoPorHabitante = isExecutado
+    ? (territorio.investimentoPorHabitantePago ?? 0)
+    : (territorio.investimentoPorHabitante ?? 0);
   const totalObras = territorio.totalObras ?? 0;
   const obrasVerde = territorio.obrasVerde ?? 0;
   const obrasAmarelo = territorio.obrasAmarelo ?? 0;
@@ -152,7 +162,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
             data-testid="raio-x-investimento-per-capita"
             className="text-base sm:text-lg font-bold text-emerald-600 mt-0.5 block"
           >
-            {ehZonaEspecial ? "Isento" : formatCurrency(invPerCapita)}
+            {ehZonaEspecial ? "Isento" : formatCurrency(investimentoPorHabitante)}
           </span>
           <span className="text-[10px] text-slate-400">
             {ehZonaEspecial ? "Zona Especial" : "por morador"}

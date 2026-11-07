@@ -1,6 +1,8 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import L from "leaflet";
 import App, { buildDataUrl } from "../../src/App";
+import { SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM } from "../../src/components/InteractiveMap";
 
 const mockIndexData = {
   metadata: {
@@ -31,7 +33,9 @@ const mockIndexData = {
       nome: "Barra/Pituba",
       populacao_total: 65000,
       valorTotal: 12000000.0,
+      valorPago: 7860000.0,
       investimentoPorHabitante: 184.62,
+      investimentoPorHabitantePago: 120.92,
       totalObras: 1,
       obrasVerde: 1,
       obrasAmarelo: 0,
@@ -42,7 +46,9 @@ const mockIndexData = {
       nome: "Liberdade/São Caetano",
       populacao_total: 48000,
       valorTotal: 2400000.0,
+      valorPago: 1200000.0,
       investimentoPorHabitante: 50.0,
+      investimentoPorHabitantePago: 25.0,
       totalObras: 1,
       obrasVerde: 0,
       obrasAmarelo: 1,
@@ -53,7 +59,9 @@ const mockIndexData = {
       nome: "Subúrbio/Ilhas",
       populacao_total: 80000,
       valorTotal: 4000000.0,
+      valorPago: 800000.0,
       investimentoPorHabitante: 50.0,
+      investimentoPorHabitantePago: 10.0,
       totalObras: 1,
       obrasVerde: 0,
       obrasAmarelo: 0,
@@ -69,7 +77,9 @@ const mockIndexData = {
       indice_vulnerabilidade: 0.12,
       is_zona_especial_nao_residencial: false,
       valorTotal: 12000000.0,
+      valorPago: 7860000.0,
       investimentoPorHabitante: 184.62,
+      investimentoPorHabitantePago: 120.92,
       totalObras: 1,
       obrasVerde: 1,
       obrasAmarelo: 0,
@@ -83,7 +93,9 @@ const mockIndexData = {
       indice_vulnerabilidade: 0.05,
       is_zona_especial_nao_residencial: true,
       valorTotal: 10000000.0,
+      valorPago: 5000000.0,
       investimentoPorHabitante: 0.0,
+      investimentoPorHabitantePago: 0.0,
       totalObras: 1,
       obrasVerde: 1,
       obrasAmarelo: 0,
@@ -97,7 +109,9 @@ const mockIndexData = {
       indice_vulnerabilidade: 0.08,
       is_zona_especial_nao_residencial: true,
       valorTotal: 500000.0,
+      valorPago: 250000.0,
       investimentoPorHabitante: 0.0,
+      investimentoPorHabitantePago: 0.0,
       totalObras: 1,
       obrasVerde: 1,
       obrasAmarelo: 0,
@@ -111,7 +125,9 @@ const mockIndexData = {
       indice_vulnerabilidade: 0.78,
       is_zona_especial_nao_residencial: false,
       valorTotal: 2400000.0,
+      valorPago: 1200000.0,
       investimentoPorHabitante: 50.0,
+      investimentoPorHabitantePago: 25.0,
       totalObras: 1,
       obrasVerde: 0,
       obrasAmarelo: 1,
@@ -1065,6 +1081,114 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       // 3º Subúrbio/Ilhas (R$ 10,00)
       expect(screen.getByTestId("ranking-item-3")).toHaveTextContent("Subúrbio/Ilhas");
       expect(screen.getByTestId("ranking-valor-3")).toHaveTextContent(/R\$\s*10/);
+    });
+  });
+
+  it("centraliza o mapa em Salvador (SALVADOR_CENTER, zoom 12) e chama invalidateSize ao carregar as malhas iniciais", async () => {
+    const invalidateSizeSpy = vi.spyOn(L.Map.prototype, "invalidateSize");
+    const setViewSpy = vi.spyOn(L.Map.prototype, "setView");
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("leaflet-map-container")).toBeInTheDocument();
+    });
+
+    await waitFor(() => {
+      expect(invalidateSizeSpy).toHaveBeenCalled();
+      expect(setViewSpy).toHaveBeenCalledWith(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
+    });
+
+    invalidateSizeSpy.mockRestore();
+    setViewSpy.mockRestore();
+  });
+
+  it("limpa seleção anterior incompatível e reenquadra o mapa em Salvador ao alternar entre Bairros e Prefeituras-Bairro", async () => {
+    const invalidateSizeSpy = vi.spyOn(L.Map.prototype, "invalidateSize");
+    const setViewSpy = vi.spyOn(L.Map.prototype, "setView");
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+    });
+
+    // 1. Seleciona Pituba (Bairro Oficial)
+    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+      expect(screen.getByTestId("banner-territorio-filtrado")).toBeInTheDocument();
+    });
+
+    invalidateSizeSpy.mockClear();
+    setViewSpy.mockClear();
+
+    // 2. Alterna camada para Prefeituras-Bairro
+    const btnPrefeituras = screen.getByRole("button", { name: /^Prefeituras-Bairro/i });
+    fireEvent.click(btnPrefeituras);
+
+    // 3. A seleção territorial anterior (Pituba) incompatível deve ser limpa
+    await waitFor(() => {
+      expect(screen.queryByTestId("banner-territorio-filtrado")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("raio-x-nome")).not.toBeInTheDocument();
+    });
+
+    // 4. O mapa deve ter executado invalidateSize() e recentralizado em Salvador
+    expect(invalidateSizeSpy).toHaveBeenCalled();
+    expect(setViewSpy).toHaveBeenCalledWith(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
+
+    invalidateSizeSpy.mockRestore();
+    setViewSpy.mockRestore();
+  });
+
+  it("atualiza dinamicamente o Total Investido e R$ / Habitante no Raio-X ao alternar para Executado / Pago e preserva Isento para Zonas Especiais", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+    });
+
+    // 1. Seleciona Bairro Oficial Pituba
+    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+    });
+
+    // Sob Valor Contratual Vigente:
+    expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 12.000.000");
+    expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("R$ 184,62");
+
+    // 2. Alterna para Valor Executado / Pago
+    fireEvent.click(screen.getByTestId("btn-metrica-executado"));
+
+    // O Raio-X deve atualizar dinamicamente para valorPago (7.860.000) e investimentoPorHabitantePago (120,92)
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 7.860.000");
+      expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("R$ 120,92");
+    });
+
+    // 3. Retorna para Valor Contratual Vigente
+    fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 12.000.000");
+      expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("R$ 184,62");
+    });
+
+    // 4. Agora seleciona uma Zona Especial Não-Residencial (Aeroporto)
+    fireEvent.click(screen.getByTestId("territory-selector-aeroporto"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Aeroporto");
+    });
+    expect(screen.getByTestId("badge-zona-especial")).toBeInTheDocument();
+    expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Isento");
+
+    // Alterna para Executado / Pago: o per capita DEVE continuar "Isento"
+    fireEvent.click(screen.getByTestId("btn-metrica-executado"));
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Isento");
     });
   });
 });

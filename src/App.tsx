@@ -21,6 +21,7 @@ import {
   calculateTerritorialRollup,
   createBairroSelection,
   createPrefeituraSelection,
+  isTerritoryCompatibleWithLayer,
 } from "./utils/territory";
 
 const TEMAS_PADRAO: TemaObra[] = [
@@ -395,6 +396,17 @@ export const App: React.FC = () => {
     setSelectedTerritory(null);
   };
 
+  const handleToggleLayer = (layer: "bairros" | "prefeituras") => {
+    if (layer !== activeLayer) {
+      setActiveLayer(layer);
+      // Ao alternar entre Bairros Oficiais e Prefeituras-Bairro,
+      // qualquer seleção territorial incompatível com a nova camada é limpa
+      if (!isTerritoryCompatibleWithLayer(selectedTerritory, layer)) {
+        setSelectedTerritory(null);
+      }
+    }
+  };
+
   const handleSelectPrefeituraFromRanking = (pb: PrefeituraBairroResumo) => {
     setSelectedTerritory(createPrefeituraSelection(pb));
     setActiveLayer("prefeituras");
@@ -564,7 +576,7 @@ export const App: React.FC = () => {
           <div className="h-full flex flex-col md:flex-row overflow-hidden relative">
             <InteractiveMap
               activeLayer={activeLayer}
-              onToggleLayer={setActiveLayer}
+              onToggleLayer={handleToggleLayer}
               bairros={recalculatedBairros}
               prefeituras={recalculatedPrefeituras}
               bairrosGeoJson={bairrosGeo}
@@ -580,6 +592,7 @@ export const App: React.FC = () => {
               territorio={activeSelectedTerritory}
               onClear={() => setSelectedTerritory(null)}
               onViewWorksInTable={() => setActiveTab("tabela")}
+              metricType={filters.metricType}
             />
           </div>
         )}
@@ -603,6 +616,7 @@ export const App: React.FC = () => {
               territorio={activeSelectedTerritory}
               onClear={() => setSelectedTerritory(null)}
               onViewWorksInTable={() => setActiveTab("tabela")}
+              metricType={filters.metricType}
             />
           </div>
         )}

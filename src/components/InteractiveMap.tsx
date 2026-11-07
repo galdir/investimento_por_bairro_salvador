@@ -19,6 +19,20 @@ import {
 export const SALVADOR_CENTER: L.LatLngTuple = [-12.9777, -38.48];
 export const SALVADOR_DEFAULT_ZOOM = 12;
 
+/**
+ * Enquadra e recentraliza o mapa Leaflet na visão padrão de Salvador com invalidateSize.
+ *
+ * @summary Helper de recentralização garantida reutilizado na inicialização, alternância de camada e reset.
+ * @param map - Instância do mapa Leaflet ou null/undefined.
+ */
+export function recenterMap(map: L.Map | null | undefined): void {
+  if (!map) return;
+  try {
+    map.invalidateSize();
+    map.setView(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
+  } catch {}
+}
+
 interface InteractiveMapProps {
   activeLayer: "bairros" | "prefeituras";
   onToggleLayer: (layer: "bairros" | "prefeituras") => void;
@@ -95,6 +109,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const leafletMapRef = useRef<L.Map | null>(null);
   const geoJsonLayerRef = useRef<L.GeoJSON | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
+  const prevActiveLayerRef = useRef(activeLayer);
+  const initialCenteredRef = useRef(false);
+  const prevSelectedTerritoryRef = useRef<TerritorySelection | null>(selectedTerritory);
 
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
   const [showPins, setShowPins] = useState<boolean>(true);
@@ -122,10 +139,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       leafletMapRef.current = map;
 
       setTimeout(() => {
-        try {
-          map.invalidateSize();
-          map.setView(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
-        } catch {}
+        recenterMap(map);
       }, 50);
     } catch {}
 
@@ -315,6 +329,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       layer.addTo(map);
       geoJsonLayerRef.current = layer;
 
+      const isLayerChanged = prevActiveLayerRef.current !== activeLayer;
+      prevActiveLayerRef.current = activeLayer;
+
+      const wasDeselected = prevSelectedTerritoryRef.current !== null && selectedTerritory === null;
+      prevSelectedTerritoryRef.current = selectedTerritory;
+
       if (selectedTerritory) {
         let foundBounds: L.LatLngBounds | null = null;
         layer.eachLayer((l: any) => {
@@ -331,6 +351,15 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           try {
             map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
           } catch {}
+        } else {
+          recenterMap(map);
+        }
+      } else {
+        // Sem território selecionado: na carga inicial das malhas geográficas,
+        // na alternância entre camadas ou ao limpar a seleção territorial
+        if (!initialCenteredRef.current || isLayerChanged || wasDeselected) {
+          initialCenteredRef.current = true;
+          recenterMap(map);
         }
       }
     } catch {}
@@ -425,11 +454,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [obras, showPins, onSelectObra]);
 
   const handleRecenter = () => {
-    if (leafletMapRef.current) {
-      try {
-        leafletMapRef.current.invalidateSize();
-        leafletMapRef.current.setView(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
-      } catch {}
+    recenterMap(leafletMapRef.current);
+  };
+
+  const handleLayerToggle = (newLayer: "bairros" | "prefeituras") => {
+    if (newLayer !== activeLayer) {
+      onToggleLayer(newLayer);
+      recenterMap(leafletMapRef.current);
     }
   };
 
@@ -454,7 +485,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         <div className="flex bg-slate-100 p-1 rounded-lg">
           <button
             type="button"
-            onClick={() => onToggleLayer("bairros")}
+            data-testid="btn-camada-bairros"
+            onClick={() => handleLayerToggle("bairros")}
             className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
               activeLayer === "bairros"
                 ? "bg-white text-slate-900 shadow-sm"
@@ -465,7 +497,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           </button>
           <button
             type="button"
-            onClick={() => onToggleLayer("prefeituras")}
+            data-testid="btn-camada-prefeituras"
+            onClick={() => handleLayerToggle("prefeituras")}
             className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
               activeLayer === "prefeituras"
                 ? "bg-white text-slate-900 shadow-sm"

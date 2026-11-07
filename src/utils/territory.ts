@@ -120,6 +120,24 @@ export function createPrefeituraSelection(prefeitura: PrefeituraBairroResumo): T
 }
 
 /**
+ * Verifica se uma seleção territorial é compatível com a camada ativa no mapa.
+ *
+ * @summary Evita que uma seleção de Bairro permaneça ativa ao visualizar Prefeituras-Bairro (e vice-versa).
+ * @param territory - Objeto da seleção territorial atual ou null.
+ * @param layer - Camada ativa no mapa ("bairros" ou "prefeituras").
+ * @returns Verdadeiro caso a seleção seja nula ou compatível com a camada informada.
+ */
+export function isTerritoryCompatibleWithLayer(
+  territory: TerritorySelection | null,
+  layer: "bairros" | "prefeituras"
+): boolean {
+  if (!territory) return true;
+  if (layer === "bairros") return territory.tipo === "bairro";
+  if (layer === "prefeituras") return territory.tipo === "prefeitura_bairro";
+  return false;
+}
+
+/**
  * Recalcula o rollup financeiro, quantitativo e de semáforo dos Bairros Oficiais e Prefeituras-Bairro
  * a partir de um conjunto filtrado de Obras Públicas.
  *
