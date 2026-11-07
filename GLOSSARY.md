@@ -28,6 +28,10 @@ _Avoid_: Prédio público, repartição, instalação
 Contrato administrativo vigente ou concluído no período cujo objeto compreende obras ou serviços de engenharia gerenciados por Unidades Gestoras do município de Salvador.
 _Avoid_: Despesa genérica, compra, licitação
 
+**Mandato Municipal**:
+Ciclo quadrienal da administração municipal de Salvador (`2021–2024` ou `2025–2028`) utilizado como recorte temporal de controle social; uma Obra Pública integra todos os mandatos com os quais seu período de vigência (`dtInicioVigencia` a `dtTerminoVigenciaAtualizado`) se sobrepõe.
+_Avoid_: Ano civil isolado, ano de assinatura, exercício contábil
+
 **Tema da Obra**:
 Categoria funcional atribuída a uma Obra Pública a partir da combinação de sua Unidade Gestora e das palavras-chave de seu objeto (`Encostas e Contenção`, `Educação e Escolas`, `Saúde`, `Praças, Esporte e Lazer`, `Mobilidade, Pavimentação e Drenagem` ou `Manutenção Urbana e Outros`).
 _Avoid_: Tipo de licitação, natureza de despesa, rubrica
