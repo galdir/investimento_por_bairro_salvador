@@ -136,9 +136,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
-      // Camada base CartoDB Positron sem ruído visual
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+      // Camada base OpenStreetMap oficial (100% gratuita, sem marca d'água e sem API Key)
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19,
       }).addTo(map);
 
@@ -228,6 +228,18 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
       layer.addTo(map);
       geoJsonLayerRef.current = layer;
+
+      // Ajusta o enquadramento do mapa para cobrir todo o município de Salvador
+      if (!selectedTerritory) {
+        try {
+          const bounds = layer.getBounds();
+          if (bounds.isValid()) {
+            map.fitBounds(bounds, { padding: [20, 20] });
+          }
+        } catch {
+          // Ignora em testes sem dimensões de tela
+        }
+      }
     } catch {
       // Ignora falhas em testes headless sem renderização WebGL/Canvas
     }
