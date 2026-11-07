@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução da obra de Contenção de Encosta, Microdrenagem, Serviços de Esgotamento Sanitário, Pavimentação, Urbanização e Paisagismo e demais serviços conforme Planilha Orçamentária (Anexo II), na Rua Irmã Dulce e adjacências (de acordo com o Mapa de Localização ¿ Anexo VI), no bairro Cajazeiras VI - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSORCIO CAJAZEIRAS VI",
     "cnpj": "",
+    "razaoSocial": "CONSORCIO CAJAZEIRAS VI",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 14580774.15,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "031cb963-9316-4343-b500-08d208a4d53c"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-03-02T00:00:00.000Z",

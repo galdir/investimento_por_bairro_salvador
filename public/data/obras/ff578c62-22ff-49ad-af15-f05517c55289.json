@@ -7,13 +7,14 @@
   "objeto": "Lançamento do Contrato Nº 387/2025",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "LACONCIL CONSTRUCAO CIVIL LTDA",
     "cnpj": "01.605.655/0001-56",
+    "razaoSocial": "LACONCIL CONSTRUCAO CIVIL LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 271145.99,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "ff578c62-22ff-49ad-af15-f05517c55289"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-10-20T00:00:00.000Z",

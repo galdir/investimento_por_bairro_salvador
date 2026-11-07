@@ -7,13 +7,12 @@
   "objeto": "Registro de preços para contratação de empresa especializada em prestação de serviço comum de engenharia, visando construção de coberturas em áreas públicas, destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria Municipal de Ordem Pública de Salvador/BA, para futuras contratações, de acordo com a conveniência e necessidade da SEMOP, conforme condições estabe",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "BMV CONSTRUCOES E INCORPORACOES LTDA",
     "cnpj": "",
+    "razaoSocial": "BMV CONSTRUCOES E INCORPORACOES LTDA",
     "totalObras": 10,
     "totalObrasAtivas": 10,
     "valorTotalContratado": 68782982.23,
-    "outrasObrasCount": 9,
-    "outrasObrasIds": [
+    "obrasIds": [
       "a6bbc42b-8d8e-406e-a895-d3539a7eca28",
       "a1951fa5-8315-4d00-9d24-6922136bf915",
       "837454d5-3801-46ff-9b85-66d6c0b44b4a",
@@ -22,7 +21,8 @@
       "5779fdfc-dee2-4033-a13e-9690c594aeb1",
       "73698b5c-7bd3-4bf0-91df-7e0c67ea853d",
       "e3370ad2-1b0e-4b62-8001-59e185af1a8d",
-      "cedfa542-a390-41b7-8f0f-f45ea0e24ba2"
+      "cedfa542-a390-41b7-8f0f-f45ea0e24ba2",
+      "979d0e5a-5247-4053-8e5b-823e577871ec"
     ]
   },
   "vigencia": {

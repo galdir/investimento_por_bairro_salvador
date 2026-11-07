@@ -7,18 +7,18 @@
   "objeto": "Contratação de empresa capacitada para execução de obras de Construção da Arena Aquática, localizada na Rua Maria Cecília, s/n, bairro Rio Sena - Salvador/Ba",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "800-D ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "800-D ENGENHARIA LTDA",
     "totalObras": 6,
     "totalObrasAtivas": 6,
     "valorTotalContratado": 26711901.06,
-    "outrasObrasCount": 5,
-    "outrasObrasIds": [
+    "obrasIds": [
       "c52bc0b6-677a-4329-9221-8e25d1c3a1ad",
       "eb9c9183-6a58-4b53-ac53-7534a5021e04",
       "48912250-6785-4a11-9fe6-2bcf944b361a",
       "0806ba8a-f77c-44aa-9630-80b758ac216f",
-      "d652428d-b6b0-4667-850c-f118b2c79521"
+      "d652428d-b6b0-4667-850c-f118b2c79521",
+      "b741d066-06de-402c-add5-6ea347db5a8c"
     ]
   },
   "vigencia": {

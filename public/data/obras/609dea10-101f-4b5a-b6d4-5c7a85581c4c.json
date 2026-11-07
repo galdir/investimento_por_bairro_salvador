@@ -7,14 +7,14 @@
   "objeto": "FORNECIMENTO E MONTAGEM DE MARCO DE INAUGURAÇÃO EM GRANITO CINZA CORUMBÁ",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ELIANA COSTA BRITO LTDA",
     "cnpj": "",
+    "razaoSocial": "ELIANA COSTA BRITO LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 97211.98,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "7ba13b55-63ea-4b6d-ac6c-84d174295010"
+    "obrasIds": [
+      "7ba13b55-63ea-4b6d-ac6c-84d174295010",
+      "609dea10-101f-4b5a-b6d4-5c7a85581c4c"
     ]
   },
   "vigencia": {

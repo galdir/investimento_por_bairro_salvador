@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução de obras de Reforma e Requalificação da Praça Professor Raimundo Varela Freire e Construção da Colônia de Pescadores, Bairro: Paripe - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "START SOLUCOES INTEGRADAS LTDA",
     "cnpj": "",
+    "razaoSocial": "START SOLUCOES INTEGRADAS LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1114289.28,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "e54bb799-c159-4227-ac1b-3e3d5178a17c"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-08-24T00:00:00.000Z",

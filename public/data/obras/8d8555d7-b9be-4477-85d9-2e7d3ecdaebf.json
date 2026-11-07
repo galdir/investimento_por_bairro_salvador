@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa especializada para prestação de serviço de modernização da fachada do Edifício Sede da SEFAZ com recuperação estrutura;",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ALBUQUERQUE ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "ALBUQUERQUE ENGENHARIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 123039.28,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "8d8555d7-b9be-4477-85d9-2e7d3ecdaebf"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-03-05T00:00:00.000Z",

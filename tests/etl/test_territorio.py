@@ -183,6 +183,10 @@ def test_rollup_territorial_regras_de_alocacao_e_zonas_especiais() -> None:
     assert pb_barra_pituba["totalObras"] == 3
     # Per capita = 4.500.000 / 65.000 = 69.23 R$/hab
     assert pb_barra_pituba["investimentoPorHabitante"] == pytest.approx(69.23, rel=1e-2)
+    assert pb_barra_pituba["indice_vulnerabilidade"] == pytest.approx(0.12, rel=1e-2)
+
+    pb_liberdade = next(pb for pb in pb_proc if pb["nome"] == "Liberdade/São Caetano")
+    assert pb_liberdade["indice_vulnerabilidade"] == pytest.approx(0.78, rel=1e-2)
 
     # 3. Verificação da Zona Especial (Aeroporto)
     aeroporto = next(b for b in bairros_proc if b["nome"] == "Aeroporto")

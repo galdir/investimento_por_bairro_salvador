@@ -7,13 +7,14 @@
   "objeto": "ATENDER PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA ESPECIALIZADA PARA CONSOLIDAÇÃO DE ESTUDOS TECNICOS, ESTRUTURAÇÃO DE PROCESSO LICITATORIO DO SISTEMA TELEFERICO DE SALVADOR",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
     "cnpj": "",
+    "razaoSocial": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 3760000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "94c911cb-30d6-4911-b2c6-205c1d088cfc"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-07-20T00:00:00.000Z",

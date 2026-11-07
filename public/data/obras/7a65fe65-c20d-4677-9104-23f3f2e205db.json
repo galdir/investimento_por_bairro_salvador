@@ -7,13 +7,14 @@
   "objeto": "SERVIÇOS COMUNS DE ENGENHARIA DE TOPOGRAFIA COMO LOCAÇÃO E ACOMPANHAMENTO DE OBRAS, LEVANTAMENTOS PLANIMÉTRICO, ALTIMÉTRICO E/OU PLANIALTIMÉTRICO, CADASTRAMENTOS GEORREFERENCIADOS, BEM COMO, ACOMPANHAMENTOS TOPOGRÁFICOS PARA ELABORAÇÃO DE DIVERSOS PROJETOS PARA O MUNICÍPIO DE SALVADOR",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "GILENO CERQUEIRA DA SILVA",
     "cnpj": "",
+    "razaoSocial": "GILENO CERQUEIRA DA SILVA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 99520.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "7a65fe65-c20d-4677-9104-23f3f2e205db"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-07-21T00:00:00.000Z",

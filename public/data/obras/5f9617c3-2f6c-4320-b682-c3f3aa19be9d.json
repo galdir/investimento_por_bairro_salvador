@@ -7,13 +7,14 @@
   "objeto": "Serviços de Apoio ao Gerenciamento, à Fiscalização, às Análises e Aprovações de Projetos e ao Apoio Técnico das obras referentes as Intervenções \"C\" e \"H\", integrantes do projeto da Nova Tancredo Neves, Salvador ¿ Bahia, Contrato: 002/2025",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "CONSORCIO SONDOTECNICA-GEOHIDRO NTN CH",
     "cnpj": "58.841.899/0001-55",
+    "razaoSocial": "CONSORCIO SONDOTECNICA-GEOHIDRO NTN CH",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 4692236.9,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "5f9617c3-2f6c-4320-b682-c3f3aa19be9d"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-01-27T00:00:00.000Z",

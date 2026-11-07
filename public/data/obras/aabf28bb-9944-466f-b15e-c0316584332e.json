@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução de obra de Infraestrutura da Urbanização da Comunidade do Pé Preto, no Bairro da Pituba, SalvadorBA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
     "cnpj": "18.318.752/0001-60",
+    "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 8261867.42,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "aabf28bb-9944-466f-b15e-c0316584332e"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-03-10T00:00:00.000Z",

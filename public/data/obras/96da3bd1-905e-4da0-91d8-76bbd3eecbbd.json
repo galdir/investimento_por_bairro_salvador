@@ -7,13 +7,14 @@
   "objeto": "Execução de obras de Implantação Centro Diagnóstico Municipal da Mulher - CDMM, Rua Caetano Moura, Bairro: Federação - Salvador/BA,",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSORCIO CDMM - AGC BRASIL-CASA DO AR",
     "cnpj": "",
+    "razaoSocial": "CONSORCIO CDMM - AGC BRASIL-CASA DO AR",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 7373311.55,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "96da3bd1-905e-4da0-91d8-76bbd3eecbbd"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-06-01T00:00:00.000Z",

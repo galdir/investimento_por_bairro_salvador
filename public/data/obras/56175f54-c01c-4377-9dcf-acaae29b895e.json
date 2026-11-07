@@ -7,13 +7,14 @@
   "objeto": "Prestação de serviços de manutenção de extintores de incêndio, fornecimento e instalação de extintores, iluminação de emergência e placas de sinalização de segurança contra incêndio e pânico, destinados ao\r\natendimento das unidades escolares e administrativas da Secretaria Municipal da Educação ¿\r\nSMED",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
     "cnpj": "",
+    "razaoSocial": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 209325.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "56175f54-c01c-4377-9dcf-acaae29b895e"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-08-12T00:00:00.000Z",

@@ -7,13 +7,14 @@
   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA FABRICAÇÃO E INSTALAÇÃO DE ACADEMIA AO AR LIVRE, EM ESTRUTURA METÁLICA.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ZIOBER BRASIL LTDA",
     "cnpj": "08.374.053/0001-84",
+    "razaoSocial": "ZIOBER BRASIL LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 96142.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "190b2e6b-8e21-47ef-b4f4-a1fc4f26ebd6"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-12-29T00:00:00.000Z",

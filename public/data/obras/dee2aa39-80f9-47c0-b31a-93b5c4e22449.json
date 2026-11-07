@@ -7,14 +7,14 @@
   "objeto": "Contratação de empresa especializada na manutenção da infraestrutura de cidades, sob regime de empreitada, a preços unitários, com prestação associada no fornecimento de mão-de-obra e equipamentos necessários para execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 02",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ROBLE SERVICOS LTDA",
     "cnpj": "05.874.949/0001-34",
+    "razaoSocial": "ROBLE SERVICOS LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 135701316.6,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "b436c663-a747-4000-a02f-a9f2b92fd7ae"
+    "obrasIds": [
+      "b436c663-a747-4000-a02f-a9f2b92fd7ae",
+      "dee2aa39-80f9-47c0-b31a-93b5c4e22449"
     ]
   },
   "vigencia": {

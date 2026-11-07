@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para prestação de serviços de instalação de 15 (quinze) Fancoil¿s para o Sistema de Climatização do prédio da Sede da SEFAZ, localizado na Rua da Vassouras, Centro Histórico - Salvador/Ba",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "VISTA TECNOLOGIA EQUIPAMENTOS DE INFORMATICA LTDA",
     "cnpj": "",
+    "razaoSocial": "VISTA TECNOLOGIA EQUIPAMENTOS DE INFORMATICA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 294630.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "a6fbce4d-8316-4365-959a-5eeaecce03c5"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-09-14T00:00:00.000Z",

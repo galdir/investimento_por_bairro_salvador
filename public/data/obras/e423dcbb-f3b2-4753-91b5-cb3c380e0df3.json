@@ -7,13 +7,14 @@
   "objeto": "Ampliação da Unidade de Saúde da Família Úrsula Catarino. Lote 02",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "MACJ ENGENHARIA E CONSTRUCAO LTDA",
     "cnpj": "47.465.824/0001-09",
+    "razaoSocial": "MACJ ENGENHARIA E CONSTRUCAO LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 333986.06,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "e423dcbb-f3b2-4753-91b5-cb3c380e0df3"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-06-18T00:00:00.000Z",

@@ -228,18 +228,29 @@ export const App: React.FC = () => {
     if (!indexData) {
       return { bairros: [], prefeituras: [] };
     }
-    // Preservação de Fallback quando nenhum filtro superior está ativo (Pitfall 4)
-    if (!isTopFiltered) {
-      return {
-        bairros: indexData.bairros,
-        prefeituras: indexData.prefeituras_bairro,
-      };
-    }
-    return calculateTerritorialRollup(
+    const rollup = calculateTerritorialRollup(
       indexData.bairros,
       indexData.prefeituras_bairro,
       topFilteredObras
     );
+    // Preservação de Fallback quando nenhum filtro superior está ativo (Pitfall 4),
+    // garantindo o enriquecimento de indice_vulnerabilidade nas Prefeituras-Bairro
+    if (!isTopFiltered) {
+      const vulnByPb = new Map<string, number>();
+      rollup.prefeituras.forEach((pb) => {
+        if (pb.indice_vulnerabilidade !== undefined) {
+          vulnByPb.set(pb.nome, pb.indice_vulnerabilidade);
+        }
+      });
+      return {
+        bairros: indexData.bairros,
+        prefeituras: indexData.prefeituras_bairro.map((pb) => ({
+          ...pb,
+          indice_vulnerabilidade: pb.indice_vulnerabilidade ?? vulnByPb.get(pb.nome) ?? 0.5,
+        })),
+      };
+    }
+    return rollup;
   }, [indexData, topFilteredObras, isTopFiltered]);
 
   // 3. Sincronização reativa do território selecionado com o rollup recalculado sob os filtros ativos

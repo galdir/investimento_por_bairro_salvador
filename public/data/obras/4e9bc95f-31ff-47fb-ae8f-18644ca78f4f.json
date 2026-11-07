@@ -7,13 +7,14 @@
   "objeto": "CONSTRUÇÃO DA UNIDADE DE SAÚDE DA FAMÍLIA CALÇADA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
     "cnpj": "16.607.359/0001-61",
+    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 3574184.34,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "4e9bc95f-31ff-47fb-ae8f-18644ca78f4f"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-06-17T00:00:00.000Z",

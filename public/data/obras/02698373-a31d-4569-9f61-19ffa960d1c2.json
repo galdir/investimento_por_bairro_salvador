@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para fornecimento e instalação de arquibancadas retráteis e seus assentos para o Complexo Multiuso Arena Salvador, localizado Avenida Otávio Mangabeira ¿ Boca do Rio - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "RECOMA CONSTRUCOES, COMERCIO E INDUSTRIA LTDA",
     "cnpj": "",
+    "razaoSocial": "RECOMA CONSTRUCOES, COMERCIO E INDUSTRIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 5990000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "02698373-a31d-4569-9f61-19ffa960d1c2"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-09-15T00:00:00.000Z",

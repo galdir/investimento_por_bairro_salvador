@@ -69,6 +69,7 @@ export interface PrefeituraBairroResumo {
   id: number | string;
   nome: string;
   populacao_total: number;
+  indice_vulnerabilidade?: number;
   valorTotal?: number;
   valorPago?: number;
   totalObras?: number;

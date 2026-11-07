@@ -7,18 +7,18 @@
   "objeto": "Execução da obra de implantação de Via de Ligação da AV. Luís Eduardo Magalhães com a Rua Saturno, no Bairro de Pernambués - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
     "cnpj": "",
+    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
     "totalObras": 7,
     "totalObrasAtivas": 7,
     "valorTotalContratado": 222076005.14,
-    "outrasObrasCount": 6,
-    "outrasObrasIds": [
+    "obrasIds": [
       "0045f4fa-23bb-4b9f-8291-fbf99d4c81f4",
       "f416db4d-19d2-4228-bfca-87aa74167bb3",
       "10e3bc41-5b34-40fd-9b19-765ebe3fe54b",
       "0ae88bfe-920c-41d5-93ed-15f3a3074565",
       "9907044d-9227-43a6-9ce3-c0519e3fac0a",
+      "9f8b0b82-04ba-4a2e-85bf-62d91918daac",
       "4b1520f8-f1ff-4886-98b7-46eb97112db4"
     ]
   },

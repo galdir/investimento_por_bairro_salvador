@@ -7,13 +7,14 @@
   "objeto": "1.1.\tConstitui objeto deste Termo de Referência a contratação de empresa especializada na prestação de serviços continuados de manutenção preventiva e corretiva em caráter contínuo do Sistema de Ar-Condicionado VRF, instalado na sede da SEMIT no edifício Sintral, e todos os seus componentes, seguindo as características constantes neste Termo de Referência, conforme memorial descritivo e quantitati",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "GLOBAL MANUTENCOES E CONSTRUCOES LTDA",
     "cnpj": "",
+    "razaoSocial": "GLOBAL MANUTENCOES E CONSTRUCOES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 122545.8,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "cb5f206d-1511-407f-a539-be898bac2a62"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-05-12T00:00:00.000Z",

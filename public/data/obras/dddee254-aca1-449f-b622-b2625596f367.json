@@ -7,14 +7,14 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS PARA FABRICAÇÃO, FORNECIMENTO E MONTAGEM DE PARQUE INFANTIL EM EUCALIPTO CLOEZIANA TRATADO EM DIVERSOS LOGRADOUROS DO MUNICÍPIO DE SALVADOR",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
     "cnpj": "07.107.558/0001-10",
+    "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 1667902.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "d72d04f0-9b73-44cc-ada8-650b6ea4aca0"
+    "obrasIds": [
+      "d72d04f0-9b73-44cc-ada8-650b6ea4aca0",
+      "dddee254-aca1-449f-b622-b2625596f367"
     ]
   },
   "vigencia": {

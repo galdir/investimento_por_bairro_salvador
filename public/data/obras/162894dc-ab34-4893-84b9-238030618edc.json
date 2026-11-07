@@ -7,16 +7,16 @@
   "objeto": "Contratação de empresa capacitada para execução de Serviços Comuns de Engenharia abrangendo o Fornecimento e Instalação de sistema de cercamento em gradil metálico antiescalada de alta segurança, com painéis de aço galvanizado soldado, revestimento em poliéster e postes metálicos, a ser implantado no Viaduto Direcional Acesso Norte ¿ Intervenção C - Salvador/Ba",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
     "cnpj": "",
+    "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 3153341.34,
-    "outrasObrasCount": 3,
-    "outrasObrasIds": [
+    "obrasIds": [
       "aa9684b4-def9-4ada-8fe9-5bce5b406550",
       "bc9952f8-82e5-4387-864f-c7adff15d1e3",
-      "db4a91ff-2f2a-4233-8d71-cd175d72bef5"
+      "db4a91ff-2f2a-4233-8d71-cd175d72bef5",
+      "162894dc-ab34-4893-84b9-238030618edc"
     ]
   },
   "vigencia": {

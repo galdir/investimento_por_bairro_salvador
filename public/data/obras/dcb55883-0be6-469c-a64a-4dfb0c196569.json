@@ -7,14 +7,14 @@
   "objeto": "CONTRATÇÃO DOS SERVIÇOS COMUNS DE ENGENHARIA PARA RECUPERAÇÃO DO DEPÓSITO DO PATRIMONIO DA SEDE DA DESAL",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "PR CONSTRUCOES TRANSPORTS E SERVICOS LTDA",
     "cnpj": "",
+    "razaoSocial": "PR CONSTRUCOES TRANSPORTS E SERVICOS LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 219074.98,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "33233760-e669-414d-bc0d-ab58b1ac9d93"
+    "obrasIds": [
+      "33233760-e669-414d-bc0d-ab58b1ac9d93",
+      "dcb55883-0be6-469c-a64a-4dfb0c196569"
     ]
   },
   "vigencia": {

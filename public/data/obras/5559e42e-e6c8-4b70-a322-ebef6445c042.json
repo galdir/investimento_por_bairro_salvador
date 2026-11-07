@@ -7,17 +7,17 @@
   "objeto": "Contratação de empresas capacitadas para execução das obras de Manutenção de Quadras e Campos no\r\nMunicípio de Salvador/BA, subdivididos em 04 (quatro) Lotes, em diversos logradouros da Cidade, sob\r\nregime de empreitada, preços unitários, com fornecimento de mão de obra, materiais, equipamentos, e\r\no que for necessário para a execução destes serviços, de acordo com o Edital e seus Anexos",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "QG CONSTRUCOES E ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "QG CONSTRUCOES E ENGENHARIA LTDA",
     "totalObras": 5,
     "totalObrasAtivas": 5,
     "valorTotalContratado": 134393726.34,
-    "outrasObrasCount": 4,
-    "outrasObrasIds": [
+    "obrasIds": [
       "5923af33-40ba-4767-bd72-8277b7b6de94",
       "95ececda-901d-43ae-bb45-aae31202b290",
       "a8b50419-83cd-4dd1-a8eb-2fa293bdb9bd",
-      "780facfb-7f0e-4258-8f74-d4a1e5461cc7"
+      "780facfb-7f0e-4258-8f74-d4a1e5461cc7",
+      "5559e42e-e6c8-4b70-a322-ebef6445c042"
     ]
   },
   "vigencia": {

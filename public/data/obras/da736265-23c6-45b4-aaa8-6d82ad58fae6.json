@@ -7,13 +7,14 @@
   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA ELABORAÇÃO DE PROJETOS DIAGNÓSTICOS DE ACESSIBILIDADE EM ESPAÇOS PÚBLICOS DO MUNICÍPIO DE SALVADOR (NBR 9050).",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "AM GESTAO ACESSIBILIDADE, ARQUITETURA E ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "AM GESTAO ACESSIBILIDADE, ARQUITETURA E ENGENHARIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 48000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "da736265-23c6-45b4-aaa8-6d82ad58fae6"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-06-03T00:00:00.000Z",

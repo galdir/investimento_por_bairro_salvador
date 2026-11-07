@@ -7,19 +7,19 @@
   "objeto": "Construção de imóveis para atendimento da demanda de implantação e implementação dos referidos Centros de Referência de Assistência Social (CRAS), nas localidades Brotas, Narandiba, Paripe e Parque São Cristóvão - Salvador/Ba",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
     "cnpj": "13.585.696/0001-07",
+    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
     "totalObras": 8,
     "totalObrasAtivas": 8,
     "valorTotalContratado": 48674967.2,
-    "outrasObrasCount": 7,
-    "outrasObrasIds": [
+    "obrasIds": [
       "9208c854-72bd-4426-8840-e45516fbea2a",
       "cb044ead-8b90-4807-b07e-6bb2b3a3988d",
       "d188bf22-9f7c-42b8-9e4b-761e6c1125ae",
       "e1921fc5-f51a-4c81-9a99-1f8efc0a0e48",
       "9e33d5e7-563c-4c1e-905c-a31050ad2972",
       "f9e0aeaa-3bf7-4ca1-b45d-4825cd9afe2b",
+      "19e2a758-213d-4251-8a33-2a3727e76884",
       "81570855-cce0-4642-b53d-f383d79589a4"
     ]
   },

@@ -7,14 +7,14 @@
   "objeto": "Contratação de empresa especializada na prestação de serviços de fornecimento e instalação de divisórias, forros em PVC e gesso acartonado com isolamento acústico, além de ferragens, vidros e outros, destinados à adequação e reorganização de ambientes dos conselhos tutelares e órgão central",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "4M ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "4M ENGENHARIA LTDA",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 3979797.95,
-    "outrasObrasCount": 2,
-    "outrasObrasIds": [
+    "obrasIds": [
       "5cc6b7db-660c-43e7-b3f4-4a7e1cade6dd",
+      "b7316488-0d6c-4278-9e0f-07ffcf7795ba",
       "b7fa498e-fb8d-4f57-8936-30788288f90f"
     ]
   },

@@ -7,14 +7,14 @@
   "objeto": "Contratação de empresas capacitadas para execução das obras de Manutenção de Quadras e Campos no\r\nMunicípio de Salvador/BA, subdivididos em 04 (quatro) Lotes, em diversos logradouros da Cidade, sob\r\nregime de empreitada, preços unitários, com fornecimento de mão de obra, materiais, equipamentos, e\r\no que for necessário para a execução destes serviços, de acordo com o Edital e seus Anexos",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "LIGA ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "LIGA ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 47063829.25,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "9c89cee7-7392-4fd3-812b-1209f0e51e08"
+    "obrasIds": [
+      "9c89cee7-7392-4fd3-812b-1209f0e51e08",
+      "8bdaf23e-97ce-4aff-b1dc-67fdc6f4aff4"
     ]
   },
   "vigencia": {

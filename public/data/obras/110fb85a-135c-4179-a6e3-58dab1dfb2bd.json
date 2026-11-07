@@ -7,18 +7,18 @@
   "objeto": "Contratação de empresa especializada para a prestação de serviços comuns de engenharia, visando a manutenção e reparo dos edifícios e equipamentos públicos sob administração da Secretaria Municipal de Ordem Pública de Salvador. Contrato nº 014/2025.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
     "cnpj": "24.051.496/0001-90",
+    "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
     "totalObras": 6,
     "totalObrasAtivas": 6,
     "valorTotalContratado": 33008903.43,
-    "outrasObrasCount": 5,
-    "outrasObrasIds": [
+    "obrasIds": [
       "4812cf33-6f3a-4fa7-b72f-8a4838e7ff03",
       "6452de84-fe4d-4a2a-87ff-9f22cf7053b8",
       "f05a16a6-ff92-417d-9415-b04243dd5b7f",
       "82a61446-847a-4a8e-b0f4-36881c0d42fb",
-      "b3a47837-50b0-40b9-ba67-21fd6e16371a"
+      "b3a47837-50b0-40b9-ba67-21fd6e16371a",
+      "110fb85a-135c-4179-a6e3-58dab1dfb2bd"
     ]
   },
   "vigencia": {

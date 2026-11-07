@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa especializada para execução de serviços de manutenção predial por demanda, nas instalações da Secretaria Municipal de Inovação e Tecnologia ¿ SEMIT.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "RFT CONSTRUCOES LTDA",
     "cnpj": "27.773.835/0001-30",
+    "razaoSocial": "RFT CONSTRUCOES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 123420.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "95a9b617-e2ac-4851-853b-d7efead50679"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-10-30T00:00:00.000Z",

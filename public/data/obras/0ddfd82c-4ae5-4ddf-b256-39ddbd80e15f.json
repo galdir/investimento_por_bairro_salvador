@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução da obra de Urbanização Promenade Contorno - Etapa \r\n01- Avenida Lafayete Coutinho -Salvador/BA.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSORCIO NOVA CONTORNO - FLEX / ATL / H2",
     "cnpj": "57.716.402/0001-04",
+    "razaoSocial": "CONSORCIO NOVA CONTORNO - FLEX / ATL / H2",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 20516527.18,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "0ddfd82c-4ae5-4ddf-b256-39ddbd80e15f"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-09-08T00:00:00.000Z",

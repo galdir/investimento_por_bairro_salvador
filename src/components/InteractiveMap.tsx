@@ -275,7 +275,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 : (props.investimentoPorHabitante ?? 0);
             fillColor = getInvestimentoColor(inv, breaksInvestimento);
           } else {
-            const vuln = dynamicBairro?.indice_vulnerabilidade ?? props.indice_vulnerabilidade ?? 0.5;
+            const vuln =
+              dynamicBairro?.indice_vulnerabilidade ??
+              dynamicPrefeitura?.indice_vulnerabilidade ??
+              props.indice_vulnerabilidade ??
+              0.5;
             fillColor = getVulnerabilidadeColor(vuln);
           }
 
@@ -322,6 +326,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   id: props.id || 0,
                   nome: rawNome,
                   populacao_total: props.populacao_total || 0,
+                  indice_vulnerabilidade: props.indice_vulnerabilidade ?? 0.5,
                   valorTotal: props.valorTotal,
                   valorPago: props.valorPago,
                   totalObras: props.totalObras,

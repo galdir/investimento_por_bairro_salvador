@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa especializada na manutenção da infraestrutura de cidades, sob regime de empreitada, a preços unitários, com prestação associada no fornecimento de mão-de-obra e equipamentos necessários para execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 04",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "METRO ENGENHARIA E CONSULTORIA LTDA",
     "cnpj": "07.478.417/0001-03",
+    "razaoSocial": "METRO ENGENHARIA E CONSULTORIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 74902122.48,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "3335ac3f-92ee-48e8-96ae-4b7ccf30bef1"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-12-23T00:00:00.000Z",

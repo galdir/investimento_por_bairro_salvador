@@ -7,13 +7,14 @@
   "objeto": "O presente contrato tem como objeto a Contratação de empresa especializada em serviços de arquitetura e geotecnologia, com expertise em mapeamento técnico, georreferenciamento e elaboração de plantas operacionais, para atualizações e inovações do Masterplan do Carnaval de Salvador 2026, abrangendo, aspectos de logística, segurança, mobilidade, trânsito, saúde, infraestrutura e tecnologia. conforme",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "A M DE CASTRO DRONES E ASSESSORIA",
     "cnpj": "",
+    "razaoSocial": "A M DE CASTRO DRONES E ASSESSORIA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 49900.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "e0b1417d-1d0f-4072-996d-3c286a9c7e57"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-01-22T00:00:00.000Z",

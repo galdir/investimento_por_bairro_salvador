@@ -7,14 +7,14 @@
   "objeto": "Contratação de empresa especializada para a conclusão da obra da Escola Municipal do Curralinho, conforme especificado no projeto básico e seus anexos.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "NORDESTE ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "NORDESTE ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 23038431.56,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "952356ca-e2fb-467c-87bb-1f79670d8291"
+    "obrasIds": [
+      "952356ca-e2fb-467c-87bb-1f79670d8291",
+      "39fa5f75-c592-4826-93fb-2faa33cb9436"
     ]
   },
   "vigencia": {

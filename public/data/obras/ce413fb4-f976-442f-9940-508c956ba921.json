@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa para prestação de serviços de manutenção predial nas unidades da rede municipal de ensino sob a responsabilidade da Secretaria Municipal da Educação. O objeto compreende o fornecimento de material, mão de obra especializada, equipamentos, ferramentas e utensílios adequados à execução dos serviços.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "AS ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "AS ENGENHARIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 10281694.15,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "ce413fb4-f976-442f-9940-508c956ba921"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-02-19T00:00:00.000Z",

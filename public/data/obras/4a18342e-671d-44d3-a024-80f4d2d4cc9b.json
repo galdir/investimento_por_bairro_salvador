@@ -7,15 +7,15 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA SERVIÇOS COMUNS DE ENGENHARIA PARA  MANUTENÇÃO E FABRICAÇÃO DE ABRIGO METÁLICO SIMPLES PARA PARADA DE ÔNIBUS INCLUINDO \r\nTODO O MATERIAL, CONSUMÍVEIS E MÃO DE OBRA NECESSÁRIA, LOCALIZADOS DIVERSOS \r\nLOGRADOUROS DO MUNICÍPIO DE SALVADOR",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
     "cnpj": "36.162.788/0001-80",
+    "razaoSocial": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
     "totalObras": 6,
     "totalObrasAtivas": 6,
     "valorTotalContratado": 1387227.1,
-    "outrasObrasCount": 5,
-    "outrasObrasIds": [
+    "obrasIds": [
       "cb86d0e9-98e4-4555-9867-8ba391ed6bd6",
       "78ad3c7f-185c-49c8-a65e-02e10c903f3d",
+      "4a18342e-671d-44d3-a024-80f4d2d4cc9b",
       "ecfb54a4-20f7-470c-a150-f9a3d4363135",
       "f660abc1-a14a-4433-b349-15d462dcb536",
       "40d0cfb0-93e2-4d2b-93fc-e93154f73add"

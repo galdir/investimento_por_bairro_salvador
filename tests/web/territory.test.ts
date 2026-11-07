@@ -178,6 +178,11 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
     expect(pbBarra).toBeDefined();
     expect(pbBarra?.valorTotal).toBe(12000000.0);
     expect(pbBarra?.investimentoPorHabitante).toBe(184.62);
+    expect(pbBarra?.indice_vulnerabilidade).toBe(0.12);
+
+    // Liberdade/São Caetano
+    const pbLiberdade = prefeituras.find((pb) => pb.nome === "Liberdade/São Caetano");
+    expect(pbLiberdade?.indice_vulnerabilidade).toBe(0.78);
 
     // Liberdade (Obra 1002)
     const liberdade = bairros.find((b) => b.nome === "Liberdade");

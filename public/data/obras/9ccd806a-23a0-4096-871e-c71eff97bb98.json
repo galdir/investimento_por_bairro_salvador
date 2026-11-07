@@ -7,14 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução da obra de Implantação do CRAS - Centro de \r\nReferência da Assistência Social -Mané Dendê em Ilha Amarela - Salvador/BA.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA LAM LTDA",
     "cnpj": "03.522.765/0001-80",
+    "razaoSocial": "CONSTRUTORA LAM LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 8216555.66,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "88f5f246-ce99-450d-a2de-f1de2cda15c0"
+    "obrasIds": [
+      "88f5f246-ce99-450d-a2de-f1de2cda15c0",
+      "9ccd806a-23a0-4096-871e-c71eff97bb98"
     ]
   },
   "vigencia": {

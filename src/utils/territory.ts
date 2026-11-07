@@ -108,6 +108,7 @@ export function createPrefeituraSelection(prefeitura: PrefeituraBairroResumo): T
     id: prefeitura.id,
     nome: prefeitura.nome,
     populacao: prefeitura.populacao_total,
+    indice_vulnerabilidade: prefeitura.indice_vulnerabilidade,
     valorTotal: prefeitura.valorTotal,
     valorPago: prefeitura.valorPago,
     totalObras: prefeitura.totalObras,
@@ -253,8 +254,31 @@ export function calculateTerritorialRollup(
     const investimentoPorHabitantePago =
       populacaoTotal > 0 ? Math.round(((valorPago / populacaoTotal) + Number.EPSILON) * 100) / 100 : 0.0;
 
+    // Índice de vulnerabilidade da Prefeitura-Bairro: média ponderada pela população dos bairros residenciais
+    const bairrosResidenciais = bairrosFilhos.filter(
+      (b) => !(b.is_zona_especial_nao_residencial || b.isZonaEspecialNaoResidencial)
+    );
+    let popResidencial = 0;
+    let somaVulnPonderada = 0;
+    for (const b of bairrosResidenciais) {
+      const pop = b.populacao || 0;
+      if (pop > 0) {
+        popResidencial += pop;
+        somaVulnPonderada += pop * (b.indice_vulnerabilidade ?? 0.5);
+      }
+    }
+
+    let indiceVulnerabilidade = prefeitura.indice_vulnerabilidade ?? 0.5;
+    if (popResidencial > 0) {
+      indiceVulnerabilidade = Math.round(((somaVulnPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
+    } else if (bairrosResidenciais.length > 0) {
+      const somaSimples = bairrosResidenciais.reduce((acc, b) => acc + (b.indice_vulnerabilidade ?? 0.5), 0);
+      indiceVulnerabilidade = Math.round(((somaSimples / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
+    }
+
     return {
       ...prefeitura,
+      indice_vulnerabilidade: indiceVulnerabilidade,
       valorTotal: Math.round((valorTotal + Number.EPSILON) * 100) / 100,
       valorPago: Math.round((valorPago + Number.EPSILON) * 100) / 100,
       totalObras,

@@ -7,14 +7,14 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA DE REFORMA DE ALOJAMENTO E SANITÁRIOS DOS EMPREGADOS OPERACIONAIS DA DESAL",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
     "cnpj": "",
+    "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 567704.54,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "535f14e3-08cb-4081-a5d9-06970a00f1d4"
+    "obrasIds": [
+      "535f14e3-08cb-4081-a5d9-06970a00f1d4",
+      "634cc837-d278-4986-8644-576089b5d535"
     ]
   },
   "vigencia": {

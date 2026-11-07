@@ -399,8 +399,32 @@ def calcular_rollup_territorial(
         inv_per_capita_pb = round(vl_total_pb / pop_total, 2) if pop_total > 0 else 0.0
         inv_per_capita_pago_pb = round(vl_pago_pb / pop_total, 2) if pop_total > 0 else 0.0
 
+        # Índice de vulnerabilidade da Prefeitura-Bairro: média ponderada pela população dos bairros residenciais
+        bairros_residenciais = [
+            b for b in bairros_filhos
+            if not (b.get("is_zona_especial_nao_residencial") or b.get("isZonaEspecialNaoResidencial"))
+        ]
+        pop_residencial = sum(int(b.get("populacao", 0)) for b in bairros_residenciais if int(b.get("populacao", 0)) > 0)
+        if pop_residencial > 0:
+            soma_vuln_ponderada = sum(
+                int(b.get("populacao", 0)) * parse_float(b.get("indice_vulnerabilidade", 0.5))
+                for b in bairros_residenciais
+                if int(b.get("populacao", 0)) > 0
+            )
+            indice_vuln_pb = round(soma_vuln_ponderada / pop_residencial, 2)
+        elif bairros_residenciais:
+            indice_vuln_pb = round(
+                sum(parse_float(b.get("indice_vulnerabilidade", 0.5)) for b in bairros_residenciais) / len(bairros_residenciais),
+                2,
+            )
+        elif pb.get("indice_vulnerabilidade") is not None:
+            indice_vuln_pb = round(parse_float(pb.get("indice_vulnerabilidade")), 2)
+        else:
+            indice_vuln_pb = 0.5
+
         pb_dict = dict(pb)
         pb_dict.update({
+            "indice_vulnerabilidade": indice_vuln_pb,
             "valorTotal": round(vl_total_pb, 2),
             "valorPago": round(vl_pago_pb, 2),
             "totalObras": total_obras_pb,

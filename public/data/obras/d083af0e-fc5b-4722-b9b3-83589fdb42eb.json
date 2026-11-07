@@ -7,13 +7,14 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS COMUNS DE  ENGENHARIA PARA RECUPERAÇÃO DA COBERTURA E DA ESTRUTURA METÁLICA DE SUPORTE DO  PRÉDIO ADMINISTRATIVO E DO GALPÃO FABRIL DA SEDE DA DESAL NO MUNICÍPIO DE SALVADOR",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
     "cnpj": "13.241.391/0001-88",
+    "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 422257.19,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "d083af0e-fc5b-4722-b9b3-83589fdb42eb"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-06-16T00:00:00.000Z",

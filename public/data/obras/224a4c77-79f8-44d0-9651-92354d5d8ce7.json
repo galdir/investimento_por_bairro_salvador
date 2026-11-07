@@ -7,13 +7,14 @@
   "objeto": "Execução de obras de Requalificação Viária da Travessa Antônio Hungar, no bairro de Itacaranha - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA ALVES CARVALHO LTDA",
     "cnpj": "",
+    "razaoSocial": "CONSTRUTORA ALVES CARVALHO LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 416269.54,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "224a4c77-79f8-44d0-9651-92354d5d8ce7"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-06-30T00:00:00.000Z",

@@ -7,16 +7,16 @@
   "objeto": "Contratação de empresa capacitada para execução da obra de Contenção de Encosta, Rua Victor Meirelles,\r\nGarcia-Salvador/BA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "LIGA ENGENHARIA LTDA",
     "cnpj": "15.270.565/0001-66",
+    "razaoSocial": "LIGA ENGENHARIA LTDA",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 112343727.91,
-    "outrasObrasCount": 3,
-    "outrasObrasIds": [
+    "obrasIds": [
       "6a3714f9-27bd-4f4d-82b7-b1ac2ff6b1b9",
       "235f6f08-a998-4ff7-8810-1dafef3f9acd",
-      "a8b61a40-d4b6-4533-aad0-a0041d5320d7"
+      "a8b61a40-d4b6-4533-aad0-a0041d5320d7",
+      "65f11ead-5cef-4272-8891-e83302b7f37a"
     ]
   },
   "vigencia": {

@@ -7,19 +7,19 @@
   "objeto": "Contratação de empresa especializada na manutenção da infraestrutura de cidades, sob regime de empreitada, a preços unitários, com prestação associada no fornecimento de mão-de-obra e equipamentos necessários para execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 03",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA BSM LTDA",
     "cnpj": "07.324.514/0001-41",
+    "razaoSocial": "CONSTRUTORA BSM LTDA",
     "totalObras": 7,
     "totalObrasAtivas": 7,
     "valorTotalContratado": 339288908.53,
-    "outrasObrasCount": 6,
-    "outrasObrasIds": [
+    "obrasIds": [
       "08230d53-3467-48b9-8588-40f750fc524d",
       "2d40fce7-4da8-4011-b3c3-722677550251",
       "828c73a7-376c-40c3-a57a-4f7685639fb9",
       "1ef40f5b-5c85-4495-9b08-7e614df5fff6",
       "b2afceaa-ec2f-4eb7-86c6-cb018c25c831",
-      "03f895bc-2869-46f1-ba95-bf81f082f1c5"
+      "03f895bc-2869-46f1-ba95-bf81f082f1c5",
+      "00dac469-efe0-49f4-8e85-1477cb875b46"
     ]
   },
   "vigencia": {

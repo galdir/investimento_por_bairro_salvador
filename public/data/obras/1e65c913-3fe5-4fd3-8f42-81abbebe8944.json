@@ -7,17 +7,17 @@
   "objeto": "contratação de empresa especializada, com fornecimento de mão de obra e equipamentos necessários, para execução de cercamento do Parque do Jardim Botânico da cidade de Salvador.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
     "cnpj": "27.839.615/0001-62",
+    "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
     "totalObras": 5,
     "totalObrasAtivas": 5,
     "valorTotalContratado": 4004065.02,
-    "outrasObrasCount": 4,
-    "outrasObrasIds": [
+    "obrasIds": [
       "5a3c794d-2ed8-4f33-80aa-377d745f2d41",
       "81b92570-3c8f-4b91-80ab-2e9ce33382c0",
       "f658dc43-65b4-4613-9e0f-f0a1b58de994",
-      "fd3ad908-e512-4cd0-964b-69a84fafc84e"
+      "fd3ad908-e512-4cd0-964b-69a84fafc84e",
+      "1e65c913-3fe5-4fd3-8f42-81abbebe8944"
     ]
   },
   "vigencia": {

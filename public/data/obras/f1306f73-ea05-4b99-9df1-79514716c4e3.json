@@ -7,13 +7,12 @@
   "objeto": "Contratação de empresa para prestação de serviços de manutenção predial nas unidades da rede municipal de ensino sob a responsabilidade da Secretaria Municipal da Educação. O objeto compreende o fornecimento de material, mão de obra especializada, equipamentos, ferramentas e utensílios adequados à execução dos serviços.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CS CONSTRUCOES E EMPREENDIMENTOS LTDA",
     "cnpj": "",
+    "razaoSocial": "CS CONSTRUCOES E EMPREENDIMENTOS LTDA",
     "totalObras": 15,
     "totalObrasAtivas": 15,
     "valorTotalContratado": 110168768.07,
-    "outrasObrasCount": 14,
-    "outrasObrasIds": [
+    "obrasIds": [
       "fc692bdb-284b-4696-ba1b-922bfda0b8f0",
       "5d962803-d71e-4b70-b363-2e21da90c261",
       "509084f6-8b54-4edb-8c77-cce012ce8749",
@@ -27,7 +26,8 @@
       "12a4995a-b05a-476c-a705-936782e92adb",
       "89a80e6c-3ca5-445a-b43d-cbf36269dace",
       "c8e43746-bff9-4070-80a1-87b7822700f7",
-      "5f04df89-53b7-43e9-ab69-5e465d84d9b3"
+      "5f04df89-53b7-43e9-ab69-5e465d84d9b3",
+      "f1306f73-ea05-4b99-9df1-79514716c4e3"
     ]
   },
   "vigencia": {

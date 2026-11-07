@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa especializada na manutenção da infraestrutura de cidades, sob regime de empreitada, a preços unitários, com prestação associada no fornecimento de mão-de-obra e equipamentos necessários para execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 01",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "JOTAGE ENGENHARIA COMERCIO E INCORPORACOES LTDA",
     "cnpj": "14.828.958/0001-80",
+    "razaoSocial": "JOTAGE ENGENHARIA COMERCIO E INCORPORACOES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 79067253.95,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "c69b675d-398f-473f-8395-d44399a5f62b"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-12-23T00:00:00.000Z",

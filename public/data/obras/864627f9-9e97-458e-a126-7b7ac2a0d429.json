@@ -7,13 +7,14 @@
   "objeto": "SERVIÇOS COMUNS DE ENGENHARIA PARA CONSTRUÇÃO DE DECK DE MADEIRA EM DIVERSOS \r\nLOGRADOUROS DO MUNICÍPIO DE SALVADOR",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "20.900.902 RICARDO NASCIMENTO DE OLIVEIRA",
     "cnpj": "20.900.902/0001-91",
+    "razaoSocial": "20.900.902 RICARDO NASCIMENTO DE OLIVEIRA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 122209.07,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "864627f9-9e97-458e-a126-7b7ac2a0d429"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-12-02T00:00:00.000Z",

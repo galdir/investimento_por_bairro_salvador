@@ -36,6 +36,9 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
   // Ordenação de Prefeituras-Bairro
   const sortedPrefeituras = useMemo(() => {
     return [...prefeituras].sort((a, b) => {
+      if (rankingCriteria === "vulnerabilidade") {
+        return (b.indice_vulnerabilidade ?? 0) - (a.indice_vulnerabilidade ?? 0);
+      }
       const valA =
         metricType === "vigente"
           ? (a.investimentoPorHabitante ?? 0)
@@ -46,7 +49,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
           : (b.investimentoPorHabitantePago ?? b.investimentoPorHabitante ?? 0);
       return valB - valA;
     });
-  }, [prefeituras, metricType]);
+  }, [prefeituras, metricType, rankingCriteria]);
 
   // Ordenação de Bairros Oficiais (excluindo zonas especiais para ranking per capita)
   const sortedBairros = useMemo(() => {
@@ -71,6 +74,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
   }, [bairros, metricType, rankingCriteria]);
 
   const maxVal = useMemo(() => {
+    if (rankingCriteria === "vulnerabilidade") return 1.0;
     if (rankingLevel === "prefeituras") {
       let maxP = 0;
       for (const pb of sortedPrefeituras) {
@@ -82,7 +86,6 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
       }
       return maxP > 0 ? maxP : 1;
     } else {
-      if (rankingCriteria === "vulnerabilidade") return 1.0;
       let maxB = 0;
       for (const b of sortedBairros) {
         const v =
@@ -143,34 +146,32 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
           </div>
 
           {/* Seletor de Critério */}
-          {rankingLevel === "bairros" && (
-            <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-semibold">
-              <button
-                type="button"
-                data-testid="btn-criterio-investimento"
-                onClick={() => setRankingCriteria("investimento")}
-                className={`px-2 py-1 rounded-md transition-all ${
-                  rankingCriteria === "investimento"
-                    ? "bg-emerald-600 text-white shadow-sm"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                R$/Hab
-              </button>
-              <button
-                type="button"
-                data-testid="btn-criterio-vulnerabilidade"
-                onClick={() => setRankingCriteria("vulnerabilidade")}
-                className={`px-2 py-1 rounded-md transition-all ${
-                  rankingCriteria === "vulnerabilidade"
-                    ? "bg-indigo-600 text-white shadow-sm"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                Vulnerabilidade
-              </button>
-            </div>
-          )}
+          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-semibold">
+            <button
+              type="button"
+              data-testid="btn-criterio-investimento"
+              onClick={() => setRankingCriteria("investimento")}
+              className={`px-2 py-1 rounded-md transition-all ${
+                rankingCriteria === "investimento"
+                  ? "bg-emerald-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              R$/Hab
+            </button>
+            <button
+              type="button"
+              data-testid="btn-criterio-vulnerabilidade"
+              onClick={() => setRankingCriteria("vulnerabilidade")}
+              className={`px-2 py-1 rounded-md transition-all ${
+                rankingCriteria === "vulnerabilidade"
+                  ? "bg-indigo-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Vulnerabilidade
+            </button>
+          </div>
         </div>
       </div>
 
@@ -182,7 +183,11 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
               metricType === "vigente"
                 ? (pb.investimentoPorHabitante ?? 0)
                 : (pb.investimentoPorHabitantePago ?? pb.investimentoPorHabitante ?? 0);
-            const percentualBarra = Math.min(100, Math.max(8, (perCapita / maxVal) * 100));
+            const vuln = pb.indice_vulnerabilidade ?? 0.5;
+            const percentualBarra =
+              rankingCriteria === "vulnerabilidade"
+                ? Math.min(100, Math.max(8, vuln * 100))
+                : Math.min(100, Math.max(8, (perCapita / maxVal) * 100));
             const isSelected = selectedNome === pb.nome;
 
             return (
@@ -210,9 +215,13 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                       data-testid={`ranking-valor-${index + 1}`}
                       className="font-extrabold text-slate-900 text-xs sm:text-sm"
                     >
-                      {formatCurrency(perCapita)}
+                      {rankingCriteria === "vulnerabilidade"
+                        ? formatDecimal(vuln)
+                        : formatCurrency(perCapita)}
                     </span>
-                    <span className="text-[10px] text-slate-500 ml-1">/ hab</span>
+                    {rankingCriteria !== "vulnerabilidade" && (
+                      <span className="text-[10px] text-slate-500 ml-1">/ hab</span>
+                    )}
                   </div>
                 </div>
 

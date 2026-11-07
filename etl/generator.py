@@ -142,6 +142,7 @@ def generate_prefeituras_geojson(
             "id": pb_id,
             "nome": nome,
             "populacao_total": int(dados_rollup.get("populacao_total", 0)),
+            "indice_vulnerabilidade": parse_float(dados_rollup.get("indice_vulnerabilidade", 0.5)),
             "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
             "valorPago": parse_float(dados_rollup.get("valorPago", 0.0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),

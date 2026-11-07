@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução de obras de Recuperação Estrutural do Viaduto dos Motoristas, Acesso do Largo do Tanque ao Uruguai - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "FULL ESTRUTURAS LTDA",
     "cnpj": "",
+    "razaoSocial": "FULL ESTRUTURAS LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1356231.81,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "f2dc55e9-79b1-459c-ba9a-e8de42ea83e7"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-06-08T00:00:00.000Z",

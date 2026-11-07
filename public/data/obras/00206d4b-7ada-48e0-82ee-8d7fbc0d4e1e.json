@@ -7,13 +7,14 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA DE REFORMA DO \r\nDEPÓSITO DE FERRAMENTAS DOS ENCARREGADOS DA DESAL, LOCALIZADO NA SEDE DA DESAL, NO MUNICÍPIO \r\nDE SALVADOR.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
     "cnpj": "",
+    "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 95061.41,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "00206d4b-7ada-48e0-82ee-8d7fbc0d4e1e"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-06-26T00:00:00.000Z",

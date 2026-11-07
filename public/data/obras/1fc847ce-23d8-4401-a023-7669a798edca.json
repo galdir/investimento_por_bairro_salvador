@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa especializada na prestação de serviços de fornecimento e instalação de divisórias, forros em PVC e gesso acartonado com isolamento acústico, além de ferragens, vidros e a&#64257;ns, visando atender especi&#64257;camente às demandas da Guarda Civil Municipal de Salvador - GCMS, conforme condições e exigências estabelecidas; no ITEM 2 - DA FUNDAMENTAÇÃO E DESCRIÇÃO DA NECESSID",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "4M ENGENHARIA LTDA",
     "cnpj": "24.704.679/0001-68",
+    "razaoSocial": "4M ENGENHARIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 170300.41,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "1fc847ce-23d8-4401-a023-7669a798edca"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-11-24T00:00:00.000Z",

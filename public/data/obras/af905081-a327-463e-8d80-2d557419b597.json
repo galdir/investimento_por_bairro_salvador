@@ -7,13 +7,13 @@
   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA REFORMA DOS BANHEIROS DA SEDE DA DESAL.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
     "cnpj": "39.926.521/0001-00",
+    "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 178618.5,
-    "outrasObrasCount": 2,
-    "outrasObrasIds": [
+    "obrasIds": [
+      "af905081-a327-463e-8d80-2d557419b597",
       "b7a3dfc9-e766-4cdc-9b3d-a48a91e12cb6",
       "c90cc29a-299a-4024-9399-4e965b214f6e"
     ]

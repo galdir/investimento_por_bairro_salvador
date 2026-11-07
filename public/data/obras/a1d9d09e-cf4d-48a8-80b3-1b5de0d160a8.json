@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa de engenharia para prestação de serviços de assessoria técnica à SUCOP na Elaboração de Projetos de Engenharia: Infraestrutura, Contenção de Encostas, Drenagem, Construção/Recuperação de Viadutos (OAE) e projetos complementares; além de Apoio Técnico em análises de projetos e documentos técnicos, em orçamentações e/ou quaisquer outras assessorias técnicas demandadas pela Con",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
     "cnpj": "",
+    "razaoSocial": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 8212118.64,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "a1d9d09e-cf4d-48a8-80b3-1b5de0d160a8"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-09-21T00:00:00.000Z",

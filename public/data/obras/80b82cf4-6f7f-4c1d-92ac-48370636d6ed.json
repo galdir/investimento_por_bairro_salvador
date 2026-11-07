@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para o Fornecimento e Instalação de Assentos Rebatíveis para Arquibancadas Fixas do Complexo Multiuso Arena Salvador, localizado Avenida Otávio Mangabeira ¿ Boca do Rio - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "DACOR SPORTS LTDA",
     "cnpj": "",
+    "razaoSocial": "DACOR SPORTS LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 2506412.84,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "80b82cf4-6f7f-4c1d-92ac-48370636d6ed"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-08-19T00:00:00.000Z",

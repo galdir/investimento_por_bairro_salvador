@@ -7,13 +7,14 @@
   "objeto": "Construção do Centro de Atenção Psicossocial - CAPS III, São Caetano.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA ATLANTICO NORTE LTDA",
     "cnpj": "07.103.372/0001-92",
+    "razaoSocial": "CONSTRUTORA ATLANTICO NORTE LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1706775.53,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "212eded6-7db9-4b6e-917f-b85d5a5b5195"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-08-11T00:00:00.000Z",

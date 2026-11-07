@@ -7,14 +7,14 @@
   "objeto": "Contratação de empresa para a prestação de serviços técnicos especializados para elaboração de Projeto de Arquitetura e Engenharia para a Recuperação da Sede da Secretaria da Fazenda do Município de Salvador- SEFAZ.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
     "cnpj": "",
+    "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 1105440.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "3ed7ac54-7d90-40ad-a260-d96ed12c334c"
+    "obrasIds": [
+      "3ed7ac54-7d90-40ad-a260-d96ed12c334c",
+      "46952693-9435-42e8-947c-8cb69feca19c"
     ]
   },
   "vigencia": {

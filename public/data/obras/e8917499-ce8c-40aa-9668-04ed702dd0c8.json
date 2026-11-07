@@ -7,16 +7,16 @@
   "objeto": "Contratação de serviços comuns de engenharia/reforma, incluindo o fornecimento de mão de obra, materiais, equipamentos, e o que for necessário para a execução dos serviços, com o objetivo de promover melhorias habitacionais em 5.000 (cinco mil) imóveis, Programa MORAR MELHOR 05, referente ao Lote III por Prefeitura-Bairro I - Centro/Brotas, Prefeitura-Bairro IV- Itapuã/Ipitanga e Prefeitura-Bairro",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "EBISA ENGENHARIA BRASILEIRA, INDUSTRIA E SANEAMENTO LTDA",
     "cnpj": "",
+    "razaoSocial": "EBISA ENGENHARIA BRASILEIRA, INDUSTRIA E SANEAMENTO LTDA",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 78567783.92,
-    "outrasObrasCount": 3,
-    "outrasObrasIds": [
+    "obrasIds": [
       "36232396-8f61-4283-b386-43cdc8934c9a",
       "a43c924e-06ec-445c-a278-6cd57b5cacf9",
-      "d5bbf943-19be-4e98-b5bf-d78aff853f03"
+      "d5bbf943-19be-4e98-b5bf-d78aff853f03",
+      "e8917499-ce8c-40aa-9668-04ed702dd0c8"
     ]
   },
   "vigencia": {

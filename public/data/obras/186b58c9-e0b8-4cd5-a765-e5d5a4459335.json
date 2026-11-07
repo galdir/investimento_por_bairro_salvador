@@ -7,13 +7,14 @@
   "objeto": "Contratação de serviços comuns de engenharia/reforma, incluindo o fornecimento de mão de obra, materiais, equipamentos, e o que for necessário para a execução dos serviços, com o objetivo de promover melhorias habitacionais em 5.000 (cinco mil) imóveis, Programa MORAR MELHOR 05, referente ao Lote II por Prefeitura-Bairro II - Subúrbio/Ilhas e Prefeitura-Bairro V - Cidade Baixa, conforme condições.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA KAZZA LTDA",
     "cnpj": "",
+    "razaoSocial": "CONSTRUTORA KAZZA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 59795087.5,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "186b58c9-e0b8-4cd5-a765-e5d5a4459335"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-03-20T00:00:00.000Z",

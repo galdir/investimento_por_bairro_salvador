@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução da obra de Modernização de Campos de Futebol, através da Implantação de Grama Sintética, Manta Drenante e Regularização de Base em diversos logradouros no município de Salvador/BA, devendo estes serem prestados continuamente, sob regime de empreitada por preços unitários, com fornecimento de mão de obra, materiais, equipamentos",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "NYOM COMERCIO E SERVICOS LTDA",
     "cnpj": "",
+    "razaoSocial": "NYOM COMERCIO E SERVICOS LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 31181460.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "7805a9d9-c24e-41e2-b0c1-7a3a6826f991"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-06-01T00:00:00.000Z",

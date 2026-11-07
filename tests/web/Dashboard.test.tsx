@@ -1213,4 +1213,51 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(mapFlexColumn).toHaveClass("min-w-0");
     expect(mapFlexColumn).toHaveClass("overflow-hidden");
   });
+
+  it("aplica o Índice de Vulnerabilidade específico de cada Prefeitura-Bairro no mapa, no Raio-X e no Ranking", async () => {
+    const geoJsonSpy = vi.spyOn(L, "geoJSON");
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("btn-camada-prefeituras")).toBeInTheDocument();
+    });
+
+    // 1. Alterna para a camada de Prefeituras-Bairro e métrica Vulnerabilidade Social
+    fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
+    fireEvent.click(screen.getByTestId("btn-camada-vulnerabilidade"));
+
+    await waitFor(() => {
+      expect(geoJsonSpy).toHaveBeenCalled();
+    });
+
+    // Verifica que a estilização GeoJSON para Barra/Pituba (vuln 0.12 < 0.2) usa #ede9fe e não o fallback 0.5 (#8b5cf6)
+    const lastCall = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1];
+    const options = lastCall[1] as L.GeoJSONOptions;
+    const styleFn = options.style as (feature: any) => L.PathOptions;
+    const barraStyle = styleFn(mockPbGeo.features[0]);
+    expect(barraStyle.fillColor).toBe("#ede9fe");
+
+    // 2. Seleciona a Prefeitura-Bairro Barra/Pituba e verifica o Índice de Vulnerabilidade no Raio-X
+    fireEvent.click(screen.getByTestId("territory-selector-barra-pituba"));
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("0,12");
+    });
+
+    // 3. No Ranking de Prefeituras-Bairro, permite ordenar por Vulnerabilidade
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+    await waitFor(() => {
+      expect(screen.getByTestId("btn-criterio-vulnerabilidade")).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByTestId("btn-criterio-vulnerabilidade"));
+
+    await waitFor(() => {
+      // Liberdade/São Caetano (0,78) deve vir antes de Barra/Pituba (0,12)
+      expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Liberdade/São Caetano");
+      expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("0,78");
+    });
+
+    geoJsonSpy.mockRestore();
+  });
 });

@@ -7,13 +7,14 @@
   "objeto": "SERVIÇOS DE ENGENHARIA PARA REFORMA DA SEDE",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "DIAS SILVA TRANSPORTES E CONSTRUCOES LTDA",
     "cnpj": "26.113.876/0001-38",
+    "razaoSocial": "DIAS SILVA TRANSPORTES E CONSTRUCOES LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 119421.55,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "4f0e0fdf-d64a-4622-802a-41ee77921947"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-02-13T00:00:00.000Z",

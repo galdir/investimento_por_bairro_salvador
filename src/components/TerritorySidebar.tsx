@@ -218,8 +218,8 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           </div>
         </div>
 
-        {/* Índice de Vulnerabilidade do Bairro */}
-        {ehBairro && territorio.indice_vulnerabilidade !== undefined && (
+        {/* Índice de Vulnerabilidade do Território (Bairro Oficial ou Prefeitura-Bairro) */}
+        {territorio.indice_vulnerabilidade !== undefined && (
           <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">

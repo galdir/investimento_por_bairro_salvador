@@ -7,13 +7,13 @@
   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA PINTURA ELETROSTÁTICA PARA DIVERSOS \r\nPRÉ-FABRICADOS METÁLICOS DA DESAL, INCLUINDO OS INSUMOS, EQUIPAMENTOS E FERRAMENTAS NECESSÁRIAS.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ZIOBER BRASIL LTDA",
     "cnpj": "",
+    "razaoSocial": "ZIOBER BRASIL LTDA",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 381952.0,
-    "outrasObrasCount": 3,
-    "outrasObrasIds": [
+    "obrasIds": [
+      "baa41e82-670d-465c-9294-9a3901e2ab60",
       "1883b4b1-1c35-4df0-942d-e9a0ee9f996b",
       "d1d675c1-a507-446e-8fb5-d33b187bcc4b",
       "8a9ff472-4d34-4d01-ad33-90f36dabde3d"

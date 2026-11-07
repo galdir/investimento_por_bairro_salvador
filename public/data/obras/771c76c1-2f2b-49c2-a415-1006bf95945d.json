@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução de obras de Requalificação da Praça Irmã Dulce, Bairro: Roma - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSORCIO SANTA DULCE DOS POBRES",
     "cnpj": "",
+    "razaoSocial": "CONSORCIO SANTA DULCE DOS POBRES",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 26558502.69,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "771c76c1-2f2b-49c2-a415-1006bf95945d"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-09-01T00:00:00.000Z",

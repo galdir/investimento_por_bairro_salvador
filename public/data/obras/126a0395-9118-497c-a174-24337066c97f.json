@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução de obras de Reforma de Campo de Futebol, Rua Nova do Arenoso, nº 124, Bairro: Arenoso - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "VENETO EMPREENDIMENTOS LTDA",
     "cnpj": "",
+    "razaoSocial": "VENETO EMPREENDIMENTOS LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 2016995.24,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "126a0395-9118-497c-a174-24337066c97f"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-10-26T00:00:00.000Z",

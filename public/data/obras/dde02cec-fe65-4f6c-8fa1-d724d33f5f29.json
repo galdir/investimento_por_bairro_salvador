@@ -7,14 +7,14 @@
   "objeto": "contratação de empresa especializada em serviço de demolição, remoção e transporte de material e de engenhos publicitários, existentes no local da demolição, de demandas resultantes dos Processos Administrativos advindos da aplicação de autos de infração, verificadas pelos setores competentes da Administração Municipal ao longo de todo o período de vigência da contratação, conforme Projeto Básico",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ANGRA ENGENHARIA LTDA",
     "cnpj": "08.722.657/0001-74",
+    "razaoSocial": "ANGRA ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 54597447.1,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "12c472f3-0fcb-4d7f-81b2-08d20faa679a"
+    "obrasIds": [
+      "12c472f3-0fcb-4d7f-81b2-08d20faa679a",
+      "dde02cec-fe65-4f6c-8fa1-d724d33f5f29"
     ]
   },
   "vigencia": {

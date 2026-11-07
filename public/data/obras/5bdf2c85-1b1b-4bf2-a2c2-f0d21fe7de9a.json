@@ -7,14 +7,14 @@
   "objeto": "Contratação SEMI-INTEGRADA de empresa especializada para a execução da obra de Construção de Unidade de Saúde do tipo Policlínica Municipal, incluindo elaboração dos projetos executivos, desenvolvimento de peças orçamentárias e aprovação dos projetos nos Órgãos Reguladores, cujo terreno está Situado na Avenida 29 de Março, S/N, Bairro Jaguaripe I, nesta Capital de acordo com as especificações e ob",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "HOLTZ ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "HOLTZ ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 54620000.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "a47c43e6-ead7-4e3f-865f-70d3c9694bdb"
+    "obrasIds": [
+      "a47c43e6-ead7-4e3f-865f-70d3c9694bdb",
+      "5bdf2c85-1b1b-4bf2-a2c2-f0d21fe7de9a"
     ]
   },
   "vigencia": {

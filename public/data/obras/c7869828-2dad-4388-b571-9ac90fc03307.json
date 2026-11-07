@@ -7,13 +7,14 @@
   "objeto": "Reforma da Unidade de Saúde da Família Úrsula Catarino.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "COSTA CONSTRUCAO E SERVICOS LTDA",
     "cnpj": "49.167.211/0001-02",
+    "razaoSocial": "COSTA CONSTRUCAO E SERVICOS LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 452000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "c7869828-2dad-4388-b571-9ac90fc03307"
+    ]
   },
   "vigencia": {
     "dataInicio": "2025-06-13T00:00:00.000Z",

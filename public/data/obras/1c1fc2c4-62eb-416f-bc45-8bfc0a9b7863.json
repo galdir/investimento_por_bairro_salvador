@@ -7,13 +7,14 @@
   "objeto": "Execução das obras de Urbanização, Infraestrutura, Habitação de Interesse Social e Equipamentos Comunitários na Comunidade de Pé Preto, Nordeste de Amaralina, Salvador/BA,",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "COESA CONSTRUCAO E MONTAGENS S.A. - EM RECUPERACAO JUDICIAL",
     "cnpj": "",
+    "razaoSocial": "COESA CONSTRUCAO E MONTAGENS S.A. - EM RECUPERACAO JUDICIAL",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 43341681.39,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "1c1fc2c4-62eb-416f-bc45-8bfc0a9b7863"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-05-04T00:00:00.000Z",

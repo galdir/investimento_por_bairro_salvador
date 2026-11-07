@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa de engenharia para a realização de obras de requalificação e modernização da quadra poliesportiva da Rua Lourival Costa com a Rua Joinville, Águas Claras - Salvador/BA, e do campo de futebol da Rua Almirante Mourão de Sá, Fazenda Coutos - Salvador/BA, da SEMPRE.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "RCTJ ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "RCTJ ENGENHARIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 298565.78,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "b005e850-a8e3-4e93-aba7-747736fc0f6a"
+    ]
   },
   "vigencia": {
     "dataInicio": "2026-06-18T00:00:00.000Z",
