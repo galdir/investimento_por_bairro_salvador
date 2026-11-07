@@ -43,11 +43,22 @@ def main() -> None:
         default=2025,
         help="Ano de referência das obras públicas (padrão: 2025)",
     )
+    parser.add_argument(
+        "--cache-file",
+        type=str,
+        default=None,
+        help="Caminho opcional do arquivo de Cache Incremental (padrão: <output-dir>/geocoding_cache.json)",
+    )
     args = parser.parse_args()
 
+    cache_path = Path(args.cache_file) if args.cache_file else None
     print(f"Iniciando pipeline ETL para o ano {args.year} em '{args.output_dir}'...")
     try:
-        resultado = run_pipeline(output_dir=Path(args.output_dir), year=args.year)
+        resultado = run_pipeline(
+            output_dir=Path(args.output_dir),
+            year=args.year,
+            cache_file=cache_path,
+        )
         print(f"ETL concluído com sucesso: {resultado}")
     except Exception as exc:
         print(f"Erro ao executar ETL: {exc}", file=sys.stderr)

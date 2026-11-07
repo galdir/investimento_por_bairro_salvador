@@ -32,7 +32,11 @@ from etl.generator import (
 from etl.sources import geosalvador, ibge_censo, transparencia
 
 
-def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
+def run_pipeline(
+    output_dir: Path,
+    year: int = 2025,
+    cache_file: Path | None = None,
+) -> dict[str, Any]:
     """Executa o pipeline completo de extração, geocodificação territorial, rollup e geração de artefatos.
 
     Sumário:
@@ -51,11 +55,15 @@ def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
     Argumentos:
         output_dir: Diretório base onde a árvore de artefatos estáticos (`geo/`, `index_<ano>.json`) será gravada.
         year: Ano de referência da execução do pipeline (padrão: 2025).
+        cache_file: Caminho opcional do arquivo de Cache Incremental de geocodificação
+            (padrão: `<output_dir>/geocoding_cache.json`).
 
     Retornos:
         Dicionário com status da execução, contendo:
         - 'success': Booleano indicando se o pipeline foi concluído com êxito.
         - 'output_dir': Caminho em string do diretório de saída gerado.
+        - 'cache_file': Caminho em string do arquivo de cache incremental utilizado.
+        - 'cache_hits': Quantidade de obras resolvidas diretamente pelo cache incremental.
         - 'ano': Ano processado.
         - 'total_bairros': Quantidade de bairros oficiais processados.
         - 'total_prefeituras': Quantidade de prefeituras-bairro processadas.
@@ -78,8 +86,9 @@ def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
     bairros_centroides = calcular_centroides_bairros(raw_bairros)
 
     # 3. Funil de Alocação Territorial com Cache Incremental
-    cache_path = output_path / "geocoding_cache.json"
+    cache_path = Path(cache_file) if cache_file is not None else (output_path / "geocoding_cache.json")
     cache = GeocodingCache(cache_file_path=cache_path)
+    cache_hits = 0
 
     for obra in grid_obras:
         aloc = classificar_alocacao_territorial(
@@ -88,6 +97,8 @@ def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
             bairros_centroides=bairros_centroides,
             cache=cache,
         )
+        if aloc.get("estagio") == "Cache":
+            cache_hits += 1
         obra["nivel"] = aloc["nivel"]
         obra["bairro"] = aloc["bairro"]
         obra["prefeitura_bairro"] = aloc["prefeitura_bairro"]
@@ -224,6 +235,8 @@ def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
     return {
         "success": True,
         "output_dir": str(output_path),
+        "cache_file": str(cache_path),
+        "cache_hits": cache_hits,
         "ano": year,
         "total_bairros": len(bairros_rollup),
         "total_prefeituras": len(prefeituras_rollup),

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import App from "../../src/App";
+import App, { buildDataUrl } from "../../src/App";
 
 const mockIndexData = {
   metadata: {
@@ -700,5 +700,34 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     expect(screen.getByTestId("ficha-limpa-objeto")).toHaveTextContent("Requalificação da Orla da Pituba");
     expect(screen.getByTestId("funil-financeiro-container")).toBeInTheDocument();
+  });
+
+  it("carrega todos os artefatos estáticos sob o subcaminho do repositório no GitHub Pages", async () => {
+    const fetchMock = vi.mocked(globalThis.fetch);
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("map-pin-obra-1001")).toBeInTheDocument();
+    });
+
+    // Verifica chamadas iniciais para index_2025.json e geo/*.geojson com o base path do GitHub Pages
+    expect(fetchMock).toHaveBeenCalledWith("/investimento_por_bairro_salvador/data/index_2025.json");
+    expect(fetchMock).toHaveBeenCalledWith("/investimento_por_bairro_salvador/data/geo/bairros.geojson");
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/investimento_por_bairro_salvador/data/geo/prefeituras_bairro.geojson"
+    );
+
+    // Clica para carregar a Ficha Limpa sob demanda
+    fireEvent.click(screen.getByTestId("map-pin-obra-1001"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument();
+    });
+
+    expect(fetchMock).toHaveBeenCalledWith("/investimento_por_bairro_salvador/data/obras/1001.json");
+    expect(buildDataUrl("data/index_2025.json", "/investimento_por_bairro_salvador/")).toBe(
+      "/investimento_por_bairro_salvador/data/index_2025.json"
+    );
+    expect(buildDataUrl("/data/obras/1001.json", "/")).toBe("/data/obras/1001.json");
   });
 });

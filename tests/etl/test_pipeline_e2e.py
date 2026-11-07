@@ -170,3 +170,57 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
     assert o1005["tema"] == "Saúde"
     assert o1005["semaforo"]["status"] == "VERMELHO"
     assert o1005["nivel"] == "Escopo Cidade (Não-Localizado)"
+
+
+def test_pipeline_cli_reuses_and_updates_incremental_geocoding_cache(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Valida que a execução via CLI reutiliza e preserva o Cache Incremental de geocodificação.
+
+    Sumário:
+        Executa o pipeline duas vezes via ponto de entrada CLI (`etl.main.main`) e verifica
+        que a segunda execução atinge 100% de cache hits no `geocoding_cache.json`.
+
+    Argumentos:
+        tmp_path: Diretório temporário para isolar os artefatos estáticos e o cache.
+        monkeypatch: Utilitário do pytest para simular argumentos de linha de comando (`sys.argv`).
+
+    Retornos:
+        None.
+
+    Erros:
+        Lança AssertionError se o cache incremental não for reutilizado ou preservado.
+    """
+    from etl.main import main
+    from etl.runner import run_pipeline
+
+    custom_cache = tmp_path / "geocoding_cache.json"
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value=SAMPLE_TRANSPARENCIA_TOTALIZADOR),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=SAMPLE_TRANSPARENCIA_GRID),
+    ):
+        monkeypatch.setattr(
+            "sys.argv",
+            [
+                "etl.main",
+                "--output-dir",
+                str(tmp_path),
+                "--year",
+                "2025",
+                "--cache-file",
+                str(custom_cache),
+            ],
+        )
+        main()
+
+        assert custom_cache.exists(), "O arquivo de cache incremental deve ter sido criado pelo CLI."
+
+        # Segunda execução deve reutilizar todas as entradas do cache incremental
+        second_run = run_pipeline(output_dir=tmp_path, year=2025, cache_file=custom_cache)
+        assert second_run["cache_hits"] == len(SAMPLE_TRANSPARENCIA_GRID)
+        assert (tmp_path / "obras" / "1001.json").exists()
+

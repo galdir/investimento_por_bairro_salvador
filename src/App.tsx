@@ -38,6 +38,28 @@ const INITIAL_FILTERS: FilterState = {
 };
 
 /**
+ * Constrói a URL completa para um artefato estático respeitando o subcaminho base do GitHub Pages.
+ *
+ * @summary Resolve o caminho de arquivos em `data/` combinando `BASE_URL` do Vite com o caminho relativo.
+ * @description Garante que o carregamento de `index_<ano>.json`, `geo/*.geojson` e `obras/<id>.json`
+ * funcione tanto na raiz em desenvolvimento quanto sob o subcaminho `/investimento_por_bairro_salvador/`
+ * quando publicado no GitHub Pages, evitando barras duplicadas.
+ *
+ * @param relativePath - Caminho relativo dentro da pasta pública (ex: `'data/index_2025.json'`).
+ * @param baseUrl - Caminho base configurado no build (padrão: `import.meta.env.BASE_URL`).
+ * @returns String com a URL normalizada pronta para chamada `fetch`.
+ * @throws Não lança exceções.
+ */
+export function buildDataUrl(
+  relativePath: string,
+  baseUrl: string = import.meta.env.BASE_URL
+): string {
+  const cleanBase = (baseUrl || "/").replace(/\/+$/, "");
+  const cleanRelative = relativePath.replace(/^\/+/, "");
+  return `${cleanBase}/${cleanRelative}`;
+}
+
+/**
  * Componente principal do Painel de Obras Públicas de Salvador.
  *
  * @summary Integra os componentes de cabeçalho (KPIs), filtros superiores, mapa coroplético, ranking e tabela detalhada.
@@ -69,12 +91,11 @@ export const App: React.FC = () => {
     async function loadStaticArtifacts() {
       try {
         setLoading(true);
-        const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
         const [resIndex, resBairros, resPb] = await Promise.all([
-          fetch(`${basePath}/data/index_2025.json`),
-          fetch(`${basePath}/data/geo/bairros.geojson`),
-          fetch(`${basePath}/data/geo/prefeituras_bairro.geojson`),
+          fetch(buildDataUrl("data/index_2025.json")),
+          fetch(buildDataUrl("data/geo/bairros.geojson")),
+          fetch(buildDataUrl("data/geo/prefeituras_bairro.geojson")),
         ]);
 
         if (!resIndex.ok) throw new Error(`Falha ao carregar index_2025.json (${resIndex.status})`);
@@ -301,8 +322,7 @@ export const App: React.FC = () => {
   const handleSelectObra = async (obra: ObraCompacta) => {
     try {
       setLoadingFicha(true);
-      const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
-      const res = await fetch(`${basePath}/data/obras/${obra.id}.json`);
+      const res = await fetch(buildDataUrl(`data/obras/${obra.id}.json`));
       if (res.ok) {
         const data: FichaLimpaObra = await res.json();
         setSelectedObraFicha(data);
