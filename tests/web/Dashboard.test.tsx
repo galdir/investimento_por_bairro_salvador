@@ -345,4 +345,15 @@ describe("Seam 2: Painel Web do Mapa das Obras e Território de Salvador", () =>
     expect(screen.getByTestId("badge-zona-especial")).toBeInTheDocument();
     expect(screen.getByTestId("badge-zona-especial")).toHaveTextContent(/Zona Especial Não-Residencial/i);
   });
+
+  it("disponibiliza botão para recentralizar o mapa em Salvador", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("btn-centralizar-salvador")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("btn-centralizar-salvador"));
+    expect(screen.getByTestId("btn-centralizar-salvador")).toHaveTextContent("Centralizar Salvador");
+  });
 });
