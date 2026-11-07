@@ -1692,4 +1692,89 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(itemAeroObras).toHaveTextContent("Aeroporto");
     expect(itemAeroObras).toHaveTextContent("Zona Especial Não-Residencial");
   });
+
+  it("sincroniza a barra rápida inferior do mapa com a métrica coroplética ativa (ordem e formato dos chips em R$/hab vs Vulnerabilidade)", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("btn-camada-per-capita")).toBeInTheDocument();
+      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+    });
+
+    // 1. Métrica padrão: R$ / Habitante na camada Bairros Oficiais
+    // - Bairros residenciais vêm primeiro ordenados decrescente por R$/hab (Pituba R$ 184,62 > Liberdade R$ 50 > São Caetano R$ 0)
+    // - Zonas especiais vêm ao final com indicação "Isento"
+    const botoesBairrosInicial = screen.getAllByTestId(/^territory-selector-/);
+    const nomesBairrosInicial = botoesBairrosInicial.map((btn) => btn.getAttribute("data-testid"));
+
+    expect(nomesBairrosInicial.indexOf("territory-selector-pituba")).toBeLessThan(
+      nomesBairrosInicial.indexOf("territory-selector-liberdade")
+    );
+    expect(nomesBairrosInicial.indexOf("territory-selector-liberdade")).toBeLessThan(
+      nomesBairrosInicial.indexOf("territory-selector-sao-caetano")
+    );
+    // Zonas especiais ficam ao final
+    expect(nomesBairrosInicial.indexOf("territory-selector-sao-caetano")).toBeLessThan(
+      nomesBairrosInicial.indexOf("territory-selector-aeroporto")
+    );
+
+    // Texto dos chips no modo R$ / Habitante
+    expect(screen.getByTestId("territory-selector-pituba")).toHaveTextContent("Pituba(65.000 hab • R$ 184,62/hab)");
+    expect(screen.getByTestId("territory-selector-liberdade")).toHaveTextContent(/Liberdade\(48\.000 hab • R\$\s*50(\,00)?\/hab\)/);
+    expect(screen.getByTestId("territory-selector-aeroporto")).toHaveTextContent("Aeroporto(0 hab • Isento)");
+
+    // 2. Alterna métrica coroplética para "Vulnerabilidade Social" na camada Bairros Oficiais
+    fireEvent.click(screen.getByTestId("btn-camada-vulnerabilidade"));
+
+    // - Ordem dos residenciais passa a ser decrescente por vulnerabilidade:
+    // Liberdade (0,78) > São Caetano (0,72) > Pituba (0,12)
+    // - Zonas especiais continuam ao final com indicação "Isento"
+    const botoesBairrosVuln = screen.getAllByTestId(/^territory-selector-/);
+    const nomesBairrosVuln = botoesBairrosVuln.map((btn) => btn.getAttribute("data-testid"));
+
+    expect(nomesBairrosVuln.indexOf("territory-selector-liberdade")).toBeLessThan(
+      nomesBairrosVuln.indexOf("territory-selector-sao-caetano")
+    );
+    expect(nomesBairrosVuln.indexOf("territory-selector-sao-caetano")).toBeLessThan(
+      nomesBairrosVuln.indexOf("territory-selector-pituba")
+    );
+    expect(nomesBairrosVuln.indexOf("territory-selector-pituba")).toBeLessThan(
+      nomesBairrosVuln.indexOf("territory-selector-aeroporto")
+    );
+
+    // Texto dos chips no modo Vulnerabilidade Social
+    expect(screen.getByTestId("territory-selector-liberdade")).toHaveTextContent("Liberdade(48.000 hab • Vuln: 0,78)");
+    expect(screen.getByTestId("territory-selector-sao-caetano")).toHaveTextContent("São Caetano(30.000 hab • Vuln: 0,78)");
+    expect(screen.getByTestId("territory-selector-pituba")).toHaveTextContent("Pituba(65.000 hab • Vuln: 0,12)");
+    expect(screen.getByTestId("territory-selector-aeroporto")).toHaveTextContent("Aeroporto(0 hab • Isento)");
+
+    // 3. Alterna para a camada Prefeituras-Bairro com métrica Vulnerabilidade Social ativa
+    fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("territory-selector-barra-pituba")).toBeInTheDocument();
+    });
+
+    // Em Vulnerabilidade Social, Liberdade/São Caetano (vuln ~0,76) vem antes de Barra/Pituba (vuln 0,12)
+    const botoesPbVuln = screen.getAllByTestId(/^territory-selector-/);
+    const nomesPbVuln = botoesPbVuln.map((btn) => btn.getAttribute("data-testid"));
+
+    expect(nomesPbVuln.indexOf("territory-selector-liberdade-sao-caetano")).toBeLessThan(
+      nomesPbVuln.indexOf("territory-selector-barra-pituba")
+    );
+    expect(screen.getByTestId("territory-selector-barra-pituba")).toHaveTextContent("Barra/Pituba(65.000 hab • Vuln: 0,12)");
+    expect(screen.getByTestId("territory-selector-liberdade-sao-caetano")).toHaveTextContent(/Liberdade\/São Caetano\(48\.000 hab • Vuln: 0,7[5-8]\)/);
+
+    // 4. Alterna de volta para R$ / Habitante na camada Prefeituras-Bairro
+    fireEvent.click(screen.getByTestId("btn-camada-per-capita"));
+
+    // Barra/Pituba (R$ 184,62/hab) passa para a frente de Liberdade/São Caetano (R$ 50/hab)
+    const botoesPbPorHabitante = screen.getAllByTestId(/^territory-selector-/);
+    const nomesPbPorHabitante = botoesPbPorHabitante.map((btn) => btn.getAttribute("data-testid"));
+
+    expect(nomesPbPorHabitante.indexOf("territory-selector-barra-pituba")).toBeLessThan(
+      nomesPbPorHabitante.indexOf("territory-selector-liberdade-sao-caetano")
+    );
+    expect(screen.getByTestId("territory-selector-barra-pituba")).toHaveTextContent(/Barra\/Pituba\(65\.000 hab • R\$\s*184,62\/hab\)/);
+  });
 });

@@ -9,10 +9,11 @@ import {
   PrefeituraBairroResumo,
   TerritorySelection,
 } from "../types";
-import { formatCurrency, formatNumber } from "../utils/formatters";
+import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
 import {
   createBairroSelection,
   createPrefeituraSelection,
+  isZonaEspecial,
   normalizeName,
 } from "../utils/territory";
 
@@ -79,6 +80,61 @@ function getVulnerabilidadeColor(vuln: number): string {
   if (vuln < 0.6) return "#8b5cf6";
   if (vuln < 0.8) return "#6d28d9";
   return "#4c1d95";
+}
+
+/**
+ * Retorna o valor de Investimento por Habitante (vigente ou executado) para um território.
+ */
+function getInvestimentoPorHabitante(
+  item: BairroResumo | PrefeituraBairroResumo,
+  metricType: MetricType
+): number {
+  return metricType === "executado"
+    ? (item.investimentoPorHabitantePago ?? item.investimentoPorHabitante ?? 0)
+    : (item.investimentoPorHabitante ?? 0);
+}
+
+/**
+ * Ordena territórios (Bairros ou Prefeituras) de acordo com a métrica coroplética ativa no mapa.
+ */
+function sortTerritoriesByChoropleth<T extends BairroResumo | PrefeituraBairroResumo>(
+  items: T[],
+  choroplethMetric: ChoroplethMetric,
+  metricType: MetricType
+): T[] {
+  return [...items].sort((a, b) => {
+    const invA = getInvestimentoPorHabitante(a, metricType);
+    const invB = getInvestimentoPorHabitante(b, metricType);
+    const vulnA = a.indice_vulnerabilidade ?? 0;
+    const vulnB = b.indice_vulnerabilidade ?? 0;
+
+    if (choroplethMetric === "investimentoPorHabitante") {
+      if (invB !== invA) return invB - invA;
+      if (vulnB !== vulnA) return vulnB - vulnA;
+      return a.nome.localeCompare(b.nome);
+    } else {
+      if (vulnB !== vulnA) return vulnB - vulnA;
+      if (invB !== invA) return invB - invA;
+      return a.nome.localeCompare(b.nome);
+    }
+  });
+}
+
+/**
+ * Formata o indicador textual exibido no chip rápido da base do mapa.
+ */
+function formatChipMetric(
+  item: BairroResumo | PrefeituraBairroResumo,
+  choroplethMetric: ChoroplethMetric,
+  metricType: MetricType,
+  isSpecial: boolean = false
+): string {
+  if (isSpecial) return "Isento";
+  if (choroplethMetric === "investimentoPorHabitante") {
+    const inv = getInvestimentoPorHabitante(item, metricType);
+    return `${formatCurrency(inv)}/hab`;
+  }
+  return `Vuln: ${formatDecimal(item.indice_vulnerabilidade ?? 0)}`;
 }
 
 /**
@@ -477,18 +533,32 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     recenterMap(leafletMapRef.current);
   };
 
-  // Filtragem dos botões do seletor rápido pelo campo de busca
+  // Ordenação e filtragem dos botões do seletor rápido inferior de acordo com a métrica coroplética ativa
   const filteredBairrosButtons = useMemo(() => {
-    if (!territorySearch.trim()) return bairros;
+    const isExec = metricType === "executado";
+    const residenciais = bairros.filter((b) => !isZonaEspecial(b));
+    const especiais = bairros.filter((b) => isZonaEspecial(b));
+
+    const sortedResidenciais = sortTerritoriesByChoropleth(residenciais, choroplethMetric, metricType);
+    const sortedEspeciais = [...especiais].sort((a, b) => {
+      const valA = isExec ? (a.valorPago ?? 0) : (a.valorTotal ?? 0);
+      const valB = isExec ? (b.valorPago ?? 0) : (b.valorTotal ?? 0);
+      if (valB !== valA) return valB - valA;
+      return a.nome.localeCompare(b.nome);
+    });
+
+    const baseList = [...sortedResidenciais, ...sortedEspeciais];
+    if (!territorySearch.trim()) return baseList;
     const q = territorySearch.toLowerCase();
-    return bairros.filter((b) => b.nome.toLowerCase().includes(q));
-  }, [bairros, territorySearch]);
+    return baseList.filter((b) => b.nome.toLowerCase().includes(q));
+  }, [bairros, choroplethMetric, metricType, territorySearch]);
 
   const filteredPrefeiturasButtons = useMemo(() => {
-    if (!territorySearch.trim()) return prefeituras;
+    const sortedPrefeituras = sortTerritoriesByChoropleth(prefeituras, choroplethMetric, metricType);
+    if (!territorySearch.trim()) return sortedPrefeituras;
     const q = territorySearch.toLowerCase();
-    return prefeituras.filter((pb) => pb.nome.toLowerCase().includes(q));
-  }, [prefeituras, territorySearch]);
+    return sortedPrefeituras.filter((pb) => pb.nome.toLowerCase().includes(q));
+  }, [prefeituras, choroplethMetric, metricType, territorySearch]);
 
   return (
       <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
@@ -669,8 +739,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               {activeLayer === "bairros"
                 ? filteredBairrosButtons.map((b) => {
                   const isSelected = selectedTerritory?.id === b.id && selectedTerritory?.tipo === "bairro";
-                  const isZonaEspecial = b.is_zona_especial_nao_residencial || b.isZonaEspecialNaoResidencial;
+                  const isNonResidentialZone = isZonaEspecial(b);
                   const testId = `territory-selector-${normalizeTestId(b.nome)}`;
+                  const chipMetricText = formatChipMetric(b, choroplethMetric, metricType, isNonResidentialZone);
 
                   return (
                     <button
@@ -679,17 +750,17 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       onClick={() => onSelectTerritory(createBairroSelection(b))}
                       className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${isSelected
                           ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
-                          : isZonaEspecial
+                          : isNonResidentialZone
                             ? "bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100"
                             : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                         }`}
                     >
                       <span>{b.nome}</span>
-                      {isZonaEspecial && (
+                      {isNonResidentialZone && (
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500" title="Zona Especial Não-Residencial"></span>
                       )}
                       <span className="text-[10px] opacity-75">
-                        ({formatNumber(b.populacao)} hab • {formatCurrency(metricType === "executado" ? (b.investimentoPorHabitantePago ?? b.investimentoPorHabitante ?? 0) : (b.investimentoPorHabitante ?? 0))}/hab)
+                        ({formatNumber(b.populacao)} hab • {chipMetricText})
                       </span>
                     </button>
                   );
@@ -697,6 +768,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 : filteredPrefeiturasButtons.map((pb) => {
                   const isSelected = selectedTerritory?.id === pb.id && selectedTerritory?.tipo === "prefeitura_bairro";
                   const testId = `territory-selector-${normalizeTestId(pb.nome)}`;
+                  const chipMetricText = formatChipMetric(pb, choroplethMetric, metricType, false);
 
                   return (
                     <button
@@ -710,7 +782,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                     >
                       <span>{pb.nome}</span>
                       <span className="text-[10px] opacity-75">
-                        ({formatNumber(pb.populacao_total)} hab • {formatCurrency(metricType === "executado" ? (pb.investimentoPorHabitantePago ?? pb.investimentoPorHabitante ?? 0) : (pb.investimentoPorHabitante ?? 0))}/hab)
+                        ({formatNumber(pb.populacao_total)} hab • {chipMetricText})
                       </span>
                     </button>
                   );
