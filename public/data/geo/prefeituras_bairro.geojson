@@ -1,0 +1,116 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "nome": "Barra/Pituba",
+        "populacao_total": 65000
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -38.53,
+              -13.01
+            ],
+            [
+              -38.44,
+              -13.01
+            ],
+            [
+              -38.44,
+              -12.98
+            ],
+            [
+              -38.53,
+              -12.98
+            ],
+            [
+              -38.53,
+              -13.01
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "nome": "Liberdade/São Caetano",
+        "populacao_total": 48000
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -38.5,
+              -12.97
+            ],
+            [
+              -38.47,
+              -12.97
+            ],
+            [
+              -38.47,
+              -12.93
+            ],
+            [
+              -38.5,
+              -12.93
+            ],
+            [
+              -38.5,
+              -12.97
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "nome": "Cabula/Tancredo Neves",
+        "populacao_total": 32005
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -38.47,
+              -12.97
+            ],
+            [
+              -38.42,
+              -12.97
+            ],
+            [
+              -38.42,
+              -12.93
+            ],
+            [
+              -38.47,
+              -12.93
+            ],
+            [
+              -38.47,
+              -12.97
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "generatedAt": "2026-11-07T00:21:41.965132+00:00",
+    "anoReferencia": 2025
+  },
+  "kpis_globais": {
+    "totalObras": 25,
+    "valorTotal": 150000000.0,
+    "totalAtivas": 2,
+    "totalEmpenhado": 120000000.0,
+    "totalLiquidado": 95000000.0,
+    "totalPago": 90000000.0,
+    "investimentoPorHabitanteCidade": 1034.36
+  },
+  "prefeituras_bairro": [
+    {
+      "id": 1,
+      "nome": "Barra/Pituba",
+      "populacao_total": 65000
+    },
+    {
+      "id": 2,
+      "nome": "Liberdade/São Caetano",
+      "populacao_total": 48000
+    },
+    {
+      "id": 3,
+      "nome": "Cabula/Tancredo Neves",
+      "populacao_total": 32005
+    }
+  ],
+  "bairros": [
+    {
+      "id": 101,
+      "nome": "Pituba",
+      "prefeitura_bairro": "Barra/Pituba",
+      "populacao": 65000,
+      "indice_vulnerabilidade": 0.12,
+      "is_zona_especial_nao_residencial": false,
+      "isZonaEspecialNaoResidencial": false
+    },
+    {
+      "id": 102,
+      "nome": "Aeroporto",
+      "prefeitura_bairro": "Itapuã/Ipitanga",
+      "populacao": 0,
+      "indice_vulnerabilidade": 0.05,
+      "is_zona_especial_nao_residencial": true,
+      "isZonaEspecialNaoResidencial": true
+    },
+    {
+      "id": 103,
+      "nome": "Porto Seco Pirajá",
+      "prefeitura_bairro": "Cajazeiras",
+      "populacao": 12,
+      "indice_vulnerabilidade": 0.2,
+      "is_zona_especial_nao_residencial": true,
+      "isZonaEspecialNaoResidencial": true
+    },
+    {
+      "id": 104,
+      "nome": "Centro Administrativo da Bahia - CAB",
+      "prefeitura_bairro": "Cabula/Tancredo Neves",
+      "populacao": 5,
+      "indice_vulnerabilidade": 0.08,
+      "is_zona_especial_nao_residencial": true,
+      "isZonaEspecialNaoResidencial": true
+    },
+    {
+      "id": 105,
+      "nome": "Liberdade",
+      "prefeitura_bairro": "Liberdade/São Caetano",
+      "populacao": 48000,
+      "indice_vulnerabilidade": 0.78,
+      "is_zona_especial_nao_residencial": false,
+      "isZonaEspecialNaoResidencial": false
+    },
+    {
+      "id": 106,
+      "nome": "Cabula",
+      "prefeitura_bairro": "Cabula/Tancredo Neves",
+      "populacao": 32000,
+      "indice_vulnerabilidade": 0.55,
+      "is_zona_especial_nao_residencial": false,
+      "isZonaEspecialNaoResidencial": false
+    }
+  ],
+  "obras": [
+    {
+      "id": 1001,
+      "unidadeGestora": "SUCOP",
+      "numeroContrato": "001/2024",
+      "objeto": "Requalificação da Orla da Pituba com drenagem e nova ciclovia",
+      "valorContratualVigente": 12000000.0,
+      "percentualExecutado": 65.5,
+      "situacao": "Em Execução",
+      "credor": "CONSTRUTORA SALVADOR LTDA"
+    },
+    {
+      "id": 1002,
+      "unidadeGestora": "SUCOP",
+      "numeroContrato": "002/2024",
+      "objeto": "Contenção de encosta na Rua Direta da Liberdade",
+      "valorContratualVigente": 4200000.0,
+      "percentualExecutado": 40.0,
+      "situacao": "Em Execução",
+      "credor": "BAHIA ENGENHARIA S/A"
+    }
+  ]
+}

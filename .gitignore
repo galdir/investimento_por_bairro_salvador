@@ -183,3 +183,7 @@ cython_debug/
 # Project temporary and scratch directories
 .tmp/
 .scratch/
+
+# Node / Frontend
+node_modules/
+.vite/
