@@ -1202,4 +1202,15 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Isento");
     });
   });
+
+  it("restringe a largura do flex item do mapa (min-w-0 overflow-hidden) para que os 171 botões de bairros não expandam o mapa além da tela", async () => {
+    render(<App />);
+
+    const mapContainer = await screen.findByTestId("leaflet-map-container");
+    const mapFlexColumn = mapContainer.parentElement;
+
+    expect(mapFlexColumn).not.toBeNull();
+    expect(mapFlexColumn).toHaveClass("min-w-0");
+    expect(mapFlexColumn).toHaveClass("overflow-hidden");
+  });
 });

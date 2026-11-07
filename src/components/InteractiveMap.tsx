@@ -31,7 +31,7 @@ export function recenterMap(map: L.Map | null | undefined): void {
     map.stop();
     map.invalidateSize({ pan: false });
     map.setView(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
-  } catch {}
+  } catch { }
 }
 
 interface InteractiveMapProps {
@@ -145,7 +145,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       recenterMap(map);
       t1 = setTimeout(() => recenterMap(map), 100);
       t2 = setTimeout(() => recenterMap(map), 300);
-    } catch {}
+    } catch { }
 
     return () => {
       clearTimeout(t1);
@@ -153,7 +153,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       if (leafletMapRef.current) {
         try {
           leafletMapRef.current.remove();
-        } catch {}
+        } catch { }
         leafletMapRef.current = null;
         geoJsonLayerRef.current = null;
         markersLayerRef.current = null;
@@ -171,7 +171,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       if (selectedTerritoryRef.current) {
         try {
           map.invalidateSize({ pan: false });
-        } catch {}
+        } catch { }
       } else {
         recenterMap(map);
       }
@@ -237,7 +237,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     if (geoJsonLayerRef.current) {
       try {
         map.removeLayer(geoJsonLayerRef.current);
-      } catch {}
+      } catch { }
       geoJsonLayerRef.current = null;
     }
 
@@ -271,8 +271,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             const inv = dynamicBairro
               ? (isExec ? (dynamicBairro.investimentoPorHabitantePago ?? dynamicBairro.investimentoPorHabitante ?? 0) : (dynamicBairro.investimentoPorHabitante ?? 0))
               : dynamicPrefeitura
-              ? (isExec ? (dynamicPrefeitura.investimentoPorHabitantePago ?? dynamicPrefeitura.investimentoPorHabitante ?? 0) : (dynamicPrefeitura.investimentoPorHabitante ?? 0))
-              : (props.investimentoPorHabitante ?? 0);
+                ? (isExec ? (dynamicPrefeitura.investimentoPorHabitantePago ?? dynamicPrefeitura.investimentoPorHabitante ?? 0) : (dynamicPrefeitura.investimentoPorHabitante ?? 0))
+                : (props.investimentoPorHabitante ?? 0);
             fillColor = getInvestimentoColor(inv, breaksInvestimento);
           } else {
             const vuln = dynamicBairro?.indice_vulnerabilidade ?? props.indice_vulnerabilidade ?? 0.5;
@@ -356,21 +356,21 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   foundBounds.extend(b);
                 }
               }
-            } catch {}
+            } catch { }
           }
         });
 
         if (foundBounds && (foundBounds as L.LatLngBounds).isValid()) {
           try {
             map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
-          } catch {}
+          } catch { }
         } else {
           recenterMap(map);
         }
       } else {
         recenterMap(map);
       }
-    } catch {}
+    } catch { }
   }, [
     activeLayer,
     bairrosGeoJson,
@@ -393,7 +393,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     if (markersLayerRef.current) {
       try {
         map.removeLayer(markersLayerRef.current);
-      } catch {}
+      } catch { }
       markersLayerRef.current = null;
     }
 
@@ -458,7 +458,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
       markersGroup.addTo(map);
       markersLayerRef.current = markersGroup;
-    } catch {}
+    } catch { }
   }, [obras, showPins, onSelectObra]);
 
   const handleRecenter = () => {
@@ -486,239 +486,232 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [prefeituras, territorySearch]);
 
   return (
-    <div className="relative flex-1 flex flex-col h-full bg-slate-100">
-      {/* Controles Superiores do Mapa */}
-      <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-sm p-2 rounded-xl shadow-md border border-slate-200/80 flex flex-wrap items-center gap-2 max-w-full">
-        {/* Divisão Territorial */}
-        <div className="flex bg-slate-100 p-1 rounded-lg">
+      <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
+        {/* Controles Superiores do Mapa */}
+        <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-sm p-2 rounded-xl shadow-md border border-slate-200/80 flex flex-wrap items-center gap-2 max-w-full">
+          {/* Divisão Territorial */}
+          <div className="flex bg-slate-100 p-1 rounded-lg">
+            <button
+              type="button"
+              data-testid="btn-camada-bairros"
+              onClick={() => handleLayerToggle("bairros")}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${activeLayer === "bairros"
+                  ? "bg-white text-slate-900 shadow-sm"
+                  : "text-slate-600 hover:text-slate-900"
+                }`}
+            >
+              Bairros Oficiais
+            </button>
+            <button
+              type="button"
+              data-testid="btn-camada-prefeituras"
+              onClick={() => handleLayerToggle("prefeituras")}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${activeLayer === "prefeituras"
+                  ? "bg-white text-slate-900 shadow-sm"
+                  : "text-slate-600 hover:text-slate-900"
+                }`}
+            >
+              Prefeituras-Bairro
+            </button>
+          </div>
+
+          {/* Alternância de Métrica Coroplética */}
+          <div
+            data-testid="toggle-camada-metrica"
+            className="flex bg-slate-100 p-1 rounded-lg border border-slate-200"
+          >
+            <button
+              type="button"
+              data-testid="btn-camada-per-capita"
+              onClick={() => setChoroplethMetric("investimentoPorHabitante")}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${choroplethMetric === "investimentoPorHabitante"
+                  ? "bg-emerald-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900"
+                }`}
+            >
+              R$ / Habitante
+            </button>
+            <button
+              type="button"
+              data-testid="btn-camada-vulnerabilidade"
+              onClick={() => setChoroplethMetric("vulnerabilidade")}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${choroplethMetric === "vulnerabilidade"
+                  ? "bg-indigo-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900"
+                }`}
+            >
+              Vulnerabilidade Social
+            </button>
+          </div>
+
+          {/* Toggle de Pinos de Obras */}
           <button
             type="button"
-            data-testid="btn-camada-bairros"
-            onClick={() => handleLayerToggle("bairros")}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
-              activeLayer === "bairros"
-                ? "bg-white text-slate-900 shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
+            data-testid="btn-toggle-pinos-obras"
+            onClick={() => setShowPins((prev) => !prev)}
+            className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 ${showPins
+                ? "bg-slate-900 text-white border-slate-900"
+                : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+              }`}
           >
-            Bairros Oficiais
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Pinos de Obras ({obras.filter((o) => o.latitude && o.longitude).length})
           </button>
+
+          {/* Botão de Recentralizar */}
           <button
             type="button"
-            data-testid="btn-camada-prefeituras"
-            onClick={() => handleLayerToggle("prefeituras")}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
-              activeLayer === "prefeituras"
-                ? "bg-white text-slate-900 shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
+            data-testid="btn-centralizar-salvador"
+            onClick={handleRecenter}
+            title="Recentralizar visualização em Salvador"
+            className="px-2.5 py-1 text-xs font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-700 transition-colors flex items-center gap-1 shadow-sm"
           >
-            Prefeituras-Bairro
+            <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Centralizar
           </button>
         </div>
 
-        {/* Alternância de Métrica Coroplética */}
+        {/* Legenda Coroplética Flutuante */}
         <div
-          data-testid="toggle-camada-metrica"
-          className="flex bg-slate-100 p-1 rounded-lg border border-slate-200"
+          data-testid="legenda-coropletica"
+          className="absolute bottom-20 left-4 z-10 bg-white/95 backdrop-blur-sm p-2.5 rounded-xl shadow-md border border-slate-200 text-xs"
         >
-          <button
-            type="button"
-            data-testid="btn-camada-per-capita"
-            onClick={() => setChoroplethMetric("investimentoPorHabitante")}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
-              choroplethMetric === "investimentoPorHabitante"
-                ? "bg-emerald-600 text-white shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            R$ / Habitante
-          </button>
-          <button
-            type="button"
-            data-testid="btn-camada-vulnerabilidade"
-            onClick={() => setChoroplethMetric("vulnerabilidade")}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
-              choroplethMetric === "vulnerabilidade"
-                ? "bg-indigo-600 text-white shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            Vulnerabilidade Social
-          </button>
-        </div>
-
-        {/* Toggle de Pinos de Obras */}
-        <button
-          type="button"
-          data-testid="btn-toggle-pinos-obras"
-          onClick={() => setShowPins((prev) => !prev)}
-          className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 ${
-            showPins
-              ? "bg-slate-900 text-white border-slate-900"
-              : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
-          }`}
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-          Pinos de Obras ({obras.filter((o) => o.latitude && o.longitude).length})
-        </button>
-
-        {/* Botão de Recentralizar */}
-        <button
-          type="button"
-          data-testid="btn-centralizar-salvador"
-          onClick={handleRecenter}
-          title="Recentralizar visualização em Salvador"
-          className="px-2.5 py-1 text-xs font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-700 transition-colors flex items-center gap-1 shadow-sm"
-        >
-          <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          Centralizar
-        </button>
-      </div>
-
-      {/* Legenda Coroplética Flutuante */}
-      <div
-        data-testid="legenda-coropletica"
-        className="absolute bottom-20 left-4 z-10 bg-white/95 backdrop-blur-sm p-2.5 rounded-xl shadow-md border border-slate-200 text-xs"
-      >
-        <span className="font-bold text-slate-700 block mb-1">
-          {choroplethMetric === "investimentoPorHabitante"
-            ? "Investimento por Habitante (R$):"
-            : "Índice de Vulnerabilidade:"}
-        </span>
-        <div className="flex items-center gap-1 text-[10px] text-slate-600">
-          <span>Menor</span>
-          <div className="flex gap-0.5">
-            {choroplethMetric === "investimentoPorHabitante" ? (
-              <>
-                <span className="w-4 h-3 rounded-sm bg-[#d1fae5]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#6ee7b7]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#10b981]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#059669]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#064e3b]"></span>
-              </>
-            ) : (
-              <>
-                <span className="w-4 h-3 rounded-sm bg-[#ede9fe]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#c4b5fd]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#8b5cf6]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#6d28d9]"></span>
-                <span className="w-4 h-3 rounded-sm bg-[#4c1d95]"></span>
-              </>
-            )}
-          </div>
-          <span>Maior</span>
-        </div>
-        <div className="flex items-center gap-1.5 mt-1 pt-1 border-t border-slate-100 text-[10px] text-amber-800">
-          <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400"></span>
-          <span>Zona Especial (Isenta)</span>
-        </div>
-      </div>
-
-      {/* Container Leaflet do Mapa */}
-      <div
-        ref={mapContainerRef}
-        data-testid="leaflet-map-container"
-        className="w-full flex-1 min-h-[420px] z-0 relative"
-      >
-        {/* Atalhos acessíveis dos pinos de obras no mapa */}
-        {showPins && (
-          <div className="sr-only" aria-label="Obras georreferenciadas no mapa">
-            {obras
-              .filter((o) => o.latitude && o.longitude)
-              .map((o) => (
-                <button
-                  key={o.id}
-                  type="button"
-                  data-testid={`map-pin-obra-${o.id}`}
-                  onClick={() => onSelectObra && onSelectObra(o)}
-                >
-                  Abrir Ficha Limpa da Obra: {o.objeto}
-                </button>
-              ))}
-          </div>
-        )}
-      </div>
-
-      {/* Seletor Rápido de Territórios com Busca Textual para o Raio-X */}
-      <div className="bg-white border-t border-slate-200 p-3 z-10">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-              {activeLayer === "bairros" ? "Bairros no Mapa:" : "Prefeituras-Bairro:"}
-            </span>
-            <input
-              type="text"
-              data-testid="busca-bairro-mapa"
-              value={territorySearch}
-              onChange={(e) => setTerritorySearch(e.target.value)}
-              placeholder="Buscar para abrir o Raio-X..."
-              className="px-2 py-0.5 text-xs bg-slate-50 border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-emerald-500"
-            />
-          </div>
-          <span className="text-xs text-slate-400">
-            {activeLayer === "bairros"
-              ? `${filteredBairrosButtons.length} de ${bairros.length} bairros`
-              : `${filteredPrefeiturasButtons.length} prefeituras`}
+          <span className="font-bold text-slate-700 block mb-1">
+            {choroplethMetric === "investimentoPorHabitante"
+              ? "Investimento por Habitante (R$):"
+              : "Índice de Vulnerabilidade:"}
           </span>
+          <div className="flex items-center gap-1 text-[10px] text-slate-600">
+            <span>Menor</span>
+            <div className="flex gap-0.5">
+              {choroplethMetric === "investimentoPorHabitante" ? (
+                <>
+                  <span className="w-4 h-3 rounded-sm bg-[#d1fae5]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#6ee7b7]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#10b981]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#059669]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#064e3b]"></span>
+                </>
+              ) : (
+                <>
+                  <span className="w-4 h-3 rounded-sm bg-[#ede9fe]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#c4b5fd]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#8b5cf6]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#6d28d9]"></span>
+                  <span className="w-4 h-3 rounded-sm bg-[#4c1d95]"></span>
+                </>
+              )}
+            </div>
+            <span>Maior</span>
+          </div>
+          <div className="flex items-center gap-1.5 mt-1 pt-1 border-t border-slate-100 text-[10px] text-amber-800">
+            <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400"></span>
+            <span>Zona Especial (Isenta)</span>
+          </div>
         </div>
-        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-thin">
-          {activeLayer === "bairros"
-            ? filteredBairrosButtons.map((b) => {
-                const isSelected = selectedTerritory?.id === b.id && selectedTerritory?.tipo === "bairro";
-                const isZonaEspecial = b.is_zona_especial_nao_residencial || b.isZonaEspecialNaoResidencial;
-                const testId = `territory-selector-${normalizeTestId(b.nome)}`;
 
-                return (
+        {/* Container Leaflet do Mapa */}
+        <div
+          ref={mapContainerRef}
+          data-testid="leaflet-map-container"
+          className="w-full flex-1 min-h-[420px] z-0 relative"
+        >
+          {/* Atalhos acessíveis dos pinos de obras no mapa */}
+          {showPins && (
+            <div className="sr-only" aria-label="Obras georreferenciadas no mapa">
+              {obras
+                .filter((o) => o.latitude && o.longitude)
+                .map((o) => (
                   <button
-                    key={b.id}
-                    data-testid={testId}
-                    onClick={() => onSelectTerritory(createBairroSelection(b))}
-                    className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${
-                      isSelected
-                        ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
-                        : isZonaEspecial
-                        ? "bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100"
-                        : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
-                    }`}
+                    key={o.id}
+                    type="button"
+                    data-testid={`map-pin-obra-${o.id}`}
+                    onClick={() => onSelectObra && onSelectObra(o)}
                   >
-                    <span>{b.nome}</span>
-                    {isZonaEspecial && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500" title="Zona Especial Não-Residencial"></span>
-                    )}
-                    <span className="text-[10px] opacity-75">
-                      ({formatNumber(b.populacao)} hab • {formatCurrency(metricType === "executado" ? (b.investimentoPorHabitantePago ?? b.investimentoPorHabitante ?? 0) : (b.investimentoPorHabitante ?? 0))}/hab)
-                    </span>
+                    Abrir Ficha Limpa da Obra: {o.objeto}
                   </button>
-                );
-              })
-            : filteredPrefeiturasButtons.map((pb) => {
-                const isSelected = selectedTerritory?.id === pb.id && selectedTerritory?.tipo === "prefeitura_bairro";
-                const testId = `territory-selector-${normalizeTestId(pb.nome)}`;
-
-                return (
-                  <button
-                    key={pb.id}
-                    data-testid={testId}
-                    onClick={() => onSelectTerritory(createPrefeituraSelection(pb))}
-                    className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${
-                      isSelected
-                        ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
-                        : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
-                    }`}
-                  >
-                    <span>{pb.nome}</span>
-                    <span className="text-[10px] opacity-75">
-                      ({formatNumber(pb.populacao_total)} hab • {formatCurrency(metricType === "executado" ? (pb.investimentoPorHabitantePago ?? pb.investimentoPorHabitante ?? 0) : (pb.investimentoPorHabitante ?? 0))}/hab)
-                    </span>
-                  </button>
-                );
-              })}
+                ))}
+            </div>
+          )}
         </div>
-      </div>
-    </div>
-  );
+
+        {/* Seletor Rápido de Territórios com Busca Textual para o Raio-X */}
+          <div className="w-full min-w-0 overflow-hidden bg-white border-t border-slate-200 p-3 z-10">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                  {activeLayer === "bairros" ? "Bairros no Mapa:" : "Prefeituras-Bairro:"}
+                </span>
+                <input
+                  type="text"
+                  data-testid="busca-bairro-mapa"
+                  value={territorySearch}
+                  onChange={(e) => setTerritorySearch(e.target.value)}
+                  placeholder="Buscar para abrir o Raio-X..."
+                  className="px-2 py-0.5 text-xs bg-slate-50 border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                />
+              </div>
+              <span className="text-xs text-slate-400">
+                {activeLayer === "bairros"
+                  ? `${filteredBairrosButtons.length} de ${bairros.length} bairros`
+                  : `${filteredPrefeiturasButtons.length} prefeituras`}
+              </span>
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-thin">
+              {activeLayer === "bairros"
+                ? filteredBairrosButtons.map((b) => {
+                  const isSelected = selectedTerritory?.id === b.id && selectedTerritory?.tipo === "bairro";
+                  const isZonaEspecial = b.is_zona_especial_nao_residencial || b.isZonaEspecialNaoResidencial;
+                  const testId = `territory-selector-${normalizeTestId(b.nome)}`;
+
+                  return (
+                    <button
+                      key={b.id}
+                      data-testid={testId}
+                      onClick={() => onSelectTerritory(createBairroSelection(b))}
+                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${isSelected
+                          ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
+                          : isZonaEspecial
+                            ? "bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100"
+                            : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                        }`}
+                    >
+                      <span>{b.nome}</span>
+                      {isZonaEspecial && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" title="Zona Especial Não-Residencial"></span>
+                      )}
+                      <span className="text-[10px] opacity-75">
+                        ({formatNumber(b.populacao)} hab • {formatCurrency(metricType === "executado" ? (b.investimentoPorHabitantePago ?? b.investimentoPorHabitante ?? 0) : (b.investimentoPorHabitante ?? 0))}/hab)
+                      </span>
+                    </button>
+                  );
+                })
+                : filteredPrefeiturasButtons.map((pb) => {
+                  const isSelected = selectedTerritory?.id === pb.id && selectedTerritory?.tipo === "prefeitura_bairro";
+                  const testId = `territory-selector-${normalizeTestId(pb.nome)}`;
+
+                  return (
+                    <button
+                      key={pb.id}
+                      data-testid={testId}
+                      onClick={() => onSelectTerritory(createPrefeituraSelection(pb))}
+                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${isSelected
+                          ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
+                          : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                        }`}
+                    >
+                      <span>{pb.nome}</span>
+                      <span className="text-[10px] opacity-75">
+                        ({formatNumber(pb.populacao_total)} hab • {formatCurrency(metricType === "executado" ? (pb.investimentoPorHabitantePago ?? pb.investimentoPorHabitante ?? 0) : (pb.investimentoPorHabitante ?? 0))}/hab)
+                      </span>
+                    </button>
+                  );
+                })}
+            </div>
+          </div>
+        </div>
+        );
 };
