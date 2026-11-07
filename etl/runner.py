@@ -9,11 +9,15 @@ from pathlib import Path
 from typing import Any
 
 from etl.domain import kpis
+from etl.domain.empreiteiras import calcular_concentracao_empreiteiras, formatar_cnpj
+from etl.domain.ficha_limpa import construir_ficha_obra
 from etl.domain.geocoding import (
     GeocodingCache,
     calcular_centroides_bairros,
     classificar_alocacao_territorial,
 )
+from etl.domain.semaforo import classificar_semaforo
+from etl.domain.tema import classificar_tema
 from etl.domain.territorio import (
     calcular_rollup_territorial,
     is_zona_especial_nao_residencial,
@@ -22,6 +26,7 @@ from etl.domain.territorio import (
 from etl.generator import (
     generate_bairros_geojson,
     generate_index_json,
+    generate_obra_detalhe_json,
     generate_prefeituras_geojson,
 )
 from etl.sources import geosalvador, ibge_censo, transparencia
@@ -155,7 +160,47 @@ def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
         output_path=pb_geo_path,
     )
 
-    # 8. Cálculo dos KPIs globais enriquecidos com transparência opaca
+    # 8. Detalhamento individual das Obras Públicas (Ficha Limpa sob demanda) e Concentração
+    concentracao_map = calcular_concentracao_empreiteiras(grid_obras)
+    obras_dir = output_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+
+    for obra in grid_obras:
+        cd_ug = obra.get("cdUnidadeGestora")
+        nu_sigef = obra.get("nuContratoSigef")
+        obra_id = obra.get("id")
+
+        detalhe = transparencia.fetch_detalhes_obra(cd_ug, nu_sigef, year=year, obra_base=obra)
+        aditivos_raw = transparencia.fetch_aditivos_obra(cd_ug, nu_sigef, year=year)
+        dotacoes_raw = transparencia.fetch_dotacao_obra(cd_ug, nu_sigef, year=year)
+        empenhos_raw = transparencia.fetch_empenhos_obra(cd_ug, nu_sigef, year=year)
+        liquidacoes_raw = transparencia.fetch_liquidacoes_obra(cd_ug, nu_sigef, year=year)
+        pagamentos_raw = transparencia.fetch_pagamentos_obra(cd_ug, nu_sigef, year=year)
+
+        # Atualiza campos base da obra caso o detalhamento traga CNPJ ou DOM
+        cnpj_credor = formatar_cnpj(str(detalhe.get("nuDocumentoCredor") or obra.get("nuDocumentoCredor") or ""))
+        obra["cnpjCredor"] = cnpj_credor
+        obra["cnpj"] = cnpj_credor
+        nu_dom = detalhe.get("nuDom") or obra.get("nuDom")
+        if nu_dom:
+            obra["nuDom"] = nu_dom
+
+        ficha_obra = construir_ficha_obra(
+            obra=obra,
+            detalhe=detalhe,
+            aditivos_raw=aditivos_raw,
+            dotacoes_raw=dotacoes_raw,
+            empenhos_raw=empenhos_raw,
+            liquidacoes_raw=liquidacoes_raw,
+            pagamentos_raw=pagamentos_raw,
+            concentracao_map=concentracao_map,
+            year=year,
+        )
+
+        obra_file_path = obras_dir / f"{obra_id}.json"
+        generate_obra_detalhe_json(ficha_obra, obra_file_path)
+
+    # 9. Cálculo dos KPIs globais enriquecidos com transparência opaca
     populacao_cidade = sum(int(b.get("populacao", 0)) for b in bairros_rollup)
     kpis_globais = kpis.calcular_kpis_globais(
         totalizador_transparencia=totalizador,
@@ -164,7 +209,7 @@ def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
         indicador_opacidade=opacidade,
     )
 
-    # 9. Geração do índice anual estático
+    # 10. Geração do índice anual estático com concentração de empreiteiras
     index_file_path = output_path / f"index_{year}.json"
     generate_index_json(
         kpis_globais=kpis_globais,
@@ -173,6 +218,7 @@ def run_pipeline(output_dir: Path, year: int = 2025) -> dict[str, Any]:
         obras_detalhadas=grid_obras,
         year=year,
         output_path=index_file_path,
+        concentracao_empreiteiras=concentracao_map,
     )
 
     return {

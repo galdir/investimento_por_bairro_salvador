@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-11-07T11:23:13.236865+00:00",
+    "generatedAt": "2026-11-07T12:00:09.207657+00:00",
     "anoReferencia": 2025
   },
   "kpis_globais": {
@@ -19,6 +19,49 @@
     "valorNaoLocalizado": 5500000.0,
     "percentualNaoLocalizado": 19.5
   },
+  "concentracao_empreiteiras": [
+    {
+      "cnpj": "12.345.678/0001-90",
+      "razaoSocial": "CONSTRUTORA SALVADOR LTDA",
+      "totalObras": 2,
+      "totalObrasAtivas": 2,
+      "valorTotalContratado": 16000000.0,
+      "obrasIds": [
+        1001,
+        1005
+      ]
+    },
+    {
+      "cnpj": "55.444.333/0001-22",
+      "razaoSocial": "NORDESTE CONSTRUCOES LTDA",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 6500000.0,
+      "obrasIds": [
+        1003
+      ]
+    },
+    {
+      "cnpj": "98.765.432/0001-10",
+      "razaoSocial": "BAHIA ENGENHARIA S/A",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 4200000.0,
+      "obrasIds": [
+        1002
+      ]
+    },
+    {
+      "cnpj": "11.222.333/0001-44",
+      "razaoSocial": "SALVADOR PARQUES E OBRAS EIRELI",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 1500000.0,
+      "obrasIds": [
+        1004
+      ]
+    }
+  ],
   "prefeituras_bairro": [
     {
       "id": 1,
@@ -178,6 +221,8 @@
       "percentualExecutado": 65.5,
       "situacao": "Em Execução",
       "credor": "CONSTRUTORA SALVADOR LTDA",
+      "cnpj": "12.345.678/0001-90",
+      "cnpjCredor": "12.345.678/0001-90",
       "tema": "Mobilidade, Pavimentação e Drenagem",
       "semaforo": {
         "status": "VERDE",
@@ -209,6 +254,8 @@
       "percentualExecutado": 40.0,
       "situacao": "Em Execução",
       "credor": "BAHIA ENGENHARIA S/A",
+      "cnpj": "98.765.432/0001-10",
+      "cnpjCredor": "98.765.432/0001-10",
       "tema": "Encostas e Contenção",
       "semaforo": {
         "status": "AMARELO",
@@ -241,6 +288,8 @@
       "percentualExecutado": 35.0,
       "situacao": "Paralisada",
       "credor": "NORDESTE CONSTRUCOES LTDA",
+      "cnpj": "55.444.333/0001-22",
+      "cnpjCredor": "55.444.333/0001-22",
       "tema": "Educação e Escolas",
       "semaforo": {
         "status": "VERMELHO",
@@ -274,6 +323,8 @@
       "percentualExecutado": 90.0,
       "situacao": "Em Execução",
       "credor": "SALVADOR PARQUES E OBRAS EIRELI",
+      "cnpj": "11.222.333/0001-44",
+      "cnpjCredor": "11.222.333/0001-44",
       "tema": "Praças, Esporte e Lazer",
       "semaforo": {
         "status": "VERDE",
@@ -304,7 +355,9 @@
       "valorPago": 2800000.0,
       "percentualExecutado": 70.0,
       "situacao": "Em Execução",
-      "credor": "MEDICINA & ENGENHARIA CONSTRUTORA",
+      "credor": "CONSTRUTORA SALVADOR LTDA",
+      "cnpj": "12.345.678/0001-90",
+      "cnpjCredor": "12.345.678/0001-90",
       "tema": "Saúde",
       "semaforo": {
         "status": "VERMELHO",

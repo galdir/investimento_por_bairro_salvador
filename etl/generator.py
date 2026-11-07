@@ -7,8 +7,9 @@ e pelo painel web no GitHub Pages.
 from datetime import datetime, timezone
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
+from etl.domain.empreiteiras import formatar_cnpj
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
 from etl.domain.territorio import is_zona_especial_nao_residencial, normalizar_nome
@@ -168,16 +169,17 @@ def generate_index_json(
     obras_detalhadas: list[dict[str, Any]],
     year: int,
     output_path: Path,
+    concentracao_empreiteiras: Optional[Any] = None,
 ) -> None:
     """Gera o arquivo de índice anual estático `index_<ano>.json`.
 
     Sumário:
-        Consolida metadados, KPIs globais, resumos territoriais e obras em formato JSON compacto.
+        Consolida metadados, KPIs globais, resumos territoriais, concentração de empreiteiras e obras em formato JSON compacto.
 
     Descrição Estendida:
         Gera o arquivo principal consumido pelo painel web no carregamento inicial, incluindo
         a lista compacta de obras com nível de alocação territorial, coordenadas geográficas,
-        tema funcional e semáforo de risco.
+        tema funcional, semáforo de risco e o sumário de concentração de empreiteiras da cidade.
 
     Argumentos:
         kpis_globais: Dicionário com os indicadores globais e métricas de opacidade.
@@ -186,6 +188,7 @@ def generate_index_json(
         obras_detalhadas: Lista com os contratos de obras públicas vigentes.
         year: Ano de referência da publicação (ex: 2025).
         output_path: Caminho completo de saída do arquivo `index_<ano>.json`.
+        concentracao_empreiteiras: Dicionário ou lista com resumo consolidado de empreiteiras.
 
     Retornos:
         None.
@@ -226,6 +229,7 @@ def generate_index_json(
         lat = o.get("latitude")
         lon = o.get("longitude")
         estagio = o.get("estagioAlocacao")
+        cnpj_credor = formatar_cnpj(str(o.get("nuDocumentoCredor") or o.get("cnpj") or o.get("cnpjCredor") or ""))
 
         obras_compactas.append({
             "id": o.get("id"),
@@ -240,6 +244,8 @@ def generate_index_json(
             "percentualExecutado": perc_exec,
             "situacao": o.get("dsSituacao"),
             "credor": o.get("nmCredor"),
+            "cnpj": cnpj_credor,
+            "cnpjCredor": cnpj_credor,
             "tema": tema,
             "semaforo": semaforo,
             "ano": ano_obra,
@@ -252,12 +258,25 @@ def generate_index_json(
             "estagioAlocacao": estagio,
         })
 
+    # Converte concentração de empreiteiras para lista/dicionário ordenado
+    conc_payload: list[dict[str, Any]] = []
+    if concentracao_empreiteiras:
+        if isinstance(concentracao_empreiteiras, dict):
+            conc_payload = sorted(
+                list(concentracao_empreiteiras.values()),
+                key=lambda x: x.get("valorTotalContratado", 0.0),
+                reverse=True,
+            )
+        elif isinstance(concentracao_empreiteiras, list):
+            conc_payload = concentracao_empreiteiras
+
     payload = {
         "metadata": {
             "generatedAt": datetime.now(timezone.utc).isoformat(),
             "anoReferencia": year,
         },
         "kpis_globais": kpis_globais,
+        "concentracao_empreiteiras": conc_payload,
         "prefeituras_bairro": prefeituras_resumo,
         "bairros": bairros_resumo,
         "obras": obras_compactas,
@@ -265,3 +284,32 @@ def generate_index_json(
 
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
+def generate_obra_detalhe_json(
+    obra_detalhe: dict[str, Any],
+    output_path: Path,
+) -> None:
+    """Gera o arquivo JSON individual particionado da Ficha Limpa da Obra sob demanda (`obras/<id>.json`).
+
+    Sumário:
+        Escreve o JSON detalhado de uma obra pública com Funil Financeiro, Aditivos, Dotação e Empreiteira.
+
+    Descrição Estendida:
+        Serializa em arquivo JSON individual o prontuário completo da obra para viabilizar
+        carregamento assíncrono (sob demanda) na web, sem onerar o tamanho do pacote inicial.
+
+    Argumentos:
+        obra_detalhe: Dicionário contendo a Ficha Limpa completa da obra.
+        output_path: Caminho completo de saída do arquivo `obras/<id>.json`.
+
+    Retornos:
+        None.
+
+    Erros:
+        Lança IOError se o arquivo não puder ser criado no caminho especificado.
+    """
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(obra_detalhe, f, ensure_ascii=False, indent=2)
+

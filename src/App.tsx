@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { FichaLimpaModal } from "./components/FichaLimpaModal";
 import { HeaderKpis } from "./components/HeaderKpis";
 import { InteractiveMap } from "./components/InteractiveMap";
 import { PrefeiturasRanking } from "./components/PrefeiturasRanking";
@@ -7,9 +8,11 @@ import { TopFilters } from "./components/TopFilters";
 import { WorksTable } from "./components/WorksTable";
 import {
   BairroResumo,
+  FichaLimpaObra,
   FilterState,
   GlobalKpis,
   IndexData,
+  ObraCompacta,
   PrefeituraBairroResumo,
   TemaObra,
   TerritorySelection,
@@ -53,6 +56,8 @@ export const App: React.FC = () => {
   const [prefeiturasGeo, setPrefeiturasGeo] = useState<any>(null);
   const [activeLayer, setActiveLayer] = useState<"bairros" | "prefeituras">("bairros");
   const [selectedTerritory, setSelectedTerritory] = useState<TerritorySelection | null>(null);
+  const [selectedObraFicha, setSelectedObraFicha] = useState<FichaLimpaObra | null>(null);
+  const [loadingFicha, setLoadingFicha] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"mapa" | "ranking" | "tabela">("mapa");
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
   const [loading, setLoading] = useState<boolean>(true);
@@ -159,12 +164,13 @@ export const App: React.FC = () => {
       if (filters.semaforo !== "todos" && obra.semaforo?.status !== filters.semaforo) {
         return false;
       }
-      // 6. Busca textual no Objeto ou Razão Social da Construtora
+      // 6. Busca textual no Objeto, Razão Social da Construtora ou CNPJ
       if (filters.busca.trim()) {
         const query = filters.busca.toLowerCase();
         const objMatch = (obra.objeto || "").toLowerCase().includes(query);
         const credorMatch = (obra.credor || "").toLowerCase().includes(query);
-        if (!objMatch && !credorMatch) return false;
+        const cnpjMatch = (obra.cnpj || "").toLowerCase().includes(query);
+        if (!objMatch && !credorMatch && !cnpjMatch) return false;
       }
       return true;
     });
@@ -290,6 +296,32 @@ export const App: React.FC = () => {
   const handleSelectPrefeituraFromRanking = (pb: PrefeituraBairroResumo) => {
     setSelectedTerritory(createPrefeituraSelection(pb));
     setActiveLayer("prefeituras");
+  };
+
+  const handleSelectObra = async (obra: ObraCompacta) => {
+    try {
+      setLoadingFicha(true);
+      const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+      const res = await fetch(`${basePath}/data/obras/${obra.id}.json`);
+      if (res.ok) {
+        const data: FichaLimpaObra = await res.json();
+        setSelectedObraFicha(data);
+      } else {
+        throw new Error(`Falha ao carregar obra ${obra.id} (status ${res.status})`);
+      }
+    } catch (err) {
+      console.error("Erro ao carregar Ficha Limpa da Obra sob demanda:", err);
+    } finally {
+      setLoadingFicha(false);
+    }
+  };
+
+  const handleFilterByEmpreiteira = (credorOuCnpj: string) => {
+    setFilters((prev) => ({
+      ...prev,
+      busca: credorOuCnpj,
+    }));
+    setSelectedObraFicha(null);
   };
 
   if (loading) {
@@ -438,6 +470,7 @@ export const App: React.FC = () => {
               obras={filteredObras}
               selectedTerritory={selectedTerritory}
               onSelectTerritory={setSelectedTerritory}
+              onSelectObra={handleSelectObra}
             />
 
             <TerritorySidebar
@@ -477,11 +510,20 @@ export const App: React.FC = () => {
               <WorksTable
                 obras={filteredObras}
                 metricType={filters.metricType}
+                onSelectObra={handleSelectObra}
               />
             </div>
           </div>
         )}
       </main>
+
+      {/* 5. Ficha Limpa da Obra sob demanda (Camada C) */}
+      <FichaLimpaModal
+        obra={selectedObraFicha}
+        loading={loadingFicha}
+        onClose={() => setSelectedObraFicha(null)}
+        onFilterByEmpreiteira={handleFilterByEmpreiteira}
+      />
     </div>
   );
 };

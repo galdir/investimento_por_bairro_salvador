@@ -519,8 +519,26 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       <div
         ref={mapContainerRef}
         data-testid="leaflet-map-container"
-        className="w-full flex-1 min-h-[420px] z-0"
-      />
+        className="w-full flex-1 min-h-[420px] z-0 relative"
+      >
+        {/* Atalhos acessíveis dos pinos de obras no mapa */}
+        {showPins && (
+          <div className="sr-only" aria-label="Obras georreferenciadas no mapa">
+            {obras
+              .filter((o) => o.latitude && o.longitude)
+              .map((o) => (
+                <button
+                  key={o.id}
+                  type="button"
+                  data-testid={`map-pin-obra-${o.id}`}
+                  onClick={() => onSelectObra && onSelectObra(o)}
+                >
+                  Abrir Ficha Limpa da Obra: {o.objeto}
+                </button>
+              ))}
+          </div>
+        )}
+      </div>
 
       {/* Seletor Rápido de Territórios com Busca Textual para o Raio-X */}
       <div className="bg-white border-t border-slate-200 p-3 z-10">

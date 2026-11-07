@@ -284,6 +284,133 @@ const mockPbGeo = {
   ],
 };
 
+const mockObra1001Detalhe = {
+  id: 1001,
+  unidadeGestora: "SUCOP",
+  numeroContrato: "001/2024",
+  numeroContratoOriginal: "001/2024",
+  nuProcesso: "1234/2023",
+  objeto: "Requalificação da Orla da Pituba com drenagem e nova ciclovia",
+  situacao: "Em Execução",
+  empreiteira: {
+    razaoSocial: "CONSTRUTORA SALVADOR LTDA",
+    cnpj: "12.345.678/0001-90",
+    totalObras: 2,
+    totalObrasAtivas: 2,
+    valorTotalContratado: 16000000.0,
+    outrasObrasCount: 1,
+    outrasObrasIds: [1005],
+  },
+  vigencia: {
+    dataInicio: "2024-01-10T00:00:00.000Z",
+    dataFimOriginal: "2027-12-31T00:00:00.000Z",
+    dataTerminoAtualizado: "2027-12-31T00:00:00.000Z",
+    prazoOriginal: "1450 dias",
+    prazoAtualizado: "1450 dias",
+  },
+  dom: {
+    nuDom: "8.750",
+    dataPublicacao: "2024-01-12T00:00:00.000Z",
+  },
+  funilFinanceiro: {
+    valorOriginal: 12000000.0,
+    valorContratualVigente: 12000000.0,
+    valorEmpenhado: 12000000.0,
+    valorLiquidado: 7860000.0,
+    valorPago: 7860000.0,
+    percentualExecutado: 65.5,
+    valorAditivos: 0.0,
+    deltaPercentualAditivos: 0.0,
+  },
+  aditivos: [],
+  dotacao: [
+    {
+      subacao: "Requalificação da Orla Marítima e Projetos Estratégicos",
+      fonteRecurso: "Tesouro Municipal (Recursos Ordinários)",
+      classificacao: "4.4.90.51 - Obras e Instalações",
+    },
+  ],
+  tema: "Mobilidade, Pavimentação e Drenagem",
+  semaforo: {
+    status: "VERDE",
+    rotulo: "Verde (No Prazo)",
+    motivos: ["No prazo"],
+    deltaPercentualValor: 0.0,
+  },
+  nivel: "Bairro",
+  bairro: "Pituba",
+  prefeituraBairro: "Barra/Pituba",
+};
+
+const mockObra1002Detalhe = {
+  id: 1002,
+  unidadeGestora: "CODESAL",
+  numeroContrato: "002/2024",
+  numeroContratoOriginal: "002/2024",
+  nuProcesso: "1235/2023",
+  objeto: "Contenção de Encosta na Liberdade",
+  situacao: "Em Execução",
+  empreiteira: {
+    razaoSocial: "BAHIA ENGENHARIA S/A",
+    cnpj: "98.765.432/0001-10",
+    totalObras: 1,
+    totalObrasAtivas: 1,
+    valorTotalContratado: 2400000.0,
+    outrasObrasCount: 0,
+    outrasObrasIds: [],
+  },
+  vigencia: {
+    dataInicio: "2024-03-01T00:00:00.000Z",
+    dataFimOriginal: "2027-06-30T00:00:00.000Z",
+    dataTerminoAtualizado: "2027-12-31T00:00:00.000Z",
+    prazoOriginal: "1200 dias",
+    prazoAtualizado: "1384 dias",
+  },
+  dom: {
+    nuDom: "8.712",
+    dataPublicacao: "2024-02-25T00:00:00.000Z",
+  },
+  funilFinanceiro: {
+    valorOriginal: 2000000.0,
+    valorContratualVigente: 2400000.0,
+    valorEmpenhado: 2400000.0,
+    valorLiquidado: 1200000.0,
+    valorPago: 1200000.0,
+    percentualExecutado: 50.0,
+    valorAditivos: 400000.0,
+    deltaPercentualAditivos: 20.0,
+  },
+  aditivos: [
+    {
+      nuAditivo: "1º Termo Aditivo",
+      dsTipoAlteracao: "Prazo e Valor",
+      dsObjetoAditivo: "Acréscimo de contenção e prorrogação",
+      dtAssinatura: "2024-11-15T00:00:00.000Z",
+      dtTerminoVigencia: "2027-12-31T00:00:00.000Z",
+      dtPublicacao: "2024-11-20T00:00:00.000Z",
+      nuDom: "8.910",
+      vlAditivo: 400000.0,
+    },
+  ],
+  dotacao: [
+    {
+      subacao: "Proteção de Encostas",
+      fonteRecurso: "Operação de Crédito Interna (FINISA)",
+      classificacao: "4.4.90.51 - Obras e Instalações",
+    },
+  ],
+  tema: "Encostas e Contenção",
+  semaforo: {
+    status: "AMARELO",
+    rotulo: "Amarelo (Atenção)",
+    motivos: ["Aditivo entre 10% e 25%"],
+    deltaPercentualValor: 20.0,
+  },
+  nivel: "Pontual",
+  bairro: "Liberdade",
+  prefeituraBairro: "Liberdade/São Caetano",
+};
+
 describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)", () => {
   beforeEach(() => {
     vi.stubGlobal(
@@ -307,7 +434,19 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
             json: () => Promise.resolve(mockPbGeo),
           });
         }
-        return Promise.reject(new Error("URL desconhecida"));
+        if (url.includes("obras/1001.json")) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockObra1001Detalhe),
+          });
+        }
+        if (url.includes("obras/1002.json")) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockObra1002Detalhe),
+          });
+        }
+        return Promise.reject(new Error("URL desconhecida: " + url));
       })
     );
   });
@@ -447,5 +586,119 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Isento");
     // Valor total bruto é preservado
     expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 10.000.000");
+  });
+
+  it("abre a Ficha Limpa da Obra sob demanda ao clicar na tabela, exibindo Funil, DOM, Dotação e Empreiteira", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-tabela")).toBeInTheDocument();
+    });
+
+    // Alterna para a visualização tabular de Obras
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("linha-obra-1001")).toBeInTheDocument();
+    });
+
+    // Clica na linha da obra 1001 (SUCOP - Orla da Pituba)
+    fireEvent.click(screen.getByTestId("linha-obra-1001"));
+
+    // O modal da Ficha Limpa deve ser renderizado após o carregamento sob demanda
+    await waitFor(() => {
+      expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument();
+    });
+
+    // 1. Dados cadastrais e objeto
+    expect(screen.getByTestId("ficha-limpa-objeto")).toHaveTextContent("Requalificação da Orla da Pituba");
+    expect(screen.getByTestId("ficha-limpa-contrato")).toHaveTextContent("001/2024");
+    expect(screen.getByTestId("ficha-limpa-orgao")).toHaveTextContent("SUCOP");
+
+    // 2. DOM (Diário Oficial do Município)
+    expect(screen.getByTestId("ficha-limpa-dom")).toHaveTextContent("8.750");
+
+    // 3. Funil de Execução Financeira
+    expect(screen.getByTestId("funil-financeiro-container")).toBeInTheDocument();
+    expect(screen.getByTestId("funil-valor-original")).toHaveTextContent("R$ 12.000.000");
+    expect(screen.getByTestId("funil-valor-vigente")).toHaveTextContent("R$ 12.000.000");
+    expect(screen.getByTestId("funil-percentual-executado")).toHaveTextContent("65,5%");
+
+    // 4. Dotação Orçamentária / Fonte de Recurso
+    expect(screen.getByTestId("ficha-limpa-dotacao")).toHaveTextContent("Tesouro Municipal (Recursos Ordinários)");
+
+    // 5. Empreiteira e Concentração em Salvador
+    expect(screen.getByTestId("ficha-limpa-empreiteira-nome")).toHaveTextContent("CONSTRUTORA SALVADOR LTDA");
+    expect(screen.getByTestId("ficha-limpa-empreiteira-cnpj")).toHaveTextContent("12.345.678/0001-90");
+    expect(screen.getByTestId("ficha-limpa-empreiteira-concentracao")).toHaveTextContent(/2 obra/i);
+    expect(screen.getByTestId("ficha-limpa-empreiteira-concentracao")).toHaveTextContent("1 outra(s)");
+
+    // 6. Botão de filtrar por empreiteira em 1 clique
+    const btnFiltrarEmpreiteira = screen.getByTestId("btn-filtrar-por-empreiteira");
+    expect(btnFiltrarEmpreiteira).toBeInTheDocument();
+    fireEvent.click(btnFiltrarEmpreiteira);
+
+    // O modal deve fechar e a tabela deve estar filtrada pela empreiteira
+    await waitFor(() => {
+      expect(screen.queryByTestId("ficha-limpa-modal")).not.toBeInTheDocument();
+    });
+
+    // Alterna para tabela para checar se apenas as obras da empreiteira aparecem
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    expect(screen.getByTestId("linha-obra-1001")).toBeInTheDocument();
+    expect(screen.queryByTestId("linha-obra-1002")).not.toBeInTheDocument();
+  });
+
+  it("exibe a lista de Aditivos Contratuais detalhados na Ficha Limpa da Obra 1002", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-tabela")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("linha-obra-1002")).toBeInTheDocument();
+    });
+
+    // Clica na linha da obra 1002 (com aditivos de prazo e valor)
+    fireEvent.click(screen.getByTestId("linha-obra-1002"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument();
+    });
+
+    // Verifica presença da seção de Aditivos Contratuais
+    expect(screen.getByTestId("secao-aditivos-obra")).toBeInTheDocument();
+    expect(screen.getByTestId("aditivo-item-0")).toHaveTextContent("1º Termo Aditivo");
+    expect(screen.getByTestId("aditivo-item-0")).toHaveTextContent("Prazo e Valor");
+    expect(screen.getByTestId("aditivo-item-0")).toHaveTextContent("8.910");
+    expect(screen.getByTestId("aditivo-item-0")).toHaveTextContent("20/11/2024");
+
+    // Fecha a Ficha Limpa
+    fireEvent.click(screen.getByTestId("btn-fechar-ficha-limpa"));
+
+    await waitFor(() => {
+      expect(screen.queryByTestId("ficha-limpa-modal")).not.toBeInTheDocument();
+    });
+  });
+
+  it("abre a Ficha Limpa da Obra sob demanda ao clicar no pino da obra no mapa", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("map-pin-obra-1001")).toBeInTheDocument();
+    });
+
+    // Clica no pino da obra 1001 no mapa
+    fireEvent.click(screen.getByTestId("map-pin-obra-1001"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId("ficha-limpa-objeto")).toHaveTextContent("Requalificação da Orla da Pituba");
+    expect(screen.getByTestId("funil-financeiro-container")).toBeInTheDocument();
   });
 });

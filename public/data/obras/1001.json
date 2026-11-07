@@ -1,0 +1,67 @@
+{
+  "id": 1001,
+  "unidadeGestora": "SUCOP",
+  "numeroContrato": "001/2024",
+  "numeroContratoOriginal": "001/2024",
+  "nuProcesso": "1234/2023",
+  "objeto": "Requalificação da Orla da Pituba com drenagem e nova ciclovia",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA SALVADOR LTDA",
+    "cnpj": "12.345.678/0001-90",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 16000000.0,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      1005
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-01-10T00:00:00.000Z",
+    "dataFimOriginal": "2027-12-31T00:00:00.000Z",
+    "dataTerminoAtualizado": "2027-12-31T00:00:00.000Z",
+    "prazoOriginal": "1450 dias",
+    "prazoAtualizado": "1450 dias"
+  },
+  "dom": {
+    "nuDom": "8.750",
+    "dataPublicacao": "2024-01-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 12000000.0,
+    "valorContratualVigente": 12000000.0,
+    "valorEmpenhado": 12000000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 65.5,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Requalificação da Orla Marítima e Projetos Estratégicos",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Pituba",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.995,
+  "longitude": -38.455,
+  "estagioAlocacao": "Cache"
+}

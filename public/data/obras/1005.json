@@ -1,0 +1,67 @@
+{
+  "id": 1005,
+  "unidadeGestora": "FMS",
+  "numeroContrato": "088/2024",
+  "numeroContratoOriginal": "088/2024",
+  "nuProcesso": "9921/2023",
+  "objeto": "Reforma e ampliação da Unidade de Saúde da Família (USF)",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA SALVADOR LTDA",
+    "cnpj": "12.345.678/0001-90",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 16000000.0,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      1001
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-01-15T00:00:00.000Z",
+    "dataFimOriginal": "2024-12-31T00:00:00.000Z",
+    "dataTerminoAtualizado": "2024-12-31T00:00:00.000Z",
+    "prazoOriginal": "350 dias",
+    "prazoAtualizado": "350 dias"
+  },
+  "dom": {
+    "nuDom": "8.705",
+    "dataPublicacao": "2024-01-18T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4000000.0,
+    "valorContratualVigente": 4000000.0,
+    "valorEmpenhado": 4000000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 70.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Reforma e Aparelhamento de Unidades Básicas de Saúde",
+      "fonteRecurso": "SUS / Fundo Nacional de Saúde",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 31/12/2024 com execução física incompleta (70.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

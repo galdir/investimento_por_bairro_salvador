@@ -1,0 +1,77 @@
+{
+  "id": 1002,
+  "unidadeGestora": "SUCOP",
+  "numeroContrato": "002/2024",
+  "numeroContratoOriginal": "002/2024",
+  "nuProcesso": "1235/2023",
+  "objeto": "Contenção de encosta na Rua Direta da Liberdade com aplicação de geomanta",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "BAHIA ENGENHARIA S/A",
+    "cnpj": "98.765.432/0001-10",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 4200000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2024-03-01T00:00:00.000Z",
+    "dataFimOriginal": "2027-06-30T00:00:00.000Z",
+    "dataTerminoAtualizado": "2027-12-31T00:00:00.000Z",
+    "prazoOriginal": "1200 dias",
+    "prazoAtualizado": "1384 dias"
+  },
+  "dom": {
+    "nuDom": "8.712",
+    "dataPublicacao": "2024-02-25T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3500000.0,
+    "valorContratualVigente": 4200000.0,
+    "valorEmpenhado": 4200000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 40.0,
+    "valorAditivos": 700000.0,
+    "deltaPercentualAditivos": 20.0
+  },
+  "aditivos": [
+    {
+      "nuAditivo": "1º Termo Aditivo",
+      "dsTipoAlteracao": "Prazo e Valor",
+      "dsObjetoAditivo": "Acréscimo de serviços de drenagem profunda e prorrogação de 184 dias na vigência",
+      "dtAssinatura": "2024-11-15T00:00:00.000Z",
+      "dtTerminoVigencia": "2027-12-31T00:00:00.000Z",
+      "dtPublicacao": "2024-11-20T00:00:00.000Z",
+      "nuDom": "8.910",
+      "vlAditivo": 700000.0
+    }
+  ],
+  "dotacao": [
+    {
+      "subacao": "Proteção e Contenção de Encostas em Áreas de Risco Geológico",
+      "fonteRecurso": "Operação de Crédito Interna (FINISA)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Encostas e Contenção",
+  "semaforo": {
+    "status": "AMARELO",
+    "rotulo": "Amarelo (Atenção)",
+    "motivos": [
+      "Prorrogação de prazo concedida: término estendido de 30/06/2027 para 31/12/2027",
+      "Aditivos de valor acumulados entre 10% e 25% (+20.0%) em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 20.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Liberdade",
+  "prefeituraBairro": "Liberdade/São Caetano",
+  "latitude": -12.955,
+  "longitude": -38.485,
+  "estagioAlocacao": "Cache"
+}

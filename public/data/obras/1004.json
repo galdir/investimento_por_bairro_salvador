@@ -1,0 +1,65 @@
+{
+  "id": 1004,
+  "unidadeGestora": "DESAL",
+  "numeroContrato": "042/2024",
+  "numeroContratoOriginal": "042/2024",
+  "nuProcesso": "7890/2023",
+  "objeto": "Requalificação e modernização de praça esportiva com parque infantil e quadra poliesportiva",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "SALVADOR PARQUES E OBRAS EIRELI",
+    "cnpj": "11.222.333/0001-44",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 1500000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2024-04-10T00:00:00.000Z",
+    "dataFimOriginal": "2027-10-10T00:00:00.000Z",
+    "dataTerminoAtualizado": "2027-10-10T00:00:00.000Z",
+    "prazoOriginal": "1280 dias",
+    "prazoAtualizado": "1280 dias"
+  },
+  "dom": {
+    "nuDom": "8.780",
+    "dataPublicacao": "2024-04-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1500000.0,
+    "valorContratualVigente": 1500000.0,
+    "valorEmpenhado": 1500000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 90.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção e Criação de Espaços Públicos de Convivência e Lazer",
+      "fonteRecurso": "Tesouro Municipal (Recursos Próprios)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}
