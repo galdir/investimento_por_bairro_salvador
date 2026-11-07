@@ -16,8 +16,8 @@ import {
   normalizeName,
 } from "../utils/territory";
 
-export const SALVADOR_CENTER: L.LatLngTuple = [-12.9777, -38.48];
-export const SALVADOR_DEFAULT_ZOOM = 12;
+export const SALVADOR_CENTER: L.LatLngTuple = [-12.88, -38.48];
+export const SALVADOR_DEFAULT_ZOOM = 11;
 
 /**
  * Enquadra e recentraliza o mapa Leaflet na visão padrão de Salvador com invalidateSize.
@@ -28,7 +28,8 @@ export const SALVADOR_DEFAULT_ZOOM = 12;
 export function recenterMap(map: L.Map | null | undefined): void {
   if (!map) return;
   try {
-    map.invalidateSize();
+    map.stop();
+    map.invalidateSize({ pan: false });
     map.setView(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
   } catch {}
 }
@@ -109,9 +110,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const leafletMapRef = useRef<L.Map | null>(null);
   const geoJsonLayerRef = useRef<L.GeoJSON | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
-  const prevActiveLayerRef = useRef(activeLayer);
-  const initialCenteredRef = useRef(false);
-  const prevSelectedTerritoryRef = useRef<TerritorySelection | null>(selectedTerritory);
+  const selectedTerritoryRef = useRef<TerritorySelection | null>(selectedTerritory);
+  selectedTerritoryRef.current = selectedTerritory;
 
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
   const [showPins, setShowPins] = useState<boolean>(true);
@@ -121,6 +121,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   useEffect(() => {
     if (!mapContainerRef.current) return;
     if (leafletMapRef.current) return;
+
+    let t1: any;
+    let t2: any;
 
     try {
       const map = L.map(mapContainerRef.current, {
@@ -138,17 +141,22 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
       leafletMapRef.current = map;
 
-      setTimeout(() => {
-        recenterMap(map);
-      }, 50);
+      // Garante enquadramento preciso no layout inicial e após estabilização do container
+      recenterMap(map);
+      t1 = setTimeout(() => recenterMap(map), 100);
+      t2 = setTimeout(() => recenterMap(map), 300);
     } catch {}
 
     return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
       if (leafletMapRef.current) {
         try {
           leafletMapRef.current.remove();
         } catch {}
         leafletMapRef.current = null;
+        geoJsonLayerRef.current = null;
+        markersLayerRef.current = null;
       }
     };
   }, []);
@@ -158,10 +166,14 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     if (!mapContainerRef.current || typeof ResizeObserver === "undefined") return;
 
     const ro = new ResizeObserver(() => {
-      if (leafletMapRef.current) {
+      const map = leafletMapRef.current;
+      if (!map) return;
+      if (selectedTerritoryRef.current) {
         try {
-          leafletMapRef.current.invalidateSize();
+          map.invalidateSize({ pan: false });
         } catch {}
+      } else {
+        recenterMap(map);
       }
     });
 
@@ -329,12 +341,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       layer.addTo(map);
       geoJsonLayerRef.current = layer;
 
-      const isLayerChanged = prevActiveLayerRef.current !== activeLayer;
-      prevActiveLayerRef.current = activeLayer;
-
-      const wasDeselected = prevSelectedTerritoryRef.current !== null && selectedTerritory === null;
-      prevSelectedTerritoryRef.current = selectedTerritory;
-
       if (selectedTerritory) {
         let foundBounds: L.LatLngBounds | null = null;
         layer.eachLayer((l: any) => {
@@ -342,7 +348,14 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           const itemNome = p.nome || p.NM_BAIRRO || p.NM_PREFEITURA_BAIRRO;
           if (itemNome === selectedTerritory.nome && typeof l.getBounds === "function") {
             try {
-              foundBounds = l.getBounds();
+              const b = l.getBounds();
+              if (b && (b as L.LatLngBounds).isValid()) {
+                if (!foundBounds) {
+                  foundBounds = b;
+                } else {
+                  foundBounds.extend(b);
+                }
+              }
             } catch {}
           }
         });
@@ -355,12 +368,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           recenterMap(map);
         }
       } else {
-        // Sem território selecionado: na carga inicial das malhas geográficas,
-        // na alternância entre camadas ou ao limpar a seleção territorial
-        if (!initialCenteredRef.current || isLayerChanged || wasDeselected) {
-          initialCenteredRef.current = true;
-          recenterMap(map);
-        }
+        recenterMap(map);
       }
     } catch {}
   }, [
@@ -460,8 +468,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const handleLayerToggle = (newLayer: "bairros" | "prefeituras") => {
     if (newLayer !== activeLayer) {
       onToggleLayer(newLayer);
-      recenterMap(leafletMapRef.current);
     }
+    recenterMap(leafletMapRef.current);
   };
 
   // Filtragem dos botões do seletor rápido pelo campo de busca

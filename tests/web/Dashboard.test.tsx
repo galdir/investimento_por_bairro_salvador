@@ -1084,7 +1084,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     });
   });
 
-  it("centraliza o mapa em Salvador (SALVADOR_CENTER, zoom 12) e chama invalidateSize ao carregar as malhas iniciais", async () => {
+  it("centraliza o mapa em Salvador (SALVADOR_CENTER, zoom 11) e chama invalidateSize ao carregar as malhas iniciais", async () => {
     const invalidateSizeSpy = vi.spyOn(L.Map.prototype, "invalidateSize");
     const setViewSpy = vi.spyOn(L.Map.prototype, "setView");
 
@@ -1135,6 +1135,17 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     });
 
     // 4. O mapa deve ter executado invalidateSize() e recentralizado em Salvador
+    expect(invalidateSizeSpy).toHaveBeenCalled();
+    expect(setViewSpy).toHaveBeenCalledWith(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
+
+    invalidateSizeSpy.mockClear();
+    setViewSpy.mockClear();
+
+    // 5. Alterna de volta para Bairros Oficiais
+    const btnBairros = screen.getByRole("button", { name: /^Bairros Oficiais/i });
+    fireEvent.click(btnBairros);
+
+    // 6. Deve recentralizar com segurança no centro e zoom de Salvador
     expect(invalidateSizeSpy).toHaveBeenCalled();
     expect(setViewSpy).toHaveBeenCalledWith(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
 
