@@ -6,6 +6,8 @@ para identificar volume financeiro concentrado e quantidade de obras por empresa
 
 from typing import Any
 
+from etl.domain.territorio import parse_float
+
 
 def formatar_cnpj(cnpj_raw: str) -> str:
     """Normaliza e formata string de CNPJ no padrão XX.XXX.XXX/XXXX-XX.
@@ -95,8 +97,8 @@ def calcular_concentracao_empreiteiras(obras: list[dict[str, Any]]) -> dict[str,
 
         chave = obter_chave_empreiteira(cnpj, razao_social)
 
-        vl_orig = float(o.get("vlOriginal") or o.get("valorOriginal") or 0.0)
-        vl_atua = float(o.get("vlAtualizado") or o.get("valorContratualVigente") or vl_orig)
+        vl_orig = parse_float(o.get("vlOriginal") or o.get("valorOriginal") or 0.0)
+        vl_atua = parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or vl_orig)
         sit = str(o.get("dsSituacao") or o.get("situacao") or "").strip().upper()
         eh_ativa = sit not in situacoes_inativas
         obra_id = o.get("id")

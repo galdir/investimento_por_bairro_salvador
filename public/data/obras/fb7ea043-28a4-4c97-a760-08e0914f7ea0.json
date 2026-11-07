@@ -1,0 +1,163 @@
+{
+  "id": "fb7ea043-28a4-4c97-a760-08e0914f7ea0",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT004316",
+  "numeroContratoOriginal": "0082026",
+  "nuProcesso": "1121702026",
+  "objeto": "ATENDER PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA ESPECIALIZADA PARA CONSOLIDAÇÃO DE ESTUDOS TECNICOS, ESTRUTURAÇÃO DE PROCESSO LICITATORIO DO SISTEMA TELEFERICO DE SALVADOR",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 3760000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "20/07/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "19/04/2027",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3760000.0,
+    "valorContratualVigente": 3760000.0,
+    "valorEmpenhado": 3760000.0,
+    "valorLiquidado": 1272800.0,
+    "valorPago": 1272800.0,
+    "percentualExecutado": 33.85,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "e2e4e912-bef3-4584-a73e-98ec950ecf33",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE000865",
+      "dataEmpenho": "20/07/2026",
+      "nomeCredor": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços Especializados",
+      "valEmpenhado": "3.760.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "1cde42de-5600-47c8-925a-2737e4154a1b",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE000865",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
+      "notaLiquidacao": "2026NL020160",
+      "notaLancamento": "2026NL020160",
+      "numProcesso": "02145292026",
+      "dataLiquidacao": "23/09/2026",
+      "valLiqLiquidacao": "940.000,00",
+      "valBrutLiquidacao": "940.000,00",
+      "valEmpenho": "3.760.000,00",
+      "descObsLiquidacao": "SERV. DE CONS. ESPC. P/ CONSOL. DE ESTUDOS TECNS. APRES.PELA PREF. MUN. DE SSA -PMS E ESTR",
+      "pago": "0,00"
+    },
+    {
+      "id": "cb6d69b1-d3c1-41ae-91b2-db736b010038",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE000865",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
+      "notaLiquidacao": "2026NL022716",
+      "notaLancamento": "2026NL022716",
+      "numProcesso": "02372952026",
+      "dataLiquidacao": "26/10/2026",
+      "valLiqLiquidacao": "332.800,00",
+      "valBrutLiquidacao": "332.800,00",
+      "valEmpenho": "3.760.000,00",
+      "descObsLiquidacao": "PRESTAÇÃO DE SERVIÇOS DE CONSULTORIA ESPECIALIZADA PARA CONSOLIDAÇÃO DE ESTUDOS TÉCNICOS A",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "c781014e-32bb-4b86-9b87-cc6f0571cd80",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE000865",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
+      "notaLiquidacao": "2026NL020160",
+      "ordBancaria": "2026OB059891",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "3.760.000,00",
+      "dataPagamento": "28/09/2026",
+      "pago": "940.000,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "87f151f3-3923-44eb-985e-75d2f9a3b521",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE000865",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
+      "notaLiquidacao": "2026NL022716",
+      "ordBancaria": "2026OB067196",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "3.760.000,00",
+      "dataPagamento": "27/10/2026",
+      "pago": "332.800,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

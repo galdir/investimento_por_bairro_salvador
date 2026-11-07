@@ -1,0 +1,67 @@
+{
+  "id": "456bd34a-758b-491e-8220-a9150decc258",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2026CT001568",
+  "numeroContratoOriginal": "022026",
+  "nuProcesso": "0876252025",
+  "objeto": "Contratação de empresa para a prestação de serviços técnicos especializados para elaboração de Projeto de Arquitetura e Engenharia para a recuperação do edifício Sede da Secretaria Municipal da Fazenda de Salvador  - SEFAZ.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 1105440.0,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "9c16a6a9-97b7-41bb-9ee4-8aa083488faa"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "10/02/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "07/10/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 552720.0,
+    "valorContratualVigente": 552720.0,
+    "valorEmpenhado": 552720.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 07/10/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

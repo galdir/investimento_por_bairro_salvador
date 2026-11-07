@@ -7,13 +7,14 @@
   "objeto": "Contenção de encosta na Rua Direta da Liberdade com aplicação de geomanta",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "BAHIA ENGENHARIA S/A",
     "cnpj": "98.765.432/0001-10",
+    "razaoSocial": "BAHIA ENGENHARIA S/A",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 4200000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      1002
+    ]
   },
   "vigencia": {
     "dataInicio": "2024-03-01T00:00:00.000Z",

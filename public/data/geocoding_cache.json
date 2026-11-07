@@ -38,5 +38,2429 @@
     "latitude": null,
     "longitude": null,
     "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "SUCOP_001/2024_6bc7c9bbe8f99b81": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "SUCOP_002/2024_a06134542279eb83": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "FME_015/2024_c047329865dda736": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "DESAL_042/2024_9404d5ae4eeadb0c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "FMS_088/2024_b2c5ce6831b1756d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT005734_4866122d8308759e": {
+    "nivel": "Bairro",
+    "bairro": "Arenoso",
+    "prefeitura_bairro": null,
+    "latitude": -12.948165,
+    "longitude": -38.441257,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2026CT005407_5b7770bf2ad8d4bb": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT005291_c69de70aa65df207": {
+    "nivel": "Bairro",
+    "bairro": "Boca do Rio",
+    "prefeitura_bairro": null,
+    "latitude": -12.975454,
+    "longitude": -38.428853,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2026CT005254_b713f7203023be28": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT004955_2b9da349e3f3a5b5": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT004908_2ebac145d402ec17": {
+    "nivel": "Bairro",
+    "bairro": "Paripe",
+    "prefeitura_bairro": null,
+    "latitude": -12.835351,
+    "longitude": -38.468212,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2026CT004856_ff64783c5d12d2b3": {
+    "nivel": "Bairro",
+    "bairro": "Boca do Rio",
+    "prefeitura_bairro": null,
+    "latitude": -12.975454,
+    "longitude": -38.428853,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "441010_2026CT004845_75c1be528368a83f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT004494_f1bc2666ed9e1834": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT004405_550592e1a740a52e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT004325_29b7a20816a298a9": {
+    "nivel": "Bairro",
+    "bairro": "Jaguaribe",
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2026CT004316_e7d30b44f371fc84": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT004227_99a22d22697458d2": {
+    "nivel": "Bairro",
+    "bairro": "Pernambués",
+    "prefeitura_bairro": null,
+    "latitude": -12.970924,
+    "longitude": -38.464563,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "567002_2026CT004102_35690883500adff0": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT004073_20d684a9f8fd955e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT004330_0cf5a18b785c98cd": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2026CT004191_c790e94744f18a50": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT004067_73afb2dc94394447": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "520002_2026CT005609_7da742cf73928876": {
+    "nivel": "Bairro",
+    "bairro": "Águas Claras",
+    "prefeitura_bairro": null,
+    "latitude": -12.890699,
+    "longitude": -38.435616,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "301110_2026CT004875_fc250da40701283c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2026CT004673_fc250da40701283c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT003687_1ff2110818959ceb": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT003781_ae2843043d8d9935": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT003734_7819cd7442dd6483": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT003650_dbb88eb8fae3525b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT003890_3d49bf7cf9609020": {
+    "nivel": "Bairro",
+    "bairro": "Federação",
+    "prefeitura_bairro": null,
+    "latitude": -12.99875,
+    "longitude": -38.50501,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2026CT003782_64918854aea230d9": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT003488_841c9a9f02256f00": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT003292_aa4b91c619b67b74": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "630002_2026CT003195_5ef3cbfccb1e1c09": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT003144_088286beadf52e86": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT003274_af227a484da71c65": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "580002_2026CT004290_86b7ac0ea3bc6e2e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT002546_24c7a7fdcab65213": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT002403_706acd04eb1e66a0": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2026CT002746_5879f93f42d8f0aa": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2026CT002775_5879f93f42d8f0aa": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2026CT002678_5879f93f42d8f0aa": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2026CT002692_5879f93f42d8f0aa": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2026CT002323_71374a1c770c97ea": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "610002_2026CT002299_f5d47966d66ef231": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2026CT002308_2f73b5c82e596ab8": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "450002_2026CT002605_2f4d268c71b217dd": {
+    "nivel": "Bairro",
+    "bairro": "Comércio",
+    "prefeitura_bairro": null,
+    "latitude": -12.9632,
+    "longitude": -38.507445,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "610002_2026CT002303_2fa7715c2076744f": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "270002_2026CT001696_c856ede3ad2defdf": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2026CT001424_bb8e8145f671cf7b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2026CT001307_71b692f0bb71de35": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2026CT001304_71b692f0bb71de35": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2026CT001310_71b692f0bb71de35": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2026CT001312_71b692f0bb71de35": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2026CT001568_0f65f91bca3d9309": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2026CT002070_90777fac34f4d51e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT001217_8c145683de14667b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "456002_2026CT001834_ea463083923440aa": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT000494_97cce32b53b4250e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "547002_2026CT000016_ef81c46987bc0f03": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT001524_8218f058998a164d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT001597_8218f058998a164d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT000008_baecf8b817f03c3f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT002720_4d182d754956eb12": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT002689_4d182d754956eb12": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2026CT002017_66dcbc5242ceb88b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2026CT000007_3b6115c2727bc250": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2025CT006747_73f35fac70af146a": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2025CT006745_85240300ec74b45f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2025CT006746_8f6ed8c78196a344": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2025CT006744_3fa22305aed7edca": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT006633_49eb3ff3c6981cf9": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT006646_7aa023bb51f752bb": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT006543_51d27c1c6045b3a9": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT006486_4ead538a1f174207": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT006599_2a9d0a42726a911f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT006441_f00d91637e81f04e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "456002_2025CT006373_1afc790bf657ab5b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT006083_dc8e61f8af5aeefe": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT006047_f6bdb00a9f98a525": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "630002_2025CT006024_5a3c618d82b1f94c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2025CT005813_f85c21bf38f80581": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT005788_8b1fff6c204b997d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT005776_bcafd60f688bc702": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "450002_2025CT005594_354c0ef0bff526de": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT005295_5bc6b49c1104d557": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT005497_1618077c32b65dc9": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT005355_e134ee9eeccbb537": {
+    "nivel": "Bairro",
+    "bairro": "Garcia",
+    "prefeitura_bairro": null,
+    "latitude": -12.991747,
+    "longitude": -38.513277,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "301110_2025CT004659_3f0637eb6a155d74": {
+    "nivel": "Bairro",
+    "bairro": "São Caetano",
+    "prefeitura_bairro": null,
+    "latitude": -12.933649,
+    "longitude": -38.4795,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "560002_2025CT004601_40a8470926ac0e04": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT004259_49eb3ff3c6981cf9": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "600002_2025CT003971_2e463f9d8b3e3779": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT004000_e0289258e62d6575": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2025CT006146_9073733b11fa3a9f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2025CT005387_cd922273b56c91b0": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT003841_98621b6234772952": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2025CT005383_e4278df8fd33a8e6": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT002988_c67e293e281e1a3e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT002994_a9f7aa3867293666": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT005028_8bae997d43133346": {
+    "nivel": "Bairro",
+    "bairro": "Paripe",
+    "prefeitura_bairro": null,
+    "latitude": -12.835351,
+    "longitude": -38.468212,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "567002_2025CT003073_cabd0197dc381d8c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT002882_22728a15010a3e2f": {
+    "nivel": "Bairro",
+    "bairro": "Paripe",
+    "prefeitura_bairro": null,
+    "latitude": -12.835351,
+    "longitude": -38.468212,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2025CT002899_a9f7aa3867293666": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT001843_ff3d39e78649d583": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2025CT000957_d1d26bfb682a7013": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2025CT000587_ef02a7e2b065a741": {
+    "nivel": "Bairro",
+    "bairro": "Tancredo Neves",
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "567002_2025CT000527_268bcb9209507e5b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "547002_2024CT010183_d8bb1c7737616dd2": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2025CT000801_f5e08997d515b8ea": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT010083_9c21ff13358124af": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2025CT000758_823ddd44aab777d2": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT010011_12f2cf4aa97a0174": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT010015_cf49508a3af8c769": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT009872_928fd8193803aa95": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT009773_d6c000184ff7fd24": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT009774_940d4fc1e0a92c69": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT009760_7422c00f8541c392": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2024CT009772_7d7d2ee262b7b0d6": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "610002_2024CT009754_7b95c6b987fe575e": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "610002_2024CT009756_7af03c19a367433a": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT009740_500352f58d52f294": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT009421_f0c1219080e43df5": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT009097_da053a7c0d14ee1c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT009064_8557d667f565d7ad": {
+    "nivel": "Bairro",
+    "bairro": "Campo Grande",
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "520002_2024CT009053_1f0c1f419f34f5c1": {
+    "nivel": "Bairro",
+    "bairro": "Paripe",
+    "prefeitura_bairro": null,
+    "latitude": -12.835351,
+    "longitude": -38.468212,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "567002_2024CT009245_82413561466d6288": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT008808_45c6f24ed6a2d385": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT008417_8557d667f565d7ad": {
+    "nivel": "Bairro",
+    "bairro": "Campo Grande",
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2024CT008334_ba4be1b8f1d865ec": {
+    "nivel": "Bairro",
+    "bairro": "Tancredo Neves",
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "567002_2024CT008404_722f59240fed6501": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT008172_55e4f02a9947dd62": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "520002_2024CT008159_4a74490555e6b703": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT008398_d17ccce365e83742": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "603002_2024CT007997_82172d42af88c3ae": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT007773_6e4080f3636454b5": {
+    "nivel": "Bairro",
+    "bairro": "Itapuã",
+    "prefeitura_bairro": null,
+    "latitude": -12.939631,
+    "longitude": -38.358185,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "567002_2024CT007572_1e9b5d304e65de09": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT007170_ff88bda3dc61abae": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT007171_fe7739710af25435": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT006733_ca4c55d68c1e214a": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "520002_2024CT006680_7178cac8a9163346": {
+    "nivel": "Bairro",
+    "bairro": "Águas Claras",
+    "prefeitura_bairro": null,
+    "latitude": -12.890699,
+    "longitude": -38.435616,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2024CT006616_4af696dac420bb69": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT006517_20e7e340ec814f18": {
+    "nivel": "Bairro",
+    "bairro": "Itapuã",
+    "prefeitura_bairro": null,
+    "latitude": -12.939631,
+    "longitude": -38.358185,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "610002_2024CT006494_1ec3386d4de665a0": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT006317_bf32062509aafa0f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "410002_2024CT005904_c48c44dbf167f253": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "530002_2024CT006332_fbe23f0f00c0437f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT005715_b25b9800e7488890": {
+    "nivel": "Bairro",
+    "bairro": "Centro",
+    "prefeitura_bairro": null,
+    "latitude": -12.985173,
+    "longitude": -38.51879,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2024CT004935_6e2f535ae584557a": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT005074_1fbc8956dcc702bb": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT005075_f236ec8a654d0076": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "616002_2024CT004875_e052f43b17d04830": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT004834_58e23e2c3d9a053e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT004793_3be822e9079f65e2": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT004794_3be822e9079f65e2": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2024CT005218_c365338381c4fee3": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "610002_2024CT005216_7bf4fc06f02420d6": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "441010_2024CT003886_de15692031deece9": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "430003_2024CT003918_21b61efdd826921c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT003770_271884d6fe153428": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "450002_2024CT005507_641d0702534dc9c9": {
+    "nivel": "Bairro",
+    "bairro": "Periperi",
+    "prefeitura_bairro": null,
+    "latitude": -12.865263,
+    "longitude": -38.468467,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "301110_2024CT003385_693ebf9876372dc5": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "600002_2024CT003512_ed7a78f73fc34abc": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT003019_d71558967d36ce6d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2024CT008415_f0e2973819891709": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT003397_f5cf4a05c7c39583": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT002934_73b18f053cb9eb60": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "616002_2024CT002733_e4cf63b51262c678": {
+    "nivel": "Bairro",
+    "bairro": "Jaguaribe",
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2024CT002731_8bbbd07a77a3ef92": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2024CT002751_236119a956eeaf61": {
+    "nivel": "Bairro",
+    "bairro": "Jaguaribe",
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "567002_2024CT002945_b227a478f6c3052f": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT002931_9ecc611af84807ff": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "567002_2024CT002954_bef28e580f3a6a7d": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "301110_2024CT004209_5856069d1db03d9c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2024CT004210_41ba4839455fe8fc": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2024CT004211_6f7da9df4c2c1df0": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2024CT004208_1fdbd733c1bc2c92": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT002664_8c4d94bbf7c392d6": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT003499_e8f1edb4f47250f6": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT002383_392191cd222bd573": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000714_45dabeff0a5e0b36": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000659_a2dbed9f51e5f999": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000743_0b3cc9e173ae6b63": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000741_45c6f24ed6a2d385": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000553_a61577fe5369c8a4": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000541_04c3e0640ef7b2e1": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000292_d219b377f07d19d8": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000228_22506938b1a15688": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT002386_2d57fbd4ddd1bb13": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2024CT001464_efa780a94a4fde78": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2024CT000050_7cbd28a40f2c8969": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "441010_2024CT000052_06f198a9906aa8d5": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "616002_2023CT009595_a7bdd2481d7e7ca0": {
+    "nivel": "Bairro",
+    "bairro": "Paripe",
+    "prefeitura_bairro": null,
+    "latitude": -12.835351,
+    "longitude": -38.468212,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2023CT009404_7c0e5dea995b21ee": {
+    "nivel": "Bairro",
+    "bairro": "Brotas",
+    "prefeitura_bairro": null,
+    "latitude": -12.985735,
+    "longitude": -38.481645,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "536002_2023CT009309_643176287dbda89d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "536002_2023CT009308_643176287dbda89d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "536002_2023CT009307_643176287dbda89d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "536002_2023CT009254_643176287dbda89d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT009201_5b971cab629218a5": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT009263_bf6fbabcb6bb68fb": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT009261_a5d5c12e4475d229": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT009262_d8496695b2c9db6b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT009075_a659f00e09e44e50": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2023CT008965_95c8b61915c3d30f": {
+    "nivel": "Bairro",
+    "bairro": "Federação",
+    "prefeitura_bairro": null,
+    "latitude": -12.99875,
+    "longitude": -38.50501,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "441010_2023CT008819_fe58049279cf59cf": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT008643_58b3fb092be2bbad": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT008644_7bb829960f34983d": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT008638_07fabf1d505e256b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT008587_7d42efe919e2e9df": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT008616_16eb27c69f975995": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT008627_e68200a5ab32ff91": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT008626_8936ef158d2d762e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT008196_29673ab2c05411e8": {
+    "nivel": "Bairro",
+    "bairro": "Comércio",
+    "prefeitura_bairro": null,
+    "latitude": -12.9632,
+    "longitude": -38.507445,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "441010_2023CT008264_e5d1da2618805ee9": {
+    "nivel": "Bairro",
+    "bairro": "Nazaré",
+    "prefeitura_bairro": null,
+    "latitude": -12.976919,
+    "longitude": -38.50577,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "441010_2023CT008263_811cb31bd0af1817": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT008266_5f48d9e7f68804c4": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT007782_e0a1e6f56d8962b3": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT007603_0e8fe5134cadc494": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT007488_d2cf162bf13c8c14": {
+    "nivel": "Bairro",
+    "bairro": "Barris",
+    "prefeitura_bairro": null,
+    "latitude": -12.986317,
+    "longitude": -38.513577,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2023CT007487_9ace720115c6be37": {
+    "nivel": "Bairro",
+    "bairro": "Rio Vermelho",
+    "prefeitura_bairro": null,
+    "latitude": -13.009939,
+    "longitude": -38.489939,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "441010_2023CT007484_bf5c061f568c1323": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2023CT007142_2a6f4d6628bca8f6": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT007405_a3618baeea975e80": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2023CT006886_1e229fe9ec662d22": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT006919_89f47997093b73fc": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT006773_aa84232abe6c3187": {
+    "nivel": "Bairro",
+    "bairro": "Bonfim",
+    "prefeitura_bairro": null,
+    "latitude": -12.927206,
+    "longitude": -38.507667,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2023CT006855_e25e7b35ee22e565": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT006649_98b8c5ace10e40e2": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT006616_beea0d79123f6741": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT006471_20b47deef3f1abbf": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT006461_b542ca8895bf28f3": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT005921_c0da9fee67f3802f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT005745_6fbc0149119fc311": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT005749_af1d7ccb9fae56bc": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT005658_3f2f634a1cacc411": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2023CT005369_8a8b900f394c236b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT005103_0c417ef86225e9f5": {
+    "nivel": "Bairro",
+    "bairro": "Caminho das Árvores",
+    "prefeitura_bairro": null,
+    "latitude": -12.982567,
+    "longitude": -38.458986,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "616002_2023CT005095_68c04299e945f5b2": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT004780_5b0addbe200e316c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT004578_8aff8b1d092da1eb": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "270002_2023CT004483_40ff924ccf223ca8": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT004548_0f65ba673cff5689": {
+    "nivel": "Bairro",
+    "bairro": "Caminho das Árvores",
+    "prefeitura_bairro": null,
+    "latitude": -12.982567,
+    "longitude": -38.458986,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
+  },
+  "441010_2023CT004576_18e7cc14590a64ac": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT004411_5bd787f89a6f8c63": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT004409_71fada83226d8032": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT004804_d838f89b778577ce": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "441010_2023CT004041_9afb1a95bc57a20a": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT004092_9afb1a95bc57a20a": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT003795_4b12d13842f29216": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2023CT003702_8a78a5e90d950708": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT002960_7cb24237a965acea": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2023CT005383_83eb89364005a519": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2023CT005164_dc980a008d79f238": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT002850_b83adceab20b0489": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2023CT003511_7591bd892d83b11c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT002566_2ccd2c44ec02ede3": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT002529_09d3a2472de3f440": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT002528_79f82c8f06f7e825": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT002526_8c60cbbfbb75166a": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT002522_e2f855acbd578002": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT002527_23183075f2d4a343": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2023CT003505_629dd295139656a9": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2023CT002627_16a892092d5cb522": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2023CT004321_2159dd866913b602": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2023CT002625_8a8b900f394c236b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT002377_ef06bc96d2f32286": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "567002_2023CT002375_00f16725d2b62e7a": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT000499_57e2c7a32062d4ae": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT001916_a56148dbda3516f4": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2023CT009444_975c2273c8ea3e9c": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2022CT007124_184e31d75fe642e1": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2022CT007255_8a8b900f394c236b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2022CT006729_a8aa9cb2c5544eca": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2022CT006198_0cf1302acc9f9366": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2022CT006728_f88a538aed662826": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2022CT006254_23ce798d2ebd0443": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "610002_2022CT006160_74ccabeab73be4f2": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "610002_2022CT006163_b90a08b2d662c41a": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "610002_2022CT006164_81d3aeaa51917d6a": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "610002_2022CT006159_0bf3157d09641ba2": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "547002_2022CT005086_0321f7d11aa4dfa4": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "600002_2022CT004093_0efd2ec2dd20a465": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "441010_2022CT003188_354838e59af82e75": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2022CT002107_fa5299c1c23baaff": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2022CT001447_af0d7eb93f432a4f": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "616002_2022CT000640_a6126fcc77bbbccf": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2021CT004707_5c0a15dcd3f24209": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "560002_2021CT004709_2cf39e5a8cfa7731": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "560002_2021CT004708_8d8ecdf1b605e94a": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "560002_2021CT004705_6ab0beba9ae0cf1e": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "560002_2021CT004706_7ec9a9b1f1264add": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "270002_2021CT004628_d996ab46a417f796": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2021CT003952_8a8b900f394c236b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2021CT003319_8a8b900f394c236b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "270002_2021CT003318_8a8b900f394c236b": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "603002_2021CT003103_e7584bfb542db2a1": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "603002_2021CT003102_599145e8379afe1b": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "270002_2021CT002913_ac69306df5557dd3": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2021CT001819_a51b99e94f009f91": {
+    "nivel": "Regional (Prefeitura-Bairro)",
+    "bairro": null,
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Stage 1 (Lote Regional)"
+  },
+  "270002_2021CT001061_3b3a94b99fe0669e": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "600002_2020CT003598_ae91019766508220": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "560002_2019CT004715_95d25b11d7d7acb2": {
+    "nivel": "Escopo Cidade (Não-Localizado)",
+    "bairro": null,
+    "prefeitura_bairro": null,
+    "latitude": null,
+    "longitude": null,
+    "estagio": "Não-Localizado (Transparência Opaca)"
+  },
+  "301110_2016CT001386_6c5b7c9b58d916cd": {
+    "nivel": "Bairro",
+    "bairro": "Periperi",
+    "prefeitura_bairro": null,
+    "latitude": -12.865263,
+    "longitude": -38.468467,
+    "estagio": "Stage 1 (Bairro / Sublocalidade)"
   }
 }

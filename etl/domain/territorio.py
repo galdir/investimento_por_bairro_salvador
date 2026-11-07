@@ -12,6 +12,27 @@ import unicodedata
 from etl.config import ZONAS_ESPECIAIS_NAO_RESIDENCIAIS
 
 
+def parse_float(val: Any) -> float:
+    """Converte valores numéricos ou strings monetárias (incluindo formato brasileiro 1.234,56) para float.
+
+    Sumário:
+        Trata números inteiros, floats, None e strings monetárias brasileiras ou internacionais.
+    """
+    if val is None:
+        return 0.0
+    if isinstance(val, (int, float)):
+        return float(val)
+    s = str(val).strip()
+    if not s:
+        return 0.0
+    if "," in s:
+        s = s.replace(".", "").replace(",", ".")
+    try:
+        return float(s)
+    except (ValueError, TypeError):
+        return 0.0
+
+
 def normalizar_nome(nome: str) -> str:
     """Normaliza um nome textual removendo acentos e convertendo para maiúsculas.
 
@@ -135,7 +156,7 @@ def calcular_rollup_territorial(
     obras_escopo_cidade: list[dict[str, Any]] = []
 
     for obra in obras_alocadas:
-        vl_atua = float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
+        vl_atua = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
         valor_total_todas_obras += vl_atua
 
         nivel = obra.get("nivel") or "Escopo Cidade (Não-Localizado)"
@@ -169,11 +190,11 @@ def calcular_rollup_territorial(
         obras_do_bairro = obras_por_bairro.get(b_norm, [])
 
         vl_total_bairro = sum(
-            float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
+            parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
             for o in obras_do_bairro
         )
         vl_pago_bairro = sum(
-            float(o.get("vlPago") or o.get("valorPago") or 0.0)
+            parse_float(o.get("vlPago") or o.get("valorPago") or 0.0)
             for o in obras_do_bairro
         )
 
@@ -231,11 +252,11 @@ def calcular_rollup_territorial(
         # Soma as obras regionais mapeadas diretamente para a prefeitura-bairro
         obras_regionais = obras_regionais_por_pb.get(pb_norm, [])
         vl_regionais = sum(
-            float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
+            parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
             for o in obras_regionais
         )
         vl_pago_regionais = sum(
-            float(o.get("vlPago") or o.get("valorPago") or 0.0)
+            parse_float(o.get("vlPago") or o.get("valorPago") or 0.0)
             for o in obras_regionais
         )
 
@@ -266,11 +287,11 @@ def calcular_rollup_territorial(
 
     # 5. Indicador de Transparência Opaca (Escopo Cidade)
     vl_nao_localizado = sum(
-        float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
+        parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
         for o in obras_escopo_cidade
     )
     vl_pago_nao_localizado = sum(
-        float(o.get("vlPago") or o.get("valorPago") or 0.0)
+        parse_float(o.get("vlPago") or o.get("valorPago") or 0.0)
         for o in obras_escopo_cidade
     )
 

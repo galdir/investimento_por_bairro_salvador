@@ -1,0 +1,65 @@
+{
+  "id": "055de17c-490d-4154-934a-fc50a71c1392",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2024CT009756",
+  "numeroContratoOriginal": "202024",
+  "nuProcesso": "122157/2023",
+  "objeto": "Contratação de pessoa jurídica especializada em serviços de engenharia para Elaboração de Estudos Preliminares, Anteprojeto, Projetos Básicos e Executivos de Engenharia, conforme exigências estabelecidas no Projeto Básico e seus anexos,relativo ao lote 02, a distribuição por Prefeituras Bairros (PB), assim indicadas PB Cidade Baixa, PB Subúrbio/Ilhas, B Valéria, PB Pau da Lima, PB Cabula/Tancredo",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "UFC ENGENHARIA SA",
+    "cnpj": "32.690.778/0001-66",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 6709223.49,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "30/10/2024",
+    "dataFimOriginal": "30/10/2025",
+    "dataTerminoAtualizado": "30/10/2025",
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
+  },
+  "dom": {
+    "nuDom": "8908",
+    "dataPublicacao": "07/11/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 6709223.49,
+    "valorContratualVigente": 6709223.49,
+    "valorEmpenhado": 6709223.49,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 30/10/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Regional (Prefeitura-Bairro)",
+  "bairro": null,
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Stage 1 (Lote Regional)"
+}

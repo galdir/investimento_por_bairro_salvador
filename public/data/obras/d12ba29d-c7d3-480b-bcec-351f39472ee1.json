@@ -1,0 +1,66 @@
+{
+  "id": "d12ba29d-c7d3-480b-bcec-351f39472ee1",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2024CT008417",
+  "numeroContratoOriginal": "020/2024",
+  "nuProcesso": "079815/2024",
+  "objeto": "Contratação de empresa capacitada para execução da obra de Reforma e Requalificação do Teatro Vila \r\nVelha, Av. Sete de Setembro, Passeio Público - Bairro: Campo Grande-Salvador/BA.",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA PENTAGONO LTDA",
+    "cnpj": "34.145.847/0001-86",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 10976265.85,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "06/09/2024",
+    "dataFimOriginal": "31/08/2025",
+    "dataTerminoAtualizado": "31/08/2025",
+    "prazoOriginal": "359",
+    "prazoAtualizado": "359"
+  },
+  "dom": {
+    "nuDom": "8865",
+    "dataPublicacao": "06/09/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 10976265.85,
+    "valorContratualVigente": 10976265.85,
+    "valorEmpenhado": 10976265.85,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 31/08/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Campo Grande",
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+}

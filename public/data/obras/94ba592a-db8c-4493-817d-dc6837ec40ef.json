@@ -1,0 +1,146 @@
+{
+  "id": "94ba592a-db8c-4493-817d-dc6837ec40ef",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2025CT006486",
+  "numeroContratoOriginal": "1032025",
+  "nuProcesso": "213310/2025",
+  "objeto": "SERVIÇOS COMUNS DE ENGENHARIA PARA CONSTRUÇÃO DE DECK DE MADEIRA EM DIVERSOS \r\nLOGRADOUROS DO MUNICÍPIO DE SALVADOR",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "20.900.902 RICARDO NASCIMENTO DE OLIVEIRA",
+    "cnpj": "20.900.902/0001-91",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 122209.07,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "02/12/2025",
+    "dataFimOriginal": "01/03/2026",
+    "dataTerminoAtualizado": "26/12/2026",
+    "prazoOriginal": "89",
+    "prazoAtualizado": "389"
+  },
+  "dom": {
+    "nuDom": "9166",
+    "dataPublicacao": "04/12/2025"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 97985.0,
+    "valorContratualVigente": 122209.07,
+    "valorEmpenhado": 90000.0,
+    "valorLiquidado": 90000.0,
+    "valorPago": 90000.0,
+    "percentualExecutado": 73.64,
+    "valorAditivos": 24224.07,
+    "deltaPercentualAditivos": 24.72
+  },
+  "aditivos": [
+    {
+      "nuAditivo": "1",
+      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
+      "dsObjetoAditivo": "SERVIÇOS COMUNS DE ENGENHARIA PARA CONSTRUÇÃO DE DECK DE MADEIRA EM DIVERSOS \r\nLOGRADOUROS DO MUNICÍPIO DE SALVADOR",
+      "dtAssinatura": "02/03/2026",
+      "dtTerminoVigencia": "29/07/2026",
+      "dtPublicacao": "02/03/2026",
+      "nuDom": "9217",
+      "vlAditivo": 24224.07
+    },
+    {
+      "nuAditivo": "2",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "SERVIÇOS COMUNS DE ENGENHARIA PARA CONSTRUÇÃO DE DECK DE MADEIRA EM DIVERSOS \r\nLOGRADOUROS DO MUNICÍPIO DE SALVADOR",
+      "dtAssinatura": "06/08/2026",
+      "dtTerminoVigencia": "26/12/2026",
+      "dtPublicacao": "06/08/2026",
+      "nuDom": "9352",
+      "vlAditivo": 0.0
+    }
+  ],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "88f43d7d-c061-4251-9cb6-1a5b95e07aaa",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2025NE001065",
+      "dataEmpenho": "04/12/2025",
+      "nomeCredor": "20.900.902 RICARDO NASCIMENTO DE OLIVEIRA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "90.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "19da4eef-6e9e-4205-a304-f0ad3998f231",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2025NE001065",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "20.900.902 RICARDO NASCIMENTO DE OLIVEIRA",
+      "notaLiquidacao": "2025NL007115",
+      "notaLancamento": "2025NL007115",
+      "numProcesso": "02473262025",
+      "dataLiquidacao": "10/12/2025",
+      "valLiqLiquidacao": "90.000,00",
+      "valBrutLiquidacao": "90.000,00",
+      "valEmpenho": "90.000,00",
+      "descObsLiquidacao": "RICARDO NASCIMENTO - CONSTRUÇÃO DE DECK DE MADEIRA - CT 103/25 - PROC 247326/2025 - NF 8 N",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "c157a4db-8993-4670-8ea4-b616c36edd1f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2025NE001065",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "20.900.902 RICARDO NASCIMENTO DE OLIVEIRA",
+      "notaLiquidacao": "2025NL007115",
+      "ordBancaria": "2025OB073160",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "90.000,00",
+      "dataPagamento": "11/12/2025",
+      "pago": "90.000,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "AMARELO",
+    "rotulo": "Amarelo (Atenção)",
+    "motivos": [
+      "Aditivos de valor acumulados entre 10% e 25% (+24.72%) em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 24.72
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

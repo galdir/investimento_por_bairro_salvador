@@ -7,6 +7,7 @@ investimento por habitante em âmbito municipal e transparência opaca (Escopo C
 
 from typing import Any, Optional
 from etl.domain.semaforo import classificar_semaforo
+from etl.domain.territorio import parse_float
 
 
 def calcular_kpis_globais(
@@ -59,14 +60,26 @@ def calcular_kpis_globais(
     """
     # Extrai totais financeiros fornecidos pelo totalizador
     total_obras = int(totalizador_transparencia.get("totalObras") or len(obras_detalhadas))
-    valor_total = float(totalizador_transparencia.get("valorTotal") or 0.0)
-    total_empenhado = float(totalizador_transparencia.get("totalEmpenhado") or 0.0)
-    total_liquidado = float(totalizador_transparencia.get("totalLiquidado") or 0.0)
-    total_pago = float(totalizador_transparencia.get("totalPago") or 0.0)
+    valor_total = parse_float(
+        totalizador_transparencia.get("valorTotal")
+        or totalizador_transparencia.get("Valor Contratual (Atualizado)")
+    )
+    total_empenhado = parse_float(
+        totalizador_transparencia.get("totalEmpenhado")
+        or totalizador_transparencia.get("Empenhado no Período")
+    )
+    total_liquidado = parse_float(
+        totalizador_transparencia.get("totalLiquidado")
+        or totalizador_transparencia.get("Liquidado no período")
+    )
+    total_pago = parse_float(
+        totalizador_transparencia.get("totalPago")
+        or totalizador_transparencia.get("Pago no período")
+    )
 
     # Se o totalizador não trouxe valor financeiro, soma a partir das obras detalhadas
     if valor_total == 0.0 and obras_detalhadas:
-        valor_total = sum(float(obra.get("vlAtualizado") or obra.get("vlOriginal") or 0.0) for obra in obras_detalhadas)
+        valor_total = sum(parse_float(obra.get("vlAtualizado") or obra.get("vlOriginal") or 0.0) for obra in obras_detalhadas)
 
     # Contabiliza obras ativas (situação diferente de Concluída, Cancelada ou Rescindida)
     situacoes_inativas = {"CONCLUÍDA", "CONCLUIDA", "CANCELADA", "RESCINDIDA"}
@@ -89,8 +102,8 @@ def calcular_kpis_globais(
             obras_criticas_count += 1
 
         # Aditivos de valor
-        vl_orig = float(obra.get("vlOriginal") or obra.get("valorOriginal") or 0.0)
-        vl_atua = float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or vl_orig)
+        vl_orig = parse_float(obra.get("vlOriginal") or obra.get("valorOriginal") or 0.0)
+        vl_atua = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or vl_orig)
         if vl_atua > vl_orig:
             total_aditivos_reais += (vl_atua - vl_orig)
 

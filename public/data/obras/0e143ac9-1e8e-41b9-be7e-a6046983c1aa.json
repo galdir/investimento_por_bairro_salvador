@@ -1,0 +1,105 @@
+{
+  "id": "0e143ac9-1e8e-41b9-be7e-a6046983c1aa",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2024CT004834",
+  "numeroContratoOriginal": "005/2024",
+  "nuProcesso": "211651/2023",
+  "objeto": "EXECUÇÃO DAS OBRAS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA SALVADOR",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "CONSORCIO SIAN-BSM-CBS",
+    "cnpj": "54.587.855/0001-90",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 162909864.6,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "09/05/2024",
+    "dataFimOriginal": "07/07/2026",
+    "dataTerminoAtualizado": "07/07/2026",
+    "prazoOriginal": "789",
+    "prazoAtualizado": "789"
+  },
+  "dom": {
+    "nuDom": "8758",
+    "dataPublicacao": "09/05/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 162909864.6,
+    "valorContratualVigente": 162909864.6,
+    "valorEmpenhado": 162909864.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "9452dafd-c84e-4327-881e-a798db2bfcb2",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2024NE000627",
+      "dataEmpenho": "09/05/2024",
+      "nomeCredor": "CONSORCIO SIAN-BSM-CBS",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "10.000.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "6234952c-bc4c-475c-949e-52cd94ba0da8",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2024NE000631",
+      "dataEmpenho": "09/05/2024",
+      "nomeCredor": "CONSORCIO SIAN-BSM-CBS",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-10.000.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 07/07/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

@@ -9,6 +9,7 @@ from typing import Any
 from etl.domain.empreiteiras import formatar_cnpj, obter_chave_empreiteira
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
+from etl.domain.territorio import parse_float
 
 
 def construir_ficha_obra(
@@ -72,26 +73,26 @@ def construir_ficha_obra(
         "razaoSocial": razao_social,
         "totalObras": 1,
         "totalObrasAtivas": 1,
-        "valorTotalContratado": float(obra.get("vlAtualizado") or obra.get("vlOriginal") or 0.0),
+        "valorTotalContratado": parse_float(obra.get("vlAtualizado") or obra.get("vlOriginal") or 0.0),
         "obrasIds": [obra_id],
     })
 
-    vl_orig = float(detalhe.get("vlOriginal") or obra.get("vlOriginal") or 0.0)
-    vl_atua = float(detalhe.get("vlAtualizado") or obra.get("vlAtualizado") or vl_orig)
-    perc_exec = float(detalhe.get("percentualExecutado") or obra.get("percentualExecutado") or 0.0)
+    vl_orig = parse_float(detalhe.get("vlOriginal") or obra.get("vlOriginal") or 0.0)
+    vl_atua = parse_float(detalhe.get("vlAtualizado") or obra.get("vlAtualizado") or vl_orig)
+    perc_exec = parse_float(detalhe.get("percentualExecutado") or obra.get("percentualExecutado") or 0.0)
 
     # Execução financeira real apurada a partir das listas contábeis
-    vl_emp = sum(float(e.get("valEmpenhado") or e.get("valEmpenho") or 0.0) for e in empenhos_raw)
+    vl_emp = sum(parse_float(e.get("valEmpenhado") or e.get("valEmpenho") or 0.0) for e in empenhos_raw)
     if vl_emp == 0.0:
         vl_emp = vl_atua
 
-    vl_liq = sum(float(l.get("valLiqLiquidacao") or l.get("valBrutLiquidacao") or 0.0) for l in liquidacoes_raw)
+    vl_liq = sum(parse_float(l.get("valLiqLiquidacao") or l.get("valBrutLiquidacao") or 0.0) for l in liquidacoes_raw)
     if vl_liq == 0.0 and obra.get("vlLiquidado"):
-        vl_liq = float(obra.get("vlLiquidado"))
+        vl_liq = parse_float(obra.get("vlLiquidado"))
 
-    vl_pago = sum(float(p.get("pago") or p.get("valorPago") or 0.0) for p in pagamentos_raw)
+    vl_pago = sum(parse_float(p.get("pago") or p.get("valorPago") or 0.0) for p in pagamentos_raw)
     if vl_pago == 0.0:
-        vl_pago = float(obra.get("vlPago") or 0.0)
+        vl_pago = parse_float(obra.get("vlPago") or 0.0)
 
     delta_aditivos = round(max(0.0, vl_atua - vl_orig), 2)
     delta_perc_aditivos = round(((vl_atua - vl_orig) / vl_orig) * 100.0, 2) if vl_orig > 0 else 0.0
@@ -107,7 +108,7 @@ def construir_ficha_obra(
             "dtTerminoVigencia": ad.get("dtTerminoVigencia"),
             "dtPublicacao": ad.get("dtPublicacao"),
             "nuDom": ad.get("nuDom") or nu_dom,
-            "vlAditivo": float(ad.get("vlAditivo") or ad.get("valor") or 0.0),
+            "vlAditivo": parse_float(ad.get("vlAditivo") or ad.get("valor") or 0.0),
         })
 
     # Normalização de dotações orçamentárias
@@ -138,7 +139,7 @@ def construir_ficha_obra(
             "cnpj": cnpj_credor,
             "totalObras": total_obras_emp,
             "totalObrasAtivas": int(emp_info.get("totalObrasAtivas", 1)),
-            "valorTotalContratado": float(emp_info.get("valorTotalContratado", vl_atua)),
+            "valorTotalContratado": parse_float(emp_info.get("valorTotalContratado", vl_atua)),
             "outrasObrasCount": outras_obras_count,
             "outrasObrasIds": [oid for oid in emp_info.get("obrasIds", []) if oid != obra_id],
         },

@@ -49,15 +49,22 @@ def main() -> None:
         default=None,
         help="Caminho opcional do arquivo de Cache Incremental (padrão: <output-dir>/geocoding_cache.json)",
     )
+    parser.add_argument(
+        "--full-refresh",
+        action="store_true",
+        default=False,
+        help="Força reconsulta completa de todos os mandatos e atualização de todas as fichas de obras (padrão: False)",
+    )
     args = parser.parse_args()
 
     cache_path = Path(args.cache_file) if args.cache_file else None
-    print(f"Iniciando pipeline ETL para o ano {args.year} em '{args.output_dir}'...")
+    print(f"Iniciando pipeline ETL para o ano {args.year} em '{args.output_dir}' (full_refresh={args.full_refresh})...")
     try:
         resultado = run_pipeline(
             output_dir=Path(args.output_dir),
             year=args.year,
             cache_file=cache_path,
+            full_refresh=args.full_refresh,
         )
         print(f"ETL concluído com sucesso: {resultado}")
     except Exception as exc:

@@ -1,0 +1,65 @@
+{
+  "id": "5fa2190b-d7a8-4fe1-9260-4f3283840c00",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2024CT000228",
+  "numeroContratoOriginal": "000009/2024",
+  "nuProcesso": "132143/2023",
+  "objeto": "PRESTAÇÃO DE SERVIÇO TÉCNICOS DE ELABORAÇÃO DE PROJETOS BÁSICOS, EXECUTIVO DE ARQUITETURA E ENGENHARIA E EXECUÇÃO DA OBRA DE CONSTRUÇÃO DA ESCOLA MUNICIPAL DO BAIRRO DA PAZ.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "QUALY ENGENHARIA LTDA",
+    "cnpj": "05.903.304/0001-82",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 16274991.76,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "12/01/2024",
+    "dataFimOriginal": "12/05/2025",
+    "dataTerminoAtualizado": "12/05/2025",
+    "prazoOriginal": "486",
+    "prazoAtualizado": "486"
+  },
+  "dom": {
+    "nuDom": "8704",
+    "dataPublicacao": "17/01/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 16274991.76,
+    "valorContratualVigente": 16274991.76,
+    "valorEmpenhado": 16274991.76,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 12/05/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

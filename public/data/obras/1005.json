@@ -7,14 +7,14 @@
   "objeto": "Reforma e ampliação da Unidade de Saúde da Família (USF)",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA SALVADOR LTDA",
     "cnpj": "12.345.678/0001-90",
+    "razaoSocial": "CONSTRUTORA SALVADOR LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 16000000.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      1001
+    "obrasIds": [
+      1001,
+      1005
     ]
   },
   "vigencia": {

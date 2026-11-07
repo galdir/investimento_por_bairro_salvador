@@ -5,7 +5,10 @@ em três estados hierárquicos: Vermelho (Crítica), Amarelo (Atenção) ou Verd
 """
 
 from datetime import date, datetime
+import re
 from typing import Any, Optional
+
+from etl.domain.territorio import parse_float
 
 
 def parse_iso_date(data_str: Any) -> Optional[date]:
@@ -38,8 +41,12 @@ def parse_iso_date(data_str: Any) -> Optional[date]:
     if not limpo:
         return None
 
-    # Tenta extrair a parte 'YYYY-MM-DD'
+    # Tenta extrair a parte 'YYYY-MM-DD' ou 'DD/MM/YYYY'
     try:
+        if "/" in limpo:
+            m_br = re.match(r"^(\d{2})/(\d{2})/(\d{4})", limpo)
+            if m_br:
+                return datetime.strptime(m_br.group(0), "%d/%m/%Y").date()
         data_apenas = limpo.split("T")[0]
         return datetime.strptime(data_apenas, "%Y-%m-%d").date()
     except Exception:
@@ -86,8 +93,8 @@ def classificar_semaforo(
     hoje = data_referencia or date.today()
 
     # 1. Extração e cálculo de valores financeiros
-    vl_original = float(obra.get("vlOriginal") or obra.get("valorOriginal") or 0.0)
-    vl_atualizado = float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or vl_original or 0.0)
+    vl_original = parse_float(obra.get("vlOriginal") or obra.get("valorOriginal") or 0.0)
+    vl_atualizado = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or vl_original or 0.0)
 
     # Cálculo da variação percentual de aditivos: ((vlAtualizado - vlOriginal) / vlOriginal) * 100
     delta_percentual_valor = 0.0
@@ -95,7 +102,7 @@ def classificar_semaforo(
         delta_percentual_valor = round(((vl_atualizado - vl_original) / vl_original) * 100.0, 2)
 
     # 2. Extração de percentual executado e situação
-    percentual_executado = float(obra.get("percentualExecutado") or 0.0)
+    percentual_executado = parse_float(obra.get("percentualExecutado") or 0.0)
     situacao = str(obra.get("dsSituacao") or obra.get("situacao") or "").strip().upper()
 
     # 3. Extração e conversão de datas de vigência

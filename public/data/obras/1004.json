@@ -7,13 +7,14 @@
   "objeto": "Requalificação e modernização de praça esportiva com parque infantil e quadra poliesportiva",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "SALVADOR PARQUES E OBRAS EIRELI",
     "cnpj": "11.222.333/0001-44",
+    "razaoSocial": "SALVADOR PARQUES E OBRAS EIRELI",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1500000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      1004
+    ]
   },
   "vigencia": {
     "dataInicio": "2024-04-10T00:00:00.000Z",

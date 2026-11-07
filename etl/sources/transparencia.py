@@ -160,7 +160,7 @@ def fetch_grid_detalhada(
                     itens = [resp["dados"]]
                 paginacao = resp.get("paginacao")
                 if isinstance(paginacao, dict):
-                    total_paginas = paginacao.get("totalPaginas")
+                    total_paginas = paginacao.get("totalPaginas") or paginacao.get("paginas")
             elif isinstance(resp, list):
                 itens = resp
 
@@ -169,7 +169,11 @@ def fetch_grid_detalhada(
 
             registros.extend(itens)
 
-            tamanho_pagina = (paginacao.get("tamanhoPagina") if isinstance(paginacao, dict) else None) or PAGE_SIZE_TRANSPARENCIA
+            tamanho_pagina = (
+                (paginacao.get("tamanhoPagina") or paginacao.get("tamanho"))
+                if isinstance(paginacao, dict)
+                else None
+            ) or PAGE_SIZE_TRANSPARENCIA
             if total_paginas is not None and pagina >= total_paginas:
                 break
 

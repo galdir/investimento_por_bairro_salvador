@@ -1,0 +1,123 @@
+{
+  "id": "76c6f052-0ff5-40e7-904f-165cbd3e8e5d",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2025CT002988",
+  "numeroContratoOriginal": "0262024",
+  "nuProcesso": "083585/2024",
+  "objeto": "Valor ref. a obra de construção de imóveis para atendimento da demanda de implantação e implementação do Centro de Referencia Especializado de Assistência Social (CREAS)",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+    "cnpj": "13.585.696/0001-07",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 9563865.78,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "19/05/2025",
+    "dataFimOriginal": "14/03/2026",
+    "dataTerminoAtualizado": "14/03/2026",
+    "prazoOriginal": "299",
+    "prazoAtualizado": "299"
+  },
+  "dom": {
+    "nuDom": "8892",
+    "dataPublicacao": "19/05/2025"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 9563865.78,
+    "valorContratualVigente": 9563865.78,
+    "valorEmpenhado": 9563865.78,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "e63381c6-d73b-4a02-81bc-1bee63cd7b51",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2025NE000569",
+      "dataEmpenho": "19/05/2025",
+      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "50.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c4063563-bdc5-4825-9645-cc4258e5fc1c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2025NE001146",
+      "dataEmpenho": "19/05/2025",
+      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-409,81",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "a0c81b8c-b1c2-4aa9-84f4-9ec7bf297a0e",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2025NE000780",
+      "dataEmpenho": "19/05/2025",
+      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-49.590,19",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 14/03/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

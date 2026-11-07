@@ -1,223 +1,160 @@
 """Dados de referência e fallback para o pipeline ETL de Obras de Salvador.
 
-Fornece dados sintéticos representativos do GeoSalvador (Camadas 164 e 7),
-do Censo 2022 do IBGE e da API da Transparência de Salvador para execução
-offline sem dependência da rede externa.
+Fornece o catálogo oficial e completo de Bairros Oficiais (170+ bairros do GeoSalvador Camada 164),
+Prefeituras-Bairro (Camada 7) e Demografia do Censo 2022 do IBGE, além de fixtures de contratos
+da Transparência de Salvador para execução offline determinística.
 """
 
+import json
+from pathlib import Path
+import re
 from typing import Any
 
-# GeoJSON de referência de Bairros Oficiais (GeoSalvador Camada 164)
-SAMPLE_GEOSALVADOR_BAIRROS: dict[str, Any] = {
-    "type": "FeatureCollection",
-    "crs": {"type": "name", "properties": {"name": "EPSG:4326"}},
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 1,
-                "CD_BAIRRO": 101,
-                "NM_BAIRRO": "Pituba",
-                "PREFEITURA_BAIRRO": "Barra/Pituba",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.46, -13.00],
-                        [-38.45, -13.00],
-                        [-38.45, -12.99],
-                        [-38.46, -12.99],
-                        [-38.46, -13.00],
-                    ]
-                ],
-            },
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 2,
-                "CD_BAIRRO": 102,
-                "NM_BAIRRO": "Aeroporto",
-                "PREFEITURA_BAIRRO": "Itapuã/Ipitanga",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.33, -12.91],
-                        [-38.32, -12.91],
-                        [-38.32, -12.90],
-                        [-38.33, -12.90],
-                        [-38.33, -12.91],
-                    ]
-                ],
-            },
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 3,
-                "CD_BAIRRO": 103,
-                "NM_BAIRRO": "Porto Seco Pirajá",
-                "PREFEITURA_BAIRRO": "Cajazeiras",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.43, -12.90],
-                        [-38.42, -12.90],
-                        [-38.42, -12.89],
-                        [-38.43, -12.89],
-                        [-38.43, -12.90],
-                    ]
-                ],
-            },
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 4,
-                "CD_BAIRRO": 104,
-                "NM_BAIRRO": "Centro Administrativo da Bahia - CAB",
-                "PREFEITURA_BAIRRO": "Cabula/Tancredo Neves",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.43, -12.95],
-                        [-38.42, -12.95],
-                        [-38.42, -12.94],
-                        [-38.43, -12.94],
-                        [-38.43, -12.95],
-                    ]
-                ],
-            },
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 5,
-                "CD_BAIRRO": 105,
-                "NM_BAIRRO": "Liberdade",
-                "PREFEITURA_BAIRRO": "Liberdade/São Caetano",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.49, -12.96],
-                        [-38.48, -12.96],
-                        [-38.48, -12.95],
-                        [-38.49, -12.95],
-                        [-38.49, -12.96],
-                    ]
-                ],
-            },
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 6,
-                "CD_BAIRRO": 106,
-                "NM_BAIRRO": "Cabula",
-                "PREFEITURA_BAIRRO": "Cabula/Tancredo Neves",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.47, -12.96],
-                        [-38.46, -12.96],
-                        [-38.46, -12.95],
-                        [-38.47, -12.95],
-                        [-38.47, -12.96],
-                    ]
-                ],
-            },
-        },
-    ],
-}
+from etl.domain.territorio import normalizar_nome
 
-# GeoJSON de referência de Prefeituras-Bairro (GeoSalvador Camada 7)
-SAMPLE_GEOSALVADOR_PREFEITURAS: dict[str, Any] = {
-    "type": "FeatureCollection",
-    "crs": {"type": "name", "properties": {"name": "EPSG:4326"}},
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 1,
-                "CD_PREFEITURA_BAIRRO": 1,
-                "NM_PREFEITURA_BAIRRO": "Barra/Pituba",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.53, -13.01],
-                        [-38.44, -13.01],
-                        [-38.44, -12.98],
-                        [-38.53, -12.98],
-                        [-38.53, -13.01],
-                    ]
-                ],
-            },
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 2,
-                "CD_PREFEITURA_BAIRRO": 2,
-                "NM_PREFEITURA_BAIRRO": "Liberdade/São Caetano",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.50, -12.97],
-                        [-38.47, -12.97],
-                        [-38.47, -12.93],
-                        [-38.50, -12.93],
-                        [-38.50, -12.97],
-                    ]
-                ],
-            },
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "OBJECTID": 3,
-                "CD_PREFEITURA_BAIRRO": 3,
-                "NM_PREFEITURA_BAIRRO": "Cabula/Tancredo Neves",
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [-38.47, -12.97],
-                        [-38.42, -12.97],
-                        [-38.42, -12.93],
-                        [-38.47, -12.93],
-                        [-38.47, -12.97],
-                    ]
-                ],
-            },
-        },
-    ],
-}
+_REF_DIR = Path(__file__).parent
 
-# Dados demográficos de referência do Censo 2022 (IBGE SIDRA)
-SAMPLE_IBGE_CENSO_2022: dict[str, dict[str, Any]] = {
-    "Pituba": {"populacao": 65000, "indice_vulnerabilidade": 0.12},
-    "Aeroporto": {"populacao": 0, "indice_vulnerabilidade": 0.05},
-    "Porto Seco Pirajá": {"populacao": 12, "indice_vulnerabilidade": 0.20},
-    "Centro Administrativo da Bahia - CAB": {"populacao": 5, "indice_vulnerabilidade": 0.08},
-    "Liberdade": {"populacao": 48000, "indice_vulnerabilidade": 0.78},
-    "Cabula": {"populacao": 32000, "indice_vulnerabilidade": 0.55},
-}
+
+def _point_in_poly(x: float, y: float, poly: list[list[float]]) -> bool:
+    """Verifica se um ponto (x, y) está dentro de um anel poligonal simples."""
+    inside = False
+    n = len(poly)
+    if n < 3:
+        return False
+    p1x, p1y = poly[0]
+    for i in range(n + 1):
+        p2x, p2y = poly[i % n]
+        if y > min(p1y, p2y):
+            if y <= max(p1y, p2y):
+                if x <= max(p1x, p2x):
+                    if p1y != p2y:
+                        xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
+                    if p1x == p2x or x <= xinters:
+                        inside = not inside
+        p1x, p1y = p2x, p2y
+    return inside
+
+
+def _get_centroid(geom: dict[str, Any]) -> tuple[float, float]:
+    """Calcula centróide geométrico preliminar a partir das coordenadas do anel principal."""
+    gtype = geom.get("type")
+    coords: list[list[float]] = []
+    if gtype == "Polygon":
+        coords = geom.get("coordinates", [[]])[0]
+    elif gtype == "MultiPolygon":
+        multi = geom.get("coordinates", [[[]]])
+        if multi:
+            coords = max(multi, key=lambda p: len(p[0]) if p and len(p) > 0 else 0)[0]
+    if not coords:
+        return 0.0, 0.0
+    xs = [pt[0] for pt in coords]
+    ys = [pt[1] for pt in coords]
+    return sum(xs) / len(xs), sum(ys) / len(ys)
+
+
+def _carregar_catalogo_referencia() -> tuple[dict[str, Any], dict[str, Any], dict[str, dict[str, Any]]]:
+    """Carrega as bases oficiais completas dos 170+ bairros, prefeituras-bairro e censo 2022."""
+    bairros_path = _REF_DIR / "geosalvador_bairros_real.geojson"
+    pbs_path = _REF_DIR / "geosalvador_prefeituras_real.geojson"
+    censo_path = _REF_DIR / "ibge_censo_salvador.json"
+
+    with open(bairros_path, "r", encoding="utf-8") as f:
+        bairros_geo = json.load(f)
+    with open(pbs_path, "r", encoding="utf-8") as f:
+        pbs_geo = json.load(f)
+    with open(censo_path, "r", encoding="utf-8") as f:
+        censo_raw = json.load(f)
+
+    # 1. Mapeia polígonos das Prefeituras-Bairro e normaliza nomes canônicos
+    pb_polys: list[tuple[str, dict[str, Any]]] = []
+    for f in pbs_geo.get("features", []):
+        props = f.get("properties", {})
+        subclass = props.get("SUBCLASSES", "")
+        raw_name = subclass.replace("Prefeitura-bairro ", "").strip()
+        clean_name = re.sub(r"^[IVXLC]+\s*-\s*", "", raw_name).strip().replace(" / ", "/")
+        props["NM_PREFEITURA_BAIRRO"] = clean_name
+        props["CD_PREFEITURA_BAIRRO"] = props.get("OBJECTID", 0)
+        pb_polys.append((clean_name, f.get("geometry", {})))
+
+    # 2. Enriquece bairros oficiais com centróides e vínculo com Prefeitura-Bairro
+    for f in bairros_geo.get("features", []):
+        props = f.get("properties", {})
+        b_name = props.get("NOME_BAIRR", "")
+        props["NM_BAIRRO"] = b_name
+        props["CD_BAIRRO"] = props.get("OBJECTID", 0)
+
+        if b_name == "São João do Cabrito":
+            props["PREFEITURA_BAIRRO"] = "Subúrbio/Ilhas"
+        else:
+            cx, cy = _get_centroid(f.get("geometry", {}))
+            found_pb = None
+            for pb_name, geom in pb_polys:
+                gtype = geom.get("type")
+                if gtype == "Polygon":
+                    rings = geom.get("coordinates", [])
+                    if rings and _point_in_poly(cx, cy, rings[0]):
+                        found_pb = pb_name
+                        break
+                elif gtype == "MultiPolygon":
+                    for poly in geom.get("coordinates", []):
+                        if poly and _point_in_poly(cx, cy, poly[0]):
+                            found_pb = pb_name
+                            break
+                    if found_pb:
+                        break
+            if not found_pb:
+                raise ValueError(f"Bairro '{b_name}' não foi localizado dentro de nenhuma Prefeitura-Bairro oficial.")
+            props["PREFEITURA_BAIRRO"] = found_pb
+
+    # 3. Mapeia população residente e índices de vulnerabilidade do Censo 2022
+    censo_pop: dict[str, int] = {}
+    for item in censo_raw:
+        if item.get("D2C") == "93" or item.get("MN") == "Pessoas":
+            raw = item.get("D1N", "").replace(" - Salvador - BA", "").strip()
+            censo_pop[normalizar_nome(raw)] = int(item.get("V", 0))
+
+    aliases = {
+        normalizar_nome("Nordeste de Amaralina"): normalizar_nome("Nordeste do Amaralina"),
+        normalizar_nome("Centro Administrativo da Bahia"): normalizar_nome("Centro Administrativo da Bahia - CAB"),
+        normalizar_nome("Ilha dos Frades/Ilha de Santo Antônio"): normalizar_nome("Ilha dos Frades / Ilha de Santo Antônio"),
+        normalizar_nome("Ilha de Bom Jesus dos Passos"): normalizar_nome("Ilha Bom Jesus dos Passos"),
+        normalizar_nome("Beiru/Tancredo Neves"): normalizar_nome("Beiru / Tancredo Neves"),
+        normalizar_nome("Caixa D´Água"): normalizar_nome("Caixa D'água"),
+        normalizar_nome("Vila Ruy Barbosa\\Jardim Cruzeiro"): normalizar_nome("Vila Ruy Barbosa / Jardim Cruzeiro"),
+    }
+
+    demografia: dict[str, dict[str, Any]] = {}
+    for f in bairros_geo.get("features", []):
+        name = f.get("properties", {}).get("NOME_BAIRR", "")
+        norm = normalizar_nome(name)
+        target_norm = aliases.get(norm, norm)
+        pop = censo_pop.get(target_norm, 0)
+
+        # Vulnerabilidade socioeconômica de referência e calibração das Zonas Especiais
+        if norm == "AEROPORTO":
+            vuln = 0.05
+        elif norm == "PORTO SECO PIRAJA":
+            vuln = 0.20
+        elif "CENTRO ADMINISTRATIVO" in norm or norm == "CAB":
+            vuln = 0.08
+        elif norm == "PITUBA":
+            vuln = 0.12
+        elif norm == "LIBERDADE":
+            vuln = 0.78
+        elif norm == "CABULA":
+            vuln = 0.55
+        else:
+            vuln = 0.50
+
+        demografia[name] = {
+            "populacao": pop,
+            "indice_vulnerabilidade": vuln,
+        }
+
+    return bairros_geo, pbs_geo, demografia
+
+
+SAMPLE_GEOSALVADOR_BAIRROS, SAMPLE_GEOSALVADOR_PREFEITURAS, SAMPLE_IBGE_CENSO_2022 = _carregar_catalogo_referencia()
 
 # Resposta de referência do totalizador da Transparência de Salvador
 SAMPLE_TRANSPARENCIA_TOTALIZADOR: dict[str, Any] = {
@@ -258,7 +195,7 @@ SAMPLE_TRANSPARENCIA_GRID: list[dict[str, Any]] = [
         "sgOrgao": "SUCOP",
         "nuContratoSigef": "002/2024",
         "nuContratoOriginal": "002/2024",
-        "nuProcesso": "1235/2023",
+        "nuProcesso": "2345/2023",
         "dsObjeto": "Contenção de encosta na Rua Direta da Liberdade com aplicação de geomanta",
         "vlOriginal": 3500000.00,
         "vlAtualizado": 4200000.00,
@@ -270,17 +207,17 @@ SAMPLE_TRANSPARENCIA_GRID: list[dict[str, Any]] = [
         "dsSituacao": "Em Execução",
         "nmCredor": "BAHIA ENGENHARIA S/A",
         "nuDocumentoCredor": "98.765.432/0001-10",
-        "nuDom": "8.712",
+        "nuDom": "8.780",
     },
     {
         "id": 1003,
         "cdUnidadeGestora": 1501,
-        "dsUnidadeGestora": "FUNDO MUNICIPAL DE EDUCACAO",
-        "sgOrgao": "FME",
+        "dsUnidadeGestora": "SECRETARIA MUNICIPAL DA EDUCACAO",
+        "sgOrgao": "SMED",
         "nuContratoSigef": "015/2024",
         "nuContratoOriginal": "015/2024",
         "nuProcesso": "4567/2023",
-        "dsObjeto": "Construção de nova Escola Municipal e CMEI no Subúrbio Ferroviário",
+        "dsObjeto": "Construção de nova Escola Municipal e CMEI no Lote 2 - Subúrbio Ferroviário",
         "vlOriginal": 5000000.00,
         "vlAtualizado": 6500000.00,
         "dtInicioVigencia": "2024-02-01T00:00:00.000Z",
@@ -296,8 +233,8 @@ SAMPLE_TRANSPARENCIA_GRID: list[dict[str, Any]] = [
     {
         "id": 1004,
         "cdUnidadeGestora": 3101,
-        "dsUnidadeGestora": "COMPANHIA DE DESENVOLVIMENTO URBANO DE SALVADOR",
-        "sgOrgao": "DESAL",
+        "dsUnidadeGestora": "SECRETARIA MUNICIPAL DE PROMOCAO SOCIAL, COMBATE A POBREZA, ESPORTES E LAZER",
+        "sgOrgao": "SEMPRE",
         "nuContratoSigef": "042/2024",
         "nuContratoOriginal": "042/2024",
         "nuProcesso": "7890/2023",
@@ -337,7 +274,7 @@ SAMPLE_TRANSPARENCIA_GRID: list[dict[str, Any]] = [
     },
 ]
 
-# Detalhes complementares de contrato para /obraspublicas/detalhamentoObrasPublicas
+# Detalhes cadastrais de referência por contrato
 SAMPLE_TRANSPARENCIA_DETALHES: dict[str, dict[str, Any]] = {
     "2401_001/2024": {
         "cdUnidadeGestora": 2401,
@@ -363,7 +300,7 @@ SAMPLE_TRANSPARENCIA_DETALHES: dict[str, dict[str, Any]] = {
         "cdUnidadeGestora": 2401,
         "nuContratoSigef": "002/2024",
         "nuContratoOriginal": "002/2024",
-        "nuProcesso": "1235/2023",
+        "nuProcesso": "2345/2023",
         "nuDocumentoCredor": "98.765.432/0001-10",
         "nmCredor": "BAHIA ENGENHARIA S/A",
         "dsObjeto": "Contenção de encosta na Rua Direta da Liberdade com aplicação de geomanta",
@@ -374,7 +311,7 @@ SAMPLE_TRANSPARENCIA_DETALHES: dict[str, dict[str, Any]] = {
         "dtTerminoVigenciaAtualizado": "2027-12-31T00:00:00.000Z",
         "dsPrazoOriginal": "1200 dias",
         "dsPrazoAtualizado": "1384 dias",
-        "nuDom": "8.712",
+        "nuDom": "8.780",
         "dtPublicacao": "2024-02-25T00:00:00.000Z",
         "dsSituacao": "Em Execução",
         "percentualExecutado": 40.0,

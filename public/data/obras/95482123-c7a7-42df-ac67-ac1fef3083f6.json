@@ -1,0 +1,91 @@
+{
+  "id": "95482123-c7a7-42df-ac67-ac1fef3083f6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT004227",
+  "numeroContratoOriginal": "0182024",
+  "nuProcesso": "0818032024",
+  "objeto": "Execução da obra de implantação de Via de Ligação da AV. Luís Eduardo Magalhães com a Rua Saturno, no Bairro de Pernambués - Salvador/BA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+    "cnpj": "",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 600885749.85,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "b7597259-d85c-46c9-9b8a-aeb1b3a9ee45",
+      "0b716b67-00a8-4d4a-a174-3308afcb000a",
+      "3f5cb2c0-fe0d-4d91-b940-4e892fa40eeb",
+      "b627b5b3-5f42-41a5-8806-d03b5e56c2e5",
+      "49c3fafd-8dcd-4358-a11b-356d455757f6"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "10/07/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "29/02/2028",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 12740679.25,
+    "valorContratualVigente": 12740679.25,
+    "valorEmpenhado": 50000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "503c918a-139d-4c1c-9dd3-2dc18ef1b2ab",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE000846",
+      "dataEmpenho": "10/07/2026",
+      "nomeCredor": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Ampliação e Recuperação de Ruas e Vias de Acesso",
+      "valEmpenhado": "50.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Pernambués",
+  "prefeituraBairro": null,
+  "latitude": -12.970924,
+  "longitude": -38.464563,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+}

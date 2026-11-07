@@ -8,6 +8,11 @@ on:
         required: false
         default: "2025"
         type: string
+      full_refresh:
+        description: "Forçar reexecução completa (--full-refresh) de todos os mandatos e contratos"
+        required: false
+        default: false
+        type: boolean
   schedule:
     # Execução semanal toda segunda-feira às 06:00 UTC (03:00 BRT)
     - cron: "0 6 * * 1"
@@ -43,10 +48,15 @@ jobs:
           ENABLE_NOMINATIM: "1"
         run: |
           YEAR="${{ inputs.year || '2025' }}"
+          EXTRA_ARGS=""
+          if [ "${{ inputs.full_refresh }}" = "true" ]; then
+            EXTRA_ARGS="--full-refresh"
+          fi
           python -m etl.main \
             --output-dir public/data \
             --year "${YEAR}" \
-            --cache-file public/data/geocoding_cache.json
+            --cache-file public/data/geocoding_cache.json \
+            $EXTRA_ARGS
 
       - name: Validar integridade com suíte de testes (pytest)
         run: python -m pytest
@@ -55,7 +65,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/geocoding_cache.json public/data/geo/ public/data/obras/ public/data/index_*.json
+          git add public/data/geocoding_cache.json public/data/geo/ public/data/obras/ public/data/index_*.json public/data/index.json
           if git diff --staged --quiet; then
             echo "Nenhuma alteração detectada nos artefatos estáticos ou no cache incremental."
           else

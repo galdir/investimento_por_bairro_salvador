@@ -1,0 +1,104 @@
+{
+  "id": "67752773-88d7-49f4-967e-c69ee669888e",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2026CT005609",
+  "numeroContratoOriginal": "262026",
+  "nuProcesso": "0918222025",
+  "objeto": "Contratação de empresa de engenharia para a realização de obras de requalificação e modernização da quadra poliesportiva da Rua Lourival Costa com a Rua Joinville, Águas Claras - Salvador/BA, e do campo de futebol da Rua Almirante Mourão de Sá, Fazenda Coutos - Salvador/BA, da SEMPRE.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RCTJ ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 298565.78,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "18/06/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "17/06/2027",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 298565.78,
+    "valorContratualVigente": 298565.78,
+    "valorEmpenhado": 298565.77999999997,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "7e54a187-6184-48f4-922e-c72af9401ab3",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2026NE004808",
+      "dataEmpenho": "03/11/2026",
+      "nomeCredor": "RCTJ ENGENHARIA LTDA",
+      "fonteRecurso": "Ex Ant - Outras Tranf de Conv ou Instrumentos Cong da União - Emenda Individual Federal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "296.683,47",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b4f544d9-2c0c-4f34-959b-2925b9f384de",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2026NE004687",
+      "dataEmpenho": "15/10/2026",
+      "nomeCredor": "RCTJ ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "1.882,31",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Águas Claras",
+  "prefeituraBairro": null,
+  "latitude": -12.890699,
+  "longitude": -38.435616,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)"
+}

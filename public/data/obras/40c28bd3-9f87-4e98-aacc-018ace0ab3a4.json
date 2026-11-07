@@ -1,0 +1,182 @@
+{
+  "id": "40c28bd3-9f87-4e98-aacc-018ace0ab3a4",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2024CT010083",
+  "numeroContratoOriginal": "1442024",
+  "nuProcesso": "248846/2024",
+  "objeto": "SERVIÇOS DE ENGENHARIA PARA FABRICAÇÃO E MONTAGEM DE PASSARELA DE PEQUENO PORTE",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+    "cnpj": "10.862.653/0001-33",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 96397.32,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "06/12/2024",
+    "dataFimOriginal": "04/04/2025",
+    "dataTerminoAtualizado": "04/04/2025",
+    "prazoOriginal": "119",
+    "prazoAtualizado": "119"
+  },
+  "dom": {
+    "nuDom": "8928",
+    "dataPublicacao": "09/12/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 96397.32,
+    "valorContratualVigente": 96397.32,
+    "valorEmpenhado": 96397.32,
+    "valorLiquidado": 96397.32,
+    "valorPago": 96397.32,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a039eabd-bb65-47a9-af34-91d7af4bd99a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2024NE001199",
+      "dataEmpenho": "09/12/2024",
+      "nomeCredor": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção de Passarelas",
+      "valEmpenhado": "119,82",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "e7c7b679-28a4-4413-9070-b870ef729dc1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2024NE001198",
+      "dataEmpenho": "09/12/2024",
+      "nomeCredor": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção de Passarelas",
+      "valEmpenhado": "96.277,50",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "502df632-16b7-4673-8ad2-362455b0ce80",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001198",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+      "notaLiquidacao": "2024NL008839",
+      "notaLancamento": "2024NL008839",
+      "numProcesso": "02558412024",
+      "dataLiquidacao": "12/12/2024",
+      "valLiqLiquidacao": "96.277,50",
+      "valBrutLiquidacao": "96.277,50",
+      "valEmpenho": "96.277,50",
+      "descObsLiquidacao": "4M COMERCIO E DISTRIBUIÇÃO DE PRODUTOS SIDERURGICOS - CORTE DE CHAPA - PROC 255841/2024 - ",
+      "pago": "0,00"
+    },
+    {
+      "id": "eef15de2-6111-4132-82fe-5b2122ff2262",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001199",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+      "notaLiquidacao": "2024NL008840",
+      "notaLancamento": "2024NL008840",
+      "numProcesso": "02558412024",
+      "dataLiquidacao": "12/12/2024",
+      "valLiqLiquidacao": "119,82",
+      "valBrutLiquidacao": "119,82",
+      "valEmpenho": "119,82",
+      "descObsLiquidacao": "4M COMERCIO E DISTRIBUIÇÃO DE PRODUTOS SIDERURGICOS - CORTE DE CHAPA - PROC 255841/2024 - ",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "de183842-84bf-4114-9e6d-4d17a8596e33",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001199",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+      "notaLiquidacao": "2024NL008840",
+      "ordBancaria": "2024OB089318",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "119,82",
+      "dataPagamento": "16/12/2024",
+      "pago": "119,82",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "05c368ed-67a5-40eb-8269-010f1e2b08ce",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001198",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+      "notaLiquidacao": "2024NL008839",
+      "ordBancaria": "2024OB089318",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "96.277,50",
+      "dataPagamento": "16/12/2024",
+      "pago": "96.277,50",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

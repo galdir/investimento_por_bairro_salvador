@@ -1,0 +1,68 @@
+{
+  "id": "3580d8f0-0a3c-482f-b0ef-a9b178d79be6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT001524",
+  "numeroContratoOriginal": "0012026",
+  "nuProcesso": "2410612025",
+  "objeto": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 4729882.4,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "c87f51b9-6d5d-45b1-a3b3-ffae92638fb9",
+      "55108d4a-9527-490e-a752-273acc443631"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "20/01/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "19/04/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 999671.05,
+    "valorContratualVigente": 999671.05,
+    "valorEmpenhado": 999671.05,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 19/04/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

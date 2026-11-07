@@ -1,0 +1,71 @@
+{
+  "id": "b9ab75a3-47a3-4ad2-aa76-7a9e96b8876a",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT002689",
+  "numeroContratoOriginal": "0122025",
+  "nuProcesso": "1665972025",
+  "objeto": "Contratação de empresa capacitada para execução de obras de Construção da Arena Aquática, localizada na Rua Maria Cecília, s/n, bairro Rio Sena - Salvador/Ba",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "800-D ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 47320320.2,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "0041c9dd-592a-487e-a260-8c69fa635b61",
+      "7a55cc2e-bbf2-4a98-86db-fa81dfa666e4",
+      "3aa088fb-bdfd-42a8-a575-3b3dc0561994",
+      "561191af-65fc-47c0-a803-164cca5e1f47",
+      "0aa11986-47ce-431e-978a-83adc569c013"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "12/01/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "08/10/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4417123.96,
+    "valorContratualVigente": 4417123.96,
+    "valorEmpenhado": 4417123.96,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 08/10/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)"
+}

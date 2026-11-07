@@ -8,6 +8,8 @@ pela chave canônica (cdUnidadeGestora, nuContratoSigef) em conformidade com o A
 import re
 from typing import Any, Final
 
+from etl.domain.territorio import parse_float
+
 MANDATOS_MUNICIPAIS: Final[dict[str, dict[str, Any]]] = {
     "2021-2024": {
         "inicio": 2021,
@@ -44,7 +46,12 @@ def obter_chave_canonica_obra(obra: dict[str, Any]) -> tuple[str, str]:
     Erros:
         Não lança exceções.
     """
-    cd_ug = obra.get("cdUnidadeGestora") or obra.get("dsUnidadeGestora") or obra.get("sgOrgao")
+    cd_ug = (
+        obra.get("cdUnidadeGestora")
+        or obra.get("dsUnidadeGestora")
+        or obra.get("sgOrgao")
+        or obra.get("unidadeGestora")
+    )
     nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
 
     if cd_ug is not None and nu_sigef is not None:
@@ -55,6 +62,20 @@ def obter_chave_canonica_obra(obra: dict[str, Any]) -> tuple[str, str]:
 
     obj = str(obra.get("dsObjeto") or obra.get("objeto") or "").strip()
     return ("OBJ", obj)
+
+
+def _formatar_data_iso(data_val: Any) -> str | None:
+    """Padroniza datas para formato string ISO ou preserva formato original."""
+    if not data_val:
+        return None
+    s = str(data_val).strip()
+    if not s:
+        return None
+    m_br = re.match(r"^(\d{2})/(\d{2})/(\d{4})", s)
+    if m_br:
+        dia, mes, ano = m_br.group(1), m_br.group(2), m_br.group(3)
+        return f"{ano}-{mes}-{dia}T00:00:00.000Z"
+    return s
 
 
 def resolver_datas_vigencia(obra: dict[str, Any]) -> tuple[str | None, str | None]:
@@ -71,14 +92,14 @@ def resolver_datas_vigencia(obra: dict[str, Any]) -> tuple[str | None, str | Non
     """
     inicio = obra.get("dtInicioVigencia") or obra.get("dtAssinatura")
     fim = obra.get("dtTerminoVigenciaAtualizado") or obra.get("dtFimVigenciaOriginal") or inicio
-    return (str(inicio) if inicio else None, str(fim) if fim else None)
+    return (_formatar_data_iso(inicio), _formatar_data_iso(fim))
 
 
 def extrair_ano_data(data_val: Any) -> int | None:
-    """Extrai o ano numérico a partir de uma data em formato ISO ou string.
+    """Extrai o ano numérico a partir de uma data em formato ISO, DD/MM/YYYY ou string.
 
     Sumário:
-        Converte os primeiros 4 caracteres numéricos de uma data em inteiro.
+        Converte representações textuais de data em ano numérico.
 
     Argumentos:
         data_val: Objeto ou string contendo representação de data.
@@ -89,12 +110,24 @@ def extrair_ano_data(data_val: Any) -> int | None:
     if not data_val:
         return None
     s = str(data_val).strip()
-    m = re.match(r"^(\d{4})", s)
-    if m:
+    m_br = re.match(r"^\d{2}/\d{2}/(\d{4})", s)
+    if m_br:
         try:
-            return int(m.group(1))
+            return int(m_br.group(1))
         except ValueError:
-            return None
+            pass
+    m_iso = re.match(r"^(\d{4})", s)
+    if m_iso:
+        try:
+            return int(m_iso.group(1))
+        except ValueError:
+            pass
+    m_any = re.search(r"\b(20\d{2})\b", s)
+    if m_any:
+        try:
+            return int(m_any.group(1))
+        except ValueError:
+            pass
     return None
 
 
@@ -173,8 +206,8 @@ def _recencia_score(obra: dict[str, Any]) -> tuple[str, float, float]:
     """Calcula tupla comparável de recência e atualização para desempate na deduplicação."""
     _, dt_fim = resolver_datas_vigencia(obra)
     fim_str = dt_fim or ""
-    vl = float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or 0.0)
-    perc = float(obra.get("percentualExecutado") or 0.0)
+    vl = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or 0.0)
+    perc = parse_float(obra.get("percentualExecutado") or 0.0)
     return (fim_str, vl, perc)
 
 

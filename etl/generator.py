@@ -17,7 +17,7 @@ from etl.domain.mandato import (
 )
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
-from etl.domain.territorio import is_zona_especial_nao_residencial, normalizar_nome
+from etl.domain.territorio import is_zona_especial_nao_residencial, normalizar_nome, parse_float
 
 
 def generate_bairros_geojson(
@@ -70,14 +70,14 @@ def generate_bairros_geojson(
             "nome": nome,
             "prefeitura_bairro": pb_nome or dados_rollup.get("prefeitura_bairro", ""),
             "populacao": int(dados_rollup.get("populacao", 0)),
-            "indice_vulnerabilidade": float(dados_rollup.get("indice_vulnerabilidade", 0.5)),
+            "indice_vulnerabilidade": parse_float(dados_rollup.get("indice_vulnerabilidade", 0.5)),
             "is_zona_especial_nao_residencial": eh_zona_especial,
             "isZonaEspecialNaoResidencial": eh_zona_especial,
-            "valorTotal": float(dados_rollup.get("valorTotal", 0.0)),
-            "valorPago": float(dados_rollup.get("valorPago", 0.0)),
+            "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
+            "valorPago": parse_float(dados_rollup.get("valorPago", 0.0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
-            "investimentoPorHabitante": float(dados_rollup.get("investimentoPorHabitante", 0.0)),
-            "investimentoPorHabitantePago": float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
+            "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
+            "investimentoPorHabitantePago": parse_float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
             "obrasVerde": int(dados_rollup.get("obrasVerde", 0)),
             "obrasAmarelo": int(dados_rollup.get("obrasAmarelo", 0)),
             "obrasVermelho": int(dados_rollup.get("obrasVermelho", 0)),
@@ -141,11 +141,11 @@ def generate_prefeituras_geojson(
             "id": pb_id,
             "nome": nome,
             "populacao_total": int(dados_rollup.get("populacao_total", 0)),
-            "valorTotal": float(dados_rollup.get("valorTotal", 0.0)),
-            "valorPago": float(dados_rollup.get("valorPago", 0.0)),
+            "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
+            "valorPago": parse_float(dados_rollup.get("valorPago", 0.0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
-            "investimentoPorHabitante": float(dados_rollup.get("investimentoPorHabitante", 0.0)),
-            "investimentoPorHabitantePago": float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
+            "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
+            "investimentoPorHabitantePago": parse_float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
             "obrasVerde": int(dados_rollup.get("obrasVerde", 0)),
             "obrasAmarelo": int(dados_rollup.get("obrasAmarelo", 0)),
             "obrasVermelho": int(dados_rollup.get("obrasVermelho", 0)),
@@ -207,14 +207,14 @@ def generate_index_json(
     # Formata a lista compacta de obras públicas para a visão inicial, mapa (pinos) e tabela
     obras_compactas = []
     for o in obras_detalhadas:
-        vl_orig = float(o.get("vlOriginal") or o.get("valorOriginal") or 0.0)
-        vl_atua = float(o.get("vlAtualizado") or o.get("valorContratualVigente") or vl_orig)
+        vl_orig = parse_float(o.get("vlOriginal") or o.get("valorOriginal") or 0.0)
+        vl_atua = parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or vl_orig)
         valor_aditivos = round(max(0.0, vl_atua - vl_orig), 2)
         delta_percentual = round(((vl_atua - vl_orig) / vl_orig) * 100.0, 2) if vl_orig > 0 else 0.0
 
         # Percentual executado e estimativa do valor pago/liquidado
-        perc_exec = float(o.get("percentualExecutado") or 0.0)
-        vl_pago = float(o.get("vlPago") or o.get("valorPago") or round(vl_atua * (perc_exec / 100.0), 2))
+        perc_exec = parse_float(o.get("percentualExecutado") or 0.0)
+        vl_pago = parse_float(o.get("vlPago") or o.get("valorPago") or round(vl_atua * (perc_exec / 100.0), 2))
 
         # Classificações determinísticas de Tema e Semáforo da Obra
         tema = classificar_tema(o)
@@ -243,8 +243,10 @@ def generate_index_json(
 
         obras_compactas.append({
             "id": o.get("id"),
-            "unidadeGestora": o.get("sgOrgao") or o.get("dsUnidadeGestora"),
-            "numeroContrato": o.get("nuContratoSigef"),
+            "cdUnidadeGestora": o.get("cdUnidadeGestora"),
+            "unidadeGestora": o.get("sgOrgao") or o.get("dsUnidadeGestora") or o.get("unidadeGestora"),
+            "nuContratoSigef": o.get("nuContratoSigef") or o.get("numeroContrato"),
+            "numeroContrato": o.get("nuContratoSigef") or o.get("numeroContrato"),
             "objeto": o.get("dsObjeto"),
             "valorOriginal": vl_orig,
             "valorContratualVigente": vl_atua,
