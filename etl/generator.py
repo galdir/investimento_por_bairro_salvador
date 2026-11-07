@@ -10,6 +10,11 @@ from pathlib import Path
 from typing import Any, Optional
 
 from etl.domain.empreiteiras import formatar_cnpj
+from etl.domain.mandato import (
+    MANDATOS_MUNICIPAIS,
+    classificar_mandatos_obra,
+    resolver_datas_vigencia,
+)
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
 from etl.domain.territorio import is_zona_especial_nao_residencial, normalizar_nome
@@ -170,6 +175,7 @@ def generate_index_json(
     year: int,
     output_path: Path,
     concentracao_empreiteiras: Optional[Any] = None,
+    mandatos_disponiveis: Optional[list[str]] = None,
 ) -> None:
     """Gera o arquivo de índice anual estático `index_<ano>.json`.
 
@@ -231,6 +237,10 @@ def generate_index_json(
         estagio = o.get("estagioAlocacao")
         cnpj_credor = formatar_cnpj(str(o.get("nuDocumentoCredor") or o.get("cnpj") or o.get("cnpjCredor") or ""))
 
+        # Mandatos Municipais e vigência
+        mandatos_obra = o.get("mandatos") or classificar_mandatos_obra(o)
+        dt_inicio, dt_fim = resolver_datas_vigencia(o)
+
         obras_compactas.append({
             "id": o.get("id"),
             "unidadeGestora": o.get("sgOrgao") or o.get("dsUnidadeGestora"),
@@ -249,6 +259,9 @@ def generate_index_json(
             "tema": tema,
             "semaforo": semaforo,
             "ano": ano_obra,
+            "mandatos": mandatos_obra,
+            "dtInicioVigencia": dt_inicio,
+            "dtTerminoVigenciaAtualizado": dt_fim,
             "nivel": nivel,
             "bairro": bairro,
             "prefeituraBairro": prefeitura_bairro,
@@ -274,6 +287,7 @@ def generate_index_json(
         "metadata": {
             "generatedAt": datetime.now(timezone.utc).isoformat(),
             "anoReferencia": year,
+            "mandatosDisponiveis": mandatos_disponiveis or list(MANDATOS_MUNICIPAIS.keys()),
         },
         "kpis_globais": kpis_globais,
         "concentracao_empreiteiras": conc_payload,

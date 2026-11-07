@@ -16,6 +16,11 @@ from etl.domain.geocoding import (
     calcular_centroides_bairros,
     classificar_alocacao_territorial,
 )
+from etl.domain.mandato import (
+    MANDATOS_MUNICIPAIS,
+    classificar_mandatos_obra,
+    deduplicar_obras,
+)
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
 from etl.domain.territorio import (
@@ -36,6 +41,7 @@ def run_pipeline(
     output_dir: Path,
     year: int = 2025,
     cache_file: Path | None = None,
+    mandatos: list[str] | None = None,
 ) -> dict[str, Any]:
     """Executa o pipeline completo de extração, geocodificação territorial, rollup e geração de artefatos.
 
@@ -80,7 +86,31 @@ def run_pipeline(
     raw_prefeituras = geosalvador.fetch_prefeituras_geojson()
     demografia_map = ibge_censo.fetch_demografia_censo_2022()
     totalizador = transparencia.fetch_totalizador(year=year)
-    grid_obras = transparencia.fetch_grid_detalhada(year=year)
+
+    # Coleta de obras para todos os mandatos municipais especificados
+    mandatos_lista = mandatos or list(MANDATOS_MUNICIPAIS.keys())
+    raw_grid: list[dict[str, Any]] = []
+    for m in mandatos_lista:
+        info = MANDATOS_MUNICIPAIS.get(m)
+        if info:
+            payload = {
+                "dataInicio": info["data_inicio"],
+                "dataFim": info["data_fim"],
+                "filtros": [],
+            }
+            itens_mandato = transparencia.fetch_grid_detalhada(
+                year=year,
+                payload_customizado=payload,
+            )
+            raw_grid.extend(itens_mandato)
+        else:
+            raw_grid.extend(transparencia.fetch_grid_detalhada(year=year))
+
+    if not raw_grid:
+        raw_grid = transparencia.fetch_grid_detalhada(year=year)
+
+    # Deduplicação canônica por (cdUnidadeGestora, nuContratoSigef) e classificação de mandatos
+    grid_obras = deduplicar_obras(raw_grid)
 
     # 2. Cálculo dos centróides dos Bairros Oficiais
     bairros_centroides = calcular_centroides_bairros(raw_bairros)
@@ -220,7 +250,7 @@ def run_pipeline(
         indicador_opacidade=opacidade,
     )
 
-    # 10. Geração do índice anual estático com concentração de empreiteiras
+    # 10. Geração do índice anual estático com concentração de empreiteiras e mandatos
     index_file_path = output_path / f"index_{year}.json"
     generate_index_json(
         kpis_globais=kpis_globais,
@@ -230,6 +260,7 @@ def run_pipeline(
         year=year,
         output_path=index_file_path,
         concentracao_empreiteiras=concentracao_map,
+        mandatos_disponiveis=mandatos_lista,
     )
 
     return {

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { MetricType, ObraCompacta, SemaforoStatus } from "../types";
-import { formatCurrency, formatNumber } from "../utils/formatters";
+import { formatCurrency, formatNumber, formatDate } from "../utils/formatters";
 
 interface WorksTableProps {
   /**
@@ -360,6 +360,14 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     </p>
                     <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-slate-500">
                       <span>Contrato: {o.numeroContrato || "S/N"}</span>
+                      {(o.dtInicioVigencia || o.ano) && (
+                        <>
+                          <span>•</span>
+                          <span data-testid={`data-inicio-obra-${o.id}`}>
+                            Início: {formatDate(o.dtInicioVigencia) || String(o.ano)}
+                          </span>
+                        </>
+                      )}
                       <span>•</span>
                       <span>Situação: {o.situacao || "Não informada"}</span>
                       {o.nivel && (

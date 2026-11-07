@@ -29,6 +29,7 @@ const TEMAS_PADRAO: TemaObra[] = [
 ];
 
 const INITIAL_FILTERS: FilterState = {
+  mandato: "todos",
   ano: "todos",
   orgao: "todos",
   tema: "todos",
@@ -129,15 +130,20 @@ export const App: React.FC = () => {
     };
   }, []);
 
-  // Lista de anos disponíveis extraída dos contratos
-  const availableYears = useMemo(() => {
-    if (!indexData) return [2025];
-    const years = new Set<number>();
+  // Lista de Mandatos Municipais disponíveis
+  const availableMandatos = useMemo(() => {
+    if (!indexData) return ["2025-2028", "2021-2024"];
+    if (indexData.metadata.mandatosDisponiveis && indexData.metadata.mandatosDisponiveis.length > 0) {
+      return indexData.metadata.mandatosDisponiveis;
+    }
+    const mandatosSet = new Set<string>();
     indexData.obras.forEach((o) => {
-      if (o.ano) years.add(o.ano);
+      (o.mandatos || []).forEach((m) => mandatosSet.add(m));
     });
-    if (years.size === 0) years.add(indexData.metadata.anoReferencia);
-    return Array.from(years).sort((a, b) => b - a);
+    if (mandatosSet.size === 0) {
+      return ["2025-2028", "2021-2024"];
+    }
+    return Array.from(mandatosSet).sort().reverse();
   }, [indexData]);
 
   // Lista de órgãos contratantes disponíveis
@@ -169,8 +175,28 @@ export const App: React.FC = () => {
         }
       }
 
-      // 2. Filtro por Ano
-      if (filters.ano !== "todos" && obra.ano && obra.ano !== filters.ano) {
+      // 2. Filtro por Mandato Municipal
+      if (filters.mandato && filters.mandato !== "todos") {
+        const target = filters.mandato.replace("–", "-").trim();
+        const mandatosObra = (obra.mandatos || []).map((m) => m.replace("–", "-").trim());
+        if (mandatosObra.length > 0) {
+          if (!mandatosObra.includes(target)) {
+            return false;
+          }
+        } else {
+          // Fallback se a obra não possuir lista explícita de mandatos
+          const ano = obra.ano;
+          if (target === "2021-2024" && (ano === undefined || ano < 2021 || ano > 2024)) {
+            return false;
+          }
+          if (target === "2025-2028" && (ano === undefined || ano < 2025 || ano > 2028)) {
+            return false;
+          }
+        }
+      }
+
+      // Filtro por Ano (compatibilidade)
+      if (filters.ano && filters.ano !== "todos" && obra.ano && obra.ano !== filters.ano) {
         return false;
       }
       // 3. Filtro por Órgão
@@ -219,7 +245,8 @@ export const App: React.FC = () => {
     }
 
     const isFiltered =
-      filters.ano !== "todos" ||
+      (filters.mandato && filters.mandato !== "todos") ||
+      (filters.ano && filters.ano !== "todos") ||
       filters.orgao !== "todos" ||
       filters.tema !== "todos" ||
       filters.semaforo !== "todos" ||
@@ -378,6 +405,7 @@ export const App: React.FC = () => {
         kpis={dynamicKpis}
         ano={indexData.metadata.anoReferencia}
         metricType={filters.metricType}
+        mandato={filters.mandato}
       />
 
       {/* 2. Barra de Filtros Superiores Combinados */}
@@ -385,7 +413,7 @@ export const App: React.FC = () => {
         filters={filters}
         onFilterChange={handleFilterChange}
         onResetFilters={handleResetFilters}
-        availableYears={availableYears}
+        availableMandatos={availableMandatos}
         availableOrgaos={availableOrgaos}
         availableTemas={TEMAS_PADRAO}
         totalObrasFiltradas={filteredObras.length}

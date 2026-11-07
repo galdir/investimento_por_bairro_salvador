@@ -117,6 +117,11 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
     with open(index_file, "r", encoding="utf-8") as f:
         index_data = json.load(f)
 
+    # Verifica metadados de mandatos municipais
+    metadata = index_data.get("metadata", {})
+    assert "mandatosDisponiveis" in metadata
+    assert metadata["mandatosDisponiveis"] == ["2021-2024", "2025-2028"]
+
     # Verifica estrutura dos KPIs Globais incluindo transparência opaca
     kpis = index_data.get("kpis_globais", {})
     assert kpis["totalObras"] == 25
@@ -131,13 +136,13 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
     assert "valorNaoLocalizado" in kpis
     assert "percentualNaoLocalizado" in kpis
 
-    # Verifica lista de obras compactas com atributos territoriais
+    # Verifica lista de obras compactas com atributos territoriais e mandatos
     obras = index_data.get("obras", [])
     assert len(obras) == 5
 
     obras_por_id = {o["id"]: o for o in obras}
 
-    # 1001: Mobilidade / Verde / Bairro Pituba
+    # 1001: Mobilidade / Verde / Bairro Pituba (Plurianual: 2021-2024 e 2025-2028)
     o1001 = obras_por_id[1001]
     assert o1001["tema"] == "Mobilidade, Pavimentação e Drenagem"
     assert o1001["semaforo"]["status"] == "VERDE"
@@ -145,6 +150,9 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
     assert o1001["bairro"] == "Pituba"
     assert o1001["latitude"] is not None
     assert o1001["longitude"] is not None
+    assert o1001["mandatos"] == ["2021-2024", "2025-2028"]
+    assert o1001.get("dtInicioVigencia") == "2024-01-10T00:00:00.000Z"
+    assert o1001.get("dtTerminoVigenciaAtualizado") == "2027-12-31T00:00:00.000Z"
 
     # 1002: Encostas / Amarelo / Bairro Liberdade
     o1002 = obras_por_id[1002]

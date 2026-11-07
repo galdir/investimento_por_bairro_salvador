@@ -97,6 +97,9 @@ export interface ObraCompacta {
   tema?: TemaObra | string;
   semaforo?: SemaforoInfo;
   ano?: number;
+  mandatos?: string[];
+  dtInicioVigencia?: string;
+  dtTerminoVigenciaAtualizado?: string;
   nivel?: NivelAlocacaoTerritorial | string;
   bairro?: string | null;
   prefeituraBairro?: string | null;
@@ -197,6 +200,7 @@ export interface IndexData {
   metadata: {
     generatedAt: string;
     anoReferencia: number;
+    mandatosDisponiveis?: string[];
   };
   kpis_globais: GlobalKpis;
   concentracao_empreiteiras?: EmpreiteiraResumo[];
@@ -225,7 +229,8 @@ export interface TerritorySelection {
 }
 
 export interface FilterState {
-  ano: number | "todos";
+  mandato: string | "todos";
+  ano?: number | "todos";
   orgao: string | "todos";
   tema: string | "todos";
   semaforo: SemaforoStatus | "todos";

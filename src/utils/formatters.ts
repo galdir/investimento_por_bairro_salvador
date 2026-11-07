@@ -48,3 +48,30 @@ export function formatDecimal(valor: number): string {
   if (isNaN(valor)) return "0,00";
   return valor.toFixed(2).replace(".", ",");
 }
+
+/**
+ * Formata uma string de data (ISO 8601 ou AAAA-MM-DD) para o formato brasileiro DD/MM/AAAA.
+ *
+ * @summary Converte data ISO em formato legível DD/MM/AAAA utilizando componentes UTC.
+ * @description Evita distorções de fuso horário local convertendo diretamente ano, mês e dia UTC.
+ * @param dataStr - String de data em formato ISO ou similar.
+ * @returns String formatada no padrão brasileiro "DD/MM/AAAA" ou string original em caso de falha.
+ * @throws Não lança exceções.
+ */
+export function formatDate(dataStr?: string | null): string {
+  if (!dataStr) return "";
+  try {
+    const d = new Date(dataStr);
+    if (isNaN(d.getTime())) {
+      const parts = dataStr.slice(0, 10).split("-");
+      if (parts.length === 3) return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      return dataStr;
+    }
+    const ano = d.getUTCFullYear();
+    const mes = String(d.getUTCMonth() + 1).padStart(2, "0");
+    const dia = String(d.getUTCDate()).padStart(2, "0");
+    return `${dia}/${mes}/${ano}`;
+  } catch {
+    return dataStr;
+  }
+}

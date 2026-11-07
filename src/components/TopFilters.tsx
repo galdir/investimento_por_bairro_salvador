@@ -15,9 +15,9 @@ interface TopFiltersProps {
    */
   onResetFilters: () => void;
   /**
-   * Lista de anos disponíveis nos dados.
+   * Lista de mandatos municipais disponíveis nos dados (ex: ["2025-2028", "2021-2024"]).
    */
-  availableYears: number[];
+  availableMandatos?: string[];
   /**
    * Lista de siglas ou nomes de órgãos municipais presentes nos contratos.
    */
@@ -53,14 +53,20 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
   filters,
   onFilterChange,
   onResetFilters,
-  availableYears,
+  availableMandatos,
   availableOrgaos,
   availableTemas,
   totalObrasFiltradas,
   totalObrasGeral,
 }) => {
+  const mandatosList =
+    availableMandatos && availableMandatos.length > 0
+      ? availableMandatos
+      : ["2025-2028", "2021-2024"];
+
   const hasActiveFilters =
-    filters.ano !== "todos" ||
+    (filters.mandato && filters.mandato !== "todos") ||
+    (filters.ano && filters.ano !== "todos") ||
     filters.orgao !== "todos" ||
     filters.tema !== "todos" ||
     filters.semaforo !== "todos" ||
@@ -149,28 +155,28 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
           </div>
         </div>
 
-        {/* Linha 2: Dropdowns de Filtro Combinado (Ano, Órgão, Tema, Semáforo) e Botão Limpar */}
+        {/* Linha 2: Dropdowns de Filtro Combinado (Mandato, Órgão, Tema, Semáforo) e Botão Limpar */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
-          {/* Filtro: Ano */}
+          {/* Filtro: Mandato Municipal */}
           <div className="flex items-center gap-1.5">
-            <label htmlFor="filtro-ano-select" className="text-xs font-medium text-slate-500">
-              Ano:
+            <label htmlFor="filtro-mandato-select" className="text-xs font-medium text-slate-500">
+              Mandato:
             </label>
             <select
-              id="filtro-ano-select"
-              data-testid="filtro-ano"
-              value={filters.ano}
+              id="filtro-mandato-select"
+              data-testid="filtro-mandato"
+              value={filters.mandato || "todos"}
               onChange={(e) =>
                 onFilterChange({
-                  ano: e.target.value === "todos" ? "todos" : Number(e.target.value),
+                  mandato: e.target.value,
                 })
               }
               className="text-xs bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 font-medium text-slate-700 focus:outline-none focus:ring-1 focus:ring-emerald-500"
             >
-              <option value="todos">Todos os Anos</option>
-              {availableYears.map((ano) => (
-                <option key={ano} value={ano}>
-                  {ano}
+              <option value="todos">Todos os Mandatos</option>
+              {mandatosList.map((m) => (
+                <option key={m} value={m}>
+                  {m.replace("-", "–")}
                 </option>
               ))}
             </select>

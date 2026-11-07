@@ -8,9 +8,11 @@ import json
 import ssl
 import urllib.error
 import urllib.request
-from typing import Any
+from typing import Any, Final
 
 from etl.config import TRANSPARENCIA_API_BASE
+
+PAGE_SIZE_TRANSPARENCIA: Final[int] = 10
 
 
 def _criar_payload_filtro_ano(year: int) -> dict[str, Any]:
@@ -113,37 +115,73 @@ def fetch_totalizador(year: int = 2025) -> dict[str, Any]:
         return SAMPLE_TRANSPARENCIA_TOTALIZADOR
 
 
-def fetch_grid_detalhada(year: int = 2025) -> list[dict[str, Any]]:
-    """Obtém os contratos detalhados de obras públicas vigentes para o ano de referência.
+def fetch_grid_detalhada(
+    year: int = 2025,
+    payload_customizado: dict[str, Any] | None = None,
+    max_paginas: int = 100,
+) -> list[dict[str, Any]]:
+    """Obtém os contratos detalhados de obras públicas vigentes para o período consultado com paginação completa.
 
     Sumário:
-        Consulta `/obraspublicas/gridDetalhada?pagina=1` para extrair a lista de contratos.
+        Consulta `/obraspublicas/gridDetalhada?pagina=N` iterando por todas as páginas disponíveis.
 
     Descrição Estendida:
         Recupera a lista de contratos de engenharia com informações de número SIGEF, objeto,
         valores originais e atualizados, percentual de medição executado e razão social do credor.
-        Caso ocorra falha de rede, aciona a base de referência em `etl.reference`.
+        Itera pelas páginas de resultados até esgotar os dados ou atingir o total de páginas
+        informado pelo portal. Caso ocorra falha de rede na primeira página, aciona a base de
+        referência em `etl.reference`.
 
     Argumentos:
-        year: Ano de referência da pesquisa (ex: 2025).
+        year: Ano de referência da pesquisa (padrão: 2025).
+        payload_customizado: Dicionário opcional com intervalo de datas personalizado.
+        max_paginas: Limite de salvaguarda de páginas a consultar.
 
     Retornos:
         Lista de dicionários contendo os contratos de obras públicas.
 
     Erros:
-        Retorna fixture de referência caso a rede externa esteja inacessível.
+        Retorna fixture de referência caso a rede externa esteja inacessível na primeira página.
     """
-    payload = _criar_payload_filtro_ano(year)
-    try:
-        resp = _post_transparencia("/obraspublicas/gridDetalhada?pagina=1", payload)
-        if isinstance(resp, dict) and "dados" in resp:
-            return resp["dados"]
-        if isinstance(resp, list):
-            return resp
-        return []
-    except Exception:
-        from etl.reference.sample_data import SAMPLE_TRANSPARENCIA_GRID
-        return SAMPLE_TRANSPARENCIA_GRID
+    payload = payload_customizado or _criar_payload_filtro_ano(year)
+    registros: list[dict[str, Any]] = []
+
+    for pagina in range(1, max_paginas + 1):
+        url = f"/obraspublicas/gridDetalhada?pagina={pagina}"
+        try:
+            resp = _post_transparencia(url, payload)
+            itens: list[dict[str, Any]] = []
+            total_paginas: int | None = None
+
+            if isinstance(resp, dict):
+                if "dados" in resp and isinstance(resp["dados"], list):
+                    itens = resp["dados"]
+                elif "dados" in resp and isinstance(resp["dados"], dict):
+                    itens = [resp["dados"]]
+                paginacao = resp.get("paginacao")
+                if isinstance(paginacao, dict):
+                    total_paginas = paginacao.get("totalPaginas")
+            elif isinstance(resp, list):
+                itens = resp
+
+            if not itens:
+                break
+
+            registros.extend(itens)
+
+            tamanho_pagina = (paginacao.get("tamanhoPagina") if isinstance(paginacao, dict) else None) or PAGE_SIZE_TRANSPARENCIA
+            if total_paginas is not None and pagina >= total_paginas:
+                break
+
+            if len(itens) < tamanho_pagina:
+                break
+        except Exception:
+            if pagina == 1 and not registros:
+                from etl.reference.sample_data import SAMPLE_TRANSPARENCIA_GRID
+                return SAMPLE_TRANSPARENCIA_GRID
+            break
+
+    return registros
 
 
 def _criar_payload_contrato(cd_unidade_gestora: Any, nu_contrato_sigef: Any, year: int = 2025) -> dict[str, Any]:

@@ -6,6 +6,7 @@ const mockIndexData = {
   metadata: {
     generatedAt: "2026-11-06T20:00:00Z",
     anoReferencia: 2025,
+    mandatosDisponiveis: ["2025-2028", "2021-2024"],
   },
   kpis_globais: {
     totalObras: 25,
@@ -139,6 +140,9 @@ const mockIndexData = {
         deltaPercentualValor: 0.0,
       },
       ano: 2024,
+      mandatos: ["2021-2024", "2025-2028"],
+      dtInicioVigencia: "2024-01-10T00:00:00.000Z",
+      dtTerminoVigenciaAtualizado: "2027-12-31T00:00:00.000Z",
       nivel: "Bairro",
       bairro: "Pituba",
       prefeituraBairro: "Barra/Pituba",
@@ -167,6 +171,9 @@ const mockIndexData = {
         deltaPercentualValor: 20.0,
       },
       ano: 2025,
+      mandatos: ["2025-2028"],
+      dtInicioVigencia: "2025-03-01T00:00:00.000Z",
+      dtTerminoVigenciaAtualizado: "2027-12-31T00:00:00.000Z",
       nivel: "Pontual",
       bairro: "Liberdade",
       prefeituraBairro: "Liberdade/São Caetano",
@@ -194,7 +201,10 @@ const mockIndexData = {
         motivos: ["Paralisada", "Aditivo superior a 25%"],
         deltaPercentualValor: 33.3,
       },
-      ano: 2025,
+      ano: 2024,
+      mandatos: ["2021-2024"],
+      dtInicioVigencia: "2023-05-15T00:00:00.000Z",
+      dtTerminoVigenciaAtualizado: "2024-12-31T00:00:00.000Z",
       nivel: "Regional (Prefeitura-Bairro)",
       bairro: null,
       prefeituraBairro: "Subúrbio/Ilhas",
@@ -223,6 +233,9 @@ const mockIndexData = {
         deltaPercentualValor: 0.0,
       },
       ano: 2025,
+      mandatos: ["2025-2028"],
+      dtInicioVigencia: "2025-01-20T00:00:00.000Z",
+      dtTerminoVigenciaAtualizado: "2027-10-10T00:00:00.000Z",
       nivel: "Escopo Cidade (Não-Localizado)",
       bairro: null,
       prefeituraBairro: null,
@@ -729,5 +742,122 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       "/investimento_por_bairro_salvador/data/index_2025.json"
     );
     expect(buildDataUrl("/data/obras/1001.json", "/")).toBe("/data/obras/1001.json");
+  });
+
+  it("substitui o seletor de ano pelo seletor de Mandato Municipal e exibe as opções corretas", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-mandato")).toBeInTheDocument();
+    });
+
+    // Seletor de mandato deve estar presente e o de ano não deve mais existir
+    expect(screen.queryByTestId("filtro-ano")).not.toBeInTheDocument();
+
+    const selectMandato = screen.getByTestId("filtro-mandato") as HTMLSelectElement;
+    expect(selectMandato.value).toBe("todos");
+
+    const options = Array.from(selectMandato.querySelectorAll("option")).map((o) => o.textContent?.trim());
+    expect(options).toContain("Todos os Mandatos");
+    expect(options.some((o) => o?.includes("2025") && o?.includes("2028"))).toBe(true);
+    expect(options.some((o) => o?.includes("2021") && o?.includes("2024"))).toBe(true);
+
+    // Subtítulo do cabeçalho reflete Todos os Mandatos
+    const headerSub = screen.getByTestId("header-subtitulo");
+    expect(headerSub).toHaveTextContent(/Todos os Mandatos/i);
+  });
+
+  it("filtra por Mandato Municipal 2021-2024 exibindo obras vigentes naquele mandato incluindo plurianuais", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-mandato")).toBeInTheDocument();
+    });
+
+    // Seleciona 2021-2024
+    fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2021-2024" } });
+
+    // Subtítulo do cabeçalho deve refletir o mandato 2021-2024
+    await waitFor(() => {
+      expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(/2021.*2024/);
+    });
+
+    // Alterna para visão de tabela
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+
+    await waitFor(() => {
+      // Obra 1001 é plurianual (2021-2024 e 2025-2028): DEVE aparecer
+      expect(screen.getByTestId("linha-obra-1001")).toBeInTheDocument();
+      // Obra 1003 pertence a 2021-2024: DEVE aparecer
+      expect(screen.getByTestId("linha-obra-1003")).toBeInTheDocument();
+      // Obra 1002 e 1004 são exclusivas de 2025-2028: NÃO devem aparecer
+      expect(screen.queryByTestId("linha-obra-1002")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("linha-obra-1004")).not.toBeInTheDocument();
+    });
+  });
+
+  it("filtra por Mandato Municipal 2025-2028 exibindo obras vigentes naquele mandato incluindo plurianuais", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-mandato")).toBeInTheDocument();
+    });
+
+    // Seleciona 2025-2028
+    fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2025-2028" } });
+
+    // Subtítulo do cabeçalho reflete 2025-2028
+    await waitFor(() => {
+      expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(/2025.*2028/);
+    });
+
+    // Alterna para tabela
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+
+    await waitFor(() => {
+      // Obra 1001 é plurianual (vigente em 2025-2028 também): DEVE aparecer
+      expect(screen.getByTestId("linha-obra-1001")).toBeInTheDocument();
+      // Obra 1002 e 1004 pertencem a 2025-2028: DEVEM aparecer
+      expect(screen.getByTestId("linha-obra-1002")).toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-1004")).toBeInTheDocument();
+      // Obra 1003 é exclusiva de 2021-2024: NÃO deve aparecer
+      expect(screen.queryByTestId("linha-obra-1003")).not.toBeInTheDocument();
+    });
+  });
+
+  it("não duplica obras plurianuais quando 'Todos os Mandatos' estiver selecionado", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("filtro-mandato")).toBeInTheDocument();
+    });
+
+    // Garante que 'todos' está ativo
+    fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "todos" } });
+
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+
+    await waitFor(() => {
+      // Deve haver exatamente 4 obras (1001, 1002, 1003, 1004) sem duplicações
+      expect(screen.getAllByTestId(/^linha-obra-/)).toHaveLength(4);
+      expect(screen.getByTestId("linha-obra-1001")).toBeInTheDocument();
+    });
+  });
+
+  it("exibe a data de início de vigência do contrato na Tabela Detalhada de Obras", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-tabela")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("linha-obra-1001")).toBeInTheDocument();
+    });
+
+    // Deve exibir a data formatada de início da vigência (10/01/2024)
+    expect(screen.getByTestId("data-inicio-obra-1001")).toHaveTextContent("10/01/2024");
   });
 });

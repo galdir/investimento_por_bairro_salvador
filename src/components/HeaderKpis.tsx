@@ -8,13 +8,17 @@ interface HeaderKpisProps {
    */
   kpis: GlobalKpis;
   /**
-   * Ano de referência dos dados exibidos (ex: 2025).
+   * Ano de referência dos dados exibidos (opcional).
    */
-  ano: number;
+  ano?: number;
   /**
    * Métrica financeira ativa: 'vigente' (Valor Contratual Vigente) ou 'executado' (Valor Executado/Pago).
    */
   metricType?: MetricType;
+  /**
+   * Mandato Municipal selecionado nos filtros (ex: '2025-2028', '2021-2024' ou 'todos').
+   */
+  mandato?: string;
 }
 
 /**
@@ -33,7 +37,7 @@ interface HeaderKpisProps {
  * @returns Elemento JSX com a grade de cartões de indicadores.
  * @throws Não lança exceções.
  */
-export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = "vigente" }) => {
+export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, metricType = "vigente", mandato }) => {
   const isVigente = metricType === "vigente";
   const totalCriticas = kpis.totalCriticas ?? 0;
   const percentualCriticas = kpis.percentualCriticas ?? 0;
@@ -46,6 +50,11 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
       : (kpis.valorPagoNaoLocalizado ?? kpis.valorNaoLocalizado ?? 0);
   const percentualNaoLocalizado = kpis.percentualNaoLocalizado ?? 0;
 
+  const subtituloMandato =
+    mandato && mandato !== "todos"
+      ? `Controle social da execução orçamentária no território de Salvador • Mandato Municipal ${mandato.replace("-", "–")}`
+      : `Controle social da execução orçamentária no território de Salvador • Todos os Mandatos Municipais (2021–2028)`;
+
   return (
     <header className="bg-slate-900 text-white shadow-md border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -56,8 +65,8 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, ano, metricType = 
               <span className="inline-block w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
               Mapa das Obras e do Dinheiro por Bairro
             </h1>
-            <p className="text-sm text-slate-400 mt-0.5">
-              Controle social da execução orçamentária no território de Salvador • Exercício {ano}
+            <p data-testid="header-subtitulo" className="text-sm text-slate-400 mt-0.5">
+              {subtituloMandato}
             </p>
           </div>
           <div className="mt-3 md:mt-0 flex items-center gap-2 text-xs text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
