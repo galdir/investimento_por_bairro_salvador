@@ -133,6 +133,38 @@ const mockIndexData = {
       obrasAmarelo: 1,
       obrasVermelho: 0,
     },
+    {
+      id: 106,
+      nome: "São Caetano",
+      prefeitura_bairro: "Liberdade/São Caetano",
+      populacao: 30000,
+      indice_vulnerabilidade: 0.78,
+      is_zona_especial_nao_residencial: false,
+      valorTotal: 0.0,
+      valorPago: 0.0,
+      investimentoPorHabitante: 0.0,
+      investimentoPorHabitantePago: 0.0,
+      totalObras: 0,
+      obrasVerde: 0,
+      obrasAmarelo: 0,
+      obrasVermelho: 0,
+    },
+    {
+      id: 107,
+      nome: "Graça",
+      prefeitura_bairro: "Barra/Pituba",
+      populacao: 25000,
+      indice_vulnerabilidade: 0.12,
+      is_zona_especial_nao_residencial: false,
+      valorTotal: 0.0,
+      valorPago: 0.0,
+      investimentoPorHabitante: 0.0,
+      investimentoPorHabitantePago: 0.0,
+      totalObras: 0,
+      obrasVerde: 0,
+      obrasAmarelo: 0,
+      obrasVermelho: 0,
+    },
   ],
   obras: [
     {
@@ -526,8 +558,9 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
     });
 
-    // Clica na aba de Ranking de Prefeituras-Bairro
+    // Clica na aba de Ranking Territorial e alterna para Prefeituras-Bairro
     fireEvent.click(screen.getByTestId("tab-ranking"));
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
 
     await waitFor(() => {
       expect(screen.getByTestId("ranking-prefeituras-container")).toBeInTheDocument();
@@ -902,6 +935,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     // 2. No Ranking de Prefeituras-Bairro:
     fireEvent.click(screen.getByTestId("tab-ranking"));
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
     await waitFor(() => {
       // Liberdade/São Caetano agora lidera o ranking com R$ 50
       expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Liberdade/São Caetano");
@@ -910,6 +944,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     // 3. No Raio-X do Bairro:
     fireEvent.click(screen.getByTestId("tab-mapa"));
+    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
     fireEvent.click(screen.getByTestId("territory-selector-pituba"));
     expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 0");
     expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent(/R\$\s*0/);
@@ -967,6 +1002,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     // No Ranking de Prefeituras-Bairro:
     fireEvent.click(screen.getByTestId("tab-ranking"));
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
     await waitFor(() => {
       // 1º Barra/Pituba (R$ 184,62), 2º Subúrbio/Ilhas (R$ 50,00 via regional), 3º Liberdade/São Caetano (R$ 0)
       expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
@@ -1013,6 +1049,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(seletorLiberdade).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
 
     fireEvent.click(screen.getByTestId("tab-ranking"));
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
     await waitFor(() => {
       expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
       expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("R$ 184,62");
@@ -1042,6 +1079,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     // No ranking, Subúrbio/Ilhas lidera com R$ 50,00 e as outras estão zeradas
     fireEvent.click(screen.getByTestId("tab-ranking"));
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
     await waitFor(() => {
       expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Subúrbio/Ilhas");
       expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent(/R\$\s*50/);
@@ -1071,6 +1109,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     // No Ranking de Prefeituras-Bairro:
     fireEvent.click(screen.getByTestId("tab-ranking"));
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
     await waitFor(() => {
       // 1º Barra/Pituba (R$ 120,92)
       expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
@@ -1247,6 +1286,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     // 3. No Ranking de Prefeituras-Bairro, permite ordenar por Vulnerabilidade
     fireEvent.click(screen.getByTestId("tab-ranking"));
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
     await waitFor(() => {
       expect(screen.getByTestId("btn-criterio-vulnerabilidade")).toBeInTheDocument();
     });
@@ -1259,5 +1299,220 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     });
 
     geoJsonSpy.mockRestore();
+  });
+
+  it("sincroniza a aba Ranking Territorial com a camada ativa do painel e atualiza a camada ao alternar nível ou selecionar território", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    // 1. Aba deve exibir o rótulo 'Ranking Territorial'
+    expect(screen.getByTestId("tab-ranking")).toHaveTextContent("Ranking Territorial");
+
+    // 2. Abre a aba Ranking Territorial: como a camada padrão é 'bairros', deve abrir em Bairros Oficiais
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-prefeituras-container")).toBeInTheDocument();
+    });
+
+    // O botão de Bairros Oficiais deve estar ativo e a lista de bairros deve ser exibida
+    expect(screen.getByTestId("btn-ranking-bairros")).toHaveClass("bg-white text-slate-900");
+    expect(screen.getByTestId("ranking-bairro-1")).toBeInTheDocument();
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+
+    // 3. Alterna o nível para Prefeituras-Bairro no cabeçalho do Ranking
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-item-1")).toBeInTheDocument();
+    });
+    expect(screen.getByTestId("btn-ranking-prefeituras")).toHaveClass("bg-white text-slate-900");
+    expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
+
+    // Volta ao mapa para verificar que a camada ativa do painel foi sincronizada para Prefeituras-Bairro
+    fireEvent.click(screen.getByTestId("tab-mapa"));
+    await waitFor(() => {
+      expect(screen.getByTestId("territory-selector-barra-pituba")).toBeInTheDocument();
+    });
+
+    // 4. Retorna ao Ranking Territorial: deve abrir diretamente em Prefeituras-Bairro (sincronizado com a camada ativa)
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-item-1")).toBeInTheDocument();
+    });
+
+    // 5. Clica em Barra/Pituba no ranking: seleciona no Raio-X e preserva a camada de Prefeituras
+    fireEvent.click(screen.getByTestId("ranking-item-1"));
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+    });
+
+    // 6. Alterna de volta para Bairros Oficiais e clica em um bairro: seleciona no Raio-X e sincroniza a camada para Bairros
+    fireEvent.click(screen.getByTestId("btn-ranking-bairros"));
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-bairro-1")).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByTestId("ranking-bairro-1"));
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+    });
+
+    // Volta ao mapa e confirma que o seletor rápido é de bairros
+    fireEvent.click(screen.getByTestId("tab-mapa"));
+    await waitFor(() => {
+      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+    });
+  });
+
+  it("permite ordenar Bairros Oficiais e Prefeituras-Bairro pelos 4 critérios com simetria e reatividade financeira", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    // 1. Verifica existência dos 4 critérios de ordenação
+    expect(screen.getByTestId("btn-criterio-investimento")).toBeInTheDocument();
+    expect(screen.getByTestId("btn-criterio-valortotal")).toBeInTheDocument();
+    expect(screen.getByTestId("btn-criterio-totalobras")).toBeInTheDocument();
+    expect(screen.getByTestId("btn-criterio-vulnerabilidade")).toBeInTheDocument();
+
+    // 2. Critério padrão: R$/Hab em Bairros Oficiais (vigente)
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("R$ 184,62 / hab");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Liberdade");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent(/R\$\s*50(\,00)?\s*\/ hab/);
+
+    // 3. Critério: Valor Total em Bairros Oficiais (vigente)
+    fireEvent.click(screen.getByTestId("btn-criterio-valortotal"));
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("R$ 12.000.000");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Liberdade");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("R$ 2.400.000");
+
+    // 4. Critério: Vulnerabilidade em Bairros Oficiais
+    fireEvent.click(screen.getByTestId("btn-criterio-vulnerabilidade"));
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Liberdade");
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("0,78");
+
+    // 5. Alterna a métrica superior para Executado / Pago
+    fireEvent.click(screen.getByTestId("btn-metrica-executado"));
+
+    // Valor Total sob Executado / Pago
+    fireEvent.click(screen.getByTestId("btn-criterio-valortotal"));
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("R$ 7.860.000");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Liberdade");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("R$ 1.200.000");
+
+    // R$/Hab sob Executado / Pago
+    fireEvent.click(screen.getByTestId("btn-criterio-investimento"));
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("R$ 120,92 / hab");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Liberdade");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent(/R\$\s*25(\,00)?\s*\/ hab/);
+
+    // 6. Simetria nos 4 critérios em Prefeituras-Bairro
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-item-1")).toBeInTheDocument();
+    });
+
+    // Em Prefeituras-Bairro sob Executado / Pago por Valor Total
+    fireEvent.click(screen.getByTestId("btn-criterio-valortotal"));
+    expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Barra/Pituba");
+    expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("R$ 7.860.000");
+    expect(screen.getByTestId("ranking-item-2")).toHaveTextContent("Liberdade/São Caetano");
+    expect(screen.getByTestId("ranking-valor-2")).toHaveTextContent("R$ 1.200.000");
+
+    // Em Prefeituras-Bairro por Vulnerabilidade
+    fireEvent.click(screen.getByTestId("btn-criterio-vulnerabilidade"));
+    expect(screen.getByTestId("ranking-item-1")).toHaveTextContent("Liberdade/São Caetano");
+    expect(screen.getByTestId("ranking-valor-1")).toHaveTextContent("0,78");
+  });
+
+  it("alterna direção de ordenação (maiores vs menores/desassistidos primeiro) e desempata pelo maior índice de vulnerabilidade", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    // 1. Controles de direção devem existir
+    expect(screen.getByTestId("btn-direcao-desc")).toBeInTheDocument();
+    expect(screen.getByTestId("btn-direcao-asc")).toBeInTheDocument();
+
+    // 2. Ordenação crescente (menores / desassistidos primeiro) no critério R$/Hab
+    fireEvent.click(screen.getByTestId("btn-direcao-asc"));
+
+    // Bairros com R$ 0,00 / hab: São Caetano (vuln 0.78) e Graça (vuln 0.12)
+    // Desempate: maior vulnerabilidade vem primeiro!
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("São Caetano");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Graça");
+
+    // 3. Ordenação crescente no critério Nº de Obras
+    fireEvent.click(screen.getByTestId("btn-criterio-totalobras"));
+    // Empate em 0 obras: São Caetano (vuln 0.78) antes de Graça (vuln 0.12)
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("São Caetano");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Graça");
+
+    // 4. Retorna a Maiores primeiro (desc)
+    fireEvent.click(screen.getByTestId("btn-direcao-desc"));
+    fireEvent.click(screen.getByTestId("btn-criterio-investimento"));
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+  });
+
+  it("aplica semântica de cores unificada e exibe rodapé com metadados cruzados nos dois níveis", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    // 1. Rodapé cruzado em Bairros Oficiais exibe os 5 indicadores simultaneamente
+    const cardBairro1 = screen.getByTestId("ranking-bairro-1");
+    expect(cardBairro1).toHaveTextContent("habitantes");
+    expect(cardBairro1).toHaveTextContent("Total:");
+    expect(cardBairro1).toHaveTextContent(/obras?/i);
+    expect(cardBairro1).toHaveTextContent("/ hab");
+    expect(cardBairro1).toHaveTextContent("Vulnerabilidade:");
+
+    // 2. Cor da barra em Bairros Oficiais para critério financeiro (verde esmeralda)
+    const barraBairroVerde = cardBairro1.querySelector(".bg-emerald-500, .bg-emerald-600");
+    expect(barraBairroVerde).not.toBeNull();
+
+    // 3. Cor da barra em Bairros Oficiais para vulnerabilidade (roxo índigo)
+    fireEvent.click(screen.getByTestId("btn-criterio-vulnerabilidade"));
+    const barraBairroRoxa = screen.getByTestId("ranking-bairro-1").querySelector(".bg-indigo-600, .bg-indigo-500");
+    expect(barraBairroRoxa).not.toBeNull();
+
+    // 4. Alterna para Prefeituras-Bairro e verifica simetria de cores e rodapé
+    fireEvent.click(screen.getByTestId("btn-ranking-prefeituras"));
+    await waitFor(() => {
+      expect(screen.getByTestId("ranking-item-1")).toBeInTheDocument();
+    });
+
+    const cardPrefeitura1 = screen.getByTestId("ranking-item-1");
+    expect(cardPrefeitura1).toHaveTextContent("habitantes");
+    expect(cardPrefeitura1).toHaveTextContent("Total:");
+    expect(cardPrefeitura1).toHaveTextContent(/obras?/i);
+    expect(cardPrefeitura1).toHaveTextContent("Vulnerabilidade:");
+
+    // Em vulnerabilidade, a barra da prefeitura usa índigo
+    const barraPbRoxa = cardPrefeitura1.querySelector(".bg-indigo-600, .bg-indigo-500");
+    expect(barraPbRoxa).not.toBeNull();
+
+    // Em investimento, a barra da prefeitura DEVE usar verde esmeralda (unificação da semântica)
+    fireEvent.click(screen.getByTestId("btn-criterio-investimento"));
+    const barraPbVerde = screen.getByTestId("ranking-item-1").querySelector(".bg-emerald-500, .bg-emerald-600");
+    expect(barraPbVerde).not.toBeNull();
   });
 });
