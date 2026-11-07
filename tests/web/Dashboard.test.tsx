@@ -1391,8 +1391,11 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     fireEvent.click(screen.getByTestId("btn-criterio-valortotal"));
     expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
     expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("R$ 12.000.000");
-    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Liberdade");
-    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("R$ 2.400.000");
+    // Sob Valor Total, Zonas Especiais entram no ranking numerado (Aeroporto R$ 10M é #2, Liberdade R$ 2.4M é #3)
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Aeroporto");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("R$ 10.000.000");
+    expect(screen.getByTestId("ranking-bairro-3")).toHaveTextContent("Liberdade");
+    expect(screen.getByTestId("ranking-bairro-3")).toHaveTextContent("R$ 2.400.000");
 
     // 4. Critério: Vulnerabilidade em Bairros Oficiais
     fireEvent.click(screen.getByTestId("btn-criterio-vulnerabilidade"));
@@ -1514,5 +1517,179 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     fireEvent.click(screen.getByTestId("btn-criterio-investimento"));
     const barraPbVerde = screen.getByTestId("ranking-item-1").querySelector(".bg-emerald-500, .bg-emerald-600");
     expect(barraPbVerde).not.toBeNull();
+  });
+
+  it("permite busca textual por nome do bairro nos Bairros Oficiais (insensível a acentuação e maiúsculas/minúsculas)", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    // O campo de busca por bairro oficial deve estar presente
+    const searchInput = screen.getByTestId("input-busca-bairro");
+    expect(searchInput).toBeInTheDocument();
+
+    // 1. Busca por nome com minúsculas e sem acento: "graca" deve encontrar "Graça" preservando a posição relativa (#4)
+    fireEvent.change(searchInput, { target: { value: "graca" } });
+
+    const cardResultadoGraca = screen.getByTestId("ranking-bairro-1");
+    expect(cardResultadoGraca).toHaveTextContent("Graça");
+    expect(cardResultadoGraca).toHaveTextContent("#4");
+    expect(screen.queryByText("Pituba")).not.toBeInTheDocument();
+    expect(screen.queryByText("Liberdade")).not.toBeInTheDocument();
+
+    // 2. Busca por nome em maiúsculas: "PITUBA" deve encontrar "Pituba" com sua posição (#1)
+    fireEvent.change(searchInput, { target: { value: "PITUBA" } });
+    const cardResultadoPituba = screen.getByTestId("ranking-bairro-1");
+    expect(cardResultadoPituba).toHaveTextContent("Pituba");
+    expect(cardResultadoPituba).toHaveTextContent("#1");
+    expect(screen.queryByText("Graça")).not.toBeInTheDocument();
+
+    // 3. Limpar a busca restaura a lista completa
+    fireEvent.change(searchInput, { target: { value: "" } });
+    expect(screen.getByText("Pituba")).toBeInTheDocument();
+    expect(screen.getByText("Graça")).toBeInTheDocument();
+  });
+
+  it("permite filtrar Bairros Oficiais por Prefeitura-Bairro e restringe a lista à Prefeitura-Bairro selecionada", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    const selectPb = screen.getByTestId("select-filtro-prefeitura");
+    expect(selectPb).toBeInTheDocument();
+
+    // 1. Filtra por Barra/Pituba
+    fireEvent.change(selectPb, { target: { value: "Barra/Pituba" } });
+
+    // Apenas bairros da Barra/Pituba devem aparecer (Pituba e Graça)
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Graça");
+    expect(screen.queryByText("Liberdade")).not.toBeInTheDocument();
+    expect(screen.queryByText("São Caetano")).not.toBeInTheDocument();
+
+    // 2. Volta para Todas as Prefeituras-Bairro
+    fireEvent.change(selectPb, { target: { value: "todas" } });
+    expect(screen.getByText("Liberdade")).toBeInTheDocument();
+    expect(screen.getByText("São Caetano")).toBeInTheDocument();
+  });
+
+  it("exibe banner contextual de Obras Regionais informando quantidade e valor financeiro de acordo com a métrica e a Prefeitura-Bairro filtrada", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    // 1. Banner contextual deve estar presente em Bairros Oficiais
+    const banner = screen.getByTestId("banner-obras-regionais");
+    expect(banner).toBeInTheDocument();
+    expect(banner).toHaveTextContent("Regional (Prefeitura-Bairro)");
+    expect(banner).toHaveTextContent(/1 obra/i);
+    expect(banner).toHaveTextContent("R$ 4.000.000");
+    expect(banner).toHaveTextContent(/sem rateio artificial/i);
+
+    // 2. Ao selecionar "Subúrbio/Ilhas" (onde a obra regional 1003 está alocada), mantém 1 obra e R$ 4.000.000
+    const selectPb = screen.getByTestId("select-filtro-prefeitura");
+    fireEvent.change(selectPb, { target: { value: "Subúrbio/Ilhas" } });
+    expect(banner).toHaveTextContent(/1 obra/i);
+    expect(banner).toHaveTextContent("R$ 4.000.000");
+
+    // 3. Ao selecionar "Barra/Pituba" (sem obras regionais no mock), exibe 0 obras e R$ 0,00
+    fireEvent.change(selectPb, { target: { value: "Barra/Pituba" } });
+    expect(banner).toHaveTextContent(/0 obras?/i);
+    expect(banner).toHaveTextContent(/R\$\s*0(\,00)?/);
+
+    // 4. Retorna para todas e alterna métrica para "executado"
+    fireEvent.change(selectPb, { target: { value: "todas" } });
+    fireEvent.click(screen.getByTestId("btn-metrica-executado"));
+    // Obra 1003 tem valorPago = 800.000
+    expect(banner).toHaveTextContent("R$ 800.000");
+
+    // 5. Clicar em um bairro individual (ex: Pituba) abre o Raio-X sem zerar o banner de obras regionais
+    fireEvent.click(screen.getByTestId("ranking-bairro-1"));
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+    });
+    // O banner de obras regionais permanece ativo e alimentado por topFilteredObras
+    expect(screen.getByTestId("banner-obras-regionais")).toHaveTextContent("R$ 800.000");
+  });
+
+  it("trata Zonas Especiais Não-Residenciais condicionalmente: seção ao final em R$/Hab e Vulnerabilidade, e na lista numerada com badge em Valor Total e Nº de Obras", async () => {
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("tab-ranking")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByTestId("tab-ranking"));
+
+    // 1. Sob R$/Hab (padrão): Zonas especiais NÃO estão no ranking numerado #1..#N
+    // Os bairros numerados devem ser os residenciais (Pituba, Liberdade, São Caetano, Graça)
+    const cardBairro1 = screen.getByTestId("ranking-bairro-1");
+    expect(cardBairro1).toHaveTextContent("Pituba");
+    expect(screen.getByTestId("ranking-bairro-2")).toHaveTextContent("Liberdade");
+
+    // Seção de Zonas Especiais deve existir ao final
+    const secaoZonas = screen.getByTestId("secao-zonas-especiais");
+    expect(secaoZonas).toBeInTheDocument();
+    expect(secaoZonas).toHaveTextContent("Zonas Especiais Não-Residenciais — isentas do cálculo per capita");
+    expect(secaoZonas).toHaveTextContent("Aeroporto");
+    expect(secaoZonas).toHaveTextContent("Centro Administrativo da Bahia - CAB");
+    expect(secaoZonas).toHaveTextContent("Isento per capita");
+
+    // Clicar em Aeroporto na seção especial abre o Raio-X
+    fireEvent.click(screen.getByTestId("ranking-zona-especial-1"));
+    await waitFor(() => {
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Aeroporto");
+    });
+    expect(screen.getByTestId("badge-zona-especial")).toBeInTheDocument();
+
+    // 2. Sob Vulnerabilidade: Zonas especiais permanecem na seção dedicada ao final
+    fireEvent.click(screen.getByTestId("btn-criterio-vulnerabilidade"));
+    expect(screen.getByTestId("secao-zonas-especiais")).toBeInTheDocument();
+
+    // 3. Sob Valor Total: Zonas especiais ENTRAM nas posições numeradas #1..#N com badge
+    fireEvent.click(screen.getByTestId("btn-criterio-valortotal"));
+    expect(screen.queryByTestId("secao-zonas-especiais")).not.toBeInTheDocument();
+
+    // Ranking por Valor Total desc:
+    // 1: Pituba (R$ 12.000.000)
+    // 2: Aeroporto (R$ 10.000.000) - Zona Especial
+    // 3: Liberdade (R$ 2.400.000)
+    // 4: Centro Administrativo da Bahia - CAB (R$ 500.000) - Zona Especial
+    expect(screen.getByTestId("ranking-bairro-1")).toHaveTextContent("Pituba");
+    const itemAeroporto = screen.getByTestId("ranking-bairro-2");
+    expect(itemAeroporto).toHaveTextContent("Aeroporto");
+    expect(itemAeroporto).toHaveTextContent("Zona Especial Não-Residencial");
+    expect(itemAeroporto).toHaveTextContent("R$ 10.000.000");
+    expect(itemAeroporto).toHaveTextContent("Isento per capita");
+
+    const itemCab = screen.getByTestId("ranking-bairro-4");
+    expect(itemCab).toHaveTextContent("Centro Administrativo da Bahia - CAB");
+    expect(itemCab).toHaveTextContent("Zona Especial Não-Residencial");
+    expect(itemCab).toHaveTextContent("R$ 500.000");
+
+    // 4. Sob Nº de Obras: Zonas especiais também participam do ranking numerado
+    // Todas as 4 áreas com obras têm 1 obra; desempate por vulnerabilidade desc:
+    // 1: Liberdade (0.78), 2: Pituba (0.12), 3: CAB (0.08), 4: Aeroporto (0.05)
+    fireEvent.click(screen.getByTestId("btn-criterio-totalobras"));
+    expect(screen.queryByTestId("secao-zonas-especiais")).not.toBeInTheDocument();
+    const itemCabObras = screen.getByTestId("ranking-bairro-3");
+    expect(itemCabObras).toHaveTextContent("Centro Administrativo da Bahia - CAB");
+    expect(itemCabObras).toHaveTextContent("Zona Especial Não-Residencial");
+
+    const itemAeroObras = screen.getByTestId("ranking-bairro-4");
+    expect(itemAeroObras).toHaveTextContent("Aeroporto");
+    expect(itemAeroObras).toHaveTextContent("Zona Especial Não-Residencial");
   });
 });

@@ -615,6 +615,7 @@ export const App: React.FC = () => {
                 <PrefeiturasRanking
                   prefeituras={recalculatedPrefeituras}
                   bairros={recalculatedBairros}
+                  obras={topFilteredObras}
                   metricType={filters.metricType}
                   selectedNome={activeSelectedTerritory?.nome}
                   activeLevel={activeLayer}
