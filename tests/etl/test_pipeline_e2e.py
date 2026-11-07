@@ -113,14 +113,51 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
     with open(index_file, "r", encoding="utf-8") as f:
         index_data = json.load(f)
 
-    # Verifica estrutura dos KPIs Globais
+    # Verifica estrutura dos KPIs Globais enriquecidos
     kpis = index_data.get("kpis_globais", {})
     assert kpis["totalObras"] == 25
     assert kpis["valorTotal"] == 150000000.00
     assert kpis["totalAtivas"] >= 2
     assert "investimentoPorHabitanteCidade" in kpis
+    assert "totalCriticas" in kpis
+    assert "percentualCriticas" in kpis
+    assert "totalAditivosValor" in kpis
+    assert "percentualMedioAditivos" in kpis
+    assert kpis["totalCriticas"] >= 2
 
-    # Verifica listas consolidadas
+    # Verifica listas consolidadas e enriquecimento de obras
     assert len(index_data.get("bairros", [])) == len(SAMPLE_GEOSALVADOR_BAIRROS["features"])
     assert len(index_data.get("prefeituras_bairro", [])) == len(SAMPLE_GEOSALVADOR_PREFEITURAS["features"])
-    assert len(index_data.get("obras", [])) == 2
+    obras = index_data.get("obras", [])
+    assert len(obras) == 5
+
+    # Indexa obras por ID para verificação de Tema e Semáforo
+    obras_por_id = {o["id"]: o for o in obras}
+
+    # 1001: Mobilidade / Verde (no prazo)
+    o1001 = obras_por_id[1001]
+    assert o1001["tema"] == "Mobilidade, Pavimentação e Drenagem"
+    assert o1001["semaforo"]["status"] == "VERDE"
+    assert o1001["deltaPercentualValor"] == 0.0
+
+    # 1002: Encostas / Amarelo (aditivo 20%)
+    o1002 = obras_por_id[1002]
+    assert o1002["tema"] == "Encostas e Contenção"
+    assert o1002["semaforo"]["status"] == "AMARELO"
+    assert o1002["deltaPercentualValor"] == 20.0
+    assert o1002["valorAditivos"] == 700000.0
+
+    # 1003: Educação / Vermelho (Paralisada / aditivo 30%)
+    o1003 = obras_por_id[1003]
+    assert o1003["tema"] == "Educação e Escolas"
+    assert o1003["semaforo"]["status"] == "VERMELHO"
+
+    # 1004: Praças / Verde (em execução 90%)
+    o1004 = obras_por_id[1004]
+    assert o1004["tema"] == "Praças, Esporte e Lazer"
+    assert o1004["semaforo"]["status"] == "VERDE"
+
+    # 1005: Saúde / Vermelho (prazo vencido)
+    o1005 = obras_por_id[1005]
+    assert o1005["tema"] == "Saúde"
+    assert o1005["semaforo"]["status"] == "VERMELHO"

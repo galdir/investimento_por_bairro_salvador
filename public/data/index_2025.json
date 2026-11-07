@@ -1,12 +1,16 @@
 {
   "metadata": {
-    "generatedAt": "2026-11-07T00:21:41.965132+00:00",
+    "generatedAt": "2026-11-07T02:13:43.604967+00:00",
     "anoReferencia": 2025
   },
   "kpis_globais": {
     "totalObras": 25,
     "valorTotal": 150000000.0,
-    "totalAtivas": 2,
+    "totalAtivas": 5,
+    "totalCriticas": 2,
+    "percentualCriticas": 40.0,
+    "totalAditivosValor": 2200000.0,
+    "percentualMedioAditivos": 10.0,
     "totalEmpenhado": 120000000.0,
     "totalLiquidado": 95000000.0,
     "totalPago": 90000000.0,
@@ -1611,20 +1615,123 @@
       "unidadeGestora": "SUCOP",
       "numeroContrato": "001/2024",
       "objeto": "Requalificação da Orla da Pituba com drenagem e nova ciclovia",
+      "valorOriginal": 12000000.0,
       "valorContratualVigente": 12000000.0,
+      "valorAditivos": 0.0,
+      "deltaPercentualValor": 0.0,
+      "valorPago": 7860000.0,
       "percentualExecutado": 65.5,
       "situacao": "Em Execução",
-      "credor": "CONSTRUTORA SALVADOR LTDA"
+      "credor": "CONSTRUTORA SALVADOR LTDA",
+      "tema": "Mobilidade, Pavimentação e Drenagem",
+      "semaforo": {
+        "status": "VERDE",
+        "rotulo": "Verde (No Prazo)",
+        "motivos": [
+          "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+        ],
+        "deltaPercentualValor": 0.0
+      },
+      "ano": 2024
     },
     {
       "id": 1002,
       "unidadeGestora": "SUCOP",
       "numeroContrato": "002/2024",
-      "objeto": "Contenção de encosta na Rua Direta da Liberdade",
+      "objeto": "Contenção de encosta na Rua Direta da Liberdade com aplicação de geomanta",
+      "valorOriginal": 3500000.0,
       "valorContratualVigente": 4200000.0,
+      "valorAditivos": 700000.0,
+      "deltaPercentualValor": 20.0,
+      "valorPago": 1680000.0,
       "percentualExecutado": 40.0,
       "situacao": "Em Execução",
-      "credor": "BAHIA ENGENHARIA S/A"
+      "credor": "BAHIA ENGENHARIA S/A",
+      "tema": "Encostas e Contenção",
+      "semaforo": {
+        "status": "AMARELO",
+        "rotulo": "Amarelo (Atenção)",
+        "motivos": [
+          "Prorrogação de prazo concedida: término estendido de 30/06/2027 para 31/12/2027",
+          "Aditivos de valor acumulados entre 10% e 25% (+20.0%) em relação ao contrato original"
+        ],
+        "deltaPercentualValor": 20.0
+      },
+      "ano": 2024
+    },
+    {
+      "id": 1003,
+      "unidadeGestora": "FME",
+      "numeroContrato": "015/2024",
+      "objeto": "Construção de nova Escola Municipal e CMEI no Subúrbio Ferroviário",
+      "valorOriginal": 5000000.0,
+      "valorContratualVigente": 6500000.0,
+      "valorAditivos": 1500000.0,
+      "deltaPercentualValor": 30.0,
+      "valorPago": 2275000.0,
+      "percentualExecutado": 35.0,
+      "situacao": "Paralisada",
+      "credor": "NORDESTE CONSTRUCOES LTDA",
+      "tema": "Educação e Escolas",
+      "semaforo": {
+        "status": "VERMELHO",
+        "rotulo": "Vermelho (Crítica)",
+        "motivos": [
+          "Contrato com situação cadastral de alerta (Paralisada)",
+          "Vigência expirada em 01/02/2025 com execução física incompleta (35.0%)",
+          "Aditivo de valor superior a 25% (+30.0%) acumulado em relação ao contrato original"
+        ],
+        "deltaPercentualValor": 30.0
+      },
+      "ano": 2024
+    },
+    {
+      "id": 1004,
+      "unidadeGestora": "DESAL",
+      "numeroContrato": "042/2024",
+      "objeto": "Requalificação e modernização de praça esportiva com parque infantil e quadra poliesportiva",
+      "valorOriginal": 1500000.0,
+      "valorContratualVigente": 1500000.0,
+      "valorAditivos": 0.0,
+      "deltaPercentualValor": 0.0,
+      "valorPago": 1350000.0,
+      "percentualExecutado": 90.0,
+      "situacao": "Em Execução",
+      "credor": "SALVADOR PARQUES E OBRAS EIRELI",
+      "tema": "Praças, Esporte e Lazer",
+      "semaforo": {
+        "status": "VERDE",
+        "rotulo": "Verde (No Prazo)",
+        "motivos": [
+          "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+        ],
+        "deltaPercentualValor": 0.0
+      },
+      "ano": 2024
+    },
+    {
+      "id": 1005,
+      "unidadeGestora": "FMS",
+      "numeroContrato": "088/2024",
+      "objeto": "Reforma e ampliação da Unidade de Saúde da Família (USF)",
+      "valorOriginal": 4000000.0,
+      "valorContratualVigente": 4000000.0,
+      "valorAditivos": 0.0,
+      "deltaPercentualValor": 0.0,
+      "valorPago": 2800000.0,
+      "percentualExecutado": 70.0,
+      "situacao": "Em Execução",
+      "credor": "MEDICINA & ENGENHARIA CONSTRUTORA",
+      "tema": "Saúde",
+      "semaforo": {
+        "status": "VERMELHO",
+        "rotulo": "Vermelho (Crítica)",
+        "motivos": [
+          "Vigência expirada em 31/12/2024 com execução física incompleta (70.0%)"
+        ],
+        "deltaPercentualValor": 0.0
+      },
+      "ano": 2024
     }
   ]
 }

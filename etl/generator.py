@@ -9,6 +9,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from etl.domain.semaforo import classificar_semaforo
+from etl.domain.tema import classificar_tema
 from etl.domain.territorio import is_zona_especial_nao_residencial, normalizar_nome
 
 
@@ -193,18 +195,46 @@ def generate_index_json(
     """
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Formata a lista compacta de obras públicas para a visão inicial
+    # Formata a lista compacta de obras públicas para a visão inicial e tabela detalhada
     obras_compactas = []
     for o in obras_detalhadas:
+        vl_orig = float(o.get("vlOriginal") or o.get("valorOriginal") or 0.0)
+        vl_atua = float(o.get("vlAtualizado") or o.get("valorContratualVigente") or vl_orig)
+        valor_aditivos = round(max(0.0, vl_atua - vl_orig), 2)
+        delta_percentual = round(((vl_atua - vl_orig) / vl_orig) * 100.0, 2) if vl_orig > 0 else 0.0
+
+        # Percentual executado e estimativa do valor pago/liquidado
+        perc_exec = float(o.get("percentualExecutado") or 0.0)
+        vl_pago = float(o.get("vlPago") or o.get("valorPago") or round(vl_atua * (perc_exec / 100.0), 2))
+
+        # Classificações determinísticas de Tema e Semáforo da Obra
+        tema = classificar_tema(o)
+        semaforo = classificar_semaforo(o)
+
+        # Extração de ano da obra
+        ano_obra = year
+        if o.get("dtInicioVigencia"):
+            try:
+                ano_obra = int(str(o["dtInicioVigencia"])[:4])
+            except Exception:
+                pass
+
         obras_compactas.append({
             "id": o.get("id"),
             "unidadeGestora": o.get("sgOrgao") or o.get("dsUnidadeGestora"),
             "numeroContrato": o.get("nuContratoSigef"),
             "objeto": o.get("dsObjeto"),
-            "valorContratualVigente": float(o.get("vlAtualizado") or o.get("vlOriginal") or 0.0),
-            "percentualExecutado": float(o.get("percentualExecutado") or 0.0),
+            "valorOriginal": vl_orig,
+            "valorContratualVigente": vl_atua,
+            "valorAditivos": valor_aditivos,
+            "deltaPercentualValor": delta_percentual,
+            "valorPago": vl_pago,
+            "percentualExecutado": perc_exec,
             "situacao": o.get("dsSituacao"),
             "credor": o.get("nmCredor"),
+            "tema": tema,
+            "semaforo": semaforo,
+            "ano": ano_obra,
         })
 
     payload = {
