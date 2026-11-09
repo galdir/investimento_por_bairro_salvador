@@ -63,8 +63,8 @@ Razão entre a soma financeira das Obras Públicas alocadas a um recorte territo
 _Avoid_: Gasto médio por pessoa, renda per capita, cota por morador
 
 **Índice de Vulnerabilidade do Bairro**:
-Métrica sociodemográfica e de déficit de infraestrutura de cada Bairro Oficial extraída dos agregados do Censo 2022 do IBGE, utilizada para confrontar o Investimento por Habitante com o grau de necessidade social do território.
-_Avoid_: Índice de pobreza, nota social
+Métrica composta multidimensional (`0,00` a `1,00`) de carência de infraestrutura urbana e capital humano de cada Bairro Oficial residencial (e consolidada por média ponderada populacional para cada Prefeitura-Bairro), fundamentada no Índice de Desenvolvimento Social (IDS/IPP) e no Índice de Vulnerabilidade Social (IVS/IPEA) a partir dos agregados do Universo do Censo 2022 do IBGE (déficit de esgotamento sanitário adequado, déficit de abastecimento de água por rede geral e taxa de analfabetismo de 15 anos ou mais).
+_Avoid_: Índice de pobreza, nota social, estimativa manual
 
 **Semáforo da Obra**:
 Classificação automática de risco e andamento de cada Obra Pública pela pior condição observada:
