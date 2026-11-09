@@ -1777,4 +1777,65 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     );
     expect(screen.getByTestId("territory-selector-barra-pituba")).toHaveTextContent(/Barra\/Pituba\(65\.000 hab • R\$\s*184,62\/hab\)/);
   });
+
+  describe("Gatilhos 'Como é calculado?' e Modal Nota Metodológica", () => {
+    it("abre o modal de nota metodológica a partir da barra do mapa, do ranking e do raio-x, mantendo filtros ao fechar", async () => {
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("btn-camada-per-capita")).toBeInTheDocument();
+      });
+
+      // 1. Gatilho na barra rápida de camadas/métricas do mapa interativo
+      const btnMapa = screen.getByTestId("btn-como-calculado-mapa");
+      expect(btnMapa).toBeInTheDocument();
+      fireEvent.click(btnMapa);
+
+      // Modal abre com título e conteúdo
+      expect(screen.getByTestId("modal-nota-metodologica")).toBeInTheDocument();
+      expect(screen.getByTestId("modal-nota-metodologica-titulo")).toHaveTextContent(
+        "Nota Metodológica — Índice de Vulnerabilidade"
+      );
+      expect(screen.getByText(/Cavallieri & Lopes/i)).toBeInTheDocument();
+      expect(screen.getByText(/Tabela 6805/i)).toBeInTheDocument();
+
+      // Fecha modal pelo botão de fechar
+      fireEvent.click(screen.getByTestId("btn-fechar-nota-metodologica"));
+      expect(screen.queryByTestId("modal-nota-metodologica")).not.toBeInTheDocument();
+
+      // 2. Gatilho no painel lateral Raio-X ao selecionar um território
+      fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-container")).toBeInTheDocument();
+      });
+
+      const btnRaioX = screen.getByTestId("btn-como-calculado-raiox");
+      expect(btnRaioX).toBeInTheDocument();
+      fireEvent.click(btnRaioX);
+
+      expect(screen.getByTestId("modal-nota-metodologica")).toBeInTheDocument();
+      fireEvent.click(screen.getByTestId("btn-fechar-nota-metodologica"));
+      expect(screen.queryByTestId("modal-nota-metodologica")).not.toBeInTheDocument();
+
+      // Seleção territorial de Pituba permanece ativa
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+
+      // 3. Gatilho no cabeçalho do Ranking Territorial
+      fireEvent.click(screen.getByTestId("tab-ranking"));
+      await waitFor(() => {
+        expect(screen.getByTestId("ranking-prefeituras-container")).toBeInTheDocument();
+      });
+
+      const btnRanking = screen.getByTestId("btn-como-calculado-ranking");
+      expect(btnRanking).toBeInTheDocument();
+      fireEvent.click(btnRanking);
+
+      expect(screen.getByTestId("modal-nota-metodologica")).toBeInTheDocument();
+      fireEvent.click(screen.getByTestId("btn-fechar-nota-metodologica"));
+      expect(screen.queryByTestId("modal-nota-metodologica")).not.toBeInTheDocument();
+
+      // Continua na visão de Ranking
+      expect(screen.getByTestId("ranking-prefeituras-container")).toBeInTheDocument();
+    });
+  });
 });

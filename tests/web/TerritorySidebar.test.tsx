@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { TerritorySidebar } from "../../src/components/TerritorySidebar";
 import { TerritorySelection } from "../../src/types";
 
@@ -99,5 +99,35 @@ describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Ce
     expect(screen.getByTestId("raio-x-agua")).toHaveTextContent("14,20%");
     expect(screen.getByTestId("raio-x-analfabetismo")).toHaveTextContent("8,10%");
     expect(screen.getByText(/Média ponderada pela população dos bairros componentes/i)).toBeInTheDocument();
+  });
+
+  it("renderiza o botão 'Como é calculado?' no card de vulnerabilidade e invoca o callback ao clicar", () => {
+    const onOpenMock = vi.fn();
+    const bairroResidencial: TerritorySelection = {
+      tipo: "bairro",
+      id: 101,
+      nome: "Pituba",
+      prefeitura_bairro: "Barra/Pituba",
+      populacao: 65000,
+      indice_vulnerabilidade: 0.13,
+      pct_esgoto_inadequado: 1.2,
+      pct_agua_inadequada: 0.8,
+      pct_analfabetismo_15mais: 1.5,
+    };
+
+    render(
+      <TerritorySidebar
+        territorio={bairroResidencial}
+        onClear={onClearMock}
+        onOpenNotaMetodologica={onOpenMock}
+      />
+    );
+
+    const btnComoCalculado = screen.getByTestId("btn-como-calculado-raiox");
+    expect(btnComoCalculado).toBeInTheDocument();
+    expect(btnComoCalculado).toHaveTextContent("Como é calculado?");
+
+    fireEvent.click(btnComoCalculado);
+    expect(onOpenMock).toHaveBeenCalledTimes(1);
   });
 });

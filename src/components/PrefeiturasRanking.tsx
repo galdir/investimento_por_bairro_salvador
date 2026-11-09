@@ -17,6 +17,7 @@ export interface PrefeiturasRankingProps {
   onLevelChange?: (level: RankingLevel) => void;
   onSelectPrefeitura: (pb: PrefeituraBairroResumo) => void;
   onSelectBairro?: (b: BairroResumo) => void;
+  onOpenNotaMetodologica?: () => void;
 }
 
 // Helper para filtrar itens pelo nome insensível a acentuação e caixa
@@ -125,6 +126,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
   onLevelChange,
   onSelectPrefeitura,
   onSelectBairro,
+  onOpenNotaMetodologica,
 }) => {
   const [internalLevel, setInternalLevel] = useState<RankingLevel>("bairros");
   const rankingLevel = activeLevel ?? internalLevel;
@@ -259,10 +261,24 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
     >
       <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-3 border-b border-slate-100 mb-3 gap-3">
         <div>
-          <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-sm bg-indigo-600"></span>
-            Ranking Territorial (Justiça Territorial Per Capita)
-          </h3>
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-sm bg-indigo-600"></span>
+              Ranking Territorial (Justiça Territorial Per Capita)
+            </h3>
+            {onOpenNotaMetodologica && (
+              <button
+                type="button"
+                data-testid="btn-como-calculado-ranking"
+                onClick={onOpenNotaMetodologica}
+                title="Como é calculado o Índice de Vulnerabilidade?"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-indigo-50 text-indigo-700 hover:bg-indigo-100 hover:text-indigo-900 border border-indigo-200/60 transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-400"
+              >
+                <span className="font-bold">ⓘ</span>
+                <span>Como é calculado?</span>
+              </button>
+            )}
+          </div>
           <p className="text-[11px] text-slate-500 mt-0.5">
             Compare o Investimento por Habitante (R$/hab), Valor Total, Obras e Índice de Vulnerabilidade
           </p>

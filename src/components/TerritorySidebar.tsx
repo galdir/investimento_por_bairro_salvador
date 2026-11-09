@@ -19,6 +19,10 @@ interface TerritorySidebarProps {
    * Métrica financeira ativa na barra superior: "vigente" (Valor Contratual Vigente) ou "executado" (Valor Executado / Pago).
    */
   metricType?: MetricType;
+  /**
+   * Callback para abrir o modal de nota metodológica do Índice de Vulnerabilidade.
+   */
+  onOpenNotaMetodologica?: () => void;
 }
 
 /**
@@ -40,6 +44,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   onClear,
   onViewWorksInTable,
   metricType = "vigente",
+  onOpenNotaMetodologica,
 }) => {
   if (!territorio) {
     return (
@@ -86,7 +91,10 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   const obrasVermelho = territorio.obrasVermelho ?? 0;
 
   return (
-    <aside className="w-full md:w-96 bg-white border-l border-slate-200 p-6 flex flex-col shadow-lg overflow-y-auto">
+    <aside
+      data-testid="raio-x-container"
+      className="w-full md:w-96 bg-white border-l border-slate-200 p-6 flex flex-col shadow-lg overflow-y-auto"
+    >
       {/* Cabeçalho do Raio-X */}
       <div className="flex items-start justify-between pb-4 border-b border-slate-100">
         <div>
@@ -219,109 +227,115 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
         </div>
 
         {/* Índice de Vulnerabilidade do Território (Bairro Oficial ou Prefeitura-Bairro) */}
-        {ehZonaEspecial ? (
+        {(ehZonaEspecial || territorio.indice_vulnerabilidade !== undefined) && (
           <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
                 Índice de Vulnerabilidade
               </span>
-              <span
-                data-testid="raio-x-vulnerabilidade"
-                className="text-xs font-bold text-slate-500"
-              >
-                Isento
-              </span>
-            </div>
-            <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
-              Zona Especial Não-Residencial isenta de cálculo de vulnerabilidade social (sem domicílios permanentes no Censo 2022).
-            </p>
-          </div>
-        ) : territorio.indice_vulnerabilidade !== undefined ? (
-          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
-                Índice de Vulnerabilidade
-              </span>
-              <span
-                data-testid="raio-x-vulnerabilidade"
-                className="text-xs font-bold text-slate-900"
-              >
-                {formatDecimal(territorio.indice_vulnerabilidade)}
-              </span>
-            </div>
-            {/* Barra Visual de Intensidade */}
-            <div className="w-full bg-slate-200 h-2 rounded-full mt-2 overflow-hidden">
-              <div
-                className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
-                style={{
-                  width: `${Math.min(100, Math.max(5, (territorio.indice_vulnerabilidade || 0) * 100))}%`,
-                }}
-              ></div>
-            </div>
-
-            {/* Badge de Contiguidade Territorial para Bairros ausentes na malha SIDRA */}
-            {territorio.vulnerabilidade_estimada_contiguidade && (
-              <div
-                data-testid="badge-contiguidade-territorial"
-                className="mt-2.5 flex items-center gap-1.5 px-2 py-1 bg-amber-50 border border-amber-200 rounded text-amber-800 text-[11px]"
-              >
-                <svg className="w-3.5 h-3.5 shrink-0 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>Estimativa por contiguidade territorial (bairro sem linha individual na malha N102 do IBGE)</span>
-              </div>
-            )}
-
-            {/* Decomposição Multidimensional Censo 2022 */}
-            {(territorio.pct_esgoto_inadequado !== undefined ||
-              territorio.pct_agua_inadequada !== undefined ||
-              territorio.pct_analfabetismo_15mais !== undefined) && (
-              <div className="mt-3 pt-3 border-t border-slate-200/60">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-wider">
-                    Componentes (Censo 2022)
-                  </span>
-                  <span className="text-[10px] text-slate-400">IBGE</span>
-                </div>
-                <div className="space-y-1.5 text-xs">
-                  <div className="flex justify-between items-center text-slate-600">
-                    <span className="text-[11px]">Déficit de Esgoto:</span>
-                    <span data-testid="raio-x-esgoto" className="font-semibold text-slate-900">
-                      {territorio.pct_esgoto_inadequado !== undefined
-                        ? `${formatDecimal(territorio.pct_esgoto_inadequado)}%`
-                        : "-"}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center text-slate-600">
-                    <span className="text-[11px]">Déficit de Água:</span>
-                    <span data-testid="raio-x-agua" className="font-semibold text-slate-900">
-                      {territorio.pct_agua_inadequada !== undefined
-                        ? `${formatDecimal(territorio.pct_agua_inadequada)}%`
-                        : "-"}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center text-slate-600">
-                    <span className="text-[11px]">Analfabetismo (15+ anos):</span>
-                    <span data-testid="raio-x-analfabetismo" className="font-semibold text-slate-900">
-                      {territorio.pct_analfabetismo_15mais !== undefined
-                        ? `${formatDecimal(territorio.pct_analfabetismo_15mais)}%`
-                        : "-"}
-                    </span>
-                  </div>
-                </div>
-                {!ehBairro && (
-                  <p className="text-[10px] text-slate-400 mt-2 leading-relaxed italic">
-                    Média ponderada pela população dos bairros componentes (Censo 2022).
-                  </p>
+              <div className="flex items-center gap-2">
+                {onOpenNotaMetodologica && (
+                  <button
+                    type="button"
+                    data-testid="btn-como-calculado-raiox"
+                    onClick={onOpenNotaMetodologica}
+                    title="Como é calculado o Índice de Vulnerabilidade?"
+                    className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200/60 transition-colors"
+                  >
+                    <span className="font-bold">ⓘ</span>
+                    <span>Como é calculado?</span>
+                  </button>
                 )}
+                <span
+                  data-testid="raio-x-vulnerabilidade"
+                  className={`text-xs font-bold ${ehZonaEspecial ? "text-slate-500" : "text-slate-900"}`}
+                >
+                  {ehZonaEspecial ? "Isento" : formatDecimal(territorio.indice_vulnerabilidade ?? 0)}
+                </span>
               </div>
+            </div>
+
+            {ehZonaEspecial ? (
+              <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
+                Zona Especial Não-Residencial isenta de cálculo de vulnerabilidade social (sem domicílios permanentes no Censo 2022).
+              </p>
+            ) : (
+              <>
+                {/* Barra Visual de Intensidade */}
+                <div className="w-full bg-slate-200 h-2 rounded-full mt-2 overflow-hidden">
+                  <div
+                    className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
+                    style={{
+                      width: `${Math.min(100, Math.max(5, (territorio.indice_vulnerabilidade || 0) * 100))}%`,
+                    }}
+                  ></div>
+                </div>
+
+                {/* Badge de Contiguidade Territorial para Bairros ausentes na malha SIDRA */}
+                {territorio.vulnerabilidade_estimada_contiguidade && (
+                  <div
+                    data-testid="badge-contiguidade-territorial"
+                    className="mt-2.5 flex items-center gap-1.5 px-2 py-1 bg-amber-50 border border-amber-200 rounded text-amber-800 text-[11px]"
+                  >
+                    <svg className="w-3.5 h-3.5 shrink-0 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>Estimativa por contiguidade territorial (bairro sem linha individual na malha N102 do IBGE)</span>
+                  </div>
+                )}
+
+                {/* Decomposição Multidimensional Censo 2022 */}
+                {(territorio.pct_esgoto_inadequado !== undefined ||
+                  territorio.pct_agua_inadequada !== undefined ||
+                  territorio.pct_analfabetismo_15mais !== undefined) && (
+                  <div className="mt-3 pt-3 border-t border-slate-200/60">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-wider">
+                        Componentes (Censo 2022)
+                      </span>
+                      <span className="text-[10px] text-slate-400">IBGE</span>
+                    </div>
+                    <div className="space-y-1.5 text-xs">
+                      <div className="flex justify-between items-center text-slate-600">
+                        <span className="text-[11px]">Déficit de Esgoto:</span>
+                        <span data-testid="raio-x-esgoto" className="font-semibold text-slate-900">
+                          {territorio.pct_esgoto_inadequado !== undefined
+                            ? `${formatDecimal(territorio.pct_esgoto_inadequado)}%`
+                            : "-"}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center text-slate-600">
+                        <span className="text-[11px]">Déficit de Água:</span>
+                        <span data-testid="raio-x-agua" className="font-semibold text-slate-900">
+                          {territorio.pct_agua_inadequada !== undefined
+                            ? `${formatDecimal(territorio.pct_agua_inadequada)}%`
+                            : "-"}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center text-slate-600">
+                        <span className="text-[11px]">Analfabetismo (15+ anos):</span>
+                        <span data-testid="raio-x-analfabetismo" className="font-semibold text-slate-900">
+                          {territorio.pct_analfabetismo_15mais !== undefined
+                            ? `${formatDecimal(territorio.pct_analfabetismo_15mais)}%`
+                            : "-"}
+                        </span>
+                      </div>
+                    </div>
+                    {!ehBairro && (
+                      <p className="text-[10px] text-slate-400 mt-2 leading-relaxed italic">
+                        Média ponderada pela população dos bairros componentes (Censo 2022).
+                      </p>
+                    )}
+                  </div>
+                )}
+              </>
             )}
           </div>
-        ) : null}
+        )}
       </div>
 
       {/* Botões de Ação na Base */}

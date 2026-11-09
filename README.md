@@ -12,10 +12,11 @@ Hospedado de forma 100% estática no **GitHub Pages** (`/investimento_por_bairro
 2. [Camadas de Informação do Painel](#camadas-de-informação-do-painel)
 3. [Fontes de Dados Oficiais Utilizadas](#fontes-de-dados-oficiais-utilizadas)
 4. [Regras de Domínio e Alocação Territorial](#regras-de-domínio-e-alocação-territorial)
-5. [Como Executar o ETL Manualmente na Máquina Local](#como-executar-o-etl-manualmente-na-máquina-local)
-6. [Como Rodar o Painel Web Localmente](#como-rodar-o-painel-web-localmente)
-7. [Como Executar os Testes Automatizados](#como-executar-os-testes-automatizados)
-8. [Automação e Publicação via GitHub Actions](#automação-e-publicação-via-github-actions)
+5. [Metodologia do Índice de Vulnerabilidade do Bairro (Censo 2022 / ADR-0003)](#metodologia-do-índice-de-vulnerabilidade-do-bairro-censo-2022--adr-0003)
+6. [Como Executar o ETL Manualmente na Máquina Local](#como-executar-o-etl-manualmente-na-máquina-local)
+7. [Como Rodar o Painel Web Localmente](#como-rodar-o-painel-web-localmente)
+8. [Como Executar os Testes Automatizados](#como-executar-os-testes-automatizados)
+9. [Automação e Publicação via GitHub Actions](#automação-e-publicação-via-github-actions)
 
 ---
 
@@ -72,7 +73,11 @@ public/data/
    - `Layer 9` e `Layer 11`: Cadastro oficial georreferenciado de **Equipamentos Públicos** municipais (118 Unidades de Saúde e 368 Escolas Municipais/CMEIs).
    - `Layer 2`: Malha oficial de logradouros.
 3. **IBGE — API SIDRA do Censo Demográfico 2022 (`https://apisidra.ibge.gov.br`):**
-   - Tabela `9923` (nível territorial `N102`, município `2927408` — Salvador): população residente por bairro e indicadores sociodemográficos e de infraestrutura para cálculo do **Índice de Vulnerabilidade do Bairro**.
+   - Dados agregados do Universo (100% dos domicílios e moradores recenseados) no nível territorial `N102` (Bairros de Salvador — código municipal `2927408`):
+     - `Tabela 9923`: População residente por bairro.
+     - `Tabela 6805`: Domicílios particulares permanentes ocupados por tipo de esgotamento sanitário (definição PLANSAB de esgotamento adequado).
+     - `Tabela 6803`: Domicílios particulares permanentes ocupados por forma principal de abastecimento de água (rede geral).
+     - `Tabela 9543`: Alfabetização e taxa de analfabetismo de pessoas residentes com 15 anos ou mais de idade.
 
 ---
 
@@ -102,6 +107,97 @@ Calculado a partir da variação percentual de aditivos `delta_percentual_valor 
 - **Vermelho (Crítica):** Obra com situação `Paralisada`, `Suspensa` ou `Rescindida`; ou prazo de vigência atualizado vencido com execução física abaixo de 100%; ou `delta_percentual_valor > 25.0`; ou obra em execução sem liquidação/pagamento há mais de 90 dias.
 - **Amarelo (Atenção):** Obra não crítica que sofreu prorrogação de prazo em relação ao término original ou possui `10.0 <= delta_percentual_valor <= 25.0`.
 - **Verde (No Prazo):** Obra dentro do cronograma original (ou concluída) e com `delta_percentual_valor < 10.0`.
+
+---
+
+## Metodologia do Índice de Vulnerabilidade do Bairro (Censo 2022 / ADR-0003)
+
+O **Índice de Vulnerabilidade do Bairro** do painel é uma métrica composta multidimensional contínua na escala `0,00` (menor vulnerabilidade relativa) a `1,00` (maior vulnerabilidade relativa), calculada de forma determinística e 100% auditável a partir de agregados do **Universo do Censo Demográfico 2022 do IBGE** (nível territorial `N102` — Bairros de Salvador `2927408`).
+
+Esta metodologia foi homologada no repositório no **ADR-0003** (`docs/adr/0003-indice-vulnerabilidade-composto-censo-2022.md`), substituindo completamente dicionários manuais ou estimativas empíricas anteriores.
+
+### 1. Referencial Científico: IDS (IPP) e IVS (IPEA)
+
+O modelo combina duas referências consolidadas na literatura de indicadores urbanos no Brasil:
+- **Índice de Desenvolvimento Social (IDS):** Criado por **Cavallieri & Lopes (2008)** no **Instituto Pereira Passos (IPP/Rio de Janeiro)** para mensurar desigualdades intraurbanas a partir de dimensões de acesso a saneamento básico e capital humano.
+- **Índice de Vulnerabilidade Social (IVS):** Desenvolvido pelo **IPEA** (Instituto de Pesquisa Econômica Aplicada), em especial seus subíndices de *Infraestrutura Urbana* (saneamento básico e abastecimento de água) e de *Capital Humano* (escolaridade e alfabetização).
+
+Ao contrário de índices que dependem de renda monetária per capita da amostra (sujeitos a restrições de sigilo estatístico e margens de erro amostrais em bairros de menor porte demográfico), os três componentes adotados provêm do **questionário básico do Universo do Censo 2022** (100% dos domicílios particulares permanentes ocupados e moradores recenseados).
+
+---
+
+### 2. As 3 Variáveis do Universo do Censo 2022 (IBGE / SIDRA nível N102)
+
+Para cada **Bairro Oficial** residencial $b$ de Salvador, são extraídas as seguintes variáveis censitárias:
+
+| Dimensão | Tabela SIDRA | Indicador de Domínio | Definição Oficial IBGE / PLANSAB |
+| :--- | :---: | :--- | :--- |
+| **Esgotamento Sanitário** | **Tabela 6805** | `pct_esgoto_inadequado` | Percentual de domicílios particulares permanentes ocupados sem rede geral/pluvial ou fossa séptica/filtro (critério oficial de adequação do **PLANSAB** — Plano Nacional de Saneamento Básico). |
+| **Abastecimento de Água** | **Tabela 6803** | `pct_agua_inadequada` | Percentual de domicílios particulares permanentes ocupados sem ligação principal à rede geral de distribuição de água tratada. |
+| **Alfabetização** | **Tabela 9543** | `pct_analfabetismo_15mais` | Percentual de moradores de 15 anos ou mais de idade que não sabem ler e escrever um bilhete simples (complemento de 100% da taxa de alfabetização). |
+
+#### Equações dos Sub-indicadores Brutos:
+
+1. **Déficit de Esgotamento Sanitário Adequado (critério PLANSAB):**
+   $$x_{\text{esgoto}, b} = 100\% - \left(\frac{\text{Domicílios com rede geral} + \text{Domicílios com fossa séptica ou filtro}}{\text{Total de domicílios particulares permanentes ocupados}}\right) \times 100$$
+
+2. **Déficit de Abastecimento de Água por Rede Geral:**
+   $$x_{\text{agua}, b} = 100\% - \left(\frac{\text{Domicílios com rede geral de distribuição}}{\text{Total de domicílios particulares permanentes ocupados}}\right) \times 100$$
+
+3. **Taxa de Analfabetismo (15 anos ou mais):**
+   $$x_{\text{analf}, b} = 100\% - \text{Taxa de Alfabetização da População de 15 anos ou mais}$$
+
+---
+
+### 3. Fórmulas Matemáticas Passo a Passo
+
+#### 3.1 Normalização Min-Max sobre os Bairros Residenciais
+Para unificar as variáveis em uma escala comum sem distorcer as amplitudes naturais observadas em Salvador, cada sub-indicador $k \in \{\text{esgoto}, \text{agua}, \text{analf}\}$ é normalizado pelo método *min-max* sobre o conjunto dos **168 Bairros Oficiais residenciais**:
+
+$$I_{k, b} = \frac{x_{k, b} - \min_{j \in \text{Residenciais}}(x_{k, j})}{\max_{j \in \text{Residenciais}}(x_{k, j}) - \min_{j \in \text{Residenciais}}(x_{k, j})}$$
+
+Onde:
+- $I_{k, b} \in [0,00;\; 1,00]$ é o sub-índice normalizado da dimensão $k$ no bairro $b$;
+- $\min(x_k)$ e $\max(x_k)$ são os limites inferior e superior empíricos observados exclusivamente entre os 168 bairros residenciais de Salvador no Censo 2022.
+
+#### 3.2 Composição por Média Aritmética Simples de Pesos Iguais
+O **Índice de Vulnerabilidade do Bairro ($\text{IVB}_b$)** é obtido pela média aritmética simples das três dimensões normalizadas (peso de $\frac{1}{3}$ para esgoto, água e analfabetismo), arredondada em duas casas decimais:
+
+$$\text{IVB}_b = \text{round}\left(\frac{I_{\text{esgoto}, b} + I_{\text{agua}, b} + I_{\text{analf}, b}}{3},\; 2\right)$$
+
+Essa composição preserva a hierarquia socioeconômica observada pelo IBGE em Salvador (exemplo real: `Pituba (0,13) < Cabula (0,55) < Liberdade (0,78)`).
+
+#### 3.3 Agregação Regional para as Prefeituras-Bairro
+Para as 10 macrorregiões administrativas descentralizadas de Salvador (**Prefeituras-Bairro**), tanto o índice composto quanto os seus três sub-indicadores percentuais são consolidados pela **média ponderada populacional** dos seus Bairros Oficiais residenciais constituintes:
+
+$$\text{IVB}_{\text{PB}} = \frac{\sum_{b \in \text{PB}} \left(\text{IVB}_b \times \text{População}_b\right)}{\sum_{b \in \text{PB}} \text{População}_b}$$
+
+$$\bar{x}_{k, \text{PB}} = \frac{\sum_{b \in \text{PB}} \left(x_{k, b} \times \text{População}_b\right)}{\sum_{b \in \text{PB}} \text{População}_b}$$
+
+Onde $\text{População}_b$ é a contagem de população residente oficial do Censo 2022 (Tabela 9923 do SIDRA).
+
+---
+
+### 4. Regras de Exceção Territorial e Imputação Espacial
+
+#### 4.1 Zonas Especiais Não-Residenciais (Isenção Estatística)
+Os recortes `Aeroporto`, `Porto Seco Pirajá` e `Centro Administrativo da Bahia - CAB` possuem ocupação logística, institucional ou aeroportuária, com população residente nula ou residual no Censo 2022.
+- **Tratamento:** São expressamente **excluídos** do domínio de cálculo dos extremos $\min(x_k)$ e $\max(x_k)$.
+- **Representação:** No pipeline ETL e no painel web, recebem `isZonaEspecialNaoResidencial: true`, `indice_vulnerabilidade: 0.0` e são apresentados com o status **`Isento`** no **Ranking Territorial**, no mapa coroplético e no card do painel lateral **Raio-X**.
+
+#### 4.2 Imputação Espacial por Contiguidade Territorial
+Três Bairros Oficiais residenciais delimitados pela malha legal vigente do município (Decreto nº 32.791/2020) não possuem linha própria de agregação individual no nível `N102` do SIDRA/IBGE. Para esses casos, os sub-indicadores brutos foram imputados de forma determinística pela **média ponderada populacional dos bairros limítrofes contíguos da mesma zona homogênea** no Censo 2022:
+
+1. **Chame-Chame** (Prefeitura-Bairro Barra/Pituba):
+   Imputado pela média ponderada populacional dos vizinhos contíguos `Graça`, `Barra` e `Vitória`.
+2. **Colinas de Pituaçu** (Prefeitura-Bairro Pau da Lima):
+   Imputado pela média ponderada populacional dos vizinhos contíguos `São Marcos` e `Pau da Lima`.
+3. **Ilha de Maré** (Prefeitura-Bairro Subúrbio/Ilhas):
+   Imputado pela média ponderada populacional das ilhas vizinhas do Censo 2022 (`Ilha de Bom Jesus dos Passos` e `Ilha dos Frades/Ilha de Santo Antônio`).
+
+Estes três bairros recebem no modelo de dados a flag booleana `vulnerabilidade_estimada_contiguidade: true`, gerando automaticamente no painel lateral **Raio-X** um selo amarelo transparente que alerta o cidadão sobre a estimativa por contiguidade territorial.
+
+---
 
 ---
 

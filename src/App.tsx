@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { FichaLimpaModal } from "./components/FichaLimpaModal";
 import { HeaderKpis } from "./components/HeaderKpis";
 import { InteractiveMap } from "./components/InteractiveMap";
+import { NotaMetodologicaModal } from "./components/NotaMetodologicaModal";
 import { PrefeiturasRanking } from "./components/PrefeiturasRanking";
 import { TerritorySidebar } from "./components/TerritorySidebar";
 import { TopFilters } from "./components/TopFilters";
@@ -86,6 +87,7 @@ export const App: React.FC = () => {
   const [selectedTerritory, setSelectedTerritory] = useState<TerritorySelection | null>(null);
   const [selectedObraFicha, setSelectedObraFicha] = useState<FichaLimpaObra | null>(null);
   const [loadingFicha, setLoadingFicha] = useState<boolean>(false);
+  const [showNotaMetodologica, setShowNotaMetodologica] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"mapa" | "ranking" | "tabela">("mapa");
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
   const [loading, setLoading] = useState<boolean>(true);
@@ -597,6 +599,7 @@ export const App: React.FC = () => {
               onSelectTerritory={setSelectedTerritory}
               onSelectObra={handleSelectObra}
               metricType={filters.metricType}
+              onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
             />
 
             <TerritorySidebar
@@ -604,6 +607,7 @@ export const App: React.FC = () => {
               onClear={() => setSelectedTerritory(null)}
               onViewWorksInTable={() => setActiveTab("tabela")}
               metricType={filters.metricType}
+              onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
             />
           </div>
         )}
@@ -625,6 +629,7 @@ export const App: React.FC = () => {
                     setSelectedTerritory(createBairroSelection(b));
                     setActiveLayer("bairros");
                   }}
+                  onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
                 />
               </div>
             </div>
@@ -634,6 +639,7 @@ export const App: React.FC = () => {
               onClear={() => setSelectedTerritory(null)}
               onViewWorksInTable={() => setActiveTab("tabela")}
               metricType={filters.metricType}
+              onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
             />
           </div>
         )}
@@ -657,6 +663,12 @@ export const App: React.FC = () => {
         loading={loadingFicha}
         onClose={() => setSelectedObraFicha(null)}
         onFilterByEmpreiteira={handleFilterByEmpreiteira}
+      />
+
+      {/* 6. Modal de Nota Metodológica — Índice de Vulnerabilidade */}
+      <NotaMetodologicaModal
+        isOpen={showNotaMetodologica}
+        onClose={() => setShowNotaMetodologica(false)}
       />
     </div>
   );

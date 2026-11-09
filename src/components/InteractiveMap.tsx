@@ -47,6 +47,7 @@ interface InteractiveMapProps {
   onSelectTerritory: (territorio: TerritorySelection) => void;
   onSelectObra?: (obra: ObraCompacta) => void;
   metricType?: MetricType;
+  onOpenNotaMetodologica?: () => void;
 }
 
 export function normalizeTestId(nome: string): string {
@@ -161,6 +162,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   onSelectTerritory,
   onSelectObra,
   metricType = "vigente",
+  onOpenNotaMetodologica,
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
@@ -618,6 +620,20 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               Vulnerabilidade Social
             </button>
           </div>
+
+          {/* Botão de Como é calculado? */}
+          {onOpenNotaMetodologica && (
+            <button
+              type="button"
+              data-testid="btn-como-calculado-mapa"
+              onClick={onOpenNotaMetodologica}
+              title="Como é calculado o Índice de Vulnerabilidade?"
+              className="px-2.5 py-1 text-xs font-medium bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-400"
+            >
+              <span className="font-bold">ⓘ</span>
+              <span>Como é calculado?</span>
+            </button>
+          )}
 
           {/* Toggle de Pinos de Obras */}
           <button
