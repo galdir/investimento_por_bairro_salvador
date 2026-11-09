@@ -9,11 +9,13 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "CONSTRUTORA LAM LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 1355531.48,
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 9572087.14,
     "obrasIds": [
-      "6618cffa-9537-4a9c-9111-cbfa88aee2a1"
+      "6618cffa-9537-4a9c-9111-cbfa88aee2a1",
+      "588f5c5d-34b3-40a9-bc29-06bc8a279ac1",
+      "ff78e076-9320-4f39-a0a8-b3f073f0172c"
     ]
   },
   "vigencia": {

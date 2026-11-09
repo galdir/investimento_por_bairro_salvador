@@ -9,11 +9,12 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "RFT CONSTRUCOES LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 2999014.09,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 3122434.09,
     "obrasIds": [
-      "23bee76d-151e-42f5-97a0-4ddd45b2b893"
+      "23bee76d-151e-42f5-97a0-4ddd45b2b893",
+      "d71a833e-46c1-43e0-934a-24804c1ff549"
     ]
   },
   "vigencia": {

@@ -1,0 +1,65 @@
+{
+  "id": "cba43365-3ca3-426e-819c-a93a714e70b8",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2024CT008159",
+  "numeroContratoOriginal": "50/2024",
+  "nuProcesso": "044866/2024",
+  "objeto": "1.1.\tO objeto do presente instrumento é a contratação de empresa de engenharia para realização de obras de requalificação e modernização da QUADRA POLIESPORTIVA da Rua da Paz, Pau da Lima, Salvador/Ba e do CAMPO DE FUTEBOL da Rua Principal, Nova Esperança, Salvador/Ba, da Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer ¿ SEMPRE",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
+    "cnpj": "20.852.647/0001-59",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 265250.82,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "02/09/2024",
+    "dataFimOriginal": "02/09/2025",
+    "dataTerminoAtualizado": "02/09/2025",
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
+  },
+  "dom": {
+    "nuDom": "8864",
+    "dataPublicacao": "05/09/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 265250.82,
+    "valorContratualVigente": 265250.82,
+    "valorEmpenhado": 265250.82,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 02/09/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Nova Esperança",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.845118,
+  "longitude": -38.375262,
+  "estagioAlocacao": "Cache"
+}

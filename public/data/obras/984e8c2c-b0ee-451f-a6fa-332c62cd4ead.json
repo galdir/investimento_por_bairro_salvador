@@ -1,0 +1,127 @@
+{
+  "id": "984e8c2c-b0ee-451f-a6fa-332c62cd4ead",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2026CT003488",
+  "numeroContratoOriginal": "412026",
+  "nuProcesso": "0499672026",
+  "objeto": "FORNECIMENTO E MONTAGEM DE MARCO DE INAUGURAÇÃO EM GRANITO CINZA CORUMBÁ",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ELIANA COSTA BRITO LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 97211.98,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "7ba13b55-63ea-4b6d-ac6c-84d174295010"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "28/05/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "23/11/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 48911.98,
+    "valorContratualVigente": 48911.98,
+    "valorEmpenhado": 48911.98,
+    "valorLiquidado": 48911.98,
+    "valorPago": 48911.98,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "17817522-10c1-4ea6-8020-dae27d7ec671",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2026NE000673",
+      "dataEmpenho": "08/06/2026",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "48.911,98",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "48153ae6-00ea-41f5-a6a3-94fe860a0d39",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000673",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "notaLiquidacao": "2026NL004215",
+      "notaLancamento": "2026NL004215",
+      "numProcesso": "01277282026",
+      "dataLiquidacao": "10/06/2026",
+      "valLiqLiquidacao": "48.911,98",
+      "valBrutLiquidacao": "48.911,98",
+      "valEmpenho": "48.911,98",
+      "descObsLiquidacao": "ELIANA - MARCO DE INAUGURAÇÃO EM GRANITO - PROC 127728/2026 - NF 669",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "2fa124b6-d934-4072-9d47-065e43a4eccc",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000673",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "notaLiquidacao": "2026NL004215",
+      "ordBancaria": "2026OB033754",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "48.911,98",
+      "dataPagamento": "11/06/2026",
+      "pago": "48.911,98",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

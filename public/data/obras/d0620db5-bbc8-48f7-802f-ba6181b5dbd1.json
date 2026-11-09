@@ -9,14 +9,15 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 15122288.02,
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 23384155.44,
     "obrasIds": [
       "d0620db5-bbc8-48f7-802f-ba6181b5dbd1",
       "33bb376f-8a1f-4d9c-8321-77128252ef93",
       "6f4863e2-00ae-473c-959b-08ac920fd159",
-      "a18f2109-4830-4780-8259-7f4a126d27d1"
+      "a18f2109-4830-4780-8259-7f4a126d27d1",
+      "fa6c2670-72bd-43ac-b501-7926862dab8c"
     ]
   },
   "vigencia": {

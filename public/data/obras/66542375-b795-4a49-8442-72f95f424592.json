@@ -1,0 +1,72 @@
+{
+  "id": "66542375-b795-4a49-8442-72f95f424592",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2024CT000228",
+  "numeroContratoOriginal": "000009/2024",
+  "nuProcesso": "132143/2023",
+  "objeto": "PRESTAÇÃO DE SERVIÇO TÉCNICOS DE ELABORAÇÃO DE PROJETOS BÁSICOS, EXECUTIVO DE ARQUITETURA E ENGENHARIA E EXECUÇÃO DA OBRA DE CONSTRUÇÃO DA ESCOLA MUNICIPAL DO BAIRRO DA PAZ.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "QUALY ENGENHARIA LTDA",
+    "cnpj": "05.903.304/0001-82",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 94640038.88,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "44d9e74e-e228-4600-be41-343bc126c744",
+      "43323f83-8cfc-424c-9e77-c6fe0c205722",
+      "e5f680b3-4cc2-4bc8-8e8f-70b792c52782",
+      "5955a8e6-2c61-4475-ad00-ea18be34afd9",
+      "0e038d9f-b436-49b5-9fce-965a4676cf15",
+      "0aaeda8a-de68-411f-ad2e-5d9721e2afc9"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "12/01/2024",
+    "dataFimOriginal": "12/05/2025",
+    "dataTerminoAtualizado": "12/05/2025",
+    "prazoOriginal": "486",
+    "prazoAtualizado": "486"
+  },
+  "dom": {
+    "nuDom": "8704",
+    "dataPublicacao": "17/01/2024"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 16274991.76,
+    "valorContratualVigente": 16274991.76,
+    "valorEmpenhado": 16274991.76,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 12/05/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Bairro da Paz",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.929765,
+  "longitude": -38.375311,
+  "estagioAlocacao": "Cache"
+}

@@ -1,0 +1,72 @@
+{
+  "id": "b08d55e6-a11e-4c8b-b820-c19fcbde89bb",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT002689",
+  "numeroContratoOriginal": "0122025",
+  "nuProcesso": "1665972025",
+  "objeto": "Contratação de empresa capacitada para execução de obras de Construção da Arena Aquática, localizada na Rua Maria Cecília, s/n, bairro Rio Sena - Salvador/Ba",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "800-D ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 32323213.34,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "c52bc0b6-677a-4329-9221-8e25d1c3a1ad",
+      "eb9c9183-6a58-4b53-ac53-7534a5021e04",
+      "48912250-6785-4a11-9fe6-2bcf944b361a",
+      "f4d7db62-cd53-4f40-9e34-319317a70fbd",
+      "f46a5842-07fd-44bc-b2c4-b3cdc757d877",
+      "b7ad29a3-1ce8-4214-93ee-7aa464de78ce"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "12/01/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "08/10/2026",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4417123.96,
+    "valorContratualVigente": 4417123.96,
+    "valorEmpenhado": 4417123.96,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 08/10/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Rio Sena",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.881,
+  "longitude": -38.469748,
+  "estagioAlocacao": "Cache"
+}

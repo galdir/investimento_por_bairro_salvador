@@ -1,0 +1,92 @@
+{
+  "id": "8e50d73e-2760-48b6-aec9-45fab98615e6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT004227",
+  "numeroContratoOriginal": "0182024",
+  "nuProcesso": "0818032024",
+  "objeto": "Execução da obra de implantação de Via de Ligação da AV. Luís Eduardo Magalhães com a Rua Saturno, no Bairro de Pernambués - Salvador/BA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+    "cnpj": "",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 222076005.14,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "0045f4fa-23bb-4b9f-8291-fbf99d4c81f4",
+      "f416db4d-19d2-4228-bfca-87aa74167bb3",
+      "10e3bc41-5b34-40fd-9b19-765ebe3fe54b",
+      "0ae88bfe-920c-41d5-93ed-15f3a3074565",
+      "9907044d-9227-43a6-9ce3-c0519e3fac0a",
+      "a6866c63-a63d-4384-85c5-ef6e68b634b3"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "10/07/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "29/02/2028",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 12740679.25,
+    "valorContratualVigente": 12740679.25,
+    "valorEmpenhado": 50000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "3975d05f-ebad-4edc-a59e-d99f110dc30b",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE000846",
+      "dataEmpenho": "10/07/2026",
+      "nomeCredor": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Ampliação e Recuperação de Ruas e Vias de Acesso",
+      "valEmpenhado": "50.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Pernambués",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.970924,
+  "longitude": -38.464563,
+  "estagioAlocacao": "Cache"
+}

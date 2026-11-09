@@ -1,0 +1,67 @@
+{
+  "id": "4e0f14ba-d172-4b74-9f7f-5ed2b7396153",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2026CT004673",
+  "numeroContratoOriginal": "2102026",
+  "nuProcesso": "0019312026",
+  "objeto": "Contratação SEMI-INTEGRADA de empresa especializada para a execução da obra de Construção de Unidade de Saúde do tipo Policlínica Municipal, incluindo elaboração dos projetos executivos, desenvolvimento de peças orçamentárias e aprovação dos projetos nos Órgãos Reguladores, cujo terreno está Situado na Avenida 29 de Março, S/N, Bairro Jaguaripe I, nesta Capital de acordo com as especificações e ob",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "HOLTZ ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 54620000.0,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "5615e4e0-8b24-4a13-9ca7-5e666d7e005c"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "12/06/2026",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "13/12/2027",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": null
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 27310000.0,
+    "valorContratualVigente": 27310000.0,
+    "valorEmpenhado": 27310000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Jaguaripe I",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.909807,
+  "longitude": -38.405371,
+  "estagioAlocacao": "Cache"
+}

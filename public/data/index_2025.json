@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-11-07T20:11:24.680317+00:00",
+    "generatedAt": "2026-11-09T15:47:31.737615+00:00",
     "anoReferencia": 2025,
     "mandatosDisponiveis": [
       "2021-2024",
@@ -8,20 +8,20 @@
     ]
   },
   "kpis_globais": {
-    "totalObras": 630,
-    "valorTotal": 9865574070.53,
-    "totalAtivas": 599,
-    "totalCriticas": 515,
-    "percentualCriticas": 81.7,
-    "totalAditivosValor": 3813386406.45,
-    "percentualMedioAditivos": 60.3,
-    "totalEmpenhado": 120000000.0,
-    "totalLiquidado": 95000000.0,
-    "totalPago": 90000000.0,
-    "investimentoPorHabitanteCidade": 4205.27,
-    "totalNaoLocalizado": 351,
-    "valorNaoLocalizado": 6186455770.41,
-    "percentualNaoLocalizado": 62.7
+    "totalObras": 633,
+    "valorTotal": 9981301756.87,
+    "totalAtivas": 602,
+    "totalCriticas": 518,
+    "percentualCriticas": 81.8,
+    "totalAditivosValor": 3898698731.28,
+    "percentualMedioAditivos": 61.6,
+    "totalEmpenhado": 821072377.13,
+    "totalLiquidado": 785790111.05,
+    "totalPago": 814497203.33,
+    "investimentoPorHabitanteCidade": 4254.6,
+    "totalNaoLocalizado": 353,
+    "valorNaoLocalizado": 6237879946.75,
+    "percentualNaoLocalizado": 62.5
   },
   "concentracao_empreiteiras": [
     {
@@ -31,10 +31,10 @@
       "totalObrasAtivas": 4,
       "valorTotalContratado": 566307854.75,
       "obrasIds": [
-        "332ef2bb-b047-453d-834e-378652fd2d30",
-        "b4241703-06a0-41b2-8ffa-57a899733459",
-        "16ffb4f4-83eb-49bd-b2bd-24c18d5a2398",
-        "a655ee6e-1825-4eee-abc0-bef1d24635d6"
+        "b8143e33-99e5-4aa5-9b3b-adab18d909aa",
+        "db108947-6135-426a-8856-86a090083971",
+        "716d5c0c-f28b-4d96-ad73-4e8cc612dcb6",
+        "c735d765-51cd-4270-b8dc-2982dc9ddb06"
       ]
     },
     {
@@ -44,11 +44,11 @@
       "totalObrasAtivas": 5,
       "valorTotalContratado": 544293744.01,
       "obrasIds": [
-        "39279a69-fc68-49a7-8ec4-60ed75f2b7ea",
-        "6d9aa89d-c5f6-40c1-84fd-78dbeca59a78",
-        "04fbd311-bbc4-4a83-b69f-50c47e2a6e36",
-        "8c28c73f-1693-4ef7-a403-26f269e2e261",
-        "08160843-45f2-42a3-ba86-e0233c626d17"
+        "7ed684fe-1f57-46c4-85f2-583fc3b96ad5",
+        "6f97f596-3d81-4df2-820f-0fdda6222855",
+        "be2e481f-f6c2-4ef4-8100-3eb59aed2043",
+        "8ba89ee4-cfe7-45c7-bda1-d31ec9862b46",
+        "854d6cce-461d-4350-abf9-02a180ab802a"
       ]
     },
     {
@@ -63,7 +63,7 @@
         "5cd450c2-83f1-4863-9c79-10ebf821b7fc",
         "7766d790-e655-4952-a36c-d6bd3516013f",
         "a0d3cce7-4c8f-4149-b50e-52d6e7e892ad",
-        "eb1fb029-6d95-40c9-812d-eff9c72f89e6",
+        "7ffb4893-6bf6-4e7d-b211-3abff2007b4f",
         "cddfeefa-a868-41ae-84e9-aaa41ae19aed",
         "f75d719e-52e5-431f-8803-732dd638a27b",
         "c3c50311-72eb-4151-9ec2-04b1ec6f30e5",
@@ -71,7 +71,7 @@
         "c557e7d8-2851-4eeb-b1f1-9da3d628bfca",
         "8694f2b7-a663-4c16-b561-851d0f022077",
         "84412e14-522a-41ea-a184-4429660512e1",
-        "ac55a2c2-40f7-43ec-b427-9c1f79ec00f4"
+        "d9991ce0-a4e3-45b5-83f3-fa3f060cbd32"
       ]
     },
     {
@@ -81,24 +81,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 350347101.38,
       "obrasIds": [
-        "2fb9bd71-7724-44d4-b958-94844242e5c4",
-        "0275735c-4b9d-484a-9267-8b87c8c22eac"
-      ]
-    },
-    {
-      "cnpj": "07.324.514/0001-41",
-      "razaoSocial": "CONSTRUTORA BSM LTDA",
-      "totalObras": 7,
-      "totalObrasAtivas": 7,
-      "valorTotalContratado": 339288908.53,
-      "obrasIds": [
-        "08230d53-3467-48b9-8588-40f750fc524d",
-        "2d40fce7-4da8-4011-b3c3-722677550251",
-        "828c73a7-376c-40c3-a57a-4f7685639fb9",
-        "1ef40f5b-5c85-4495-9b08-7e614df5fff6",
-        "b2afceaa-ec2f-4eb7-86c6-cb018c25c831",
-        "03f895bc-2869-46f1-ba95-bf81f082f1c5",
-        "00dac469-efe0-49f4-8e85-1477cb875b46"
+        "e7f05c4e-6ecc-4396-a4c2-92e796b4320b",
+        "db8f0ec7-c3f3-46a3-a3a8-0229ff4bdb47"
       ]
     },
     {
@@ -108,7 +92,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 330463204.24,
       "obrasIds": [
-        "3ef6c23f-c8d8-45ad-b2be-b51a2c98c330"
+        "fd51db3b-afaf-4e22-955d-8391475ef4f7"
       ]
     },
     {
@@ -118,8 +102,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 309283638.46,
       "obrasIds": [
-        "a0ffb586-9ecd-47f3-b0bd-a5a712046df2",
-        "6ed6033e-ffb4-438d-a8c3-6578f0acc734"
+        "a6b5f4b3-2cd8-446e-a9ca-953a2da5cd4d",
+        "f77f0544-f3c3-4d7e-8a55-a8d7a563caf0"
       ]
     },
     {
@@ -129,7 +113,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 299586120.12,
       "obrasIds": [
-        "22931e25-fc96-48b5-9a13-167600ea322a"
+        "7309f940-9368-4ba8-85d4-e0cf26e0cffe"
       ]
     },
     {
@@ -149,7 +133,22 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 267093236.08,
       "obrasIds": [
-        "289d35d2-aa73-4676-b73b-669d7396386a"
+        "480c2e56-a5d3-4acb-b50c-06cdb0202610"
+      ]
+    },
+    {
+      "cnpj": "07.324.514/0001-41",
+      "razaoSocial": "CONSTRUTORA BSM LTDA",
+      "totalObras": 6,
+      "totalObrasAtivas": 6,
+      "valorTotalContratado": 262408502.22,
+      "obrasIds": [
+        "db853a8d-253a-43b1-9318-267e52c235b5",
+        "1d7aa948-57e4-4b71-bb55-28afba9e342d",
+        "7242131a-c7d0-4ea4-b74d-a569e8eb228c",
+        "7149f9f1-68ad-4c12-ac47-90dc616e00e2",
+        "1c2b7d41-be95-41a0-b6ca-524f069f803b",
+        "e19f6d38-386c-4fe7-bcbb-c16af7c0546c"
       ]
     },
     {
@@ -159,10 +158,10 @@
       "totalObrasAtivas": 4,
       "valorTotalContratado": 243530575.87,
       "obrasIds": [
-        "dc1bce44-cbd8-42bf-a88c-1c772983c42b",
-        "9f72a0cd-7971-4b45-9448-e7f1f8a8315a",
-        "916182ed-6218-48b8-accd-fffc14974f64",
-        "d6329006-afcf-4acc-8835-79c90cf9894c"
+        "a9c0531c-55a8-4b7d-9c8c-b7ec3729d446",
+        "8b9908f2-43bf-43bd-b2e7-74d804c47332",
+        "fb71d063-b0f1-48b8-bf6b-6493e89c58bd",
+        "d75e3767-2e7f-45aa-94c9-700c3a8e2a0e"
       ]
     },
     {
@@ -187,31 +186,44 @@
         "10e3bc41-5b34-40fd-9b19-765ebe3fe54b",
         "0ae88bfe-920c-41d5-93ed-15f3a3074565",
         "9907044d-9227-43a6-9ce3-c0519e3fac0a",
-        "9f8b0b82-04ba-4a2e-85bf-62d91918daac",
-        "4b1520f8-f1ff-4886-98b7-46eb97112db4"
+        "8e50d73e-2760-48b6-aec9-45fab98615e6",
+        "a6866c63-a63d-4384-85c5-ef6e68b634b3"
       ]
     },
     {
       "cnpj": "33.833.880/0001-36",
       "razaoSocial": "CS CONSTRUCOES E EMPREENDIMENTOS LTDA",
-      "totalObras": 14,
-      "totalObrasAtivas": 14,
-      "valorTotalContratado": 187704008.39,
+      "totalObras": 13,
+      "totalObrasAtivas": 13,
+      "valorTotalContratado": 179712091.6,
       "obrasIds": [
-        "0ed5e5b0-4cc6-4cac-843a-9535f1f74fdb",
-        "dff72cd7-ac92-4eda-9833-81b5f2d27c61",
-        "125a709a-e771-4b04-92d9-b05e03ca1cc1",
-        "e44f68f2-fc89-42c3-8d10-eb5a211c888f",
-        "cecc0f38-94a5-4cd7-8d83-437461f760e3",
-        "44d5b6b8-2fbf-4a1f-8598-21aa779f08d4",
-        "e004bdc4-4d37-4b22-9b8b-7e19f0e0f6a3",
-        "22dc1951-ea90-4a1e-8595-d82de501e083",
-        "2e32a1c7-eda6-4e14-9ea4-d1a4239b53c5",
-        "bfe91c60-8075-4187-b048-11dab8811720",
-        "4c8d81f6-0a25-4abd-a29f-1e0030c45b6c",
-        "9617ae1a-6739-4578-bec4-96645d222bd8",
-        "4f9faafd-484f-46ef-9c76-db4401d02150",
-        "9febeb8e-1b81-45ec-9a9f-5984121e3874"
+        "dade2567-12d8-43f9-97c2-431ed89da497",
+        "11391b3c-7834-497d-a609-0151cb49476a",
+        "8f683659-feea-4926-9bb0-92a9ff13543a",
+        "e8fdd21a-7323-4c3d-876d-060fe31dfa91",
+        "ce39582c-e890-469e-94d1-3ef5b3302c5e",
+        "49812954-4ec9-4098-8471-33f33e27fc23",
+        "dbe20a7e-c174-422d-a52e-2e6e43085919",
+        "438ce20a-4ec3-424a-8888-9c79b22e89e4",
+        "f0f7a5f6-ba35-4d91-830e-686548fd7acd",
+        "28374100-28e2-4abd-9fbb-97976c8c0850",
+        "1523fa8b-48a7-4877-b1ec-5d4cc1db6ca6",
+        "f9d59b9b-7118-4ba9-89cb-ace8406f42d1",
+        "9a56470c-48d4-4935-b982-8bb02e44276e"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "CONSTRUTORA BSM LTDA",
+      "totalObras": 5,
+      "totalObrasAtivas": 5,
+      "valorTotalContratado": 172396214.28,
+      "obrasIds": [
+        "bbcb7643-a71b-4558-b091-05b61f601a0b",
+        "886733a7-84ad-4c10-8b4b-abb7442e2de2",
+        "b402a1d0-393f-41ce-bf18-cca91d03d097",
+        "89de7cd9-6bfc-494a-a98e-4b185e3dcbbc",
+        "2acb5cfc-d190-4397-9141-5426aa96e801"
       ]
     },
     {
@@ -221,7 +233,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 164943875.51,
       "obrasIds": [
-        "ef60a7c2-1905-477d-a65b-65340ab254f0"
+        "ee10578b-aa91-440e-abc9-689a126ba006"
       ]
     },
     {
@@ -231,22 +243,11 @@
       "totalObrasAtivas": 5,
       "valorTotalContratado": 143386345.42,
       "obrasIds": [
-        "484c1c97-dfd1-42ab-8062-d66c96002ce4",
-        "ddaf1d12-4bff-41df-963a-1cae59600a39",
-        "f6e0d411-cb24-4978-85e0-2ee958ca543b",
-        "38ac8b9b-31ad-43a1-8335-8b8ce49f52d0",
-        "3b2f5561-c257-4bd2-b682-269ba3f95795"
-      ]
-    },
-    {
-      "cnpj": "05.874.949/0001-34",
-      "razaoSocial": "ROBLE SERVICOS LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 135701316.6,
-      "obrasIds": [
-        "b436c663-a747-4000-a02f-a9f2b92fd7ae",
-        "dee2aa39-80f9-47c0-b31a-93b5c4e22449"
+        "5b9b70d0-b554-4f78-9135-ec9022b1a0ee",
+        "f3419fd5-73d1-4409-8bac-1f2047d63933",
+        "fb5f19e3-b0d2-468c-8a4e-79350b90b6e1",
+        "3a69d3f6-44a9-4c08-92cc-75a021a2cc39",
+        "0fc0f8d3-7d68-40b6-bdb8-59c4f1b01b18"
       ]
     },
     {
@@ -260,7 +261,7 @@
         "95ececda-901d-43ae-bb45-aae31202b290",
         "a8b50419-83cd-4dd1-a8eb-2fa293bdb9bd",
         "780facfb-7f0e-4258-8f74-d4a1e5461cc7",
-        "5559e42e-e6c8-4b70-a322-ebef6445c042"
+        "a88a1218-bac9-4f83-a337-01b2783eaa6b"
       ]
     },
     {
@@ -299,28 +300,15 @@
         "978084b1-1fb7-4460-9308-2ece70008f21",
         "455b5d0a-b602-4bb9-9aee-9e8d81622e2a",
         "1c92dccd-33e5-4473-8727-5782bf27bd55",
-        "0b376eca-bb70-4f87-9f96-94e2d52cc825"
-      ]
-    },
-    {
-      "cnpj": "15.270.565/0001-66",
-      "razaoSocial": "LIGA ENGENHARIA LTDA",
-      "totalObras": 4,
-      "totalObrasAtivas": 4,
-      "valorTotalContratado": 112343727.91,
-      "obrasIds": [
-        "6a3714f9-27bd-4f4d-82b7-b1ac2ff6b1b9",
-        "235f6f08-a998-4ff7-8810-1dafef3f9acd",
-        "a8b61a40-d4b6-4533-aad0-a0041d5320d7",
-        "65f11ead-5cef-4272-8891-e83302b7f37a"
+        "d2734b8d-f525-4954-9d90-c182f4930f08"
       ]
     },
     {
       "cnpj": "",
       "razaoSocial": "CS CONSTRUCOES E EMPREENDIMENTOS LTDA",
-      "totalObras": 15,
-      "totalObrasAtivas": 15,
-      "valorTotalContratado": 110168768.07,
+      "totalObras": 16,
+      "totalObrasAtivas": 16,
+      "valorTotalContratado": 118160684.86,
       "obrasIds": [
         "fc692bdb-284b-4696-ba1b-922bfda0b8f0",
         "5d962803-d71e-4b70-b363-2e21da90c261",
@@ -336,7 +324,20 @@
         "89a80e6c-3ca5-445a-b43d-cbf36269dace",
         "c8e43746-bff9-4070-80a1-87b7822700f7",
         "5f04df89-53b7-43e9-ab69-5e465d84d9b3",
-        "f1306f73-ea05-4b99-9df1-79514716c4e3"
+        "10d04d85-2a9e-4a92-b9c5-cf4dd77e9a39",
+        "1252bb6a-7263-49e7-8358-9d6a13d64f4f"
+      ]
+    },
+    {
+      "cnpj": "15.270.565/0001-66",
+      "razaoSocial": "LIGA ENGENHARIA LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 111199497.65,
+      "obrasIds": [
+        "e9fafb79-9a01-496a-83fe-c0daf69a4fcf",
+        "1e701aaa-f459-4840-baa4-787ce34c0f10",
+        "b8b7fffb-0910-4c1c-9768-57432f63f37d"
       ]
     },
     {
@@ -346,20 +347,20 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 104941050.97,
       "obrasIds": [
-        "1fd21450-d852-4f52-8ff7-2a41d3b60074"
+        "8b1b4f9f-f91f-492e-b035-2ebd7f143d74"
       ]
     },
     {
       "cnpj": "",
-      "razaoSocial": "CONSTRUTORA BSM LTDA",
+      "razaoSocial": "ROBLE SERVICOS LTDA",
       "totalObras": 4,
       "totalObrasAtivas": 4,
-      "valorTotalContratado": 95515807.97,
+      "valorTotalContratado": 99488609.01,
       "obrasIds": [
-        "bbcb7643-a71b-4558-b091-05b61f601a0b",
-        "886733a7-84ad-4c10-8b4b-abb7442e2de2",
-        "b402a1d0-393f-41ce-bf18-cca91d03d097",
-        "096e082b-fd4f-4472-9f04-71a1f19ad640"
+        "023fafb3-c1fc-43d4-be6d-0a0ca9164bb1",
+        "21923172-06b5-47e2-b106-b6d10312896c",
+        "0914893f-ee88-4eec-8e9a-6763b6aeff83",
+        "9bb8fca8-e891-45c6-8bfc-8a01c3228b8d"
       ]
     },
     {
@@ -369,13 +370,13 @@
       "totalObrasAtivas": 7,
       "valorTotalContratado": 94640038.88,
       "obrasIds": [
-        "29975769-22f0-43ff-8a26-6f9c411dad0d",
-        "cc251ac3-e5ca-464d-9988-cfeedcd77ac8",
-        "de8ef004-b733-4a12-a5bd-0e202e981521",
-        "9d117683-6bd5-46ba-8099-fc35de1678de",
-        "72e0de96-0bb1-4e3f-b49c-afe0d96b8f10",
-        "822abd48-e5fd-421c-ab4a-88217af3bb33",
-        "311c2496-eb74-4b1e-b0bb-ef37a7eaec87"
+        "44d9e74e-e228-4600-be41-343bc126c744",
+        "43323f83-8cfc-424c-9e77-c6fe0c205722",
+        "e5f680b3-4cc2-4bc8-8e8f-70b792c52782",
+        "66542375-b795-4a49-8442-72f95f424592",
+        "5955a8e6-2c61-4475-ad00-ea18be34afd9",
+        "0e038d9f-b436-49b5-9fce-965a4676cf15",
+        "0aaeda8a-de68-411f-ad2e-5d9721e2afc9"
       ]
     },
     {
@@ -395,7 +396,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 82273207.9,
       "obrasIds": [
-        "602421ab-571a-498f-83da-1b5c2354f3fa"
+        "6e925a87-53ad-4ac8-a6f5-72f300c32086"
       ]
     },
     {
@@ -405,17 +406,17 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 79685367.36,
       "obrasIds": [
-        "73cc035f-c3f2-4d1f-8713-8aaa46f7cdc7"
+        "e4041783-8ac0-476f-93bd-e4089cfa1c50"
       ]
     },
     {
-      "cnpj": "14.828.958/0001-80",
+      "cnpj": "",
       "razaoSocial": "JOTAGE ENGENHARIA COMERCIO E INCORPORACOES LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 79067253.95,
       "obrasIds": [
-        "c69b675d-398f-473f-8395-d44399a5f62b"
+        "45bb4782-f26b-432f-b255-a92f5ec7fa91"
       ]
     },
     {
@@ -428,7 +429,7 @@
         "36232396-8f61-4283-b386-43cdc8934c9a",
         "a43c924e-06ec-445c-a278-6cd57b5cacf9",
         "d5bbf943-19be-4e98-b5bf-d78aff853f03",
-        "e8917499-ce8c-40aa-9668-04ed702dd0c8"
+        "5b951967-3584-4f9d-be56-d2e0cae6ee16"
       ]
     },
     {
@@ -438,7 +439,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 77825845.15,
       "obrasIds": [
-        "14bcbad4-c719-4b7d-ae92-bc66d821010e"
+        "b1cbeaf8-9b63-4844-812a-585c39ccba5f"
       ]
     },
     {
@@ -448,17 +449,17 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 77693535.0,
       "obrasIds": [
-        "d3075ab5-3bb7-4270-b014-6f64b5d1f9a1"
+        "ffc15d43-fcdf-476b-a58d-c154774747eb"
       ]
     },
     {
-      "cnpj": "07.478.417/0001-03",
+      "cnpj": "",
       "razaoSocial": "METRO ENGENHARIA E CONSULTORIA LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 74902122.48,
       "obrasIds": [
-        "3335ac3f-92ee-48e8-96ae-4b7ccf30bef1"
+        "87336dbe-3766-4bc4-ae26-5bdb087fc7da"
       ]
     },
     {
@@ -469,7 +470,7 @@
       "valorTotalContratado": 72441358.69,
       "obrasIds": [
         "003ae76a-ab5a-4ff9-9caf-2811c04ae91b",
-        "55dcf355-580a-43b2-b962-abea48764590"
+        "0a060e52-0d0a-496a-a77d-733aadc075c1"
       ]
     },
     {
@@ -479,7 +480,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 70622025.0,
       "obrasIds": [
-        "3b329ba7-cf33-46d6-9bbc-49462a4b4de5"
+        "29331ce2-56c5-4fdb-a55d-9be0466b23d2"
       ]
     },
     {
@@ -498,7 +499,7 @@
         "73698b5c-7bd3-4bf0-91df-7e0c67ea853d",
         "e3370ad2-1b0e-4b62-8001-59e185af1a8d",
         "cedfa542-a390-41b7-8f0f-f45ea0e24ba2",
-        "979d0e5a-5247-4053-8e5b-823e577871ec"
+        "f51c2887-1715-46bd-b343-f7f4832d1e57"
       ]
     },
     {
@@ -508,8 +509,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 65662834.31,
       "obrasIds": [
-        "83757f02-de03-4fd9-9982-0a0b09bc2be9",
-        "775e0fc7-08ae-44b1-b110-e6220bee016b"
+        "5fda0083-9307-4267-bfda-5cbe6ae01a61",
+        "f3d12c96-f93a-4269-9eca-36df3c1bbbc8"
       ]
     },
     {
@@ -519,7 +520,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 65428932.64,
       "obrasIds": [
-        "943130d5-fbb9-4cc2-84a9-04082c8c990c"
+        "57169b9a-d405-4060-bae4-debf16764fd4"
       ]
     },
     {
@@ -529,7 +530,17 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 64783154.37,
       "obrasIds": [
-        "b5cdcd86-5a83-4c96-ac0c-5bade17f1329"
+        "9659b48e-215d-4379-8f87-4816344a24a7"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "PAVNORTE CONSTRUTORA LTDA.",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 64303510.0,
+      "obrasIds": [
+        "8bd4ff22-9395-4e41-8d7c-bc3570710975"
       ]
     },
     {
@@ -539,7 +550,23 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 63476478.12,
       "obrasIds": [
-        "3d75b550-39ed-4738-a900-de5037c898df"
+        "8bbfe6d3-ea03-461e-99cb-a38b7b4378a5"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
+      "totalObras": 7,
+      "totalObrasAtivas": 7,
+      "valorTotalContratado": 63169598.63,
+      "obrasIds": [
+        "ee55eaab-39c9-4b01-b677-c98ed6bdc62e",
+        "63e28305-5f4d-44a6-ab8f-4dc97fdd7534",
+        "74ad583e-e817-4bb6-8a74-c5d3065c3c70",
+        "fae98092-4b96-4c6c-91fc-9317033bbe33",
+        "b66dae9d-e507-4ac1-b9ac-b31c95ad765a",
+        "add077fc-e93a-4fee-9472-736fc643c4b1",
+        "97daadc9-67b2-48fd-b37e-c95b6c5e3f4c"
       ]
     },
     {
@@ -549,8 +576,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 62165117.5,
       "obrasIds": [
-        "c850c4ae-4d0f-4733-a41b-126ee68b69d1",
-        "8cface09-afa4-479e-b2ad-6c01f217a01f"
+        "1ca4d031-c8c1-42ce-a44e-9a40fc450489",
+        "0e4cd451-0904-470d-8f63-bebd1b29a345"
       ]
     },
     {
@@ -560,7 +587,22 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 59795087.5,
       "obrasIds": [
-        "186b58c9-e0b8-4cd5-a765-e5d5a4459335"
+        "7ec559e5-dc56-41c6-92ae-6c3bcebd63b5"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "COMTECH ENGENHARIA LTDA",
+      "totalObras": 6,
+      "totalObrasAtivas": 6,
+      "valorTotalContratado": 58432303.75,
+      "obrasIds": [
+        "9e918251-3fa2-4276-811f-91e55eddd461",
+        "ae068cbf-fb75-4bae-bc30-98237831b38e",
+        "547cd661-225a-4dca-81e7-402668200a40",
+        "dad1ccf2-14e1-4a1b-9937-8ee5210760e8",
+        "c49b7710-45bd-4a1b-a920-f91fe4041dea",
+        "a1a80579-0028-4cc6-8441-411bf0af766f"
       ]
     },
     {
@@ -570,8 +612,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 55201750.33,
       "obrasIds": [
-        "1d037558-3a0e-4921-845f-f66cc60f7663",
-        "12eda4f1-879c-47b8-adf4-a2c5ce37834b"
+        "fa7f8fe6-44f2-44a5-9899-c04c6212432e",
+        "b399ac28-024c-4380-8252-51a724546edc"
       ]
     },
     {
@@ -581,7 +623,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 55058979.39,
       "obrasIds": [
-        "bb7177c2-b561-4f42-b3a9-840915faa5b7"
+        "f27c5eb3-e3a6-493d-933e-8c366af942f3"
       ]
     },
     {
@@ -591,19 +633,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 54620000.0,
       "obrasIds": [
-        "a47c43e6-ead7-4e3f-865f-70d3c9694bdb",
-        "5bdf2c85-1b1b-4bf2-a2c2-f0d21fe7de9a"
-      ]
-    },
-    {
-      "cnpj": "08.722.657/0001-74",
-      "razaoSocial": "ANGRA ENGENHARIA LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 54597447.1,
-      "obrasIds": [
-        "12c472f3-0fcb-4d7f-81b2-08d20faa679a",
-        "dde02cec-fe65-4f6c-8fa1-d724d33f5f29"
+        "5615e4e0-8b24-4a13-9ca7-5e666d7e005c",
+        "4e0f14ba-d172-4b74-9f7f-5ed2b7396153"
       ]
     },
     {
@@ -613,11 +644,21 @@
       "totalObrasAtivas": 5,
       "valorTotalContratado": 53693375.13,
       "obrasIds": [
-        "195097ee-b1ee-4ffd-893f-21924ff165c2",
-        "a3a0e0fa-2043-4bdb-b3e6-387bfaf208f0",
-        "65d76919-fcb1-425d-885f-e0b8616a79e4",
-        "1f2bdaa4-330e-42e4-9351-1c27f427923a",
-        "f567e3ad-a11f-486b-8673-f098d37e8571"
+        "7512c711-1040-44f6-8b1a-e1991857c209",
+        "7e80cb45-ff33-4cb6-bdc6-d308eeebd26f",
+        "740ef272-2bbe-4d95-b284-d92604d62212",
+        "9248408f-3995-4dcd-9d38-6cb822233d88",
+        "eb8e72ed-35c0-47c6-992c-6f421be2a936"
+      ]
+    },
+    {
+      "cnpj": "05.874.949/0001-34",
+      "razaoSocial": "ROBLE SERVICOS LTDA",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 53567708.83,
+      "obrasIds": [
+        "c9b26d30-490f-4c2d-b326-8803b076cd79"
       ]
     },
     {
@@ -647,26 +688,21 @@
       "totalObrasAtivas": 3,
       "valorTotalContratado": 50122116.46,
       "obrasIds": [
-        "e51e2e8c-6676-4255-9be1-5770039c8f4a",
-        "0aae1c05-cef5-4563-a87c-3d35f57141a4",
-        "4c53ea98-0d0e-4513-b07e-523b57fa4220"
+        "194bbb8f-9da0-49e4-bc33-e3dba95b5af0",
+        "79eb1b3c-5c5a-4f9f-ac8d-a422bed945d4",
+        "497c017f-c5fa-44e1-bba0-0b5118b5a081"
       ]
     },
     {
-      "cnpj": "13.585.696/0001-07",
-      "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
-      "totalObras": 8,
-      "totalObrasAtivas": 8,
-      "valorTotalContratado": 48674967.2,
+      "cnpj": "",
+      "razaoSocial": "LIGA ENGENHARIA LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 48208059.51,
       "obrasIds": [
-        "9208c854-72bd-4426-8840-e45516fbea2a",
-        "cb044ead-8b90-4807-b07e-6bb2b3a3988d",
-        "d188bf22-9f7c-42b8-9e4b-761e6c1125ae",
-        "e1921fc5-f51a-4c81-9a99-1f8efc0a0e48",
-        "9e33d5e7-563c-4c1e-905c-a31050ad2972",
-        "f9e0aeaa-3bf7-4ca1-b45d-4825cd9afe2b",
-        "19e2a758-213d-4251-8a33-2a3727e76884",
-        "81570855-cce0-4642-b53d-f383d79589a4"
+        "9c89cee7-7392-4fd3-812b-1209f0e51e08",
+        "18942fb1-dfcc-45fb-8aca-53defbe546d6",
+        "28152e7a-8ff9-4b6b-971c-f041c6820bfd"
       ]
     },
     {
@@ -676,20 +712,9 @@
       "totalObrasAtivas": 3,
       "valorTotalContratado": 47945148.2,
       "obrasIds": [
-        "56915d1b-e3cd-4726-8890-e7b68370128f",
-        "d8f8c80c-b72f-4088-a1b0-a5a52ff4f6a5",
-        "e930f5a7-7e37-4c87-81f2-401d85e67f76"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "LIGA ENGENHARIA LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 47063829.25,
-      "obrasIds": [
-        "9c89cee7-7392-4fd3-812b-1209f0e51e08",
-        "8bdaf23e-97ce-4aff-b1dc-67fdc6f4aff4"
+        "ba6b163f-ae50-43cb-8f9f-7959d8559991",
+        "f7ecf1a2-6668-45e4-93d0-b4e6babe028f",
+        "84245ec0-f0b0-4183-9e42-6edda614b515"
       ]
     },
     {
@@ -719,7 +744,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 45104812.98,
       "obrasIds": [
-        "4e2eae31-6d85-4d8c-aadf-81a6625a6d60"
+        "f0e2bdfa-a4cc-4f91-90d7-a4fe47d6cf20"
       ]
     },
     {
@@ -731,6 +756,24 @@
       "obrasIds": [
         "91e6a27b-3d2b-4cb9-9af4-2b4efaf7cdea",
         "11fbfdbf-3d0a-49ae-a5f7-93a370ba385e"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+      "totalObras": 9,
+      "totalObrasAtivas": 9,
+      "valorTotalContratado": 44954941.58,
+      "obrasIds": [
+        "ca379bdd-e164-4176-9153-f99ac20f7cdc",
+        "70cd4c11-7793-4a6f-8306-3acf8005e667",
+        "042278bf-71ea-4e3c-bc38-d389d64ba170",
+        "91d3e703-5e4d-4312-be89-82176b726a31",
+        "04f87a18-721e-4097-94cf-5c58739bbd51",
+        "eed47ecc-c7f9-4631-aa15-cfaa6a42d8d5",
+        "8b4257db-1da5-48da-8607-495ca76a6ac6",
+        "573ebec0-ee42-4b36-9240-503ef84c1206",
+        "9e814c7e-a813-44ac-89e1-84bd01b9420c"
       ]
     },
     {
@@ -750,7 +793,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 43341681.39,
       "obrasIds": [
-        "1c1fc2c4-62eb-416f-bc45-8bfc0a9b7863"
+        "fe709f20-b0b6-421d-9668-3962e51a019b"
       ]
     },
     {
@@ -761,20 +804,6 @@
       "valorTotalContratado": 37649022.48,
       "obrasIds": [
         "2ef81135-c4c2-4ef6-ab31-f033fe884aae"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
-      "totalObras": 5,
-      "totalObrasAtivas": 5,
-      "valorTotalContratado": 37014155.68,
-      "obrasIds": [
-        "ee55eaab-39c9-4b01-b677-c98ed6bdc62e",
-        "63e28305-5f4d-44a6-ab8f-4dc97fdd7534",
-        "74ad583e-e817-4bb6-8a74-c5d3065c3c70",
-        "f13f818b-8609-49d9-a219-cf6212a0b74b",
-        "2976e5f8-1c18-42d0-a4ff-73b26a20474b"
       ]
     },
     {
@@ -807,15 +836,13 @@
       ]
     },
     {
-      "cnpj": "02.214.613/0001-57",
-      "razaoSocial": "800-D ENGENHARIA LTDA",
-      "totalObras": 3,
-      "totalObrasAtivas": 3,
-      "valorTotalContratado": 36205140.19,
+      "cnpj": "08.722.657/0001-74",
+      "razaoSocial": "ANGRA ENGENHARIA LTDA",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 36549842.1,
       "obrasIds": [
-        "1d7e4700-6fac-4332-9e46-c79caeec9f37",
-        "3bdf1453-d6c8-4953-abe2-9d55a275e2f8",
-        "82731bf7-2cbe-45c2-8b8b-f3cd14a0e412"
+        "38ce54db-2877-4537-b6e9-6621440e28fb"
       ]
     },
     {
@@ -825,10 +852,10 @@
       "totalObrasAtivas": 4,
       "valorTotalContratado": 35289936.12,
       "obrasIds": [
-        "7bec087d-5c3a-4490-8061-861e7d4bedf3",
-        "2c928ca4-2fd4-49af-96d0-de6e00ee1dcf",
-        "75dd9a42-cc82-49c9-922e-3139a06486e5",
-        "b375a170-3b29-4915-84b4-b39a586f49ec"
+        "b2280d29-b0e9-46f8-a753-e2e002ce2139",
+        "8c48327c-cd29-4989-bf67-fdfb949b1c49",
+        "ce43a31b-a8ec-44ec-a35c-8f6263bf39c4",
+        "53eb72fd-9e2a-41f1-9da4-e9219ef65972"
       ]
     },
     {
@@ -838,7 +865,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 35178576.19,
       "obrasIds": [
-        "82f2a1a5-f606-4aef-81d6-8ae9dbb16c0b"
+        "08b5fa52-a4fc-46ef-a041-a533cdb0c66f"
       ]
     },
     {
@@ -862,28 +889,29 @@
       ]
     },
     {
-      "cnpj": "24.051.496/0001-90",
-      "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
-      "totalObras": 6,
-      "totalObrasAtivas": 6,
-      "valorTotalContratado": 33008903.43,
-      "obrasIds": [
-        "4812cf33-6f3a-4fa7-b72f-8a4838e7ff03",
-        "6452de84-fe4d-4a2a-87ff-9f22cf7053b8",
-        "f05a16a6-ff92-417d-9415-b04243dd5b7f",
-        "82a61446-847a-4a8e-b0f4-36881c0d42fb",
-        "b3a47837-50b0-40b9-ba67-21fd6e16371a",
-        "110fb85a-135c-4179-a6e3-58dab1dfb2bd"
-      ]
-    },
-    {
       "cnpj": "13.578.869/0001-60",
       "razaoSocial": "ANKARA ENGENHARIA LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 32816886.01,
       "obrasIds": [
-        "0c86f950-67a6-467c-8d67-2753bf282ba8"
+        "192796df-ec35-4ec7-a302-af38fb78432d"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "800-D ENGENHARIA LTDA",
+      "totalObras": 7,
+      "totalObrasAtivas": 7,
+      "valorTotalContratado": 32323213.34,
+      "obrasIds": [
+        "c52bc0b6-677a-4329-9221-8e25d1c3a1ad",
+        "eb9c9183-6a58-4b53-ac53-7534a5021e04",
+        "48912250-6785-4a11-9fe6-2bcf944b361a",
+        "f4d7db62-cd53-4f40-9e34-319317a70fbd",
+        "f46a5842-07fd-44bc-b2c4-b3cdc757d877",
+        "b08d55e6-a11e-4c8b-b820-c19fcbde89bb",
+        "b7ad29a3-1ce8-4214-93ee-7aa464de78ce"
       ]
     },
     {
@@ -903,7 +931,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 31181460.0,
       "obrasIds": [
-        "7805a9d9-c24e-41e2-b0c1-7a3a6826f991"
+        "5a2dc9f0-f676-4c4b-83f5-aa29ab1dfe45"
       ]
     },
     {
@@ -913,8 +941,19 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 30936966.4,
       "obrasIds": [
-        "4e495d78-799a-4a91-9c72-69c18ecc1ced",
-        "bf14cf29-dec1-4e86-a09f-f3dc5c1c92c0"
+        "8d2cadb3-5db4-4930-92ba-56f851fa5439",
+        "83ad5033-d3a7-4bf5-ad34-42e4dddba3c4"
+      ]
+    },
+    {
+      "cnpj": "02.214.613/0001-57",
+      "razaoSocial": "800-D ENGENHARIA LTDA",
+      "totalObras": 2,
+      "totalObrasAtivas": 2,
+      "valorTotalContratado": 30593827.91,
+      "obrasIds": [
+        "bb7fdd3f-0215-48dc-b9e0-fc9637b40130",
+        "12222ae6-53e2-4ac4-a485-72374edc3ee7"
       ]
     },
     {
@@ -939,41 +978,12 @@
     },
     {
       "cnpj": "",
-      "razaoSocial": "800-D ENGENHARIA LTDA",
-      "totalObras": 6,
-      "totalObrasAtivas": 6,
-      "valorTotalContratado": 26711901.06,
-      "obrasIds": [
-        "c52bc0b6-677a-4329-9221-8e25d1c3a1ad",
-        "eb9c9183-6a58-4b53-ac53-7534a5021e04",
-        "48912250-6785-4a11-9fe6-2bcf944b361a",
-        "0806ba8a-f77c-44aa-9630-80b758ac216f",
-        "d652428d-b6b0-4667-850c-f118b2c79521",
-        "b741d066-06de-402c-add5-6ea347db5a8c"
-      ]
-    },
-    {
-      "cnpj": "",
       "razaoSocial": "CONSORCIO SANTA DULCE DOS POBRES",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 26558502.69,
       "obrasIds": [
-        "771c76c1-2f2b-49c2-a415-1006bf95945d"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "COMTECH ENGENHARIA LTDA",
-      "totalObras": 5,
-      "totalObrasAtivas": 5,
-      "valorTotalContratado": 25772691.87,
-      "obrasIds": [
-        "9e918251-3fa2-4276-811f-91e55eddd461",
-        "ae068cbf-fb75-4bae-bc30-98237831b38e",
-        "547cd661-225a-4dca-81e7-402668200a40",
-        "dad1ccf2-14e1-4a1b-9937-8ee5210760e8",
-        "c49b7710-45bd-4a1b-a920-f91fe4041dea"
+        "1c19ee8b-d679-48fa-9eb1-f43728984f96"
       ]
     },
     {
@@ -983,7 +993,21 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 25695114.39,
       "obrasIds": [
-        "a94451b8-9767-4492-9050-9aefd2c53068"
+        "8bb4f8a8-8ef5-4d02-bfad-e2ae758bcba5"
+      ]
+    },
+    {
+      "cnpj": "24.051.496/0001-90",
+      "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
+      "totalObras": 5,
+      "totalObrasAtivas": 5,
+      "valorTotalContratado": 25618024.94,
+      "obrasIds": [
+        "5caa590d-0847-4871-a170-8da17f1c4a6d",
+        "d40c9862-7baf-4b4f-bc54-b9e1b4c4cf63",
+        "0c68abc0-fd53-455f-b474-25b9f8378693",
+        "f26051fb-56fb-4f41-99b4-e2791042b518",
+        "db1fda41-faae-4708-9e0e-ac8848a99d1f"
       ]
     },
     {
@@ -993,8 +1017,22 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 25556521.09,
       "obrasIds": [
-        "52a96d38-bed7-4f93-8fcc-ac4ac661ad43",
-        "60467ef8-5261-4df2-856d-0e7dafddf7f3"
+        "5180416c-cbd1-4606-904a-7f466d9260e2",
+        "d29d26b5-f600-418d-b845-189e97ea0282"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
+      "totalObras": 5,
+      "totalObrasAtivas": 5,
+      "valorTotalContratado": 23384155.44,
+      "obrasIds": [
+        "d0620db5-bbc8-48f7-802f-ba6181b5dbd1",
+        "33bb376f-8a1f-4d9c-8321-77128252ef93",
+        "6f4863e2-00ae-473c-959b-08ac920fd159",
+        "a18f2109-4830-4780-8259-7f4a126d27d1",
+        "fa6c2670-72bd-43ac-b501-7926862dab8c"
       ]
     },
     {
@@ -1005,7 +1043,7 @@
       "valorTotalContratado": 23038431.56,
       "obrasIds": [
         "952356ca-e2fb-467c-87bb-1f79670d8291",
-        "39fa5f75-c592-4826-93fb-2faa33cb9436"
+        "8392744d-71eb-4a96-9c0e-85ed2742e0ee"
       ]
     },
     {
@@ -1016,7 +1054,7 @@
       "valorTotalContratado": 22956250.44,
       "obrasIds": [
         "f5fb52ed-42f1-433e-8f06-1408fa0157e0",
-        "0cba3166-70fc-4936-a56a-150ddeecebc8"
+        "5c053c71-5eed-4354-b505-8862464e1ee8"
       ]
     },
     {
@@ -1103,8 +1141,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 21224873.54,
       "obrasIds": [
-        "9f63fbff-45b9-4401-84e0-dbea0963c2d2",
-        "d10d74ac-fb13-49cd-9a7f-c02eb5206143"
+        "2700cd2f-8080-462d-ac4e-47260235eb90",
+        "9373ce40-1b02-4197-93f1-1a90ae703e24"
       ]
     },
     {
@@ -1121,13 +1159,13 @@
       ]
     },
     {
-      "cnpj": "57.716.402/0001-04",
+      "cnpj": "",
       "razaoSocial": "CONSORCIO NOVA CONTORNO - FLEX / ATL / H2",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 20516527.18,
       "obrasIds": [
-        "0ddfd82c-4ae5-4ddf-b256-39ddbd80e15f"
+        "a664d378-1dde-49c1-89e6-a5f82b93d7d9"
       ]
     },
     {
@@ -1149,6 +1187,17 @@
       "obrasIds": [
         "01728058-23ce-4aae-b50b-6c588cbb61ab",
         "b4017ed7-d96d-44b5-887b-c6a24a2baabb"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "ANGRA ENGENHARIA LTDA",
+      "totalObras": 2,
+      "totalObrasAtivas": 2,
+      "valorTotalContratado": 18977753.93,
+      "obrasIds": [
+        "890f8e0b-37c3-4127-9fea-3985046443eb",
+        "5809388a-6ff2-4d12-b824-be839f5a527c"
       ]
     },
     {
@@ -1179,19 +1228,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 17456667.2,
       "obrasIds": [
-        "0e3bb5f7-55f1-48b0-b3c8-6d391bc25c1a"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "ROBLE SERVICOS LTDA",
-      "totalObras": 3,
-      "totalObrasAtivas": 3,
-      "valorTotalContratado": 17355001.24,
-      "obrasIds": [
-        "023fafb3-c1fc-43d4-be6d-0a0ca9164bb1",
-        "21923172-06b5-47e2-b106-b6d10312896c",
-        "0914893f-ee88-4eec-8e9a-6763b6aeff83"
+        "16859b16-2223-4bf1-af39-11bf21815e28"
       ]
     },
     {
@@ -1201,7 +1238,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 17349105.02,
       "obrasIds": [
-        "a0494644-8c62-413d-8af4-7529e8e166b5"
+        "8d554582-fb84-4e78-9a10-e86612e46655"
       ]
     },
     {
@@ -1211,7 +1248,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 17220332.93,
       "obrasIds": [
-        "db1ad4a6-f379-4e6a-8905-5c7fe64eb5f2"
+        "f4653503-d23f-44ed-9f63-0b02319243fb"
       ]
     },
     {
@@ -1221,7 +1258,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 17042054.7,
       "obrasIds": [
-        "935f3613-3f1b-4d6a-b536-5282744c8e99"
+        "8f934980-04b7-4759-829d-497b88543c17"
       ]
     },
     {
@@ -1234,19 +1271,6 @@
         "f3773df2-5a00-48ac-8542-36dad6bf6bc4",
         "1bbb8cc0-c4bd-4b93-93e6-82cac9ab59a7",
         "fe23ad98-d579-4fdc-a61a-ef10472a5b6a"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
-      "totalObras": 4,
-      "totalObrasAtivas": 4,
-      "valorTotalContratado": 15122288.02,
-      "obrasIds": [
-        "d0620db5-bbc8-48f7-802f-ba6181b5dbd1",
-        "33bb376f-8a1f-4d9c-8321-77128252ef93",
-        "6f4863e2-00ae-473c-959b-08ac920fd159",
-        "a18f2109-4830-4780-8259-7f4a126d27d1"
       ]
     },
     {
@@ -1266,7 +1290,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 14580774.15,
       "obrasIds": [
-        "031cb963-9316-4343-b500-08d208a4d53c"
+        "883de51b-eba6-4b4b-8574-1d3d98f8d695"
       ]
     },
     {
@@ -1296,7 +1320,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 13799089.12,
       "obrasIds": [
-        "bd1e14a4-b7e2-4bb6-820c-5afae2b56119"
+        "64f16cec-9a5a-4026-abca-c51349007017"
       ]
     },
     {
@@ -1306,7 +1330,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 13600366.16,
       "obrasIds": [
-        "b1e8eadd-a092-469a-8753-f6a6c0a57dd9"
+        "3c53fe96-e062-408f-af24-255a015c0047"
       ]
     },
     {
@@ -1316,8 +1340,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 13448139.26,
       "obrasIds": [
-        "a624f23a-b893-478d-bbaa-6f89549814fd",
-        "5d8ce001-cfab-42cf-af93-7dba5de8b3f2"
+        "c873e946-1157-4844-8251-ebae9c3e634f",
+        "099a2df3-bd46-4103-b40b-852f5ad52eac"
       ]
     },
     {
@@ -1327,8 +1351,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 13418446.98,
       "obrasIds": [
-        "5b9e2dfa-5bee-4431-8022-4404c12c1fa2",
-        "a9c66a2c-477d-4eee-9e8d-8e6149920062"
+        "a547f2aa-6527-479a-b799-e9a896783e4b",
+        "262c3fd0-0b5a-418c-a3b9-96519f6d3c74"
       ]
     },
     {
@@ -1363,7 +1387,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 12439569.19,
       "obrasIds": [
-        "5894f24b-81ea-4bcb-ac6a-3021173815ef"
+        "c3833be0-29a7-4b5e-b9fd-2422b2df5ee9"
       ]
     },
     {
@@ -1395,9 +1419,9 @@
       "totalObrasAtivas": 3,
       "valorTotalContratado": 11941912.01,
       "obrasIds": [
-        "2c20509b-74bd-47c6-bb3d-818bed3cb143",
-        "93fb464a-1eeb-41ee-8486-4e0a25705238",
-        "7166fd12-b933-45b7-9b14-bb4d43b9d5d5"
+        "34ad3697-df75-4fc2-9cc3-96587a33d5d5",
+        "30e8d201-6bdc-4ee9-b45a-3708bf914ba7",
+        "05e15073-3cb4-457b-a252-2931ff008362"
       ]
     },
     {
@@ -1407,7 +1431,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 11814266.95,
       "obrasIds": [
-        "3d2e58a4-974a-4840-86ae-564fadf7d716"
+        "e50b48a3-0d06-4736-9b0f-d423de68ab45"
       ]
     },
     {
@@ -1467,7 +1491,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 11256359.15,
       "obrasIds": [
-        "9f393ccf-9966-4c20-920a-eb3ad210b3ac"
+        "f1992aaf-deb6-488a-8efd-b867583e87c9"
       ]
     },
     {
@@ -1477,7 +1501,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 10850866.93,
       "obrasIds": [
-        "968e8deb-0d18-46d4-916f-8f7c9459ec09"
+        "73a89cc4-3cb4-4b35-a361-a292f6462503"
       ]
     },
     {
@@ -1487,7 +1511,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 10343411.26,
       "obrasIds": [
-        "b330a4af-0e79-4e45-945d-fae434d5f018"
+        "ef0100da-a6de-48c6-97a1-ef7ca3176406"
       ]
     },
     {
@@ -1497,7 +1521,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 10281694.15,
       "obrasIds": [
-        "ce413fb4-f976-442f-9940-508c956ba921"
+        "2af0d267-5f15-48ba-a55f-8989acd563b1"
       ]
     },
     {
@@ -1517,8 +1541,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 10077271.18,
       "obrasIds": [
-        "58ca4cf6-5e7f-4514-8bfa-e3be8cc198a9",
-        "49827c05-0f32-4141-9a07-95c78a9910f7"
+        "3374d4b3-f97d-4cdc-bbfd-ffcf0829971d",
+        "ba166d5f-7a78-453f-ad25-9ad6fb2cb28d"
       ]
     },
     {
@@ -1528,7 +1552,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 9921882.17,
       "obrasIds": [
-        "a39532d2-98f1-4ec1-a9b9-2919f55d6116"
+        "e7466d16-a979-448b-b8b4-b1b99797dc7f"
       ]
     },
     {
@@ -1543,14 +1567,26 @@
       ]
     },
     {
+      "cnpj": "",
+      "razaoSocial": "CONSTRUTORA LAM LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 9572087.14,
+      "obrasIds": [
+        "6618cffa-9537-4a9c-9111-cbfa88aee2a1",
+        "588f5c5d-34b3-40a9-bc29-06bc8a279ac1",
+        "ff78e076-9320-4f39-a0a8-b3f073f0172c"
+      ]
+    },
+    {
       "cnpj": "37.513.644/0001-93",
       "razaoSocial": "V R CAMPOS BARBOSA",
       "totalObras": 2,
       "totalObrasAtivas": 2,
       "valorTotalContratado": 9363122.43,
       "obrasIds": [
-        "1bc0d11d-ed02-4f05-8259-1d8fd090b331",
-        "f5f4181c-c719-4f93-8edb-aec3623efa64"
+        "f2df01e0-33cc-4715-9efe-5e8fc2320277",
+        "7e27934a-e024-4575-9eae-b0a0a5877841"
       ]
     },
     {
@@ -1571,10 +1607,10 @@
       "totalObrasAtivas": 4,
       "valorTotalContratado": 9334665.19,
       "obrasIds": [
-        "e619b5fc-51a0-4f71-90b5-213e0d1c0e66",
-        "d57a4b42-c1d9-47e6-b274-8694abc09206",
-        "9d1afad9-364b-4536-ac01-3bd9d4af6979",
-        "ced01348-113f-48cf-a9e0-e45361df5987"
+        "a14fcc97-1710-4424-9029-5c3c85aeb5d1",
+        "38d99939-82d3-44f7-9ab7-0ba3f1dca7e5",
+        "49f8b3ef-44ef-47ba-b1c2-8f884921fd67",
+        "2048f6f9-edd3-4594-80b0-5d3c0219caf8"
       ]
     },
     {
@@ -1595,7 +1631,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 8577760.78,
       "obrasIds": [
-        "5c184db2-4e86-47bc-8bf0-56bcfb21dbd9"
+        "6bd6976e-2282-426a-98c7-8a041744d3b7"
       ]
     },
     {
@@ -1605,28 +1641,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 8432235.09,
       "obrasIds": [
-        "8f845ca8-289f-4e95-b4f1-2689c67854a9"
-      ]
-    },
-    {
-      "cnpj": "18.318.752/0001-60",
-      "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 8261867.42,
-      "obrasIds": [
-        "aabf28bb-9944-466f-b15e-c0316584332e"
-      ]
-    },
-    {
-      "cnpj": "03.522.765/0001-80",
-      "razaoSocial": "CONSTRUTORA LAM LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 8216555.66,
-      "obrasIds": [
-        "88f5f246-ce99-450d-a2de-f1de2cda15c0",
-        "9ccd806a-23a0-4096-871e-c71eff97bb98"
+        "731966f3-8f7f-4d78-b56a-39d841cf6833"
       ]
     },
     {
@@ -1636,7 +1651,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 8212118.64,
       "obrasIds": [
-        "a1d9d09e-cf4d-48a8-80b3-1b5de0d160a8"
+        "6ca66e3e-6b1c-47fc-924f-a74714b82a8f"
       ]
     },
     {
@@ -1646,7 +1661,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 8169482.33,
       "obrasIds": [
-        "6c3b9165-21d5-4929-a405-1d3dfeed12dc"
+        "f4e73088-e7e0-42bc-9d00-8357a9d8d99d"
       ]
     },
     {
@@ -1700,7 +1715,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 7373311.55,
       "obrasIds": [
-        "96da3bd1-905e-4da0-91d8-76bbd3eecbbd"
+        "14293e28-b20e-4ec1-9efd-5fb12de940e2"
       ]
     },
     {
@@ -1710,8 +1725,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 7210143.11,
       "obrasIds": [
-        "de3dd412-542f-4f89-ae1a-954ebc94839e",
-        "4297f372-71ec-4e56-8e51-37faf4ae3e6a"
+        "c90267a2-85f5-40a6-8be5-b7f275b8fab5",
+        "0e3b923c-959f-4f2a-bd94-69dae2c33411"
       ]
     },
     {
@@ -1738,6 +1753,18 @@
       ]
     },
     {
+      "cnpj": "13.585.696/0001-07",
+      "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 6760413.83,
+      "obrasIds": [
+        "99c639db-3833-40df-8149-d5279dfddd54",
+        "81edebcc-a3b9-48b6-ad0d-f34e7f526d50",
+        "9a094659-a858-407b-9d01-0d02a447effe"
+      ]
+    },
+    {
       "cnpj": "",
       "razaoSocial": "CONSTRUTORA CIVILSAN LTDA",
       "totalObras": 2,
@@ -1755,7 +1782,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 6553060.81,
       "obrasIds": [
-        "dacaf9ff-465c-4be6-8255-a9d6fbadd322"
+        "b4cf9599-9ad5-45b0-8d03-628ef50065a9"
       ]
     },
     {
@@ -1775,7 +1802,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 6337616.71,
       "obrasIds": [
-        "435a417c-ad1b-4691-85a3-7fac319ea33e"
+        "11801b98-0ed0-44f8-a942-653262bf57b7"
       ]
     },
     {
@@ -1785,7 +1812,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 6151490.56,
       "obrasIds": [
-        "9082639d-5748-4499-8d9c-bdd6f58b16d2"
+        "399407f8-3de6-4212-bd64-436849042507"
       ]
     },
     {
@@ -1795,7 +1822,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 5990000.0,
       "obrasIds": [
-        "02698373-a31d-4569-9f61-19ffa960d1c2"
+        "4e90e5bd-4bb3-48d6-89dc-1fd1de6ec91a"
       ]
     },
     {
@@ -1805,7 +1832,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 5745421.73,
       "obrasIds": [
-        "8c22bf56-404e-4607-9bb0-a1d92a3cb0cd"
+        "ab400263-1a23-4a03-b82d-1d2f5f3de804"
       ]
     },
     {
@@ -1829,8 +1856,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 5569078.86,
       "obrasIds": [
-        "5efa8736-10a7-4f24-a685-284eaad87217",
-        "499cab84-2a6a-4c8f-a6db-ff6a55d5ffb3"
+        "11b1180d-5472-4dfd-8dd5-05d007fd6869",
+        "828c26e4-de91-492e-a6a2-56e067d47e7b"
       ]
     },
     {
@@ -1844,8 +1871,8 @@
         "28c9ec5f-76f3-4c5d-8838-779b07883db1",
         "22fed42b-b2fc-43b8-8ba5-dcd0ade77a15",
         "8f97d918-9081-4caa-abf1-aea50ee8ea26",
-        "ab4776ce-4294-423b-a969-279a0abcb8d8",
-        "a2ab8302-0df2-4ab7-8b3b-224b3d84ee0a"
+        "2c70f66b-4105-4161-8b26-c047c179b34c",
+        "bb67dafa-9bde-4fde-a76d-5e9ece808222"
       ]
     },
     {
@@ -1893,13 +1920,13 @@
       ]
     },
     {
-      "cnpj": "58.841.899/0001-55",
+      "cnpj": "",
       "razaoSocial": "CONSORCIO SONDOTECNICA-GEOHIDRO NTN CH",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 4692236.9,
       "obrasIds": [
-        "5f9617c3-2f6c-4320-b682-c3f3aa19be9d"
+        "aad5f865-f9f7-414e-b1cb-ac623c80ba36"
       ]
     },
     {
@@ -1909,7 +1936,34 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 4449430.95,
       "obrasIds": [
-        "7e163bf1-273e-4ee7-a102-0ef3f405ecb4"
+        "9e56d952-c978-4656-9d4e-88e9c1aa6607"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
+      "totalObras": 5,
+      "totalObrasAtivas": 5,
+      "valorTotalContratado": 4252316.41,
+      "obrasIds": [
+        "aa9684b4-def9-4ada-8fe9-5bce5b406550",
+        "bc9952f8-82e5-4387-864f-c7adff15d1e3",
+        "db4a91ff-2f2a-4233-8d71-cd175d72bef5",
+        "71ca2da6-3f10-4f90-8d46-adcab7b73ee1",
+        "7aa50e82-fd21-4a97-a3d0-b4d10c26247e"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "4M ENGENHARIA LTDA",
+      "totalObras": 4,
+      "totalObrasAtivas": 4,
+      "valorTotalContratado": 4150098.36,
+      "obrasIds": [
+        "63d7a74c-8fc0-4c11-8cb1-d3aae7ff4ec8",
+        "d0e0102a-e932-4cc7-92ec-d2f67ae90023",
+        "4ef9c1b5-21c6-4b75-ad2d-00951506a2eb",
+        "67d7702b-f2e2-412f-bc5a-230e07b301d4"
       ]
     },
     {
@@ -1921,33 +1975,7 @@
       "obrasIds": [
         "cf9b3729-452c-422e-a911-c0d1eadb7590",
         "706f081d-901f-40db-b128-c5a882b930e3",
-        "b829d58f-cb7f-43e9-9749-120df8b17e33"
-      ]
-    },
-    {
-      "cnpj": "27.839.615/0001-62",
-      "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
-      "totalObras": 5,
-      "totalObrasAtivas": 5,
-      "valorTotalContratado": 4004065.02,
-      "obrasIds": [
-        "5a3c794d-2ed8-4f33-80aa-377d745f2d41",
-        "81b92570-3c8f-4b91-80ab-2e9ce33382c0",
-        "f658dc43-65b4-4613-9e0f-f0a1b58de994",
-        "fd3ad908-e512-4cd0-964b-69a84fafc84e",
-        "1e65c913-3fe5-4fd3-8f42-81abbebe8944"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "4M ENGENHARIA LTDA",
-      "totalObras": 3,
-      "totalObrasAtivas": 3,
-      "valorTotalContratado": 3979797.95,
-      "obrasIds": [
-        "5cc6b7db-660c-43e7-b3f4-4a7e1cade6dd",
-        "b7316488-0d6c-4278-9e0f-07ffcf7795ba",
-        "b7fa498e-fb8d-4f57-8936-30788288f90f"
+        "5cfa6ead-b3fb-441d-af94-28ded3cd4c2f"
       ]
     },
     {
@@ -1974,22 +2002,24 @@
     },
     {
       "cnpj": "",
+      "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 3814184.34,
+      "obrasIds": [
+        "9b6c5b23-6cdb-492c-a35d-c5961d65ac87",
+        "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575",
+        "cc3ff25f-d4c8-40fe-9558-1906743228d1"
+      ]
+    },
+    {
+      "cnpj": "",
       "razaoSocial": "FUNDACAO INSTITUTO DE ADMINISTRACAO",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 3760000.0,
       "obrasIds": [
-        "94c911cb-30d6-4911-b2c6-205c1d088cfc"
-      ]
-    },
-    {
-      "cnpj": "16.607.359/0001-61",
-      "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 3574184.34,
-      "obrasIds": [
-        "4e9bc95f-31ff-47fb-ae8f-18644ca78f4f"
+        "ca89a244-6127-4a19-8d7e-3997d63a5b62"
       ]
     },
     {
@@ -1999,7 +2029,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 3375988.0,
       "obrasIds": [
-        "183ba1b7-0a8d-42e2-a0ed-c1a4e2a6e6bd"
+        "a011b4fe-ddc5-4f84-a2bd-178bcc491c34"
       ]
     },
     {
@@ -2009,7 +2039,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 3356987.37,
       "obrasIds": [
-        "4adf88fc-f37f-4030-95c2-1aa63d4cb917"
+        "57fd8a94-903d-4f2f-94eb-623c873c75c4"
       ]
     },
     {
@@ -2032,20 +2062,18 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 3177743.8,
       "obrasIds": [
-        "817d8f6a-efaf-4ffc-a76b-95d95ac43204"
+        "50cd795e-de05-428a-bf65-ea0e3d65304e"
       ]
     },
     {
       "cnpj": "",
-      "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
-      "totalObras": 4,
-      "totalObrasAtivas": 4,
-      "valorTotalContratado": 3153341.34,
+      "razaoSocial": "RFT CONSTRUCOES LTDA",
+      "totalObras": 2,
+      "totalObrasAtivas": 2,
+      "valorTotalContratado": 3122434.09,
       "obrasIds": [
-        "aa9684b4-def9-4ada-8fe9-5bce5b406550",
-        "bc9952f8-82e5-4387-864f-c7adff15d1e3",
-        "db4a91ff-2f2a-4233-8d71-cd175d72bef5",
-        "162894dc-ab34-4893-84b9-238030618edc"
+        "23bee76d-151e-42f5-97a0-4ddd45b2b893",
+        "d71a833e-46c1-43e0-934a-24804c1ff549"
       ]
     },
     {
@@ -2060,29 +2088,6 @@
     },
     {
       "cnpj": "",
-      "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
-      "totalObras": 4,
-      "totalObrasAtivas": 4,
-      "valorTotalContratado": 3040388.21,
-      "obrasIds": [
-        "ca379bdd-e164-4176-9153-f99ac20f7cdc",
-        "70cd4c11-7793-4a6f-8306-3acf8005e667",
-        "042278bf-71ea-4e3c-bc38-d389d64ba170",
-        "91d3e703-5e4d-4312-be89-82176b726a31"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "RFT CONSTRUCOES LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 2999014.09,
-      "obrasIds": [
-        "23bee76d-151e-42f5-97a0-4ddd45b2b893"
-      ]
-    },
-    {
-      "cnpj": "",
       "razaoSocial": "UFC ENGENHARIA SA",
       "totalObras": 2,
       "totalObrasAtivas": 2,
@@ -2093,13 +2098,26 @@
       ]
     },
     {
+      "cnpj": "27.839.615/0001-62",
+      "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
+      "totalObras": 4,
+      "totalObrasAtivas": 4,
+      "valorTotalContratado": 2905089.95,
+      "obrasIds": [
+        "bb603494-4506-4e5c-89c1-befd21bc26b5",
+        "f60f6613-19a9-4630-b9b5-c7ae7eb97e40",
+        "a66d41ef-0d1f-4fc9-afba-bf8a4b8135a0",
+        "db90b66c-f31a-46ee-ab59-7beb07ad8eb5"
+      ]
+    },
+    {
       "cnpj": "07.443.264/0001-69",
       "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 2678228.15,
       "obrasIds": [
-        "8a9c1053-18e7-426c-a4e8-6d10130d3df9"
+        "44885f8d-3cc0-44c3-94ce-0400becb1d05"
       ]
     },
     {
@@ -2119,7 +2137,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 2506412.84,
       "obrasIds": [
-        "80b82cf4-6f7f-4c1d-92ac-48370636d6ed"
+        "1840b8e5-11ee-4407-a995-e3334422e58c"
       ]
     },
     {
@@ -2129,11 +2147,11 @@
       "totalObrasAtivas": 5,
       "valorTotalContratado": 2397718.98,
       "obrasIds": [
-        "50526b0d-c788-46be-b612-26ef96609476",
-        "b52c22e1-63ca-4340-aa8e-676f0c814c06",
-        "939f194a-ce35-4809-962b-65f5f178ea9d",
-        "e42d06ae-baf8-4846-a05d-2baa28578cb9",
-        "eb2b150b-415e-464a-8a3e-d124d81f32d7"
+        "9199fc9f-b736-4298-a5e6-e7ef30e331f7",
+        "60f13241-f651-4385-9322-cd6660682620",
+        "f02dcb23-893f-42dc-a733-09c2c54e5e8a",
+        "4cc16797-bade-4ed3-b1d3-ba64f9d5c706",
+        "169c9f35-025d-4d18-84d5-62251ef2fa6a"
       ]
     },
     {
@@ -2165,7 +2183,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 2299199.78,
       "obrasIds": [
-        "b8ae8ad0-91b7-4a97-a495-2c5d56c714aa"
+        "872f355e-c771-48d4-9bc4-e9f9cba7dc19"
       ]
     },
     {
@@ -2195,7 +2213,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 2172312.66,
       "obrasIds": [
-        "efb6faa1-7990-41b6-8be2-910736dcf2b8"
+        "2372f621-3ee2-4f41-a00d-57ab254498f7"
       ]
     },
     {
@@ -2225,7 +2243,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 2016995.24,
       "obrasIds": [
-        "126a0395-9118-497c-a174-24337066c97f"
+        "8076e382-e72e-44ab-baab-178b5d30a883"
       ]
     },
     {
@@ -2235,7 +2253,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 1816399.86,
       "obrasIds": [
-        "c70dbfaf-3b6c-4ab7-87f7-fa690d5309da"
+        "680c2c5d-2fb1-4c63-9594-1b959d7303ad"
       ]
     },
     {
@@ -2249,24 +2267,13 @@
       ]
     },
     {
-      "cnpj": "07.103.372/0001-92",
+      "cnpj": "",
       "razaoSocial": "CONSTRUTORA ATLANTICO NORTE LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 1706775.53,
       "obrasIds": [
-        "212eded6-7db9-4b6e-917f-b85d5a5b5195"
-      ]
-    },
-    {
-      "cnpj": "07.107.558/0001-10",
-      "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 1667902.0,
-      "obrasIds": [
-        "d72d04f0-9b73-44cc-ada8-650b6ea4aca0",
-        "dddee254-aca1-449f-b622-b2625596f367"
+        "4f02ac8f-e30a-4eea-99d3-e677941e240f"
       ]
     },
     {
@@ -2292,18 +2299,30 @@
       ]
     },
     {
-      "cnpj": "36.162.788/0001-80",
+      "cnpj": "",
+      "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 1418434.0,
+      "obrasIds": [
+        "a3589f50-519e-4d12-857f-2cfb44398f0c",
+        "f0997b96-93b6-4cdd-ab55-3e84d5051793",
+        "f1d720ef-eb80-4e58-81cf-219b76c9bebc"
+      ]
+    },
+    {
+      "cnpj": "",
       "razaoSocial": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
       "totalObras": 6,
       "totalObrasAtivas": 6,
-      "valorTotalContratado": 1387227.1,
+      "valorTotalContratado": 1389566.04,
       "obrasIds": [
-        "cb86d0e9-98e4-4555-9867-8ba391ed6bd6",
-        "78ad3c7f-185c-49c8-a65e-02e10c903f3d",
-        "4a18342e-671d-44d3-a024-80f4d2d4cc9b",
-        "ecfb54a4-20f7-470c-a150-f9a3d4363135",
-        "f660abc1-a14a-4433-b349-15d462dcb536",
-        "40d0cfb0-93e2-4d2b-93fc-e93154f73add"
+        "aabc00ea-814e-44e8-8e54-caed47c3fc65",
+        "b97ec829-ab3f-448c-b995-111379a52b6d",
+        "893daae7-3a3a-4963-84c3-4c2ad5ec5d1b",
+        "10c83709-0cf4-427c-b62e-9f324b108c00",
+        "2aeb8147-d6b6-43c9-a1e7-bd3896230cab",
+        "ac19aa37-15ac-405c-915a-a95ecfc2c514"
       ]
     },
     {
@@ -2313,17 +2332,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 1356231.81,
       "obrasIds": [
-        "f2dc55e9-79b1-459c-ba9a-e8de42ea83e7"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "CONSTRUTORA LAM LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 1355531.48,
-      "obrasIds": [
-        "6618cffa-9537-4a9c-9111-cbfa88aee2a1"
+        "e8c2b2a4-e016-465a-8390-541b0492b91b"
       ]
     },
     {
@@ -2344,7 +2353,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 1252189.43,
       "obrasIds": [
-        "14290681-5fb1-42d4-b1f1-10554aa9c4d6"
+        "54ff18ef-f5e6-4d86-8c0b-998d8cf105df"
       ]
     },
     {
@@ -2374,7 +2383,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 1114289.28,
       "obrasIds": [
-        "e54bb799-c159-4227-ac1b-3e3d5178a17c"
+        "beba44be-7c8c-48c2-a1a7-b7355044ba03"
       ]
     },
     {
@@ -2404,8 +2413,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 1105440.0,
       "obrasIds": [
-        "3ed7ac54-7d90-40ad-a260-d96ed12c334c",
-        "46952693-9435-42e8-947c-8cb69feca19c"
+        "3b3b5d89-19a7-4763-9ccc-bbdfa1c2100f",
+        "320ffc9e-0edb-4730-a1c6-5e514624b392"
       ]
     },
     {
@@ -2425,17 +2434,19 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 996999.33,
       "obrasIds": [
-        "1d67dd09-b774-49a8-bec1-527ea1a640bb"
+        "55026dd1-5f7f-4baa-8c51-bc14738b736f"
       ]
     },
     {
       "cnpj": "",
-      "razaoSocial": "ANGRA ENGENHARIA LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 930148.93,
+      "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 989961.73,
       "obrasIds": [
-        "890f8e0b-37c3-4127-9fea-3985046443eb"
+        "45e6d7e9-881b-4fe7-9f23-69384e665c48",
+        "7ba4f6c1-0442-499d-aea9-2dec453d9fdb",
+        "f576aeac-df84-432e-92d3-d6a035152519"
       ]
     },
     {
@@ -2467,7 +2478,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 847052.11,
       "obrasIds": [
-        "d5a3b535-d1d3-48b6-aef2-ec56a69c3a30"
+        "4a0dd950-16b0-4a4a-9147-a7c4e2df3cd8"
       ]
     },
     {
@@ -2522,13 +2533,23 @@
       ]
     },
     {
+      "cnpj": "07.107.558/0001-10",
+      "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 622902.0,
+      "obrasIds": [
+        "cecbd344-028f-4bd6-9d53-687647fc55b5"
+      ]
+    },
+    {
       "cnpj": "11.511.851/0001-15",
       "razaoSocial": "M3S COMERCIO E LOCACAO DE EQUIPAMENTOS LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 604842.33,
       "obrasIds": [
-        "5dc50a23-ad7d-4a6a-a853-1e323acec2d5"
+        "035adbbe-4bc4-42a8-9d30-82420f26e807"
       ]
     },
     {
@@ -2538,18 +2559,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 585440.0,
       "obrasIds": [
-        "73e56d67-c4d5-4669-85a1-fdcc5f18407e"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 567704.54,
-      "obrasIds": [
-        "535f14e3-08cb-4081-a5d9-06970a00f1d4",
-        "634cc837-d278-4986-8644-576089b5d535"
+        "3ddc131a-3e05-43b0-80ef-a4c4e492563b"
       ]
     },
     {
@@ -2574,6 +2584,20 @@
     },
     {
       "cnpj": "",
+      "razaoSocial": "ZIOBER BRASIL LTDA",
+      "totalObras": 5,
+      "totalObrasAtivas": 5,
+      "valorTotalContratado": 478094.0,
+      "obrasIds": [
+        "cb938c7c-7f35-4a7e-9b52-92a2ed9990d6",
+        "47eaecb4-5e18-4183-8434-61cfe556f5a9",
+        "41426953-4049-4120-a8da-6913aef1b7b1",
+        "fc3bb8e4-92ad-4333-8389-4c488e170d9e",
+        "4fff7211-cf32-4f65-8449-6e220b3864b6"
+      ]
+    },
+    {
+      "cnpj": "",
       "razaoSocial": "BOA ERA COMERCIO E SERVICOS LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
@@ -2583,13 +2607,13 @@
       ]
     },
     {
-      "cnpj": "49.167.211/0001-02",
+      "cnpj": "",
       "razaoSocial": "COSTA CONSTRUCAO E SERVICOS LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 452000.0,
       "obrasIds": [
-        "c7869828-2dad-4388-b571-9ac90fc03307"
+        "e022e2f4-76dc-4aa4-9558-07472a4d6fa0"
       ]
     },
     {
@@ -2601,16 +2625,6 @@
       "obrasIds": [
         "5aba86b8-e3e9-4ba3-a789-703f1daee187",
         "6f7ef721-876e-4dd7-9095-9ed7dc5931d6"
-      ]
-    },
-    {
-      "cnpj": "13.241.391/0001-88",
-      "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 422257.19,
-      "obrasIds": [
-        "d083af0e-fc5b-4722-b9b3-83589fdb42eb"
       ]
     },
     {
@@ -2630,7 +2644,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 416269.54,
       "obrasIds": [
-        "224a4c77-79f8-44d0-9651-92354d5d8ce7"
+        "6406067e-6aae-44dc-be18-6c4fd9b6efa3"
       ]
     },
     {
@@ -2640,32 +2654,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 408372.6,
       "obrasIds": [
-        "c746a357-11be-4c44-9aea-bd7bca04ce8e",
-        "83930d7b-7856-4307-9710-ff3734f96a5d"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "ZIOBER BRASIL LTDA",
-      "totalObras": 4,
-      "totalObrasAtivas": 4,
-      "valorTotalContratado": 381952.0,
-      "obrasIds": [
-        "baa41e82-670d-465c-9294-9a3901e2ab60",
-        "1883b4b1-1c35-4df0-942d-e9a0ee9f996b",
-        "d1d675c1-a507-446e-8fb5-d33b187bcc4b",
-        "8a9ff472-4d34-4d01-ad33-90f36dabde3d"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 373434.0,
-      "obrasIds": [
-        "a3589f50-519e-4d12-857f-2cfb44398f0c",
-        "f0997b96-93b6-4cdd-ab55-3e84d5051793"
+        "c2279011-4389-4430-a10b-9ae629ccc8d1",
+        "dd6d592e-46f9-4080-9fe9-39c17e62aabe"
       ]
     },
     {
@@ -2689,13 +2679,13 @@
       ]
     },
     {
-      "cnpj": "47.465.824/0001-09",
+      "cnpj": "",
       "razaoSocial": "MACJ ENGENHARIA E CONSTRUCAO LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 333986.06,
       "obrasIds": [
-        "e423dcbb-f3b2-4753-91b5-cb3c380e0df3"
+        "455a4b9a-a834-4b73-bff7-bb97eccb3394"
       ]
     },
     {
@@ -2705,7 +2695,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 328898.49,
       "obrasIds": [
-        "7d16f6c9-4a9f-48b9-90fa-ad8f1a71829b"
+        "8796ad13-bba2-4635-88bd-4020445fc14c"
       ]
     },
     {
@@ -2738,7 +2728,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 298565.78,
       "obrasIds": [
-        "b005e850-a8e3-4e93-aba7-747736fc0f6a"
+        "7f2ebbef-e64e-44cf-b3fb-441ad5a5dc99"
       ]
     },
     {
@@ -2748,7 +2738,19 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 294630.0,
       "obrasIds": [
-        "a6fbce4d-8316-4365-959a-5eeaecce03c5"
+        "146e121b-f053-4868-a76f-9c98afeadde7"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "DIAS SILVA TRANSPORTES E CONSTRUCOES LTDA",
+      "totalObras": 3,
+      "totalObrasAtivas": 3,
+      "valorTotalContratado": 290175.64,
+      "obrasIds": [
+        "96d9dfa5-9d2c-408e-b7ce-8b3652af3242",
+        "51e6af74-90f0-41b2-a2ee-b405a689fb5c",
+        "6b85f433-be75-4f48-9d35-e4da15d22d13"
       ]
     },
     {
@@ -2769,7 +2771,20 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 277544.0,
       "obrasIds": [
-        "843b8089-7f9e-4394-8f2a-b0180e22b367"
+        "0231bbe6-2259-4a49-8626-047282672217"
+      ]
+    },
+    {
+      "cnpj": "",
+      "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "totalObras": 4,
+      "totalObrasAtivas": 4,
+      "valorTotalContratado": 273679.91,
+      "obrasIds": [
+        "122123d3-b1df-4b15-ab39-864a2067ac7c",
+        "71af2258-60ec-4e84-9503-c587c032ab18",
+        "a8841df9-3cf2-4cf5-b3e0-9b09991cb2c1",
+        "fd395a66-e272-4c93-9802-b5afc5b24187"
       ]
     },
     {
@@ -2784,13 +2799,13 @@
       ]
     },
     {
-      "cnpj": "01.605.655/0001-56",
+      "cnpj": "",
       "razaoSocial": "LACONCIL CONSTRUCAO CIVIL LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 271145.99,
       "obrasIds": [
-        "ff578c62-22ff-49ad-af15-f05517c55289"
+        "93f1f552-0d3c-4984-8882-619b383fb2af"
       ]
     },
     {
@@ -2810,7 +2825,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 265250.82,
       "obrasIds": [
-        "f1fcc0f9-ef56-4380-9b70-4ac0ad78656e"
+        "cba43365-3ca3-426e-819c-a93a714e70b8"
       ]
     },
     {
@@ -2820,7 +2835,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 260000.0,
       "obrasIds": [
-        "2d824515-2840-46e1-a433-c590c97f3152"
+        "f373fe1a-1381-415b-97dc-2e5be237b436"
       ]
     },
     {
@@ -2831,17 +2846,6 @@
       "valorTotalContratado": 250000.0,
       "obrasIds": [
         "df433bce-6c03-4d42-bc47-55ab41862276"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 240000.0,
-      "obrasIds": [
-        "9b6c5b23-6cdb-492c-a35d-c5961d65ac87",
-        "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575"
       ]
     },
     {
@@ -2883,19 +2887,8 @@
       "totalObrasAtivas": 2,
       "valorTotalContratado": 219074.98,
       "obrasIds": [
-        "33233760-e669-414d-bc0d-ab58b1ac9d93",
-        "dcb55883-0be6-469c-a64a-4dfb0c196569"
-      ]
-    },
-    {
-      "cnpj": "10.862.653/0001-33",
-      "razaoSocial": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 215747.32,
-      "obrasIds": [
-        "4867ebff-bc0d-4ea4-b896-b8bb248edda5",
-        "9b1c6820-2ed2-4fe4-9132-80a13e3075e1"
+        "21c098e4-493f-45b7-87af-dc2fa84e4010",
+        "efae83db-1d2e-449c-a7d7-4e40642b264c"
       ]
     },
     {
@@ -2905,40 +2898,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 209325.0,
       "obrasIds": [
-        "56175f54-c01c-4377-9dcf-acaae29b895e"
-      ]
-    },
-    {
-      "cnpj": "39.926.521/0001-00",
-      "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
-      "totalObras": 3,
-      "totalObrasAtivas": 3,
-      "valorTotalContratado": 178618.5,
-      "obrasIds": [
-        "af905081-a327-463e-8d80-2d557419b597",
-        "b7a3dfc9-e766-4cdc-9b3d-a48a91e12cb6",
-        "c90cc29a-299a-4024-9399-4e965b214f6e"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "DIAS SILVA TRANSPORTES E CONSTRUCOES LTDA",
-      "totalObras": 2,
-      "totalObrasAtivas": 2,
-      "valorTotalContratado": 170754.09,
-      "obrasIds": [
-        "96d9dfa5-9d2c-408e-b7ce-8b3652af3242",
-        "51e6af74-90f0-41b2-a2ee-b405a689fb5c"
-      ]
-    },
-    {
-      "cnpj": "24.704.679/0001-68",
-      "razaoSocial": "4M ENGENHARIA LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 170300.41,
-      "obrasIds": [
-        "1fc847ce-23d8-4401-a023-7669a798edca"
+        "96bc37b8-aea8-43d1-831a-ef2805f4dc39"
       ]
     },
     {
@@ -2958,7 +2918,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 160000.0,
       "obrasIds": [
-        "c25f9ea4-651a-4833-a6c2-1d9cd82ae796"
+        "02bd22f0-1e41-4515-8d31-000b59bfff0e"
       ]
     },
     {
@@ -3012,23 +2972,13 @@
       ]
     },
     {
-      "cnpj": "27.773.835/0001-30",
-      "razaoSocial": "RFT CONSTRUCOES LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 123420.0,
-      "obrasIds": [
-        "95a9b617-e2ac-4851-853b-d7efead50679"
-      ]
-    },
-    {
       "cnpj": "",
       "razaoSocial": "ALBUQUERQUE ENGENHARIA LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 123039.28,
       "obrasIds": [
-        "8d8555d7-b9be-4477-85d9-2e7d3ecdaebf"
+        "9de95dff-29e0-4aa7-82e1-8c1446f35cff"
       ]
     },
     {
@@ -3038,17 +2988,17 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 122545.8,
       "obrasIds": [
-        "cb5f206d-1511-407f-a539-be898bac2a62"
+        "9ca1ac8f-9da0-402f-a88b-db4e5e6b5da4"
       ]
     },
     {
-      "cnpj": "20.900.902/0001-91",
+      "cnpj": "",
       "razaoSocial": "20.900.902 RICARDO NASCIMENTO DE OLIVEIRA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
       "valorTotalContratado": 122209.07,
       "obrasIds": [
-        "864627f9-9e97-458e-a126-7b7ac2a0d429"
+        "52f79685-c467-4791-aa38-d6f2329ecce0"
       ]
     },
     {
@@ -3058,27 +3008,27 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 120000.0,
       "obrasIds": [
-        "be2a97a2-31a7-4436-9c80-c66b026b8947"
-      ]
-    },
-    {
-      "cnpj": "26.113.876/0001-38",
-      "razaoSocial": "DIAS SILVA TRANSPORTES E CONSTRUCOES LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 119421.55,
-      "obrasIds": [
-        "4f0e0fdf-d64a-4622-802a-41ee77921947"
+        "840296a3-7ac9-4650-9156-7b9e55e95360"
       ]
     },
     {
       "cnpj": "",
+      "razaoSocial": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
+      "totalObras": 1,
+      "totalObrasAtivas": 1,
+      "valorTotalContratado": 119350.0,
+      "obrasIds": [
+        "3e6e2857-dc1a-4b6b-a7b7-f493fba1cea6"
+      ]
+    },
+    {
+      "cnpj": "36.162.788/0001-80",
       "razaoSocial": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
-      "valorTotalContratado": 118505.07,
+      "valorTotalContratado": 116166.13,
       "obrasIds": [
-        "aabc00ea-814e-44e8-8e54-caed47c3fc65"
+        "6853a79a-a1ce-4d02-88f4-22819545fed4"
       ]
     },
     {
@@ -3088,7 +3038,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 110000.0,
       "obrasIds": [
-        "848e8375-9cb7-44ab-9af2-53b6987707e0"
+        "909f20a5-3705-4c76-a070-17a59f074862"
       ]
     },
     {
@@ -3098,7 +3048,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 110000.0,
       "obrasIds": [
-        "0cc9197a-ebe8-4b22-b090-4abaa96bbb1b"
+        "3665930b-ef96-4af2-9764-78c452788506"
       ]
     },
     {
@@ -3139,7 +3089,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 100000.0,
       "obrasIds": [
-        "623c7f95-e71d-4472-a75d-64ad9e800630"
+        "c2fbecab-f44d-4713-8895-049d4934db01"
       ]
     },
     {
@@ -3169,7 +3119,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 99520.0,
       "obrasIds": [
-        "7a65fe65-c20d-4677-9104-23f3f2e205db"
+        "56455db9-cbff-4fcc-9145-89f4722f6f15"
       ]
     },
     {
@@ -3190,27 +3140,17 @@
       "valorTotalContratado": 97211.98,
       "obrasIds": [
         "7ba13b55-63ea-4b6d-ac6c-84d174295010",
-        "609dea10-101f-4b5a-b6d4-5c7a85581c4c"
+        "984e8c2c-b0ee-451f-a6fa-332c62cd4ead"
       ]
     },
     {
-      "cnpj": "08.374.053/0001-84",
-      "razaoSocial": "ZIOBER BRASIL LTDA",
+      "cnpj": "10.862.653/0001-33",
+      "razaoSocial": "4M COMERCIO E DISTRIBUICAO DE PRODUTOS SIDERURGICOS LTDA",
       "totalObras": 1,
       "totalObrasAtivas": 1,
-      "valorTotalContratado": 96142.0,
+      "valorTotalContratado": 96397.32,
       "obrasIds": [
-        "190b2e6b-8e21-47ef-b4f4-a1fc4f26ebd6"
-      ]
-    },
-    {
-      "cnpj": "",
-      "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
-      "totalObras": 1,
-      "totalObrasAtivas": 1,
-      "valorTotalContratado": 95061.41,
-      "obrasIds": [
-        "00206d4b-7ada-48e0-82ee-8d7fbc0d4e1e"
+        "12ed08d9-0d26-485a-aaee-2fe6f845c5f4"
       ]
     },
     {
@@ -3241,7 +3181,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 90000.0,
       "obrasIds": [
-        "586234eb-3c5c-4313-bd61-a449fee19aaf"
+        "0dc282e4-95df-4ab1-ba25-4286e2b3eeac"
       ]
     },
     {
@@ -3251,7 +3191,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 90000.0,
       "obrasIds": [
-        "f784e7f1-1eb2-44e9-a422-828003571fca"
+        "1d395cc6-152c-420f-881f-915ce3821f49"
       ]
     },
     {
@@ -3301,7 +3241,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 60000.0,
       "obrasIds": [
-        "37bfcad8-424e-408e-8452-cbfc2e3a50e5"
+        "99c0e707-d26e-4a0b-b392-ee3b8e20ee08"
       ]
     },
     {
@@ -3311,7 +3251,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 55000.0,
       "obrasIds": [
-        "e16cd4dc-b5ba-48e2-85e2-957ef35633a2"
+        "9e4e90eb-3bcc-4a0e-abcf-6e312e18a39a"
       ]
     },
     {
@@ -3331,7 +3271,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 49900.0,
       "obrasIds": [
-        "e0b1417d-1d0f-4072-996d-3c286a9c7e57"
+        "9304aa72-83f8-45f7-82bf-175241059263"
       ]
     },
     {
@@ -3341,7 +3281,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 49000.0,
       "obrasIds": [
-        "2d597f71-7c7f-40ce-9fc8-595df8da0c03"
+        "523f9edb-54a5-477f-bcc8-afd9a0a2373a"
       ]
     },
     {
@@ -3351,7 +3291,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 48000.0,
       "obrasIds": [
-        "da736265-23c6-45b4-aaa8-6d82ad58fae6"
+        "177caf92-4e01-46c2-b0b3-63eebf8ac152"
       ]
     },
     {
@@ -3361,7 +3301,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 47600.0,
       "obrasIds": [
-        "2c9e0bbe-607b-4045-81d1-363d43b0f8f1"
+        "21cb2459-7580-4617-ab7b-5152201b9019"
       ]
     },
     {
@@ -3371,7 +3311,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 47200.0,
       "obrasIds": [
-        "5b29aaae-e175-4725-9f84-653882635e7d"
+        "076b43f1-dc4f-4b6d-a420-9c83f20379a4"
       ]
     },
     {
@@ -3381,7 +3321,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 40000.0,
       "obrasIds": [
-        "c58b7fe2-5181-4845-b4b1-d89e76e0c89d"
+        "b03cb3d3-2b1e-481f-8fad-a943dd563e27"
       ]
     },
     {
@@ -3401,7 +3341,7 @@
       "totalObrasAtivas": 1,
       "valorTotalContratado": 20000.0,
       "obrasIds": [
-        "e451b8b7-0d31-4b10-b14c-b57294ac865d"
+        "a36eda20-b1c2-4db3-8b62-cffddc173960"
       ]
     },
     {
@@ -3452,13 +3392,13 @@
       "populacao_total": 258495,
       "indice_vulnerabilidade": 0.78,
       "valorTotal": 769365462.06,
-      "valorPago": 531228388.32,
+      "valorPago": 511232506.03,
       "totalObras": 52,
       "obrasVerde": 8,
       "obrasAmarelo": 6,
       "obrasVermelho": 38,
       "investimentoPorHabitante": 2976.33,
-      "investimentoPorHabitantePago": 2055.08
+      "investimentoPorHabitantePago": 1977.73
     },
     {
       "id": 11,
@@ -3466,13 +3406,13 @@
       "populacao_total": 132902,
       "indice_vulnerabilidade": 0.56,
       "valorTotal": 135463338.81,
-      "valorPago": 84242652.35,
+      "valorPago": 83213842.9,
       "totalObras": 15,
       "obrasVerde": 4,
       "obrasAmarelo": 0,
       "obrasVermelho": 11,
       "investimentoPorHabitante": 1019.27,
-      "investimentoPorHabitantePago": 633.87
+      "investimentoPorHabitantePago": 626.13
     },
     {
       "id": 12,
@@ -3480,13 +3420,13 @@
       "populacao_total": 323924,
       "indice_vulnerabilidade": 0.3,
       "valorTotal": 604696375.83,
-      "valorPago": 484033249.36,
+      "valorPago": 474765013.52,
       "totalObras": 42,
       "obrasVerde": 6,
       "obrasAmarelo": 1,
       "obrasVermelho": 35,
       "investimentoPorHabitante": 1866.78,
-      "investimentoPorHabitantePago": 1494.28
+      "investimentoPorHabitantePago": 1465.67
     },
     {
       "id": 14,
@@ -3494,13 +3434,13 @@
       "populacao_total": 388097,
       "indice_vulnerabilidade": 0.51,
       "valorTotal": 824059278.06,
-      "valorPago": 512312869.07,
+      "valorPago": 500344291.1,
       "totalObras": 42,
       "obrasVerde": 6,
       "obrasAmarelo": 2,
       "obrasVermelho": 34,
       "investimentoPorHabitante": 2123.33,
-      "investimentoPorHabitantePago": 1320.06
+      "investimentoPorHabitantePago": 1289.22
     },
     {
       "id": 15,
@@ -3508,27 +3448,27 @@
       "populacao_total": 239424,
       "indice_vulnerabilidade": 0.43,
       "valorTotal": 478226869.16,
-      "valorPago": 326053153.09,
+      "valorPago": 307104474.93,
       "totalObras": 55,
       "obrasVerde": 6,
       "obrasAmarelo": 3,
       "obrasVermelho": 46,
       "investimentoPorHabitante": 1997.41,
-      "investimentoPorHabitantePago": 1361.82
+      "investimentoPorHabitantePago": 1282.68
     },
     {
       "id": 16,
       "nome": "Liberdade/São Caetano",
       "populacao_total": 281976,
       "indice_vulnerabilidade": 0.7,
-      "valorTotal": 265180899.23,
-      "valorPago": 232144145.83,
-      "totalObras": 12,
+      "valorTotal": 329484409.23,
+      "valorPago": 222755204.73,
+      "totalObras": 13,
       "obrasVerde": 0,
       "obrasAmarelo": 3,
-      "obrasVermelho": 9,
-      "investimentoPorHabitante": 940.44,
-      "investimentoPorHabitantePago": 823.28
+      "obrasVermelho": 10,
+      "investimentoPorHabitante": 1168.48,
+      "investimentoPorHabitantePago": 789.98
     },
     {
       "id": 17,
@@ -3536,13 +3476,13 @@
       "populacao_total": 279594,
       "indice_vulnerabilidade": 0.62,
       "valorTotal": 222340514.27,
-      "valorPago": 155982553.31,
+      "valorPago": 149750529.15,
       "totalObras": 33,
       "obrasVerde": 4,
       "obrasAmarelo": 1,
       "obrasVermelho": 28,
       "investimentoPorHabitante": 795.23,
-      "investimentoPorHabitantePago": 557.89
+      "investimentoPorHabitantePago": 535.6
     },
     {
       "id": 18,
@@ -3564,13 +3504,13 @@
       "populacao_total": 192680,
       "indice_vulnerabilidade": 0.67,
       "valorTotal": 348435301.47,
-      "valorPago": 193830297.58,
+      "valorPago": 176844904.6,
       "totalObras": 21,
       "obrasVerde": 5,
       "obrasAmarelo": 1,
       "obrasVermelho": 15,
       "investimentoPorHabitante": 1808.36,
-      "investimentoPorHabitantePago": 1005.97
+      "investimentoPorHabitantePago": 917.82
     },
     {
       "id": 20,
@@ -3699,13 +3639,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 1144230.26,
-      "valorPago": 1064935.1,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 0,
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 99.58,
-      "investimentoPorHabitantePago": 92.68
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 18,
@@ -3835,13 +3775,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 68216786.72,
-      "valorPago": 32571310.04,
+      "valorPago": 32354658.26,
       "totalObras": 3,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 3235.17,
-      "investimentoPorHabitantePago": 1544.69
+      "investimentoPorHabitantePago": 1534.41
     },
     {
       "id": 2,
@@ -3937,13 +3877,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 43341681.39,
-      "valorPago": 1014195.34,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 2095.83,
-      "investimentoPorHabitantePago": 49.04
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 8,
@@ -4277,7 +4217,7 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 10642602.54,
-      "valorPago": 687512.12,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
@@ -4328,13 +4268,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 10378555.0,
-      "valorPago": 1712461.58,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 3516.96,
-      "investimentoPorHabitantePago": 580.3
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 40,
@@ -4430,7 +4370,7 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 66440040.59,
-      "valorPago": 63205482.31,
+      "valorPago": 58685919.73,
       "totalObras": 7,
       "obrasVerde": 0,
       "obrasAmarelo": 0,
@@ -4515,13 +4455,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 5611312.28,
-      "valorPago": 3429634.07,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 0,
       "obrasAmarelo": 1,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 281.4,
-      "investimentoPorHabitantePago": 171.99
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 70,
@@ -4685,13 +4625,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 13287035.5,
-      "valorPago": 10905043.49,
+      "valorPago": 10894120.13,
       "totalObras": 3,
       "obrasVerde": 0,
       "obrasAmarelo": 1,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 329.68,
-      "investimentoPorHabitantePago": 270.58
+      "investimentoPorHabitantePago": 270.31
     },
     {
       "id": 80,
@@ -5399,13 +5339,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 114924941.26,
-      "valorPago": 107287821.98,
+      "valorPago": 106557864.14,
       "totalObras": 5,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 4,
       "investimentoPorHabitante": 3739.59,
-      "investimentoPorHabitantePago": 3491.08
+      "investimentoPorHabitantePago": 3467.33
     },
     {
       "id": 83,
@@ -5637,13 +5577,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 7991916.79,
-      "valorPago": 5948383.67,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 0,
       "obrasAmarelo": 1,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 701.48,
-      "investimentoPorHabitantePago": 522.11
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 110,
@@ -5688,13 +5628,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 54620000.0,
-      "valorPago": 510697.0,
+      "valorPago": 0.0,
       "totalObras": 2,
       "obrasVerde": 2,
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 6803.69,
-      "investimentoPorHabitantePago": 63.61
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 113,
@@ -5773,13 +5713,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 55829431.18,
-      "valorPago": 37464312.41,
+      "valorPago": 31530876.11,
       "totalObras": 8,
       "obrasVerde": 2,
       "obrasAmarelo": 2,
       "obrasVermelho": 4,
       "investimentoPorHabitante": 1064.05,
-      "investimentoPorHabitantePago": 714.03
+      "investimentoPorHabitantePago": 600.94
     },
     {
       "id": 138,
@@ -5841,13 +5781,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 26558502.69,
-      "valorPago": 427591.89,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 8742.1,
-      "investimentoPorHabitantePago": 140.75
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 120,
@@ -5875,13 +5815,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 9254515.5,
-      "valorPago": 8065095.65,
+      "valorPago": 7463878.09,
       "totalObras": 2,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 349.83,
-      "investimentoPorHabitantePago": 304.87
+      "investimentoPorHabitantePago": 282.15
     },
     {
       "id": 122,
@@ -5892,13 +5832,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 14580774.15,
-      "valorPago": 3836201.68,
+      "valorPago": 0.0,
       "totalObras": 1,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 2006.71,
-      "investimentoPorHabitantePago": 527.97
+      "investimentoPorHabitantePago": 0.0
     },
     {
       "id": 123,
@@ -6062,13 +6002,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 349831643.15,
-      "valorPago": 244646915.68,
+      "valorPago": 240127634.27,
       "totalObras": 10,
       "obrasVerde": 1,
       "obrasAmarelo": 2,
       "obrasVermelho": 7,
       "investimentoPorHabitante": 24038.46,
-      "investimentoPorHabitantePago": 16810.75
+      "investimentoPorHabitantePago": 16500.22
     },
     {
       "id": 162,
@@ -6266,13 +6206,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 70700090.08,
-      "valorPago": 34362956.58,
+      "valorPago": 33645431.58,
       "totalObras": 13,
       "obrasVerde": 4,
       "obrasAmarelo": 1,
       "obrasVermelho": 8,
       "investimentoPorHabitante": 1821.98,
-      "investimentoPorHabitantePago": 885.55
+      "investimentoPorHabitantePago": 867.06
     },
     {
       "id": 147,
@@ -6368,13 +6308,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 95450601.45,
-      "valorPago": 63431028.78,
+      "valorPago": 47979014.84,
       "totalObras": 12,
       "obrasVerde": 1,
       "obrasAmarelo": 1,
       "obrasVermelho": 10,
       "investimentoPorHabitante": 11869.01,
-      "investimentoPorHabitantePago": 7887.47
+      "investimentoPorHabitantePago": 5966.06
     },
     {
       "id": 154,
@@ -6385,13 +6325,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 5569298.02,
-      "valorPago": 5104913.46,
+      "valorPago": 4839593.51,
       "totalObras": 4,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 3291.55,
-      "investimentoPorHabitantePago": 3017.09
+      "investimentoPorHabitantePago": 2860.28
     },
     {
       "id": 155,
@@ -6402,13 +6342,13 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 210692811.22,
-      "valorPago": 124587460.78,
+      "valorPago": 122421051.61,
       "totalObras": 18,
       "obrasVerde": 2,
       "obrasAmarelo": 0,
       "obrasVermelho": 16,
       "investimentoPorHabitante": 216985.39,
-      "investimentoPorHabitantePago": 128308.4
+      "investimentoPorHabitantePago": 126077.29
     },
     {
       "id": 156,
@@ -6487,18 +6427,18 @@
       "is_zona_especial_nao_residencial": false,
       "isZonaEspecialNaoResidencial": false,
       "valorTotal": 64753916.43,
-      "valorPago": 62125129.93,
+      "valorPago": 54601047.27,
       "totalObras": 9,
       "obrasVerde": 2,
       "obrasAmarelo": 1,
       "obrasVermelho": 6,
       "investimentoPorHabitante": 1118.49,
-      "investimentoPorHabitantePago": 1073.08
+      "investimentoPorHabitantePago": 943.12
     }
   ],
   "obras": [
     {
-      "id": "2d597f71-7c7f-40ce-9fc8-595df8da0c03",
+      "id": "523f9edb-54a5-477f-bcc8-afd9a0a2373a",
       "cdUnidadeGestora": "547002",
       "unidadeGestora": "SECULT",
       "nuContratoSigef": "2024CT010183",
@@ -6539,7 +6479,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9208c854-72bd-4426-8840-e45516fbea2a",
+      "id": "99c639db-3833-40df-8149-d5279dfddd54",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2025CT000801",
@@ -6580,7 +6520,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4867ebff-bc0d-4ea4-b896-b8bb248edda5",
+      "id": "12ed08d9-0d26-485a-aaee-2fe6f845c5f4",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT010083",
@@ -6621,7 +6561,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "cb044ead-8b90-4807-b07e-6bb2b3a3988d",
+      "id": "81edebcc-a3b9-48b6-ad0d-f34e7f526d50",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2025CT000758",
@@ -6662,7 +6602,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "50526b0d-c788-46be-b612-26ef96609476",
+      "id": "9199fc9f-b736-4298-a5e6-e7ef30e331f7",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT010011",
@@ -6703,7 +6643,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d72d04f0-9b73-44cc-ada8-650b6ea4aca0",
+      "id": "cecbd344-028f-4bd6-9d53-687647fc55b5",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT010015",
@@ -6744,7 +6684,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "435a417c-ad1b-4691-85a3-7fac319ea33e",
+      "id": "11801b98-0ed0-44f8-a942-653262bf57b7",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT009872",
@@ -6785,7 +6725,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2c20509b-74bd-47c6-bb3d-818bed3cb143",
+      "id": "34ad3697-df75-4fc2-9cc3-96587a33d5d5",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT009773",
@@ -6826,7 +6766,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5a3c794d-2ed8-4f33-80aa-377d745f2d41",
+      "id": "bb603494-4506-4e5c-89c1-befd21bc26b5",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT009774",
@@ -6867,7 +6807,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1d67dd09-b774-49a8-bec1-527ea1a640bb",
+      "id": "55026dd1-5f7f-4baa-8c51-bc14738b736f",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT009760",
@@ -6908,7 +6848,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5b9e2dfa-5bee-4431-8022-4404c12c1fa2",
+      "id": "a547f2aa-6527-479a-b799-e9a896783e4b",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT009772",
@@ -6949,7 +6889,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8f845ca8-289f-4e95-b4f1-2689c67854a9",
+      "id": "731966f3-8f7f-4d78-b56a-39d841cf6833",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT009754",
@@ -6990,7 +6930,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a9c66a2c-477d-4eee-9e8d-8e6149920062",
+      "id": "262c3fd0-0b5a-418c-a3b9-96519f6d3c74",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT009756",
@@ -7031,7 +6971,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "81b92570-3c8f-4b91-80ab-2e9ce33382c0",
+      "id": "f60f6613-19a9-4630-b9b5-c7ae7eb97e40",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT009740",
@@ -7072,7 +7012,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1bc0d11d-ed02-4f05-8259-1d8fd090b331",
+      "id": "f2df01e0-33cc-4715-9efe-5e8fc2320277",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT009421",
@@ -7113,7 +7053,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1d037558-3a0e-4921-845f-f66cc60f7663",
+      "id": "fa7f8fe6-44f2-44a5-9899-c04c6212432e",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT009097",
@@ -7154,7 +7094,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "52a96d38-bed7-4f93-8fcc-ac4ac661ad43",
+      "id": "5180416c-cbd1-4606-904a-7f466d9260e2",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT009064",
@@ -7175,6 +7115,7 @@
         "status": "VERMELHO",
         "rotulo": "Vermelho (Crítica)",
         "motivos": [
+          "Vigência expirada em 08/11/2026 com execução física incompleta (91.8%)",
           "Aditivo de valor superior a 25% (+32.83%) acumulado em relação ao contrato original"
         ],
         "deltaPercentualValor": 32.83
@@ -7195,7 +7136,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "14290681-5fb1-42d4-b1f1-10554aa9c4d6",
+      "id": "54ff18ef-f5e6-4d86-8c0b-998d8cf105df",
       "cdUnidadeGestora": "520002",
       "unidadeGestora": "SEMPRE",
       "nuContratoSigef": "2024CT009053",
@@ -7209,8 +7150,8 @@
       "percentualExecutado": 100.0,
       "situacao": "Em Execução",
       "credor": "R.N ENGENHARIA LTDA",
-      "cnpj": "",
-      "cnpjCredor": "",
+      "cnpj": "26.757.074/0001-60",
+      "cnpjCredor": "26.757.074/0001-60",
       "tema": "Mobilidade, Pavimentação e Drenagem",
       "semaforo": {
         "status": "AMARELO",
@@ -7236,7 +7177,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5b29aaae-e175-4725-9f84-653882635e7d",
+      "id": "076b43f1-dc4f-4b6d-a420-9c83f20379a4",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT009245",
@@ -7277,7 +7218,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e619b5fc-51a0-4f71-90b5-213e0d1c0e66",
+      "id": "a14fcc97-1710-4424-9029-5c3c85aeb5d1",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT008808",
@@ -7318,7 +7259,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "60467ef8-5261-4df2-856d-0e7dafddf7f3",
+      "id": "d29d26b5-f600-418d-b845-189e97ea0282",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT008417",
@@ -7360,7 +7301,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c70dbfaf-3b6c-4ab7-87f7-fa690d5309da",
+      "id": "680c2c5d-2fb1-4c63-9594-1b959d7303ad",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT008334",
@@ -7401,7 +7342,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c746a357-11be-4c44-9aea-bd7bca04ce8e",
+      "id": "c2279011-4389-4430-a10b-9ae629ccc8d1",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT008404",
@@ -7442,7 +7383,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "39279a69-fc68-49a7-8ec4-60ed75f2b7ea",
+      "id": "7ed684fe-1f57-46c4-85f2-583fc3b96ad5",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT008172",
@@ -7484,7 +7425,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f1fcc0f9-ef56-4380-9b70-4ac0ad78656e",
+      "id": "cba43365-3ca3-426e-819c-a93a714e70b8",
       "cdUnidadeGestora": "520002",
       "unidadeGestora": "SEMPRE",
       "nuContratoSigef": "2024CT008159",
@@ -7525,7 +7466,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b52c22e1-63ca-4340-aa8e-676f0c814c06",
+      "id": "60f13241-f651-4385-9322-cd6660682620",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT008398",
@@ -7566,7 +7507,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "7d16f6c9-4a9f-48b9-90fa-ad8f1a71829b",
+      "id": "8796ad13-bba2-4635-88bd-4020445fc14c",
       "cdUnidadeGestora": "603002",
       "unidadeGestora": "SEDUR",
       "nuContratoSigef": "2024CT007997",
@@ -7607,7 +7548,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "6d9aa89d-c5f6-40c1-84fd-78dbeca59a78",
+      "id": "6f97f596-3d81-4df2-820f-0fdda6222855",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT007773",
@@ -7648,7 +7589,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "cb86d0e9-98e4-4555-9867-8ba391ed6bd6",
+      "id": "6853a79a-a1ce-4d02-88f4-22819545fed4",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT007572",
@@ -7689,7 +7630,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "08230d53-3467-48b9-8588-40f750fc524d",
+      "id": "db853a8d-253a-43b1-9318-267e52c235b5",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT007170",
@@ -7731,7 +7672,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "6a3714f9-27bd-4f4d-82b7-b1ac2ff6b1b9",
+      "id": "e9fafb79-9a01-496a-83fe-c0daf69a4fcf",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT007171",
@@ -7813,7 +7754,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "939f194a-ce35-4809-962b-65f5f178ea9d",
+      "id": "f02dcb23-893f-42dc-a733-09c2c54e5e8a",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT006733",
@@ -7854,7 +7795,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "83930d7b-7856-4307-9710-ff3734f96a5d",
+      "id": "dd6d592e-46f9-4080-9fe9-39c17e62aabe",
       "cdUnidadeGestora": "520002",
       "unidadeGestora": "SEMPRE",
       "nuContratoSigef": "2024CT006680",
@@ -7895,7 +7836,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3d2e58a4-974a-4840-86ae-564fadf7d716",
+      "id": "e50b48a3-0d06-4736-9b0f-d423de68ab45",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT006616",
@@ -7936,7 +7877,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "04fbd311-bbc4-4a83-b69f-50c47e2a6e36",
+      "id": "be2e481f-f6c2-4ef4-8100-3eb59aed2043",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT006517",
@@ -7977,7 +7918,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "dc1bce44-cbd8-42bf-a88c-1c772983c42b",
+      "id": "a9c0531c-55a8-4b7d-9c8c-b7ec3729d446",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT006494",
@@ -8018,7 +7959,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e42d06ae-baf8-4846-a05d-2baa28578cb9",
+      "id": "4cc16797-bade-4ed3-b1d3-ba64f9d5c706",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT006317",
@@ -8099,7 +8040,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "332ef2bb-b047-453d-834e-378652fd2d30",
+      "id": "b8143e33-99e5-4aa5-9b3b-adab18d909aa",
       "cdUnidadeGestora": "410002",
       "unidadeGestora": "SEMGE",
       "nuContratoSigef": "2024CT005904",
@@ -8140,7 +8081,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d188bf22-9f7c-42b8-9e4b-761e6c1125ae",
+      "id": "9a094659-a858-407b-9d01-0d02a447effe",
       "cdUnidadeGestora": "530002",
       "unidadeGestora": "SEMOB",
       "nuContratoSigef": "2024CT006332",
@@ -8181,7 +8122,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "dacaf9ff-465c-4be6-8255-a9d6fbadd322",
+      "id": "b4cf9599-9ad5-45b0-8d03-628ef50065a9",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT005715",
@@ -8222,7 +8163,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2fb9bd71-7724-44d4-b958-94844242e5c4",
+      "id": "e7f05c4e-6ecc-4396-a4c2-92e796b4320b",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT004935",
@@ -8263,7 +8204,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "eb2b150b-415e-464a-8a3e-d124d81f32d7",
+      "id": "169c9f35-025d-4d18-84d5-62251ef2fa6a",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT005074",
@@ -8304,7 +8245,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f658dc43-65b4-4613-9e0f-f0a1b58de994",
+      "id": "a66d41ef-0d1f-4fc9-afba-bf8a4b8135a0",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT005075",
@@ -8345,7 +8286,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9f63fbff-45b9-4401-84e0-dbea0963c2d2",
+      "id": "2700cd2f-8080-462d-ac4e-47260235eb90",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT004875",
@@ -8386,7 +8327,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0275735c-4b9d-484a-9267-8b87c8c22eac",
+      "id": "db8f0ec7-c3f3-46a3-a3a8-0229ff4bdb47",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT004834",
@@ -8468,7 +8409,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "fd3ad908-e512-4cd0-964b-69a84fafc84e",
+      "id": "db90b66c-f31a-46ee-ab59-7beb07ad8eb5",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT004794",
@@ -8509,7 +8450,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0ed5e5b0-4cc6-4cac-843a-9535f1f74fdb",
+      "id": "dade2567-12d8-43f9-97c2-431ed89da497",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT004793",
@@ -8550,7 +8491,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "29975769-22f0-43ff-8a26-6f9c411dad0d",
+      "id": "44d9e74e-e228-4600-be41-343bc126c744",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT005218",
@@ -8591,7 +8532,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8c22bf56-404e-4607-9bb0-a1d92a3cb0cd",
+      "id": "ab400263-1a23-4a03-b82d-1d2f5f3de804",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT005216",
@@ -8672,7 +8613,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "56915d1b-e3cd-4726-8890-e7b68370128f",
+      "id": "ba6b163f-ae50-43cb-8f9f-7959d8559991",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT003886",
@@ -8753,7 +8694,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "968e8deb-0d18-46d4-916f-8f7c9459ec09",
+      "id": "73a89cc4-3cb4-4b35-a361-a292f6462503",
       "cdUnidadeGestora": "430003",
       "unidadeGestora": "SECIS",
       "nuContratoSigef": "2024CT003918",
@@ -8794,7 +8735,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c850c4ae-4d0f-4733-a41b-126ee68b69d1",
+      "id": "1ca4d031-c8c1-42ce-a44e-9a40fc450489",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT003770",
@@ -8835,7 +8776,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4812cf33-6f3a-4fa7-b72f-8a4838e7ff03",
+      "id": "5caa590d-0847-4871-a170-8da17f1c4a6d",
       "cdUnidadeGestora": "450002",
       "unidadeGestora": "SEMOP",
       "nuContratoSigef": "2024CT005507",
@@ -8876,7 +8817,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4e2eae31-6d85-4d8c-aadf-81a6625a6d60",
+      "id": "f0e2bdfa-a4cc-4f91-90d7-a4fe47d6cf20",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2024CT003385",
@@ -8917,7 +8858,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "6452de84-fe4d-4a2a-87ff-9f22cf7053b8",
+      "id": "d40c9862-7baf-4b4f-bc54-b9e1b4c4cf63",
       "cdUnidadeGestora": "600002",
       "unidadeGestora": "SEDUR",
       "nuContratoSigef": "2024CT003512",
@@ -8958,7 +8899,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d57a4b42-c1d9-47e6-b274-8694abc09206",
+      "id": "38d99939-82d3-44f7-9ab7-0ba3f1dca7e5",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT003019",
@@ -8999,7 +8940,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "de3dd412-542f-4f89-ae1a-954ebc94839e",
+      "id": "c90267a2-85f5-40a6-8be5-b7f275b8fab5",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2024CT008415",
@@ -9080,7 +9021,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "dff72cd7-ac92-4eda-9833-81b5f2d27c61",
+      "id": "11391b3c-7834-497d-a609-0151cb49476a",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT003397",
@@ -9121,7 +9062,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f05a16a6-ff92-417d-9415-b04243dd5b7f",
+      "id": "0c68abc0-fd53-455f-b474-25b9f8378693",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT002934",
@@ -9162,7 +9103,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2d40fce7-4da8-4011-b3c3-722677550251",
+      "id": "1d7aa948-57e4-4b71-bb55-28afba9e342d",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT002733",
@@ -9204,7 +9145,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "efb6faa1-7990-41b6-8be2-910736dcf2b8",
+      "id": "2372f621-3ee2-4f41-a00d-57ab254498f7",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT002731",
@@ -9245,7 +9186,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "828c73a7-376c-40c3-a57a-4f7685639fb9",
+      "id": "7242131a-c7d0-4ea4-b74d-a569e8eb228c",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2024CT002751",
@@ -9286,7 +9227,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "93fb464a-1eeb-41ee-8486-4e0a25705238",
+      "id": "30e8d201-6bdc-4ee9-b45a-3708bf914ba7",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT002945",
@@ -9327,7 +9268,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "125a709a-e771-4b04-92d9-b05e03ca1cc1",
+      "id": "8f683659-feea-4926-9bb0-92a9ff13543a",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT002954",
@@ -9408,7 +9349,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9d1afad9-364b-4536-ac01-3bd9d4af6979",
+      "id": "49f8b3ef-44ef-47ba-b1c2-8f884921fd67",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2024CT004209",
@@ -9449,7 +9390,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a624f23a-b893-478d-bbaa-6f89549814fd",
+      "id": "c873e946-1157-4844-8251-ebae9c3e634f",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2024CT004210",
@@ -9490,7 +9431,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "58ca4cf6-5e7f-4514-8bfa-e3be8cc198a9",
+      "id": "3374d4b3-f97d-4cdc-bbfd-ffcf0829971d",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2024CT004211",
@@ -9531,7 +9472,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9082639d-5748-4499-8d9c-bdd6f58b16d2",
+      "id": "399407f8-3de6-4212-bd64-436849042507",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2024CT004208",
@@ -9572,7 +9513,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b4241703-06a0-41b2-8ffa-57a899733459",
+      "id": "db108947-6135-426a-8856-86a090083971",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT002664",
@@ -9653,7 +9594,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1d7e4700-6fac-4332-9e46-c79caeec9f37",
+      "id": "bb7fdd3f-0215-48dc-b9e0-fc9637b40130",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT003499",
@@ -9735,7 +9676,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "7bec087d-5c3a-4490-8061-861e7d4bedf3",
+      "id": "b2280d29-b0e9-46f8-a753-e2e002ce2139",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT002383",
@@ -9776,7 +9717,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e44f68f2-fc89-42c3-8d10-eb5a211c888f",
+      "id": "e8fdd21a-7323-4c3d-876d-060fe31dfa91",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000714",
@@ -9817,7 +9758,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4e495d78-799a-4a91-9c72-69c18ecc1ced",
+      "id": "8d2cadb3-5db4-4930-92ba-56f851fa5439",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000659",
@@ -9858,7 +9799,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "7166fd12-b933-45b7-9b14-bb4d43b9d5d5",
+      "id": "05e15073-3cb4-457b-a252-2931ff008362",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000743",
@@ -9899,7 +9840,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ced01348-113f-48cf-a9e0-e45361df5987",
+      "id": "2048f6f9-edd3-4594-80b0-5d3c0219caf8",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000741",
@@ -9940,7 +9881,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "195097ee-b1ee-4ffd-893f-21924ff165c2",
+      "id": "7512c711-1040-44f6-8b1a-e1991857c209",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000553",
@@ -9981,7 +9922,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "cc251ac3-e5ca-464d-9988-cfeedcd77ac8",
+      "id": "43323f83-8cfc-424c-9e77-c6fe0c205722",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000541",
@@ -10022,7 +9963,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "de8ef004-b733-4a12-a5bd-0e202e981521",
+      "id": "e5f680b3-4cc2-4bc8-8e8f-70b792c52782",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000292",
@@ -10063,7 +10004,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9d117683-6bd5-46ba-8099-fc35de1678de",
+      "id": "66542375-b795-4a49-8442-72f95f424592",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000228",
@@ -10104,7 +10045,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "183ba1b7-0a8d-42e2-a0ed-c1a4e2a6e6bd",
+      "id": "a011b4fe-ddc5-4f84-a2bd-178bcc491c34",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT002386",
@@ -10185,7 +10126,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "82a61446-847a-4a8e-b0f4-36881c0d42fb",
+      "id": "f26051fb-56fb-4f41-99b4-e2791042b518",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT001464",
@@ -10226,7 +10167,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "cecc0f38-94a5-4cd7-8d83-437461f760e3",
+      "id": "ce39582c-e890-469e-94d1-3ef5b3302c5e",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000050",
@@ -10267,7 +10208,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9f72a0cd-7971-4b45-9448-e7f1f8a8315a",
+      "id": "8b9908f2-43bf-43bd-b2e7-74d804c47332",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2024CT000052",
@@ -10308,7 +10249,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "12eda4f1-879c-47b8-adf4-a2c5ce37834b",
+      "id": "b399ac28-024c-4380-8252-51a724546edc",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT009595",
@@ -10349,7 +10290,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5d8ce001-cfab-42cf-af93-7dba5de8b3f2",
+      "id": "099a2df3-bd46-4103-b40b-852f5ad52eac",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT009404",
@@ -10470,7 +10411,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "bb7177c2-b561-4f42-b3a9-840915faa5b7",
+      "id": "f27c5eb3-e3a6-493d-933e-8c366af942f3",
       "cdUnidadeGestora": "536002",
       "unidadeGestora": "SEMOB",
       "nuContratoSigef": "2023CT009309",
@@ -10511,7 +10452,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1ef40f5b-5c85-4495-9b08-7e614df5fff6",
+      "id": "7149f9f1-68ad-4c12-ac47-90dc616e00e2",
       "cdUnidadeGestora": "536002",
       "unidadeGestora": "SEMOB",
       "nuContratoSigef": "2023CT009254",
@@ -10552,7 +10493,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "73cc035f-c3f2-4d1f-8713-8aaa46f7cdc7",
+      "id": "e4041783-8ac0-476f-93bd-e4089cfa1c50",
       "cdUnidadeGestora": "536002",
       "unidadeGestora": "SEMOB",
       "nuContratoSigef": "2023CT009307",
@@ -10633,7 +10574,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d5a3b535-d1d3-48b6-aef2-ec56a69c3a30",
+      "id": "4a0dd950-16b0-4a4a-9147-a7c4e2df3cd8",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT009201",
@@ -10674,7 +10615,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "817d8f6a-efaf-4ffc-a76b-95d95ac43204",
+      "id": "50cd795e-de05-428a-bf65-ea0e3d65304e",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT009263",
@@ -10715,7 +10656,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "49827c05-0f32-4141-9a07-95c78a9910f7",
+      "id": "ba166d5f-7a78-453f-ad25-9ad6fb2cb28d",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT009261",
@@ -10876,7 +10817,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4297f372-71ec-4e56-8e51-37faf4ae3e6a",
+      "id": "0e3b923c-959f-4f2a-bd94-69dae2c33411",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT009262",
@@ -10917,7 +10858,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8c28c73f-1693-4ef7-a403-26f269e2e261",
+      "id": "8ba89ee4-cfe7-45c7-bda1-d31ec9862b46",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT009075",
@@ -10958,7 +10899,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1fd21450-d852-4f52-8ff7-2a41d3b60074",
+      "id": "8b1b4f9f-f91f-492e-b035-2ebd7f143d74",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2023CT008965",
@@ -11000,7 +10941,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "72e0de96-0bb1-4e3f-b49c-afe0d96b8f10",
+      "id": "5955a8e6-2c61-4475-ad00-ea18be34afd9",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT008819",
@@ -11041,7 +10982,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a3a0e0fa-2043-4bdb-b3e6-387bfaf208f0",
+      "id": "7e80cb45-ff33-4cb6-bdc6-d308eeebd26f",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT008643",
@@ -11082,7 +11023,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "65d76919-fcb1-425d-885f-e0b8616a79e4",
+      "id": "740ef272-2bbe-4d95-b284-d92604d62212",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT008644",
@@ -11123,7 +11064,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1f2bdaa4-330e-42e4-9351-1c27f427923a",
+      "id": "9248408f-3995-4dcd-9d38-6cb822233d88",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT008638",
@@ -11164,7 +11105,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5dc50a23-ad7d-4a6a-a853-1e323acec2d5",
+      "id": "035adbbe-4bc4-42a8-9d30-82420f26e807",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT008587",
@@ -11205,7 +11146,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2d824515-2840-46e1-a433-c590c97f3152",
+      "id": "f373fe1a-1381-415b-97dc-2e5be237b436",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2023CT008616",
@@ -11326,7 +11267,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "916182ed-6218-48b8-accd-fffc14974f64",
+      "id": "fb71d063-b0f1-48b8-bf6b-6493e89c58bd",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT008626",
@@ -11347,6 +11288,7 @@
         "status": "VERMELHO",
         "rotulo": "Vermelho (Crítica)",
         "motivos": [
+          "Vigência expirada em 08/11/2026 com execução física incompleta (57.22%)",
           "Aditivo de valor superior a 25% (+240.11%) acumulado em relação ao contrato original"
         ],
         "deltaPercentualValor": 240.11
@@ -11367,7 +11309,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "16ffb4f4-83eb-49bd-b2bd-24c18d5a2398",
+      "id": "716d5c0c-f28b-4d96-ad73-4e8cc612dcb6",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT008627",
@@ -11388,6 +11330,7 @@
         "status": "VERMELHO",
         "rotulo": "Vermelho (Crítica)",
         "motivos": [
+          "Vigência expirada em 08/11/2026 com execução física incompleta (80.32%)",
           "Aditivo de valor superior a 25% (+240.45%) acumulado em relação ao contrato original"
         ],
         "deltaPercentualValor": 240.45
@@ -11408,7 +11351,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "602421ab-571a-498f-83da-1b5c2354f3fa",
+      "id": "6e925a87-53ad-4ac8-a6f5-72f300c32086",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT008196",
@@ -11489,7 +11432,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "44d5b6b8-2fbf-4a1f-8598-21aa779f08d4",
+      "id": "49812954-4ec9-4098-8471-33f33e27fc23",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT008264",
@@ -11530,7 +11473,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d8f8c80c-b72f-4088-a1b0-a5a52ff4f6a5",
+      "id": "f7ecf1a2-6668-45e4-93d0-b4e6babe028f",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT008263",
@@ -11571,7 +11514,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e930f5a7-7e37-4c87-81f2-401d85e67f76",
+      "id": "84245ec0-f0b0-4183-9e42-6edda614b515",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT008266",
@@ -11653,7 +11596,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "82f2a1a5-f606-4aef-81d6-8ae9dbb16c0b",
+      "id": "08b5fa52-a4fc-46ef-a041-a533cdb0c66f",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT007782",
@@ -11734,7 +11677,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b330a4af-0e79-4e45-945d-fae434d5f018",
+      "id": "ef0100da-a6de-48c6-97a1-ef7ca3176406",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT007603",
@@ -11895,7 +11838,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "235f6f08-a998-4ff7-8810-1dafef3f9acd",
+      "id": "1e701aaa-f459-4840-baa4-787ce34c0f10",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT007488",
@@ -11936,7 +11879,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b2afceaa-ec2f-4eb7-86c6-cb018c25c831",
+      "id": "1c2b7d41-be95-41a0-b6ca-524f069f803b",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT007487",
@@ -11977,7 +11920,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e51e2e8c-6676-4255-9be1-5770039c8f4a",
+      "id": "194bbb8f-9da0-49e4-bc33-e3dba95b5af0",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT007484",
@@ -12018,7 +11961,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d10d74ac-fb13-49cd-9a7f-c02eb5206143",
+      "id": "9373ce40-1b02-4197-93f1-1a90ae703e24",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT007142",
@@ -12059,7 +12002,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "484c1c97-dfd1-42ab-8062-d66c96002ce4",
+      "id": "5b9b70d0-b554-4f78-9135-ec9022b1a0ee",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT007405",
@@ -12180,7 +12123,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "73e56d67-c4d5-4669-85a1-fdcc5f18407e",
+      "id": "3ddc131a-3e05-43b0-80ef-a4c4e492563b",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT006886",
@@ -12221,7 +12164,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "bf14cf29-dec1-4e86-a09f-f3dc5c1c92c0",
+      "id": "83ad5033-d3a7-4bf5-ad34-42e4dddba3c4",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT006919",
@@ -12262,7 +12205,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3bdf1453-d6c8-4953-abe2-9d55a275e2f8",
+      "id": "12222ae6-53e2-4ac4-a485-72374edc3ee7",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT006773",
@@ -12303,7 +12246,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b5cdcd86-5a83-4c96-ac0c-5bade17f1329",
+      "id": "9659b48e-215d-4379-8f87-4816344a24a7",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT006855",
@@ -12344,7 +12287,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "822abd48-e5fd-421c-ab4a-88217af3bb33",
+      "id": "0e038d9f-b436-49b5-9fce-965a4676cf15",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT006649",
@@ -12385,7 +12328,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9f393ccf-9966-4c20-920a-eb3ad210b3ac",
+      "id": "f1992aaf-deb6-488a-8efd-b867583e87c9",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT006616",
@@ -12547,7 +12490,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d6329006-afcf-4acc-8835-79c90cf9894c",
+      "id": "d75e3767-2e7f-45aa-94c9-700c3a8e2a0e",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT006461",
@@ -12588,7 +12531,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "83757f02-de03-4fd9-9982-0a0b09bc2be9",
+      "id": "5fda0083-9307-4267-bfda-5cbe6ae01a61",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT006471",
@@ -12709,7 +12652,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5c184db2-4e86-47bc-8bf0-56bcfb21dbd9",
+      "id": "6bd6976e-2282-426a-98c7-8a041744d3b7",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT005921",
@@ -12750,7 +12693,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e004bdc4-4d37-4b22-9b8b-7e19f0e0f6a3",
+      "id": "dbe20a7e-c174-422d-a52e-2e6e43085919",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT005745",
@@ -12791,7 +12734,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5894f24b-81ea-4bcb-ac6a-3021173815ef",
+      "id": "c3833be0-29a7-4b5e-b9fd-2422b2df5ee9",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT005749",
@@ -12832,7 +12775,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8cface09-afa4-479e-b2ad-6c01f217a01f",
+      "id": "0e4cd451-0904-470d-8f63-bebd1b29a345",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT005658",
@@ -12953,7 +12896,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c58b7fe2-5181-4845-b4b1-d89e76e0c89d",
+      "id": "b03cb3d3-2b1e-481f-8fad-a943dd563e27",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT005369",
@@ -13075,7 +13018,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3d75b550-39ed-4738-a900-de5037c898df",
+      "id": "8bbfe6d3-ea03-461e-99cb-a38b7b4378a5",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT005103",
@@ -13197,7 +13140,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ddaf1d12-4bff-41df-963a-1cae59600a39",
+      "id": "f3419fd5-73d1-4409-8bac-1f2047d63933",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT005095",
@@ -13398,7 +13341,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f6e0d411-cb24-4978-85e0-2ee958ca543b",
+      "id": "fb5f19e3-b0d2-468c-8a4e-79350b90b6e1",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT004780",
@@ -13439,7 +13382,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "22dc1951-ea90-4a1e-8595-d82de501e083",
+      "id": "438ce20a-4ec3-424a-8888-9c79b22e89e4",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004578",
@@ -13480,7 +13423,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b8ae8ad0-91b7-4a97-a495-2c5d56c714aa",
+      "id": "872f355e-c771-48d4-9bc4-e9f9cba7dc19",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT004483",
@@ -13521,7 +13464,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8a9c1053-18e7-426c-a4e8-6d10130d3df9",
+      "id": "44885f8d-3cc0-44c3-94ce-0400becb1d05",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT004548",
@@ -13562,7 +13505,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b1e8eadd-a092-469a-8753-f6a6c0a57dd9",
+      "id": "3c53fe96-e062-408f-af24-255a015c0047",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004576",
@@ -13603,7 +13546,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2c928ca4-2fd4-49af-96d0-de6e00ee1dcf",
+      "id": "8c48327c-cd29-4989-bf67-fdfb949b1c49",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004411",
@@ -13645,7 +13588,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "bd1e14a4-b7e2-4bb6-820c-5afae2b56119",
+      "id": "64f16cec-9a5a-4026-abca-c51349007017",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004409",
@@ -13687,7 +13630,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b3a47837-50b0-40b9-ba67-21fd6e16371a",
+      "id": "db1fda41-faae-4708-9e0e-ac8848a99d1f",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004804",
@@ -13848,7 +13791,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "311c2496-eb74-4b1e-b0bb-ef37a7eaec87",
+      "id": "0aaeda8a-de68-411f-ad2e-5d9721e2afc9",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004092",
@@ -13889,7 +13832,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "38ac8b9b-31ad-43a1-8335-8b8ce49f52d0",
+      "id": "3a69d3f6-44a9-4c08-92cc-75a021a2cc39",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004041",
@@ -13970,7 +13913,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "db1ad4a6-f379-4e6a-8905-5c7fe64eb5f2",
+      "id": "f4653503-d23f-44ed-9f63-0b02319243fb",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT003795",
@@ -14011,7 +13954,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "37bfcad8-424e-408e-8452-cbfc2e3a50e5",
+      "id": "99c0e707-d26e-4a0b-b392-ee3b8e20ee08",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT003702",
@@ -14092,7 +14035,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "75dd9a42-cc82-49c9-922e-3139a06486e5",
+      "id": "ce43a31b-a8ec-44ec-a35c-8f6263bf39c4",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT002960",
@@ -14133,7 +14076,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "289d35d2-aa73-4676-b73b-669d7396386a",
+      "id": "480c2e56-a5d3-4acb-b50c-06cdb0202610",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT005383",
@@ -14254,7 +14197,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0c86f950-67a6-467c-8d67-2753bf282ba8",
+      "id": "192796df-ec35-4ec7-a302-af38fb78432d",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT005164",
@@ -14375,7 +14318,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2e32a1c7-eda6-4e14-9ea4-d1a4239b53c5",
+      "id": "f0f7a5f6-ba35-4d91-830e-686548fd7acd",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT002850",
@@ -14577,7 +14520,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2c9e0bbe-607b-4045-81d1-363d43b0f8f1",
+      "id": "21cb2459-7580-4617-ab7b-5152201b9019",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT003511",
@@ -14698,7 +14641,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a94451b8-9767-4492-9050-9aefd2c53068",
+      "id": "8bb4f8a8-8ef5-4d02-bfad-e2ae758bcba5",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT002566",
@@ -14819,7 +14762,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "03f895bc-2869-46f1-ba95-bf81f082f1c5",
+      "id": "e19f6d38-386c-4fe7-bcbb-c16af7c0546c",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2023CT002529",
@@ -14860,7 +14803,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0aae1c05-cef5-4563-a87c-3d35f57141a4",
+      "id": "79eb1b3c-5c5a-4f9f-ac8d-a422bed945d4",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2023CT002526",
@@ -14901,7 +14844,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a8b61a40-d4b6-4533-aad0-a0041d5320d7",
+      "id": "b8b7fffb-0910-4c1c-9768-57432f63f37d",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2023CT002522",
@@ -14942,7 +14885,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "bfe91c60-8075-4187-b048-11dab8811720",
+      "id": "28374100-28e2-4abd-9fbb-97976c8c0850",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2023CT002527",
@@ -14983,7 +14926,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "848e8375-9cb7-44ab-9af2-53b6987707e0",
+      "id": "909f20a5-3705-4c76-a070-17a59f074862",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT003505",
@@ -15024,7 +14967,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e451b8b7-0d31-4b10-b14c-b57294ac865d",
+      "id": "a36eda20-b1c2-4db3-8b62-cffddc173960",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT002627",
@@ -15065,7 +15008,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4c8d81f6-0a25-4abd-a29f-1e0030c45b6c",
+      "id": "1523fa8b-48a7-4877-b1ec-5d4cc1db6ca6",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2023CT004321",
@@ -15187,7 +15130,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0cc9197a-ebe8-4b22-b090-4abaa96bbb1b",
+      "id": "3665930b-ef96-4af2-9764-78c452788506",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2023CT002625",
@@ -15268,7 +15211,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "6c3b9165-21d5-4929-a405-1d3dfeed12dc",
+      "id": "f4e73088-e7e0-42bc-9d00-8357a9d8d99d",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2023CT002377",
@@ -15349,7 +15292,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b375a170-3b29-4915-84b4-b39a586f49ec",
+      "id": "53eb72fd-9e2a-41f1-9da4-e9219ef65972",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2023CT002375",
@@ -15952,7 +15895,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a655ee6e-1825-4eee-abc0-bef1d24635d6",
+      "id": "c735d765-51cd-4270-b8dc-2982dc9ddb06",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT000499",
@@ -15993,7 +15936,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3ef6c23f-c8d8-45ad-b2be-b51a2c98c330",
+      "id": "fd51db3b-afaf-4e22-955d-8391475ef4f7",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT001916",
@@ -16074,7 +16017,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a39532d2-98f1-4ec1-a9b9-2919f55d6116",
+      "id": "e7466d16-a979-448b-b8b4-b1b99797dc7f",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2023CT009444",
@@ -16476,7 +16419,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "08160843-45f2-42a3-ba86-e0233c626d17",
+      "id": "854d6cce-461d-4350-abf9-02a180ab802a",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT007124",
@@ -16557,7 +16500,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e16cd4dc-b5ba-48e2-85e2-957ef35633a2",
+      "id": "9e4e90eb-3bcc-4a0e-abcf-6e312e18a39a",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2022CT007255",
@@ -16598,7 +16541,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a0ffb586-9ecd-47f3-b0bd-a5a712046df2",
+      "id": "a6b5f4b3-2cd8-446e-a9ca-953a2da5cd4d",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT006729",
@@ -17040,7 +16983,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "22931e25-fc96-48b5-9a13-167600ea322a",
+      "id": "7309f940-9368-4ba8-85d4-e0cf26e0cffe",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT006728",
@@ -17122,7 +17065,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ef60a7c2-1905-477d-a65b-65340ab254f0",
+      "id": "ee10578b-aa91-440e-abc9-689a126ba006",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT006198",
@@ -17163,7 +17106,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5efa8736-10a7-4f24-a685-284eaad87217",
+      "id": "11b1180d-5472-4dfd-8dd5-05d007fd6869",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2022CT006254",
@@ -17244,7 +17187,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3b2f5561-c257-4bd2-b682-269ba3f95795",
+      "id": "0fc0f8d3-7d68-40b6-bdb8-59c4f1b01b18",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT006160",
@@ -17286,7 +17229,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "775e0fc7-08ae-44b1-b110-e6220bee016b",
+      "id": "f3d12c96-f93a-4269-9eca-36df3c1bbbc8",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT006163",
@@ -17328,7 +17271,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "943130d5-fbb9-4cc2-84a9-04082c8c990c",
+      "id": "57169b9a-d405-4060-bae4-debf16764fd4",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT006164",
@@ -17370,7 +17313,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "14bcbad4-c719-4b7d-ae92-bc66d821010e",
+      "id": "b1cbeaf8-9b63-4844-812a-585c39ccba5f",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT006159",
@@ -17535,7 +17478,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "7e163bf1-273e-4ee7-a102-0ef3f405ecb4",
+      "id": "9e56d952-c978-4656-9d4e-88e9c1aa6607",
       "cdUnidadeGestora": "547002",
       "unidadeGestora": "SECULT",
       "nuContratoSigef": "2022CT005086",
@@ -17696,7 +17639,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4c53ea98-0d0e-4513-b07e-523b57fa4220",
+      "id": "497c017f-c5fa-44e1-bba0-0b5118b5a081",
       "cdUnidadeGestora": "600002",
       "unidadeGestora": "SEDUR",
       "nuContratoSigef": "2022CT004093",
@@ -18059,7 +18002,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9617ae1a-6739-4578-bec4-96645d222bd8",
+      "id": "f9d59b9b-7118-4ba9-89cb-ace8406f42d1",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2022CT003188",
@@ -18544,7 +18487,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4adf88fc-f37f-4030-95c2-1aa63d4cb917",
+      "id": "57fd8a94-903d-4f2f-94eb-623c873c75c4",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2022CT002107",
@@ -18666,7 +18609,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "499cab84-2a6a-4c8f-a6db-ff6a55d5ffb3",
+      "id": "828c26e4-de91-492e-a6a2-56e067d47e7b",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2022CT001447",
@@ -18990,7 +18933,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a0494644-8c62-413d-8af4-7529e8e166b5",
+      "id": "8d554582-fb84-4e78-9a10-e86612e46655",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2022CT000640",
@@ -20200,7 +20143,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3b329ba7-cf33-46d6-9bbc-49462a4b4de5",
+      "id": "29331ce2-56c5-4fdb-a55d-9be0466b23d2",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2021CT004707",
@@ -20241,7 +20184,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d3075ab5-3bb7-4270-b014-6f64b5d1f9a1",
+      "id": "ffc15d43-fcdf-476b-a58d-c154774747eb",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2021CT004706",
@@ -20282,7 +20225,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "eb1fb029-6d95-40c9-812d-eff9c72f89e6",
+      "id": "7ffb4893-6bf6-4e7d-b211-3abff2007b4f",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2021CT004708",
@@ -20296,8 +20239,8 @@
       "percentualExecutado": 68.56,
       "situacao": "Em Execução",
       "credor": "PEJOTA CONSTRUCOES LTDA",
-      "cnpj": "",
-      "cnpjCredor": "",
+      "cnpj": "03.174.004/0001-84",
+      "cnpjCredor": "03.174.004/0001-84",
       "tema": "Manutenção Urbana e Outros",
       "semaforo": {
         "status": "VERMELHO",
@@ -20323,7 +20266,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "6ed6033e-ffb4-438d-a8c3-6578f0acc734",
+      "id": "f77f0544-f3c3-4d7e-8a55-a8d7a563caf0",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2021CT004705",
@@ -20364,7 +20307,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "be2a97a2-31a7-4436-9c80-c66b026b8947",
+      "id": "840296a3-7ac9-4650-9156-7b9e55e95360",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2021CT004628",
@@ -20606,7 +20549,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "623c7f95-e71d-4472-a75d-64ad9e800630",
+      "id": "c2fbecab-f44d-4713-8895-049d4934db01",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2021CT003952",
@@ -20891,7 +20834,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "586234eb-3c5c-4313-bd61-a449fee19aaf",
+      "id": "0dc282e4-95df-4ab1-ba25-4286e2b3eeac",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2021CT003318",
@@ -20905,8 +20848,8 @@
       "percentualExecutado": 40.0,
       "situacao": "Em Execução",
       "credor": "TMC - ENGENHARIA LTDA",
-      "cnpj": "",
-      "cnpjCredor": "",
+      "cnpj": "08.875.697/0001-56",
+      "cnpjCredor": "08.875.697/0001-56",
       "tema": "Manutenção Urbana e Outros",
       "semaforo": {
         "status": "VERMELHO",
@@ -20933,7 +20876,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f784e7f1-1eb2-44e9-a422-828003571fca",
+      "id": "1d395cc6-152c-420f-881f-915ce3821f49",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2021CT003319",
@@ -21056,7 +20999,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0e3bb5f7-55f1-48b0-b3c8-6d391bc25c1a",
+      "id": "16859b16-2223-4bf1-af39-11bf21815e28",
       "cdUnidadeGestora": "603002",
       "unidadeGestora": "SEDUR",
       "nuContratoSigef": "2021CT003103",
@@ -21097,7 +21040,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "935f3613-3f1b-4d6a-b536-5282744c8e99",
+      "id": "8f934980-04b7-4759-829d-497b88543c17",
       "cdUnidadeGestora": "603002",
       "unidadeGestora": "SEDUR",
       "nuContratoSigef": "2021CT003102",
@@ -21178,7 +21121,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c25f9ea4-651a-4833-a6c2-1d9cd82ae796",
+      "id": "02bd22f0-1e41-4515-8d31-000b59bfff0e",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2021CT002913",
@@ -21380,7 +21323,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4f9faafd-484f-46ef-9c76-db4401d02150",
+      "id": "9a56470c-48d4-4935-b982-8bb02e44276e",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2021CT001819",
@@ -21782,7 +21725,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "843b8089-7f9e-4394-8f2a-b0180e22b367",
+      "id": "0231bbe6-2259-4a49-8626-047282672217",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2021CT001061",
@@ -24118,7 +24061,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "12c472f3-0fcb-4d7f-81b2-08d20faa679a",
+      "id": "38ce54db-2877-4537-b6e9-6621440e28fb",
       "cdUnidadeGestora": "600002",
       "unidadeGestora": "SEDUR",
       "nuContratoSigef": "2020CT003598",
@@ -26217,7 +26160,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b436c663-a747-4000-a02f-a9f2b92fd7ae",
+      "id": "c9b26d30-490f-4c2d-b326-8803b076cd79",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2019CT004715",
@@ -27795,7 +27738,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f567e3ad-a11f-486b-8673-f098d37e8571",
+      "id": "eb8e72ed-35c0-47c6-992c-6f421be2a936",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2016CT001386",
@@ -27836,7 +27779,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f5f4181c-c719-4f93-8edb-aec3623efa64",
+      "id": "7e27934a-e024-4575-9eae-b0a0a5877841",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2024CT002931",
@@ -27877,7 +27820,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "126a0395-9118-497c-a174-24337066c97f",
+      "id": "8076e382-e72e-44ab-baab-178b5d30a883",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT005734",
@@ -27917,7 +27860,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a1d9d09e-cf4d-48a8-80b3-1b5de0d160a8",
+      "id": "6ca66e3e-6b1c-47fc-924f-a74714b82a8f",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT005407",
@@ -27957,7 +27900,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "02698373-a31d-4569-9f61-19ffa960d1c2",
+      "id": "4e90e5bd-4bb3-48d6-89dc-1fd1de6ec91a",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT005291",
@@ -27997,7 +27940,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a6fbce4d-8316-4365-959a-5eeaecce03c5",
+      "id": "146e121b-f053-4868-a76f-9c98afeadde7",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT005254",
@@ -28037,7 +27980,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "771c76c1-2f2b-49c2-a415-1006bf95945d",
+      "id": "1c19ee8b-d679-48fa-9eb1-f43728984f96",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004955",
@@ -28077,7 +28020,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e54bb799-c159-4227-ac1b-3e3d5178a17c",
+      "id": "beba44be-7c8c-48c2-a1a7-b7355044ba03",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004908",
@@ -28117,7 +28060,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "80b82cf4-6f7f-4c1d-92ac-48370636d6ed",
+      "id": "1840b8e5-11ee-4407-a995-e3334422e58c",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004856",
@@ -28157,7 +28100,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "56175f54-c01c-4377-9dcf-acaae29b895e",
+      "id": "96bc37b8-aea8-43d1-831a-ef2805f4dc39",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2026CT004845",
@@ -28197,7 +28140,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0806ba8a-f77c-44aa-9630-80b758ac216f",
+      "id": "f4d7db62-cd53-4f40-9e34-319317a70fbd",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004494",
@@ -28237,7 +28180,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "7a65fe65-c20d-4677-9104-23f3f2e205db",
+      "id": "56455db9-cbff-4fcc-9145-89f4722f6f15",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT004405",
@@ -28277,7 +28220,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5cc6b7db-660c-43e7-b3f4-4a7e1cade6dd",
+      "id": "63d7a74c-8fc0-4c11-8cb1-d3aae7ff4ec8",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004325",
@@ -28317,7 +28260,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "94c911cb-30d6-4911-b2c6-205c1d088cfc",
+      "id": "ca89a244-6127-4a19-8d7e-3997d63a5b62",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004316",
@@ -28357,7 +28300,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9f8b0b82-04ba-4a2e-85bf-62d91918daac",
+      "id": "8e50d73e-2760-48b6-aec9-45fab98615e6",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004227",
@@ -28397,7 +28340,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "33233760-e669-414d-bc0d-ab58b1ac9d93",
+      "id": "21c098e4-493f-45b7-87af-dc2fa84e4010",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT004102",
@@ -28437,7 +28380,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "535f14e3-08cb-4081-a5d9-06970a00f1d4",
+      "id": "45e6d7e9-881b-4fe7-9f23-69384e665c48",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT004073",
@@ -28477,7 +28420,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "224a4c77-79f8-44d0-9651-92354d5d8ce7",
+      "id": "6406067e-6aae-44dc-be18-6c4fd9b6efa3",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT004330",
@@ -28517,7 +28460,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "39fa5f75-c592-4826-93fb-2faa33cb9436",
+      "id": "8392744d-71eb-4a96-9c0e-85ed2742e0ee",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2026CT004191",
@@ -28557,7 +28500,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "00206d4b-7ada-48e0-82ee-8d7fbc0d4e1e",
+      "id": "122123d3-b1df-4b15-ab39-864a2067ac7c",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT004067",
@@ -28597,7 +28540,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b005e850-a8e3-4e93-aba7-747736fc0f6a",
+      "id": "7f2ebbef-e64e-44cf-b3fb-441ad5a5dc99",
       "cdUnidadeGestora": "520002",
       "unidadeGestora": "SEMPRE",
       "nuContratoSigef": "2026CT005609",
@@ -28637,7 +28580,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a47c43e6-ead7-4e3f-865f-70d3c9694bdb",
+      "id": "5615e4e0-8b24-4a13-9ca7-5e666d7e005c",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2026CT004875",
@@ -28677,7 +28620,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5bdf2c85-1b1b-4bf2-a2c2-f0d21fe7de9a",
+      "id": "4e0f14ba-d172-4b74-9f7f-5ed2b7396153",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2026CT004673",
@@ -28717,7 +28660,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "baa41e82-670d-465c-9294-9a3901e2ab60",
+      "id": "cb938c7c-7f35-4a7e-9b52-92a2ed9990d6",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT003687",
@@ -28757,7 +28700,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f2dc55e9-79b1-459c-ba9a-e8de42ea83e7",
+      "id": "e8c2b2a4-e016-465a-8390-541b0492b91b",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT003781",
@@ -28797,7 +28740,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "da736265-23c6-45b4-aaa8-6d82ad58fae6",
+      "id": "177caf92-4e01-46c2-b0b3-63eebf8ac152",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT003734",
@@ -28837,7 +28780,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1883b4b1-1c35-4df0-942d-e9a0ee9f996b",
+      "id": "47eaecb4-5e18-4183-8434-61cfe556f5a9",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT003650",
@@ -28877,7 +28820,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "96da3bd1-905e-4da0-91d8-76bbd3eecbbd",
+      "id": "14293e28-b20e-4ec1-9efd-5fb12de940e2",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT003890",
@@ -28917,7 +28860,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "7805a9d9-c24e-41e2-b0c1-7a3a6826f991",
+      "id": "5a2dc9f0-f676-4c4b-83f5-aa29ab1dfe45",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT003782",
@@ -28957,7 +28900,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "609dea10-101f-4b5a-b6d4-5c7a85581c4c",
+      "id": "984e8c2c-b0ee-451f-a6fa-332c62cd4ead",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT003488",
@@ -28997,7 +28940,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b829d58f-cb7f-43e9-9749-120df8b17e33",
+      "id": "5cfa6ead-b3fb-441d-af94-28ded3cd4c2f",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT003292",
@@ -29037,7 +28980,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "cb5f206d-1511-407f-a539-be898bac2a62",
+      "id": "9ca1ac8f-9da0-402f-a88b-db4e5e6b5da4",
       "cdUnidadeGestora": "630002",
       "unidadeGestora": "SEMIT",
       "nuContratoSigef": "2026CT003195",
@@ -29077,7 +29020,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0cba3166-70fc-4936-a56a-150ddeecebc8",
+      "id": "5c053c71-5eed-4354-b505-8862464e1ee8",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT003144",
@@ -29117,7 +29060,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1c1fc2c4-62eb-416f-bc45-8bfc0a9b7863",
+      "id": "fe709f20-b0b6-421d-9668-3962e51a019b",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT003274",
@@ -29157,7 +29100,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b7316488-0d6c-4278-9e0f-07ffcf7795ba",
+      "id": "d0e0102a-e932-4cc7-92ec-d2f67ae90023",
       "cdUnidadeGestora": "580002",
       "unidadeGestora": "SPMJ",
       "nuContratoSigef": "2026CT004290",
@@ -29197,7 +29140,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d1d675c1-a507-446e-8fb5-d33b187bcc4b",
+      "id": "41426953-4049-4120-a8da-6913aef1b7b1",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT002546",
@@ -29237,7 +29180,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "162894dc-ab34-4893-84b9-238030618edc",
+      "id": "71ca2da6-3f10-4f90-8d46-adcab7b73ee1",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002403",
@@ -29277,7 +29220,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ac55a2c2-40f7-43ec-b427-9c1f79ec00f4",
+      "id": "d9991ce0-a4e3-45b5-83f3-fa3f060cbd32",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002746",
@@ -29317,7 +29260,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5559e42e-e6c8-4b70-a322-ebef6445c042",
+      "id": "a88a1218-bac9-4f83-a337-01b2783eaa6b",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002775",
@@ -29357,7 +29300,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "096e082b-fd4f-4472-9f04-71a1f19ad640",
+      "id": "89de7cd9-6bfc-494a-a98e-4b185e3dcbbc",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002678",
@@ -29397,7 +29340,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8bdaf23e-97ce-4aff-b1dc-67fdc6f4aff4",
+      "id": "18942fb1-dfcc-45fb-8aca-53defbe546d6",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002692",
@@ -29437,7 +29380,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "186b58c9-e0b8-4cd5-a765-e5d5a4459335",
+      "id": "7ec559e5-dc56-41c6-92ae-6c3bcebd63b5",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002323",
@@ -29477,7 +29420,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0b376eca-bb70-4f87-9f96-94e2d52cc825",
+      "id": "d2734b8d-f525-4954-9d90-c182f4930f08",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002299",
@@ -29517,7 +29460,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e8917499-ce8c-40aa-9668-04ed702dd0c8",
+      "id": "5b951967-3584-4f9d-be56-d2e0cae6ee16",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002308",
@@ -29557,7 +29500,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "979d0e5a-5247-4053-8e5b-823e577871ec",
+      "id": "f51c2887-1715-46bd-b343-f7f4832d1e57",
       "cdUnidadeGestora": "450002",
       "unidadeGestora": "SEMOP",
       "nuContratoSigef": "2026CT002605",
@@ -29597,7 +29540,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "55dcf355-580a-43b2-b962-abea48764590",
+      "id": "0a060e52-0d0a-496a-a77d-733aadc075c1",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002303",
@@ -29637,7 +29580,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8d8555d7-b9be-4477-85d9-2e7d3ecdaebf",
+      "id": "9de95dff-29e0-4aa7-82e1-8c1446f35cff",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2026CT001696",
@@ -29677,7 +29620,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "031cb963-9316-4343-b500-08d208a4d53c",
+      "id": "883de51b-eba6-4b4b-8574-1d3d98f8d695",
       "cdUnidadeGestora": "610002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT001424",
@@ -29717,7 +29660,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ce413fb4-f976-442f-9940-508c956ba921",
+      "id": "2af0d267-5f15-48ba-a55f-8989acd563b1",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2026CT001307",
@@ -29757,7 +29700,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f1306f73-ea05-4b99-9df1-79514716c4e3",
+      "id": "10d04d85-2a9e-4a92-b9c5-cf4dd77e9a39",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2026CT001304",
@@ -29797,7 +29740,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f13f818b-8609-49d9-a219-cf6212a0b74b",
+      "id": "fae98092-4b96-4c6c-91fc-9317033bbe33",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2026CT001310",
@@ -29837,7 +29780,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "2976e5f8-1c18-42d0-a4ff-73b26a20474b",
+      "id": "b66dae9d-e507-4ac1-b9ac-b31c95ad765a",
       "cdUnidadeGestora": "441010",
       "unidadeGestora": "SMED",
       "nuContratoSigef": "2026CT001312",
@@ -29877,7 +29820,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3ed7ac54-7d90-40ad-a260-d96ed12c334c",
+      "id": "3b3b5d89-19a7-4763-9ccc-bbdfa1c2100f",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2026CT001568",
@@ -29917,7 +29860,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "46952693-9435-42e8-947c-8cb69feca19c",
+      "id": "320ffc9e-0edb-4730-a1c6-5e514624b392",
       "cdUnidadeGestora": "270002",
       "unidadeGestora": "SEFAZ",
       "nuContratoSigef": "2026CT002070",
@@ -29957,7 +29900,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "634cc837-d278-4986-8644-576089b5d535",
+      "id": "7ba4f6c1-0442-499d-aea9-2dec453d9fdb",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT001217",
@@ -29997,7 +29940,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b7fa498e-fb8d-4f57-8936-30788288f90f",
+      "id": "4ef9c1b5-21c6-4b75-ad2d-00951506a2eb",
       "cdUnidadeGestora": "456002",
       "unidadeGestora": "SEMOP",
       "nuContratoSigef": "2026CT001834",
@@ -30037,7 +29980,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "dcb55883-0be6-469c-a64a-4dfb0c196569",
+      "id": "efae83db-1d2e-449c-a7d7-4e40642b264c",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT000494",
@@ -30077,7 +30020,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e0b1417d-1d0f-4072-996d-3c286a9c7e57",
+      "id": "9304aa72-83f8-45f7-82bf-175241059263",
       "cdUnidadeGestora": "547002",
       "unidadeGestora": "SECULT",
       "nuContratoSigef": "2026CT000016",
@@ -30117,7 +30060,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ab4776ce-4294-423b-a969-279a0abcb8d8",
+      "id": "2c70f66b-4105-4161-8b26-c047c179b34c",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT001524",
@@ -30157,7 +30100,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "a2ab8302-0df2-4ab7-8b3b-224b3d84ee0a",
+      "id": "bb67dafa-9bde-4fde-a76d-5e9ece808222",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT001597",
@@ -30197,7 +30140,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "8a9ff472-4d34-4d01-ad33-90f36dabde3d",
+      "id": "fc3bb8e4-92ad-4333-8389-4c488e170d9e",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT000008",
@@ -30237,7 +30180,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d652428d-b6b0-4667-850c-f118b2c79521",
+      "id": "f46a5842-07fd-44bc-b2c4-b3cdc757d877",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002720",
@@ -30277,7 +30220,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b741d066-06de-402c-add5-6ea347db5a8c",
+      "id": "b08d55e6-a11e-4c8b-b820-c19fcbde89bb",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002689",
@@ -30317,7 +30260,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4b1520f8-f1ff-4886-98b7-46eb97112db4",
+      "id": "a6866c63-a63d-4384-85c5-ef6e68b634b3",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2026CT002017",
@@ -30357,7 +30300,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "190b2e6b-8e21-47ef-b4f4-a1fc4f26ebd6",
+      "id": "4fff7211-cf32-4f65-8449-6e220b3864b6",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2026CT000007",
@@ -30397,7 +30340,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "3335ac3f-92ee-48e8-96ae-4b7ccf30bef1",
+      "id": "87336dbe-3766-4bc4-ae26-5bdb087fc7da",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006747",
@@ -30437,7 +30380,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "dee2aa39-80f9-47c0-b31a-93b5c4e22449",
+      "id": "9bb8fca8-e891-45c6-8bfc-8a01c3228b8d",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006745",
@@ -30477,7 +30420,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "00dac469-efe0-49f4-8e85-1477cb875b46",
+      "id": "2acb5cfc-d190-4397-9141-5426aa96e801",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006746",
@@ -30517,7 +30460,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c69b675d-398f-473f-8395-d44399a5f62b",
+      "id": "45bb4782-f26b-432f-b255-a92f5ec7fa91",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006744",
@@ -30557,7 +30500,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "78ad3c7f-185c-49c8-a65e-02e10c903f3d",
+      "id": "b97ec829-ab3f-448c-b995-111379a52b6d",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006633",
@@ -30597,7 +30540,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "af905081-a327-463e-8d80-2d557419b597",
+      "id": "71af2258-60ec-4e84-9503-c587c032ab18",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006646",
@@ -30637,7 +30580,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "b7a3dfc9-e766-4cdc-9b3d-a48a91e12cb6",
+      "id": "a8841df9-3cf2-4cf5-b3e0-9b09991cb2c1",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006543",
@@ -30677,7 +30620,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "864627f9-9e97-458e-a126-7b7ac2a0d429",
+      "id": "52f79685-c467-4791-aa38-d6f2329ecce0",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006486",
@@ -30717,7 +30660,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e1921fc5-f51a-4c81-9a99-1f8efc0a0e48",
+      "id": "04f87a18-721e-4097-94cf-5c58739bbd51",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT006599",
@@ -30757,7 +30700,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "82731bf7-2cbe-45c2-8b8b-f3cd14a0e412",
+      "id": "b7ad29a3-1ce8-4214-93ee-7aa464de78ce",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT006441",
@@ -30797,7 +30740,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1fc847ce-23d8-4401-a023-7669a798edca",
+      "id": "67d7702b-f2e2-412f-bc5a-230e07b301d4",
       "cdUnidadeGestora": "456002",
       "unidadeGestora": "SEMOP",
       "nuContratoSigef": "2025CT006373",
@@ -30837,7 +30780,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9b1c6820-2ed2-4fe4-9132-80a13e3075e1",
+      "id": "3e6e2857-dc1a-4b6b-a7b7-f493fba1cea6",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT006083",
@@ -30877,7 +30820,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9e33d5e7-563c-4c1e-905c-a31050ad2972",
+      "id": "eed47ecc-c7f9-4631-aa15-cfaa6a42d8d5",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT006047",
@@ -30918,7 +30861,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "95a9b617-e2ac-4851-853b-d7efead50679",
+      "id": "d71a833e-46c1-43e0-934a-24804c1ff549",
       "cdUnidadeGestora": "630002",
       "unidadeGestora": "SEMIT",
       "nuContratoSigef": "2025CT006024",
@@ -30958,7 +30901,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ff578c62-22ff-49ad-af15-f05517c55289",
+      "id": "93f1f552-0d3c-4984-8882-619b383fb2af",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2025CT005813",
@@ -30998,7 +30941,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9febeb8e-1b81-45ec-9a9f-5984121e3874",
+      "id": "1252bb6a-7263-49e7-8358-9d6a13d64f4f",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT005788",
@@ -31038,7 +30981,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "dddee254-aca1-449f-b622-b2625596f367",
+      "id": "f1d720ef-eb80-4e58-81cf-219b76c9bebc",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT005776",
@@ -31078,7 +31021,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "110fb85a-135c-4179-a6e3-58dab1dfb2bd",
+      "id": "add077fc-e93a-4fee-9472-736fc643c4b1",
       "cdUnidadeGestora": "450002",
       "unidadeGestora": "SEMOP",
       "nuContratoSigef": "2025CT005594",
@@ -31118,7 +31061,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c90cc29a-299a-4024-9399-4e965b214f6e",
+      "id": "fd395a66-e272-4c93-9802-b5afc5b24187",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT005295",
@@ -31158,7 +31101,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "0ddfd82c-4ae5-4ddf-b256-39ddbd80e15f",
+      "id": "a664d378-1dde-49c1-89e6-a5f82b93d7d9",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT005497",
@@ -31198,7 +31141,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "65f11ead-5cef-4272-8891-e83302b7f37a",
+      "id": "28152e7a-8ff9-4b6b-971c-f041c6820bfd",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT005355",
@@ -31238,7 +31181,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "212eded6-7db9-4b6e-917f-b85d5a5b5195",
+      "id": "4f02ac8f-e30a-4eea-99d3-e677941e240f",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2025CT004659",
@@ -31278,7 +31221,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "1e65c913-3fe5-4fd3-8f42-81abbebe8944",
+      "id": "7aa50e82-fd21-4a97-a3d0-b4d10c26247e",
       "cdUnidadeGestora": "560002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT004601",
@@ -31318,7 +31261,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4a18342e-671d-44d3-a024-80f4d2d4cc9b",
+      "id": "893daae7-3a3a-4963-84c3-4c2ad5ec5d1b",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT004259",
@@ -31358,7 +31301,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "dde02cec-fe65-4f6c-8fa1-d724d33f5f29",
+      "id": "5809388a-6ff2-4d12-b824-be839f5a527c",
       "cdUnidadeGestora": "600002",
       "unidadeGestora": "SEDUR",
       "nuContratoSigef": "2025CT003971",
@@ -31398,7 +31341,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "ecfb54a4-20f7-470c-a150-f9a3d4363135",
+      "id": "10c83709-0cf4-427c-b62e-9f324b108c00",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT004000",
@@ -31438,7 +31381,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "e423dcbb-f3b2-4753-91b5-cb3c380e0df3",
+      "id": "455a4b9a-a834-4b73-bff7-bb97eccb3394",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2025CT006146",
@@ -31478,7 +31421,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4e9bc95f-31ff-47fb-ae8f-18644ca78f4f",
+      "id": "cc3ff25f-d4c8-40fe-9558-1906743228d1",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2025CT005387",
@@ -31518,7 +31461,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "d083af0e-fc5b-4722-b9b3-83589fdb42eb",
+      "id": "f576aeac-df84-432e-92d3-d6a035152519",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT003841",
@@ -31558,7 +31501,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "c7869828-2dad-4388-b571-9ac90fc03307",
+      "id": "e022e2f4-76dc-4aa4-9558-07472a4d6fa0",
       "cdUnidadeGestora": "301110",
       "unidadeGestora": "SMS",
       "nuContratoSigef": "2025CT005383",
@@ -31598,7 +31541,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f9e0aeaa-3bf7-4ca1-b45d-4825cd9afe2b",
+      "id": "8b4257db-1da5-48da-8607-495ca76a6ac6",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT002988",
@@ -31638,7 +31581,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "88f5f246-ce99-450d-a2de-f1de2cda15c0",
+      "id": "588f5c5d-34b3-40a9-bc29-06bc8a279ac1",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT002994",
@@ -31678,7 +31621,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "19e2a758-213d-4251-8a33-2a3727e76884",
+      "id": "573ebec0-ee42-4b36-9240-503ef84c1206",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT005028",
@@ -31718,7 +31661,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "f660abc1-a14a-4433-b349-15d462dcb536",
+      "id": "2aeb8147-d6b6-43c9-a1e7-bd3896230cab",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT003073",
@@ -31758,7 +31701,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "81570855-cce0-4642-b53d-f383d79589a4",
+      "id": "9e814c7e-a813-44ac-89e1-84bd01b9420c",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT002882",
@@ -31798,7 +31741,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "9ccd806a-23a0-4096-871e-c71eff97bb98",
+      "id": "ff78e076-9320-4f39-a0a8-b3f073f0172c",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT002899",
@@ -31838,7 +31781,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "aabf28bb-9944-466f-b15e-c0316584332e",
+      "id": "fa6c2670-72bd-43ac-b501-7926862dab8c",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT001843",
@@ -31878,7 +31821,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "4f0e0fdf-d64a-4622-802a-41ee77921947",
+      "id": "6b85f433-be75-4f48-9d35-e4da15d22d13",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT000957",
@@ -31918,7 +31861,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "5f9617c3-2f6c-4320-b682-c3f3aa19be9d",
+      "id": "aad5f865-f9f7-414e-b1cb-ac623c80ba36",
       "cdUnidadeGestora": "616002",
       "unidadeGestora": "SEINFRA",
       "nuContratoSigef": "2025CT000587",
@@ -31958,7 +31901,7 @@
       "estagioAlocacao": "Cache"
     },
     {
-      "id": "40d0cfb0-93e2-4d2b-93fc-e93154f73add",
+      "id": "ac19aa37-15ac-405c-915a-a95ecfc2c514",
       "cdUnidadeGestora": "567002",
       "unidadeGestora": "SEMAN",
       "nuContratoSigef": "2025CT000527",
@@ -31995,6 +31938,130 @@
       "prefeitura_bairro": "Centro/Brotas",
       "latitude": -12.973943,
       "longitude": -38.510481,
+      "estagioAlocacao": "Cache"
+    },
+    {
+      "id": "a1a80579-0028-4cc6-8441-411bf0af766f",
+      "cdUnidadeGestora": "536002",
+      "unidadeGestora": "SEMOB",
+      "nuContratoSigef": "2023CT009308",
+      "numeroContrato": "2023CT009308",
+      "objeto": "Serviços de obras viárias destinadas à melhoria e ordenamento do trânsito no Município do Salvador, compreendendo as seguintes atividades: construção e/ou recuperação de sistemas de micro drenagem, construção e/ou recuperação da malha viária do Município, construção e/ou recuperação de pavimentos e rígidos e semi-rígidos e construção e/ou recuperação de calçadas públicas",
+      "valorOriginal": 16329805.94,
+      "valorContratualVigente": 32659611.88,
+      "valorAditivos": 16329805.94,
+      "deltaPercentualValor": 100.0,
+      "valorPago": 4725845.84,
+      "percentualExecutado": 14.47,
+      "situacao": "Ajustar Cronograma",
+      "credor": "COMTECH ENGENHARIA LTDA",
+      "cnpj": "07.440.770/0001-02",
+      "cnpjCredor": "07.440.770/0001-02",
+      "tema": "Mobilidade, Pavimentação e Drenagem",
+      "semaforo": {
+        "status": "VERMELHO",
+        "rotulo": "Vermelho (Crítica)",
+        "motivos": [
+          "Vigência expirada em 14/12/2025 com execução física incompleta (14.47%)",
+          "Aditivo de valor superior a 25% (+100.0%) acumulado em relação ao contrato original"
+        ],
+        "deltaPercentualValor": 100.0
+      },
+      "ano": 2023,
+      "mandatos": [
+        "2021-2024",
+        "2025-2028"
+      ],
+      "dtInicioVigencia": "2023-12-15T00:00:00.000Z",
+      "dtTerminoVigenciaAtualizado": "2025-12-14T00:00:00.000Z",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "prefeitura_bairro": null,
+      "latitude": null,
+      "longitude": null,
+      "estagioAlocacao": "Cache"
+    },
+    {
+      "id": "97daadc9-67b2-48fd-b37e-c95b6c5e3f4c",
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2023CT002528",
+      "numeroContrato": "2023CT002528",
+      "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA OS SERVIÇOS COMUNS \r\nDE ENGENHARIA, CONTINUADOS DE REPARAÇÃO, ADAPTAÇÃO E CONSERVAÇÃO DE PRAÇAS E CANTEIROS PÚBLICOS INCLUINDO MONTAGENS DE MOBILIÁRIO URBANO SITUADOS EM LOGRADOUROS PÚBLICOS DO MUNICÍPIO DE SALVADOR, (LOTE 04).",
+      "valorOriginal": 4799955.57,
+      "valorContratualVigente": 18764564.46,
+      "valorAditivos": 13964608.89,
+      "deltaPercentualValor": 290.93,
+      "valorPago": 17092641.77,
+      "percentualExecutado": 91.09,
+      "situacao": "Em Execução",
+      "credor": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
+      "cnpj": "24.051.496/0001-90",
+      "cnpjCredor": "24.051.496/0001-90",
+      "tema": "Praças, Esporte e Lazer",
+      "semaforo": {
+        "status": "VERMELHO",
+        "rotulo": "Vermelho (Crítica)",
+        "motivos": [
+          "Aditivo de valor superior a 25% (+290.93%) acumulado em relação ao contrato original"
+        ],
+        "deltaPercentualValor": 290.93
+      },
+      "ano": 2023,
+      "mandatos": [
+        "2021-2024",
+        "2025-2028"
+      ],
+      "dtInicioVigencia": "2023-03-28T00:00:00.000Z",
+      "dtTerminoVigenciaAtualizado": "2026-12-21T00:00:00.000Z",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "prefeitura_bairro": null,
+      "latitude": null,
+      "longitude": null,
+      "estagioAlocacao": "Cache"
+    },
+    {
+      "id": "8bd4ff22-9395-4e41-8d7c-bc3570710975",
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2021CT004709",
+      "numeroContrato": "2021CT004709",
+      "objeto": "Constitui objeto do presente contrato, a contratação de empresa especializada na prestação associada dos serviços de produção e comercialização de concreto betuminoso usinado a quente ¿ CBUQ, que será fabricado e entregue para utilização na manutenção preventiva e corretiva das vias de tráfego do município de Salvador, conforme Lote 5.",
+      "valorOriginal": 9285600.0,
+      "valorContratualVigente": 64303510.0,
+      "valorAditivos": 55017910.0,
+      "deltaPercentualValor": 592.51,
+      "valorPago": 52092273.45,
+      "percentualExecutado": 81.01,
+      "situacao": "Em Execução",
+      "credor": "PAVNORTE CONSTRUTORA LTDA.",
+      "cnpj": "20.216.786/0001-96",
+      "cnpjCredor": "20.216.786/0001-96",
+      "tema": "Manutenção Urbana e Outros",
+      "semaforo": {
+        "status": "VERMELHO",
+        "rotulo": "Vermelho (Crítica)",
+        "motivos": [
+          "Aditivo de valor superior a 25% (+592.51%) acumulado em relação ao contrato original"
+        ],
+        "deltaPercentualValor": 592.51
+      },
+      "ano": 2021,
+      "mandatos": [
+        "2021-2024",
+        "2025-2028"
+      ],
+      "dtInicioVigencia": "2021-11-10T00:00:00.000Z",
+      "dtTerminoVigenciaAtualizado": "2026-11-10T00:00:00.000Z",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "bairro": null,
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "prefeitura_bairro": "Liberdade/São Caetano",
+      "latitude": null,
+      "longitude": null,
       "estagioAlocacao": "Cache"
     }
   ]

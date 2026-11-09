@@ -9,15 +9,16 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "COMTECH ENGENHARIA LTDA",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 25772691.87,
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 58432303.75,
     "obrasIds": [
       "9e918251-3fa2-4276-811f-91e55eddd461",
       "ae068cbf-fb75-4bae-bc30-98237831b38e",
       "547cd661-225a-4dca-81e7-402668200a40",
       "dad1ccf2-14e1-4a1b-9937-8ee5210760e8",
-      "c49b7710-45bd-4a1b-a920-f91fe4041dea"
+      "c49b7710-45bd-4a1b-a920-f91fe4041dea",
+      "a1a80579-0028-4cc6-8441-411bf0af766f"
     ]
   },
   "vigencia": {

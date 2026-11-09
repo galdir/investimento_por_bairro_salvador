@@ -1,0 +1,144 @@
+{
+  "id": "a8841df9-3cf2-4cf5-b3e0-9b09991cb2c1",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2025CT006543",
+  "numeroContratoOriginal": "1042025",
+  "nuProcesso": "236107/2025",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA REFORMA DOS BANHEIROS DA SEDE DA DESAL",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+    "cnpj": "39.926.521/0001-00",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 24491.38,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "04/12/2025",
+    "dataFimOriginal": "03/03/2026",
+    "dataTerminoAtualizado": "03/03/2026",
+    "prazoOriginal": "89",
+    "prazoAtualizado": "89"
+  },
+  "dom": {
+    "nuDom": "9052",
+    "dataPublicacao": "05/12/2025"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 24491.38,
+    "valorContratualVigente": 24491.38,
+    "valorEmpenhado": 24491.38,
+    "valorLiquidado": 23413.76,
+    "valorPago": 23413.760000000002,
+    "percentualExecutado": 95.6,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "f7e5ee1e-8723-4c3d-b552-b1d78c9808aa",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2025NE001088",
+      "dataEmpenho": "05/12/2025",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "24.491,38",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "f4407f61-5168-42e8-9372-2a8a8b9c394a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2025NE001088",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaLiquidacao": "2025NL007086",
+      "notaLancamento": "2025NL007086",
+      "numProcesso": "02470792025",
+      "dataLiquidacao": "09/12/2025",
+      "valLiqLiquidacao": "23.413,76",
+      "valBrutLiquidacao": "24.491,38",
+      "valEmpenho": "24.491,38",
+      "descObsLiquidacao": "2DG SERVIÇOS - REFORMA NOS BANHEIROS DA SEDE DA DESAL - PROC 247079/2025 - CT 104/2025 - N",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "e4eeb5f4-e8ac-44e1-9f38-bf77a872b281",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2025NE001088",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaLiquidacao": "2025NL007086",
+      "ordBancaria": "2025OB072626",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "24.491,38",
+      "dataPagamento": "11/12/2025",
+      "pago": "22.923,93",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "9a8e80f8-dbf7-4110-985e-9bdc8a08a7c5",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2025NE001088",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2025OB072630",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "24.491,38",
+      "dataPagamento": "11/12/2025",
+      "pago": "489,83",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 03/03/2026 com execução física incompleta (95.6%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache"
+}

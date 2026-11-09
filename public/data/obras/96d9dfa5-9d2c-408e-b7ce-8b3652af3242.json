@@ -9,12 +9,13 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "DIAS SILVA TRANSPORTES E CONSTRUCOES LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 170754.09,
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 290175.64,
     "obrasIds": [
       "96d9dfa5-9d2c-408e-b7ce-8b3652af3242",
-      "51e6af74-90f0-41b2-a2ee-b405a689fb5c"
+      "51e6af74-90f0-41b2-a2ee-b405a689fb5c",
+      "6b85f433-be75-4f48-9d35-e4da15d22d13"
     ]
   },
   "vigencia": {

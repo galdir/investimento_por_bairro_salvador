@@ -9,13 +9,14 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "ROBLE SERVICOS LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 17355001.24,
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 99488609.01,
     "obrasIds": [
       "023fafb3-c1fc-43d4-be6d-0a0ca9164bb1",
       "21923172-06b5-47e2-b106-b6d10312896c",
-      "0914893f-ee88-4eec-8e9a-6763b6aeff83"
+      "0914893f-ee88-4eec-8e9a-6763b6aeff83",
+      "9bb8fca8-e891-45c6-8bfc-8a01c3228b8d"
     ]
   },
   "vigencia": {

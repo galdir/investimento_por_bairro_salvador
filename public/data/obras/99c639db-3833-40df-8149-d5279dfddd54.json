@@ -1,0 +1,68 @@
+{
+  "id": "99c639db-3833-40df-8149-d5279dfddd54",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2025CT000801",
+  "numeroContratoOriginal": "8742024",
+  "nuProcesso": "012431/2024",
+  "objeto": "Construção do CAPS IA (Centro de Atenção Psicossocial Infância e Adolescência), no Distrito Sanitário de Itapagipe, na Rua Pedreira Franco s/n bairro Calçada, em Salvador-Ba, para a Secretaria Municipal da Saúde, de acordo com as especificações e obrigações constantes no Edital da Licitação, nas condições estabelecidas no Termo de Referência",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+    "cnpj": "13.585.696/0001-07",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 6760413.83,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "81edebcc-a3b9-48b6-ad0d-f34e7f526d50",
+      "9a094659-a858-407b-9d01-0d02a447effe"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "10/12/2024",
+    "dataFimOriginal": "09/12/2025",
+    "dataTerminoAtualizado": "09/12/2025",
+    "prazoOriginal": "364",
+    "prazoAtualizado": "364"
+  },
+  "dom": {
+    "nuDom": "8935",
+    "dataPublicacao": "13/03/2025"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 2269437.83,
+    "valorContratualVigente": 2269437.83,
+    "valorEmpenhado": 2269437.83,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 09/12/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Calçada",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.943451,
+  "longitude": -38.498601,
+  "estagioAlocacao": "Cache"
+}

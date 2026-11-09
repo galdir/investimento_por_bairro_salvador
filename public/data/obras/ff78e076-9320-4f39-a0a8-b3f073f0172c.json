@@ -1,0 +1,65 @@
+{
+  "id": "ff78e076-9320-4f39-a0a8-b3f073f0172c",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2025CT002899",
+  "numeroContratoOriginal": "0192025",
+  "nuProcesso": "123864/2024",
+  "objeto": "Contratação de empresa capacitada para execução da obra de Implantação do CRAS - Centro de \r\nReferência da Assistência Social -Mané Dendê em Ilha Amarela - Salvador/BA.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA LAM LTDA",
+    "cnpj": "03.522.765/0001-80",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 3685297.94,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "05/05/2025",
+    "dataFimOriginal": "29/04/2026",
+    "dataTerminoAtualizado": "29/04/2026",
+    "prazoOriginal": "359",
+    "prazoAtualizado": "359"
+  },
+  "dom": {
+    "nuDom": "8860",
+    "dataPublicacao": "05/05/2025"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3685297.94,
+    "valorContratualVigente": 3685297.94,
+    "valorEmpenhado": 3685297.94,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Infraestrutura Urbana Municipal",
+      "fonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
+      "classificacao": "4.4.90.51 - Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/04/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Rio Sena",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.881,
+  "longitude": -38.469748,
+  "estagioAlocacao": "Cache"
+}

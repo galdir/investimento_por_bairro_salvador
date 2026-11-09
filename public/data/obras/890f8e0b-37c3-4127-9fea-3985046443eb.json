@@ -9,11 +9,12 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "ANGRA ENGENHARIA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 930148.93,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 18977753.93,
     "obrasIds": [
-      "890f8e0b-37c3-4127-9fea-3985046443eb"
+      "890f8e0b-37c3-4127-9fea-3985046443eb",
+      "5809388a-6ff2-4d12-b824-be839f5a527c"
     ]
   },
   "vigencia": {
