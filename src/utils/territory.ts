@@ -84,6 +84,10 @@ export function createBairroSelection(bairro: BairroResumo): TerritorySelection 
     indice_vulnerabilidade: bairro.indice_vulnerabilidade,
     is_zona_especial_nao_residencial: bairro.is_zona_especial_nao_residencial,
     isZonaEspecialNaoResidencial: bairro.isZonaEspecialNaoResidencial ?? bairro.is_zona_especial_nao_residencial,
+    pct_esgoto_inadequado: bairro.pct_esgoto_inadequado,
+    pct_agua_inadequada: bairro.pct_agua_inadequada,
+    pct_analfabetismo_15mais: bairro.pct_analfabetismo_15mais,
+    vulnerabilidade_estimada_contiguidade: bairro.vulnerabilidade_estimada_contiguidade,
     valorTotal: bairro.valorTotal,
     valorPago: bairro.valorPago,
     totalObras: bairro.totalObras,
@@ -109,6 +113,9 @@ export function createPrefeituraSelection(prefeitura: PrefeituraBairroResumo): T
     nome: prefeitura.nome,
     populacao: prefeitura.populacao_total,
     indice_vulnerabilidade: prefeitura.indice_vulnerabilidade,
+    pct_esgoto_inadequado: prefeitura.pct_esgoto_inadequado,
+    pct_agua_inadequada: prefeitura.pct_agua_inadequada,
+    pct_analfabetismo_15mais: prefeitura.pct_analfabetismo_15mais,
     valorTotal: prefeitura.valorTotal,
     valorPago: prefeitura.valorPago,
     totalObras: prefeitura.totalObras,
@@ -254,31 +261,51 @@ export function calculateTerritorialRollup(
     const investimentoPorHabitantePago =
       populacaoTotal > 0 ? Math.round(((valorPago / populacaoTotal) + Number.EPSILON) * 100) / 100 : 0.0;
 
-    // Índice de vulnerabilidade da Prefeitura-Bairro: média ponderada pela população dos bairros residenciais
+    // Índice de vulnerabilidade e subindicadores da Prefeitura-Bairro: média ponderada pela população dos bairros residenciais
     const bairrosResidenciais = bairrosFilhos.filter(
       (b) => !(b.is_zona_especial_nao_residencial || b.isZonaEspecialNaoResidencial)
     );
     let popResidencial = 0;
     let somaVulnPonderada = 0;
+    let somaEsgotoPonderada = 0;
+    let somaAguaPonderada = 0;
+    let somaAnalfPonderada = 0;
+
     for (const b of bairrosResidenciais) {
       const pop = b.populacao || 0;
       if (pop > 0) {
         popResidencial += pop;
-        somaVulnPonderada += pop * (b.indice_vulnerabilidade ?? 0.5);
+        somaVulnPonderada += pop * (b.indice_vulnerabilidade ?? 0.0);
+        somaEsgotoPonderada += pop * (b.pct_esgoto_inadequado ?? 0);
+        somaAguaPonderada += pop * (b.pct_agua_inadequada ?? 0);
+        somaAnalfPonderada += pop * (b.pct_analfabetismo_15mais ?? 0);
       }
     }
 
-    let indiceVulnerabilidade = prefeitura.indice_vulnerabilidade ?? 0.5;
+    let indiceVulnerabilidade = prefeitura.indice_vulnerabilidade ?? 0.0;
+    let pctEsgoto = prefeitura.pct_esgoto_inadequado ?? 0.0;
+    let pctAgua = prefeitura.pct_agua_inadequada ?? 0.0;
+    let pctAnalf = prefeitura.pct_analfabetismo_15mais ?? 0.0;
+
     if (popResidencial > 0) {
       indiceVulnerabilidade = Math.round(((somaVulnPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
+      pctEsgoto = Math.round(((somaEsgotoPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
+      pctAgua = Math.round(((somaAguaPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
+      pctAnalf = Math.round(((somaAnalfPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
     } else if (bairrosResidenciais.length > 0) {
-      const somaSimples = bairrosResidenciais.reduce((acc, b) => acc + (b.indice_vulnerabilidade ?? 0.5), 0);
+      const somaSimples = bairrosResidenciais.reduce((acc, b) => acc + (b.indice_vulnerabilidade ?? 0.0), 0);
       indiceVulnerabilidade = Math.round(((somaSimples / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
+      pctEsgoto = Math.round(((bairrosResidenciais.reduce((acc, b) => acc + (b.pct_esgoto_inadequado ?? 0), 0) / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
+      pctAgua = Math.round(((bairrosResidenciais.reduce((acc, b) => acc + (b.pct_agua_inadequada ?? 0), 0) / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
+      pctAnalf = Math.round(((bairrosResidenciais.reduce((acc, b) => acc + (b.pct_analfabetismo_15mais ?? 0), 0) / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
     }
 
     return {
       ...prefeitura,
       indice_vulnerabilidade: indiceVulnerabilidade,
+      pct_esgoto_inadequado: pctEsgoto,
+      pct_agua_inadequada: pctAgua,
+      pct_analfabetismo_15mais: pctAnalf,
       valorTotal: Math.round((valorTotal + Number.EPSILON) * 100) / 100,
       valorPago: Math.round((valorPago + Number.EPSILON) * 100) / 100,
       totalObras,

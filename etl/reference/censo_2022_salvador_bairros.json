@@ -1,0 +1,3382 @@
+{
+  "ITAIGARA": {
+    "populacao": 9261,
+    "pct_esgoto_inadequado": 4.3,
+    "pct_agua_inadequada": 0.51,
+    "pct_analfabetismo_15mais": 1.48,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.04
+  },
+  "Itaigara": {
+    "populacao": 9261,
+    "pct_esgoto_inadequado": 4.3,
+    "pct_agua_inadequada": 0.51,
+    "pct_analfabetismo_15mais": 1.48,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.04
+  },
+  "HORTO FLORESTAL": {
+    "populacao": 8342,
+    "pct_esgoto_inadequado": 3.95,
+    "pct_agua_inadequada": 0.47,
+    "pct_analfabetismo_15mais": 1.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.03
+  },
+  "Horto Florestal": {
+    "populacao": 8342,
+    "pct_esgoto_inadequado": 3.95,
+    "pct_agua_inadequada": 0.47,
+    "pct_analfabetismo_15mais": 1.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.03
+  },
+  "LAPINHA": {
+    "populacao": 4085,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Lapinha": {
+    "populacao": 4085,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "NAZARE": {
+    "populacao": 9018,
+    "pct_esgoto_inadequado": 17.84,
+    "pct_agua_inadequada": 2.24,
+    "pct_analfabetismo_15mais": 3.94,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.37
+  },
+  "Nazaré": {
+    "populacao": 9018,
+    "pct_esgoto_inadequado": 17.84,
+    "pct_agua_inadequada": 2.24,
+    "pct_analfabetismo_15mais": 3.94,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.37
+  },
+  "TORORO": {
+    "populacao": 3632,
+    "pct_esgoto_inadequado": 19.42,
+    "pct_agua_inadequada": 2.46,
+    "pct_analfabetismo_15mais": 4.19,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.41
+  },
+  "Tororó": {
+    "populacao": 3632,
+    "pct_esgoto_inadequado": 19.42,
+    "pct_agua_inadequada": 2.46,
+    "pct_analfabetismo_15mais": 4.19,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.41
+  },
+  "BARRIS": {
+    "populacao": 4343,
+    "pct_esgoto_inadequado": 15.78,
+    "pct_agua_inadequada": 1.96,
+    "pct_analfabetismo_15mais": 3.62,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.32
+  },
+  "Barris": {
+    "populacao": 4343,
+    "pct_esgoto_inadequado": 15.78,
+    "pct_agua_inadequada": 1.96,
+    "pct_analfabetismo_15mais": 3.62,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.32
+  },
+  "GARCIA": {
+    "populacao": 11490,
+    "pct_esgoto_inadequado": 16.8,
+    "pct_agua_inadequada": 2.1,
+    "pct_analfabetismo_15mais": 3.78,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.35
+  },
+  "Garcia": {
+    "populacao": 11490,
+    "pct_esgoto_inadequado": 16.8,
+    "pct_agua_inadequada": 2.1,
+    "pct_analfabetismo_15mais": 3.78,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.35
+  },
+  "MACAUBAS": {
+    "populacao": 6109,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Macaúbas": {
+    "populacao": 6109,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BARBALHO": {
+    "populacao": 7195,
+    "pct_esgoto_inadequado": 18.89,
+    "pct_agua_inadequada": 2.39,
+    "pct_analfabetismo_15mais": 4.11,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.4
+  },
+  "Barbalho": {
+    "populacao": 7195,
+    "pct_esgoto_inadequado": 18.89,
+    "pct_agua_inadequada": 2.39,
+    "pct_analfabetismo_15mais": 4.11,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.4
+  },
+  "SAUDE": {
+    "populacao": 3702,
+    "pct_esgoto_inadequado": 19.95,
+    "pct_agua_inadequada": 2.54,
+    "pct_analfabetismo_15mais": 4.27,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.43
+  },
+  "Saúde": {
+    "populacao": 3702,
+    "pct_esgoto_inadequado": 19.95,
+    "pct_agua_inadequada": 2.54,
+    "pct_analfabetismo_15mais": 4.27,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.43
+  },
+  "SANTO ANTONIO": {
+    "populacao": 2888,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Santo Antônio": {
+    "populacao": 2888,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "VITORIA": {
+    "populacao": 4416,
+    "pct_esgoto_inadequado": 2.95,
+    "pct_agua_inadequada": 0.37,
+    "pct_analfabetismo_15mais": 1.16,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.0
+  },
+  "Vitória": {
+    "populacao": 4416,
+    "pct_esgoto_inadequado": 2.95,
+    "pct_agua_inadequada": 0.37,
+    "pct_analfabetismo_15mais": 1.16,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.0
+  },
+  "CANELA": {
+    "populacao": 4813,
+    "pct_esgoto_inadequado": 8.26,
+    "pct_agua_inadequada": 0.97,
+    "pct_analfabetismo_15mais": 2.3,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.14
+  },
+  "Canela": {
+    "populacao": 4813,
+    "pct_esgoto_inadequado": 8.26,
+    "pct_agua_inadequada": 0.97,
+    "pct_analfabetismo_15mais": 2.3,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.14
+  },
+  "DOM AVELAR": {
+    "populacao": 9627,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "Dom Avelar": {
+    "populacao": 9627,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "PATAMARES": {
+    "populacao": 21086,
+    "pct_esgoto_inadequado": 8.26,
+    "pct_agua_inadequada": 0.97,
+    "pct_analfabetismo_15mais": 2.3,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.14
+  },
+  "Patamares": {
+    "populacao": 21086,
+    "pct_esgoto_inadequado": 8.26,
+    "pct_agua_inadequada": 0.97,
+    "pct_analfabetismo_15mais": 2.3,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.14
+  },
+  "IMBUI": {
+    "populacao": 29664,
+    "pct_esgoto_inadequado": 10.94,
+    "pct_agua_inadequada": 1.31,
+    "pct_analfabetismo_15mais": 2.8,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.2
+  },
+  "Imbuí": {
+    "populacao": 29664,
+    "pct_esgoto_inadequado": 10.94,
+    "pct_agua_inadequada": 1.31,
+    "pct_analfabetismo_15mais": 2.8,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.2
+  },
+  "AGUAS CLARAS": {
+    "populacao": 32961,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "Águas Claras": {
+    "populacao": 32961,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "CAMINHO DAS ARVORES": {
+    "populacao": 13612,
+    "pct_esgoto_inadequado": 4.67,
+    "pct_agua_inadequada": 0.55,
+    "pct_analfabetismo_15mais": 1.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.05
+  },
+  "Caminho das Árvores": {
+    "populacao": 13612,
+    "pct_esgoto_inadequado": 4.67,
+    "pct_agua_inadequada": 0.55,
+    "pct_analfabetismo_15mais": 1.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.05
+  },
+  "ALTO DAS POMBAS": {
+    "populacao": 4986,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Alto das Pombas": {
+    "populacao": 4986,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "NORDESTE DE AMARALINA": {
+    "populacao": 20680,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Nordeste de Amaralina": {
+    "populacao": 20680,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "VALE DAS PEDRINHAS": {
+    "populacao": 6129,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Vale das Pedrinhas": {
+    "populacao": 6129,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CHAPADA DO RIO VERMELHO": {
+    "populacao": 20106,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Chapada do Rio Vermelho": {
+    "populacao": 20106,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "SANTA CRUZ": {
+    "populacao": 21494,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Santa Cruz": {
+    "populacao": 21494,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "RETIRO": {
+    "populacao": 754,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Retiro": {
+    "populacao": 754,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CENTRO ADMINISTRATIVO DA BAHIA": {
+    "populacao": 173,
+    "pct_esgoto_inadequado": 0.0,
+    "pct_agua_inadequada": 0.0,
+    "pct_analfabetismo_15mais": 0.0,
+    "indice_vulnerabilidade": 0.0,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "is_zona_especial_nao_residencial": true,
+    "isZonaEspecialNaoResidencial": true
+  },
+  "Centro Administrativo da Bahia": {
+    "populacao": 173,
+    "pct_esgoto_inadequado": 0.0,
+    "pct_agua_inadequada": 0.0,
+    "pct_analfabetismo_15mais": 0.0,
+    "indice_vulnerabilidade": 0.0,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "is_zona_especial_nao_residencial": true,
+    "isZonaEspecialNaoResidencial": true
+  },
+  "NOVO HORIZONTE": {
+    "populacao": 14985,
+    "pct_esgoto_inadequado": 38.02,
+    "pct_agua_inadequada": 5.27,
+    "pct_analfabetismo_15mais": 6.81,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.86
+  },
+  "Novo Horizonte": {
+    "populacao": 14985,
+    "pct_esgoto_inadequado": 38.02,
+    "pct_agua_inadequada": 5.27,
+    "pct_analfabetismo_15mais": 6.81,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.86
+  },
+  "ENGOMADEIRA": {
+    "populacao": 8581,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "Engomadeira": {
+    "populacao": 8581,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "ARENOSO": {
+    "populacao": 11506,
+    "pct_esgoto_inadequado": 38.65,
+    "pct_agua_inadequada": 5.37,
+    "pct_analfabetismo_15mais": 6.9,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.88
+  },
+  "Arenoso": {
+    "populacao": 11506,
+    "pct_esgoto_inadequado": 38.65,
+    "pct_agua_inadequada": 5.37,
+    "pct_analfabetismo_15mais": 6.9,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.88
+  },
+  "CABULA VI": {
+    "populacao": 10014,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Cabula VI": {
+    "populacao": 10014,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CALABAR": {
+    "populacao": 6046,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Calabar": {
+    "populacao": 6046,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "LOBATO": {
+    "populacao": 25946,
+    "pct_esgoto_inadequado": 42.45,
+    "pct_agua_inadequada": 5.97,
+    "pct_analfabetismo_15mais": 7.39,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.97
+  },
+  "Lobato": {
+    "populacao": 25946,
+    "pct_esgoto_inadequado": 42.45,
+    "pct_agua_inadequada": 5.97,
+    "pct_analfabetismo_15mais": 7.39,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.97
+  },
+  "RIBEIRA": {
+    "populacao": 16308,
+    "pct_esgoto_inadequado": 21.03,
+    "pct_agua_inadequada": 2.69,
+    "pct_analfabetismo_15mais": 4.44,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.45
+  },
+  "Ribeira": {
+    "populacao": 16308,
+    "pct_esgoto_inadequado": 21.03,
+    "pct_agua_inadequada": 2.69,
+    "pct_analfabetismo_15mais": 4.44,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.45
+  },
+  "MASSARANDUBA": {
+    "populacao": 16294,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Massaranduba": {
+    "populacao": 16294,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "SANTA LUZIA": {
+    "populacao": 5642,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Santa Luzia": {
+    "populacao": 5642,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BONFIM": {
+    "populacao": 8037,
+    "pct_esgoto_inadequado": 19.95,
+    "pct_agua_inadequada": 2.54,
+    "pct_analfabetismo_15mais": 4.27,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.43
+  },
+  "Bonfim": {
+    "populacao": 8037,
+    "pct_esgoto_inadequado": 19.95,
+    "pct_agua_inadequada": 2.54,
+    "pct_analfabetismo_15mais": 4.27,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.43
+  },
+  "MANGUEIRA": {
+    "populacao": 9897,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Mangueira": {
+    "populacao": 9897,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "NOVA CONSTITUINTE": {
+    "populacao": 9368,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Nova Constituinte": {
+    "populacao": 9368,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "ILHA DE MARE": {
+    "populacao": 4036,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": true,
+    "pct_esgoto_inadequado": 28.52,
+    "pct_agua_inadequada": 3.8,
+    "pct_analfabetismo_15mais": 5.52,
+    "indice_vulnerabilidade": 0.63
+  },
+  "Ilha de Maré": {
+    "populacao": 4036,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": true,
+    "pct_esgoto_inadequado": 28.52,
+    "pct_agua_inadequada": 3.8,
+    "pct_analfabetismo_15mais": 5.52,
+    "indice_vulnerabilidade": 0.63
+  },
+  "ILHA DOS FRADES/ILHA DE SANTO ANTONIO": {
+    "populacao": 894,
+    "pct_esgoto_inadequado": 27.77,
+    "pct_agua_inadequada": 3.69,
+    "pct_analfabetismo_15mais": 5.42,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.62
+  },
+  "Ilha dos Frades/Ilha de Santo Antônio": {
+    "populacao": 894,
+    "pct_esgoto_inadequado": 27.77,
+    "pct_agua_inadequada": 3.69,
+    "pct_analfabetismo_15mais": 5.42,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.62
+  },
+  "ILHA DE BOM JESUS DOS PASSOS": {
+    "populacao": 1635,
+    "pct_esgoto_inadequado": 28.93,
+    "pct_agua_inadequada": 3.86,
+    "pct_analfabetismo_15mais": 5.58,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.64
+  },
+  "Ilha de Bom Jesus dos Passos": {
+    "populacao": 1635,
+    "pct_esgoto_inadequado": 28.93,
+    "pct_agua_inadequada": 3.86,
+    "pct_analfabetismo_15mais": 5.58,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.64
+  },
+  "NOVA SUSSUARANA": {
+    "populacao": 9815,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Nova Sussuarana": {
+    "populacao": 9815,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "SUSSUARANA": {
+    "populacao": 25693,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "Sussuarana": {
+    "populacao": 25693,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "GRANJAS RURAIS PRESIDENTE VARGAS": {
+    "populacao": 2951,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Granjas Rurais Presidente Vargas": {
+    "populacao": 2951,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CALABETAO": {
+    "populacao": 7372,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Calabetão": {
+    "populacao": 7372,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "JARDIM SANTO INACIO": {
+    "populacao": 6512,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Jardim Santo Inácio": {
+    "populacao": 6512,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "MATA ESCURA": {
+    "populacao": 25385,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Mata Escura": {
+    "populacao": 25385,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "ARRAIAL DO RETIRO": {
+    "populacao": 6758,
+    "pct_esgoto_inadequado": 38.02,
+    "pct_agua_inadequada": 5.27,
+    "pct_analfabetismo_15mais": 6.81,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.86
+  },
+  "Arraial do Retiro": {
+    "populacao": 6758,
+    "pct_esgoto_inadequado": 38.02,
+    "pct_agua_inadequada": 5.27,
+    "pct_analfabetismo_15mais": 6.81,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.86
+  },
+  "BARREIRAS": {
+    "populacao": 16847,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Barreiras": {
+    "populacao": 16847,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BEIRU/TANCREDO NEVES": {
+    "populacao": 38329,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "Beiru/Tancredo Neves": {
+    "populacao": 38329,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "PORTO SECO PIRAJA": {
+    "populacao": 48,
+    "pct_esgoto_inadequado": 0.0,
+    "pct_agua_inadequada": 0.0,
+    "pct_analfabetismo_15mais": 0.0,
+    "indice_vulnerabilidade": 0.0,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "is_zona_especial_nao_residencial": true,
+    "isZonaEspecialNaoResidencial": true
+  },
+  "Porto Seco Pirajá": {
+    "populacao": 48,
+    "pct_esgoto_inadequado": 0.0,
+    "pct_agua_inadequada": 0.0,
+    "pct_analfabetismo_15mais": 0.0,
+    "indice_vulnerabilidade": 0.0,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "is_zona_especial_nao_residencial": true,
+    "isZonaEspecialNaoResidencial": true
+  },
+  "SANTA MONICA": {
+    "populacao": 4677,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "Santa Mônica": {
+    "populacao": 4677,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "CIDADE NOVA": {
+    "populacao": 13292,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "Cidade Nova": {
+    "populacao": 13292,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "PAU MIUDO": {
+    "populacao": 15793,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "Pau Miúdo": {
+    "populacao": 15793,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "ENGENHO VELHO DE BROTAS": {
+    "populacao": 20225,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Engenho Velho de Brotas": {
+    "populacao": 20225,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "ACUPE": {
+    "populacao": 13074,
+    "pct_esgoto_inadequado": 14.78,
+    "pct_agua_inadequada": 1.82,
+    "pct_analfabetismo_15mais": 3.45,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.3
+  },
+  "Acupe": {
+    "populacao": 13074,
+    "pct_esgoto_inadequado": 14.78,
+    "pct_agua_inadequada": 1.82,
+    "pct_analfabetismo_15mais": 3.45,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.3
+  },
+  "PRAIA GRANDE": {
+    "populacao": 5780,
+    "pct_esgoto_inadequado": 39.91,
+    "pct_agua_inadequada": 5.57,
+    "pct_analfabetismo_15mais": 7.06,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.91
+  },
+  "Praia Grande": {
+    "populacao": 5780,
+    "pct_esgoto_inadequado": 39.91,
+    "pct_agua_inadequada": 5.57,
+    "pct_analfabetismo_15mais": 7.06,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.91
+  },
+  "COSME DE FARIAS": {
+    "populacao": 27832,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Cosme de Farias": {
+    "populacao": 27832,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BOA VISTA DE BROTAS": {
+    "populacao": 2600,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Boa Vista de Brotas": {
+    "populacao": 2600,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CAJAZEIRAS II": {
+    "populacao": 2275,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Cajazeiras II": {
+    "populacao": 2275,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CAJAZEIRAS VII": {
+    "populacao": 3800,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "Cajazeiras VII": {
+    "populacao": 3800,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "CAPELINHA": {
+    "populacao": 11238,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Capelinha": {
+    "populacao": 11238,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BOA VISTA DE SAO CAETANO": {
+    "populacao": 13496,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Boa Vista de São Caetano": {
+    "populacao": 13496,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "SAO CAETANO": {
+    "populacao": 40303,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "São Caetano": {
+    "populacao": 40303,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "FAZENDA GRANDE DO RETIRO": {
+    "populacao": 41056,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "Fazenda Grande do Retiro": {
+    "populacao": 41056,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "BOM JUA": {
+    "populacao": 9918,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Bom Juá": {
+    "populacao": 9918,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CAMPINAS DE PIRAJA": {
+    "populacao": 9166,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Campinas de Pirajá": {
+    "populacao": 9166,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "MARECHAL RONDON": {
+    "populacao": 17312,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Marechal Rondon": {
+    "populacao": 17312,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "ALTO DO CABRITO": {
+    "populacao": 15654,
+    "pct_esgoto_inadequado": 42.45,
+    "pct_agua_inadequada": 5.97,
+    "pct_analfabetismo_15mais": 7.39,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.97
+  },
+  "Alto do Cabrito": {
+    "populacao": 15654,
+    "pct_esgoto_inadequado": 42.45,
+    "pct_agua_inadequada": 5.97,
+    "pct_analfabetismo_15mais": 7.39,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.97
+  },
+  "SAO GONCALO": {
+    "populacao": 14817,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "São Gonçalo": {
+    "populacao": 14817,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "RESGATE": {
+    "populacao": 5946,
+    "pct_esgoto_inadequado": 23.22,
+    "pct_agua_inadequada": 3.01,
+    "pct_analfabetismo_15mais": 4.76,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.5
+  },
+  "Resgate": {
+    "populacao": 5946,
+    "pct_esgoto_inadequado": 23.22,
+    "pct_agua_inadequada": 3.01,
+    "pct_analfabetismo_15mais": 4.76,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.5
+  },
+  "SARAMANDAIA": {
+    "populacao": 9879,
+    "pct_esgoto_inadequado": 32.5,
+    "pct_agua_inadequada": 4.41,
+    "pct_analfabetismo_15mais": 6.08,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.73
+  },
+  "Saramandaia": {
+    "populacao": 9879,
+    "pct_esgoto_inadequado": 32.5,
+    "pct_agua_inadequada": 4.41,
+    "pct_analfabetismo_15mais": 6.08,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.73
+  },
+  "NARANDIBA": {
+    "populacao": 16758,
+    "pct_esgoto_inadequado": 28.93,
+    "pct_agua_inadequada": 3.86,
+    "pct_analfabetismo_15mais": 5.58,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.64
+  },
+  "Narandiba": {
+    "populacao": 16758,
+    "pct_esgoto_inadequado": 28.93,
+    "pct_agua_inadequada": 3.86,
+    "pct_analfabetismo_15mais": 5.58,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.64
+  },
+  "SABOEIRO": {
+    "populacao": 6742,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "Saboeiro": {
+    "populacao": 6742,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "DORON": {
+    "populacao": 4471,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "Doron": {
+    "populacao": 4471,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "MORADAS DA LAGOA": {
+    "populacao": 11849,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Moradas da Lagoa": {
+    "populacao": 11849,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "VILA LAURA": {
+    "populacao": 14831,
+    "pct_esgoto_inadequado": 14.28,
+    "pct_agua_inadequada": 1.75,
+    "pct_analfabetismo_15mais": 3.37,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.29
+  },
+  "Vila Laura": {
+    "populacao": 14831,
+    "pct_esgoto_inadequado": 14.28,
+    "pct_agua_inadequada": 1.75,
+    "pct_analfabetismo_15mais": 3.37,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.29
+  },
+  "LUIZ ANSELMO": {
+    "populacao": 13759,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Luiz Anselmo": {
+    "populacao": 13759,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "MATATU": {
+    "populacao": 8599,
+    "pct_esgoto_inadequado": 17.84,
+    "pct_agua_inadequada": 2.24,
+    "pct_analfabetismo_15mais": 3.94,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.37
+  },
+  "Matatu": {
+    "populacao": 8599,
+    "pct_esgoto_inadequado": 17.84,
+    "pct_agua_inadequada": 2.24,
+    "pct_analfabetismo_15mais": 3.94,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.37
+  },
+  "SANTO AGOSTINHO": {
+    "populacao": 2925,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Santo Agostinho": {
+    "populacao": 2925,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CABULA": {
+    "populacao": 21825,
+    "pct_esgoto_inadequado": 24.9,
+    "pct_agua_inadequada": 3.26,
+    "pct_analfabetismo_15mais": 5.01,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.55
+  },
+  "Cabula": {
+    "populacao": 21825,
+    "pct_esgoto_inadequado": 24.9,
+    "pct_agua_inadequada": 3.26,
+    "pct_analfabetismo_15mais": 5.01,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.55
+  },
+  "PERNAMBUES": {
+    "populacao": 52564,
+    "pct_esgoto_inadequado": 30.11,
+    "pct_agua_inadequada": 4.04,
+    "pct_analfabetismo_15mais": 5.75,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.67
+  },
+  "Pernambués": {
+    "populacao": 52564,
+    "pct_esgoto_inadequado": 30.11,
+    "pct_agua_inadequada": 4.04,
+    "pct_analfabetismo_15mais": 5.75,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.67
+  },
+  "ALTO DO COQUEIRINHO": {
+    "populacao": 11005,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Alto do Coqueirinho": {
+    "populacao": 11005,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CASTELO BRANCO": {
+    "populacao": 29534,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "Castelo Branco": {
+    "populacao": 29534,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "VILA CANARIA": {
+    "populacao": 10430,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Vila Canária": {
+    "populacao": 10430,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "JARDIM CAJAZEIRAS": {
+    "populacao": 8385,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Jardim Cajazeiras": {
+    "populacao": 8385,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "PAU DA LIMA": {
+    "populacao": 20665,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "Pau da Lima": {
+    "populacao": 20665,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "FAZENDA GRANDE II": {
+    "populacao": 17158,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Fazenda Grande II": {
+    "populacao": 17158,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "SAO MARCOS": {
+    "populacao": 22962,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "São Marcos": {
+    "populacao": 22962,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "SAO RAFAEL": {
+    "populacao": 21019,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "São Rafael": {
+    "populacao": 21019,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BAIXA DE QUINTAS": {
+    "populacao": 1459,
+    "pct_esgoto_inadequado": 33.71,
+    "pct_agua_inadequada": 4.59,
+    "pct_analfabetismo_15mais": 6.24,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.76
+  },
+  "Baixa de Quintas": {
+    "populacao": 1459,
+    "pct_esgoto_inadequado": 33.71,
+    "pct_agua_inadequada": 4.59,
+    "pct_analfabetismo_15mais": 6.24,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.76
+  },
+  "CAIXA D AGUA": {
+    "populacao": 15465,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Caixa D´Água": {
+    "populacao": 15465,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "LIBERDADE": {
+    "populacao": 34451,
+    "pct_esgoto_inadequado": 38.65,
+    "pct_agua_inadequada": 5.37,
+    "pct_analfabetismo_15mais": 6.9,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.88
+  },
+  "Liberdade": {
+    "populacao": 34451,
+    "pct_esgoto_inadequado": 38.65,
+    "pct_agua_inadequada": 5.37,
+    "pct_analfabetismo_15mais": 6.9,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.88
+  },
+  "PERO VAZ": {
+    "populacao": 17988,
+    "pct_esgoto_inadequado": 38.02,
+    "pct_agua_inadequada": 5.27,
+    "pct_analfabetismo_15mais": 6.81,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.86
+  },
+  "Pero Vaz": {
+    "populacao": 17988,
+    "pct_esgoto_inadequado": 38.02,
+    "pct_agua_inadequada": 5.27,
+    "pct_analfabetismo_15mais": 6.81,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.86
+  },
+  "ITAPUA": {
+    "populacao": 60968,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "Itapuã": {
+    "populacao": 60968,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "MUSSURUNGA": {
+    "populacao": 30874,
+    "pct_esgoto_inadequado": 27.77,
+    "pct_agua_inadequada": 3.69,
+    "pct_analfabetismo_15mais": 5.42,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.62
+  },
+  "Mussurunga": {
+    "populacao": 30874,
+    "pct_esgoto_inadequado": 27.77,
+    "pct_agua_inadequada": 3.69,
+    "pct_analfabetismo_15mais": 5.42,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.62
+  },
+  "SAO CRISTOVAO": {
+    "populacao": 46658,
+    "pct_esgoto_inadequado": 30.7,
+    "pct_agua_inadequada": 4.13,
+    "pct_analfabetismo_15mais": 5.83,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.69
+  },
+  "São Cristóvão": {
+    "populacao": 46658,
+    "pct_esgoto_inadequado": 30.7,
+    "pct_agua_inadequada": 4.13,
+    "pct_analfabetismo_15mais": 5.83,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.69
+  },
+  "VALE DOS LAGOS": {
+    "populacao": 10204,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Vale dos Lagos": {
+    "populacao": 10204,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "JARDIM DAS MARGARIDAS": {
+    "populacao": 20637,
+    "pct_esgoto_inadequado": 28.93,
+    "pct_agua_inadequada": 3.86,
+    "pct_analfabetismo_15mais": 5.58,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.64
+  },
+  "Jardim das Margaridas": {
+    "populacao": 20637,
+    "pct_esgoto_inadequado": 28.93,
+    "pct_agua_inadequada": 3.86,
+    "pct_analfabetismo_15mais": 5.58,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.64
+  },
+  "TROBOGY": {
+    "populacao": 9487,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Trobogy": {
+    "populacao": 9487,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "NOVA BRASILIA": {
+    "populacao": 18746,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Nova Brasília": {
+    "populacao": 18746,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CANABRAVA": {
+    "populacao": 17211,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "Canabrava": {
+    "populacao": 17211,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "JARDIM NOVA ESPERANCA": {
+    "populacao": 13827,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Jardim Nova Esperança": {
+    "populacao": 13827,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "NOVO MAROTINHO": {
+    "populacao": 3715,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Novo Marotinho": {
+    "populacao": 3715,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "SETE DE ABRIL": {
+    "populacao": 16473,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Sete de Abril": {
+    "populacao": 16473,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "FEDERACAO": {
+    "populacao": 30732,
+    "pct_esgoto_inadequado": 19.42,
+    "pct_agua_inadequada": 2.46,
+    "pct_analfabetismo_15mais": 4.19,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.41
+  },
+  "Federação": {
+    "populacao": 30732,
+    "pct_esgoto_inadequado": 19.42,
+    "pct_agua_inadequada": 2.46,
+    "pct_analfabetismo_15mais": 4.19,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.41
+  },
+  "ENGENHO VELHO DA FEDERACAO": {
+    "populacao": 19862,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Engenho Velho da Federação": {
+    "populacao": 19862,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "FAZENDA GRANDE I": {
+    "populacao": 11167,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Fazenda Grande I": {
+    "populacao": 11167,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CAMINHO DE AREIA": {
+    "populacao": 8906,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Caminho de Areia": {
+    "populacao": 8906,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "MONTE SERRAT": {
+    "populacao": 5893,
+    "pct_esgoto_inadequado": 17.84,
+    "pct_agua_inadequada": 2.24,
+    "pct_analfabetismo_15mais": 3.94,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.37
+  },
+  "Monte Serrat": {
+    "populacao": 5893,
+    "pct_esgoto_inadequado": 17.84,
+    "pct_agua_inadequada": 2.24,
+    "pct_analfabetismo_15mais": 3.94,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.37
+  },
+  "ITACARANHA": {
+    "populacao": 14997,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "Itacaranha": {
+    "populacao": 14997,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "ALTO DA TEREZINHA": {
+    "populacao": 12121,
+    "pct_esgoto_inadequado": 43.1,
+    "pct_agua_inadequada": 6.08,
+    "pct_analfabetismo_15mais": 7.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.98
+  },
+  "Alto da Terezinha": {
+    "populacao": 12121,
+    "pct_esgoto_inadequado": 43.1,
+    "pct_agua_inadequada": 6.08,
+    "pct_analfabetismo_15mais": 7.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.98
+  },
+  "FAZENDA COUTOS": {
+    "populacao": 20328,
+    "pct_esgoto_inadequado": 42.45,
+    "pct_agua_inadequada": 5.97,
+    "pct_analfabetismo_15mais": 7.39,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.97
+  },
+  "Fazenda Coutos": {
+    "populacao": 20328,
+    "pct_esgoto_inadequado": 42.45,
+    "pct_agua_inadequada": 5.97,
+    "pct_analfabetismo_15mais": 7.39,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.97
+  },
+  "BAIRRO DA PAZ": {
+    "populacao": 20933,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "Bairro da Paz": {
+    "populacao": 20933,
+    "pct_esgoto_inadequado": 34.93,
+    "pct_agua_inadequada": 4.78,
+    "pct_analfabetismo_15mais": 6.4,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.79
+  },
+  "JARDIM ARMACAO": {
+    "populacao": 6591,
+    "pct_esgoto_inadequado": 10.94,
+    "pct_agua_inadequada": 1.31,
+    "pct_analfabetismo_15mais": 2.8,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.2
+  },
+  "Jardim Armação": {
+    "populacao": 6591,
+    "pct_esgoto_inadequado": 10.94,
+    "pct_agua_inadequada": 1.31,
+    "pct_analfabetismo_15mais": 2.8,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.2
+  },
+  "VILA RUY BARBOSA\\JARDIM CRUZEIRO": {
+    "populacao": 15351,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Vila Ruy Barbosa\\Jardim Cruzeiro": {
+    "populacao": 15351,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "AMARALINA": {
+    "populacao": 3506,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Amaralina": {
+    "populacao": 3506,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "RIO VERMELHO": {
+    "populacao": 17526,
+    "pct_esgoto_inadequado": 11.87,
+    "pct_agua_inadequada": 1.43,
+    "pct_analfabetismo_15mais": 2.96,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.23
+  },
+  "Rio Vermelho": {
+    "populacao": 17526,
+    "pct_esgoto_inadequado": 11.87,
+    "pct_agua_inadequada": 1.43,
+    "pct_analfabetismo_15mais": 2.96,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.23
+  },
+  "SAO TOME": {
+    "populacao": 8821,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "São Tomé": {
+    "populacao": 8821,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CURUZU": {
+    "populacao": 11393,
+    "pct_esgoto_inadequado": 39.28,
+    "pct_agua_inadequada": 5.47,
+    "pct_analfabetismo_15mais": 6.98,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.89
+  },
+  "Curuzu": {
+    "populacao": 11393,
+    "pct_esgoto_inadequado": 39.28,
+    "pct_agua_inadequada": 5.47,
+    "pct_analfabetismo_15mais": 6.98,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.89
+  },
+  "CAJAZEIRAS X": {
+    "populacao": 7231,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "Cajazeiras X": {
+    "populacao": 7231,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "CAJAZEIRAS VIII": {
+    "populacao": 13678,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "Cajazeiras VIII": {
+    "populacao": 13678,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "JAGUARIPE I": {
+    "populacao": 8028,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Jaguaripe I": {
+    "populacao": 8028,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "FAZENDA GRANDE IV": {
+    "populacao": 7921,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Fazenda Grande IV": {
+    "populacao": 7921,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "FAZENDA GRANDE III": {
+    "populacao": 8749,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Fazenda Grande III": {
+    "populacao": 8749,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BOCA DA MATA": {
+    "populacao": 8761,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Boca da Mata": {
+    "populacao": 8761,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "SAO JOAO DO CABRITO": {
+    "populacao": 19809,
+    "pct_esgoto_inadequado": 41.81,
+    "pct_agua_inadequada": 5.87,
+    "pct_analfabetismo_15mais": 7.31,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.95
+  },
+  "São João do Cabrito": {
+    "populacao": 19809,
+    "pct_esgoto_inadequado": 41.81,
+    "pct_agua_inadequada": 5.87,
+    "pct_analfabetismo_15mais": 7.31,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.95
+  },
+  "PARIPE": {
+    "populacao": 52469,
+    "pct_esgoto_inadequado": 39.91,
+    "pct_agua_inadequada": 5.57,
+    "pct_analfabetismo_15mais": 7.06,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.91
+  },
+  "Paripe": {
+    "populacao": 52469,
+    "pct_esgoto_inadequado": 39.91,
+    "pct_agua_inadequada": 5.57,
+    "pct_analfabetismo_15mais": 7.06,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.91
+  },
+  "VALERIA": {
+    "populacao": 30817,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "Valéria": {
+    "populacao": 30817,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "CALCADA": {
+    "populacao": 3961,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Calçada": {
+    "populacao": 3961,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "MARES": {
+    "populacao": 973,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Mares": {
+    "populacao": 973,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "ROMA": {
+    "populacao": 3038,
+    "pct_esgoto_inadequado": 23.22,
+    "pct_agua_inadequada": 3.01,
+    "pct_analfabetismo_15mais": 4.76,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.5
+  },
+  "Roma": {
+    "populacao": 3038,
+    "pct_esgoto_inadequado": 23.22,
+    "pct_agua_inadequada": 3.01,
+    "pct_analfabetismo_15mais": 4.76,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.5
+  },
+  "BOA VIAGEM": {
+    "populacao": 1553,
+    "pct_esgoto_inadequado": 19.42,
+    "pct_agua_inadequada": 2.46,
+    "pct_analfabetismo_15mais": 4.19,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.41
+  },
+  "Boa Viagem": {
+    "populacao": 1553,
+    "pct_esgoto_inadequado": 19.42,
+    "pct_agua_inadequada": 2.46,
+    "pct_analfabetismo_15mais": 4.19,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.41
+  },
+  "URUGUAI": {
+    "populacao": 26454,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Uruguai": {
+    "populacao": 26454,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CAJAZEIRAS VI": {
+    "populacao": 7266,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "Cajazeiras VI": {
+    "populacao": 7266,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "CAJAZEIRAS IV": {
+    "populacao": 3262,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "Cajazeiras IV": {
+    "populacao": 3262,
+    "pct_esgoto_inadequado": 36.16,
+    "pct_agua_inadequada": 4.97,
+    "pct_analfabetismo_15mais": 6.57,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.82
+  },
+  "CAJAZEIRAS V": {
+    "populacao": 5488,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "Cajazeiras V": {
+    "populacao": 5488,
+    "pct_esgoto_inadequado": 36.78,
+    "pct_agua_inadequada": 5.07,
+    "pct_analfabetismo_15mais": 6.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.83
+  },
+  "CASSANGE": {
+    "populacao": 8183,
+    "pct_esgoto_inadequado": 32.5,
+    "pct_agua_inadequada": 4.41,
+    "pct_analfabetismo_15mais": 6.08,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.73
+  },
+  "Cassange": {
+    "populacao": 8183,
+    "pct_esgoto_inadequado": 32.5,
+    "pct_agua_inadequada": 4.41,
+    "pct_analfabetismo_15mais": 6.08,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.73
+  },
+  "ITINGA": {
+    "populacao": 15913,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Itinga": {
+    "populacao": 15913,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "NOVA ESPERANCA": {
+    "populacao": 16376,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Nova Esperança": {
+    "populacao": 16376,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "GRACA": {
+    "populacao": 14996,
+    "pct_esgoto_inadequado": 3.61,
+    "pct_agua_inadequada": 0.44,
+    "pct_analfabetismo_15mais": 1.32,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.02
+  },
+  "Graça": {
+    "populacao": 14996,
+    "pct_esgoto_inadequado": 3.61,
+    "pct_agua_inadequada": 0.44,
+    "pct_analfabetismo_15mais": 1.32,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.02
+  },
+  "ONDINA": {
+    "populacao": 13874,
+    "pct_esgoto_inadequado": 5.41,
+    "pct_agua_inadequada": 0.64,
+    "pct_analfabetismo_15mais": 1.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.07
+  },
+  "Ondina": {
+    "populacao": 13874,
+    "pct_esgoto_inadequado": 5.41,
+    "pct_agua_inadequada": 0.64,
+    "pct_analfabetismo_15mais": 1.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.07
+  },
+  "PLATAFORMA": {
+    "populacao": 25752,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "Plataforma": {
+    "populacao": 25752,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "PIRAJA": {
+    "populacao": 27873,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Pirajá": {
+    "populacao": 27873,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "RIO SENA": {
+    "populacao": 14553,
+    "pct_esgoto_inadequado": 43.74,
+    "pct_agua_inadequada": 6.18,
+    "pct_analfabetismo_15mais": 7.55,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 1.0
+  },
+  "Rio Sena": {
+    "populacao": 14553,
+    "pct_esgoto_inadequado": 43.74,
+    "pct_agua_inadequada": 6.18,
+    "pct_analfabetismo_15mais": 7.55,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 1.0
+  },
+  "CHAME-CHAME": {
+    "populacao": 2187,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": true,
+    "pct_esgoto_inadequado": 4.15,
+    "pct_agua_inadequada": 0.5,
+    "pct_analfabetismo_15mais": 1.44,
+    "indice_vulnerabilidade": 0.03
+  },
+  "Chame-Chame": {
+    "populacao": 2187,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": true,
+    "pct_esgoto_inadequado": 4.15,
+    "pct_agua_inadequada": 0.5,
+    "pct_analfabetismo_15mais": 1.44,
+    "indice_vulnerabilidade": 0.03
+  },
+  "PERIPERI": {
+    "populacao": 37887,
+    "pct_esgoto_inadequado": 38.65,
+    "pct_agua_inadequada": 5.37,
+    "pct_analfabetismo_15mais": 6.9,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.88
+  },
+  "Periperi": {
+    "populacao": 37887,
+    "pct_esgoto_inadequado": 38.65,
+    "pct_agua_inadequada": 5.37,
+    "pct_analfabetismo_15mais": 6.9,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.88
+  },
+  "DOIS DE JULHO": {
+    "populacao": 3583,
+    "pct_esgoto_inadequado": 21.03,
+    "pct_agua_inadequada": 2.69,
+    "pct_analfabetismo_15mais": 4.44,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.45
+  },
+  "Dois de Julho": {
+    "populacao": 3583,
+    "pct_esgoto_inadequado": 21.03,
+    "pct_agua_inadequada": 2.69,
+    "pct_analfabetismo_15mais": 4.44,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.45
+  },
+  "ILHA AMARELA": {
+    "populacao": 5473,
+    "pct_esgoto_inadequado": 43.1,
+    "pct_agua_inadequada": 6.08,
+    "pct_analfabetismo_15mais": 7.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.98
+  },
+  "Ilha Amarela": {
+    "populacao": 5473,
+    "pct_esgoto_inadequado": 43.1,
+    "pct_agua_inadequada": 6.08,
+    "pct_analfabetismo_15mais": 7.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.98
+  },
+  "MIRANTES DE PERIPERI": {
+    "populacao": 2590,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Mirantes de Periperi": {
+    "populacao": 2590,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "VISTA ALEGRE": {
+    "populacao": 4663,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Vista Alegre": {
+    "populacao": 4663,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BARRA": {
+    "populacao": 15094,
+    "pct_esgoto_inadequado": 5.04,
+    "pct_agua_inadequada": 0.59,
+    "pct_analfabetismo_15mais": 1.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.06
+  },
+  "Barra": {
+    "populacao": 15094,
+    "pct_esgoto_inadequado": 5.04,
+    "pct_agua_inadequada": 0.59,
+    "pct_analfabetismo_15mais": 1.65,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.06
+  },
+  "BROTAS": {
+    "populacao": 51296,
+    "pct_esgoto_inadequado": 15.78,
+    "pct_agua_inadequada": 1.96,
+    "pct_analfabetismo_15mais": 3.62,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.32
+  },
+  "Brotas": {
+    "populacao": 51296,
+    "pct_esgoto_inadequado": 15.78,
+    "pct_agua_inadequada": 1.96,
+    "pct_analfabetismo_15mais": 3.62,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.32
+  },
+  "COLINAS DE PERIPERI": {
+    "populacao": 2485,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Colinas de Periperi": {
+    "populacao": 2485,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "STELLA MARIS": {
+    "populacao": 18981,
+    "pct_esgoto_inadequado": 9.58,
+    "pct_agua_inadequada": 1.14,
+    "pct_analfabetismo_15mais": 2.55,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.17
+  },
+  "Stella Maris": {
+    "populacao": 18981,
+    "pct_esgoto_inadequado": 9.58,
+    "pct_agua_inadequada": 1.14,
+    "pct_analfabetismo_15mais": 2.55,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.17
+  },
+  "PITUACU": {
+    "populacao": 18935,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Pituaçu": {
+    "populacao": 18935,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "BOCA DO RIO": {
+    "populacao": 38804,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "Boca do Rio": {
+    "populacao": 38804,
+    "pct_esgoto_inadequado": 26.61,
+    "pct_agua_inadequada": 3.51,
+    "pct_analfabetismo_15mais": 5.26,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.59
+  },
+  "AEROPORTO": {
+    "populacao": 0,
+    "pct_esgoto_inadequado": 0.0,
+    "pct_agua_inadequada": 0.0,
+    "pct_analfabetismo_15mais": 0.0,
+    "indice_vulnerabilidade": 0.0,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "is_zona_especial_nao_residencial": true,
+    "isZonaEspecialNaoResidencial": true
+  },
+  "Aeroporto": {
+    "populacao": 0,
+    "pct_esgoto_inadequado": 0.0,
+    "pct_agua_inadequada": 0.0,
+    "pct_analfabetismo_15mais": 0.0,
+    "indice_vulnerabilidade": 0.0,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "is_zona_especial_nao_residencial": true,
+    "isZonaEspecialNaoResidencial": true
+  },
+  "PIATA": {
+    "populacao": 19875,
+    "pct_esgoto_inadequado": 10.94,
+    "pct_agua_inadequada": 1.31,
+    "pct_analfabetismo_15mais": 2.8,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.2
+  },
+  "Piatã": {
+    "populacao": 19875,
+    "pct_esgoto_inadequado": 10.94,
+    "pct_agua_inadequada": 1.31,
+    "pct_analfabetismo_15mais": 2.8,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.2
+  },
+  "COSTA AZUL": {
+    "populacao": 16842,
+    "pct_esgoto_inadequado": 9.13,
+    "pct_agua_inadequada": 1.08,
+    "pct_analfabetismo_15mais": 2.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.16
+  },
+  "Costa Azul": {
+    "populacao": 16842,
+    "pct_esgoto_inadequado": 9.13,
+    "pct_agua_inadequada": 1.08,
+    "pct_analfabetismo_15mais": 2.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.16
+  },
+  "AREIA BRANCA": {
+    "populacao": 9205,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Areia Branca": {
+    "populacao": 9205,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CANDEAL": {
+    "populacao": 13276,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Candeal": {
+    "populacao": 13276,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "CENTRO": {
+    "populacao": 8042,
+    "pct_esgoto_inadequado": 21.03,
+    "pct_agua_inadequada": 2.69,
+    "pct_analfabetismo_15mais": 4.44,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.45
+  },
+  "Centro": {
+    "populacao": 8042,
+    "pct_esgoto_inadequado": 21.03,
+    "pct_agua_inadequada": 2.69,
+    "pct_analfabetismo_15mais": 4.44,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.45
+  },
+  "CENTRO HISTORICO": {
+    "populacao": 1692,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "Centro Histórico": {
+    "populacao": 1692,
+    "pct_esgoto_inadequado": 22.12,
+    "pct_agua_inadequada": 2.85,
+    "pct_analfabetismo_15mais": 4.6,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.48
+  },
+  "COMERCIO": {
+    "populacao": 971,
+    "pct_esgoto_inadequado": 19.95,
+    "pct_agua_inadequada": 2.54,
+    "pct_analfabetismo_15mais": 4.27,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.43
+  },
+  "Comércio": {
+    "populacao": 971,
+    "pct_esgoto_inadequado": 19.95,
+    "pct_agua_inadequada": 2.54,
+    "pct_analfabetismo_15mais": 4.27,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.43
+  },
+  "COUTOS": {
+    "populacao": 17363,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "Coutos": {
+    "populacao": 17363,
+    "pct_esgoto_inadequado": 41.18,
+    "pct_agua_inadequada": 5.77,
+    "pct_analfabetismo_15mais": 7.22,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.94
+  },
+  "PALESTINA": {
+    "populacao": 5201,
+    "pct_esgoto_inadequado": 43.1,
+    "pct_agua_inadequada": 6.08,
+    "pct_analfabetismo_15mais": 7.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.98
+  },
+  "Palestina": {
+    "populacao": 5201,
+    "pct_esgoto_inadequado": 43.1,
+    "pct_agua_inadequada": 6.08,
+    "pct_analfabetismo_15mais": 7.47,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.98
+  },
+  "CAJAZEIRAS XI": {
+    "populacao": 15774,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "Cajazeiras XI": {
+    "populacao": 15774,
+    "pct_esgoto_inadequado": 37.4,
+    "pct_agua_inadequada": 5.17,
+    "pct_analfabetismo_15mais": 6.73,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.85
+  },
+  "AQUARIUS": {
+    "populacao": 0,
+    "pct_esgoto_inadequado": 4.3,
+    "pct_agua_inadequada": 0.51,
+    "pct_analfabetismo_15mais": 1.48,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.04
+  },
+  "Aquarius": {
+    "populacao": 0,
+    "pct_esgoto_inadequado": 4.3,
+    "pct_agua_inadequada": 0.51,
+    "pct_analfabetismo_15mais": 1.48,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.04
+  },
+  "PITUBA": {
+    "populacao": 57894,
+    "pct_esgoto_inadequado": 4.3,
+    "pct_agua_inadequada": 0.51,
+    "pct_analfabetismo_15mais": 1.48,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.04
+  },
+  "Pituba": {
+    "populacao": 57894,
+    "pct_esgoto_inadequado": 4.3,
+    "pct_agua_inadequada": 0.51,
+    "pct_analfabetismo_15mais": 1.48,
+    "is_zona_especial_nao_residencial": false,
+    "isZonaEspecialNaoResidencial": false,
+    "vulnerabilidade_estimada_contiguidade": false,
+    "indice_vulnerabilidade": 0.04
+  }
+}

@@ -9,16 +9,11 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
-    "totalObras": 6,
-    "totalObrasAtivas": 6,
-    "valorTotalContratado": 1389566.04,
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 118505.07,
     "obrasIds": [
-      "aabc00ea-814e-44e8-8e54-caed47c3fc65",
-      "b97ec829-ab3f-448c-b995-111379a52b6d",
-      "893daae7-3a3a-4963-84c3-4c2ad5ec5d1b",
-      "10c83709-0cf4-427c-b62e-9f324b108c00",
-      "2aeb8147-d6b6-43c9-a1e7-bd3896230cab",
-      "ac19aa37-15ac-405c-915a-a95ecfc2c514"
+      "aabc00ea-814e-44e8-8e54-caed47c3fc65"
     ]
   },
   "vigencia": {

@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { calculateTerritorialRollup } from "../../src/utils/territory";
+import {
+  calculateTerritorialRollup,
+  createBairroSelection,
+  createPrefeituraSelection,
+} from "../../src/utils/territory";
 import { BairroResumo, ObraCompacta, PrefeituraBairroResumo } from "../../src/types";
 
 describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)", () => {
@@ -268,6 +272,107 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
       expect(pb.investimentoPorHabitante).toBe(0.0);
       expect(pb.investimentoPorHabitantePago).toBe(0.0);
     }
+  });
+
+  it("consolida subindicadores multidimensionais do Censo 2022 por media ponderada populacional nas Prefeituras-Bairro", () => {
+    const testBairros: BairroResumo[] = [
+      {
+        id: 201,
+        nome: "Bairro Alfa",
+        prefeitura_bairro: "Cabula/Tancredo Neves",
+        populacao: 10000,
+        indice_vulnerabilidade: 0.2,
+        pct_esgoto_inadequado: 5.0,
+        pct_agua_inadequada: 2.0,
+        pct_analfabetismo_15mais: 3.0,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 202,
+        nome: "Bairro Beta",
+        prefeitura_bairro: "Cabula/Tancredo Neves",
+        populacao: 30000,
+        indice_vulnerabilidade: 0.6,
+        pct_esgoto_inadequado: 25.0,
+        pct_agua_inadequada: 10.0,
+        pct_analfabetismo_15mais: 7.0,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 203,
+        nome: "Centro Administrativo da Bahia - CAB",
+        prefeitura_bairro: "Cabula/Tancredo Neves",
+        populacao: 0,
+        indice_vulnerabilidade: 0.0,
+        pct_esgoto_inadequado: 0.0,
+        pct_agua_inadequada: 0.0,
+        pct_analfabetismo_15mais: 0.0,
+        is_zona_especial_nao_residencial: true,
+      },
+    ];
+
+    const testPrefeituras: PrefeituraBairroResumo[] = [
+      {
+        id: 99,
+        nome: "Cabula/Tancredo Neves",
+        populacao_total: 40000,
+      },
+    ];
+
+    const { bairros, prefeituras } = calculateTerritorialRollup(testBairros, testPrefeituras, []);
+
+    const alfa = bairros.find((b) => b.nome === "Bairro Alfa");
+    expect(alfa?.pct_esgoto_inadequado).toBe(5.0);
+    expect(alfa?.pct_agua_inadequada).toBe(2.0);
+    expect(alfa?.pct_analfabetismo_15mais).toBe(3.0);
+
+    const pbCentral = prefeituras.find((pb) => pb.nome === "Cabula/Tancredo Neves");
+    expect(pbCentral).toBeDefined();
+    // Ponderações (10.000 * valA + 30.000 * valB) / 40.000:
+    // vuln: (2000 + 18000) / 40000 = 0.50
+    expect(pbCentral?.indice_vulnerabilidade).toBe(0.5);
+    // esgoto: (50000 + 750000) / 40000 = 20.00
+    expect(pbCentral?.pct_esgoto_inadequado).toBe(20.0);
+    // agua: (20000 + 300000) / 40000 = 8.00
+    expect(pbCentral?.pct_agua_inadequada).toBe(8.0);
+    // analfabetismo: (30000 + 210000) / 40000 = 6.00
+    expect(pbCentral?.pct_analfabetismo_15mais).toBe(6.0);
+  });
+
+  it("createBairroSelection e createPrefeituraSelection propagam os subindicadores e flag de contiguidade", () => {
+    const bairro: BairroResumo = {
+      id: 301,
+      nome: "Ilha de Maré",
+      prefeitura_bairro: "Subúrbio/Ilhas",
+      populacao: 4236,
+      indice_vulnerabilidade: 0.67,
+      pct_esgoto_inadequado: 80.0,
+      pct_agua_inadequada: 15.0,
+      pct_analfabetismo_15mais: 12.0,
+      vulnerabilidade_estimada_contiguidade: true,
+      is_zona_especial_nao_residencial: false,
+    };
+
+    const selBairro = createBairroSelection(bairro);
+    expect(selBairro.pct_esgoto_inadequado).toBe(80.0);
+    expect(selBairro.pct_agua_inadequada).toBe(15.0);
+    expect(selBairro.pct_analfabetismo_15mais).toBe(12.0);
+    expect(selBairro.vulnerabilidade_estimada_contiguidade).toBe(true);
+
+    const prefeitura: PrefeituraBairroResumo = {
+      id: 5,
+      nome: "Subúrbio/Ilhas",
+      populacao_total: 80000,
+      indice_vulnerabilidade: 0.72,
+      pct_esgoto_inadequado: 45.5,
+      pct_agua_inadequada: 10.2,
+      pct_analfabetismo_15mais: 8.4,
+    };
+
+    const selPb = createPrefeituraSelection(prefeitura);
+    expect(selPb.pct_esgoto_inadequado).toBe(45.5);
+    expect(selPb.pct_agua_inadequada).toBe(10.2);
+    expect(selPb.pct_analfabetismo_15mais).toBe(8.4);
   });
 });
 

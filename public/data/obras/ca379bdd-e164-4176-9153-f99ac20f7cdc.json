@@ -9,19 +9,14 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
-    "totalObras": 9,
-    "totalObrasAtivas": 9,
-    "valorTotalContratado": 44954941.58,
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 3040388.21,
     "obrasIds": [
       "ca379bdd-e164-4176-9153-f99ac20f7cdc",
       "70cd4c11-7793-4a6f-8306-3acf8005e667",
       "042278bf-71ea-4e3c-bc38-d389d64ba170",
-      "91d3e703-5e4d-4312-be89-82176b726a31",
-      "04f87a18-721e-4097-94cf-5c58739bbd51",
-      "eed47ecc-c7f9-4631-aa15-cfaa6a42d8d5",
-      "8b4257db-1da5-48da-8607-495ca76a6ac6",
-      "573ebec0-ee42-4b36-9240-503ef84c1206",
-      "9e814c7e-a813-44ac-89e1-84bd01b9420c"
+      "91d3e703-5e4d-4312-be89-82176b726a31"
     ]
   },
   "vigencia": {

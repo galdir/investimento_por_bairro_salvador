@@ -2,31 +2,31 @@
   "id": "262c3fd0-0b5a-418c-a3b9-96519f6d3c74",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2024CT009756",
-  "numeroContratoOriginal": "202024",
-  "nuProcesso": "122157/2023",
+  "numeroContratoOriginal": "2024CT009756",
+  "nuProcesso": null,
   "objeto": "Contratação de pessoa jurídica especializada em serviços de engenharia para Elaboração de Estudos Preliminares, Anteprojeto, Projetos Básicos e Executivos de Engenharia, conforme exigências estabelecidas no Projeto Básico e seus anexos,relativo ao lote 02, a distribuição por Prefeituras Bairros (PB), assim indicadas PB Cidade Baixa, PB Subúrbio/Ilhas, B Valéria, PB Pau da Lima, PB Cabula/Tancredo",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "UFC ENGENHARIA SA",
     "cnpj": "32.690.778/0001-66",
+    "razaoSocial": "UFC ENGENHARIA SA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 13418446.98,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "a547f2aa-6527-479a-b799-e9a896783e4b"
+    "obrasIds": [
+      "a547f2aa-6527-479a-b799-e9a896783e4b",
+      "262c3fd0-0b5a-418c-a3b9-96519f6d3c74"
     ]
   },
   "vigencia": {
-    "dataInicio": "30/10/2024",
-    "dataFimOriginal": "30/10/2025",
-    "dataTerminoAtualizado": "30/10/2025",
-    "prazoOriginal": "365",
-    "prazoAtualizado": "365"
+    "dataInicio": "2024-10-30T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-10-30T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8908",
-    "dataPublicacao": "07/11/2024"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-10-30T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 6709223.49,

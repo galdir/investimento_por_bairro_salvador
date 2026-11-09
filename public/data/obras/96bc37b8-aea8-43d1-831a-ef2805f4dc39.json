@@ -2,29 +2,30 @@
   "id": "96bc37b8-aea8-43d1-831a-ef2805f4dc39",
   "unidadeGestora": "SMED",
   "numeroContrato": "2026CT004845",
-  "numeroContratoOriginal": "3132026",
-  "nuProcesso": "1760892024",
+  "numeroContratoOriginal": "2026CT004845",
+  "nuProcesso": null,
   "objeto": "Prestação de serviços de manutenção de extintores de incêndio, fornecimento e instalação de extintores, iluminação de emergência e placas de sinalização de segurança contra incêndio e pânico, destinados ao\r\natendimento das unidades escolares e administrativas da Secretaria Municipal da Educação ¿\r\nSMED",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
     "cnpj": "",
+    "razaoSocial": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 209325.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "96bc37b8-aea8-43d1-831a-ef2805f4dc39"
+    ]
   },
   "vigencia": {
-    "dataInicio": "12/08/2026",
+    "dataInicio": "2026-08-12T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "12/08/2027",
+    "dataTerminoAtualizado": "2027-08-12T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-08-12T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 209325.0,
@@ -44,27 +45,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "30e65010-2fdc-42fd-9c7b-bd2d8a215704",
-      "descOrgao": "Secretaria Municipal da Educação",
-      "cdUnGestora": "441010",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG FME - Fundo Municipal de Educação",
-      "notaEmpenho": "2026NE006694",
-      "dataEmpenho": "19/08/2026",
-      "nomeCredor": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Educação",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Manutenção e Conservação de Máquinas e Equipamentos",
-      "valEmpenhado": "209.325,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Educação e Escolas",

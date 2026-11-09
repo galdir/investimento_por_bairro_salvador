@@ -2,31 +2,31 @@
   "id": "d29d26b5-f600-418d-b845-189e97ea0282",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2024CT008417",
-  "numeroContratoOriginal": "020/2024",
-  "nuProcesso": "079815/2024",
+  "numeroContratoOriginal": "2024CT008417",
+  "nuProcesso": null,
   "objeto": "Contratação de empresa capacitada para execução da obra de Reforma e Requalificação do Teatro Vila \r\nVelha, Av. Sete de Setembro, Passeio Público - Bairro: Campo Grande-Salvador/BA.",
   "situacao": "Rescindido",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA PENTAGONO LTDA",
     "cnpj": "34.145.847/0001-86",
+    "razaoSocial": "CONSTRUTORA PENTAGONO LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 25556521.09,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
-      "5180416c-cbd1-4606-904a-7f466d9260e2"
+    "obrasIds": [
+      "5180416c-cbd1-4606-904a-7f466d9260e2",
+      "d29d26b5-f600-418d-b845-189e97ea0282"
     ]
   },
   "vigencia": {
-    "dataInicio": "06/09/2024",
-    "dataFimOriginal": "31/08/2025",
-    "dataTerminoAtualizado": "31/08/2025",
-    "prazoOriginal": "359",
-    "prazoAtualizado": "359"
+    "dataInicio": "2024-09-06T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-08-31T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8865",
-    "dataPublicacao": "06/09/2024"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-09-06T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 10976265.85,

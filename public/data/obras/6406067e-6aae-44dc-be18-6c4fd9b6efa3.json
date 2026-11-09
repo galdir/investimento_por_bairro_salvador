@@ -2,34 +2,35 @@
   "id": "6406067e-6aae-44dc-be18-6c4fd9b6efa3",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2026CT004330",
-  "numeroContratoOriginal": "0062026",
-  "nuProcesso": "0466272026",
+  "numeroContratoOriginal": "2026CT004330",
+  "nuProcesso": null,
   "objeto": "Execução de obras de Requalificação Viária da Travessa Antônio Hungar, no bairro de Itacaranha - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA ALVES CARVALHO LTDA",
     "cnpj": "",
+    "razaoSocial": "CONSTRUTORA ALVES CARVALHO LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 416269.54,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "6406067e-6aae-44dc-be18-6c4fd9b6efa3"
+    ]
   },
   "vigencia": {
-    "dataInicio": "30/06/2026",
+    "dataInicio": "2026-06-30T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "26/11/2026",
+    "dataTerminoAtualizado": "2026-11-26T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-06-30T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 416269.54,
     "valorContratualVigente": 416269.54,
-    "valorEmpenhado": 86151.57,
+    "valorEmpenhado": 416269.54,
     "valorLiquidado": 0,
     "valorPago": 0.0,
     "percentualExecutado": 0.0,
@@ -44,27 +45,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "2aa68656-ec25-4095-8111-e06b8a99136f",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2026NE000910",
-      "dataEmpenho": "30/06/2026",
-      "nomeCredor": "CONSTRUTORA ALVES CARVALHO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Ampliação e Recuperação de Ruas e Vias de Acesso",
-      "valEmpenhado": "86.151,57",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Mobilidade, Pavimentação e Drenagem",

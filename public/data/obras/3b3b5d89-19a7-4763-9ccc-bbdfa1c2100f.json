@@ -2,31 +2,31 @@
   "id": "3b3b5d89-19a7-4763-9ccc-bbdfa1c2100f",
   "unidadeGestora": "SEFAZ",
   "numeroContrato": "2026CT001568",
-  "numeroContratoOriginal": "022026",
-  "nuProcesso": "0876252025",
+  "numeroContratoOriginal": "2026CT001568",
+  "nuProcesso": null,
   "objeto": "Contratação de empresa para a prestação de serviços técnicos especializados para elaboração de Projeto de Arquitetura e Engenharia para a recuperação do edifício Sede da Secretaria Municipal da Fazenda de Salvador  - SEFAZ.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
     "cnpj": "",
+    "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 1105440.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
+    "obrasIds": [
+      "3b3b5d89-19a7-4763-9ccc-bbdfa1c2100f",
       "320ffc9e-0edb-4730-a1c6-5e514624b392"
     ]
   },
   "vigencia": {
-    "dataInicio": "10/02/2026",
+    "dataInicio": "2026-02-10T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "07/10/2026",
+    "dataTerminoAtualizado": "2026-10-07T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-02-10T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 552720.0,

@@ -2,41 +2,40 @@
   "id": "47eaecb4-5e18-4183-8434-61cfe556f5a9",
   "unidadeGestora": "SEMAN",
   "numeroContrato": "2026CT003650",
-  "numeroContratoOriginal": "452026",
-  "nuProcesso": "1055532026",
+  "numeroContratoOriginal": "2026CT003650",
+  "nuProcesso": null,
   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA PRODUÇÃO DE PEÇAS DE ESTRUTURA \r\nMETÁLICA DIVERSAS DO SISTEMA DE PRÉ-FABRICAÇÃO DA DESAL, INCLUINDO OS INSUMOS, EQUIPAMENTOS E \r\nFERRAMENTAS NECESSÁRIAS.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "ZIOBER BRASIL LTDA",
     "cnpj": "",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 478094.0,
-    "outrasObrasCount": 4,
-    "outrasObrasIds": [
+    "razaoSocial": "ZIOBER BRASIL LTDA",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 381952.0,
+    "obrasIds": [
       "cb938c7c-7f35-4a7e-9b52-92a2ed9990d6",
+      "47eaecb4-5e18-4183-8434-61cfe556f5a9",
       "41426953-4049-4120-a8da-6913aef1b7b1",
-      "fc3bb8e4-92ad-4333-8389-4c488e170d9e",
-      "4fff7211-cf32-4f65-8449-6e220b3864b6"
+      "fc3bb8e4-92ad-4333-8389-4c488e170d9e"
     ]
   },
   "vigencia": {
-    "dataInicio": "03/06/2026",
+    "dataInicio": "2026-06-03T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "31/08/2026",
+    "dataTerminoAtualizado": "2026-08-31T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-06-03T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 95500.0,
     "valorContratualVigente": 95500.0,
     "valorEmpenhado": 95500.0,
-    "valorLiquidado": 91298.0,
-    "valorPago": 95500.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 95.6,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -49,107 +48,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "8b3ef475-06b3-434d-9f67-0b7af84018dc",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "cdUnGestora": "567002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "notaEmpenho": "2026NE000684",
-      "dataEmpenho": "08/06/2026",
-      "nomeCredor": "ZIOBER BRASIL LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "95.500,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "58dc0707-0a74-4c60-978b-4f7c5192a48b",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000684",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "ZIOBER BRASIL LTDA",
-      "notaLiquidacao": "2026NL004201",
-      "notaLancamento": "2026NL004201",
-      "numProcesso": "01276292026",
-      "dataLiquidacao": "10/06/2026",
-      "valLiqLiquidacao": "91.298,00",
-      "valBrutLiquidacao": "95.500,00",
-      "valEmpenho": "95.500,00",
-      "descObsLiquidacao": "ZIOBER - AQUISIÇÃO DE PEÇAS DE ESTRUTURA METÁLICA - PROC 127629/2026 - NF 89 - NFTS 1219",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "89bd20fd-3951-40b1-a5cd-a559962d29bc",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000684",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "ZIOBER BRASIL LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2026OB033759",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "95.500,00",
-      "dataPagamento": "11/06/2026",
-      "pago": "4.775,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "89140d00-4999-48e9-ab09-eadfec499c4f",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000684",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "ZIOBER BRASIL LTDA",
-      "notaLiquidacao": "2026NL004201",
-      "ordBancaria": "2026OB033754",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "95.500,00",
-      "dataPagamento": "11/06/2026",
-      "pago": "86.523,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "c531e806-8d78-4b63-a346-0ed145dd4b76",
-      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
-      "siglaOrgao": "SEMAN",
-      "notaEmpenho": "2026NE000684",
-      "codUnGestora": "567002",
-      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
-      "siglaUnGestora": "DESAL",
-      "nomeCredor": "ZIOBER BRASIL LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2026OB041523",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "95.500,00",
-      "dataPagamento": "17/07/2026",
-      "pago": "4.202,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERMELHO",

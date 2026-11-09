@@ -2,38 +2,38 @@
   "id": "5615e4e0-8b24-4a13-9ca7-5e666d7e005c",
   "unidadeGestora": "SMS",
   "numeroContrato": "2026CT004875",
-  "numeroContratoOriginal": "2102026",
-  "nuProcesso": "0019312026",
+  "numeroContratoOriginal": "2026CT004875",
+  "nuProcesso": null,
   "objeto": "Contratação SEMI-INTEGRADA de empresa especializada para a execução da obra de Construção de Unidade de Saúde do tipo Policlínica Municipal, incluindo elaboração dos projetos executivos, desenvolvimento de peças orçamentárias e aprovação dos projetos nos Órgãos Reguladores, cujo terreno está Situado na Avenida 29 de Março, S/N, Bairro Jaguaripe I, nesta Capital de acordo com as especificações e ob",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "HOLTZ ENGENHARIA LTDA",
     "cnpj": "",
+    "razaoSocial": "HOLTZ ENGENHARIA LTDA",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 54620000.0,
-    "outrasObrasCount": 1,
-    "outrasObrasIds": [
+    "obrasIds": [
+      "5615e4e0-8b24-4a13-9ca7-5e666d7e005c",
       "4e0f14ba-d172-4b74-9f7f-5ed2b7396153"
     ]
   },
   "vigencia": {
-    "dataInicio": "12/06/2026",
+    "dataInicio": "2026-06-12T00:00:00.000Z",
     "dataFimOriginal": null,
-    "dataTerminoAtualizado": "13/12/2027",
+    "dataTerminoAtualizado": "2027-12-13T00:00:00.000Z",
     "prazoOriginal": "Conforme Contrato",
     "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
     "nuDom": "Não informado",
-    "dataPublicacao": null
+    "dataPublicacao": "2026-06-12T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 27310000.0,
     "valorContratualVigente": 27310000.0,
-    "valorEmpenhado": 510872.7,
-    "valorLiquidado": 510872.7,
-    "valorPago": 510872.7,
+    "valorEmpenhado": 27310000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 1.87,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -46,107 +46,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "443273e1-b1bf-4427-af30-13aef1a545b2",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "cdUnGestora": "301110",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "notaEmpenho": "2026NE015725",
-      "dataEmpenho": "27/08/2026",
-      "nomeCredor": "HOLTZ ENGENHARIA LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Saúde",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Ampliação de Hospitais e Unidades de Saúde",
-      "valEmpenhado": "510.872,70",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "cd425160-7d36-45e8-be23-5768aed425e6",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2026NE015725",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "HOLTZ ENGENHARIA LTDA",
-      "notaLiquidacao": "2026NL105680",
-      "notaLancamento": "2026NL105680",
-      "numProcesso": "01756412026",
-      "dataLiquidacao": "27/08/2026",
-      "valLiqLiquidacao": "510.872,70",
-      "valBrutLiquidacao": "510.872,70",
-      "valEmpenho": "510.872,70",
-      "descObsLiquidacao": "07/2026#175641/2026#0210/2026#2026CT004875#OBRAS | REFORMAS#NF 1722 - 1ª MEDIÇÃO DOS SERVI",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "24dc011f-396d-4279-8bf0-e615bd5c9887",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2026NE015725",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "HOLTZ ENGENHARIA LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2026OB054151",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "510.872,70",
-      "dataPagamento": "07/09/2026",
-      "pago": "15.326,18",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "8f9244bf-ec81-48c1-a0cf-4baaa1ee9536",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2026NE015725",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "HOLTZ ENGENHARIA LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2026OB054151",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "510.872,70",
-      "dataPagamento": "07/09/2026",
-      "pago": "6.130,47",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "735454d8-ac66-4e7d-9d2f-3c3d2ee0cf3e",
-      "descOrgao": "Secretaria Municipal da Saúde",
-      "siglaOrgao": "SMS",
-      "notaEmpenho": "2026NE015725",
-      "codUnGestora": "301110",
-      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
-      "siglaUnGestora": "FMS",
-      "nomeCredor": "HOLTZ ENGENHARIA LTDA",
-      "notaLiquidacao": "2026NL105680",
-      "ordBancaria": "2026OB054152",
-      "elemDespesa": "Obras e Instalações",
-      "valEmpenhado": "510.872,70",
-      "dataPagamento": "08/09/2026",
-      "pago": "489.416,05",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Saúde",
   "semaforo": {
     "status": "VERDE",

@@ -11,7 +11,11 @@ from pathlib import Path
 from typing import Any, Optional
 
 from etl.config import IBGE_SIDRA_POPULACAO_BAIRROS_SALVADOR
-from etl.domain.territorio import normalizar_nome
+from etl.domain.territorio import (
+    calcular_indice_vulnerabilidade_bairros,
+    is_zona_especial_nao_residencial,
+    normalizar_nome,
+)
 
 _REF_DIR = Path(__file__).resolve().parent.parent / "reference"
 
@@ -31,139 +35,17 @@ CENSO_ALIASES: dict[str, str] = {
     normalizar_nome("Vila Ruy Barbosa \\ Jardim Cruzeiro"): normalizar_nome("Vila Ruy Barbosa\\Jardim Cruzeiro"),
 }
 
-# Índices determinísticos de vulnerabilidade socioeconômica por bairro (0.00 a 1.00)
-VULNERABILIDADE_BAIRROS: dict[str, float] = {
-    # Âncoras obrigatórias testadas em suíte
-    "AEROPORTO": 0.05,
-    "CENTRO ADMINISTRATIVO DA BAHIA - CAB": 0.08,
-    "CENTRO ADMINISTRATIVO DA BAHIA": 0.08,
-    "CAB": 0.08,
-    "PITUBA": 0.12,
-    "PORTO SECO PIRAJA": 0.20,
-    "CABULA": 0.55,
-    "LIBERDADE": 0.78,
-
-    # Perfil socioeconômico de baixíssima vulnerabilidade (Barra/Pituba e áreas nobres)
-    "VITORIA": 0.08,
-    "GRACA": 0.10,
-    "HORTO FLORESTAL": 0.11,
-    "AQUARIUS": 0.12,
-    "ITAIGARA": 0.12,
-    "CAMINHO DAS ARVORES": 0.13,
-    "BARRA": 0.14,
-    "ONDINA": 0.15,
-    "CANELA": 0.22,
-    "PATAMARES": 0.22,
-    "COSTA AZUL": 0.24,
-    "STELLA MARIS": 0.25,
-    "STIEP": 0.26,
-    "PIATA": 0.28,
-    "JARDIM ARMACAO": 0.28,
-    "IMBUI": 0.28,
-    "CHAME-CHAME": 0.28,
-    "RIO VERMELHO": 0.30,
-
-    # Perfil de vulnerabilidade moderada (Centro / Brotas / Cidade Baixa)
-    "VILA LAURA": 0.35,
-    "ACUPE": 0.36,
-    "BROTAS": 0.38,
-    "BARRIS": 0.38,
-    "GARCIA": 0.40,
-    "MATATU": 0.42,
-    "NAZARE": 0.42,
-    "MONTE SERRAT": 0.42,
-    "BARBALHO": 0.44,
-    "BOA VIAGEM": 0.45,
-    "TORORO": 0.45,
-    "FEDERACAO": 0.45,
-    "BONFIM": 0.46,
-    "COMERCIO": 0.46,
-    "SAUDE": 0.46,
-    "CENTRO": 0.48,
-    "DOIS DE JULHO": 0.48,
-    "RIBEIRA": 0.48,
-    "ROMA": 0.52,
-    "RESGATE": 0.52,
-
-    # Perfil de média-alta vulnerabilidade
-    "SABOEIRO": 0.58,
-    "BOCA DO RIO": 0.58,
-    "ITAPUA": 0.58,
-    "DORON": 0.58,
-    "MUSSURUNGA": 0.60,
-    "ILHA DOS FRADES/ILHA DE SANTO ANTONIO": 0.60,
-    "ILHA DE BOM JESUS DOS PASSOS": 0.62,
-    "JARDIM DAS MARGARIDAS": 0.62,
-    "NARANDIBA": 0.62,
-    "PERNAMBUES": 0.64,
-    "SAO CRISTOVAO": 0.65,
-    "SARAMANDAIA": 0.68,
-    "CASSANGE": 0.68,
-    "IAPI": 0.68,
-    "BAIXA DE QUINTAS": 0.70,
-
-    # Perfil de alta vulnerabilidade
-    "BAIRRO DA PAZ": 0.72,
-    "SANTA MONICA": 0.72,
-    "CIDADE NOVA": 0.72,
-    "CASTELO BRANCO": 0.72,
-    "SAO MARCOS": 0.72,
-    "CAIXA D´AGUA": 0.73,
-    "PAU MIUDO": 0.74,
-    "SAO GONCALO": 0.74,
-    "PAU DA LIMA": 0.74,
-    "CANABRAVA": 0.74,
-    "CAJAZEIRAS IV": 0.74,
-    "CAJAZEIRAS V": 0.75,
-    "CAJAZEIRAS VI": 0.75,
-    "CAJAZEIRAS VII": 0.75,
-    "CAJAZEIRAS VIII": 0.76,
-    "CAJAZEIRAS X": 0.76,
-    "CAJAZEIRAS XI": 0.76,
-    "FAZENDA GRANDE DO RETIRO": 0.75,
-    "DOM AVELAR": 0.75,
-    "BEIRU/TANCREDO NEVES": 0.75,
-    "SAO CAETANO": 0.76,
-    "ENGOMADEIRA": 0.76,
-    "SUSSUARANA": 0.76,
-    "AGUAS CLARAS": 0.76,
-    "PERO VAZ": 0.77,
-    "ARRAIAL DO RETIRO": 0.77,
-    "NOVO HORIZONTE": 0.77,
-    "ARENOSO": 0.78,
-    "CURUZU": 0.79,
-
-    # Perfil de altíssima vulnerabilidade (Subúrbio Ferroviário / Valéria / Ilhas)
-    "PERIPERI": 0.78,
-    "PARIPE": 0.80,
-    "PRAIA GRANDE": 0.80,
-    "PLATAFORMA": 0.82,
-    "COUTOS": 0.82,
-    "ITACARANHA": 0.82,
-    "ESCADA": 0.82,
-    "VALERIA": 0.82,
-    "SAO JOAO DO CABRITO": 0.83,
-    "ALTO DO CABRITO": 0.84,
-    "FAZENDA COUTOS": 0.84,
-    "LOBATO": 0.84,
-    "PALESTINA": 0.85,
-    "ILHA AMARELA": 0.85,
-    "ALTO DA TEREZINHA": 0.85,
-    "ILHA DE MARE": 0.85,
-    "RIO SENA": 0.86,
-}
-
 
 def normalizar_registros_censo_2022(
     raw_sidra_rows: list[dict[str, Any]],
     bairros_nomes: Optional[list[str]] = None,
 ) -> dict[str, dict[str, Any]]:
-    """Normaliza os registros do Censo 2022 do IBGE (SIDRA tabela 9923).
+    """Normaliza os registros do Censo 2022 do IBGE e calcula o índice de vulnerabilidade multidimensional.
 
     Sumário:
-        Filtra apenas a contagem populacional (D2C == '93' / MN == 'Pessoas'), remove o sufixo
-        ' - Salvador - BA', aplica os aliases ortográficos oficiais e atribui o índice de
-        vulnerabilidade determinístico para cada bairro.
+        Filtra a contagem populacional (D2C == '93' / MN == 'Pessoas'), aplica aliases oficiais,
+        integra os sub-indicadores do Censo 2022 (esgotamento, água e analfabetismo) e executa
+        o cálculo composto multidimensional por min-max (eliminando dicionários manuais).
     """
     censo_pop: dict[str, int] = {}
     censo_raw_names: dict[str, str] = {}
@@ -182,8 +64,22 @@ def normalizar_registros_censo_2022(
                 pop = 0
             if clean_nome:
                 norm = normalizar_nome(clean_nome)
+                target_norm = CENSO_ALIASES.get(norm, norm)
+                censo_pop[target_norm] = pop
                 censo_pop[norm] = pop
                 censo_raw_names[norm] = clean_nome
+                censo_raw_names[target_norm] = clean_nome
+
+    # Carrega a base de referência de sub-indicadores do Censo 2022
+    ref_indicadores_path = _REF_DIR / "censo_2022_salvador_bairros.json"
+    ref_indicadores: dict[str, dict[str, Any]] = {}
+    if ref_indicadores_path.exists():
+        try:
+            with open(ref_indicadores_path, "r", encoding="utf-8") as f:
+                raw_ref = json.load(f)
+                ref_indicadores = {normalizar_nome(k): v for k, v in raw_ref.items()}
+        except Exception:
+            ref_indicadores = {}
 
     # Carrega a lista dos 171 Bairros Oficiais caso não seja fornecida
     if bairros_nomes is None:
@@ -201,38 +97,29 @@ def normalizar_registros_censo_2022(
         else:
             bairros_nomes = []
 
-    resultado: dict[str, dict[str, Any]] = {}
+    demografia_preliminar: dict[str, dict[str, Any]] = {}
 
-    # Popula para cada bairro oficial (em caixa original e normalizada)
+    # Popula para cada bairro oficial
     for b_name in (bairros_nomes or []):
         if not b_name:
             continue
         norm = normalizar_nome(b_name)
         target_norm = CENSO_ALIASES.get(norm, norm)
-        pop = censo_pop.get(target_norm, 0)
-        vuln = VULNERABILIDADE_BAIRROS.get(target_norm, 0.50)
-        entry = {
-            "populacao": pop,
-            "indice_vulnerabilidade": vuln,
-        }
-        resultado[b_name] = entry
-        resultado[norm] = entry
+        pop = censo_pop.get(target_norm, censo_pop.get(norm, 0))
 
-    # Popula para nomes originais do SIDRA
-    for norm_orig, pop in censo_pop.items():
-        clean_name = censo_raw_names.get(norm_orig, norm_orig)
-        norm_canonico = CENSO_ALIASES.get(norm_orig, norm_orig)
-        vuln = VULNERABILIDADE_BAIRROS.get(norm_canonico, 0.50)
-        entry = {
-            "populacao": pop,
-            "indice_vulnerabilidade": vuln,
-        }
-        if clean_name not in resultado:
-            resultado[clean_name] = entry
-        if norm_canonico not in resultado:
-            resultado[norm_canonico] = entry
+        ref_entry = ref_indicadores.get(target_norm, ref_indicadores.get(norm, {}))
 
-    # Assegura que todas as variações de aliases estejam indexáveis
+        demografia_preliminar[b_name] = {
+            "populacao": pop if pop > 0 else int(ref_entry.get("populacao", 0)),
+            "pct_esgoto_inadequado": ref_entry.get("pct_esgoto_inadequado"),
+            "pct_agua_inadequada": ref_entry.get("pct_agua_inadequada"),
+            "pct_analfabetismo_15mais": ref_entry.get("pct_analfabetismo_15mais"),
+        }
+
+    # Executa o cálculo multidimensional determinístico com min-max e contiguidade
+    resultado = calcular_indice_vulnerabilidade_bairros(demografia_preliminar)
+
+    # Garante que os nomes originais do SIDRA e aliases estejam no resultado
     for alias_orig, alias_canonico in CENSO_ALIASES.items():
         if alias_canonico in resultado and alias_orig not in resultado:
             resultado[alias_orig] = dict(resultado[alias_canonico])

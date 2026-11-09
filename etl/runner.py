@@ -238,7 +238,7 @@ def run_pipeline(
         pb = (props.get("PREFEITURA_BAIRRO") or props.get("prefeitura_bairro") or "").strip()
 
         nome_norm = normalizar_nome(nome)
-        demo = demografia_norm.get(nome_norm, {"populacao": 0, "indice_vulnerabilidade": 0.5})
+        demo = demografia_norm.get(nome_norm, {"populacao": 0, "indice_vulnerabilidade": 0.0})
         eh_ze = is_zona_especial_nao_residencial(nome)
 
         bairros_base.append({
@@ -246,9 +246,13 @@ def run_pipeline(
             "nome": nome,
             "prefeitura_bairro": pb,
             "populacao": int(demo.get("populacao", 0)),
-            "indice_vulnerabilidade": parse_float(demo.get("indice_vulnerabilidade", 0.5)),
+            "indice_vulnerabilidade": parse_float(demo.get("indice_vulnerabilidade", 0.0)),
             "is_zona_especial_nao_residencial": eh_ze,
             "isZonaEspecialNaoResidencial": eh_ze,
+            "pct_esgoto_inadequado": parse_float(demo.get("pct_esgoto_inadequado", 0.0)),
+            "pct_agua_inadequada": parse_float(demo.get("pct_agua_inadequada", 0.0)),
+            "pct_analfabetismo_15mais": parse_float(demo.get("pct_analfabetismo_15mais", 0.0)),
+            "vulnerabilidade_estimada_contiguidade": bool(demo.get("vulnerabilidade_estimada_contiguidade", False)),
         })
 
     # 5. Estruturação base de Prefeituras-Bairro com agregação populacional

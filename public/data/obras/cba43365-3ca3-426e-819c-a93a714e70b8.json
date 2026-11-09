@@ -2,29 +2,30 @@
   "id": "cba43365-3ca3-426e-819c-a93a714e70b8",
   "unidadeGestora": "SEMPRE",
   "numeroContrato": "2024CT008159",
-  "numeroContratoOriginal": "50/2024",
-  "nuProcesso": "044866/2024",
+  "numeroContratoOriginal": "2024CT008159",
+  "nuProcesso": null,
   "objeto": "1.1.\tO objeto do presente instrumento é a contratação de empresa de engenharia para realização de obras de requalificação e modernização da QUADRA POLIESPORTIVA da Rua da Paz, Pau da Lima, Salvador/Ba e do CAMPO DE FUTEBOL da Rua Principal, Nova Esperança, Salvador/Ba, da Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer ¿ SEMPRE",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
     "cnpj": "20.852.647/0001-59",
+    "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 265250.82,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "cba43365-3ca3-426e-819c-a93a714e70b8"
+    ]
   },
   "vigencia": {
-    "dataInicio": "02/09/2024",
-    "dataFimOriginal": "02/09/2025",
-    "dataTerminoAtualizado": "02/09/2025",
-    "prazoOriginal": "365",
-    "prazoAtualizado": "365"
+    "dataInicio": "2024-09-02T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-09-02T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8864",
-    "dataPublicacao": "05/09/2024"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-09-02T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 265250.82,

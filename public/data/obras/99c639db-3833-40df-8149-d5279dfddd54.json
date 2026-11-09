@@ -2,32 +2,37 @@
   "id": "99c639db-3833-40df-8149-d5279dfddd54",
   "unidadeGestora": "SMS",
   "numeroContrato": "2025CT000801",
-  "numeroContratoOriginal": "8742024",
-  "nuProcesso": "012431/2024",
+  "numeroContratoOriginal": "2025CT000801",
+  "nuProcesso": null,
   "objeto": "Construção do CAPS IA (Centro de Atenção Psicossocial Infância e Adolescência), no Distrito Sanitário de Itapagipe, na Rua Pedreira Franco s/n bairro Calçada, em Salvador-Ba, para a Secretaria Municipal da Saúde, de acordo com as especificações e obrigações constantes no Edital da Licitação, nas condições estabelecidas no Termo de Referência",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
     "cnpj": "13.585.696/0001-07",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 6760413.83,
-    "outrasObrasCount": 2,
-    "outrasObrasIds": [
+    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 48674967.2,
+    "obrasIds": [
+      "99c639db-3833-40df-8149-d5279dfddd54",
       "81edebcc-a3b9-48b6-ad0d-f34e7f526d50",
-      "9a094659-a858-407b-9d01-0d02a447effe"
+      "9a094659-a858-407b-9d01-0d02a447effe",
+      "04f87a18-721e-4097-94cf-5c58739bbd51",
+      "eed47ecc-c7f9-4631-aa15-cfaa6a42d8d5",
+      "8b4257db-1da5-48da-8607-495ca76a6ac6",
+      "573ebec0-ee42-4b36-9240-503ef84c1206",
+      "9e814c7e-a813-44ac-89e1-84bd01b9420c"
     ]
   },
   "vigencia": {
-    "dataInicio": "10/12/2024",
-    "dataFimOriginal": "09/12/2025",
-    "dataTerminoAtualizado": "09/12/2025",
-    "prazoOriginal": "364",
-    "prazoAtualizado": "364"
+    "dataInicio": "2024-12-10T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-12-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8935",
-    "dataPublicacao": "13/03/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-12-10T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 2269437.83,

@@ -2,29 +2,31 @@
   "id": "ff78e076-9320-4f39-a0a8-b3f073f0172c",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2025CT002899",
-  "numeroContratoOriginal": "0192025",
-  "nuProcesso": "123864/2024",
+  "numeroContratoOriginal": "2025CT002899",
+  "nuProcesso": null,
   "objeto": "Contratação de empresa capacitada para execução da obra de Implantação do CRAS - Centro de \r\nReferência da Assistência Social -Mané Dendê em Ilha Amarela - Salvador/BA.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA LAM LTDA",
     "cnpj": "03.522.765/0001-80",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 3685297.94,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "razaoSocial": "CONSTRUTORA LAM LTDA",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 8216555.66,
+    "obrasIds": [
+      "588f5c5d-34b3-40a9-bc29-06bc8a279ac1",
+      "ff78e076-9320-4f39-a0a8-b3f073f0172c"
+    ]
   },
   "vigencia": {
-    "dataInicio": "05/05/2025",
-    "dataFimOriginal": "29/04/2026",
-    "dataTerminoAtualizado": "29/04/2026",
-    "prazoOriginal": "359",
-    "prazoAtualizado": "359"
+    "dataInicio": "2025-05-05T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-04-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8860",
-    "dataPublicacao": "05/05/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-05-05T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 3685297.94,

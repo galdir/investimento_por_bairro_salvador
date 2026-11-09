@@ -202,3 +202,197 @@ def test_rollup_territorial_regras_de_alocacao_e_zonas_especiais() -> None:
     assert opacidade["totalNaoLocalizado"] == 1
     assert opacidade["valorNaoLocalizado"] == 2000000.0
     assert opacidade["percentualNaoLocalizado"] == pytest.approx((2000000.0 / 16500000.0) * 100.0, rel=1e-2)
+
+
+def test_calculo_multidimensional_vulnerabilidade_min_max_e_contiguidade() -> None:
+    """Valida o cálculo composto multidimensional do Índice de Vulnerabilidade do Bairro.
+
+    Sumário:
+        Verifica a imputação por contiguidade para os 3 bairros ausentes no N102,
+        a isenção das Zonas Especiais Não-Residenciais e a normalização min-max
+        com pesos iguais (1/3 cada), preservando a ordenação Pituba < Cabula < Liberdade.
+    """
+    from etl.domain.territorio import calcular_indice_vulnerabilidade_bairros
+
+    demografia_input = {
+        # Bairros de referência para contiguidade da Ilha de Maré
+        "Ilha de Bom Jesus dos Passos": {
+            "populacao": 1635,
+            "pct_esgoto_inadequado": 20.0,
+            "pct_agua_inadequada": 10.0,
+            "pct_analfabetismo_15mais": 4.0,
+        },
+        "Ilha dos Frades/Ilha de Santo Antônio": {
+            "populacao": 894,
+            "pct_esgoto_inadequado": 25.0,
+            "pct_agua_inadequada": 15.0,
+            "pct_analfabetismo_15mais": 6.0,
+        },
+        # Bairros limítrofes do Chame-Chame
+        "Graça": {
+            "populacao": 14996,
+            "pct_esgoto_inadequado": 1.5,
+            "pct_agua_inadequada": 0.3,
+            "pct_analfabetismo_15mais": 0.6,
+        },
+        "Barra": {
+            "populacao": 15094,
+            "pct_esgoto_inadequado": 2.0,
+            "pct_agua_inadequada": 0.4,
+            "pct_analfabetismo_15mais": 0.8,
+        },
+        "Vitória": {
+            "populacao": 4416,
+            "pct_esgoto_inadequado": 1.0,
+            "pct_agua_inadequada": 0.2,
+            "pct_analfabetismo_15mais": 0.5,
+        },
+        # Bairros limítrofes de Colinas de Pituaçu
+        "São Marcos": {
+            "populacao": 22962,
+            "pct_esgoto_inadequado": 22.0,
+            "pct_agua_inadequada": 2.5,
+            "pct_analfabetismo_15mais": 4.5,
+        },
+        "Pau da Lima": {
+            "populacao": 20665,
+            "pct_esgoto_inadequado": 24.0,
+            "pct_agua_inadequada": 2.8,
+            "pct_analfabetismo_15mais": 5.0,
+        },
+        # Âncoras do Censo 2022
+        "Pituba": {
+            "populacao": 57894,
+            "pct_esgoto_inadequado": 1.8,
+            "pct_agua_inadequada": 0.3,
+            "pct_analfabetismo_15mais": 0.7,
+        },
+        "Cabula": {
+            "populacao": 21825,
+            "pct_esgoto_inadequado": 15.0,
+            "pct_agua_inadequada": 1.5,
+            "pct_analfabetismo_15mais": 3.0,
+        },
+        "Liberdade": {
+            "populacao": 34451,
+            "pct_esgoto_inadequado": 35.0,
+            "pct_agua_inadequada": 3.5,
+            "pct_analfabetismo_15mais": 6.5,
+        },
+        # 3 Bairros sem linha própria no SIDRA N102 (devem ser imputados)
+        "Ilha de Maré": {
+            "populacao": 4036,
+        },
+        "Chame-Chame": {
+            "populacao": 2187,
+        },
+        "Colinas de Pituaçu": {
+            "populacao": 3000,
+        },
+        # Zonas Especiais Não-Residenciais
+        "Aeroporto": {
+            "populacao": 0,
+        },
+        "Porto Seco Pirajá": {
+            "populacao": 0,
+        },
+        "Centro Administrativo da Bahia - CAB": {
+            "populacao": 173,
+        },
+    }
+
+    resultado = calcular_indice_vulnerabilidade_bairros(demografia_input)
+
+    # 1. Zonas Especiais Não-Residenciais: isentas (0.0) e sem contiguidade
+    for ze in ["Aeroporto", "Porto Seco Pirajá", "Centro Administrativo da Bahia - CAB"]:
+        assert resultado[ze]["indice_vulnerabilidade"] == 0.0
+        assert resultado[ze]["pct_esgoto_inadequado"] == 0.0
+        assert resultado[ze]["pct_agua_inadequada"] == 0.0
+        assert resultado[ze]["pct_analfabetismo_15mais"] == 0.0
+        assert resultado[ze]["vulnerabilidade_estimada_contiguidade"] is False
+
+    # 2. Imputação por contiguidade para os 3 bairros ausentes no N102
+    assert resultado["Ilha de Maré"]["vulnerabilidade_estimada_contiguidade"] is True
+    # Ponderação Ilha de Maré: (1635*20 + 894*25)/(1635+894) = 55050 / 2529 = 21.77
+    assert resultado["Ilha de Maré"]["pct_esgoto_inadequado"] == pytest.approx(21.77, abs=0.05)
+
+    assert resultado["Chame-Chame"]["vulnerabilidade_estimada_contiguidade"] is True
+    # Ponderação Chame-Chame: (14996*1.5 + 15094*2.0 + 4416*1.0) / 34506 = 57098 / 34506 = 1.65
+    assert resultado["Chame-Chame"]["pct_esgoto_inadequado"] == pytest.approx(1.65, abs=0.05)
+
+    assert resultado["Colinas de Pituaçu"]["vulnerabilidade_estimada_contiguidade"] is True
+    # Ponderação Colinas de Pituaçu: (22962*22 + 20665*24) / 43627 = 1001124 / 43627 = 22.95
+    assert resultado["Colinas de Pituaçu"]["pct_esgoto_inadequado"] == pytest.approx(22.95, abs=0.05)
+
+    # Bairros comuns têm estimativa_contiguidade False
+    assert resultado["Pituba"]["vulnerabilidade_estimada_contiguidade"] is False
+    assert resultado["Liberdade"]["vulnerabilidade_estimada_contiguidade"] is False
+
+    # 3. Invariante de ordenação socioeconômica do Censo 2022
+    iv_pituba = resultado["Pituba"]["indice_vulnerabilidade"]
+    iv_cabula = resultado["Cabula"]["indice_vulnerabilidade"]
+    iv_liberdade = resultado["Liberdade"]["indice_vulnerabilidade"]
+    assert 0.0 <= iv_pituba < iv_cabula < iv_liberdade <= 1.0
+
+
+def test_rollup_territorial_consolida_subindicadores_prefeituras_bairro() -> None:
+    """Valida que o rollup de Prefeituras-Bairro consolida os 3 sub-indicadores por média ponderada."""
+    bairros = [
+        {
+            "id": 101,
+            "nome": "Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "populacao": 60000,
+            "indice_vulnerabilidade": 0.05,
+            "pct_esgoto_inadequado": 2.0,
+            "pct_agua_inadequada": 0.5,
+            "pct_analfabetismo_15mais": 1.0,
+            "vulnerabilidade_estimada_contiguidade": False,
+            "is_zona_especial_nao_residencial": False,
+        },
+        {
+            "id": 102,
+            "nome": "Barra",
+            "prefeitura_bairro": "Barra/Pituba",
+            "populacao": 40000,
+            "indice_vulnerabilidade": 0.15,
+            "pct_esgoto_inadequado": 4.0,
+            "pct_agua_inadequada": 1.0,
+            "pct_analfabetismo_15mais": 1.5,
+            "vulnerabilidade_estimada_contiguidade": False,
+            "is_zona_especial_nao_residencial": False,
+        },
+        {
+            "id": 103,
+            "nome": "Aeroporto",
+            "prefeitura_bairro": "Barra/Pituba",
+            "populacao": 0,
+            "indice_vulnerabilidade": 0.0,
+            "pct_esgoto_inadequado": 0.0,
+            "pct_agua_inadequada": 0.0,
+            "pct_analfabetismo_15mais": 0.0,
+            "vulnerabilidade_estimada_contiguidade": False,
+            "is_zona_especial_nao_residencial": True,
+        },
+    ]
+
+    prefeituras = [
+        {"id": 1, "nome": "Barra/Pituba", "populacao_total": 100000},
+    ]
+
+    b_proc, pb_proc, _ = calcular_rollup_territorial(
+        bairros_resumo=bairros,
+        prefeituras_resumo=prefeituras,
+        obras_alocadas=[],
+    )
+
+    pb = pb_proc[0]
+    # Média ponderada residencial (60.000 Pituba + 40.000 Barra = 100.000):
+    # Índice: (60k*0.05 + 40k*0.15)/100k = 0.09
+    assert pb["indice_vulnerabilidade"] == 0.09
+    # Esgoto: (60k*2.0 + 40k*4.0)/100k = 2.8
+    assert pb["pct_esgoto_inadequado"] == 2.8
+    # Água: (60k*0.5 + 40k*1.0)/100k = 0.7
+    assert pb["pct_agua_inadequada"] == 0.7
+    # Analfabetismo: (60k*1.0 + 40k*1.5)/100k = 1.2
+    assert pb["pct_analfabetismo_15mais"] == 1.2

@@ -55,6 +55,10 @@ export interface BairroResumo {
   indice_vulnerabilidade: number;
   is_zona_especial_nao_residencial: boolean;
   isZonaEspecialNaoResidencial?: boolean;
+  pct_esgoto_inadequado?: number;
+  pct_agua_inadequada?: number;
+  pct_analfabetismo_15mais?: number;
+  vulnerabilidade_estimada_contiguidade?: boolean;
   valorTotal?: number;
   valorPago?: number;
   totalObras?: number;
@@ -70,6 +74,9 @@ export interface PrefeituraBairroResumo {
   nome: string;
   populacao_total: number;
   indice_vulnerabilidade?: number;
+  pct_esgoto_inadequado?: number;
+  pct_agua_inadequada?: number;
+  pct_analfabetismo_15mais?: number;
   valorTotal?: number;
   valorPago?: number;
   totalObras?: number;
@@ -219,6 +226,10 @@ export interface TerritorySelection {
   indice_vulnerabilidade?: number;
   is_zona_especial_nao_residencial?: boolean;
   isZonaEspecialNaoResidencial?: boolean;
+  pct_esgoto_inadequado?: number;
+  pct_agua_inadequada?: number;
+  pct_analfabetismo_15mais?: number;
+  vulnerabilidade_estimada_contiguidade?: boolean;
   valorTotal?: number;
   valorPago?: number;
   totalObras?: number;

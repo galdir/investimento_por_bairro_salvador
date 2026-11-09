@@ -9,13 +9,12 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 3814184.34,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 240000.0,
     "obrasIds": [
       "9b6c5b23-6cdb-492c-a35d-c5961d65ac87",
-      "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575",
-      "cc3ff25f-d4c8-40fe-9558-1906743228d1"
+      "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575"
     ]
   },
   "vigencia": {

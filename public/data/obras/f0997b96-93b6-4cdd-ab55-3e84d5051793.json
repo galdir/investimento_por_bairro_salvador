@@ -9,13 +9,12 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 1418434.0,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 373434.0,
     "obrasIds": [
       "a3589f50-519e-4d12-857f-2cfb44398f0c",
-      "f0997b96-93b6-4cdd-ab55-3e84d5051793",
-      "f1d720ef-eb80-4e58-81cf-219b76c9bebc"
+      "f0997b96-93b6-4cdd-ab55-3e84d5051793"
     ]
   },
   "vigencia": {

@@ -2,29 +2,30 @@
   "id": "cc3ff25f-d4c8-40fe-9558-1906743228d1",
   "unidadeGestora": "SMS",
   "numeroContrato": "2025CT005387",
-  "numeroContratoOriginal": "3762025",
-  "nuProcesso": "107560/2024",
+  "numeroContratoOriginal": "2025CT005387",
+  "nuProcesso": null,
   "objeto": "CONSTRUÇÃO DA UNIDADE DE SAÚDE DA FAMÍLIA CALÇADA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
     "cnpj": "16.607.359/0001-61",
+    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 3574184.34,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "cc3ff25f-d4c8-40fe-9558-1906743228d1"
+    ]
   },
   "vigencia": {
-    "dataInicio": "17/06/2025",
-    "dataFimOriginal": "16/06/2026",
-    "dataTerminoAtualizado": "16/06/2026",
-    "prazoOriginal": "364",
-    "prazoAtualizado": "364"
+    "dataInicio": "2025-06-17T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-06-16T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "9057",
-    "dataPublicacao": "12/09/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-06-17T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 3574184.34,

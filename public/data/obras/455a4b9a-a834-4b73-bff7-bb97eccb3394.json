@@ -2,29 +2,30 @@
   "id": "455a4b9a-a834-4b73-bff7-bb97eccb3394",
   "unidadeGestora": "SMS",
   "numeroContrato": "2025CT006146",
-  "numeroContratoOriginal": "3782025",
-  "nuProcesso": "107563/2024",
+  "numeroContratoOriginal": "2025CT006146",
+  "nuProcesso": null,
   "objeto": "Ampliação da Unidade de Saúde da Família Úrsula Catarino. Lote 02",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "razaoSocial": "MACJ ENGENHARIA E CONSTRUCAO LTDA",
     "cnpj": "47.465.824/0001-09",
+    "razaoSocial": "MACJ ENGENHARIA E CONSTRUCAO LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 333986.06,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "455a4b9a-a834-4b73-bff7-bb97eccb3394"
+    ]
   },
   "vigencia": {
-    "dataInicio": "18/06/2025",
-    "dataFimOriginal": "17/06/2026",
-    "dataTerminoAtualizado": "17/06/2026",
-    "prazoOriginal": "364",
-    "prazoAtualizado": "364"
+    "dataInicio": "2025-06-18T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-06-17T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "9063",
-    "dataPublicacao": "11/11/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-06-18T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 333986.06,

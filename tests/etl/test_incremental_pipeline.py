@@ -49,11 +49,15 @@ def test_offline_fallback_loads_complete_170_catalogs():
     assert len(demografia) >= 170, f"Esperado ao menos 170 bairros na demografia, obtido {len(demografia)}"
     assert "Pituba" in demografia
     assert demografia["Pituba"]["populacao"] > 0
-    assert demografia["Pituba"]["indice_vulnerabilidade"] == 0.12
+    assert demografia["Pituba"]["indice_vulnerabilidade"] == 0.13
+    assert "pct_esgoto_inadequado" in demografia["Pituba"]
+    assert "pct_agua_inadequada" in demografia["Pituba"]
+    assert "pct_analfabetismo_15mais" in demografia["Pituba"]
 
     assert "Aeroporto" in demografia
     assert demografia["Aeroporto"]["populacao"] <= 5
-    assert demografia["Aeroporto"]["indice_vulnerabilidade"] == 0.05
+    assert demografia["Aeroporto"]["indice_vulnerabilidade"] == 0.0
+    assert demografia["Aeroporto"]["pct_esgoto_inadequado"] == 0.0
 
 
 def test_incremental_mode_reuses_closed_mandates_without_network_call(tmp_path: Path):

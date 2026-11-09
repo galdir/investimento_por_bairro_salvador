@@ -2,36 +2,37 @@
   "id": "523f9edb-54a5-477f-bcc8-afd9a0a2373a",
   "unidadeGestora": "SECULT",
   "numeroContrato": "2024CT010183",
-  "numeroContratoOriginal": "19982024",
-  "nuProcesso": "256672/2024",
+  "numeroContratoOriginal": "2024CT010183",
+  "nuProcesso": null,
   "objeto": "Contratação de empresa especializada em serviço de Arquitetura para Elaboração dos Projetos de Infra Estrutura do Réveillon 2024/2025 - Layout para aproveitamento de espaço para alocação dos ambientes: área",
   "situacao": "Em Execução",
   "empreiteira": {
-    "razaoSocial": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
     "cnpj": "03.249.978/0001-80",
+    "razaoSocial": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 49000.0,
-    "outrasObrasCount": 0,
-    "outrasObrasIds": []
+    "obrasIds": [
+      "523f9edb-54a5-477f-bcc8-afd9a0a2373a"
+    ]
   },
   "vigencia": {
-    "dataInicio": "11/12/2024",
-    "dataFimOriginal": "11/06/2025",
-    "dataTerminoAtualizado": "11/06/2025",
-    "prazoOriginal": "182",
-    "prazoAtualizado": "182"
+    "dataInicio": "2024-12-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2025-06-11T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8931/2024",
-    "dataPublicacao": "12/12/2024"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-12-11T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 49000.0,
     "valorContratualVigente": 49000.0,
     "valorEmpenhado": 49000.0,
-    "valorLiquidado": 49000.0,
-    "valorPago": 49000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -44,126 +45,9 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "014123b7-c86f-470b-95a3-872b2c86ee2f",
-      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
-      "cdUnGestora": "547002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
-      "notaEmpenho": "2024NE002761",
-      "dataEmpenho": "17/12/2024",
-      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
-      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
-      "valEmpenhado": "49.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
-  "liquidacoes": [
-    {
-      "id": "3c4626a6-82d7-41aa-926c-3dcf888db22b",
-      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
-      "siglaOrgao": "SECULT",
-      "notaEmpenho": "2024NE002761",
-      "codUnGestora": "547002",
-      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
-      "siglaUnGestora": "SALTUR",
-      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
-      "notaLiquidacao": "2024NL020664",
-      "notaLancamento": "2024NL020664",
-      "numProcesso": "02641752024",
-      "dataLiquidacao": "26/12/2024",
-      "valLiqLiquidacao": "49.000,00",
-      "valBrutLiquidacao": "49.000,00",
-      "valEmpenho": "49.000,00",
-      "descObsLiquidacao": "PAGAMENTO REFERENTE PARCELA ÚNICA DA EMPRESA ESPECIALIZADA EM SERVIÇO DE\r\nARQUITETURA, ELA",
-      "pago": "0,00"
-    }
-  ],
-  "pagamentos": [
-    {
-      "id": "1cf6b727-45f1-41f6-8dff-a71c0cb40b72",
-      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
-      "siglaOrgao": "SECULT",
-      "notaEmpenho": "2024NE002761",
-      "codUnGestora": "547002",
-      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
-      "siglaUnGestora": "SALTUR",
-      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2024OB092828",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "49.000,00",
-      "dataPagamento": "30/12/2024",
-      "pago": "2.450,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "52be10af-7442-4c4d-86d0-c4529fddbfe5",
-      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
-      "siglaOrgao": "SECULT",
-      "notaEmpenho": "2024NE002761",
-      "codUnGestora": "547002",
-      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
-      "siglaUnGestora": "SALTUR",
-      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
-      "notaLiquidacao": "2024NL020664",
-      "ordBancaria": "2024OB092822",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "49.000,00",
-      "dataPagamento": "30/12/2024",
-      "pago": "43.536,50",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "99dff9aa-d213-44cd-b256-ca9cf3d661bf",
-      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
-      "siglaOrgao": "SECULT",
-      "notaEmpenho": "2024NE002761",
-      "codUnGestora": "547002",
-      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
-      "siglaUnGestora": "SALTUR",
-      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2025OB000273",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "49.000,00",
-      "dataPagamento": "20/01/2025",
-      "pago": "2.278,50",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    },
-    {
-      "id": "d0281e2d-5016-445e-87d5-93200d89b922",
-      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
-      "siglaOrgao": "SECULT",
-      "notaEmpenho": "2024NE002761",
-      "codUnGestora": "547002",
-      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
-      "siglaUnGestora": "SALTUR",
-      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
-      "notaLiquidacao": " ",
-      "ordBancaria": "2025OB000273",
-      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
-      "valEmpenhado": "49.000,00",
-      "dataPagamento": "20/01/2025",
-      "pago": "735,00",
-      "descTipoPagamento": null,
-      "processoPagamento": null,
-      "detalhamento": null
-    }
-  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
   "semaforo": {
     "status": "VERDE",

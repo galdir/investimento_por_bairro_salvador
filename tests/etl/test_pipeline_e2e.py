@@ -75,13 +75,25 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
     assert "Pituba" in bairros_map
     pituba = bairros_map["Pituba"]
     assert pituba["populacao"] == 57894
-    assert pituba["indice_vulnerabilidade"] == 0.12
+    assert 0.0 <= pituba["indice_vulnerabilidade"] <= 1.0
+    assert "pct_esgoto_inadequado" in pituba
+    assert "pct_agua_inadequada" in pituba
+    assert "pct_analfabetismo_15mais" in pituba
+    assert pituba["vulnerabilidade_estimada_contiguidade"] is False
     assert pituba["is_zona_especial_nao_residencial"] is False
     assert pituba["isZonaEspecialNaoResidencial"] is False
     assert pituba["prefeitura_bairro"] == "Barra/Pituba"
     assert "valorTotal" in pituba
     assert "investimentoPorHabitante" in pituba
     assert pituba["totalObras"] >= 1
+
+    # Bairros estimados por contiguidade espacial
+    for b_contig in ["Chame-Chame", "Ilha de Maré"]:
+        if b_contig in bairros_map:
+            assert bairros_map[b_contig]["vulnerabilidade_estimada_contiguidade"] is True
+            assert bairros_map[b_contig]["pct_esgoto_inadequado"] > 0
+            assert bairros_map[b_contig]["pct_agua_inadequada"] > 0
+            assert bairros_map[b_contig]["pct_analfabetismo_15mais"] > 0
 
     # Zonas Especiais Não-Residenciais
     nome_cab = "Centro Administrativo da Bahia" if "Centro Administrativo da Bahia" in bairros_map else "Centro Administrativo da Bahia - CAB"
@@ -91,8 +103,13 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
         props = bairros_map[nome_ze]
         assert props["is_zona_especial_nao_residencial"] is True
         assert props["isZonaEspecialNaoResidencial"] is True
-        # Per capita deve ser 0 para evitar distorções
+        # Per capita e vulnerabilidade devem ser 0 para evitar distorções
         assert props["investimentoPorHabitante"] == 0.0
+        assert props["indice_vulnerabilidade"] == 0.0
+        assert props["pct_esgoto_inadequado"] == 0.0
+        assert props["pct_agua_inadequada"] == 0.0
+        assert props["pct_analfabetismo_15mais"] == 0.0
+        assert props["vulnerabilidade_estimada_contiguidade"] is False
 
     # 3. Validação do arquivo geo/prefeituras_bairro.geojson
     pb_file = tmp_path / "geo" / "prefeituras_bairro.geojson"
@@ -336,14 +353,27 @@ def test_pipeline_normalizes_raw_online_geosalvador_and_sidra_payloads_and_compu
     assert len(vulns) > 10, f"Índices de vulnerabilidade colapsados: apenas {len(vulns)} valores distintos: {vulns}"
 
     bairros_by_name = {b["nome"]: b for b in bairros}
-    assert bairros_by_name["Pituba"]["indice_vulnerabilidade"] == 0.12
-    assert bairros_by_name["Liberdade"]["indice_vulnerabilidade"] == 0.78
-    assert bairros_by_name["Cabula"]["indice_vulnerabilidade"] == 0.55
-    assert bairros_by_name["Aeroporto"]["indice_vulnerabilidade"] == 0.05
-    assert bairros_by_name["Porto Seco Pirajá"]["indice_vulnerabilidade"] == 0.20
+    # Invariante de ordenação socioeconômica do Censo 2022
+    assert (
+        bairros_by_name["Pituba"]["indice_vulnerabilidade"]
+        < bairros_by_name["Cabula"]["indice_vulnerabilidade"]
+        < bairros_by_name["Liberdade"]["indice_vulnerabilidade"]
+    )
+    # Zonas Especiais Não-Residenciais isentas (0.0)
+    assert bairros_by_name["Aeroporto"]["indice_vulnerabilidade"] == 0.0
+    assert bairros_by_name["Porto Seco Pirajá"]["indice_vulnerabilidade"] == 0.0
     cab_bairro = bairros_by_name.get("Centro Administrativo da Bahia - CAB") or bairros_by_name.get("Centro Administrativo da Bahia")
     assert cab_bairro is not None
-    assert cab_bairro["indice_vulnerabilidade"] == 0.08
+    assert cab_bairro["indice_vulnerabilidade"] == 0.0
+
+    # Sub-indicadores nas Prefeituras-Bairro
+    for pb in prefeituras:
+        assert "pct_esgoto_inadequado" in pb
+        assert "pct_agua_inadequada" in pb
+        assert "pct_analfabetismo_15mais" in pb
+        assert pb["pct_esgoto_inadequado"] >= 0
+        assert pb["pct_agua_inadequada"] >= 0
+        assert pb["pct_analfabetismo_15mais"] >= 0
 
     # 6. Obras de nível Bairro possuem latitude, longitude, bairro canônico e prefeitura_bairro
     obras_bairro = [o for o in obras if o.get("nivel") == "Bairro"]

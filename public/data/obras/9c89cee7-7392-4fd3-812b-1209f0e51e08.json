@@ -9,13 +9,12 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "LIGA ENGENHARIA LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 48208059.51,
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 47063829.25,
     "obrasIds": [
       "9c89cee7-7392-4fd3-812b-1209f0e51e08",
-      "18942fb1-dfcc-45fb-8aca-53defbe546d6",
-      "28152e7a-8ff9-4b6b-971c-f041c6820bfd"
+      "18942fb1-dfcc-45fb-8aca-53defbe546d6"
     ]
   },
   "vigencia": {

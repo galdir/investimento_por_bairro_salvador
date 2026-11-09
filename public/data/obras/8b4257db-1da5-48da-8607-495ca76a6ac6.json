@@ -2,33 +2,37 @@
   "id": "8b4257db-1da5-48da-8607-495ca76a6ac6",
   "unidadeGestora": "SEINFRA",
   "numeroContrato": "2025CT002988",
-  "numeroContratoOriginal": "0262024",
-  "nuProcesso": "083585/2024",
+  "numeroContratoOriginal": "2025CT002988",
+  "nuProcesso": null,
   "objeto": "Valor ref. a obra de construção de imóveis para atendimento da demanda de implantação e implementação do Centro de Referencia Especializado de Assistência Social (CREAS)",
   "situacao": "Cancelado",
   "empreiteira": {
-    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
     "cnpj": "13.585.696/0001-07",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 6760413.83,
-    "outrasObrasCount": 2,
-    "outrasObrasIds": [
+    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 48674967.2,
+    "obrasIds": [
       "99c639db-3833-40df-8149-d5279dfddd54",
       "81edebcc-a3b9-48b6-ad0d-f34e7f526d50",
-      "9a094659-a858-407b-9d01-0d02a447effe"
+      "9a094659-a858-407b-9d01-0d02a447effe",
+      "04f87a18-721e-4097-94cf-5c58739bbd51",
+      "eed47ecc-c7f9-4631-aa15-cfaa6a42d8d5",
+      "8b4257db-1da5-48da-8607-495ca76a6ac6",
+      "573ebec0-ee42-4b36-9240-503ef84c1206",
+      "9e814c7e-a813-44ac-89e1-84bd01b9420c"
     ]
   },
   "vigencia": {
-    "dataInicio": "19/05/2025",
-    "dataFimOriginal": "14/03/2026",
-    "dataTerminoAtualizado": "14/03/2026",
-    "prazoOriginal": "299",
-    "prazoAtualizado": "299"
+    "dataInicio": "2025-05-19T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-03-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
   },
   "dom": {
-    "nuDom": "8892",
-    "dataPublicacao": "19/05/2025"
+    "nuDom": "Não informado",
+    "dataPublicacao": "2025-05-19T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 9563865.78,
@@ -48,65 +52,7 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [
-    {
-      "id": "466bdba2-9aeb-482c-97ac-9bd405a9db36",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE000569",
-      "dataEmpenho": "19/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "50.000,00",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "ce3ea592-7e20-414d-af76-89215530c9c7",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE001146",
-      "dataEmpenho": "19/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-409,81",
-      "valBrutLiquidacao": null,
-      "pago": null
-    },
-    {
-      "id": "2fcc372a-29ff-4854-ad47-dac0f087f06d",
-      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
-      "cdUnGestora": "616002",
-      "nmFuncao": null,
-      "nmSubFuncao": null,
-      "dsCategoriaEconomica": null,
-      "nmGrupoDespesa": null,
-      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
-      "notaEmpenho": "2025NE000780",
-      "dataEmpenho": "19/05/2025",
-      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
-      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
-      "elemDespesa": "Obras e Instalações",
-      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
-      "valEmpenhado": "-49.590,19",
-      "valBrutLiquidacao": null,
-      "pago": null
-    }
-  ],
+  "empenhos": [],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",

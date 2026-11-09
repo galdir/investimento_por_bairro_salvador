@@ -9,15 +9,14 @@
   "empreiteira": {
     "cnpj": "",
     "razaoSocial": "CONSTRUTORA BSM LTDA",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 172396214.28,
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 95515807.97,
     "obrasIds": [
       "bbcb7643-a71b-4558-b091-05b61f601a0b",
       "886733a7-84ad-4c10-8b4b-abb7442e2de2",
       "b402a1d0-393f-41ce-bf18-cca91d03d097",
-      "89de7cd9-6bfc-494a-a98e-4b185e3dcbbc",
-      "2acb5cfc-d190-4397-9141-5426aa96e801"
+      "89de7cd9-6bfc-494a-a98e-4b185e3dcbbc"
     ]
   },
   "vigencia": {
