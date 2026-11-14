@@ -7,15 +7,15 @@
   "objeto": "Contratação de Empresa para Execução dos Serviços de  Modernização de Campos de Futebol através da Implantação de Grama Sintética, Mata Drenante e Embasamento Granular\r\nContrato: 014/2020",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MARTORE CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 16793435.45,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "f3773df2-5a00-48ac-8542-36dad6bf6bc4",
-      "1bbb8cc0-c4bd-4b93-93e6-82cac9ab59a7",
-      "fe23ad98-d579-4fdc-a61a-ef10472a5b6a"
+      "1bbb8cc0-c4bd-4b93-93e6-82cac9ab59a7"
     ]
   },
   "vigencia": {
@@ -34,7 +34,7 @@
     "valorContratualVigente": 3774252.0,
     "valorEmpenhado": 3774252.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 20.53,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

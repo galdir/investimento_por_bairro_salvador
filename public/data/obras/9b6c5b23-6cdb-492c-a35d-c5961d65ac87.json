@@ -7,14 +7,15 @@
   "objeto": "Serviços de Confecção de Plantas com Memorial Descritivo, Implantações de Marcos Georreferenciados e Entrega dos Convites aos Confrontantes de Imóveis Urbanos, nos Municípios de Salvador, Lauro de Freitas e Simões Filho.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 240000.0,
-    "obrasIds": [
-      "9b6c5b23-6cdb-492c-a35d-c5961d65ac87",
-      "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575"
+    "cnpj": "16.607.359/0001-61",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 3814184.34,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "066d3d3f-6a65-4f16-b1e1-c2e4e3b82575",
+      "cc3ff25f-d4c8-40fe-9558-1906743228d1"
     ]
   },
   "vigencia": {
@@ -33,7 +34,7 @@
     "valorContratualVigente": 120000.0,
     "valorEmpenhado": 120000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 1.26,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

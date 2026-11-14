@@ -7,16 +7,17 @@
   "objeto": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 04- GRE  SUBÚRBIO I",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "AGC BRASIL ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 22904819.39,
-    "obrasIds": [
+    "cnpj": "03.361.390/0001-13",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 40125152.32,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "f4653503-d23f-44ed-9f63-0b02319243fb",
       "a07bb903-811f-4ade-803b-4c860dfbf703",
       "947cbf2d-47ca-46a2-aa92-bae09ac8ff30",
-      "d4d3e2fd-18f4-4974-af7d-232133b2073d",
-      "c923846a-a879-4ec2-b112-25c575f0d78e"
+      "d4d3e2fd-18f4-4974-af7d-232133b2073d"
     ]
   },
   "vigencia": {
@@ -35,7 +36,7 @@
     "valorContratualVigente": 7877363.99,
     "valorEmpenhado": 7877363.99,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.5,
     "valorAditivos": 1528107.98,
     "deltaPercentualAditivos": 24.07
@@ -65,5 +66,6 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

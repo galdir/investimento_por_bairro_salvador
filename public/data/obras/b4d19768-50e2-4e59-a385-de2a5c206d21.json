@@ -7,14 +7,13 @@
   "objeto": "Reconstrução do muro da Escola Municipal Francisca de Sande , por meio de Dispensa de Licitação Emergencial.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 107800.0,
-    "obrasIds": [
-      "b4d19768-50e2-4e59-a385-de2a5c206d21"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-07-24T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 107800.0,
     "valorEmpenhado": 107800.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.4,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

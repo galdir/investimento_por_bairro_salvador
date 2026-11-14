@@ -7,14 +7,13 @@
   "objeto": "Contratação de uma empresa especializada em engenharia e arquitetura, visando à reformulação do layout do 3º andar do Edif. Sede da SEFAZ.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "LD ENGENHARIA E CONSTRUCAO LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 99744.25,
-    "obrasIds": [
-      "b54fdbbf-272b-476d-bada-91ed1d4f7851"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-07-11T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 99744.25,
     "valorEmpenhado": 99744.25,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

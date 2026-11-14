@@ -7,14 +7,13 @@
   "objeto": "Para realização de estudo técnico para identificação de problemas na estrutura física da Casa do Benin, Espaço Cultural da Barroquinha, Teatro Gregório deMattos e sede da Fundação Gregório de Mattos, bem como dos equipamentos de iluminação cênica e sonorização do Espaço Cultural da Barroquinha e Teatro Gregório de Matto",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CLA ENGENHARIA EIRELI",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 17500.0,
-    "obrasIds": [
-      "35ca172e-9aa3-4cc0-8f41-e8965e6f08b4"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-08-11T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 17500.0,
     "valorEmpenhado": 17500.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "543002"
 }

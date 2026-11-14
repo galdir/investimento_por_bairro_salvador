@@ -7,14 +7,14 @@
   "objeto": "SERVIÇOS, REMANESCENTES, DE MODERNIZAÇÃO DO CAMPO DE FUTEBOÇ, ATRAVÉS DA IMPLANTAÇÃO DE GRAMA SINTÉTICA - BOCA DO RIO",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MARTORE CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 16793435.45,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "f3773df2-5a00-48ac-8542-36dad6bf6bc4",
-      "1bbb8cc0-c4bd-4b93-93e6-82cac9ab59a7",
       "fe23ad98-d579-4fdc-a61a-ef10472a5b6a"
     ]
   },
@@ -34,7 +34,7 @@
     "valorContratualVigente": 404633.43,
     "valorEmpenhado": 404633.43,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 119.69,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

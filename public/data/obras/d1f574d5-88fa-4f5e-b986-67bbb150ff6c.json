@@ -7,14 +7,13 @@
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PERSONAL ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 150000.0,
-    "obrasIds": [
-      "d1f574d5-88fa-4f5e-b986-67bbb150ff6c"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-05-31T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 150000.0,
     "valorEmpenhado": 150000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 17.76,
     "valorAditivos": 100000.0,
     "deltaPercentualAditivos": 200.0
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

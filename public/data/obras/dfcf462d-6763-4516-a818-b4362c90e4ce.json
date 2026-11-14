@@ -7,13 +7,13 @@
   "objeto": "Reforma e adequação da estrutura física da unidade  escolar  ESCOLA MUNICIPAL IVONE VIEIRA LIMA -LOTE 02 da Secretaria Municipal da Educação ,",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PROSPER ENGENHARIA E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 1532469.07,
-    "obrasIds": [
-      "dfcf462d-6763-4516-a818-b4362c90e4ce",
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "6e5d0ca1-43d2-45ad-9f83-c0e13dab4c0e",
       "93fe9a6f-325a-437c-843f-32fc27373223"
     ]
@@ -34,7 +34,7 @@
     "valorContratualVigente": 473152.93,
     "valorEmpenhado": 473152.93,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.19,
     "valorAditivos": 136402.14,
     "deltaPercentualAditivos": 40.51
@@ -65,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

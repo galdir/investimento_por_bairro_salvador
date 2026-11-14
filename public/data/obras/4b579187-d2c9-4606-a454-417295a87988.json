@@ -7,14 +7,13 @@
   "objeto": "RECONSTRUÇÃO DE MUROS EM UNIDADES ESCOLARES NO MUNICÍPIO DO SALVADOR - LOTE 01.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "NORTEL ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 2347245.34,
-    "obrasIds": [
-      "4b579187-d2c9-4606-a454-417295a87988"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-12-06T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 2347245.34,
     "valorEmpenhado": 2347245.34,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.32,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

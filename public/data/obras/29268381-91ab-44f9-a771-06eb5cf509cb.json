@@ -7,13 +7,13 @@
   "objeto": "Proc. Licitatório nº 7915/22 (TP003) - Requalificação de Ruas - Rua Direta Éden do Vale - Mata Escura",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "A J CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 7463869.35,
-    "obrasIds": [
-      "29268381-91ab-44f9-a771-06eb5cf509cb",
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "987c505c-4cf1-4b42-9abe-4a992948e8c1",
       "cc314c89-64c4-41fe-8645-197c25503b8f"
     ]
@@ -34,7 +34,7 @@
     "valorContratualVigente": 1014290.81,
     "valorEmpenhado": 1014290.81,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -59,10 +59,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Mata Escura",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.932852,
+  "longitude": -38.458147,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,14 +7,13 @@
   "objeto": "EXECUÇÃO DAS OBRAS DE RECUPERAÇÃO ESTRUTURAL DO VIADUTO SÃO RAIMUNDO-BARRIS-SALVADOR/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "TECNOCRET ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 2194976.1,
-    "obrasIds": [
-      "a80a796a-0cfc-4abb-bca7-bdecd3b367f1"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-03-10T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 2194976.1,
     "valorEmpenhado": 2194976.1,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 16.22,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.986317,
   "longitude": -38.513577,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,14 +7,13 @@
   "objeto": "SERVIÇOS COMUNS DE ENGENHARIA PARA A PRODUÇÃO DE GRADIL COM DESENHO ARTÍSTICO EM ELEMENTOS METÁLICOS COM UM PORTÃO DE PEDESTRE E OUTRO PARA VEÍCULOS. INCLUSO INSUMOS, OS EQUIPAMENTOS E FERMENTARIAS.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 97500.0,
-    "obrasIds": [
-      "446f1b16-3e84-4072-9abd-2959509af291"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-11-01T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 97500.0,
     "valorEmpenhado": 97500.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

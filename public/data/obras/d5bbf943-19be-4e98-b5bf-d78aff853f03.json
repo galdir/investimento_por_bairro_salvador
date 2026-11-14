@@ -7,15 +7,20 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DOS SERVIÇOS DE MANUTENÇÃO DE CAMPOS E QUADRAS DO MUNICIPAL DE SALVADOR/BA, EM ÁREAS QUE COMPREENDEM AS PREFEITURAS BAIRROS I, VIII E X.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EBISA ENGENHARIA BRASILEIRA, INDUSTRIA E SANEAMENTO LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 78567783.92,
-    "obrasIds": [
+    "cnpj": "15.137.680/0001-67",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 221954129.34,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "5b9b70d0-b554-4f78-9135-ec9022b1a0ee",
+      "f3419fd5-73d1-4409-8bac-1f2047d63933",
+      "fb5f19e3-b0d2-468c-8a4e-79350b90b6e1",
+      "3a69d3f6-44a9-4c08-92cc-75a021a2cc39",
+      "0fc0f8d3-7d68-40b6-bdb8-59c4f1b01b18",
       "36232396-8f61-4283-b386-43cdc8934c9a",
       "a43c924e-06ec-445c-a278-6cd57b5cacf9",
-      "d5bbf943-19be-4e98-b5bf-d78aff853f03",
       "5b951967-3584-4f9d-be56-d2e0cae6ee16"
     ]
   },
@@ -35,7 +40,7 @@
     "valorContratualVigente": 5430804.23,
     "valorEmpenhado": 5430804.23,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.57,
     "valorAditivos": 1082037.79,
     "deltaPercentualAditivos": 24.88
@@ -65,5 +70,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

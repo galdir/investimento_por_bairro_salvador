@@ -7,13 +7,15 @@
   "objeto": "OBRAS DE RESTAURAÇÃO E AMPLIAÇÃO DO MUSEU DA SANTA DA MISERICORDIA - CENTRO\r\nContrato: 013/2021",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA PENTAGONO LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 22338049.4,
-    "obrasIds": [
-      "75b5a38c-3701-417f-9e0c-04ecc025cc78",
+    "cnpj": "34.145.847/0001-86",
+    "totalObras": 5,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 47894570.49,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "5180416c-cbd1-4606-904a-7f466d9260e2",
+      "d29d26b5-f600-418d-b845-189e97ea0282",
       "6e367188-0bc4-4466-a54d-9b6ef92c1dbb",
       "aec01fec-cd4d-4cfb-bea7-00e893140694"
     ]
@@ -34,7 +36,7 @@
     "valorContratualVigente": 10616478.25,
     "valorEmpenhado": 10616478.25,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.05,
     "valorAditivos": 3325763.64,
     "deltaPercentualAditivos": 45.62
@@ -60,10 +62,11 @@
     ],
     "deltaPercentualValor": 45.62
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

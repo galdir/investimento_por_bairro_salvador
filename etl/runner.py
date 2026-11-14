@@ -7,16 +7,15 @@ artefatos estáticos particionados em conformidade com o ADR-0001.
 
 import json
 from pathlib import Path
-import shutil
 from typing import Any
+import warnings
 
 from etl.domain import kpis
-from etl.domain.empreiteiras import (
-    calcular_concentracao_empreiteiras,
-    formatar_cnpj,
-    obter_chave_empreiteira,
+from etl.domain.ficha_limpa import (
+    construir_ficha_obra,
+    mesclar_fichas_obra,
+    sincronizar_obra_com_ficha,
 )
-from etl.domain.ficha_limpa import construir_ficha_obra
 from etl.domain.geocoding import (
     GeocodingCache,
     calcular_centroides_bairros,
@@ -24,8 +23,10 @@ from etl.domain.geocoding import (
 )
 from etl.domain.mandato import (
     MANDATOS_MUNICIPAIS,
-    classificar_mandatos_obra,
+    cds_ug_compativeis,
     deduplicar_obras,
+    normalizar_data_chave,
+    obter_chaves_candidatas_obra,
     resolver_datas_vigencia,
 )
 from etl.domain.semaforo import classificar_semaforo
@@ -41,8 +42,14 @@ from etl.domain.territorio import (
 from etl.generator import (
     generate_bairros_geojson,
     generate_index_json,
-    generate_obra_detalhe_json,
     generate_prefeituras_geojson,
+)
+from etl.reconcile import (
+    coletar_fichas_candidatas,
+    escrever_indices_alias,
+    finalizar_acervo_obras,
+    indexar_fichas_locais,
+    resolver_caminho_indice,
 )
 from etl.sources import geosalvador, ibge_censo, transparencia
 
@@ -112,9 +119,7 @@ def run_pipeline(
     closed_mandates_reused: set[str] = set()
 
     # Reuso incremental de mandatos encerrados (ex: 2021-2024)
-    index_candidate = output_path / f"index_{year}.json"
-    if not index_candidate.exists() and (output_path / "index_2025.json").exists():
-        index_candidate = output_path / "index_2025.json"
+    index_candidate = resolver_caminho_indice(output_path, year)
 
     def _hidratar_obra_existente(o: dict[str, Any]) -> dict[str, Any]:
         item_copy = dict(o)
@@ -144,31 +149,56 @@ def run_pipeline(
                 item_copy["prefeituraBairro"] = pb_clean
         return item_copy
 
+    obras_dir = output_path / "obras"
+    fichas_por_chave, fichas_por_id = indexar_fichas_locais(obras_dir)
+    persisted_refs_by_key: dict[tuple[str, str], list[dict[str, Any]]] = {}
+
     existing_obras: list[dict[str, Any]] = []
-    if not full_refresh and index_candidate.exists():
+    if index_candidate is not None:
         try:
             with open(index_candidate, "r", encoding="utf-8") as f:
                 existing_index = json.load(f)
             existing_obras = existing_index.get("obras", [])
 
-            for m in mandatos_lista:
-                info = MANDATOS_MUNICIPAIS.get(m)
-                if info and info["fim"] < year:
-                    has_obras_mandato = any(m in o.get("mandatos", []) for o in existing_obras)
-                    if has_obras_mandato:
-                        closed_mandates_reused.add(m)
+            for o_exist in existing_obras:
+                exist_id = o_exist.get("id")
+                if exist_id in (None, ""):
+                    continue
+                for chave_cand in obter_chaves_candidatas_obra(o_exist):
+                    persisted_refs_by_key.setdefault(chave_cand, []).append(o_exist)
 
-            if closed_mandates_reused:
-                mandatos_consultar = [m for m in mandatos_lista if m not in closed_mandates_reused]
-                reused_obras = [
-                    _hidratar_obra_existente(o)
-                    for o in existing_obras
-                    if any(m in closed_mandates_reused for m in o.get("mandatos", []))
-                ]
-                raw_grid.extend(reused_obras)
-        except Exception:
+            if not full_refresh:
+                for m in mandatos_lista:
+                    info = MANDATOS_MUNICIPAIS.get(m)
+                    if info and info["fim"] < year:
+                        has_obras_mandato = any(m in o.get("mandatos", []) for o in existing_obras)
+                        if has_obras_mandato:
+                            closed_mandates_reused.add(m)
+
+                if closed_mandates_reused:
+                    mandatos_consultar = [m for m in mandatos_lista if m not in closed_mandates_reused]
+                    reused_obras = [
+                        _hidratar_obra_existente(o)
+                        for o in existing_obras
+                        if any(m in closed_mandates_reused for m in o.get("mandatos", []))
+                    ]
+                    raw_grid.extend(reused_obras)
+        except (OSError, json.JSONDecodeError, TypeError, KeyError) as exc:
+            warnings.warn(
+                f"Falha ao ler índice incremental '{index_candidate}': {exc}",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+            existing_obras = []
+            persisted_refs_by_key.clear()
+            raw_grid.clear()
             closed_mandates_reused.clear()
             mandatos_consultar = list(mandatos_lista)
+
+    for chave_local, lista_fichas in fichas_por_chave.items():
+        for ficha_local in lista_fichas:
+            if ficha_local.get("id") not in (None, ""):
+                persisted_refs_by_key.setdefault(chave_local, []).append(ficha_local)
 
     sample_ids = {"1001", "1002", "1003", "1004", "1005"}
     for m in mandatos_consultar:
@@ -199,8 +229,22 @@ def run_pipeline(
     if not raw_grid and not closed_mandates_reused:
         raw_grid = transparencia.fetch_grid_detalhada(year=year)
 
-    # Deduplicação canônica por (cdUnidadeGestora, nuContratoSigef) e classificação de mandatos
+    # Deduplicação canônica por (cdUnidadeGestora, nuContratoSigef) e estabilização de IDs
     grid_obras = deduplicar_obras(raw_grid)
+    for obra in grid_obras:
+        id_estabilizado = False
+        for chave_cand in obter_chaves_candidatas_obra(obra):
+            for ref in persisted_refs_by_key.get(chave_cand, []):
+                if cds_ug_compativeis(obra, ref):
+                    obra["id"] = ref["id"]
+                    id_estabilizado = True
+                    break
+            if id_estabilizado:
+                break
+        if obra.get("id") in (None, ""):
+            ug_fb = str(obra.get("cdUnidadeGestora") or obra.get("sgOrgao") or "OBRA").strip()
+            nu_fb = str(obra.get("nuContratoSigef") or obra.get("numeroContrato") or "SEM-NUM").strip()
+            obra["id"] = f"{ug_fb}-{nu_fb}".replace("/", "-")
 
     # 2. Cálculo dos centróides dos Bairros Oficiais
     bairros_centroides = calcular_centroides_bairros(raw_bairros)
@@ -279,19 +323,92 @@ def run_pipeline(
             "populacao_total": pop_total,
         })
 
-    # Classificação de Tema e Semáforo da Obra antes do rollup territorial
+    # Classificação de Tema e Semáforo da Obra antes da consolidação detalhada
     for obra in grid_obras:
         obra["tema"] = classificar_tema(obra)
         obra["semaforo"] = classificar_semaforo(obra)
 
-    # 6. Agregações e Rollup Territorial (Camada A)
+    # 6. Detalhamento individual com reconciliação local e blindagem histórica
+    obras_dir.mkdir(parents=True, exist_ok=True)
+    detail_cache_hits = 0
+    fichas_para_gravar: dict[str, dict[str, Any]] = {}
+
+    for obra in grid_obras:
+        cd_ug = obra.get("cdUnidadeGestora") or obra.get("unidadeGestora") or obra.get("sgOrgao")
+        nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
+        obra_id = obra.get("id")
+
+        candidatas_locais = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
+        ficha_disco = fichas_por_id.get(str(obra_id)) or (candidatas_locais[0] if candidatas_locais else None)
+        reaproveitar_detalhes = False
+
+        if not full_refresh and ficha_disco is not None:
+            vl_atua = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
+            perc_exec = parse_float(obra.get("percentualExecutado") or 0.0)
+            ds_situacao = str(obra.get("dsSituacao") or obra.get("situacao") or "").strip()
+            dt_termino = normalizar_data_chave(
+                obra.get("dtTerminoVigenciaAtualizado") or resolver_datas_vigencia(obra)[1] or ""
+            )
+
+            p_funil = ficha_disco.get("funilFinanceiro", {})
+            p_vigencia = ficha_disco.get("vigencia", {})
+            p_vl_atua = parse_float(p_funil.get("valorContratualVigente") or ficha_disco.get("vlAtualizado") or 0.0)
+            p_perc_exec = parse_float(p_funil.get("percentualExecutado") or ficha_disco.get("percentualExecutado") or 0.0)
+            p_ds_situacao = str(ficha_disco.get("situacao") or ficha_disco.get("dsSituacao") or "").strip()
+            p_dt_termino = normalizar_data_chave(
+                p_vigencia.get("dataTerminoAtualizado") or ficha_disco.get("dtTerminoVigenciaAtualizado") or ""
+            )
+
+            if (
+                vl_atua == p_vl_atua
+                and perc_exec == p_perc_exec
+                and ds_situacao == p_ds_situacao
+                and dt_termino == p_dt_termino
+            ):
+                reaproveitar_detalhes = True
+
+        if reaproveitar_detalhes and candidatas_locais:
+            detail_cache_hits += 1
+            ficha_obra = mesclar_fichas_obra(obra, candidatas_locais)
+        else:
+            detalhe = transparencia.fetch_detalhes_obra(cd_ug, nu_sigef, year=year, obra_base=obra)
+            aditivos_raw = transparencia.fetch_aditivos_obra(cd_ug, nu_sigef, year=year)
+            dotacoes_raw = transparencia.fetch_dotacao_obra(cd_ug, nu_sigef, year=year)
+            empenhos_raw = transparencia.fetch_empenhos_obra(cd_ug, nu_sigef, year=year)
+            liquidacoes_raw = transparencia.fetch_liquidacoes_obra(cd_ug, nu_sigef, year=year)
+            pagamentos_raw = transparencia.fetch_pagamentos_obra(cd_ug, nu_sigef, year=year)
+
+            ficha_nova = construir_ficha_obra(
+                obra=obra,
+                detalhe=detalhe,
+                aditivos_raw=aditivos_raw,
+                dotacoes_raw=dotacoes_raw,
+                empenhos_raw=empenhos_raw,
+                liquidacoes_raw=liquidacoes_raw,
+                pagamentos_raw=pagamentos_raw,
+                concentracao_map=None,
+                year=year,
+            )
+            ficha_obra = (
+                mesclar_fichas_obra(obra, [ficha_nova, *candidatas_locais])
+                if candidatas_locais
+                else ficha_nova
+            )
+
+        sincronizar_obra_com_ficha(obra, ficha_obra)
+        fichas_para_gravar[str(obra_id)] = ficha_obra
+
+    # 7. Unificação de Empreiteiras, gravação das fichas finais e expurgo de órfãos
+    concentracao_map, _ = finalizar_acervo_obras(grid_obras, fichas_para_gravar, obras_dir)
+
+    # 8. Agregações e Rollup Territorial (Camada A) com dados financeiros e cadastrais sincronizados
     bairros_rollup, prefeituras_rollup, opacidade = calcular_rollup_territorial(
         bairros_resumo=bairros_base,
         prefeituras_resumo=prefeituras_base,
         obras_alocadas=grid_obras,
     )
 
-    # 7. Geração das malhas GeoJSON enriquecidas
+    # 9. Geração das malhas GeoJSON enriquecidas
     bairros_geo_path = output_path / "geo" / "bairros.geojson"
     generate_bairros_geojson(
         raw_bairros_geojson=raw_bairros,
@@ -306,95 +423,7 @@ def run_pipeline(
         output_path=pb_geo_path,
     )
 
-    # 8. Detalhamento individual das Obras Públicas (Ficha Limpa sob demanda) e Concentração
-    concentracao_map = calcular_concentracao_empreiteiras(grid_obras)
-    obras_dir = output_path / "obras"
-    obras_dir.mkdir(parents=True, exist_ok=True)
-    detail_cache_hits = 0
-
-    for obra in grid_obras:
-        cd_ug = obra.get("cdUnidadeGestora") or obra.get("unidadeGestora") or obra.get("sgOrgao")
-        nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
-        obra_id = obra.get("id")
-
-        obra_file_path = obras_dir / f"{obra_id}.json"
-        reaproveitar_detalhes = False
-
-        if not full_refresh and obra_file_path.exists():
-            try:
-                with open(obra_file_path, "r", encoding="utf-8") as f:
-                    persisted_ficha = json.load(f)
-
-                vl_atua = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
-                perc_exec = parse_float(obra.get("percentualExecutado") or 0.0)
-                ds_situacao = str(obra.get("dsSituacao") or obra.get("situacao") or "").strip()
-                dt_termino = str(obra.get("dtTerminoVigenciaAtualizado") or resolver_datas_vigencia(obra)[1] or "").strip()
-
-                p_funil = persisted_ficha.get("funilFinanceiro", {})
-                p_vigencia = persisted_ficha.get("vigencia", {})
-                p_vl_atua = parse_float(p_funil.get("valorContratualVigente") or persisted_ficha.get("vlAtualizado") or 0.0)
-                p_perc_exec = parse_float(p_funil.get("percentualExecutado") or persisted_ficha.get("percentualExecutado") or 0.0)
-                p_ds_situacao = str(persisted_ficha.get("situacao") or persisted_ficha.get("dsSituacao") or "").strip()
-                p_dt_termino = str(p_vigencia.get("dataTerminoAtualizado") or persisted_ficha.get("dtTerminoVigenciaAtualizado") or "").strip()
-
-                if (
-                    vl_atua == p_vl_atua
-                    and perc_exec == p_perc_exec
-                    and ds_situacao == p_ds_situacao
-                    and dt_termino == p_dt_termino
-                ):
-                    reaproveitar_detalhes = True
-            except Exception:
-                reaproveitar_detalhes = False
-
-        if reaproveitar_detalhes:
-            detail_cache_hits += 1
-            cnpj_credor = persisted_ficha.get("empreiteira", {}).get("cnpj") or formatar_cnpj(str(obra.get("nuDocumentoCredor") or obra.get("cnpj") or ""))
-            obra["cnpjCredor"] = cnpj_credor
-            obra["cnpj"] = cnpj_credor
-            nu_dom = persisted_ficha.get("dom", {}).get("nuDom") or obra.get("nuDom")
-            if nu_dom:
-                obra["nuDom"] = nu_dom
-            p_vl_pago = persisted_ficha.get("funilFinanceiro", {}).get("valorPago")
-            if p_vl_pago is not None:
-                obra["vlPago"] = parse_float(p_vl_pago)
-
-            razao_social = str(persisted_ficha.get("empreiteira", {}).get("razaoSocial") or obra.get("nmCredor") or "").strip()
-            chave_emp = obter_chave_empreiteira(cnpj_credor, razao_social)
-            if chave_emp in concentracao_map:
-                persisted_ficha["empreiteira"] = concentracao_map[chave_emp]
-                generate_obra_detalhe_json(persisted_ficha, obra_file_path)
-        else:
-            detalhe = transparencia.fetch_detalhes_obra(cd_ug, nu_sigef, year=year, obra_base=obra)
-            aditivos_raw = transparencia.fetch_aditivos_obra(cd_ug, nu_sigef, year=year)
-            dotacoes_raw = transparencia.fetch_dotacao_obra(cd_ug, nu_sigef, year=year)
-            empenhos_raw = transparencia.fetch_empenhos_obra(cd_ug, nu_sigef, year=year)
-            liquidacoes_raw = transparencia.fetch_liquidacoes_obra(cd_ug, nu_sigef, year=year)
-            pagamentos_raw = transparencia.fetch_pagamentos_obra(cd_ug, nu_sigef, year=year)
-
-            cnpj_credor = formatar_cnpj(str(detalhe.get("nuDocumentoCredor") or obra.get("nuDocumentoCredor") or ""))
-            obra["cnpjCredor"] = cnpj_credor
-            obra["cnpj"] = cnpj_credor
-            nu_dom = detalhe.get("nuDom") or obra.get("nuDom")
-            if nu_dom:
-                obra["nuDom"] = nu_dom
-
-            ficha_obra = construir_ficha_obra(
-                obra=obra,
-                detalhe=detalhe,
-                aditivos_raw=aditivos_raw,
-                dotacoes_raw=dotacoes_raw,
-                empenhos_raw=empenhos_raw,
-                liquidacoes_raw=liquidacoes_raw,
-                pagamentos_raw=pagamentos_raw,
-                concentracao_map=concentracao_map,
-                year=year,
-            )
-
-            obra_file_path = obras_dir / f"{obra_id}.json"
-            generate_obra_detalhe_json(ficha_obra, obra_file_path)
-
-    # 9. Cálculo dos KPIs globais enriquecidos com transparência opaca
+    # 10. Cálculo dos KPIs globais enriquecidos com carteira real e transparência opaca
     populacao_cidade = sum(int(b.get("populacao", 0)) for b in bairros_rollup)
     kpis_globais = kpis.calcular_kpis_globais(
         totalizador_transparencia=totalizador,
@@ -403,7 +432,7 @@ def run_pipeline(
         indicador_opacidade=opacidade,
     )
 
-    # 10. Geração do índice anual estático com concentração de empreiteiras e mandatos
+    # 11. Geração do índice anual estático com concentração de empreiteiras e mandatos
     index_file_path = output_path / f"index_{year}.json"
     generate_index_json(
         kpis_globais=kpis_globais,
@@ -416,14 +445,8 @@ def run_pipeline(
         mandatos_disponiveis=mandatos_lista,
     )
 
-    # Cria alias index_2025.json e index.json quando aplicável
-    for alias_name in ["index_2025.json", "index.json"]:
-        alias_path = output_path / alias_name
-        if alias_path.resolve() != index_file_path.resolve():
-            try:
-                shutil.copyfile(index_file_path, alias_path)
-            except Exception:
-                pass
+    # Cria aliases index_2025.json e index.json sempre sincronizados
+    escrever_indices_alias(index_file_path, output_path)
 
     return {
         "success": True,

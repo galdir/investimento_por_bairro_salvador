@@ -7,14 +7,13 @@
   "objeto": "Contratação de Empresa especializadano fornecimento e instalação de 06(seis) Boias de Sinalização Naútica, Tipo I - padrão Marinha, 06(seis) Poitasde Concreto, 06(seis) lanternas Naúticas Amarelaas 2 Milhas Naúticas, 24 (vinte e quatro) Manilhas de Aço Eletrliticas, 12(doze)Torneis de Aço Eletroliticos, 220 Correntes de Aço 28,5mm e instalação no perimetro do Parque Natural Municipal Marinho da Ba",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "INTERNAVE ENGENHARIA S/S LTDA.",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 737000.0,
-    "obrasIds": [
-      "3adda26d-f6aa-4014-83c8-bbd069ec6fad"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-12-11T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 737000.0,
     "valorEmpenhado": 737000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 98.5,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "430002"
 }

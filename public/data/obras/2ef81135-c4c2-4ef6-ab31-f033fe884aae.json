@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa de engenharia para execução de serviços de proteção de encostas, na cidade do Salvador, com tecnologia de \"Geomanta\", revestimento com Geocomposto de PVC e Geotêxtil, etc.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "TDC CONSTRUCOES, CULTURA E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 37649022.48,
-    "obrasIds": [
-      "2ef81135-c4c2-4ef6-ab31-f033fe884aae"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-05-01T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 37649022.48,
     "valorEmpenhado": 37649022.48,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 35.65,
     "valorAditivos": 31422544.04,
     "deltaPercentualAditivos": 504.66
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "430003"
 }

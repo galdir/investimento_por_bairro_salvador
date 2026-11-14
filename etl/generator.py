@@ -221,12 +221,18 @@ def generate_index_json(
         valor_aditivos = round(max(0.0, vl_atua - vl_orig), 2)
         delta_percentual = round(((vl_atua - vl_orig) / vl_orig) * 100.0, 2) if vl_orig > 0 else 0.0
 
-        # Percentual executado e estimativa do valor pago/liquidado
+        # Percentual executado e valor pago (real das ordens bancárias quando existente; senão estimativa)
         perc_exec = parse_float(o.get("percentualExecutado") or 0.0)
-        vl_pago = parse_float(o.get("vlPago") or o.get("valorPago") or round(vl_atua * (perc_exec / 100.0), 2))
+        vl_pago_real = parse_float(o.get("vlPagoReal") or 0.0)
+        if vl_pago_real > 0.0:
+            vl_pago = round(vl_pago_real, 2)
+        else:
+            vl_pago = parse_float(
+                o.get("vlPago") or o.get("valorPago") or round(vl_atua * (perc_exec / 100.0), 2)
+            )
 
         # Classificações determinísticas de Tema e Semáforo da Obra
-        tema = classificar_tema(o)
+        tema = o.get("tema") or classificar_tema(o)
         semaforo = o.get("semaforo") or classificar_semaforo(o)
 
         # Mandatos Municipais e vigência
@@ -244,7 +250,7 @@ def generate_index_json(
         # Atributos de alocação territorial
         nivel = o.get("nivel") or "Escopo Cidade (Não-Localizado)"
         bairro = o.get("bairro")
-        prefeitura_bairro = o.get("prefeitura_bairro")
+        prefeitura_bairro = o.get("prefeitura_bairro") or o.get("prefeituraBairro")
         lat = o.get("latitude")
         lon = o.get("longitude")
         estagio = o.get("estagioAlocacao")
@@ -256,15 +262,15 @@ def generate_index_json(
             "unidadeGestora": o.get("sgOrgao") or o.get("dsUnidadeGestora") or o.get("unidadeGestora"),
             "nuContratoSigef": o.get("nuContratoSigef") or o.get("numeroContrato"),
             "numeroContrato": o.get("nuContratoSigef") or o.get("numeroContrato"),
-            "objeto": o.get("dsObjeto"),
+            "objeto": o.get("dsObjeto") or o.get("objeto"),
             "valorOriginal": vl_orig,
             "valorContratualVigente": vl_atua,
             "valorAditivos": valor_aditivos,
             "deltaPercentualValor": delta_percentual,
             "valorPago": vl_pago,
             "percentualExecutado": perc_exec,
-            "situacao": o.get("dsSituacao"),
-            "credor": o.get("nmCredor"),
+            "situacao": o.get("dsSituacao") or o.get("situacao"),
+            "credor": o.get("nmCredor") or o.get("credor"),
             "cnpj": cnpj_credor,
             "cnpjCredor": cnpj_credor,
             "tema": tema,

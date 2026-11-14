@@ -2,18 +2,18 @@
   "id": "3b3b5d89-19a7-4763-9ccc-bbdfa1c2100f",
   "unidadeGestora": "SEFAZ",
   "numeroContrato": "2026CT001568",
-  "numeroContratoOriginal": "2026CT001568",
-  "nuProcesso": null,
+  "numeroContratoOriginal": "022026",
+  "nuProcesso": "0876252025",
   "objeto": "Contratação de empresa para a prestação de serviços técnicos especializados para elaboração de Projeto de Arquitetura e Engenharia para a recuperação do edifício Sede da Secretaria Municipal da Fazenda de Salvador  - SEFAZ.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+    "cnpj": "",
     "totalObras": 2,
-    "totalObrasAtivas": 2,
+    "totalObrasAtivas": 1,
     "valorTotalContratado": 1105440.0,
-    "obrasIds": [
-      "3b3b5d89-19a7-4763-9ccc-bbdfa1c2100f",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "320ffc9e-0edb-4730-a1c6-5e514624b392"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 552720.0,
     "valorEmpenhado": 552720.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

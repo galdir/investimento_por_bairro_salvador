@@ -7,14 +7,13 @@
   "objeto": "EXECUÇÃO DOS SERVIÇOS RECUPERAÇÃO ESTUTURAL VIADUTOS DO TÚNEL AMERICO SIMAS,PROJETOS COMPLEMENTARES",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CARLOS ROBERTO CARDOSO RODRIGUES",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 65575.55,
-    "obrasIds": [
-      "5960af5f-8c7e-4172-9df5-b60a18240f8c"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-10-22T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 65575.55,
     "valorEmpenhado": 65575.55,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.9632,
+  "longitude": -38.507445,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

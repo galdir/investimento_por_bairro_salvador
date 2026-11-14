@@ -7,14 +7,15 @@
   "objeto": "CONTRATAÇÃO DE OBRA E SERVIÇOS DE ENGENHARIA PARA RECUPERAÇÃO DE PASSARELA CONFORME PLANILHA, ESPECIFICAÇÕES TECNICAS E DETALHES CONSTRUTIVOS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "M3S COMERCIO E LOCACAO DE EQUIPAMENTOS LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 4693469.59,
-    "obrasIds": [
+    "cnpj": "11.511.851/0001-15",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 5298311.92,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "035adbbe-4bc4-42a8-9d30-82420f26e807",
       "8bdfcfa9-acbc-4f3f-a8c2-1e3a9829d263",
-      "e34c38e8-9b82-40be-a3c0-7abb23dff3eb",
       "d145a7c4-7b38-40cd-bc6a-e8dbb38c16a7"
     ]
   },
@@ -34,7 +35,7 @@
     "valorContratualVigente": 1408438.87,
     "valorEmpenhado": 1408438.87,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.87,
     "valorAditivos": 127176.81,
     "deltaPercentualAditivos": 9.93
@@ -64,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

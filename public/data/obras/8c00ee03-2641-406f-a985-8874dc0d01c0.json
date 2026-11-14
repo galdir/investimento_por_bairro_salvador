@@ -7,14 +7,15 @@
   "objeto": "Contratação de empresa para execução das obras de Recuperação Estrutural do Viaduto da Fonte Nova, Nazaré ¿ Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONCRETA TECNOLOGIA EM ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 6776353.26,
-    "obrasIds": [
+    "cnpj": "15.231.897/0001-31",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 13329414.07,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "b4cf9599-9ad5-45b0-8d03-628ef50065a9",
       "a7362147-beb5-4a54-83ba-d9711a3a6747",
-      "8c00ee03-2641-406f-a985-8874dc0d01c0",
       "54e7bf76-c033-4df9-88a2-a0c781c9b262",
       "48613737-a3cf-4370-bf80-bbec371b51ab"
     ]
@@ -35,7 +36,7 @@
     "valorContratualVigente": 2605066.13,
     "valorEmpenhado": 2605066.13,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 96.14,
     "valorAditivos": 515693.24,
     "deltaPercentualAditivos": 24.68
@@ -65,5 +66,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.976919,
   "longitude": -38.50577,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa especializada, sob o regime de empreitada, a preços unitários, com fornecimento de mão-de-obra e equipamentos necessários para execução de ENGENHARIA AGONÔMICA DE MANUTENÇÃO E CONSERVAÇÃO DE ÁREAS VERDES.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ECO IRRIGACAO E JARDIM LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 31486943.77,
-    "obrasIds": [
-      "f802abc5-c8e9-45f4-b5ef-f704963cb2fe"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-09-20T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 31486943.77,
     "valorEmpenhado": 31486943.77,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 86.2,
     "valorAditivos": 26796944.77,
     "deltaPercentualAditivos": 571.36
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "560002"
 }

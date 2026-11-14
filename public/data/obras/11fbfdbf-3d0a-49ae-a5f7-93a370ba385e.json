@@ -7,14 +7,14 @@
   "objeto": "ELABORAÇÃO DE PROJETOS E EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA DE TRANSPORTE PÚBLICO INTEGRADO PARA IMPLANTAÇÃO DO EMPREENDIMENTO ¿CORREDOR DE TRANSPORTE PÚBLICO INTEGRADO PARQUE DA CIDADE ¿ PITUBA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EGTC INFRA S.A.",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 44979078.67,
-    "obrasIds": [
-      "91e6a27b-3d2b-4cb9-9af4-2b4efaf7cdea",
-      "11fbfdbf-3d0a-49ae-a5f7-93a370ba385e"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "91e6a27b-3d2b-4cb9-9af4-2b4efaf7cdea"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 37691800.0,
     "valorEmpenhado": 37691800.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 101.45,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -58,10 +58,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Pituba",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.999274,
+  "longitude": -38.460677,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

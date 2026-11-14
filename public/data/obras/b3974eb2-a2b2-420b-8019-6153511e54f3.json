@@ -7,16 +7,17 @@
   "objeto": "EXECUÇÃO DOS SERVIÇOS DE REQUALIFICAÇÃO DA INFRAESTRUTURA TURÍSTICA DA ORLA DA BARRA/ONDINA\r\nCONTRATO: 003/2018",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA NM LTDA",
-    "totalObras": 4,
+    "cnpj": "74.190.620/0001-77",
+    "totalObras": 5,
     "totalObrasAtivas": 4,
-    "valorTotalContratado": 126401455.31,
-    "obrasIds": [
+    "valorTotalContratado": 208674663.21,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "6e925a87-53ad-4ac8-a6f5-72f300c32086",
       "cd4e35b8-00c2-49e9-acd3-76ce5ebd88f3",
       "4374164e-b6f0-4064-8735-45d1a1da9279",
-      "6bb966ce-92bf-4f42-ace2-9bb71899eeb8",
-      "b3974eb2-a2b2-420b-8019-6153511e54f3"
+      "6bb966ce-92bf-4f42-ace2-9bb71899eeb8"
     ]
   },
   "vigencia": {
@@ -35,7 +36,7 @@
     "valorContratualVigente": 35635319.14,
     "valorEmpenhado": 35635319.14,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 96.96,
     "valorAditivos": 9405260.08,
     "deltaPercentualAditivos": 35.86
@@ -66,5 +67,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -13.00631,
   "longitude": -38.509647,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

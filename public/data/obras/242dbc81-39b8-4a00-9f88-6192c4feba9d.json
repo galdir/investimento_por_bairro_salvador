@@ -7,14 +7,14 @@
   "objeto": "FORNECIMENTO E INSTALAÇÃO DE EQUIPAMENTOS CLIMATIZAÇÃO PARA A ADEQUADA OPERAÇÃO E MONITORAMENTO DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 05",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "HISPANIA TELECOM BRASIL ENGENHARIA E SERVICOS DE TELECOMUNICACOES EIRELI",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 626540.01,
-    "obrasIds": [
-      "05406f23-d51e-4891-ad02-b81b05a91da3",
-      "242dbc81-39b8-4a00-9f88-6192c4feba9d"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "05406f23-d51e-4891-ad02-b81b05a91da3"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 352361.42,
     "valorEmpenhado": 352361.42,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.87,
     "valorAditivos": 10849.96,
     "deltaPercentualAditivos": 3.18
@@ -58,10 +58,11 @@
     ],
     "deltaPercentualValor": 3.18
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

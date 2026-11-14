@@ -7,17 +7,22 @@
   "objeto": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 05-  GRE ITAPUÃ",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "COMTECH ENGENHARIA LTDA",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 25772691.87,
-    "obrasIds": [
+    "cnpj": "07.440.770/0001-02",
+    "totalObras": 10,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 301962879.62,
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
+      "a9c0531c-55a8-4b7d-9c8c-b7ec3729d446",
+      "8b9908f2-43bf-43bd-b2e7-74d804c47332",
+      "fb71d063-b0f1-48b8-bf6b-6493e89c58bd",
+      "d75e3767-2e7f-45aa-94c9-700c3a8e2a0e",
       "9e918251-3fa2-4276-811f-91e55eddd461",
       "ae068cbf-fb75-4bae-bc30-98237831b38e",
-      "547cd661-225a-4dca-81e7-402668200a40",
       "dad1ccf2-14e1-4a1b-9937-8ee5210760e8",
-      "c49b7710-45bd-4a1b-a920-f91fe4041dea"
+      "c49b7710-45bd-4a1b-a920-f91fe4041dea",
+      "a1a80579-0028-4cc6-8441-411bf0af766f"
     ]
   },
   "vigencia": {
@@ -36,7 +41,7 @@
     "valorContratualVigente": 8431646.85,
     "valorEmpenhado": 8431646.85,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.04,
     "valorAditivos": 847071.27,
     "deltaPercentualAditivos": 11.17
@@ -66,5 +71,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.939631,
   "longitude": -38.358185,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

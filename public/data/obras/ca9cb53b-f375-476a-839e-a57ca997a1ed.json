@@ -7,13 +7,13 @@
   "objeto": "Execução de obras de Construção da Praça abaixo do Viaduto Juscelino Kubitschek, localizada ao longo da Avenida Anita Garibaldi ¿ Federação Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MP2 CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 8,
-    "totalObrasAtivas": 8,
+    "totalObrasAtivas": 7,
     "valorTotalContratado": 11712650.34,
-    "obrasIds": [
-      "ca9cb53b-f375-476a-839e-a57ca997a1ed",
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
       "eeccad62-750b-4050-a2ad-eeedb27ac5f3",
       "c964101d-9607-4f75-a482-45d0d74d3dc2",
       "9eb1e12b-e55a-4d2b-afb7-d5ae1a0d4436",
@@ -39,7 +39,7 @@
     "valorContratualVigente": 757614.46,
     "valorEmpenhado": 757614.46,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -69,5 +69,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.99875,
   "longitude": -38.50501,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

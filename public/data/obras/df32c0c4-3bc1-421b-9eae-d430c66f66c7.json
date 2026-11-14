@@ -7,14 +7,14 @@
   "objeto": "Serviços técnicos de elaboração e compatibilização de projetos básico e executivo de arquitetura e engenharia, e execução da obra de reconstrução do CMEI Mário Altenfelder",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "AGSERVICE ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 21518544.8,
-    "obrasIds": [
-      "c598c839-0bdc-4afe-bcdf-5ded8a4d6c24",
-      "df32c0c4-3bc1-421b-9eae-d430c66f66c7"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "c598c839-0bdc-4afe-bcdf-5ded8a4d6c24"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 12419649.04,
     "valorEmpenhado": 12419649.04,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.66,
     "valorAditivos": 1299649.04,
     "deltaPercentualAditivos": 11.69
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

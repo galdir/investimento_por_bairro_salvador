@@ -7,16 +7,17 @@
   "objeto": "Construção USF Nova Sussuarana II",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 3259548.74,
-    "obrasIds": [
+    "cnpj": "20.852.647/0001-59",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 3524799.56,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "cba43365-3ca3-426e-819c-a93a714e70b8",
       "2d60893e-b78c-421b-b1f5-48dfd23de997",
       "40051c5a-2bf2-43e0-b0c7-3ab13858833a",
-      "5de1379b-62fe-422b-b557-76ec89cf7c69",
-      "29bcca9f-e6dd-48b5-b99e-53fa8fbce3c7"
+      "5de1379b-62fe-422b-b557-76ec89cf7c69"
     ]
   },
   "vigencia": {
@@ -35,7 +36,7 @@
     "valorContratualVigente": 1387603.14,
     "valorEmpenhado": 1387603.14,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.82,
     "valorAditivos": 228761.69,
     "deltaPercentualAditivos": 19.74
@@ -60,10 +61,11 @@
     ],
     "deltaPercentualValor": 19.74
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Nova Sussuarana",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.936346,
+  "longitude": -38.434116,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "301110"
 }

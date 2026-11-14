@@ -7,21 +7,23 @@
   "objeto": "RECONSTRUÇÃO DE MUROS EM UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR - LOTE 02",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "SANTA FE ENGENHARIA LTDA",
-    "totalObras": 11,
-    "totalObrasAtivas": 11,
-    "valorTotalContratado": 22368526.01,
-    "obrasIds": [
+    "cnpj": "25.035.423/0001-78",
+    "totalObras": 13,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 29578669.12,
+    "outrasObrasCount": 12,
+    "outrasObrasIds": [
+      "c90267a2-85f5-40a6-8be5-b7f275b8fab5",
       "cd37a506-377c-4bc4-b1c0-b5c7c99adcdf",
       "46decade-abb6-4b54-8f24-dfa90fc1e1a4",
+      "0e3b923c-959f-4f2a-bd94-69dae2c33411",
       "f14a87eb-d323-4f37-b10e-3192f854374b",
       "0aad6214-2ea4-464a-b96f-2e7d926c7f3c",
       "4a095113-2028-4d76-bd3b-4a102e12b8bf",
       "ec1ac42f-c0cb-497f-b99c-9b9dea9f1a46",
       "d83b4b2a-7139-41c4-8bab-34d61b89809c",
       "df8bc5f7-cd8a-4bdf-9ad8-8e1d80f6cea4",
-      "0dac6ea8-7318-4320-97fe-38e8a0149f3c",
       "0e6571d3-a095-435c-97b4-68f0b39ed299",
       "dbe0db85-b16d-498a-8b7e-013aa46dc337"
     ]
@@ -42,7 +44,7 @@
     "valorContratualVigente": 2251556.05,
     "valorEmpenhado": 2251556.05,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.5,
     "valorAditivos": 408268.15,
     "deltaPercentualAditivos": 22.15
@@ -72,5 +74,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

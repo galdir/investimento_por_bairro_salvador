@@ -7,15 +7,17 @@
   "objeto": "Execução das obras de restauração e construção da Casa dos Azulejos, localizada na Rua da Bélgica ¿ Comércio-Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA PENTAGONO LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 22338049.4,
-    "obrasIds": [
+    "cnpj": "34.145.847/0001-86",
+    "totalObras": 5,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 47894570.49,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "5180416c-cbd1-4606-904a-7f466d9260e2",
+      "d29d26b5-f600-418d-b845-189e97ea0282",
       "75b5a38c-3701-417f-9e0c-04ecc025cc78",
-      "6e367188-0bc4-4466-a54d-9b6ef92c1dbb",
-      "aec01fec-cd4d-4cfb-bea7-00e893140694"
+      "6e367188-0bc4-4466-a54d-9b6ef92c1dbb"
     ]
   },
   "vigencia": {
@@ -34,7 +36,7 @@
     "valorContratualVigente": 11335552.1,
     "valorEmpenhado": 11335552.1,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.04,
     "valorAditivos": 3522558.21,
     "deltaPercentualAditivos": 45.09
@@ -65,5 +67,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

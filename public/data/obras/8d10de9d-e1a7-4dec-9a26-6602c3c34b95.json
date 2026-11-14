@@ -7,13 +7,13 @@
   "objeto": "Destina se atender despesas com obras de Requalificação do Pavilhão 2 de Julho - Largo do Lapinha\r\nContrato: 008/2023",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PENA CAL CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 11390660.09,
-    "obrasIds": [
-      "8d10de9d-e1a7-4dec-9a26-6602c3c34b95",
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
       "3687ab4f-3ebd-4373-bb16-8f207261ad5f",
       "6d2fa0fc-ab43-4fa5-8903-5a4c37c1de64",
       "c3413b60-5bb5-4594-82cb-16d23c972e22"
@@ -35,7 +35,7 @@
     "valorContratualVigente": 2483916.86,
     "valorEmpenhado": 2483916.86,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.5,
     "valorAditivos": 675363.19,
     "deltaPercentualAditivos": 37.34
@@ -61,10 +61,11 @@
     ],
     "deltaPercentualValor": 37.34
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Lapinha",
+  "prefeituraBairro": "Liberdade/São Caetano",
+  "latitude": -12.955803,
+  "longitude": -38.499155,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,15 +7,16 @@
   "objeto": "LEVANTAMENTO TOPOGRAFICO",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "LUZ & BARROS ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 320000.0,
-    "obrasIds": [
+    "cnpj": "18.862.851/0001-09",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 480000.0,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
       "be25188f-0280-4fd2-a6ff-1861d850d82b",
+      "02bd22f0-1e41-4515-8d31-000b59bfff0e",
       "45f97392-fe5f-457a-9cb5-021607f7c1f8",
-      "46b7fcfe-e37d-4ab5-a8d1-5fc1d9c06198",
       "c89916d4-9fbd-4e1a-91a9-6cc7ee0e5a3f"
     ]
   },
@@ -35,7 +36,7 @@
     "valorContratualVigente": 100000.0,
     "valorEmpenhado": 100000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 27.71,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -65,5 +66,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

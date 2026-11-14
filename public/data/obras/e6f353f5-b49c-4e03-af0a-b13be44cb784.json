@@ -7,14 +7,15 @@
   "objeto": "Destina se atender despesas com obras de fundação da Escola de Arte e Tecnologia, localizada na Rua Santos Dumont, Comércio",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "FLEX ENGENHARIA LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 7881565.12,
-    "obrasIds": [
+    "cnpj": "08.708.647/0001-84",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 17803447.29,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "37c5feff-06f1-48c8-a3e7-c5e83246f192",
-      "e6f353f5-b49c-4e03-af0a-b13be44cb784"
+      "e7466d16-a979-448b-b8b4-b1b99797dc7f"
     ]
   },
   "vigencia": {
@@ -33,7 +34,7 @@
     "valorContratualVigente": 4464113.75,
     "valorEmpenhado": 4464113.75,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.17,
     "valorAditivos": 892026.96,
     "deltaPercentualAditivos": 24.97
@@ -63,5 +64,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

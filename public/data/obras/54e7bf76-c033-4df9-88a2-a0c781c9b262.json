@@ -7,15 +7,16 @@
   "objeto": "Contratação de empresa capacitada para EXECUÇÃO DO PROLONGAMENTO DA CAIXA ESTAQUEADA ¿ 2ª ETAPA ¿ CORREDOR RAMO 100 junto ao viaduto 1 - Implantação do BRT - Trecho 1 ¿ LAPA - LIP,",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONCRETA TECNOLOGIA EM ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 6776353.26,
-    "obrasIds": [
+    "cnpj": "15.231.897/0001-31",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 13329414.07,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "b4cf9599-9ad5-45b0-8d03-628ef50065a9",
       "a7362147-beb5-4a54-83ba-d9711a3a6747",
       "8c00ee03-2641-406f-a985-8874dc0d01c0",
-      "54e7bf76-c033-4df9-88a2-a0c781c9b262",
       "48613737-a3cf-4370-bf80-bbec371b51ab"
     ]
   },
@@ -35,7 +36,7 @@
     "valorContratualVigente": 1337824.94,
     "valorEmpenhado": 1337824.94,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 96.5,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -65,5 +66,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

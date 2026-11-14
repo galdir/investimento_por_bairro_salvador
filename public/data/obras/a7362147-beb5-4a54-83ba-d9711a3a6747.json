@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução das obras de Contenção da Encosta situada na\r\nTravessa Cajá no Alto da Terezinha",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONCRETA TECNOLOGIA EM ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 6776353.26,
-    "obrasIds": [
-      "a7362147-beb5-4a54-83ba-d9711a3a6747",
+    "cnpj": "15.231.897/0001-31",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 13329414.07,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "b4cf9599-9ad5-45b0-8d03-628ef50065a9",
       "8c00ee03-2641-406f-a985-8874dc0d01c0",
       "54e7bf76-c033-4df9-88a2-a0c781c9b262",
       "48613737-a3cf-4370-bf80-bbec371b51ab"
@@ -35,7 +36,7 @@
     "valorContratualVigente": 2477212.19,
     "valorEmpenhado": 2477212.19,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.75,
     "valorAditivos": 415916.44,
     "deltaPercentualAditivos": 20.18
@@ -60,10 +61,11 @@
     ],
     "deltaPercentualValor": 20.18
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Alto da Terezinha",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.88046,
+  "longitude": -38.4766,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

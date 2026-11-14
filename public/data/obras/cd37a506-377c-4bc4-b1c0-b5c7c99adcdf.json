@@ -7,14 +7,16 @@
   "objeto": "REFORMA DE UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR EM CONFORMIDADE COM O TERMO DE REFERÊNCIA E SEUS ANEXOS.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "SANTA FE ENGENHARIA LTDA",
-    "totalObras": 11,
-    "totalObrasAtivas": 11,
-    "valorTotalContratado": 22368526.01,
-    "obrasIds": [
-      "cd37a506-377c-4bc4-b1c0-b5c7c99adcdf",
+    "cnpj": "25.035.423/0001-78",
+    "totalObras": 13,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 29578669.12,
+    "outrasObrasCount": 12,
+    "outrasObrasIds": [
+      "c90267a2-85f5-40a6-8be5-b7f275b8fab5",
       "46decade-abb6-4b54-8f24-dfa90fc1e1a4",
+      "0e3b923c-959f-4f2a-bd94-69dae2c33411",
       "f14a87eb-d323-4f37-b10e-3192f854374b",
       "0aad6214-2ea4-464a-b96f-2e7d926c7f3c",
       "4a095113-2028-4d76-bd3b-4a102e12b8bf",
@@ -42,7 +44,7 @@
     "valorContratualVigente": 3714122.84,
     "valorEmpenhado": 3714122.84,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 88.62,
     "valorAditivos": 666469.34,
     "deltaPercentualAditivos": 21.87
@@ -72,5 +74,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

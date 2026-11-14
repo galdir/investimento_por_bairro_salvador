@@ -7,13 +7,13 @@
   "objeto": "Execução dos serviços do barramento e do dispositivo de controle de vazão do reservatório de detenção do sistema de drenagem do Rio Paraguari em Periperi.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "AGSERVICE ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 21518544.8,
-    "obrasIds": [
-      "c598c839-0bdc-4afe-bcdf-5ded8a4d6c24",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "df32c0c4-3bc1-421b-9eae-d430c66f66c7"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 9098895.76,
     "valorEmpenhado": 9098895.76,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.91,
     "valorAditivos": 1819779.15,
     "deltaPercentualAditivos": 25.0
@@ -63,5 +63,6 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.865263,
   "longitude": -38.468467,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

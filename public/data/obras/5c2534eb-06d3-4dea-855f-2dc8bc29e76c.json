@@ -7,14 +7,13 @@
   "objeto": "Constituio bjeto deste contrato a prestagao dos servigos de sondagens, realizagao de ensaios de solos e determinagao das deflex6es peta m6todo da viga Benkelman em pavimento, em diversos Logradouros da Cidade do Salvador/BA.",
   "situacao": "Rescindido",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "DSOARES EMPREENDIMENTOS E CONSTRUCOES EIRELI",
+    "cnpj": "",
     "totalObras": 1,
-    "totalObrasAtivas": 1,
+    "totalObrasAtivas": 0,
     "valorTotalContratado": 1225998.78,
-    "obrasIds": [
-      "5c2534eb-06d3-4dea-855f-2dc8bc29e76c"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-02-08T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 1225998.78,
     "valorEmpenhado": 1225998.78,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "603002"
 }

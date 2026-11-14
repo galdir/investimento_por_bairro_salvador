@@ -7,14 +7,14 @@
   "objeto": "CONFECÇÃO DE PLANTAS",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 94865.38,
-    "obrasIds": [
-      "14882ecb-e9c0-4053-9457-31f046479966",
-      "ae7ed4ed-a147-4dce-a47a-7c5ef7564c01"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "14882ecb-e9c0-4053-9457-31f046479966"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 74865.38,
     "valorEmpenhado": 74865.38,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 3.02,
     "valorAditivos": 54865.38,
     "deltaPercentualAditivos": 274.33
@@ -64,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

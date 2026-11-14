@@ -7,14 +7,13 @@
   "objeto": "EXECUÇÃO DAS OBRAS DE CONSTRUÇÃO DA CASA DA MULHER BRASILEIRA na Av. Tancredo Neves, S/N, Stiep ¿ Salvador/BA, ao lado do Hospital Rede Sarah,",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ATIVA ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 14841181.64,
-    "obrasIds": [
-      "d1c91f8e-ee66-4564-aeee-a3b04a5d179e"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2022-06-01T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 14841181.64,
     "valorEmpenhado": 14841181.64,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 99.76,
     "valorAditivos": 2141644.13,
     "deltaPercentualAditivos": 16.86
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.981124,
   "longitude": -38.447243,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

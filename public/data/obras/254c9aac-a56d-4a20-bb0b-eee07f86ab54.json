@@ -7,15 +7,15 @@
   "objeto": "Contratação de pessoa jurídica para construção de 1.125 (um mil cento e vinte e cinco) gavetas funerárias nos\r\nCemitério Municipal de Plataforma de Salvador.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PEREIRATECH CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 3841347.17,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "0c5684a7-048f-4e9c-90a4-da38bdcae355",
-      "e416871d-308d-4200-96e9-f1cb79c095ac",
-      "254c9aac-a56d-4a20-bb0b-eee07f86ab54"
+      "e416871d-308d-4200-96e9-f1cb79c095ac"
     ]
   },
   "vigencia": {
@@ -34,7 +34,7 @@
     "valorContratualVigente": 1394453.62,
     "valorEmpenhado": 1394453.62,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.46,
     "valorAditivos": 277721.34,
     "deltaPercentualAditivos": 24.87
@@ -64,5 +64,6 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.896157,
   "longitude": -38.482727,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "450002"
 }

@@ -7,13 +7,14 @@
   "objeto": "SERVIÇO DE ENGENHARIA PARA MANUTENÇÃO PREDIAL NAS UNIDADES DE ASSISTÊNCIA SOCIAL",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MAINAN ENGENHARIA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 36634392.6,
-    "obrasIds": [
-      "9d628cb0-99cf-45c3-972a-506d7c313c20"
+    "cnpj": "08.729.801/0001-02",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 42785883.16,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "399407f8-3de6-4212-bd64-436849042507"
     ]
   },
   "vigencia": {
@@ -32,7 +33,7 @@
     "valorContratualVigente": 36634392.6,
     "valorEmpenhado": 36634392.6,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 32127392.6,
     "deltaPercentualAditivos": 712.83
@@ -63,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

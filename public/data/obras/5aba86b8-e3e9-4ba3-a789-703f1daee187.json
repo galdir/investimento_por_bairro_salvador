@@ -7,13 +7,13 @@
   "objeto": "Credenciamento para Confecção de Plantas com Memorial Descritivo.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "KS ARQUITETURA E CONSTRUCAO LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 450000.0,
-    "obrasIds": [
-      "5aba86b8-e3e9-4ba3-a789-703f1daee187",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "6f7ef721-876e-4dd7-9095-9ed7dc5931d6"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 130000.0,
     "valorEmpenhado": 130000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 9.56,
     "valorAditivos": 30000.0,
     "deltaPercentualAditivos": 30.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

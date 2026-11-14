@@ -7,16 +7,18 @@
   "objeto": "Execução das obras de engenharia de requalificação viária da Avenida Aliomar Baleeiro, Salvador/BA,",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "QG CONSTRUCOES E ENGENHARIA LTDA",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 134393726.34,
-    "obrasIds": [
+    "cnpj": "05.647.206/0001-21",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 189595476.67,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "fa7f8fe6-44f2-44a5-9899-c04c6212432e",
+      "b399ac28-024c-4380-8252-51a724546edc",
       "5923af33-40ba-4767-bd72-8277b7b6de94",
       "95ececda-901d-43ae-bb45-aae31202b290",
       "a8b50419-83cd-4dd1-a8eb-2fa293bdb9bd",
-      "780facfb-7f0e-4258-8f74-d4a1e5461cc7",
       "a88a1218-bac9-4f83-a337-01b2783eaa6b"
     ]
   },
@@ -36,7 +38,7 @@
     "valorContratualVigente": 38096273.77,
     "valorEmpenhado": 38096273.77,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 101.34,
     "valorAditivos": 7542263.31,
     "deltaPercentualAditivos": 24.69
@@ -61,10 +63,11 @@
     ],
     "deltaPercentualValor": 24.69
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "São Cristóvão",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.910504,
+  "longitude": -38.363597,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,14 +7,13 @@
   "objeto": "SERVIÇOS DE AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ACP EMPREENDIMENTOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 420000.0,
-    "obrasIds": [
-      "850ea06a-2049-43cc-9b82-e039b3ff50a6"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2018-11-19T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 420000.0,
     "valorEmpenhado": 420000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 2.33,
     "valorAditivos": 390000.0,
     "deltaPercentualAditivos": 1300.0
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

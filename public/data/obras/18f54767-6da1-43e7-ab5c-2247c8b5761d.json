@@ -7,14 +7,13 @@
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ESSENCIAL ENGENHARIA & SEGURANCA DO TRABALHO LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 145000.0,
-    "obrasIds": [
-      "18f54767-6da1-43e7-ab5c-2247c8b5761d"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-11-11T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 145000.0,
     "valorEmpenhado": 145000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 18.21,
     "valorAditivos": 45000.0,
     "deltaPercentualAditivos": 45.0
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

@@ -7,16 +7,16 @@
   "objeto": "obras de Construção do Camelódromo de São Cristóvão",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CB ENGENHARIA E CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 10,
     "totalObrasAtivas": 10,
     "valorTotalContratado": 36883569.12,
-    "obrasIds": [
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
       "c49e0d50-a076-488c-a345-fc351f811b75",
       "7e62362e-8516-40af-9d84-9f20c1b4b30a",
       "0403a24c-c0c3-45e2-a33c-512c4facdd84",
-      "8f1ab26e-fa43-46c3-80ec-a8609cfa8344",
       "ee78c054-ae62-4445-a5da-6fe4c4ef1370",
       "30f3f18b-fcf6-43bc-889e-fe46de6fc285",
       "1679900f-cc63-4410-bd5f-969eba1631b4",
@@ -41,7 +41,7 @@
     "valorContratualVigente": 3732185.04,
     "valorEmpenhado": 3732185.04,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.6,
     "valorAditivos": 359239.46,
     "deltaPercentualAditivos": 10.65
@@ -71,5 +71,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.910504,
   "longitude": -38.363597,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

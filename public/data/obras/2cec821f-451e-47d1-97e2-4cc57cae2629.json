@@ -7,13 +7,15 @@
   "objeto": "SERVIÇOS DE REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 03\r\nPREF BAIRROS I, VI E VII",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CAMPBEL CONSTRUCOES E TERRAPLANAGEM LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 46582142.04,
-    "obrasIds": [
-      "2cec821f-451e-47d1-97e2-4cc57cae2629"
+    "cnpj": "32.643.090/0001-25",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 355865780.5,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "a6b5f4b3-2cd8-446e-a9ca-953a2da5cd4d",
+      "f77f0544-f3c3-4d7e-8a55-a8d7a563caf0"
     ]
   },
   "vigencia": {
@@ -32,7 +34,7 @@
     "valorContratualVigente": 46582142.04,
     "valorEmpenhado": 46582142.04,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.09,
     "valorAditivos": 32266437.79,
     "deltaPercentualAditivos": 225.39
@@ -63,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

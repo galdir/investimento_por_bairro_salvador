@@ -7,14 +7,13 @@
   "objeto": "PROJETO BÁSICO ARQUITETÕNICO SAC EMPRESARIAL/SALA DO EMPREENDEDOR",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 7875.0,
-    "obrasIds": [
-      "66b77bd0-7ff2-4942-b9a1-672e6f31ec57"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-11-23T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 7875.0,
     "valorEmpenhado": 7875.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "591010"
 }

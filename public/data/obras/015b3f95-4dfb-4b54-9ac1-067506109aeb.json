@@ -7,14 +7,13 @@
   "objeto": "Execução dos serviços de consultoria na área de engenharia elétrica englobando a elaboração de projetos e assessoria técnica referentes a implantação de sistemas de iluminação pública na cidade de Salvador. Contrato 017/2018.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "QUALITY ENGENHARIA E CONSULTORIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 3044532.2,
-    "obrasIds": [
-      "015b3f95-4dfb-4b54-9ac1-067506109aeb"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2018-07-05T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 3044532.2,
     "valorEmpenhado": 3044532.2,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.75,
     "valorAditivos": 2476295.4,
     "deltaPercentualAditivos": 435.79
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "451010"
 }

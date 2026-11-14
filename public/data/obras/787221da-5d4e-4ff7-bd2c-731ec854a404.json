@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa para prestação de serviço comum de engenharia para locação de postos avançados com mobiliários e equipamentos, incluindo transporte, montagem e desmontagem, destinada como bases operacionais, durante o Carnaval de Salvador/BA em 2024 da Secretaria Municipal de Ordem Pública de Salvador.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "AT PROMOCOES E EVENTOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 700399.99,
-    "obrasIds": [
-      "787221da-5d4e-4ff7-bd2c-731ec854a404"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2024-01-10T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 700399.99,
     "valorEmpenhado": 700399.99,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 99.45,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "450002"
 }

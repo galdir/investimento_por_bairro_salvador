@@ -7,14 +7,14 @@
   "objeto": "Serviços técnicos de elaboração e compatibilização de projetos básico e executivo de arquitetura e engenharia, e execução da obra de reconstrução do CMEI Angelina Rocha de Assis.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PACTO PROJETO & OBRAS LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 9346999.86,
-    "obrasIds": [
-      "40ee3078-79ea-4989-a568-4e7e6d6d9741",
-      "5dbcff19-6b6a-4d12-adad-0c265a40513b"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "40ee3078-79ea-4989-a568-4e7e6d6d9741"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 4218413.18,
     "valorEmpenhado": 4218413.18,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.02,
     "valorAditivos": 870605.13,
     "deltaPercentualAditivos": 26.01
@@ -64,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

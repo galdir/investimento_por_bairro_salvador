@@ -7,13 +7,17 @@
   "objeto": "obras de Urbanização e Infraestrutura do entorno\r\nda Igreja Nossa Senhora dos Alagados, localizado no bairro do Uruguai",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "G3 POLARIS SERVICOS LTDA",
-    "totalObras": 11,
-    "totalObrasAtivas": 11,
-    "valorTotalContratado": 52128812.16,
-    "obrasIds": [
-      "90fc8a72-ab21-4a8e-8f63-f4d2e5fde67e",
+    "cnpj": "20.155.999/0001-55",
+    "totalObras": 15,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 87418748.28,
+    "outrasObrasCount": 14,
+    "outrasObrasIds": [
+      "b2280d29-b0e9-46f8-a753-e2e002ce2139",
+      "8c48327c-cd29-4989-bf67-fdfb949b1c49",
+      "ce43a31b-a8ec-44ec-a35c-8f6263bf39c4",
+      "53eb72fd-9e2a-41f1-9da4-e9219ef65972",
       "3426399c-5e93-4e81-8daf-4c4be63ff8c7",
       "164411b8-378f-4378-979a-cc3a2aa5a1e1",
       "144b7dd5-0da2-437e-b763-051991017ffe",
@@ -42,7 +46,7 @@
     "valorContratualVigente": 7898283.69,
     "valorEmpenhado": 7898283.69,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.5,
     "valorAditivos": 1547316.14,
     "deltaPercentualAditivos": 24.36
@@ -67,10 +71,11 @@
     ],
     "deltaPercentualValor": 24.36
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Uruguai",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.934195,
+  "longitude": -38.495021,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

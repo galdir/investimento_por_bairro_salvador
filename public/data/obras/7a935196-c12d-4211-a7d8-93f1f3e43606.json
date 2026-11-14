@@ -7,14 +7,13 @@
   "objeto": "ELABORAÇÃO DE PROJETOS E EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA PARA IMPLANTAÇÃO DO TRECHO 2 DO EMPREENDIMENTO \"CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR - LAPA/LIP\".",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO ENGETEC-PCE",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 240226037.43,
-    "obrasIds": [
-      "7a935196-c12d-4211-a7d8-93f1f3e43606"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-07-01T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 240226037.43,
     "valorEmpenhado": 240226037.43,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 89.42,
     "valorAditivos": 36525988.43,
     "deltaPercentualAditivos": 17.93
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

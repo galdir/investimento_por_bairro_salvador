@@ -7,13 +7,13 @@
   "objeto": "Construção de salas de atendimento educacional especializado (AEE) e sanitários acessíveis nas unidades escolares da SMED.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA CIVILSAN LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 6703359.32,
-    "obrasIds": [
-      "da138083-9ef5-4a49-b899-171770f845cd",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "36006484-21c7-41f3-8e6d-f8663439fc18"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 2870996.65,
     "valorEmpenhado": 2870996.65,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 83.01,
     "valorAditivos": 303858.63,
     "deltaPercentualAditivos": 11.84
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

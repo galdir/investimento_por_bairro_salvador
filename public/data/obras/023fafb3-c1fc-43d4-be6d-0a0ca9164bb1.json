@@ -7,15 +7,17 @@
   "objeto": "Execução dos serviços remanescentes de construção e de recuperação de quadras e campos de\r\nfutebol localizados no município do Salvador/BA, LOTE 03- Prefeituras Bairros: III, V e VI, sob regime de\r\nempreitada por preços unitários, com fornecimento de mão de obra, materiais, equipamentos, e o que for\r\nnecessário para a execução destes serviços",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ROBLE SERVICOS LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 17355001.24,
-    "obrasIds": [
-      "023fafb3-c1fc-43d4-be6d-0a0ca9164bb1",
+    "cnpj": "05.874.949/0001-34",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 153056317.84,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
       "21923172-06b5-47e2-b106-b6d10312896c",
-      "0914893f-ee88-4eec-8e9a-6763b6aeff83"
+      "c9b26d30-490f-4c2d-b326-8803b076cd79",
+      "0914893f-ee88-4eec-8e9a-6763b6aeff83",
+      "9bb8fca8-e891-45c6-8bfc-8a01c3228b8d"
     ]
   },
   "vigencia": {
@@ -34,7 +36,7 @@
     "valorContratualVigente": 17764.14,
     "valorEmpenhado": 17764.14,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -64,5 +66,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

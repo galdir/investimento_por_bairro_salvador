@@ -7,14 +7,18 @@
   "objeto": "Pr. Licitatório n. 118/2020 - Requalificação da Av. Adhemar de Barros - Ondina",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "LIGA ENGENHARIA LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 47063829.25,
-    "obrasIds": [
-      "9c89cee7-7392-4fd3-812b-1209f0e51e08",
-      "18942fb1-dfcc-45fb-8aca-53defbe546d6"
+    "cnpj": "15.270.565/0001-66",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 159407557.16,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "e9fafb79-9a01-496a-83fe-c0daf69a4fcf",
+      "1e701aaa-f459-4840-baa4-787ce34c0f10",
+      "b8b7fffb-0910-4c1c-9768-57432f63f37d",
+      "18942fb1-dfcc-45fb-8aca-53defbe546d6",
+      "28152e7a-8ff9-4b6b-971c-f041c6820bfd"
     ]
   },
   "vigencia": {
@@ -33,7 +37,7 @@
     "valorContratualVigente": 12185426.96,
     "valorEmpenhado": 12185426.96,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.16,
     "valorAditivos": 1102462.84,
     "deltaPercentualAditivos": 9.95
@@ -63,5 +67,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -13.00631,
   "longitude": -38.509647,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

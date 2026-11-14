@@ -7,14 +7,13 @@
   "objeto": "O objeto do presente Termo de Contrato é a Contratação de empresa especializada para\r\nprestação de serviços de locação de praticáveis, mobiliários e equipamentos, incluindo montagem\r\ne desmontagem para serem utilizados como Unidade Modular para Serviço da Assistência Social -\r\nUMSAS e das Políticas sobre Drogas - UMPD, da Secretaria de Promoção Social, Combate à Pobreza,\r\nEsportes e Lazer - SEMPRE",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "BOA ERA COMERCIO E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 459116.0,
-    "obrasIds": [
-      "1aa7123d-60eb-448d-9f31-1939b21f51f7"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-02-14T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 459116.0,
     "valorEmpenhado": 459116.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 88.02,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

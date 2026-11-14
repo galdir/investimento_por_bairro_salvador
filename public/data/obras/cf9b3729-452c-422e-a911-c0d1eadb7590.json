@@ -7,13 +7,14 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA SERVIÇOS COMUNS DE ENGENHARIA PARA EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT, NO MUNICÍPIO DE SALVADOR - LOTE 2",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "JB MONTAGENS E ENGENHARIA LTDA",
-    "totalObras": 3,
+    "cnpj": "10.231.309/0001-46",
+    "totalObras": 4,
     "totalObrasAtivas": 3,
-    "valorTotalContratado": 4131795.49,
-    "obrasIds": [
-      "cf9b3729-452c-422e-a911-c0d1eadb7590",
+    "valorTotalContratado": 5128794.82,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "55026dd1-5f7f-4baa-8c51-bc14738b736f",
       "706f081d-901f-40db-b128-c5a882b930e3",
       "5cfa6ead-b3fb-441d-af94-28ded3cd4c2f"
     ]
@@ -34,7 +35,7 @@
     "valorContratualVigente": 2233923.83,
     "valorEmpenhado": 2233923.83,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 88.94,
     "valorAditivos": 435023.83,
     "deltaPercentualAditivos": 24.18
@@ -64,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

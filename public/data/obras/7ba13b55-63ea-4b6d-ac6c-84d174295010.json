@@ -7,13 +7,13 @@
   "objeto": "CONTRATAÇÃO DO FORNECIMENTO E MONTAGEM DE MARCO DE INAUGURAÇÃO EM GRANITO CINZA ANDORINHA DESTINADOS AOS ESPAÇOS URBANOS REQUALIFICADOS DO MUNICÍPIO DE SALVADOR",
   "situacao": "Cancelado",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ELIANA COSTA BRITO LTDA",
+    "cnpj": "",
     "totalObras": 2,
-    "totalObrasAtivas": 2,
+    "totalObrasAtivas": 1,
     "valorTotalContratado": 97211.98,
-    "obrasIds": [
-      "7ba13b55-63ea-4b6d-ac6c-84d174295010",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "984e8c2c-b0ee-451f-a6fa-332c62cd4ead"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 48300.0,
     "valorEmpenhado": 48300.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

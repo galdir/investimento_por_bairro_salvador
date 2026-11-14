@@ -7,15 +7,17 @@
   "objeto": "Prestação de serviço de construção de cobertura em áreas públicas, conforme AFM 2024003502.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "SANTA FE ENGENHARIA LTDA",
-    "totalObras": 11,
-    "totalObrasAtivas": 11,
-    "valorTotalContratado": 22368526.01,
-    "obrasIds": [
+    "cnpj": "25.035.423/0001-78",
+    "totalObras": 13,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 29578669.12,
+    "outrasObrasCount": 12,
+    "outrasObrasIds": [
+      "c90267a2-85f5-40a6-8be5-b7f275b8fab5",
       "cd37a506-377c-4bc4-b1c0-b5c7c99adcdf",
       "46decade-abb6-4b54-8f24-dfa90fc1e1a4",
-      "f14a87eb-d323-4f37-b10e-3192f854374b",
+      "0e3b923c-959f-4f2a-bd94-69dae2c33411",
       "0aad6214-2ea4-464a-b96f-2e7d926c7f3c",
       "4a095113-2028-4d76-bd3b-4a102e12b8bf",
       "ec1ac42f-c0cb-497f-b99c-9b9dea9f1a46",
@@ -42,7 +44,7 @@
     "valorContratualVigente": 270256.0,
     "valorEmpenhado": 270256.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.5,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -72,5 +74,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "450002"
 }

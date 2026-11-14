@@ -7,13 +7,19 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS DE ENGENHARIA PARA FABRICAÇÃO DE EQUIPAMENTOS PARQUE INFANTIL, EM ESTRUTURA METÁLICA E MADEIRA PARA DIVERSOS LOGRADOUROS DO MUNICÍPIO DE SALVADOR - SERVIÇO COMUM DE ENGENHARIA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MONTRACO - MONTAGEM E SERVICOS DA CONSTRUCAO LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 118505.07,
-    "obrasIds": [
-      "aabc00ea-814e-44e8-8e54-caed47c3fc65"
+    "cnpj": "36.162.788/0001-80",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 1505732.17,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "6853a79a-a1ce-4d02-88f4-22819545fed4",
+      "b97ec829-ab3f-448c-b995-111379a52b6d",
+      "893daae7-3a3a-4963-84c3-4c2ad5ec5d1b",
+      "10c83709-0cf4-427c-b62e-9f324b108c00",
+      "2aeb8147-d6b6-43c9-a1e7-bd3896230cab",
+      "ac19aa37-15ac-405c-915a-a95ecfc2c514"
     ]
   },
   "vigencia": {
@@ -32,7 +38,7 @@
     "valorContratualVigente": 118505.07,
     "valorEmpenhado": 118505.07,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 89.83,
     "valorAditivos": 23692.87,
     "deltaPercentualAditivos": 24.99
@@ -62,5 +68,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

@@ -7,21 +7,26 @@
   "objeto": "Serviços técnicos de elaboração e compatibilização de projetos básico e executivo de arquitetura e engenharia, e execução da obra de reconstrução do CMEI Eloyna Barradas.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "BMV CONSTRUCOES E INCORPORACOES LTDA",
-    "totalObras": 10,
-    "totalObrasAtivas": 10,
-    "valorTotalContratado": 68782982.23,
-    "obrasIds": [
+    "cnpj": "00.965.611/0001-74",
+    "totalObras": 15,
+    "totalObrasAtivas": 15,
+    "valorTotalContratado": 122476357.36,
+    "outrasObrasCount": 14,
+    "outrasObrasIds": [
+      "7512c711-1040-44f6-8b1a-e1991857c209",
+      "7e80cb45-ff33-4cb6-bdc6-d308eeebd26f",
+      "740ef272-2bbe-4d95-b284-d92604d62212",
+      "9248408f-3995-4dcd-9d38-6cb822233d88",
       "a6bbc42b-8d8e-406e-a895-d3539a7eca28",
       "a1951fa5-8315-4d00-9d24-6922136bf915",
       "837454d5-3801-46ff-9b85-66d6c0b44b4a",
       "89bec12c-1816-428e-b639-7f2901d293ee",
       "3af6b1b5-50c7-4b58-814d-7b2d48ba54a1",
       "5779fdfc-dee2-4033-a13e-9690c594aeb1",
-      "73698b5c-7bd3-4bf0-91df-7e0c67ea853d",
       "e3370ad2-1b0e-4b62-8001-59e185af1a8d",
       "cedfa542-a390-41b7-8f0f-f45ea0e24ba2",
+      "eb8e72ed-35c0-47c6-992c-6f421be2a936",
       "f51c2887-1715-46bd-b343-f7f4832d1e57"
     ]
   },
@@ -41,7 +46,7 @@
     "valorContratualVigente": 13688958.79,
     "valorEmpenhado": 13688958.79,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.54,
     "valorAditivos": 2334708.97,
     "deltaPercentualAditivos": 20.56
@@ -71,5 +76,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

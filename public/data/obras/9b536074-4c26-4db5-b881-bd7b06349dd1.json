@@ -7,14 +7,13 @@
   "objeto": "CONSTRUÇÃO DE CENTRO DE INICIAÇÃO AO ESPORTE NA RUA DA ILHA - ITAPOÃ",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "RIBEIRO SILVA SERVICOS DE CONSTRUCAO EIRELI",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 2649990.41,
-    "obrasIds": [
-      "9b536074-4c26-4db5-b881-bd7b06349dd1"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-08-12T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 2649990.41,
     "valorEmpenhado": 2649990.41,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.28,
     "valorAditivos": 1113193.01,
     "deltaPercentualAditivos": 72.44
@@ -58,10 +57,11 @@
     ],
     "deltaPercentualValor": 72.44
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Itapuã",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.939631,
+  "longitude": -38.358185,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

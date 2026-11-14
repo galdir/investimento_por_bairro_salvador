@@ -7,14 +7,13 @@
   "objeto": "ELABORAÇÃO DE PROJETOS BÁSICO E EXECUTIVO DE ENGENHARIA E EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA, PARA IMPLANTAÇÃO DA INTERVENÇÃO ¿C¿ - VIADUTO DIRECIONAL SENTIDO ACESSO NORTE EM SALVADOR/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO TOP/NORCONSULT",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 29651451.85,
-    "obrasIds": [
-      "9db3e375-1543-4f14-9683-dea652393057"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-10-28T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 29651451.85,
     "valorEmpenhado": 29651451.85,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 3.28,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

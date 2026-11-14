@@ -7,14 +7,13 @@
   "objeto": "Elaboração de Projeto Arquitetônico de Interiores para Layout do SIMM/SAC Náutico",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "JOSUEL ALBUQUERQUE DOS SANTOS",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 11668.78,
-    "obrasIds": [
-      "0df4d160-dedc-4d83-a011-9a2526472ef3"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2022-05-25T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 11668.78,
     "valorEmpenhado": 11668.78,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 36.34,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "590002"
 }

@@ -7,13 +7,14 @@
   "objeto": "Execução de obras de Intervenções Viárias na Região da Rótula do Abacaxi - Intervenção 02 ¿ Acesso da Av. Mario Leal Ferreira (Bonocô) ao Cabula - Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "FLEX ENGENHARIA LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 7881565.12,
-    "obrasIds": [
-      "37c5feff-06f1-48c8-a3e7-c5e83246f192",
+    "cnpj": "08.708.647/0001-84",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 17803447.29,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "e7466d16-a979-448b-b8b4-b1b99797dc7f",
       "e6f353f5-b49c-4e03-af0a-b13be44cb784"
     ]
   },
@@ -33,7 +34,7 @@
     "valorContratualVigente": 3417451.37,
     "valorEmpenhado": 3417451.37,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.29,
     "valorAditivos": 243062.38,
     "deltaPercentualAditivos": 7.66
@@ -58,10 +59,11 @@
     ],
     "deltaPercentualValor": 7.66
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Cabula",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.960845,
+  "longitude": -38.459509,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,13 +7,16 @@
   "objeto": "Contratação de empresas para execução das obras de Melhorias Habitacionais em 10.000 (dez mil) imóveis, Programa MORAR MELHOR - Cidade Melhor lote 02",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "GRADO ENGENHARIA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 11704126.79,
-    "obrasIds": [
-      "d7344b24-c114-49ac-9a2b-5754e96c1c26"
+    "cnpj": "32.651.465/0001-07",
+    "totalObras": 4,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 59649274.99,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "ba6b163f-ae50-43cb-8f9f-7959d8559991",
+      "f7ecf1a2-6668-45e4-93d0-b4e6babe028f",
+      "84245ec0-f0b0-4183-9e42-6edda614b515"
     ]
   },
   "vigencia": {
@@ -32,7 +35,7 @@
     "valorContratualVigente": 11704126.79,
     "valorEmpenhado": 11704126.79,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 30.84,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

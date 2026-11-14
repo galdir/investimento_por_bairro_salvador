@@ -7,14 +7,13 @@
   "objeto": "FORNECIMENTO E INSTALAÇÃO DE EQUIPAMENTOS CLIMATIZAÇÃO PARA A ADEQUADA OPERAÇÃO E MONITORAMENTO DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 01",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "WOLPAC SISTEMAS DE CONTROLE LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 2203554.0,
-    "obrasIds": [
-      "28d609bc-e1f0-4532-8009-1046e8df24a1"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-03-14T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 2203554.0,
     "valorEmpenhado": 2203554.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 77.91,
     "valorAditivos": 400000.0,
     "deltaPercentualAditivos": 22.18
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 22.18
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

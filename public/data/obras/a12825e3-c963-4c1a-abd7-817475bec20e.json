@@ -7,14 +7,13 @@
   "objeto": "Consultoria especializada na área de recuperação estrutural e/ou de requalificações de viadutos e pontes\r\nContrato 020/2021",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MB ENGENHARIA E PROJETOS SOCIEDADE SIMPLES",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 233205.61,
-    "obrasIds": [
-      "a12825e3-c963-4c1a-abd7-817475bec20e"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2022-02-08T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 233205.61,
     "valorEmpenhado": 233205.61,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

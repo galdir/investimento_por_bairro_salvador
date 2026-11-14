@@ -7,14 +7,13 @@
   "objeto": "Constitui objeto deste contrato a prestagao dos servigos de sondagens, realiza9ao de ensaios de solos e determinagao das deflex6es pelo m6todo da viga Benkelman em pavimento, na Cidade do Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONTECNICA CONSULTORIA E PLANEJAMENTO LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1189499.41,
-    "obrasIds": [
-      "861a5810-d06a-451a-b92c-af7455a4d751"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-11-10T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 1189499.41,
     "valorEmpenhado": 1189499.41,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 25.33,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "603002"
 }

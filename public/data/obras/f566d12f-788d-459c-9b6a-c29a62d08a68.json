@@ -7,14 +7,13 @@
   "objeto": "contratação de empresa, pelo regime de empreitada por preços unitários, para a execução de Trabalho Técnico Social reprogramado, objetivando atender às famílias que serão remanejadas devido ao risco de deslizamento de terra sobre seus imóveis e/ou pela intervenção física que ocorrerá nos seguintes bairros: Calçada- Rua Alto do Bom Gosto, Barbalho- Rua Cel. Felisberto Caldeira, Liberdade- Rua Coron",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "HOLLUS SERVICOS TECNICOS ESPECIALIZADOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 343919.63,
-    "obrasIds": [
-      "f566d12f-788d-459c-9b6a-c29a62d08a68"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2018-10-04T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 343919.63,
     "valorEmpenhado": 343919.63,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 30.18,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.964932,
   "longitude": -38.500043,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

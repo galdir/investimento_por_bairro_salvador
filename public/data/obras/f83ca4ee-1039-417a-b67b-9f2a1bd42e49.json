@@ -7,14 +7,13 @@
   "objeto": "EXECUÇÃO DAS OBRAS DE REQUALIFICAÇÃO DO TERMINAL DA BARROQUINHA -",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "DNA7 ENGENHARIA E CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 6373122.55,
-    "obrasIds": [
-      "f83ca4ee-1039-417a-b67b-9f2a1bd42e49"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-09-01T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 6373122.55,
     "valorEmpenhado": 6373122.55,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 97.57,
     "valorAditivos": 845963.6,
     "deltaPercentualAditivos": 15.31
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 15.31
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

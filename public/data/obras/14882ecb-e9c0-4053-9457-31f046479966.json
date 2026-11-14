@@ -7,13 +7,13 @@
   "objeto": "Credenciar pessoas jurídicas devidamente registradas no CREA/CAU, cujo objeto social contemple atividades de levantamento tipográfico de imóveis urbanos do Município de Salvador",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "GEOSEG BAHIA SERVICOS DE ENGENHARIA E TOPOGRAFIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 94865.38,
-    "obrasIds": [
-      "14882ecb-e9c0-4053-9457-31f046479966",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "ae7ed4ed-a147-4dce-a47a-7c5ef7564c01"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 20000.0,
     "valorEmpenhado": 20000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

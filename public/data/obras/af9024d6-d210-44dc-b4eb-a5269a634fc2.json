@@ -7,14 +7,14 @@
   "objeto": "Credenciamento de Pessoas Jurídicas para a execução dos serviços de levantamentos Topográficos de Imóveis Urbanos.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "N. LOBO DE JESUS ENGENHARIA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 100000.0,
-    "obrasIds": [
-      "decb283f-a2f9-450d-a65f-2b459745c0b2",
-      "af9024d6-d210-44dc-b4eb-a5269a634fc2"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "decb283f-a2f9-450d-a65f-2b459745c0b2"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 50000.0,
     "valorEmpenhado": 50000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 30000.0,
     "deltaPercentualAditivos": 150.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

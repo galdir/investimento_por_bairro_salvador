@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa para execução dos serviços de Requalificação Urbanística da Avenida Dendezeiros, para implantação do Caminho da Fé, Bonfim",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO DENDEZEIROS",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 20137820.72,
-    "obrasIds": [
-      "2563b1ca-bfc8-4fba-aa5b-b5ebfc2424ac"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-07-03T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 20137820.72,
     "valorEmpenhado": 20137820.72,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.75,
     "valorAditivos": 4037398.1,
     "deltaPercentualAditivos": 25.08
@@ -63,5 +62,6 @@
   "prefeituraBairro": "Cidade Baixa",
   "latitude": -12.927206,
   "longitude": -38.507667,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

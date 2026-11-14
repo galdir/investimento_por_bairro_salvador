@@ -7,14 +7,13 @@
   "objeto": "ELABORAÇÃO DE PROJETOS BÁSICO E EXECUTIVO DE ENGENHARIA E EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA, PARA IMPLANTAÇÃO DA INTERVENÇÃO ¿A¿ ¿PONTE SOBRE O RIO CAMARAJIPE, NA LIGAÇÃO IGUATEMI ¿ PARALELA - INTEGRANTE DO EMPREENDIMENTO ¿NOVA TANCREDO NEVES¿ ¿ Salvador-Bahia",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO CNM/FARES",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 14331005.73,
-    "obrasIds": [
-      "e536645d-8073-48ee-ab57-1414b821329c"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-08-25T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 14331005.73,
     "valorEmpenhado": 14331005.73,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 99.24,
     "valorAditivos": 51005.73,
     "deltaPercentualAditivos": 0.36
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.982567,
   "longitude": -38.458986,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

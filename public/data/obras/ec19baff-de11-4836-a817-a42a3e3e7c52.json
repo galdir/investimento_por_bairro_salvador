@@ -7,14 +7,13 @@
   "objeto": "SERVIÇOS DE REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 01 PREF IV ITAPUÃ/ IPITANGA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EBRAE EMPRESA BRASILEIRA DE ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 29332631.42,
-    "obrasIds": [
-      "ec19baff-de11-4836-a817-a42a3e3e7c52"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-11-11T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 29332631.42,
     "valorEmpenhado": 29332631.42,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 44.42,
     "valorAditivos": 14941515.83,
     "deltaPercentualAditivos": 103.82
@@ -63,5 +62,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.939631,
   "longitude": -38.358185,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

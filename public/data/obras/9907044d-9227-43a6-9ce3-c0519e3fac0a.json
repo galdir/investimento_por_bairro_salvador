@@ -7,17 +7,21 @@
   "objeto": "contratação de empresas para execução das obras de Infraestrutura Urbana (Infraestrutura, estabilização e contenção de encostas)Lote 02 - Prefeituras Bairros VII -Liberdade/São Caetano, VIII - Cabula/Tancredo Neves e IX-Pau da Lima",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
-    "totalObras": 7,
-    "totalObrasAtivas": 7,
-    "valorTotalContratado": 222076005.14,
-    "obrasIds": [
+    "cnpj": "11.630.923/0001-43",
+    "totalObras": 11,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 788383859.89,
+    "outrasObrasCount": 10,
+    "outrasObrasIds": [
+      "b8143e33-99e5-4aa5-9b3b-adab18d909aa",
+      "db108947-6135-426a-8856-86a090083971",
+      "716d5c0c-f28b-4d96-ad73-4e8cc612dcb6",
       "0045f4fa-23bb-4b9f-8291-fbf99d4c81f4",
       "f416db4d-19d2-4228-bfca-87aa74167bb3",
+      "c735d765-51cd-4270-b8dc-2982dc9ddb06",
       "10e3bc41-5b34-40fd-9b19-765ebe3fe54b",
       "0ae88bfe-920c-41d5-93ed-15f3a3074565",
-      "9907044d-9227-43a6-9ce3-c0519e3fac0a",
       "8e50d73e-2760-48b6-aec9-45fab98615e6",
       "a6866c63-a63d-4384-85c5-ef6e68b634b3"
     ]
@@ -38,7 +42,7 @@
     "valorContratualVigente": 141589447.62,
     "valorEmpenhado": 141589447.62,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.46,
     "valorAditivos": 115457449.48,
     "deltaPercentualAditivos": 441.82
@@ -69,5 +73,6 @@
   "prefeituraBairro": "Liberdade/São Caetano",
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

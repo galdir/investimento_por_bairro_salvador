@@ -7,14 +7,13 @@
   "objeto": "PRESTAÇÃO DE SERVIÇOS DE ASSESSORIA AO GERENCIAMENTO E À FISCALIZAÇÃO DE OBRAS COM APOIO TÉCNICO ÀS OBRAS DE  IMPLANTAÇÃO DO \"TRECHO 2\" DO EMPREENDIMENTO \"CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR, LAPA-LIP, SISTEMA BRT.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO SONDOTECNICA-GEOHIDRO T2 CONT",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 7693455.8,
-    "obrasIds": [
-      "d735ca33-9679-409f-bb16-9e4ca2b4f20c"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-06-01T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 7693455.8,
     "valorEmpenhado": 7693455.8,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 99.5,
     "valorAditivos": 1530592.68,
     "deltaPercentualAditivos": 24.84
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

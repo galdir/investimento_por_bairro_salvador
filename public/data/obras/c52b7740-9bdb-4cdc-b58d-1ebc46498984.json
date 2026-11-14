@@ -7,14 +7,13 @@
   "objeto": "CONTRATAÇÃO DE SERVIÇOS DE PERÍCIAS TÉCNICAS E FISCALIZAÇÃO COMPREENDENDO VISTORIAS  EMISSÃO DE LAUDO TÉCNICO-PROPOSIÇÕES DE MEDIDAS CORRETIVAS BEM COMO A VERIFICAÇÃO DOS SERVIÇOS ELABORADOS VISANDO A INTERVENÇÃO NAS RESIDÊNCIAS PRECÁRIAS NOS BAIRROS E ILHAS DO MUNICÍPIO DE SALVADOR, PARA ATENDIMENTO AO PROJETO MORAR MELHOR. QUINTO TERMO ADITIVO AO CONTRATO Nº 124/2015 ALTERA O ÓRGÃO RESPONSÁVEL",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "GLOBO ENGENHARIA EIRELI",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 21677600.0,
-    "obrasIds": [
-      "c52b7740-9bdb-4cdc-b58d-1ebc46498984"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2018-04-27T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 21677600.0,
     "valorEmpenhado": 21677600.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 34.14,
     "valorAditivos": 19737600.0,
     "deltaPercentualAditivos": 1017.4
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "610002"
 }

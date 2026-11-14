@@ -7,13 +7,13 @@
   "objeto": "obras de Construção do Centro de Referência de Assistência Social (CRAS), localizado no bairro da Boca do Rio",
   "situacao": "Cancelado",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "GAN ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 4,
-    "totalObrasAtivas": 4,
+    "totalObrasAtivas": 2,
     "valorTotalContratado": 12502396.32,
-    "obrasIds": [
-      "0d929f16-359e-4ec7-8d09-18414f5f320c",
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
       "807cd679-c188-4c81-83f5-2cfa7b1ca2f3",
       "2398b408-13f3-4424-9d25-03ce830c4559",
       "fdea320e-0917-4da5-b895-2545658476b0"
@@ -35,7 +35,7 @@
     "valorContratualVigente": 3932521.56,
     "valorEmpenhado": 3932521.56,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -65,5 +65,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

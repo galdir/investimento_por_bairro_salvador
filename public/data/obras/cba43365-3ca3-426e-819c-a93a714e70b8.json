@@ -2,37 +2,41 @@
   "id": "cba43365-3ca3-426e-819c-a93a714e70b8",
   "unidadeGestora": "SEMPRE",
   "numeroContrato": "2024CT008159",
-  "numeroContratoOriginal": "2024CT008159",
-  "nuProcesso": null,
+  "numeroContratoOriginal": "50/2024",
+  "nuProcesso": "044866/2024",
   "objeto": "1.1.\tO objeto do presente instrumento é a contratação de empresa de engenharia para realização de obras de requalificação e modernização da QUADRA POLIESPORTIVA da Rua da Paz, Pau da Lima, Salvador/Ba e do CAMPO DE FUTEBOL da Rua Principal, Nova Esperança, Salvador/Ba, da Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer ¿ SEMPRE",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "20.852.647/0001-59",
     "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 265250.82,
-    "obrasIds": [
-      "cba43365-3ca3-426e-819c-a93a714e70b8"
+    "cnpj": "20.852.647/0001-59",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 3524799.56,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "2d60893e-b78c-421b-b1f5-48dfd23de997",
+      "40051c5a-2bf2-43e0-b0c7-3ab13858833a",
+      "5de1379b-62fe-422b-b557-76ec89cf7c69",
+      "29bcca9f-e6dd-48b5-b99e-53fa8fbce3c7"
     ]
   },
   "vigencia": {
     "dataInicio": "2024-09-02T00:00:00.000Z",
-    "dataFimOriginal": null,
+    "dataFimOriginal": "2025-09-02T00:00:00.000Z",
     "dataTerminoAtualizado": "2025-09-02T00:00:00.000Z",
-    "prazoOriginal": "Conforme Contrato",
-    "prazoAtualizado": "Conforme Contrato"
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
   },
   "dom": {
-    "nuDom": "Não informado",
-    "dataPublicacao": "2024-09-02T00:00:00.000Z"
+    "nuDom": "8864",
+    "dataPublicacao": "2024-09-05T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 265250.82,
     "valorContratualVigente": 265250.82,
     "valorEmpenhado": 265250.82,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +66,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.845118,
   "longitude": -38.375262,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

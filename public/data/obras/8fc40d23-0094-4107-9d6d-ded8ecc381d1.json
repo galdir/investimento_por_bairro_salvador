@@ -7,13 +7,14 @@
   "objeto": "REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 02",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CBV CONSTRUTORA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 85457434.67,
-    "obrasIds": [
-      "8fc40d23-0094-4107-9d6d-ded8ecc381d1"
+    "cnpj": "01.379.851/0001-50",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 415920638.91,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "fd51db3b-afaf-4e22-955d-8391475ef4f7"
     ]
   },
   "vigencia": {
@@ -32,7 +33,7 @@
     "valorContratualVigente": 85457434.67,
     "valorEmpenhado": 85457434.67,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 69.27,
     "valorAditivos": 63699190.67,
     "deltaPercentualAditivos": 292.76
@@ -63,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

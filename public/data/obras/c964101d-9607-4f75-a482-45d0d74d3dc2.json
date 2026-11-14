@@ -7,15 +7,15 @@
   "objeto": "obras de Urbanização da Arena Planeta, localizada na Comunidade do Planeta dos Macacos, em São Cristóvão",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MP2 CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 8,
-    "totalObrasAtivas": 8,
+    "totalObrasAtivas": 7,
     "valorTotalContratado": 11712650.34,
-    "obrasIds": [
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
       "ca9cb53b-f375-476a-839e-a57ca997a1ed",
       "eeccad62-750b-4050-a2ad-eeedb27ac5f3",
-      "c964101d-9607-4f75-a482-45d0d74d3dc2",
       "9eb1e12b-e55a-4d2b-afb7-d5ae1a0d4436",
       "103da8bf-2993-4464-a05f-ef87110bb37d",
       "16587535-375d-4eeb-a4a4-7b49d0b3c12c",
@@ -39,7 +39,7 @@
     "valorContratualVigente": 6157945.66,
     "valorEmpenhado": 6157945.66,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.49,
     "valorAditivos": 1219017.73,
     "deltaPercentualAditivos": 24.68
@@ -69,5 +69,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.910504,
   "longitude": -38.363597,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

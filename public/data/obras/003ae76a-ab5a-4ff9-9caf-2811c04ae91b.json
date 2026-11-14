@@ -7,13 +7,14 @@
   "objeto": "ntratação de empresas para execução das obras de Melhorias Habitacionais em 10.000 (dez mil) imóveis, Programa MORAR MELHOR - Cidade Melhor lote 05",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EG CONSTRUCOES LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 72441358.69,
-    "obrasIds": [
-      "003ae76a-ab5a-4ff9-9caf-2811c04ae91b",
+    "cnpj": "15.198.195/0001-01",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 150267203.84,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "b1cbeaf8-9b63-4844-812a-585c39ccba5f",
       "0a060e52-0d0a-496a-a77d-733aadc075c1"
     ]
   },
@@ -33,7 +34,7 @@
     "valorContratualVigente": 12628323.69,
     "valorEmpenhado": 12628323.69,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.03,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

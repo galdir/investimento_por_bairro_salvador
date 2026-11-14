@@ -7,14 +7,13 @@
   "objeto": "1.1\tContratação de empresa especializada para prestação de serviços de Locação de Praticáveis,  mobiliários equipamentos (tendas/disciplinadores) incluindo, montagem e desmontagem com fornecimento de  cobertura, instalação elétrica, sanitário químico,  hidrossanitária, telefonia e lógica,  climatização, cercamento (fechamento externo), caixa d¿água e estrutura metálica de apoio, para ser utilizado",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "T J E LOCACAO DE TOLDOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 488999.98,
-    "obrasIds": [
-      "60ae07bc-f4bb-4b9d-9337-6049e0724583"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-12-15T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 488999.98,
     "valorEmpenhado": 488999.98,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

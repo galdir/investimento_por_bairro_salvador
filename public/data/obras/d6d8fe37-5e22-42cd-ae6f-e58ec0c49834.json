@@ -7,14 +7,13 @@
   "objeto": "Execução dos serviços de Melhorias Habitacionais-Programa Morar Melhor-Cidade Melhor, subdivididos em 10 (dez) lotes",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "SANJUAN ENGENHARIA LTDA.",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 12303027.59,
-    "obrasIds": [
-      "d6d8fe37-5e22-42cd-ae6f-e58ec0c49834"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2017-11-29T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 12303027.59,
     "valorEmpenhado": 12303027.59,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.0,
     "valorAditivos": 804456.09,
     "deltaPercentualAditivos": 7.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

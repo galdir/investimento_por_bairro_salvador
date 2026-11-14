@@ -7,14 +7,13 @@
   "objeto": "Credenciar Pessoas Jurídicas, devidamente registradas no CREA/CAU, cujo objeto social contemple atividades de Engenharia de Avaliações, para a prestação dos serviços técnicos profissionais ¿ Avaliação de Imóveis Urbanos no Município de Salvador.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CL ARQUITETURA E CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 160000.0,
-    "obrasIds": [
-      "ae46c037-f51c-48a5-86aa-3bdb79397e8e"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-09-30T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 160000.0,
     "valorEmpenhado": 160000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.75,
     "valorAditivos": 60000.0,
     "deltaPercentualAditivos": 60.0
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

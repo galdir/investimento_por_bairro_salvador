@@ -7,12 +7,13 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA, EM REGIME DE EMPREITADA, A PREÇO UNITÁRIO COM FORNECIMENTO DE MÃO-DE-OBRA E EQUIPAMENTOS NECESSARIOS PARA EXECUÇÃO DE SERVIÇOS DE MANUTENÇÃO E CONSERVAÇÃO DOS PREDIOS PÚBLICOS",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CB ENGENHARIA E CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 10,
     "totalObrasAtivas": 10,
     "valorTotalContratado": 36883569.12,
-    "obrasIds": [
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
       "c49e0d50-a076-488c-a345-fc351f811b75",
       "7e62362e-8516-40af-9d84-9f20c1b4b30a",
       "0403a24c-c0c3-45e2-a33c-512c4facdd84",
@@ -21,8 +22,7 @@
       "30f3f18b-fcf6-43bc-889e-fe46de6fc285",
       "1679900f-cc63-4410-bd5f-969eba1631b4",
       "eb8ecbfa-377d-42b5-b51d-095340ebb31b",
-      "b4134a1f-a98c-4cd7-bc36-a69edaeef292",
-      "d9dad0b9-55e7-4b6b-97ad-14d2fd48740c"
+      "b4134a1f-a98c-4cd7-bc36-a69edaeef292"
     ]
   },
   "vigencia": {
@@ -41,7 +41,7 @@
     "valorContratualVigente": 11843708.7,
     "valorEmpenhado": 11843708.7,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.97,
     "valorAditivos": 10093690.9,
     "deltaPercentualAditivos": 576.78
@@ -72,5 +72,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "560002"
 }

@@ -7,15 +7,15 @@
   "objeto": "Constitui objeto do presente contrato a construção de coberturas destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria de Ordem Pública do município de Salvador, na rua Hélio Machado, Boca do Rio (final de linha). CT 016/2022.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "P C MELHOR LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 863650.54,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "a4ef3a46-ac34-4ac1-80d3-c281331257eb",
-      "9f279b99-e4fe-41ca-baf0-ae2a0165dd76",
-      "d9dc6a4a-bf57-48f3-9eaa-3e6499ed2833"
+      "9f279b99-e4fe-41ca-baf0-ae2a0165dd76"
     ]
   },
   "vigencia": {
@@ -34,7 +34,7 @@
     "valorContratualVigente": 499709.08,
     "valorEmpenhado": 499709.08,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.6,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "450002"
 }

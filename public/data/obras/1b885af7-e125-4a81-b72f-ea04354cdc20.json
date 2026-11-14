@@ -7,14 +7,13 @@
   "objeto": "FORNECIMENTO E INSTALAÇÃO DE EQUIPAMENTOS CLIMATIZAÇÃO PARA A ADEQUADA OPERAÇÃO E MONITORAMENTO DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 03",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ARQTEC-COMERCIO E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 30989.72,
-    "obrasIds": [
-      "1b885af7-e125-4a81-b72f-ea04354cdc20"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-03-14T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 30989.72,
     "valorEmpenhado": 30989.72,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

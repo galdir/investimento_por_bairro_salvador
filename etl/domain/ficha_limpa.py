@@ -6,10 +6,179 @@ Financeira, Aditivos Contratuais, Dotação Orçamentária e concentração da E
 
 from typing import Any
 
-from etl.domain.empreiteiras import formatar_cnpj, obter_chave_empreiteira
+from etl.domain.empreiteiras import eh_cnpj_valido, formatar_cnpj, obter_chave_empreiteira
+from etl.domain.mandato import formatar_data_iso
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
 from etl.domain.territorio import parse_float
+
+_DOM_INVALIDOS = {"", "nao informado", "não informado", "none", "null"}
+
+
+def _texto_limpo(val: Any) -> str:
+    """Converte valor opcional para string limpa, tratando sentinela nula."""
+    if val is None:
+        return ""
+    s = str(val).strip()
+    return "" if s.lower() in {"none", "null"} else s
+
+
+def eh_dom_valido(val: Any) -> bool:
+    """Indica se a edição do DOM informada é válida e não genérica."""
+    return _texto_limpo(val).lower() not in _DOM_INVALIDOS
+
+
+def _somar_listas_contabeis(
+    empenhos: list[dict[str, Any]],
+    liquidacoes: list[dict[str, Any]],
+    pagamentos: list[dict[str, Any]],
+) -> tuple[float, float, float]:
+    """Soma os valores reais das listas de empenhos, liquidações e pagamentos."""
+    vl_emp = round(
+        sum(parse_float(e.get("valEmpenhado") or e.get("valEmpenho") or 0.0) for e in empenhos),
+        2,
+    )
+    vl_liq = round(
+        sum(
+            parse_float(l.get("valLiqLiquidacao") or l.get("valBrutLiquidacao") or 0.0)
+            for l in liquidacoes
+        ),
+        2,
+    )
+    vl_pago = round(
+        sum(parse_float(p.get("pago") or p.get("valorPago") or 0.0) for p in pagamentos),
+        2,
+    )
+    return vl_emp, vl_liq, vl_pago
+
+
+def _calcular_deltas_aditivos(vl_orig: float, vl_atua: float) -> tuple[float, float]:
+    """Calcula a variação contratual absoluta e percentual sobre o valor original."""
+    delta_abs = round(max(0.0, vl_atua - vl_orig), 2)
+    delta_perc = round(((vl_atua - vl_orig) / vl_orig) * 100.0, 2) if vl_orig > 0 else 0.0
+    return delta_abs, delta_perc
+
+
+def _montar_ficha_base(
+    *,
+    obra_id: Any,
+    cd_ug: Any,
+    unidade_gestora: str | None,
+    numero_contrato: str | None,
+    numero_contrato_original: str | None,
+    nu_processo: str | None,
+    objeto: str | None,
+    situacao: str | None,
+    razao_social: str,
+    cnpj_credor: str,
+    data_inicio: Any,
+    data_fim_original: Any,
+    data_termino_atualizado: Any,
+    prazo_original: str,
+    prazo_atualizado: str,
+    nu_dom: str,
+    dt_pub_dom: Any,
+    funil_financeiro: dict[str, Any],
+    aditivos: list[dict[str, Any]],
+    dotacao: list[dict[str, Any]],
+    empenhos: list[dict[str, Any]],
+    liquidacoes: list[dict[str, Any]],
+    pagamentos: list[dict[str, Any]],
+    tema: Any,
+    semaforo: Any,
+    nivel: Any,
+    bairro: Any,
+    prefeitura_bairro: Any,
+    latitude: Any,
+    longitude: Any,
+    estagio_alocacao: Any,
+    concentracao_map: dict[str, dict[str, Any]] | None,
+) -> dict[str, Any]:
+    """Monta o dicionário estruturado da Ficha Limpa e aplica o resumo da empreiteira."""
+    ficha: dict[str, Any] = {
+        "id": obra_id,
+        "unidadeGestora": unidade_gestora,
+        "numeroContrato": numero_contrato,
+        "numeroContratoOriginal": numero_contrato_original,
+        "nuProcesso": nu_processo,
+        "objeto": objeto,
+        "situacao": situacao,
+        "empreiteira": {"razaoSocial": razao_social, "cnpj": cnpj_credor},
+        "vigencia": {
+            "dataInicio": formatar_data_iso(data_inicio),
+            "dataFimOriginal": formatar_data_iso(data_fim_original),
+            "dataTerminoAtualizado": formatar_data_iso(data_termino_atualizado),
+            "prazoOriginal": prazo_original,
+            "prazoAtualizado": prazo_atualizado,
+        },
+        "dom": {
+            "nuDom": nu_dom,
+            "dataPublicacao": formatar_data_iso(dt_pub_dom),
+        },
+        "funilFinanceiro": funil_financeiro,
+        "aditivos": aditivos,
+        "dotacao": dotacao,
+        "empenhos": empenhos,
+        "liquidacoes": liquidacoes,
+        "pagamentos": pagamentos,
+        "tema": tema,
+        "semaforo": semaforo,
+        "nivel": nivel,
+        "bairro": bairro,
+        "prefeituraBairro": prefeitura_bairro,
+        "latitude": latitude,
+        "longitude": longitude,
+        "estagioAlocacao": estagio_alocacao,
+    }
+    if cd_ug is not None:
+        ficha["cdUnidadeGestora"] = cd_ug
+
+    return aplicar_resumo_empreiteira_ficha(
+        ficha,
+        concentracao_map=concentracao_map,
+        cnpj_override=cnpj_credor,
+        razao_override=razao_social,
+    )
+
+
+def aplicar_resumo_empreiteira_ficha(
+    ficha: dict[str, Any],
+    concentracao_map: dict[str, dict[str, Any]] | None = None,
+    cnpj_override: str | None = None,
+    razao_override: str | None = None,
+) -> dict[str, Any]:
+    """Atualiza o bloco `empreiteira` de uma Ficha Limpa com o resumo unificado da construtora."""
+    emp_atual = ficha.get("empreiteira") or {}
+    cnpj = formatar_cnpj(str(cnpj_override or emp_atual.get("cnpj") or ""))
+    razao_social = str(razao_override or emp_atual.get("razaoSocial") or "Não Informado").strip()
+    obra_id = ficha.get("id")
+    vl_atua = parse_float((ficha.get("funilFinanceiro") or {}).get("valorContratualVigente") or 0.0)
+
+    chave_emp = obter_chave_empreiteira(cnpj, razao_social)
+    emp_info = (concentracao_map or {}).get(chave_emp)
+    if emp_info is None:
+        emp_info = {
+            "cnpj": cnpj,
+            "razaoSocial": razao_social,
+            "totalObras": 1,
+            "totalObrasAtivas": 1,
+            "valorTotalContratado": vl_atua,
+            "obrasIds": [obra_id] if obra_id is not None else [],
+        }
+
+    total_obras_emp = int(emp_info.get("totalObras", 1))
+    obras_ids = emp_info.get("obrasIds", [])
+    cnpj_final = formatar_cnpj(str(emp_info.get("cnpj") or cnpj))
+    ficha["empreiteira"] = {
+        "razaoSocial": emp_info.get("razaoSocial") or razao_social,
+        "cnpj": cnpj_final,
+        "totalObras": total_obras_emp,
+        "totalObrasAtivas": int(emp_info.get("totalObrasAtivas", 1)),
+        "valorTotalContratado": parse_float(emp_info.get("valorTotalContratado", vl_atua)),
+        "outrasObrasCount": max(0, total_obras_emp - 1),
+        "outrasObrasIds": [oid for oid in obras_ids if oid != obra_id],
+    }
+    return ficha
 
 
 def construir_ficha_obra(
@@ -20,7 +189,7 @@ def construir_ficha_obra(
     empenhos_raw: list[dict[str, Any]],
     liquidacoes_raw: list[dict[str, Any]],
     pagamentos_raw: list[dict[str, Any]],
-    concentracao_map: dict[str, dict[str, Any]],
+    concentracao_map: dict[str, dict[str, Any]] | None = None,
     year: int = 2025,
 ) -> dict[str, Any]:
     """Constrói o payload JSON completo da Ficha Limpa da Obra para carregamento sob demanda.
@@ -33,7 +202,7 @@ def construir_ficha_obra(
         de Salvador e produz o documento estruturado e padronizado da Ficha Limpa da Obra:
         - Objeto, órgãos, contratos, processos e situação;
         - Resumo da construtora com CNPJ formatado, total de obras e contagem de outras obras;
-        - Prazos e datas de vigência original e atualizada;
+        - Prazos e datas de vigência original e atualizada padronizados em ISO;
         - Edição do Diário Oficial do Município (DOM);
         - Funil de Execução Financeira completo (Original, Vigente, Empenhado, Liquidado e Pago)
           preservando os valores reais medidos e pagos para confrontação com percentualExecutado;
@@ -49,8 +218,8 @@ def construir_ficha_obra(
         empenhos_raw: Lista de empenhos relacionados.
         liquidacoes_raw: Lista de liquidações relacionadas.
         pagamentos_raw: Lista de pagamentos relacionados.
-        concentracao_map: Dicionário com a concentração de mercado de cada construtora.
-        year: Ano civil de referência da apuração.
+        concentracao_map: Dicionário opcional com a concentração de mercado de cada construtora.
+        year: Ano civil de referência da apuração (mantido por compatibilidade de assinatura).
 
     Retornos:
         Dicionário formatado no esquema canônico da Ficha Limpa da Obra.
@@ -58,49 +227,54 @@ def construir_ficha_obra(
     Erros:
         Não lança exceções; adota valores padrão seguros caso propriedades estejam ausentes.
     """
+    _ = year
     obra_id = obra.get("id")
     cd_ug = obra.get("cdUnidadeGestora")
-    nu_sigef = obra.get("nuContratoSigef")
+    nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
 
-    cnpj_credor = formatar_cnpj(str(detalhe.get("nuDocumentoCredor") or obra.get("nuDocumentoCredor") or ""))
-    razao_social = str(detalhe.get("nmCredor") or obra.get("nmCredor") or "Não Informado").strip()
-    chave_emp = obter_chave_empreiteira(cnpj_credor, razao_social)
-
+    cnpj_credor = formatar_cnpj(
+        str(
+            detalhe.get("nuDocumentoCredor")
+            or obra.get("nuDocumentoCredor")
+            or obra.get("cnpj")
+            or obra.get("cnpjCredor")
+            or ""
+        )
+    )
+    razao_social = str(
+        detalhe.get("nmCredor") or obra.get("nmCredor") or obra.get("credor") or "Não Informado"
+    ).strip()
     nu_dom = detalhe.get("nuDom") or obra.get("nuDom")
 
-    emp_info = concentracao_map.get(chave_emp, {
-        "cnpj": cnpj_credor,
-        "razaoSocial": razao_social,
-        "totalObras": 1,
-        "totalObrasAtivas": 1,
-        "valorTotalContratado": parse_float(obra.get("vlAtualizado") or obra.get("vlOriginal") or 0.0),
-        "obrasIds": [obra_id],
-    })
+    vl_orig = parse_float(
+        detalhe.get("vlOriginal") or obra.get("vlOriginal") or obra.get("valorOriginal") or 0.0
+    )
+    vl_atua = parse_float(
+        detalhe.get("vlAtualizado")
+        or obra.get("vlAtualizado")
+        or obra.get("valorContratualVigente")
+        or vl_orig
+    )
+    perc_exec = parse_float(
+        detalhe.get("percentualExecutado")
+        if detalhe.get("percentualExecutado") is not None
+        else (obra.get("percentualExecutado") or 0.0)
+    )
 
-    vl_orig = parse_float(detalhe.get("vlOriginal") or obra.get("vlOriginal") or 0.0)
-    vl_atua = parse_float(detalhe.get("vlAtualizado") or obra.get("vlAtualizado") or vl_orig)
-    perc_exec = parse_float(detalhe.get("percentualExecutado") or obra.get("percentualExecutado") or 0.0)
-
-    # Execução financeira real apurada a partir das listas contábeis
-    vl_emp = sum(parse_float(e.get("valEmpenhado") or e.get("valEmpenho") or 0.0) for e in empenhos_raw)
+    vl_emp, vl_liq, vl_pago = _somar_listas_contabeis(empenhos_raw, liquidacoes_raw, pagamentos_raw)
     if vl_emp == 0.0:
         vl_emp = vl_atua
-
-    vl_liq = sum(parse_float(l.get("valLiqLiquidacao") or l.get("valBrutLiquidacao") or 0.0) for l in liquidacoes_raw)
     if vl_liq == 0.0 and obra.get("vlLiquidado"):
         vl_liq = parse_float(obra.get("vlLiquidado"))
+    if vl_pago == 0.0 and obra.get("vlPagoReal") is not None:
+        vl_pago = parse_float(obra.get("vlPagoReal"))
+    elif vl_pago == 0.0 and obra.get("vlPago") is not None:
+        vl_pago = parse_float(obra.get("vlPago"))
 
-    vl_pago = sum(parse_float(p.get("pago") or p.get("valorPago") or 0.0) for p in pagamentos_raw)
-    if vl_pago == 0.0:
-        vl_pago = parse_float(obra.get("vlPago") or 0.0)
+    delta_aditivos, delta_perc_aditivos = _calcular_deltas_aditivos(vl_orig, vl_atua)
 
-    delta_aditivos = round(max(0.0, vl_atua - vl_orig), 2)
-    delta_perc_aditivos = round(((vl_atua - vl_orig) / vl_orig) * 100.0, 2) if vl_orig > 0 else 0.0
-
-    # Normalização de aditivos contratuais
-    aditivos_norm: list[dict[str, Any]] = []
-    for ad in aditivos_raw:
-        aditivos_norm.append({
+    aditivos_norm = [
+        {
             "nuAditivo": ad.get("nuAditivo") or ad.get("numero") or "Termo Aditivo",
             "dsTipoAlteracao": ad.get("dsTipoAlteracao") or ad.get("tipoAlteracao") or "Alteração Contratual",
             "dsObjetoAditivo": ad.get("dsObjetoAditivo") or ad.get("objeto") or "",
@@ -109,52 +283,40 @@ def construir_ficha_obra(
             "dtPublicacao": ad.get("dtPublicacao"),
             "nuDom": ad.get("nuDom") or nu_dom,
             "vlAditivo": parse_float(ad.get("vlAditivo") or ad.get("valor") or 0.0),
-        })
-
-    # Normalização de dotações orçamentárias
-    dotacoes_norm: list[dict[str, Any]] = []
-    for dt in dotacoes_raw:
-        dotacoes_norm.append({
+        }
+        for ad in aditivos_raw
+    ]
+    dotacoes_norm = [
+        {
             "subacao": dt.get("dsSubacao") or "Infraestrutura Urbana Municipal",
             "fonteRecurso": dt.get("dsFonteRecurso") or "Tesouro Municipal (Recursos Ordinários)",
             "classificacao": dt.get("dsClassificacao") or "4.4.90.51 - Obras e Instalações",
-        })
+        }
+        for dt in dotacoes_raw
+    ]
 
-    tema = classificar_tema(obra)
-    semaforo = obra.get("semaforo") or classificar_semaforo(obra)
+    data_inicio = detalhe.get("dtInicioVigencia") or obra.get("dtInicioVigencia")
+    dt_pub_dom = detalhe.get("dtPublicacao") or data_inicio
 
-    total_obras_emp = int(emp_info.get("totalObras", 1))
-    outras_obras_count = max(0, total_obras_emp - 1)
-
-    return {
-        "id": obra_id,
-        "unidadeGestora": obra.get("sgOrgao") or obra.get("dsUnidadeGestora"),
-        "numeroContrato": nu_sigef,
-        "numeroContratoOriginal": detalhe.get("nuContratoOriginal") or obra.get("nuContratoOriginal") or nu_sigef,
-        "nuProcesso": detalhe.get("nuProcesso") or obra.get("nuProcesso"),
-        "objeto": detalhe.get("dsObjeto") or obra.get("dsObjeto"),
-        "situacao": detalhe.get("dsSituacao") or obra.get("dsSituacao"),
-        "empreiteira": {
-            "razaoSocial": emp_info.get("razaoSocial") or razao_social,
-            "cnpj": cnpj_credor,
-            "totalObras": total_obras_emp,
-            "totalObrasAtivas": int(emp_info.get("totalObrasAtivas", 1)),
-            "valorTotalContratado": parse_float(emp_info.get("valorTotalContratado", vl_atua)),
-            "outrasObrasCount": outras_obras_count,
-            "outrasObrasIds": [oid for oid in emp_info.get("obrasIds", []) if oid != obra_id],
-        },
-        "vigencia": {
-            "dataInicio": detalhe.get("dtInicioVigencia") or obra.get("dtInicioVigencia"),
-            "dataFimOriginal": detalhe.get("dtFimVigenciaOriginal") or obra.get("dtFimVigenciaOriginal"),
-            "dataTerminoAtualizado": detalhe.get("dtTerminoVigenciaAtualizado") or obra.get("dtTerminoVigenciaAtualizado"),
-            "prazoOriginal": detalhe.get("dsPrazoOriginal") or "Conforme Contrato",
-            "prazoAtualizado": detalhe.get("dsPrazoAtualizado") or "Conforme Contrato",
-        },
-        "dom": {
-            "nuDom": nu_dom or "Não informado",
-            "dataPublicacao": detalhe.get("dtPublicacao") or detalhe.get("dtInicioVigencia"),
-        },
-        "funilFinanceiro": {
+    return _montar_ficha_base(
+        obra_id=obra_id,
+        cd_ug=cd_ug,
+        unidade_gestora=obra.get("sgOrgao") or obra.get("unidadeGestora") or obra.get("dsUnidadeGestora"),
+        numero_contrato=nu_sigef,
+        numero_contrato_original=detalhe.get("nuContratoOriginal") or obra.get("nuContratoOriginal") or nu_sigef,
+        nu_processo=detalhe.get("nuProcesso") or obra.get("nuProcesso"),
+        objeto=detalhe.get("dsObjeto") or obra.get("dsObjeto") or obra.get("objeto"),
+        situacao=detalhe.get("dsSituacao") or obra.get("dsSituacao") or obra.get("situacao"),
+        razao_social=razao_social,
+        cnpj_credor=cnpj_credor,
+        data_inicio=data_inicio,
+        data_fim_original=detalhe.get("dtFimVigenciaOriginal") or obra.get("dtFimVigenciaOriginal"),
+        data_termino_atualizado=detalhe.get("dtTerminoVigenciaAtualizado") or obra.get("dtTerminoVigenciaAtualizado"),
+        prazo_original=detalhe.get("dsPrazoOriginal") or "Conforme Contrato",
+        prazo_atualizado=detalhe.get("dsPrazoAtualizado") or "Conforme Contrato",
+        nu_dom=nu_dom or "Não informado",
+        dt_pub_dom=dt_pub_dom,
+        funil_financeiro={
             "valorOriginal": vl_orig,
             "valorContratualVigente": vl_atua,
             "valorEmpenhado": vl_emp,
@@ -164,17 +326,385 @@ def construir_ficha_obra(
             "valorAditivos": delta_aditivos,
             "deltaPercentualAditivos": delta_perc_aditivos,
         },
-        "aditivos": aditivos_norm,
-        "dotacao": dotacoes_norm,
-        "empenhos": empenhos_raw,
-        "liquidacoes": liquidacoes_raw,
-        "pagamentos": pagamentos_raw,
-        "tema": tema,
-        "semaforo": semaforo,
-        "nivel": obra.get("nivel"),
-        "bairro": obra.get("bairro"),
-        "prefeituraBairro": obra.get("prefeitura_bairro") or obra.get("prefeituraBairro"),
-        "latitude": obra.get("latitude"),
-        "longitude": obra.get("longitude"),
-        "estagioAlocacao": obra.get("estagioAlocacao"),
+        aditivos=aditivos_norm,
+        dotacao=dotacoes_norm,
+        empenhos=empenhos_raw,
+        liquidacoes=liquidacoes_raw,
+        pagamentos=pagamentos_raw,
+        tema=obra.get("tema") or classificar_tema(obra),
+        semaforo=obra.get("semaforo") or classificar_semaforo(obra),
+        nivel=obra.get("nivel"),
+        bairro=obra.get("bairro"),
+        prefeitura_bairro=obra.get("prefeitura_bairro") or obra.get("prefeituraBairro"),
+        latitude=obra.get("latitude"),
+        longitude=obra.get("longitude"),
+        estagio_alocacao=obra.get("estagioAlocacao"),
+        concentracao_map=concentracao_map,
+    )
+
+
+def _texto_limpo(val: Any) -> str:
+    """Converte valor em texto sem espaços laterais, tratando None como string vazia."""
+    if val is None:
+        return ""
+    s = str(val).strip()
+    return "" if s.lower() in {"none", "null"} else s
+
+
+def _eh_dotacao_padrao(dotacoes: list[dict[str, Any]]) -> bool:
+    """Identifica o fallback genérico padrão de dotação orçamentária."""
+    if not dotacoes:
+        return True
+    if len(dotacoes) != 1:
+        return False
+    d0 = dotacoes[0]
+    return (
+        d0.get("subacao") == "Infraestrutura Urbana Municipal"
+        and d0.get("fonteRecurso") == "Tesouro Municipal (Recursos Ordinários)"
+    )
+
+
+def _selecionar_cnpj_mais_completo(
+    obra: dict[str, Any],
+    fichas_candidatas: list[dict[str, Any]],
+) -> str:
+    """Seleciona o primeiro CNPJ válido (14 dígitos) entre o registro base e as candidatas."""
+    candidatos = [
+        obra.get("nuDocumentoCredor"),
+        obra.get("cnpj"),
+        obra.get("cnpjCredor"),
+    ]
+    for f in fichas_candidatas:
+        candidatos.append((f.get("empreiteira") or {}).get("cnpj"))
+    for raw in candidatos:
+        fmt = formatar_cnpj(str(raw or ""))
+        if eh_cnpj_valido(fmt):
+            return fmt
+    return ""
+
+
+def _resolver_vigencia_mesclada(
+    obra: dict[str, Any],
+    candidatas: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Consolida datas e prazos de vigência das fichas candidatas em formato ISO uniforme."""
+    data_fim_orig = next(
+        (_texto_limpo((f.get("vigencia") or {}).get("dataFimOriginal")) for f in candidatas if _texto_limpo((f.get("vigencia") or {}).get("dataFimOriginal"))),
+        _texto_limpo(obra.get("dtFimVigenciaOriginal")) or None,
+    )
+    ficha_com_fim_orig = next(
+        (f for f in candidatas if _texto_limpo((f.get("vigencia") or {}).get("dataFimOriginal"))),
+        None,
+    )
+    data_inicio = (
+        _texto_limpo(obra.get("dtInicioVigencia"))
+        or (_texto_limpo((ficha_com_fim_orig.get("vigencia") or {}).get("dataInicio")) if ficha_com_fim_orig else "")
+        or next(
+            (_texto_limpo((f.get("vigencia") or {}).get("dataInicio")) for f in candidatas if _texto_limpo((f.get("vigencia") or {}).get("dataInicio"))),
+            None,
+        )
+    )
+    data_termino_atua = (
+        _texto_limpo(obra.get("dtTerminoVigenciaAtualizado"))
+        or next(
+            (_texto_limpo((f.get("vigencia") or {}).get("dataTerminoAtualizado")) for f in candidatas if _texto_limpo((f.get("vigencia") or {}).get("dataTerminoAtualizado"))),
+            None,
+        )
+    )
+    prazo_orig = next(
+        (
+            _texto_limpo((f.get("vigencia") or {}).get("prazoOriginal"))
+            for f in candidatas
+            if _texto_limpo((f.get("vigencia") or {}).get("prazoOriginal")) not in {"", "Conforme Contrato"}
+        ),
+        "Conforme Contrato",
+    )
+    prazo_atua = next(
+        (
+            _texto_limpo((f.get("vigencia") or {}).get("prazoAtualizado"))
+            for f in candidatas
+            if _texto_limpo((f.get("vigencia") or {}).get("prazoAtualizado")) not in {"", "Conforme Contrato"}
+        ),
+        "Conforme Contrato",
+    )
+    return {
+        "dataInicio": formatar_data_iso(data_inicio),
+        "dataFimOriginal": formatar_data_iso(data_fim_orig),
+        "dataTerminoAtualizado": formatar_data_iso(data_termino_atua),
+        "prazoOriginal": prazo_orig,
+        "prazoAtualizado": prazo_atua,
     }
+
+
+def _resolver_funil_mesclado(
+    obra: dict[str, Any],
+    candidatas: list[dict[str, Any]],
+    empenhos: list[dict[str, Any]],
+    liquidacoes: list[dict[str, Any]],
+    pagamentos: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Recalcula o Funil de Execução Financeira priorizando valores reais das listas resgatadas."""
+    vl_orig = parse_float(
+        obra.get("valorOriginal")
+        or obra.get("vlOriginal")
+        or next((f.get("funilFinanceiro", {}).get("valorOriginal") for f in candidatas if parse_float(f.get("funilFinanceiro", {}).get("valorOriginal")) > 0), 0.0)
+    )
+    vl_atua = parse_float(
+        obra.get("valorContratualVigente")
+        or obra.get("vlAtualizado")
+        or next((f.get("funilFinanceiro", {}).get("valorContratualVigente") for f in candidatas if parse_float(f.get("funilFinanceiro", {}).get("valorContratualVigente")) > 0), vl_orig)
+    )
+    if obra.get("percentualExecutado") is not None:
+        perc_exec = parse_float(obra.get("percentualExecutado"))
+    else:
+        perc_exec = next(
+            (
+                parse_float((f.get("funilFinanceiro") or {}).get("percentualExecutado"))
+                for f in candidatas
+                if (f.get("funilFinanceiro") or {}).get("percentualExecutado") is not None
+            ),
+            0.0,
+        )
+
+    delta_aditivos, delta_perc_aditivos = _calcular_deltas_aditivos(vl_orig, vl_atua)
+    vl_emp, vl_liq, vl_pago = _somar_listas_contabeis(empenhos, liquidacoes, pagamentos)
+
+    if vl_emp == 0.0:
+        emp_com_lista = [
+            parse_float((f.get("funilFinanceiro") or {}).get("valorEmpenhado"))
+            for f in candidatas
+            if f.get("empenhos") and parse_float((f.get("funilFinanceiro") or {}).get("valorEmpenhado")) > 0
+        ]
+        vl_emp = max(emp_com_lista) if emp_com_lista else vl_atua
+
+    if vl_liq == 0.0:
+        liq_com_lista = [
+            parse_float((f.get("funilFinanceiro") or {}).get("valorLiquidado"))
+            for f in candidatas
+            if f.get("liquidacoes") and parse_float((f.get("funilFinanceiro") or {}).get("valorLiquidado")) > 0
+        ]
+        if liq_com_lista:
+            vl_liq = max(liq_com_lista)
+
+    if vl_pago == 0.0:
+        pag_com_lista = [
+            parse_float((f.get("funilFinanceiro") or {}).get("valorPago"))
+            for f in candidatas
+            if f.get("pagamentos") and parse_float((f.get("funilFinanceiro") or {}).get("valorPago")) > 0
+        ]
+        if pag_com_lista:
+            vl_pago = max(pag_com_lista)
+
+    return {
+        "valorOriginal": vl_orig,
+        "valorContratualVigente": vl_atua,
+        "valorEmpenhado": vl_emp,
+        "valorLiquidado": vl_liq,
+        "valorPago": vl_pago,
+        "percentualExecutado": perc_exec,
+        "valorAditivos": delta_aditivos,
+        "deltaPercentualAditivos": delta_perc_aditivos,
+    }
+
+
+def mesclar_fichas_obra(
+    obra: dict[str, Any],
+    fichas_candidatas: list[dict[str, Any]],
+    concentracao_map: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Mescla múltiplas versões locais de uma Ficha Limpa aplicando máxima completude campo a campo.
+
+    Sumário:
+        Consolida listas contábeis, aditivos, dotações, DOM, vigência e CNPJ entre versões de um contrato.
+
+    Descrição Estendida:
+        Para contratos que possuem múltiplas versões em disco ou que passaram por reconsulta com
+        endpoints secundários vazios, inspeciona todas as fichas candidatas da mesma Chave Canônica
+        da Obra preservando a lista não vazia/mais longa de empenhos, liquidações, pagamentos,
+        aditivos e dotações (preferindo dotações reais ao fallback padrão), além do CNPJ formatado,
+        processo administrativo, número original do contrato, edição do DOM e datas de vigência
+        normalizadas em ISO. Recalcula o Funil de Execução Financeira com os totais reais.
+    """
+    candidatas = [f for f in fichas_candidatas if isinstance(f, dict)]
+    if not candidatas:
+        return construir_ficha_obra(obra, {}, [], [], [], [], [], concentracao_map)
+
+    obra_id = obra.get("id")
+    if obra_id is None:
+        obra_id = next((f.get("id") for f in candidatas if f.get("id") is not None), None)
+
+    cd_ug = obra.get("cdUnidadeGestora")
+    if cd_ug is None:
+        cd_ug = next((f.get("cdUnidadeGestora") for f in candidatas if f.get("cdUnidadeGestora") is not None), None)
+
+    unidade_gestora = (
+        _texto_limpo(obra.get("unidadeGestora"))
+        or _texto_limpo(obra.get("sgOrgao"))
+        or _texto_limpo(obra.get("dsUnidadeGestora"))
+        or next((_texto_limpo(f.get("unidadeGestora")) for f in candidatas if _texto_limpo(f.get("unidadeGestora"))), "")
+    )
+    numero_contrato = (
+        _texto_limpo(obra.get("numeroContrato"))
+        or _texto_limpo(obra.get("nuContratoSigef"))
+        or next((_texto_limpo(f.get("numeroContrato")) for f in candidatas if _texto_limpo(f.get("numeroContrato"))), "")
+    )
+
+    orig_cands = [
+        _texto_limpo(v)
+        for v in ([obra.get("nuContratoOriginal")] + [f.get("numeroContratoOriginal") for f in candidatas])
+        if _texto_limpo(v)
+    ]
+    numero_contrato_original = next(
+        (v for v in orig_cands if v != numero_contrato),
+        orig_cands[0] if orig_cands else numero_contrato,
+    )
+
+    proc_cands = [
+        _texto_limpo(v)
+        for v in ([obra.get("nuProcesso")] + [f.get("nuProcesso") for f in candidatas])
+        if _texto_limpo(v)
+    ]
+    nu_processo = max(proc_cands, key=len) if proc_cands else None
+
+    objeto = (
+        _texto_limpo(obra.get("objeto"))
+        or _texto_limpo(obra.get("dsObjeto"))
+        or next((_texto_limpo(f.get("objeto")) for f in candidatas if _texto_limpo(f.get("objeto"))), "")
+    )
+    situacao = (
+        _texto_limpo(obra.get("situacao"))
+        or _texto_limpo(obra.get("dsSituacao"))
+        or next((_texto_limpo(f.get("situacao")) for f in candidatas if _texto_limpo(f.get("situacao"))), "")
+    )
+
+    cnpj_credor = _selecionar_cnpj_mais_completo(obra, candidatas)
+    razao_cands = [
+        _texto_limpo(v)
+        for v in (
+            [obra.get("nmCredor"), obra.get("credor")]
+            + [(f.get("empreiteira") or {}).get("razaoSocial") for f in candidatas]
+        )
+        if _texto_limpo(v) and _texto_limpo(v).lower() not in {"não informado", "nao informado"}
+    ]
+    razao_social = razao_cands[0] if razao_cands else "Não Informado"
+
+    vigencia = _resolver_vigencia_mesclada(obra, candidatas)
+
+    # DOM: prefere edição válida e sua data de publicação associada
+    ficha_dom_valido = next(
+        (f for f in candidatas if eh_dom_valido((f.get("dom") or {}).get("nuDom"))),
+        None,
+    )
+    if ficha_dom_valido is not None:
+        dom_info = ficha_dom_valido.get("dom") or {}
+        nu_dom = _texto_limpo(dom_info.get("nuDom"))
+        dt_pub_dom = _texto_limpo(dom_info.get("dataPublicacao")) or vigencia["dataInicio"]
+    else:
+        obra_dom = _texto_limpo(obra.get("nuDom"))
+        nu_dom = obra_dom if eh_dom_valido(obra_dom) else "Não informado"
+        dt_pub_dom = next(
+            (_texto_limpo((f.get("dom") or {}).get("dataPublicacao")) for f in candidatas if _texto_limpo((f.get("dom") or {}).get("dataPublicacao"))),
+            vigencia["dataInicio"],
+        )
+
+    # Listas: preserva a mais completa de cada endpoint
+    empenhos = [dict(e) for e in max((f.get("empenhos") or [] for f in candidatas), key=len, default=[])]
+    liquidacoes = [dict(l) for l in max((f.get("liquidacoes") or [] for f in candidatas), key=len, default=[])]
+    pagamentos = [dict(p) for p in max((f.get("pagamentos") or [] for f in candidatas), key=len, default=[])]
+
+    aditivos = [dict(ad) for ad in max((f.get("aditivos") or [] for f in candidatas), key=len, default=[])]
+    if nu_dom != "Não informado":
+        for ad in aditivos:
+            if not eh_dom_valido(ad.get("nuDom")):
+                ad["nuDom"] = nu_dom
+
+    dotacoes_nao_padrao = [
+        f.get("dotacao") or []
+        for f in candidatas
+        if not _eh_dotacao_padrao(f.get("dotacao") or [])
+    ]
+    if dotacoes_nao_padrao:
+        dotacao = [dict(d) for d in max(dotacoes_nao_padrao, key=len)]
+    else:
+        dotacoes_existentes = [f.get("dotacao") or [] for f in candidatas if f.get("dotacao")]
+        dotacao = [dict(d) for d in max(dotacoes_existentes, key=len, default=[])]
+
+    funil = _resolver_funil_mesclado(obra, candidatas, empenhos, liquidacoes, pagamentos)
+    tema = obra.get("tema") or next((f.get("tema") for f in candidatas if f.get("tema")), None) or classificar_tema(obra)
+    semaforo = obra.get("semaforo") or next((f.get("semaforo") for f in candidatas if f.get("semaforo")), None) or classificar_semaforo(obra)
+
+    return _montar_ficha_base(
+        obra_id=obra_id,
+        cd_ug=cd_ug,
+        unidade_gestora=unidade_gestora,
+        numero_contrato=numero_contrato,
+        numero_contrato_original=numero_contrato_original,
+        nu_processo=nu_processo,
+        objeto=objeto,
+        situacao=situacao,
+        razao_social=razao_social,
+        cnpj_credor=cnpj_credor,
+        data_inicio=vigencia["dataInicio"],
+        data_fim_original=vigencia["dataFimOriginal"],
+        data_termino_atualizado=vigencia["dataTerminoAtualizado"],
+        prazo_original=vigencia["prazoOriginal"],
+        prazo_atualizado=vigencia["prazoAtualizado"],
+        nu_dom=nu_dom,
+        dt_pub_dom=dt_pub_dom,
+        funil_financeiro=funil,
+        aditivos=aditivos,
+        dotacao=dotacao,
+        empenhos=empenhos,
+        liquidacoes=liquidacoes,
+        pagamentos=pagamentos,
+        tema=tema,
+        semaforo=semaforo,
+        nivel=obra.get("nivel") or next((f.get("nivel") for f in candidatas if f.get("nivel")), None),
+        bairro=obra.get("bairro") if obra.get("bairro") is not None else next((f.get("bairro") for f in candidatas if f.get("bairro") is not None), None),
+        prefeitura_bairro=obra.get("prefeitura_bairro") or obra.get("prefeituraBairro") or next((f.get("prefeituraBairro") for f in candidatas if f.get("prefeituraBairro")), None),
+        latitude=obra.get("latitude") if obra.get("latitude") is not None else next((f.get("latitude") for f in candidatas if f.get("latitude") is not None), None),
+        longitude=obra.get("longitude") if obra.get("longitude") is not None else next((f.get("longitude") for f in candidatas if f.get("longitude") is not None), None),
+        estagio_alocacao=obra.get("estagioAlocacao") or next((f.get("estagioAlocacao") for f in candidatas if f.get("estagioAlocacao")), None),
+        concentracao_map=concentracao_map,
+    )
+
+
+def sincronizar_obra_com_ficha(obra: dict[str, Any], ficha: dict[str, Any]) -> None:
+    """Propaga metadados e totais reais do Funil de Execução Financeira da ficha para a obra."""
+    cnpj_credor = formatar_cnpj(str((ficha.get("empreiteira") or {}).get("cnpj") or ""))
+    if eh_cnpj_valido(cnpj_credor):
+        obra["cnpj"] = cnpj_credor
+        obra["cnpjCredor"] = cnpj_credor
+        obra["nuDocumentoCredor"] = cnpj_credor
+
+    nu_dom = _texto_limpo((ficha.get("dom") or {}).get("nuDom"))
+    if eh_dom_valido(nu_dom):
+        obra["nuDom"] = nu_dom
+
+    funil = ficha.get("funilFinanceiro") or {}
+    vl_atua = parse_float(
+        obra.get("vlAtualizado")
+        or obra.get("valorContratualVigente")
+        or funil.get("valorContratualVigente")
+        or obra.get("vlOriginal")
+        or 0.0
+    )
+    perc_exec = parse_float(
+        obra.get("percentualExecutado")
+        if obra.get("percentualExecutado") is not None
+        else (funil.get("percentualExecutado") or 0.0)
+    )
+    vl_emp = parse_float(funil.get("valorEmpenhado") or 0.0)
+    vl_liq = parse_float(funil.get("valorLiquidado") or 0.0)
+    vl_pago_real = parse_float(funil.get("valorPago") or 0.0)
+    valor_pago_indice = (
+        round(vl_pago_real, 2)
+        if vl_pago_real > 0.0
+        else round(vl_atua * (perc_exec / 100.0), 2)
+    )
+
+    obra["vlEmpenhado"] = round(vl_emp, 2)
+    obra["vlLiquidado"] = round(vl_liq, 2)
+    obra["vlPagoReal"] = round(vl_pago_real, 2)
+    obra["valorPago"] = valor_pago_indice
+    obra["vlPago"] = valor_pago_indice

@@ -2,39 +2,39 @@
   "id": "dd6d592e-46f9-4080-9fe9-39c17e62aabe",
   "unidadeGestora": "SEMPRE",
   "numeroContrato": "2024CT006680",
-  "numeroContratoOriginal": "2024CT006680",
-  "nuProcesso": null,
+  "numeroContratoOriginal": "43/2024",
+  "nuProcesso": "041796/2024",
   "objeto": "Realização de obras de requalificação e modernização do QUADRA POLIESPORTIVA da Rua Lourival Costa com a Rua\r\nJoinville, Águas Claras - Salvador/Ba e do CAMPO DE FUTEBOL. Convênio n° 911864/2021. Proc: 41796/2024.\r\nDeclaramos para os devidos fins legais que a referida despesa possui adequação orçamentária e financeira com a LOA e\r\ncompatibilidade com a LDO e PPA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "26.757.074/0001-60",
     "razaoSocial": "R.N ENGENHARIA LTDA",
+    "cnpj": "26.757.074/0001-60",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 1660562.03,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "54ff18ef-f5e6-4d86-8c0b-998d8cf105df",
-      "c2279011-4389-4430-a10b-9ae629ccc8d1",
-      "dd6d592e-46f9-4080-9fe9-39c17e62aabe"
+      "c2279011-4389-4430-a10b-9ae629ccc8d1"
     ]
   },
   "vigencia": {
     "dataInicio": "2024-07-09T00:00:00.000Z",
-    "dataFimOriginal": null,
+    "dataFimOriginal": "2025-07-09T00:00:00.000Z",
     "dataTerminoAtualizado": "2025-07-09T00:00:00.000Z",
-    "prazoOriginal": "Conforme Contrato",
-    "prazoAtualizado": "Conforme Contrato"
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
   },
   "dom": {
-    "nuDom": "Não informado",
-    "dataPublicacao": "2024-07-09T00:00:00.000Z"
+    "nuDom": "8820",
+    "dataPublicacao": "2024-07-15T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 223374.6,
     "valorContratualVigente": 223374.6,
     "valorEmpenhado": 223374.6,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -47,7 +47,46 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [],
+  "empenhos": [
+    {
+      "id": "8ddcf94b-5b17-49b4-b9f8-bc380bddfd7c",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2024NE002198",
+      "dataEmpenho": "15/07/2024",
+      "nomeCredor": "R.N ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Confecção de uniformes, bandeiras e flamulas",
+      "valEmpenhado": "3.148,23",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "6413eacf-4eb0-4f42-9017-a5e86d795c81",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2024NE003188",
+      "dataEmpenho": "18/11/2024",
+      "nomeCredor": "R.N ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Confecção de uniformes, bandeiras e flamulas",
+      "valEmpenhado": "-3.148,23",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Praças, Esporte e Lazer",
@@ -64,5 +103,6 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.890699,
   "longitude": -38.435616,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

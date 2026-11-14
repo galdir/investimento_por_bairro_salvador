@@ -7,15 +7,16 @@
   "objeto": "Construção do Mercado de São Cristóvão",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ART PROJETOS CONSTRUCOES E SERVICOS LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 12329681.96,
-    "obrasIds": [
+    "cnpj": "10.672.793/0001-49",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 20907442.74,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "6bd6976e-2282-426a-98c7-8a041744d3b7",
       "487d89e8-791d-4bc8-b857-4626bf461ae2",
-      "497562ff-ee9b-41a8-89fe-a96ebed000aa",
-      "3a6e4e0a-bf8d-4c28-95d8-a4679fee0350"
+      "497562ff-ee9b-41a8-89fe-a96ebed000aa"
     ]
   },
   "vigencia": {
@@ -34,7 +35,7 @@
     "valorContratualVigente": 2062164.05,
     "valorEmpenhado": 2062164.05,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.5,
     "valorAditivos": 383020.12,
     "deltaPercentualAditivos": 22.81
@@ -64,5 +65,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.910504,
   "longitude": -38.363597,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

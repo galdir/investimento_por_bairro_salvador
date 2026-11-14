@@ -7,13 +7,14 @@
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ENGOS ENGENHARIA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 100000.0,
-    "obrasIds": [
-      "aa4f71c4-49fc-44ad-9ffc-990fdba30e75"
+    "cnpj": "10.293.245/0001-08",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 200000.0,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "c2fbecab-f44d-4713-8895-049d4934db01"
     ]
   },
   "vigencia": {
@@ -32,7 +33,7 @@
     "valorContratualVigente": 100000.0,
     "valorEmpenhado": 100000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 9.8,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

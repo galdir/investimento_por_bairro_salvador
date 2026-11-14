@@ -7,13 +7,13 @@
   "objeto": "Execução de obras de Construção do Píer da Bananeiras na Ilha de Maré - Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "REICH ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 4713221.89,
-    "obrasIds": [
-      "15424b61-5550-417c-ac10-54ac6d51e624",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "8771b503-764b-4fd0-8e19-a0930157847a"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 3409554.25,
     "valorEmpenhado": 3409554.25,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.36,
     "valorAditivos": 680681.88,
     "deltaPercentualAditivos": 24.94
@@ -58,10 +58,11 @@
     ],
     "deltaPercentualValor": 24.94
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Ilha de Maré",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.769613,
+  "longitude": -38.527424,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

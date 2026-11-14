@@ -7,13 +7,15 @@
   "objeto": "SERVIÇOS COMUNS DE ENGENHARIA PARA CONSTRUÇÃO DE QUIOSQUES DE MODELOS VARIADOS E MÓDULOS DE CONFORTO PARA MOTO TAXISTAS EM DIVERSOS LOGRADOUROS DO MUNICÍPIO DE SALVADOR - LOTE 1",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "V R CAMPOS BARBOSA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 2123735.34,
-    "obrasIds": [
-      "5a701a69-fb07-4e63-92b7-473dca618bbb"
+    "cnpj": "37.513.644/0001-93",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 11486857.77,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "f2df01e0-33cc-4715-9efe-5e8fc2320277",
+      "7e27934a-e024-4575-9eae-b0a0a5877841"
     ]
   },
   "vigencia": {
@@ -32,7 +34,7 @@
     "valorContratualVigente": 2123735.34,
     "valorEmpenhado": 2123735.34,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.4,
     "valorAditivos": 423687.89,
     "deltaPercentualAditivos": 24.92
@@ -62,5 +64,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

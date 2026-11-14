@@ -7,14 +7,13 @@
   "objeto": "ELABORAÇÃO DE PROJETOS BÁSICO E EXECUTIVO DE ENGENHARIA E EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA, PARA IMPLANTAÇÃO DA INTERVENÇÃO ¿E¿ ¿ TRINCHEIRA BIDIRECIONAL DE LIGAÇÃO ENTRE AS AVENIDAS TANCREDO NEVES E MAGALHÃES NETO - INTEGRANTE DO EMPREENDIMENTO ¿NOVA TANCREDO NEVES¿",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO KPE/FUTURE ATP",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 43832521.22,
-    "obrasIds": [
-      "e8214513-6c24-467c-9b69-88d2cd56f380"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-06-09T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 43832521.22,
     "valorEmpenhado": 43832521.22,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.84,
     "valorAditivos": 856704.76,
     "deltaPercentualAditivos": 1.99
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Cabula/Tancredo Neves",
   "latitude": -12.945674,
   "longitude": -38.44836,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

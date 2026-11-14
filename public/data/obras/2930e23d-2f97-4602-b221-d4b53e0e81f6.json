@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa especializada para prestação dos serviços de Assessoria e/ou Apoio Técnico à Elaborações, Análises e Aprovações de Projetos, de Assessoria e/ou Apoio Técnico ao Gerenciamento de Projetos e/ou Obras e de Assessoria e/ou Apoio Técnico à Fiscalização de Projetos e/ou Obras, no Município do Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "NOVA ENGEVIX ENGENHARIA E PROJETOS S.A.",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 34044140.77,
-    "obrasIds": [
-      "2930e23d-2f97-4602-b221-d4b53e0e81f6"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-04-24T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 34044140.77,
     "valorEmpenhado": 34044140.77,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 102.28,
     "valorAditivos": 28112905.57,
     "deltaPercentualAditivos": 473.98
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

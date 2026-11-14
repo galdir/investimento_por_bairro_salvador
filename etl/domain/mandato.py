@@ -64,8 +64,53 @@ def obter_chave_canonica_obra(obra: dict[str, Any]) -> tuple[str, str]:
     return ("OBJ", obj)
 
 
-def _formatar_data_iso(data_val: Any) -> str | None:
-    """Padroniza datas para formato string ISO ou preserva formato original."""
+def obter_chaves_candidatas_obra(obra: dict[str, Any]) -> list[tuple[str, str]]:
+    """Retorna todas as chaves canônicas candidatas para parear versões de um mesmo contrato.
+
+    Sumário:
+        Combina os identificadores de Unidade Gestora disponíveis com o número do contrato SIGEF.
+
+    Descrição Estendida:
+        O índice anual e o grid detalhado carregam `cdUnidadeGestora` (numérico) e `sgOrgao`/
+        `unidadeGestora` (sigla), enquanto as fichas individuais persistidas em `obras/<id>.json`
+        registram apenas `unidadeGestora` e `numeroContrato`. Retornar todas as tuplas
+        `(ug, numero_contrato)` válidas permite reconciliar versões locais e execuções
+        incrementais sem depender do identificador volátil.
+
+    Argumentos:
+        obra: Dicionário representando o contrato ou ficha da obra pública.
+
+    Retornos:
+        Lista ordenada e sem duplicatas de tuplas `(unidade_gestora, numero_contrato)`.
+    """
+    nu_sigef = str(obra.get("nuContratoSigef") or obra.get("numeroContrato") or "").strip()
+    chaves: list[tuple[str, str]] = []
+
+    if nu_sigef:
+        for campo_ug in ("cdUnidadeGestora", "sgOrgao", "unidadeGestora", "dsUnidadeGestora"):
+            ug_val = obra.get(campo_ug)
+            if ug_val is not None:
+                ug_str = str(ug_val).strip()
+                if ug_str:
+                    par = (ug_str, nu_sigef)
+                    if par not in chaves:
+                        chaves.append(par)
+
+    chave_padrao = obter_chave_canonica_obra(obra)
+    if chave_padrao not in chaves:
+        chaves.append(chave_padrao)
+    return chaves
+
+
+def cds_ug_compativeis(obra_a: dict[str, Any], obra_b: dict[str, Any]) -> bool:
+    """Verifica se dois registros não possuem códigos `cdUnidadeGestora` conflitantes."""
+    cd_a = str(obra_a.get("cdUnidadeGestora") or "").strip()
+    cd_b = str(obra_b.get("cdUnidadeGestora") or "").strip()
+    return not cd_a or not cd_b or cd_a == cd_b
+
+
+def formatar_data_iso(data_val: Any) -> str | None:
+    """Padroniza datas DD/MM/AAAA para formato string ISO ou preserva formato ISO original."""
     if not data_val:
         return None
     s = str(data_val).strip()
@@ -76,6 +121,14 @@ def _formatar_data_iso(data_val: Any) -> str | None:
         dia, mes, ano = m_br.group(1), m_br.group(2), m_br.group(3)
         return f"{ano}-{mes}-{dia}T00:00:00.000Z"
     return s
+
+
+def normalizar_data_chave(valor: Any) -> str:
+    """Normaliza datas ISO ou DD/MM/AAAA para chave `YYYY-MM-DD` em comparações de cache."""
+    iso = formatar_data_iso(valor)
+    if not iso:
+        return ""
+    return iso[:10] if len(iso) >= 10 and iso[4] == "-" and iso[7] == "-" else iso
 
 
 def resolver_datas_vigencia(obra: dict[str, Any]) -> tuple[str | None, str | None]:
@@ -92,7 +145,7 @@ def resolver_datas_vigencia(obra: dict[str, Any]) -> tuple[str | None, str | Non
     """
     inicio = obra.get("dtInicioVigencia") or obra.get("dtAssinatura")
     fim = obra.get("dtTerminoVigenciaAtualizado") or obra.get("dtFimVigenciaOriginal") or inicio
-    return (_formatar_data_iso(inicio), _formatar_data_iso(fim))
+    return (formatar_data_iso(inicio), formatar_data_iso(fim))
 
 
 def extrair_ano_data(data_val: Any) -> int | None:
@@ -231,31 +284,52 @@ def deduplicar_obras(obras: list[dict[str, Any]]) -> list[dict[str, Any]]:
     Erros:
         Não lança exceções.
     """
-    mapa_obras: dict[tuple[str, str], dict[str, Any]] = {}
-    ordem_chaves: list[tuple[str, str]] = []
+    buckets: list[dict[str, Any]] = []
+    chaves_para_indices: dict[tuple[str, str], list[int]] = {}
 
     for obra in obras:
-        chave = obter_chave_canonica_obra(obra)
+        chaves_candidatas = obter_chaves_candidatas_obra(obra)
+        idx_existente: int | None = None
+        for c in chaves_candidatas:
+            for cand_idx in chaves_para_indices.get(c, []):
+                if cds_ug_compativeis(obra, buckets[cand_idx]):
+                    idx_existente = cand_idx
+                    break
+            if idx_existente is not None:
+                break
+
         obra_dict = dict(obra)
 
         # Garante que mandatos estejam atribuídos
         if "mandatos" not in obra_dict or not obra_dict["mandatos"]:
             obra_dict["mandatos"] = classificar_mandatos_obra(obra_dict)
 
-        if chave not in mapa_obras:
-            mapa_obras[chave] = obra_dict
-            ordem_chaves.append(chave)
+        if idx_existente is None:
+            idx_existente = len(buckets)
+            buckets.append(obra_dict)
         else:
-            existente = mapa_obras[chave]
+            existente = buckets[idx_existente]
             mandatos_unidos = set(existente.get("mandatos", [])) | set(obra_dict.get("mandatos", []))
             # Preserva ordem canônica dos mandatos
             mandatos_ordenados = [m for m in MANDATOS_MUNICIPAIS if m in mandatos_unidos]
 
-            # Preserva o registro com score de recência maior ou igual
+            # Preserva o registro com score de recência maior ou igual, mantendo o ID já consolidado
             if _recencia_score(obra_dict) >= _recencia_score(existente):
                 for k, v in obra_dict.items():
-                    if k != "mandatos" and v is not None:
-                        existente[k] = v
+                    if k == "mandatos":
+                        continue
+                    if k == "id" and existente.get("id") is not None:
+                        continue
+                    if v is None:
+                        continue
+                    if isinstance(v, str) and not v.strip() and str(existente.get(k) or "").strip():
+                        continue
+                    existente[k] = v
             existente["mandatos"] = mandatos_ordenados
 
-    return [mapa_obras[c] for c in ordem_chaves]
+        for c in chaves_candidatas:
+            indices_lista = chaves_para_indices.setdefault(c, [])
+            if idx_existente not in indices_lista:
+                indices_lista.append(idx_existente)
+
+    return buckets

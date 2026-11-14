@@ -7,14 +7,13 @@
   "objeto": "ELABORAÇÃO DE PROJETOS E EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA PARA IMPLANTAÇÃO DO TRECHO 1 DO EMPREENDIMENTO CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR - LAPA/LIP",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO GERENCIADOR LAPA-LIP",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 2147222.83,
-    "obrasIds": [
-      "d109f3a6-9f0b-4c35-b3f1-baea55279e8e"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-07-06T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 2147222.83,
     "valorEmpenhado": 2147222.83,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 423950.76,
     "deltaPercentualAditivos": 24.6
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

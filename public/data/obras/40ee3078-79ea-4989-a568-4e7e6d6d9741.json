@@ -7,13 +7,13 @@
   "objeto": "Serviços técnicos de elaboração e compatibilização de projetos básico e executivo de arquitetura e engenharia, e execução da obra de reconstrução do CMEI Maria Conceição Costa.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PACTO PROJETO & OBRAS LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 9346999.86,
-    "obrasIds": [
-      "40ee3078-79ea-4989-a568-4e7e6d6d9741",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "5dbcff19-6b6a-4d12-adad-0c265a40513b"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 5128586.68,
     "valorEmpenhado": 5128586.68,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 90.99,
     "valorAditivos": 892108.19,
     "deltaPercentualAditivos": 21.06
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

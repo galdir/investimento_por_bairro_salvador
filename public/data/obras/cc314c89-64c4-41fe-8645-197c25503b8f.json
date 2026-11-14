@@ -7,15 +7,15 @@
   "objeto": "EXECUÇÃO DOS SERVIÇOS DE INFRAESTRUTURA, ESTABILIZAÇÃO E CONTENÇÃO DE ENCOSTAS LOTE 2 - RUA DE SÃO GONÇALO - CABULA, RUA 8 - QUADRA 8 - LOTEAMENTO ACM - SÃO MARCOS e RUA DAS PALMEIRAS - VALE DOS LAGOS",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "A J CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 7463869.35,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "29268381-91ab-44f9-a771-06eb5cf509cb",
-      "987c505c-4cf1-4b42-9abe-4a992948e8c1",
-      "cc314c89-64c4-41fe-8645-197c25503b8f"
+      "987c505c-4cf1-4b42-9abe-4a992948e8c1"
     ]
   },
   "vigencia": {
@@ -34,7 +34,7 @@
     "valorContratualVigente": 5497871.89,
     "valorEmpenhado": 5497871.89,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.83,
     "valorAditivos": 529460.81,
     "deltaPercentualAditivos": 10.66
@@ -64,5 +64,6 @@
   "prefeituraBairro": "Pau da Lima",
   "latitude": -12.925931,
   "longitude": -38.437574,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,16 +7,29 @@
   "objeto": "Contratação de empresa capacitada para execução das obras de Urbanização da Praça de Pé Preto, localizada no bairro de Santa Cruz-Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CS CONSTRUCOES E EMPREENDIMENTOS LTDA",
-    "totalObras": 15,
-    "totalObrasAtivas": 15,
-    "valorTotalContratado": 110168768.07,
-    "obrasIds": [
-      "fc692bdb-284b-4696-ba1b-922bfda0b8f0",
+    "cnpj": "33.833.880/0001-36",
+    "totalObras": 29,
+    "totalObrasAtivas": 29,
+    "valorTotalContratado": 297872776.46,
+    "outrasObrasCount": 28,
+    "outrasObrasIds": [
+      "dade2567-12d8-43f9-97c2-431ed89da497",
+      "11391b3c-7834-497d-a609-0151cb49476a",
+      "8f683659-feea-4926-9bb0-92a9ff13543a",
+      "e8fdd21a-7323-4c3d-876d-060fe31dfa91",
+      "ce39582c-e890-469e-94d1-3ef5b3302c5e",
+      "49812954-4ec9-4098-8471-33f33e27fc23",
+      "dbe20a7e-c174-422d-a52e-2e6e43085919",
+      "438ce20a-4ec3-424a-8888-9c79b22e89e4",
+      "f0f7a5f6-ba35-4d91-830e-686548fd7acd",
+      "28374100-28e2-4abd-9fbb-97976c8c0850",
+      "1523fa8b-48a7-4877-b1ec-5d4cc1db6ca6",
+      "f9d59b9b-7118-4ba9-89cb-ace8406f42d1",
       "5d962803-d71e-4b70-b363-2e21da90c261",
       "509084f6-8b54-4edb-8c77-cce012ce8749",
       "1e0ed251-d951-4272-bc72-e47d4ccc2acf",
+      "9a56470c-48d4-4935-b982-8bb02e44276e",
       "6f679424-9249-489e-8e1b-f230d4809c84",
       "27a8c6bb-9c98-4349-ba51-6c9bbf79786b",
       "f6918b4a-dedc-49a2-83b7-d3ee54bbaf6d",
@@ -27,7 +40,8 @@
       "89a80e6c-3ca5-445a-b43d-cbf36269dace",
       "c8e43746-bff9-4070-80a1-87b7822700f7",
       "5f04df89-53b7-43e9-ab69-5e465d84d9b3",
-      "10d04d85-2a9e-4a92-b9c5-cf4dd77e9a39"
+      "10d04d85-2a9e-4a92-b9c5-cf4dd77e9a39",
+      "1252bb6a-7263-49e7-8358-9d6a13d64f4f"
     ]
   },
   "vigencia": {
@@ -46,7 +60,7 @@
     "valorContratualVigente": 1976970.5,
     "valorEmpenhado": 1976970.5,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 72.16,
     "valorAditivos": 177563.68,
     "deltaPercentualAditivos": 9.87
@@ -71,10 +85,11 @@
     ],
     "deltaPercentualValor": 9.87
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Santa Cruz",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -13.003446,
+  "longitude": -38.475285,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

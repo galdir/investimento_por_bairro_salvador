@@ -7,14 +7,15 @@
   "objeto": "Objeto da presente licitação a contratação de empresa especializada para execução das obras de Recuperação Estrutural da Ponte do Antigo Clube do Bahia, Boca do Rio ¿ Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
-    "totalObras": 6,
-    "totalObrasAtivas": 6,
-    "valorTotalContratado": 5448890.76,
-    "obrasIds": [
+    "cnpj": "07.443.264/0001-69",
+    "totalObras": 7,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 8127118.91,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "44885f8d-3cc0-44c3-94ce-0400becb1d05",
       "be7097dd-0708-4dff-b8e1-0821104fe262",
-      "28c9ec5f-76f3-4c5d-8838-779b07883db1",
       "22fed42b-b2fc-43b8-8ba5-dcd0ade77a15",
       "8f97d918-9081-4caa-abf1-aea50ee8ea26",
       "2c70f66b-4105-4161-8b26-c047c179b34c",
@@ -37,7 +38,7 @@
     "valorContratualVigente": 801019.14,
     "valorEmpenhado": 801019.14,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 146910.46,
     "deltaPercentualAditivos": 22.46
@@ -67,5 +68,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

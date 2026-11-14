@@ -7,14 +7,13 @@
   "objeto": "Implantação de uma subestação para recarga de baterias do tipo LFP (fosfato de ferro e lítio ou LiFePO4) de ônibus elétricos na estação rodoviária Sul, em Salvador, incluindo o fornecimento e instação de equipamentos.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "NANSEN INSTRUMENTOS DE PRECISAO LTDA.",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 3900000.0,
-    "obrasIds": [
-      "7850f4d8-7ec9-4a38-aff6-b4df1cb76d08"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2022-12-20T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 3900000.0,
     "valorEmpenhado": 3900000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 98.79,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "530002"
 }

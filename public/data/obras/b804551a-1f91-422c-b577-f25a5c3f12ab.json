@@ -7,13 +7,14 @@
   "objeto": "¿CONTRATAÇÃO DE SERVIÇOS DE APOIO AO GERENCIAMENTO, À FISCALIZAÇÃO E ÀS ANÁLISES E APROVAÇÕES DE PROJETOS E AO APOIO TÉCNICO ÀS OBRAS REFERENTES ÀS INTERVENÇÕES ¿A¿, ¿B¿, ¿C¿, ¿E¿ e ¿H¿, INTEGRANTES DO PROJETO NOVA TANCREDO NEVES, SALVADOR-BAHIA¿",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO SONDOTECNICA - GEOHIDRO NTN",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 5430475.36,
-    "obrasIds": [
-      "b804551a-1f91-422c-b577-f25a5c3f12ab"
+    "cnpj": "47.402.281/0001-72",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 7246875.22,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "680c2c5d-2fb1-4c63-9594-1b959d7303ad"
     ]
   },
   "vigencia": {
@@ -32,7 +33,7 @@
     "valorContratualVigente": 5430475.36,
     "valorEmpenhado": 5430475.36,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 99.99,
     "valorAditivos": 1070744.01,
     "deltaPercentualAditivos": 24.56
@@ -62,5 +63,6 @@
   "prefeituraBairro": "Cabula/Tancredo Neves",
   "latitude": -12.945674,
   "longitude": -38.44836,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

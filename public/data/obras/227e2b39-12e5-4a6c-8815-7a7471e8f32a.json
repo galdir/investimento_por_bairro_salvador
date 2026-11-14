@@ -7,14 +7,13 @@
   "objeto": "ELABORAÇÃO DE PROJETOS E EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA PARA IMPLANTAÇÃO DO TRECHO 1 DO EMPREENDIMENTO CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR - LAPA/LIP",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO BRT SALVADOR",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 268942700.51,
-    "obrasIds": [
-      "227e2b39-12e5-4a6c-8815-7a7471e8f32a"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2017-12-13T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 268942700.51,
     "valorEmpenhado": 268942700.51,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 97.55,
     "valorAditivos": 56161630.01,
     "deltaPercentualAditivos": 26.39
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

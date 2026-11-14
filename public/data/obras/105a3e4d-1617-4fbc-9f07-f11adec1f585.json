@@ -7,14 +7,16 @@
   "objeto": "Supervisão da obra de requalificação urbano-ambiental da orla marítima de Salvador/BA ¿ trecho Praia do Flamengo",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "UFC ENGENHARIA SA",
-    "totalObras": 2,
+    "cnpj": "32.690.778/0001-66",
+    "totalObras": 4,
     "totalObrasAtivas": 2,
-    "valorTotalContratado": 2908016.37,
-    "obrasIds": [
-      "546f4c50-7be0-4f1e-89ea-e047e4239c6a",
-      "105a3e4d-1617-4fbc-9f07-f11adec1f585"
+    "valorTotalContratado": 16326463.35,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "a547f2aa-6527-479a-b799-e9a896783e4b",
+      "262c3fd0-0b5a-418c-a3b9-96519f6d3c74",
+      "546f4c50-7be0-4f1e-89ea-e047e4239c6a"
     ]
   },
   "vigencia": {
@@ -33,7 +35,7 @@
     "valorContratualVigente": 1576685.56,
     "valorEmpenhado": 1576685.56,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.98,
     "valorAditivos": 245354.75,
     "deltaPercentualAditivos": 18.43
@@ -63,5 +65,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.929128,
   "longitude": -38.329038,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "540002"
 }

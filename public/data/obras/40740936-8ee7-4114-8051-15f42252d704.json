@@ -7,14 +7,13 @@
   "objeto": "PRESTAÇÃO DE SERVIÇOS DE ASSESSORIA AO GERENCIAMENTO, À FISCALIZAÇÃO E ÀS ANÁLISES E APROVAÇÕES DE PROJETOS E AO APOIO TÉCNICO ÀS OBRAS DE IMPLANTAÇÃO DO \"TRECHO 2\" DO EMPREENDIMENTO \"CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR, LAPA-LIP¿,",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO SONDOTECNICA - GEOHIDRO T2",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 14146024.44,
-    "obrasIds": [
-      "40740936-8ee7-4114-8051-15f42252d704"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-05-11T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 14146024.44,
     "valorEmpenhado": 14146024.44,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 109.55,
     "valorAditivos": 2610620.83,
     "deltaPercentualAditivos": 22.63
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

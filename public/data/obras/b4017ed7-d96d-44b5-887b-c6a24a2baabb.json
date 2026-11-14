@@ -7,14 +7,15 @@
   "objeto": "PROG MORAR MELHOR MELHORIAS HABITACIONAIS PREFEITURA BAIRRO VI BARRA/ PITUBA\r\nORIUNDO ORIUNDO CONTRATO 013/2018\r\nCONTRATO: 020/2019",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MASTER SERVICOS TECNICOS LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 19548171.17,
-    "obrasIds": [
-      "01728058-23ce-4aae-b50b-6c588cbb61ab",
-      "b4017ed7-d96d-44b5-887b-c6a24a2baabb"
+    "cnpj": "04.890.902/0001-00",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 84977103.81,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "57169b9a-d405-4060-bae4-debf16764fd4",
+      "01728058-23ce-4aae-b50b-6c588cbb61ab"
     ]
   },
   "vigencia": {
@@ -33,7 +34,7 @@
     "valorContratualVigente": 5842200.76,
     "valorEmpenhado": 5842200.76,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 80.36,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -58,10 +59,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Pituba",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.999274,
+  "longitude": -38.460677,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

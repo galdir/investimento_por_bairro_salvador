@@ -7,13 +7,14 @@
   "objeto": "Contratação de pessoa jurídica especializada para construção do Hospital Veterinário Municipal, situado na Avenida Artêmio Castro Valente, Nºs346/388, Canabrava Distrito de Pau da Lima, Salvador - BA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "AGC BRASIL ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 22904819.39,
-    "obrasIds": [
-      "a07bb903-811f-4ade-803b-4c860dfbf703",
+    "cnpj": "03.361.390/0001-13",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 40125152.32,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "f4653503-d23f-44ed-9f63-0b02319243fb",
       "947cbf2d-47ca-46a2-aa92-bae09ac8ff30",
       "d4d3e2fd-18f4-4974-af7d-232133b2073d",
       "c923846a-a879-4ec2-b112-25c575f0d78e"
@@ -35,7 +36,7 @@
     "valorContratualVigente": 3048984.46,
     "valorEmpenhado": 3048984.46,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 39.59,
     "valorAditivos": 265914.0,
     "deltaPercentualAditivos": 9.55
@@ -60,10 +61,11 @@
     ],
     "deltaPercentualValor": 9.55
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Pau da Lima",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.920121,
+  "longitude": -38.443119,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "430002"
 }

@@ -7,15 +7,15 @@
   "objeto": "Reforma e adequação da estrutura física da Escola Municipal Vale das Pedrinhas - Lote 03.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PROSPER ENGENHARIA E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 1532469.07,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "dfcf462d-6763-4516-a818-b4362c90e4ce",
-      "6e5d0ca1-43d2-45ad-9f83-c0e13dab4c0e",
-      "93fe9a6f-325a-437c-843f-32fc27373223"
+      "6e5d0ca1-43d2-45ad-9f83-c0e13dab4c0e"
     ]
   },
   "vigencia": {
@@ -34,7 +34,7 @@
     "valorContratualVigente": 291579.39,
     "valorEmpenhado": 291579.39,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.4,
     "valorAditivos": 25028.81,
     "deltaPercentualAditivos": 9.39
@@ -59,10 +59,11 @@
     ],
     "deltaPercentualValor": 9.39
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Vale das Pedrinhas",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -13.008432,
+  "longitude": -38.481255,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

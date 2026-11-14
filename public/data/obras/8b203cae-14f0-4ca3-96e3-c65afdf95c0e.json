@@ -7,14 +7,13 @@
   "objeto": "FORNECIMENTO E INSTALAÇÃO DE EQUIPAMENTOS CLIMATIZAÇÃO PARA A ADEQUADA OPERAÇÃO E MONITORAMENTO DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 05",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "APEL APLICACOES ELETRONICAS INDUSTRIA E COMERCIO LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1052189.16,
-    "obrasIds": [
-      "8b203cae-14f0-4ca3-96e3-c65afdf95c0e"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-03-14T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 1052189.16,
     "valorEmpenhado": 1052189.16,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.51,
     "valorAditivos": 47199.82,
     "deltaPercentualAditivos": 4.7
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 4.7
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,13 +7,14 @@
   "objeto": "EXECUÇÃO DAS OBRAS DE REFORMA DO LAYOUT DO PREDIO CORPORATIVO SIMM NO COMÉRCIO- SALVADOR/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "LEMARC ENGENHARIA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 799953.6,
-    "obrasIds": [
-      "1139edf4-b866-4865-8807-ad713556ce26"
+    "cnpj": "20.008.490/0001-80",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 1647005.71,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "4a0dd950-16b0-4a4a-9147-a7c4e2df3cd8"
     ]
   },
   "vigencia": {
@@ -32,7 +33,7 @@
     "valorContratualVigente": 799953.6,
     "valorEmpenhado": 799953.6,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 87.35,
     "valorAditivos": 74105.28,
     "deltaPercentualAditivos": 10.21
@@ -62,5 +63,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

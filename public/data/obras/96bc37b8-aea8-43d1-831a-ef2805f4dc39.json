@@ -2,19 +2,18 @@
   "id": "96bc37b8-aea8-43d1-831a-ef2805f4dc39",
   "unidadeGestora": "SMED",
   "numeroContrato": "2026CT004845",
-  "numeroContratoOriginal": "2026CT004845",
-  "nuProcesso": null,
+  "numeroContratoOriginal": "3132026",
+  "nuProcesso": "1760892024",
   "objeto": "Prestação de serviços de manutenção de extintores de incêndio, fornecimento e instalação de extintores, iluminação de emergência e placas de sinalização de segurança contra incêndio e pânico, destinados ao\r\natendimento das unidades escolares e administrativas da Secretaria Municipal da Educação ¿\r\nSMED",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 209325.0,
-    "obrasIds": [
-      "96bc37b8-aea8-43d1-831a-ef2805f4dc39"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2026-08-12T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 209325.0,
     "valorEmpenhado": 209325.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -45,7 +44,27 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [],
+  "empenhos": [
+    {
+      "id": "540c99e0-ffb9-42fc-a14e-b8122e66a390",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2026NE006694",
+      "dataEmpenho": "19/08/2026",
+      "nomeCredor": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Educação",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Manutenção e Conservação de Máquinas e Equipamentos",
+      "valEmpenhado": "209.325,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Educação e Escolas",
@@ -62,5 +81,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

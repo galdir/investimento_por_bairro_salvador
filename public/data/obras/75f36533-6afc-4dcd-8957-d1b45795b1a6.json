@@ -7,14 +7,13 @@
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "IACINA MEIRA PRESTACAO DE SERVICOS DE ARQUITETURA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 150000.0,
-    "obrasIds": [
-      "75f36533-6afc-4dcd-8957-d1b45795b1a6"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-01-29T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 150000.0,
     "valorEmpenhado": 150000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 10.0,
     "valorAditivos": 30000.0,
     "deltaPercentualAditivos": 25.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

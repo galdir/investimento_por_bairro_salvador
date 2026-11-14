@@ -6,6 +6,7 @@ investimento por habitante em âmbito municipal e transparência opaca (Escopo C
 """
 
 from typing import Any, Optional
+from etl.domain.empreiteiras import SITUACOES_INATIVAS
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.territorio import parse_float
 
@@ -77,28 +78,59 @@ def calcular_kpis_globais(
         or totalizador_transparencia.get("Pago no período")
     )
 
-    # Se o totalizador não trouxe valor financeiro, soma a partir das obras detalhadas
+    # Somas reais apuradas na carteira de obras públicas
     soma_obras = sum(
         parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
         for obra in obras_detalhadas
     )
+    soma_empenhado = round(
+        sum(
+            parse_float(obra.get("vlEmpenhado") or obra.get("valorEmpenhado") or 0.0)
+            for obra in obras_detalhadas
+        ),
+        2,
+    )
+    soma_liquidado = round(
+        sum(
+            parse_float(obra.get("vlLiquidado") or obra.get("valorLiquidado") or 0.0)
+            for obra in obras_detalhadas
+        ),
+        2,
+    )
+    soma_pago = round(
+        sum(
+            parse_float(obra["vlPagoReal"])
+            if "vlPagoReal" in obra
+            else parse_float(obra.get("vlPago") or obra.get("valorPago") or 0.0)
+            for obra in obras_detalhadas
+        ),
+        2,
+    )
     count_obras = len(obras_detalhadas)
-    is_plurianual = soma_obras > valor_total
+    carteira_completa = count_obras > 0 and (
+        total_obras == 0 or count_obras >= total_obras or soma_obras > valor_total
+    )
 
     if valor_total == 0.0 and obras_detalhadas:
         valor_total = round(soma_obras, 2)
-    elif is_plurianual:
-        # Quando a carteira plurianual consolidada supera o snapshot anual do totalizador, adota a soma real da carteira
+    elif carteira_completa:
+        # Quando a carteira consolidada cobre o universo completo de obras, adota os totais apurados
         valor_total = round(soma_obras, 2)
-        total_obras = max(total_obras, count_obras)
+        total_obras = count_obras
+
+    if carteira_completa:
+        total_empenhado = soma_empenhado
+        total_liquidado = soma_liquidado
+        total_pago = soma_pago
+    else:
+        if soma_empenhado > 0 and (total_empenhado == 0.0 or soma_empenhado > total_empenhado):
+            total_empenhado = soma_empenhado
+        if soma_liquidado > 0 and (total_liquidado == 0.0 or soma_liquidado > total_liquidado):
+            total_liquidado = soma_liquidado
+        if soma_pago > 0 and (total_pago == 0.0 or soma_pago > total_pago):
+            total_pago = soma_pago
 
     # Contabiliza obras ativas (situação diferente de Concluída, Cancelada, Rescindida ou Paralisada)
-    situacoes_inativas = {
-        "CONCLUÍDA", "CONCLUIDA", "CONCLUÍDO", "CONCLUIDO",
-        "CANCELADA", "CANCELADO",
-        "RESCINDIDA", "RESCINDIDO",
-        "PARALISADA", "PARALISADO",
-    }
     obras_ativas_count = 0
     obras_criticas_count = 0
     total_aditivos_reais = 0.0
@@ -106,7 +138,7 @@ def calcular_kpis_globais(
 
     for obra in obras_detalhadas:
         situacao = str(obra.get("dsSituacao") or obra.get("situacao") or "").strip().upper()
-        if situacao not in situacoes_inativas:
+        if situacao not in SITUACOES_INATIVAS:
             obras_ativas_count += 1
 
         # Classificação do Semáforo para aferir obras críticas
@@ -128,9 +160,9 @@ def calcular_kpis_globais(
             deltas_percentuais.append(delta_perc)
 
     total_ativas_transp = totalizador_transparencia.get("totalAtivas")
-    if total_ativas_transp is not None and not is_plurianual:
+    if total_ativas_transp is not None and not carteira_completa:
         obras_ativas_count = int(total_ativas_transp)
-    elif obras_ativas_count == 0 and total_obras > 0:
+    elif obras_ativas_count == 0 and total_obras > 0 and not obras_detalhadas:
         obras_ativas_count = total_obras
 
     percentual_criticas = 0.0

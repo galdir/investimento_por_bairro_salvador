@@ -7,15 +7,15 @@
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 220000.0,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "b641cee4-66d6-41dd-acd5-c34deeccb98d",
-      "528a1862-920e-40c3-9a67-bff0345486b3",
-      "ee3af7eb-f415-421e-88b4-a905b2440873"
+      "528a1862-920e-40c3-9a67-bff0345486b3"
     ]
   },
   "vigencia": {
@@ -34,7 +34,7 @@
     "valorContratualVigente": 100000.0,
     "valorEmpenhado": 100000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

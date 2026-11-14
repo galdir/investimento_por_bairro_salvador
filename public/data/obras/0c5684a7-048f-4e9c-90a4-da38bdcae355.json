@@ -7,13 +7,13 @@
   "objeto": "Contratação de empresa especializada para construção de 870 gavetas funerárias, especificamente em área disponível nas quadras A e F do cemitério municipal de Paripe, Salvador/Ba.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PEREIRATECH CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 3841347.17,
-    "obrasIds": [
-      "0c5684a7-048f-4e9c-90a4-da38bdcae355",
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "e416871d-308d-4200-96e9-f1cb79c095ac",
       "254c9aac-a56d-4a20-bb0b-eee07f86ab54"
     ]
@@ -34,7 +34,7 @@
     "valorContratualVigente": 1175783.37,
     "valorEmpenhado": 1175783.37,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.13,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.835351,
   "longitude": -38.468212,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "450002"
 }

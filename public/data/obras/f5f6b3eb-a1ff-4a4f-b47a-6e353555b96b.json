@@ -7,14 +7,13 @@
   "objeto": "contratação de serviços de Engenharia Especializada que consista na realização de Testes de\r\nCarga, Análise Estrutural e Laudo Técnico de Tirante T10 da Plataforma de Acesso à Estação da Lapa,\r\nlocalizada no Município de Salvador/BA.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 73000.0,
-    "obrasIds": [
-      "f5f6b3eb-a1ff-4a4f-b47a-6e353555b96b"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2024-02-05T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 73000.0,
     "valorEmpenhado": 73000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.896157,
   "longitude": -38.482727,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

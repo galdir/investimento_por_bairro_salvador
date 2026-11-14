@@ -7,13 +7,14 @@
   "objeto": "Contratação de empresa capacitada para execução das obras de Requalificação Urbana da Rua da\r\nConceição da Praia, da Rua Manoel Vitorino e Praça Irmãos Pereira c/ Construção do Edifício Garagem no\r\nbairro do Comércio",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "BARRA S CONSTRUCAO, PROJETOS E SERVICOS LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 21914961.57,
-    "obrasIds": [
-      "d503e868-607e-494e-905e-f31dc1695407",
+    "cnpj": "96.861.075/0001-36",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 33729228.52,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "e50b48a3-0d06-4736-9b0f-d423de68ab45",
       "51bf8a08-fcad-4c39-aa60-c330ecfa1645"
     ]
   },
@@ -33,7 +34,7 @@
     "valorContratualVigente": 12808411.25,
     "valorEmpenhado": 12808411.25,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 96.09,
     "valorAditivos": 214774.07,
     "deltaPercentualAditivos": 1.71
@@ -63,5 +64,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

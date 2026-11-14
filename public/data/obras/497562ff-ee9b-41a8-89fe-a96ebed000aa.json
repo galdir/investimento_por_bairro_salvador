@@ -7,14 +7,15 @@
   "objeto": "Reforma Central de monitoramento, constante como uma das ações do Prodetur Salvador",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ART PROJETOS CONSTRUCOES E SERVICOS LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 12329681.96,
-    "obrasIds": [
+    "cnpj": "10.672.793/0001-49",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 20907442.74,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "6bd6976e-2282-426a-98c7-8a041744d3b7",
       "487d89e8-791d-4bc8-b857-4626bf461ae2",
-      "497562ff-ee9b-41a8-89fe-a96ebed000aa",
       "3a6e4e0a-bf8d-4c28-95d8-a4679fee0350"
     ]
   },
@@ -34,7 +35,7 @@
     "valorContratualVigente": 583454.7,
     "valorEmpenhado": 583454.7,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 90.49,
     "valorAditivos": 35701.19,
     "deltaPercentualAditivos": 6.52
@@ -64,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "540002"
 }

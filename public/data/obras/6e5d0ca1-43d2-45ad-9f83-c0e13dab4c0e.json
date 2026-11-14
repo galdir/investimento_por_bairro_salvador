@@ -7,14 +7,14 @@
   "objeto": "Reforma e adequação da estrutura física da Escola Municipal de Nova Esperança Professor Arx Tourinho - Lote 01.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PROSPER ENGENHARIA E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 1532469.07,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "dfcf462d-6763-4516-a818-b4362c90e4ce",
-      "6e5d0ca1-43d2-45ad-9f83-c0e13dab4c0e",
       "93fe9a6f-325a-437c-843f-32fc27373223"
     ]
   },
@@ -34,7 +34,7 @@
     "valorContratualVigente": 767736.75,
     "valorEmpenhado": 767736.75,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.4,
     "valorAditivos": 249266.33,
     "deltaPercentualAditivos": 48.08
@@ -60,10 +60,11 @@
     ],
     "deltaPercentualValor": 48.08
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Nova Esperança",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.845118,
+  "longitude": -38.375262,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

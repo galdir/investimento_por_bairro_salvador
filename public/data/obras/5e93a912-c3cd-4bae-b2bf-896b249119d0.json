@@ -7,14 +7,14 @@
   "objeto": "PARA EXECUÇÃO DE OBRAS DE INFRAESTRUTURA EM ÁREA URBANA PARA IMPLANTAÇÃO DO EMPREENDIMENTO ¿OAE DO CORREDOR RAMO 100 (ÁREA A) E OAE COMPLEMENTAR DO CORREDOR RAMO 100 (ÁREA B)",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA AGIL LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 17776225.89,
-    "obrasIds": [
-      "0bc82d36-8510-4d6d-afc3-879b3e767129",
-      "5e93a912-c3cd-4bae-b2bf-896b249119d0"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "0bc82d36-8510-4d6d-afc3-879b3e767129"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 9101345.57,
     "valorEmpenhado": 9101345.57,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 87.71,
     "valorAditivos": 100976.52,
     "deltaPercentualAditivos": 1.12
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

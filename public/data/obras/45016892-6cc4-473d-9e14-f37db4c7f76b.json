@@ -7,12 +7,17 @@
   "objeto": "Contratação de empresa especializada em engenharia para manutenção e conservação de espaços públicos",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "G3 POLARIS SERVICOS LTDA",
-    "totalObras": 11,
-    "totalObrasAtivas": 11,
-    "valorTotalContratado": 52128812.16,
-    "obrasIds": [
+    "cnpj": "20.155.999/0001-55",
+    "totalObras": 15,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 87418748.28,
+    "outrasObrasCount": 14,
+    "outrasObrasIds": [
+      "b2280d29-b0e9-46f8-a753-e2e002ce2139",
+      "8c48327c-cd29-4989-bf67-fdfb949b1c49",
+      "ce43a31b-a8ec-44ec-a35c-8f6263bf39c4",
+      "53eb72fd-9e2a-41f1-9da4-e9219ef65972",
       "90fc8a72-ab21-4a8e-8f63-f4d2e5fde67e",
       "3426399c-5e93-4e81-8daf-4c4be63ff8c7",
       "164411b8-378f-4378-979a-cc3a2aa5a1e1",
@@ -22,8 +27,7 @@
       "d0046eef-f52b-4652-a397-dffdb0bd62ef",
       "13a4b700-8639-4525-a732-77b9d2bc480f",
       "7dfbadc0-ec22-42d4-8489-4e3cb116d14e",
-      "0ba0e0a6-7ed0-4cb0-be8f-9e938b07ff1b",
-      "45016892-6cc4-473d-9e14-f37db4c7f76b"
+      "0ba0e0a6-7ed0-4cb0-be8f-9e938b07ff1b"
     ]
   },
   "vigencia": {
@@ -42,7 +46,7 @@
     "valorContratualVigente": 10615618.16,
     "valorEmpenhado": 10615618.16,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 88.9,
     "valorAditivos": 8516669.38,
     "deltaPercentualAditivos": 405.76
@@ -73,5 +77,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "560002"
 }

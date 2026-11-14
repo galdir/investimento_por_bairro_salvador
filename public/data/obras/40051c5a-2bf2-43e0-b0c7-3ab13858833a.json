@@ -7,14 +7,15 @@
   "objeto": "obras de Construção da Colônia de Pescadores, localizado no bairro de Rio Vermelho",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 3259548.74,
-    "obrasIds": [
+    "cnpj": "20.852.647/0001-59",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 3524799.56,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "cba43365-3ca3-426e-819c-a93a714e70b8",
       "2d60893e-b78c-421b-b1f5-48dfd23de997",
-      "40051c5a-2bf2-43e0-b0c7-3ab13858833a",
       "5de1379b-62fe-422b-b557-76ec89cf7c69",
       "29bcca9f-e6dd-48b5-b99e-53fa8fbce3c7"
     ]
@@ -35,7 +36,7 @@
     "valorContratualVigente": 720409.18,
     "valorEmpenhado": 720409.18,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.1,
     "valorAditivos": 135911.76,
     "deltaPercentualAditivos": 23.25
@@ -65,5 +66,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -13.009939,
   "longitude": -38.489939,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

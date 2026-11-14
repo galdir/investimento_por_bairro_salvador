@@ -7,14 +7,13 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA SERVIÇOS DE ENGENHARIA PARA MANUTENÇÃO PREVENTIVA DA SUBESTAÇÃO ABRIGADA (CABINE PRIMÁRIA) DA DESAL.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "RP ENGENHARIA DE INSTALACOES LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 88280.0,
-    "obrasIds": [
-      "655538a8-388a-490e-8e4c-a6c03b490112"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-07-20T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 88280.0,
     "valorEmpenhado": 88280.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 78.7,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

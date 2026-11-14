@@ -7,13 +7,13 @@
   "objeto": "CONSTRUÇÃO DA NOVA UNIDADE ESCOLAR: ESCOLA MUNICIPAL DO CURRALINHO.",
   "situacao": "Rescindido",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "NORDESTE ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
-    "totalObrasAtivas": 2,
+    "totalObrasAtivas": 1,
     "valorTotalContratado": 23038431.56,
-    "obrasIds": [
-      "952356ca-e2fb-467c-87bb-1f79670d8291",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "8392744d-71eb-4a96-9c0e-85ed2742e0ee"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 16288431.56,
     "valorEmpenhado": 16288431.56,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 72.63,
     "valorAditivos": 4273985.85,
     "deltaPercentualAditivos": 35.57
@@ -60,10 +60,11 @@
     ],
     "deltaPercentualValor": 35.57
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

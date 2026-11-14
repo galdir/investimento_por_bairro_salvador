@@ -7,13 +7,18 @@
   "objeto": "Contratação de empresas para execução das obras de Melhorias Habitacionais em 10.000 (dez mil) imóveis, Programa MORAR MELHOR - Cidade Melhor Lote 03",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EBISA ENGENHARIA BRASILEIRA, INDUSTRIA E SANEAMENTO LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 78567783.92,
-    "obrasIds": [
-      "36232396-8f61-4283-b386-43cdc8934c9a",
+    "cnpj": "15.137.680/0001-67",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 221954129.34,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "5b9b70d0-b554-4f78-9135-ec9022b1a0ee",
+      "f3419fd5-73d1-4409-8bac-1f2047d63933",
+      "fb5f19e3-b0d2-468c-8a4e-79350b90b6e1",
+      "3a69d3f6-44a9-4c08-92cc-75a021a2cc39",
+      "0fc0f8d3-7d68-40b6-bdb8-59c4f1b01b18",
       "a43c924e-06ec-445c-a278-6cd57b5cacf9",
       "d5bbf943-19be-4e98-b5bf-d78aff853f03",
       "5b951967-3584-4f9d-be56-d2e0cae6ee16"
@@ -35,7 +40,7 @@
     "valorContratualVigente": 12628323.69,
     "valorEmpenhado": 12628323.69,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.03,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -65,5 +70,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

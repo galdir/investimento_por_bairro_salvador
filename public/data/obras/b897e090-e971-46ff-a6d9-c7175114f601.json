@@ -7,14 +7,13 @@
   "objeto": "Execução de obras de Estabilização de Encostas em 06 (seis) Logradouros de Salvador/BA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "STS ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 6839326.97,
-    "obrasIds": [
-      "b897e090-e971-46ff-a6d9-c7175114f601"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-04-17T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 6839326.97,
     "valorEmpenhado": 6839326.97,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 44.84,
     "valorAditivos": 373772.86,
     "deltaPercentualAditivos": 5.78
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

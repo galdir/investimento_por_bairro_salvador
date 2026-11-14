@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa, para execução dos serviços, pelo regime de empreitada por preços unitários, de requalificação urbana da Avenida Dunas, no bairro de Itapuã, Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA SAGA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1107555.39,
-    "obrasIds": [
-      "14906411-079d-4cd8-849d-fa12a10c7891"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2018-07-25T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 1107555.39,
     "valorEmpenhado": 1107555.39,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 67.28,
     "valorAditivos": 123574.41,
     "deltaPercentualAditivos": 12.56
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.939631,
   "longitude": -38.358185,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

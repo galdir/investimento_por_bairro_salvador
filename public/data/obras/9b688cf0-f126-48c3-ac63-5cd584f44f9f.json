@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa especializada em serviços técnicos de engenharia para elaboração dos Projetos Executivos Complementares para Requalificação Urbana do Canteiro Central da Avenida Mario Leal Ferreira - Bonocô.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "GP ENGENHARIA E TOPOGRAFIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 307191.2,
-    "obrasIds": [
-      "9b688cf0-f126-48c3-ac63-5cd584f44f9f"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-05-23T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 307191.2,
     "valorEmpenhado": 307191.2,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 17218.63,
     "deltaPercentualAditivos": 5.94
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 5.94
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Brotas",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985735,
+  "longitude": -38.481645,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "603002"
 }

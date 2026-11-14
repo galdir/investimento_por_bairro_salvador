@@ -7,14 +7,13 @@
   "objeto": "SERVIÇOS DE ENGENHARIA ESPECIALIZADOS EM PINTURA EM ALTURA E SERVIÇOS AFINS EM EQUIPAMENTOS URBANOS EM DIVERSOS LOGRADOUROS DO MUNICÍPIO DE SALVADOR, INCLUINDO OS INSUMOS, OS EQUIPAMENTOS E FERRAMENTAS.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MASTER ALPINISMO INDUSTRIAL LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 93080.0,
-    "obrasIds": [
-      "f59a5ddd-3317-4c5d-a2ab-a9eeb70f8654"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-09-14T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 93080.0,
     "valorEmpenhado": 93080.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 51.23,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

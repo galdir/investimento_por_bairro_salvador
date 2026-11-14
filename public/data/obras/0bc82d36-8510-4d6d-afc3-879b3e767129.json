@@ -7,13 +7,13 @@
   "objeto": "CONSTRUÇÃO DE PONTILHÃO E ADEQUAÇÕES VIÁRIAS NA RUA MARCOS FREIRE E AV TANCREDO NEVES - CAMINHO DAS ÁRVORES CONTR 022/2022",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA AGIL LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 17776225.89,
-    "obrasIds": [
-      "0bc82d36-8510-4d6d-afc3-879b3e767129",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "5e93a912-c3cd-4bae-b2bf-896b249119d0"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 8674880.32,
     "valorEmpenhado": 8674880.32,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 89.65,
     "valorAditivos": 244192.0,
     "deltaPercentualAditivos": 2.9
@@ -63,5 +63,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.982567,
   "longitude": -38.458986,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

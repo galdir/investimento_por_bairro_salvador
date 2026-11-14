@@ -7,16 +7,21 @@
   "objeto": "Para aquisição de materiais,\r\nequipamentos, ou gêneros que só possam ser fornecidos por produtor, empresa ou representante\r\ncomercial exclusivo, vedada a preferência de marca, devendo a comprovação de exclusividade ser feita\r\natravés de atestado fornecido pelo órgão de registro do comércio do local em que se realizaria a licitação\r\nou a obra ou o serviço, pelo Sindicato, Federação ou Confederaçã",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 3153341.34,
-    "obrasIds": [
+    "cnpj": "27.839.615/0001-62",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 7157406.36,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "bb603494-4506-4e5c-89c1-befd21bc26b5",
+      "f60f6613-19a9-4630-b9b5-c7ae7eb97e40",
+      "a66d41ef-0d1f-4fc9-afba-bf8a4b8135a0",
       "aa9684b4-def9-4ada-8fe9-5bce5b406550",
+      "db90b66c-f31a-46ee-ab59-7beb07ad8eb5",
       "bc9952f8-82e5-4387-864f-c7adff15d1e3",
-      "db4a91ff-2f2a-4233-8d71-cd175d72bef5",
-      "71ca2da6-3f10-4f90-8d46-adcab7b73ee1"
+      "71ca2da6-3f10-4f90-8d46-adcab7b73ee1",
+      "7aa50e82-fd21-4a97-a3d0-b4d10c26247e"
     ]
   },
   "vigencia": {
@@ -35,7 +40,7 @@
     "valorContratualVigente": 384664.75,
     "valorEmpenhado": 384664.75,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": -0.01
@@ -65,5 +70,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

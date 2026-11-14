@@ -7,13 +7,15 @@
   "objeto": "Reforma, adequação e reforço estrutural da Escola Municipal Osvaldo Cruz.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ANGRA ENGENHARIA LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 930148.93,
-    "obrasIds": [
-      "890f8e0b-37c3-4127-9fea-3985046443eb"
+    "cnpj": "08.722.657/0001-74",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 55527596.03,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "38ce54db-2877-4537-b6e9-6621440e28fb",
+      "5809388a-6ff2-4d12-b824-be839f5a527c"
     ]
   },
   "vigencia": {
@@ -32,7 +34,7 @@
     "valorContratualVigente": 930148.93,
     "valorEmpenhado": 930148.93,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 98.24,
     "valorAditivos": 270668.45,
     "deltaPercentualAditivos": 41.04
@@ -63,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

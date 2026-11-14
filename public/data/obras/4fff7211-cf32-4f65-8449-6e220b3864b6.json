@@ -2,37 +2,41 @@
   "id": "4fff7211-cf32-4f65-8449-6e220b3864b6",
   "unidadeGestora": "SEMAN",
   "numeroContrato": "2026CT000007",
-  "numeroContratoOriginal": "2026CT000007",
-  "nuProcesso": null,
+  "numeroContratoOriginal": "1112025",
+  "nuProcesso": "2560742025",
   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA FABRICAÇÃO E INSTALAÇÃO DE ACADEMIA AO AR LIVRE, EM ESTRUTURA METÁLICA.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "08.374.053/0001-84",
     "razaoSocial": "ZIOBER BRASIL LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 96142.0,
-    "obrasIds": [
-      "4fff7211-cf32-4f65-8449-6e220b3864b6"
+    "cnpj": "08.374.053/0001-84",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 478094.0,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "cb938c7c-7f35-4a7e-9b52-92a2ed9990d6",
+      "47eaecb4-5e18-4183-8434-61cfe556f5a9",
+      "41426953-4049-4120-a8da-6913aef1b7b1",
+      "fc3bb8e4-92ad-4333-8389-4c488e170d9e"
     ]
   },
   "vigencia": {
     "dataInicio": "2025-12-29T00:00:00.000Z",
-    "dataFimOriginal": null,
+    "dataFimOriginal": "2026-03-28T00:00:00.000Z",
     "dataTerminoAtualizado": "2026-03-28T00:00:00.000Z",
-    "prazoOriginal": "Conforme Contrato",
-    "prazoAtualizado": "Conforme Contrato"
+    "prazoOriginal": "89",
+    "prazoAtualizado": "89"
   },
   "dom": {
-    "nuDom": "Não informado",
-    "dataPublicacao": "2025-12-29T00:00:00.000Z"
+    "nuDom": "9198",
+    "dataPublicacao": "2026-01-27T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 96142.0,
     "valorContratualVigente": 96142.0,
     "valorEmpenhado": 96142.0,
-    "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorLiquidado": 91911.75,
+    "valorPago": 96142.0,
     "percentualExecutado": 95.6,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -45,9 +49,107 @@
       "classificacao": "4.4.90.51 - Obras e Instalações"
     }
   ],
-  "empenhos": [],
-  "liquidacoes": [],
-  "pagamentos": [],
+  "empenhos": [
+    {
+      "id": "e4e66c36-b089-44f6-bf0e-657e782912e7",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2026NE000081",
+      "dataEmpenho": "27/01/2026",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "96.142,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "de0068de-9daf-4aca-9e4e-d389e40c7270",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": "2026NL000492",
+      "notaLancamento": "2026NL000492",
+      "numProcesso": "00166712026",
+      "dataLiquidacao": "29/01/2026",
+      "valLiqLiquidacao": "91.911,75",
+      "valBrutLiquidacao": "96.142,00",
+      "valEmpenho": "96.142,00",
+      "descObsLiquidacao": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA FABRICAÇÃO E INSTALAÇÃO DE ACADEMIA AO A",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "0bb01b9e-f293-4e0a-9c47-498cccab5741",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": "2026NL000492",
+      "ordBancaria": "2026OB003686",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "96.142,00",
+      "dataPagamento": "30/01/2026",
+      "pago": "87.104,65",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "c78a3b84-07a1-4b88-9853-d082aef8c2ec",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB003687",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "96.142,00",
+      "dataPagamento": "30/01/2026",
+      "pago": "4.807,10",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "39f951b6-048b-4af4-b65a-107c7563dc01",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB007833",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "96.142,00",
+      "dataPagamento": "20/02/2026",
+      "pago": "4.230,25",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
   "tema": "Praças, Esporte e Lazer",
   "semaforo": {
     "status": "VERMELHO",
@@ -62,5 +164,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "567002"
 }

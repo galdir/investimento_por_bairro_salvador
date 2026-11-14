@@ -7,18 +7,25 @@
   "objeto": "Execução dos serviços de Melhorias Habitacionais-Programa Morar Melhor-Cidade Melhor, subdivididos em 10 (dez) lotes",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "QUALY ENGENHARIA LTDA",
-    "totalObras": 7,
-    "totalObrasAtivas": 7,
-    "valorTotalContratado": 119570199.06,
-    "obrasIds": [
+    "cnpj": "05.903.304/0001-82",
+    "totalObras": 14,
+    "totalObrasAtivas": 13,
+    "valorTotalContratado": 214210237.94,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "44d9e74e-e228-4600-be41-343bc126c744",
+      "43323f83-8cfc-424c-9e77-c6fe0c205722",
+      "e5f680b3-4cc2-4bc8-8e8f-70b792c52782",
+      "66542375-b795-4a49-8442-72f95f424592",
+      "5955a8e6-2c61-4475-ad00-ea18be34afd9",
+      "0e038d9f-b436-49b5-9fce-965a4676cf15",
+      "0aaeda8a-de68-411f-ad2e-5d9721e2afc9",
       "54da7939-b5b3-4a2a-b1b3-db48fb4e69ad",
       "53f7ff30-6da3-4478-b040-c9b070947a34",
       "2026a2fc-5efb-45be-b304-42d23bb46391",
       "978084b1-1fb7-4460-9308-2ece70008f21",
       "455b5d0a-b602-4bb9-9aee-9e8d81622e2a",
-      "1c92dccd-33e5-4473-8727-5782bf27bd55",
       "d2734b8d-f525-4954-9d90-c182f4930f08"
     ]
   },
@@ -38,7 +45,7 @@
     "valorContratualVigente": 23463256.59,
     "valorEmpenhado": 23463256.59,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.8,
     "valorAditivos": 4663022.73,
     "deltaPercentualAditivos": 24.8
@@ -68,5 +75,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

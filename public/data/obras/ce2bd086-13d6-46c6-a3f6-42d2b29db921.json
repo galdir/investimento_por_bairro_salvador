@@ -7,13 +7,13 @@
   "objeto": "Execução das obras de implantação do SAC Náutico, DOCA 1 (Av. da França s/s, Comércio - Salvador/BA)",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "P S C SERVICOS DE ENGENHARIA CIVIL LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 280999.94,
-    "obrasIds": [
-      "ce2bd086-13d6-46c6-a3f6-42d2b29db921",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "bb4cd017-58a8-4f6f-b2f0-948f5eaac150"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 107434.19,
     "valorEmpenhado": 107434.19,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.5,
     "valorAditivos": 12519.73,
     "deltaPercentualAditivos": 13.19
@@ -63,5 +63,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.9632,
   "longitude": -38.507445,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

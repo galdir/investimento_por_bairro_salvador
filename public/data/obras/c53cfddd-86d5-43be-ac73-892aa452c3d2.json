@@ -7,14 +7,14 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA SERVIÇOS DE APOIO AO GERENCIAMENTO, À FISCALIZAÇÃO E ÀS ANÁLISES E APROVAÇÕES DE PROJETOS E AO APOIO TÉCNICO ÀS OBRAS REFERENTES ÀS INTERVENÇÕES A, C, E E H, INTEGRANTES DO PROJETO NOVA TANCREDO NEVES",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO SONDOTECNICA - GEOHIDRO TN",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 7669393.16,
-    "obrasIds": [
-      "b6100fe7-b3aa-4f90-8bf1-d9a92c847ef4",
-      "c53cfddd-86d5-43be-ac73-892aa452c3d2"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "b6100fe7-b3aa-4f90-8bf1-d9a92c847ef4"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 5385266.54,
     "valorEmpenhado": 5385266.54,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.56,
     "valorAditivos": 1035684.9,
     "deltaPercentualAditivos": 23.81
@@ -63,5 +63,6 @@
   "prefeituraBairro": "Cabula/Tancredo Neves",
   "latitude": -12.945674,
   "longitude": -38.44836,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

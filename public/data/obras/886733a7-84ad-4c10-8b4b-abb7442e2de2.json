@@ -7,16 +7,23 @@
   "objeto": "Destina se atender serviços de manutenção de quadras e campos no Município do Salvador, Bahia,\r\nConstrutora BSM nº Contrato 025/2022",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA BSM LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 95515807.97,
-    "obrasIds": [
+    "cnpj": "07.324.514/0001-41",
+    "totalObras": 11,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 434804716.5,
+    "outrasObrasCount": 10,
+    "outrasObrasIds": [
+      "db853a8d-253a-43b1-9318-267e52c235b5",
+      "1d7aa948-57e4-4b71-bb55-28afba9e342d",
+      "7242131a-c7d0-4ea4-b74d-a569e8eb228c",
+      "7149f9f1-68ad-4c12-ac47-90dc616e00e2",
+      "1c2b7d41-be95-41a0-b6ca-524f069f803b",
+      "e19f6d38-386c-4fe7-bcbb-c16af7c0546c",
       "bbcb7643-a71b-4558-b091-05b61f601a0b",
-      "886733a7-84ad-4c10-8b4b-abb7442e2de2",
       "b402a1d0-393f-41ce-bf18-cca91d03d097",
-      "89de7cd9-6bfc-494a-a98e-4b185e3dcbbc"
+      "89de7cd9-6bfc-494a-a98e-4b185e3dcbbc",
+      "2acb5cfc-d190-4397-9141-5426aa96e801"
     ]
   },
   "vigencia": {
@@ -35,7 +42,7 @@
     "valorContratualVigente": 25314269.68,
     "valorEmpenhado": 25314269.68,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.94,
     "valorAditivos": 15558972.22,
     "deltaPercentualAditivos": 159.49
@@ -66,5 +73,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,14 +7,13 @@
   "objeto": "Projeto de habitação de interesse social para comunidade da Gamboa de Baixo, mediante a elaboração dos Projetos Arquitetônico, Urbanístico e Complementares Executivos de Habitação de Interesse Social.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "FICUS ASSESSORIA E PROJETOS EM ARQUITETURA, URBANISMO E ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 131982.01,
-    "obrasIds": [
-      "c832d99e-fbf8-406d-81ae-4a56d47d0c95"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-01-30T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 131982.01,
     "valorEmpenhado": 131982.01,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": -19.5
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": -19.5
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Dois de Julho",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.981107,
+  "longitude": -38.51728,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "603002"
 }

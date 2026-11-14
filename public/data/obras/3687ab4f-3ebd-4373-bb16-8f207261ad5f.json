@@ -7,14 +7,14 @@
   "objeto": "construção de uma Unidade Básica de Saúde com estratégia de Saúde da Família - USF Polêmica ¿ a ser implantada na Travessa da Igreja, s/n, Bairro Parque Bela Vista - Brotas, Distrito Sanitário de Brotas, nesta Cidade do Salvador-BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PENA CAL CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 11390660.09,
-    "obrasIds": [
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
       "8d10de9d-e1a7-4dec-9a26-6602c3c34b95",
-      "3687ab4f-3ebd-4373-bb16-8f207261ad5f",
       "6d2fa0fc-ab43-4fa5-8903-5a4c37c1de64",
       "c3413b60-5bb5-4594-82cb-16d23c972e22"
     ]
@@ -35,7 +35,7 @@
     "valorContratualVigente": 2764790.36,
     "valorEmpenhado": 2764790.36,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.15,
     "valorAditivos": 302225.19,
     "deltaPercentualAditivos": 12.27
@@ -65,5 +65,6 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.985735,
   "longitude": -38.481645,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "301110"
 }

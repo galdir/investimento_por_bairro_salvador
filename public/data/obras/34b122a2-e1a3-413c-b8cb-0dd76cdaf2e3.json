@@ -7,14 +7,13 @@
   "objeto": "execução dos serviços de estabilização de encosta na Gamboa de Baixo, Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "AMF ENGENHARIA E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 855329.91,
-    "obrasIds": [
-      "34b122a2-e1a3-413c-b8cb-0dd76cdaf2e3"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-10-28T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 855329.91,
     "valorEmpenhado": 855329.91,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 108.98,
     "valorAditivos": 118075.04,
     "deltaPercentualAditivos": 16.02
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 16.02
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Dois de Julho",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.981107,
+  "longitude": -38.51728,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

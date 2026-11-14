@@ -7,14 +7,15 @@
   "objeto": "Credenciamento para Confecção de Plantas com Memorial Descritivo.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "OESTE ORGANIZACAO ESTRADAS TOPOGRAFIA E ENGENHARIA LTDA",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 2314365.38,
-    "obrasIds": [
+    "cnpj": "14.713.648/0001-10",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 2591909.38,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
       "d51aad45-e745-4d6a-b432-a2ef798f5a6a",
-      "cb36039e-80b2-47bb-9ab5-9b4534e3c814",
+      "0231bbe6-2259-4a49-8626-047282672217",
       "066b835a-2620-4fe3-aee1-77a07b21fcd4"
     ]
   },
@@ -34,7 +35,7 @@
     "valorContratualVigente": 164865.38,
     "valorEmpenhado": 164865.38,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 41.66,
     "valorAditivos": 64865.38,
     "deltaPercentualAditivos": 64.87
@@ -65,5 +66,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

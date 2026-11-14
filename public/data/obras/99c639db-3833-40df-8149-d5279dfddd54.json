@@ -2,20 +2,24 @@
   "id": "99c639db-3833-40df-8149-d5279dfddd54",
   "unidadeGestora": "SMS",
   "numeroContrato": "2025CT000801",
-  "numeroContratoOriginal": "2025CT000801",
-  "nuProcesso": null,
+  "numeroContratoOriginal": "8742024",
+  "nuProcesso": "012431/2024",
   "objeto": "Construção do CAPS IA (Centro de Atenção Psicossocial Infância e Adolescência), no Distrito Sanitário de Itapagipe, na Rua Pedreira Franco s/n bairro Calçada, em Salvador-Ba, para a Secretaria Municipal da Saúde, de acordo com as especificações e obrigações constantes no Edital da Licitação, nas condições estabelecidas no Termo de Referência",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "13.585.696/0001-07",
     "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
-    "totalObras": 8,
-    "totalObrasAtivas": 8,
-    "valorTotalContratado": 48674967.2,
-    "obrasIds": [
-      "99c639db-3833-40df-8149-d5279dfddd54",
+    "cnpj": "13.585.696/0001-07",
+    "totalObras": 12,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 51715355.41,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
       "81edebcc-a3b9-48b6-ad0d-f34e7f526d50",
       "9a094659-a858-407b-9d01-0d02a447effe",
+      "ca379bdd-e164-4176-9153-f99ac20f7cdc",
+      "70cd4c11-7793-4a6f-8306-3acf8005e667",
+      "042278bf-71ea-4e3c-bc38-d389d64ba170",
+      "91d3e703-5e4d-4312-be89-82176b726a31",
       "04f87a18-721e-4097-94cf-5c58739bbd51",
       "eed47ecc-c7f9-4631-aa15-cfaa6a42d8d5",
       "8b4257db-1da5-48da-8607-495ca76a6ac6",
@@ -25,21 +29,21 @@
   },
   "vigencia": {
     "dataInicio": "2024-12-10T00:00:00.000Z",
-    "dataFimOriginal": null,
+    "dataFimOriginal": "2025-12-09T00:00:00.000Z",
     "dataTerminoAtualizado": "2025-12-09T00:00:00.000Z",
-    "prazoOriginal": "Conforme Contrato",
-    "prazoAtualizado": "Conforme Contrato"
+    "prazoOriginal": "364",
+    "prazoAtualizado": "364"
   },
   "dom": {
-    "nuDom": "Não informado",
-    "dataPublicacao": "2024-12-10T00:00:00.000Z"
+    "nuDom": "8935",
+    "dataPublicacao": "2025-03-13T00:00:00.000Z"
   },
   "funilFinanceiro": {
     "valorOriginal": 2269437.83,
     "valorContratualVigente": 2269437.83,
     "valorEmpenhado": 2269437.83,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -69,5 +73,6 @@
   "prefeituraBairro": "Cidade Baixa",
   "latitude": -12.943451,
   "longitude": -38.498601,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "301110"
 }

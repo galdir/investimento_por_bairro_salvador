@@ -7,14 +7,14 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA EXECUÇÃO DAS OBRAS DE REQUALIFICAÇÃO VIÁRIA E DRENAGEM DA RUA EDMUNDO CAJAZEIRAS-2ª ETAPA, LOCALIZADA EM ÁGUAS CLARAS, SALVADOR-BA.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "A J CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 7463869.35,
-    "obrasIds": [
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "29268381-91ab-44f9-a771-06eb5cf509cb",
-      "987c505c-4cf1-4b42-9abe-4a992948e8c1",
       "cc314c89-64c4-41fe-8645-197c25503b8f"
     ]
   },
@@ -34,7 +34,7 @@
     "valorContratualVigente": 951706.65,
     "valorEmpenhado": 951706.65,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 62.52,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.890699,
   "longitude": -38.435616,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

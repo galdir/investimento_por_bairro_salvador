@@ -7,13 +7,13 @@
   "objeto": "PRESTAÇÃO DE SERVIÇOS PARA EXECUÇÃO DE REFORMA NA ANTIGA SEDE DA SECRETARIA MUNICIPAL DA EDUCAÇÃO - SMED.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CB ENGENHARIA E CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 10,
     "totalObrasAtivas": 10,
     "valorTotalContratado": 36883569.12,
-    "obrasIds": [
-      "c49e0d50-a076-488c-a345-fc351f811b75",
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
       "7e62362e-8516-40af-9d84-9f20c1b4b30a",
       "0403a24c-c0c3-45e2-a33c-512c4facdd84",
       "8f1ab26e-fa43-46c3-80ec-a8609cfa8344",
@@ -41,7 +41,7 @@
     "valorContratualVigente": 1149234.44,
     "valorEmpenhado": 1149234.44,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.61,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -71,5 +71,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

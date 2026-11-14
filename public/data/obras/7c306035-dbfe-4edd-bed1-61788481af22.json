@@ -7,14 +7,13 @@
   "objeto": "Contratação de empresa especializada na prestação de serviços técnicos concernentes à elaboração de INTEPROJETOS VIÁRIOS e de MICROACESSIBILIDADE para intervenções e respectiva adequação com os sistemas viário e de transportes existentes",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "T.T.C. ENGENHARIA DE TRAFEGO E DE TRANSPORTES LTDA.",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1710212.9,
-    "obrasIds": [
-      "7c306035-dbfe-4edd-bed1-61788481af22"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2022-10-31T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 1710212.9,
     "valorEmpenhado": 1710212.9,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 98.98,
     "valorAditivos": 331008.95,
     "deltaPercentualAditivos": 24.0
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "531010"
 }

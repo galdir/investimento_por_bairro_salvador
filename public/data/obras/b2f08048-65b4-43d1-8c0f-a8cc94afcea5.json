@@ -7,13 +7,13 @@
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "APICE ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 271600.0,
-    "obrasIds": [
-      "b2f08048-65b4-43d1-8c0f-a8cc94afcea5",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "49cbdf70-579c-4ca2-b394-448a293bfdc2"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 40000.0,
     "valorEmpenhado": 40000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 20000.0,
     "deltaPercentualAditivos": 100.0
@@ -64,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

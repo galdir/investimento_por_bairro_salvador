@@ -7,13 +7,17 @@
   "objeto": "RECONSTRUÇÃO DE MUROS EM UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR - LOTE 01",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ASTEC CONSTRUCOES LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 5153713.12,
-    "obrasIds": [
-      "4695608e-0d61-40b9-9949-6033869824fe",
+    "cnpj": "04.554.102/0001-00",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 14488378.31,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "a14fcc97-1710-4424-9029-5c3c85aeb5d1",
+      "38d99939-82d3-44f7-9ab7-0ba3f1dca7e5",
+      "49f8b3ef-44ef-47ba-b1c2-8f884921fd67",
+      "2048f6f9-edd3-4594-80b0-5d3c0219caf8",
       "b02b3732-26f9-4c92-84e7-835e7cf9d0b2"
     ]
   },
@@ -33,7 +37,7 @@
     "valorContratualVigente": 2138642.52,
     "valorEmpenhado": 2138642.52,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.6,
     "valorAditivos": 241642.59,
     "deltaPercentualAditivos": 12.74
@@ -63,5 +67,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

@@ -7,13 +7,13 @@
   "objeto": "Execução dos serviços de modernização de campos de futebol, através da implantação de grama\r\nsintética, manta drenante e embasamento granular no Município do Salvador/BA, sob regime de\r\nempreitada por preço global, com fornecimento de mão de obra, materiais, equipamentos, e o que for\r\nnecessário para a execução destes serviços,",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MARTORE CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 3,
     "totalObrasAtivas": 3,
     "valorTotalContratado": 16793435.45,
-    "obrasIds": [
-      "f3773df2-5a00-48ac-8542-36dad6bf6bc4",
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
       "1bbb8cc0-c4bd-4b93-93e6-82cac9ab59a7",
       "fe23ad98-d579-4fdc-a61a-ef10472a5b6a"
     ]
@@ -34,7 +34,7 @@
     "valorContratualVigente": 12614550.02,
     "valorEmpenhado": 12614550.02,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 69.99,
     "valorAditivos": 9425681.64,
     "deltaPercentualAditivos": 295.58
@@ -65,5 +65,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "520002"
 }

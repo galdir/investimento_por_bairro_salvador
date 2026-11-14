@@ -7,14 +7,13 @@
   "objeto": "PRESTAÇÃO DE SERVIÇOS DE REFORMA PARA ADEQUAÇÃO DA ESCOLA MUNICIPAL JOÃO LINO, DA SECRETARIA MUNICIPAL DA EDUCAÇÃO DE SALVADOR  - SMED.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CERQUEIRA E ARAUJO CONSTRUCOES E SERVICOS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 830202.29,
-    "obrasIds": [
-      "120fcfb8-d661-4cb4-965b-9531056c1a87"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2024-04-05T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 830202.29,
     "valorEmpenhado": 830202.29,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 100.0,
     "valorAditivos": 270527.35,
     "deltaPercentualAditivos": 48.34
@@ -62,5 +61,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

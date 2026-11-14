@@ -7,14 +7,13 @@
   "objeto": "Obra de Requalificação Urbana com serviços de paisagismo, irrigação, e iluminação para execução da obra de Requalificação urbano-ambiental da orla marítima de Salvador-trecho Stella Maris, Flamengo e Ipitanga.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO STELLA MARIS LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 33021435.27,
-    "obrasIds": [
-      "75c679a9-6383-46cc-affb-d31196a44249"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2020-05-04T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 33021435.27,
     "valorEmpenhado": 33021435.27,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 77.39,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": -6.59
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.929128,
   "longitude": -38.329038,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "540002"
 }

@@ -7,16 +7,17 @@
   "objeto": "Execução de obras de Contenções de Encostas e Contenções Marítimas na Ilha de Maré -Salvador/BA.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 15122288.02,
-    "obrasIds": [
+    "cnpj": "18.318.752/0001-60",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 23384155.44,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
       "d0620db5-bbc8-48f7-802f-ba6181b5dbd1",
-      "33bb376f-8a1f-4d9c-8321-77128252ef93",
       "6f4863e2-00ae-473c-959b-08ac920fd159",
-      "a18f2109-4830-4780-8259-7f4a126d27d1"
+      "a18f2109-4830-4780-8259-7f4a126d27d1",
+      "fa6c2670-72bd-43ac-b501-7926862dab8c"
     ]
   },
   "vigencia": {
@@ -35,7 +36,7 @@
     "valorContratualVigente": 7408329.19,
     "valorEmpenhado": 7408329.19,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 96.15,
     "valorAditivos": 1433794.87,
     "deltaPercentualAditivos": 24.0
@@ -60,10 +61,11 @@
     ],
     "deltaPercentualValor": 24.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Ilha de Maré",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.769613,
+  "longitude": -38.527424,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

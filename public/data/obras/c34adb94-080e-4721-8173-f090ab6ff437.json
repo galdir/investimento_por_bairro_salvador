@@ -7,13 +7,14 @@
   "objeto": "Serviços de reforma de adequação das estruturas físicas de imóvel para funcionamento da ESCOLAB Boca do Rio.",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "COSTA OESTE ADMINISTRACAO E SERVICOS TECNICOS LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 18375547.54,
-    "obrasIds": [
-      "c34adb94-080e-4721-8173-f090ab6ff437"
+    "cnpj": "19.922.515/0001-77",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 44070661.93,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "8bb4f8a8-8ef5-4d02-bfad-e2ae758bcba5"
     ]
   },
   "vigencia": {
@@ -32,7 +33,7 @@
     "valorContratualVigente": 18375547.54,
     "valorEmpenhado": 18375547.54,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.11,
     "valorAditivos": 15108489.98,
     "deltaPercentualAditivos": 462.45
@@ -63,5 +64,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

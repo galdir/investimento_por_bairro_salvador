@@ -7,17 +7,17 @@
   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE APOIO AO GERENCIAMENTO, À FISCALIZAÇÃO E ÀS ANÁLISES E APROVAÇÕES DE PROJETOS E AO APOIO TÉCNICO ÀS OBRA - REFERENTES AO ¿CORREDOR PARQUE DA CIDADE ¿ PITUBA¿, OBRA INTEGRANTE DO SISTEMA BRT",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONCREMAT ENGENHARIA E TECNOLOGIA S/A",
+    "cnpj": "",
     "totalObras": 5,
     "totalObrasAtivas": 5,
     "valorTotalContratado": 5670769.58,
-    "obrasIds": [
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
       "1bb3355c-6e1b-4529-916e-6720f4ebcf76",
       "489ff942-f70b-4fc8-9c7d-9679db052497",
       "8d6d6537-2b55-4724-aa52-22057fe0c79d",
-      "090fed89-800e-4d17-a89b-8e4dbd6a2a6c",
-      "53ccf3aa-8870-4a30-9ec9-0df6de62758a"
+      "090fed89-800e-4d17-a89b-8e4dbd6a2a6c"
     ]
   },
   "vigencia": {
@@ -36,7 +36,7 @@
     "valorContratualVigente": 2561083.51,
     "valorEmpenhado": 2561083.51,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 99.5,
     "valorAditivos": 458123.7,
     "deltaPercentualAditivos": 21.78
@@ -61,10 +61,11 @@
     ],
     "deltaPercentualValor": 21.78
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Pituba",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.999274,
+  "longitude": -38.460677,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

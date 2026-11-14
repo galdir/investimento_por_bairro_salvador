@@ -7,13 +7,14 @@
   "objeto": "ntratação de empresas para execução das obras de Melhorias Habitacionais em 10.000 (dez mil) imóveis, Programa MORAR MELHOR - Cidade Melhor Lote 04",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MASTER SERVICOS TECNICOS LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 19548171.17,
-    "obrasIds": [
-      "01728058-23ce-4aae-b50b-6c588cbb61ab",
+    "cnpj": "04.890.902/0001-00",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 84977103.81,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "57169b9a-d405-4060-bae4-debf16764fd4",
       "b4017ed7-d96d-44b5-887b-c6a24a2baabb"
     ]
   },
@@ -33,7 +34,7 @@
     "valorContratualVigente": 13705970.41,
     "valorEmpenhado": 13705970.41,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 80.83,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +64,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

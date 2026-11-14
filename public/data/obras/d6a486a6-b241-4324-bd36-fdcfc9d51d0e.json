@@ -7,14 +7,13 @@
   "objeto": "reforma da Unidade de Saúde da Família Fazenda Coutos II ¿ USF Fazenda Coutos II ¿ situada na Rua Cristóvão Barreto, s/n, Quadra 32, Bairro de Fazenda Coutos II, Distrito Sanitário Subúrbio Ferroviário, nesta Cidade do Salvador-BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "REIS LAGO CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 268103.46,
-    "obrasIds": [
-      "d6a486a6-b241-4324-bd36-fdcfc9d51d0e"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2024-03-04T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 268103.46,
     "valorEmpenhado": 268103.46,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 7.17,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Fazenda Coutos",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.847682,
+  "longitude": -38.461693,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "301110"
 }

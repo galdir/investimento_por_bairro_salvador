@@ -7,13 +7,15 @@
   "objeto": "EXECUÇÃO DAS OBRAS DE REQUALIFICAÇÃO URBANA PARA EXECUÇÃO DA OBRA DE \r\nREQUALIFICAÇÃO URBANO-AMBIENTAL DA ORLA MARÍTIMA DE SALVADOR/BA TRECHO\r\nPRAIA DO FLAMENGO",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "QG CONSTRUCOES E ENGENHARIA LTDA",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 134393726.34,
-    "obrasIds": [
-      "5923af33-40ba-4767-bd72-8277b7b6de94",
+    "cnpj": "05.647.206/0001-21",
+    "totalObras": 7,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 189595476.67,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "fa7f8fe6-44f2-44a5-9899-c04c6212432e",
+      "b399ac28-024c-4380-8252-51a724546edc",
       "95ececda-901d-43ae-bb45-aae31202b290",
       "a8b50419-83cd-4dd1-a8eb-2fa293bdb9bd",
       "780facfb-7f0e-4258-8f74-d4a1e5461cc7",
@@ -36,7 +38,7 @@
     "valorContratualVigente": 32558943.22,
     "valorEmpenhado": 32558943.22,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.34,
     "valorAditivos": 6078213.03,
     "deltaPercentualAditivos": 22.95
@@ -66,5 +68,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.929128,
   "longitude": -38.329038,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "540002"
 }

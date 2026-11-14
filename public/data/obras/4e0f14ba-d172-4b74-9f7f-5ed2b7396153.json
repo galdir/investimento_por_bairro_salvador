@@ -2,19 +2,19 @@
   "id": "4e0f14ba-d172-4b74-9f7f-5ed2b7396153",
   "unidadeGestora": "SMS",
   "numeroContrato": "2026CT004673",
-  "numeroContratoOriginal": "2026CT004673",
-  "nuProcesso": null,
+  "numeroContratoOriginal": "2102026",
+  "nuProcesso": "0019312026",
   "objeto": "Contratação SEMI-INTEGRADA de empresa especializada para a execução da obra de Construção de Unidade de Saúde do tipo Policlínica Municipal, incluindo elaboração dos projetos executivos, desenvolvimento de peças orçamentárias e aprovação dos projetos nos Órgãos Reguladores, cujo terreno está Situado na Avenida 29 de Março, S/N, Bairro Jaguaripe I, nesta Capital de acordo com as especificações e ob",
   "situacao": "Cancelado",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "HOLTZ ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
-    "totalObrasAtivas": 2,
+    "totalObrasAtivas": 1,
     "valorTotalContratado": 54620000.0,
-    "obrasIds": [
-      "5615e4e0-8b24-4a13-9ca7-5e666d7e005c",
-      "4e0f14ba-d172-4b74-9f7f-5ed2b7396153"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "5615e4e0-8b24-4a13-9ca7-5e666d7e005c"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 27310000.0,
     "valorEmpenhado": 27310000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +63,6 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.909807,
   "longitude": -38.405371,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "301110"
 }

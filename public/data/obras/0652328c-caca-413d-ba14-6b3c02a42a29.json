@@ -7,14 +7,13 @@
   "objeto": "Execução dos serviços de Drenagem da Rua Canal do Sossego, em Mata Escura, Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EMPRENGE CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 1575798.02,
-    "obrasIds": [
-      "0652328c-caca-413d-ba14-6b3c02a42a29"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2019-11-29T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 1575798.02,
     "valorEmpenhado": 1575798.02,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 71.75,
     "valorAditivos": 50920.68,
     "deltaPercentualAditivos": 3.34
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 3.34
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Mata Escura",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.932852,
+  "longitude": -38.458147,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

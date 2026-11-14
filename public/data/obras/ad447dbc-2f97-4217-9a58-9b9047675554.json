@@ -7,13 +7,14 @@
   "objeto": "PRESTAÇÃO DE SERVIÇOS TÉCNICOS DE ELABORAÇÃO DE PROJETOS BÁSICO E EXECUTIVO DE ARQUITETURA E ENGENHARIA E EXECUÇÃO DA OBRA DE CONSTRUÇÃO E RECONSTRUÇÃO DE 12 UNIDADES ESCOLARES DA SMED - LOTE 07 - EM PROFESSORA ANITA BARBUDA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA VOLQUE LTDA",
-    "totalObras": 4,
+    "cnpj": "00.991.667/0001-01",
+    "totalObras": 5,
     "totalObrasAtivas": 4,
-    "valorTotalContratado": 20888372.41,
-    "obrasIds": [
-      "ad447dbc-2f97-4217-9a58-9b9047675554",
+    "valorTotalContratado": 32144731.56,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "f1992aaf-deb6-488a-8efd-b867583e87c9",
       "bace807f-a61b-457a-9098-34c4d4a75d3f",
       "12dc32d0-87e5-4d25-b789-4f2d59340972",
       "fc5bc8dc-96d8-484a-9995-0154ad7e9f4c"
@@ -35,7 +36,7 @@
     "valorContratualVigente": 11113056.67,
     "valorEmpenhado": 11113056.67,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 90.68,
     "valorAditivos": 2537879.28,
     "deltaPercentualAditivos": 29.6
@@ -66,5 +67,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

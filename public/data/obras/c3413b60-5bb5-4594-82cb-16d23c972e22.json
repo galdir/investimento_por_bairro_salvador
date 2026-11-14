@@ -7,16 +7,16 @@
   "objeto": "contratação de empresa capacitada para execução dos serviços de implantação de novos equipamentos Urbanos em Sítios Históricos ¿ Elevador Taboão ¿ Rua do Taboão, Centro, Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PENA CAL CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 11390660.09,
-    "obrasIds": [
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
       "8d10de9d-e1a7-4dec-9a26-6602c3c34b95",
       "3687ab4f-3ebd-4373-bb16-8f207261ad5f",
-      "6d2fa0fc-ab43-4fa5-8903-5a4c37c1de64",
-      "c3413b60-5bb5-4594-82cb-16d23c972e22"
+      "6d2fa0fc-ab43-4fa5-8903-5a4c37c1de64"
     ]
   },
   "vigencia": {
@@ -35,7 +35,7 @@
     "valorContratualVigente": 4584908.2,
     "valorEmpenhado": 4584908.2,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.02,
     "valorAditivos": 844850.85,
     "deltaPercentualAditivos": 22.59
@@ -60,10 +60,11 @@
     ],
     "deltaPercentualValor": 22.59
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

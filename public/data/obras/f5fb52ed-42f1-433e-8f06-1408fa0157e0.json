@@ -7,13 +7,15 @@
   "objeto": "Prestação de serviços técnicos de elaboração de projeto básico e executivo de arquitetura e engenharia e execução da obra de construção e reconstrução da EM NOSSA SNHORA DOS ANJOS -  LOTE  12",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EMPRESA BRASILEIRA DE CONSTRUCAO LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 22956250.44,
-    "obrasIds": [
-      "f5fb52ed-42f1-433e-8f06-1408fa0157e0",
+    "cnpj": "07.103.225/0001-12",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 53893216.84,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "8d2cadb3-5db4-4930-92ba-56f851fa5439",
+      "83ad5033-d3a7-4bf5-ad34-42e4dddba3c4",
       "5c053c71-5eed-4354-b505-8862464e1ee8"
     ]
   },
@@ -33,7 +35,7 @@
     "valorContratualVigente": 12313647.9,
     "valorEmpenhado": 12313647.9,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 95.36,
     "valorAditivos": 3132083.9,
     "deltaPercentualAditivos": 34.11
@@ -64,5 +66,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

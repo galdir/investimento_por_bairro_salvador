@@ -7,14 +7,15 @@
   "objeto": "Execução de obras da Via de Ligação BR 324 X Mata Escura- Salvador/BA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA NM LTDA",
-    "totalObras": 4,
+    "cnpj": "74.190.620/0001-77",
+    "totalObras": 5,
     "totalObrasAtivas": 4,
-    "valorTotalContratado": 126401455.31,
-    "obrasIds": [
+    "valorTotalContratado": 208674663.21,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "6e925a87-53ad-4ac8-a6f5-72f300c32086",
       "cd4e35b8-00c2-49e9-acd3-76ce5ebd88f3",
-      "4374164e-b6f0-4064-8735-45d1a1da9279",
       "6bb966ce-92bf-4f42-ace2-9bb71899eeb8",
       "b3974eb2-a2b2-420b-8019-6153511e54f3"
     ]
@@ -35,7 +36,7 @@
     "valorContratualVigente": 13204459.8,
     "valorEmpenhado": 13204459.8,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 45.43,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -60,10 +61,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Mata Escura",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.932852,
+  "longitude": -38.458147,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

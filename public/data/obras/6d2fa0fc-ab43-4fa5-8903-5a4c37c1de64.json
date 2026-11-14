@@ -7,15 +7,15 @@
   "objeto": "execução das obras de Requalificação da Fonte Luminosa da Rampa do Mercado",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "PENA CAL CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 4,
     "totalObrasAtivas": 4,
     "valorTotalContratado": 11390660.09,
-    "obrasIds": [
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
       "8d10de9d-e1a7-4dec-9a26-6602c3c34b95",
       "3687ab4f-3ebd-4373-bb16-8f207261ad5f",
-      "6d2fa0fc-ab43-4fa5-8903-5a4c37c1de64",
       "c3413b60-5bb5-4594-82cb-16d23c972e22"
     ]
   },
@@ -35,7 +35,7 @@
     "valorContratualVigente": 1557044.67,
     "valorEmpenhado": 1557044.67,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.44,
     "valorAditivos": 311254.55,
     "deltaPercentualAditivos": 24.98
@@ -60,10 +60,11 @@
     ],
     "deltaPercentualValor": 24.98
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.9632,
+  "longitude": -38.507445,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

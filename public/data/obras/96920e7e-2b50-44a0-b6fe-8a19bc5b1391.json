@@ -7,13 +7,14 @@
   "objeto": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 01 - GRE CAJAZEIRAS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "REDIM SERVICOS LTDA",
-    "totalObras": 1,
-    "totalObrasAtivas": 1,
-    "valorTotalContratado": 10164119.74,
-    "obrasIds": [
-      "96920e7e-2b50-44a0-b6fe-8a19bc5b1391"
+    "cnpj": "04.534.093/0001-95",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 22603688.93,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "c3833be0-29a7-4b5e-b9fd-2422b2df5ee9"
     ]
   },
   "vigencia": {
@@ -32,7 +33,7 @@
     "valorContratualVigente": 10164119.74,
     "valorEmpenhado": 10164119.74,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.92,
     "valorAditivos": 1565119.74,
     "deltaPercentualAditivos": 18.2
@@ -62,5 +63,6 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

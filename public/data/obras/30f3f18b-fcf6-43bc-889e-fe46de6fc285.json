@@ -7,18 +7,18 @@
   "objeto": "Contratação de empresa especializada em serviços na área de engenharia, para execução de Requalificação de duas Praças Públicas, sendo uma localizada na Rua Segunda Travessa Domingos de Brito no bairro da Federação, e a outra na Rua Almirante Mourão De Sá na Fazenda Coutos, ambas situadas no Município de Salvador - Bahia. O objeto compreende o fornecimento de material, mão de obra especializada, e",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CB ENGENHARIA E CONSTRUCOES LTDA",
+    "cnpj": "",
     "totalObras": 10,
     "totalObrasAtivas": 10,
     "valorTotalContratado": 36883569.12,
-    "obrasIds": [
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
       "c49e0d50-a076-488c-a345-fc351f811b75",
       "7e62362e-8516-40af-9d84-9f20c1b4b30a",
       "0403a24c-c0c3-45e2-a33c-512c4facdd84",
       "8f1ab26e-fa43-46c3-80ec-a8609cfa8344",
       "ee78c054-ae62-4445-a5da-6fe4c4ef1370",
-      "30f3f18b-fcf6-43bc-889e-fe46de6fc285",
       "1679900f-cc63-4410-bd5f-969eba1631b4",
       "eb8ecbfa-377d-42b5-b51d-095340ebb31b",
       "b4134a1f-a98c-4cd7-bc36-a69edaeef292",
@@ -41,7 +41,7 @@
     "valorContratualVigente": 257434.99,
     "valorEmpenhado": 257434.99,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 82.9,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -71,5 +71,6 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.99875,
   "longitude": -38.50501,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "560002"
 }

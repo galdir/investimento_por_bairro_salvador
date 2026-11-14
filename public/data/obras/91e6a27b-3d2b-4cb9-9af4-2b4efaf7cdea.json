@@ -7,13 +7,13 @@
   "objeto": "Contratação de empresa capacitada para execução dos serviços de IMPLANTAÇÃO DE PASSARELA DE ACESSO AO BRT ¿ ESTAÇÃO PITUBA a ser instalada na Avenida Antônio Carlos Magalhães, Pituba",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EGTC INFRA S.A.",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 44979078.67,
-    "obrasIds": [
-      "91e6a27b-3d2b-4cb9-9af4-2b4efaf7cdea",
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
       "11fbfdbf-3d0a-49ae-a5f7-93a370ba385e"
     ]
   },
@@ -33,7 +33,7 @@
     "valorContratualVigente": 7287278.67,
     "valorEmpenhado": 7287278.67,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 82.5,
     "valorAditivos": 357612.18,
     "deltaPercentualAditivos": 5.16
@@ -58,10 +58,11 @@
     ],
     "deltaPercentualValor": 5.16
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Pituba",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.999274,
+  "longitude": -38.460677,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

@@ -7,17 +7,24 @@
   "objeto": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 06- GRE LIBERDADE E CIDADE BAIXA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ROMAS ENGENHARIA E CONSULTORIA LTDA",
-    "totalObras": 5,
-    "totalObrasAtivas": 5,
-    "valorTotalContratado": 37014155.68,
-    "obrasIds": [
+    "cnpj": "24.051.496/0001-90",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 88787623.57,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "5caa590d-0847-4871-a170-8da17f1c4a6d",
+      "d40c9862-7baf-4b4f-bc54-b9e1b4c4cf63",
+      "0c68abc0-fd53-455f-b474-25b9f8378693",
+      "f26051fb-56fb-4f41-99b4-e2791042b518",
       "ee55eaab-39c9-4b01-b677-c98ed6bdc62e",
-      "63e28305-5f4d-44a6-ab8f-4dc97fdd7534",
+      "db1fda41-faae-4708-9e0e-ac8848a99d1f",
       "74ad583e-e817-4bb6-8a74-c5d3065c3c70",
+      "97daadc9-67b2-48fd-b37e-c95b6c5e3f4c",
       "fae98092-4b96-4c6c-91fc-9317033bbe33",
-      "b66dae9d-e507-4ac1-b9ac-b31c95ad765a"
+      "b66dae9d-e507-4ac1-b9ac-b31c95ad765a",
+      "add077fc-e93a-4fee-9472-736fc643c4b1"
     ]
   },
   "vigencia": {
@@ -36,7 +43,7 @@
     "valorContratualVigente": 8153233.2,
     "valorEmpenhado": 8153233.2,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 91.97,
     "valorAditivos": 1483243.2,
     "deltaPercentualAditivos": 22.24
@@ -66,5 +73,6 @@
   "prefeituraBairro": "Cidade Baixa",
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

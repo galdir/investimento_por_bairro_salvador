@@ -7,14 +7,13 @@
   "objeto": "Prestação de serviços técnicos de elaboração de projetos executivos de engenharia  e execução da obra de construção de cobertura da quadra poliesportiva e reforma da Escola Municipal de São Gonçalo do Retiro da SMED",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "INO9VARE ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 492039.11,
-    "obrasIds": [
-      "a60a5100-6e0e-465e-8a29-c3ee7588a23c"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-03-19T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 492039.11,
     "valorEmpenhado": 492039.11,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.14,
     "valorAditivos": 19848.53,
     "deltaPercentualAditivos": 4.2
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 4.2
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "São Gonçalo",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.950756,
+  "longitude": -38.466593,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

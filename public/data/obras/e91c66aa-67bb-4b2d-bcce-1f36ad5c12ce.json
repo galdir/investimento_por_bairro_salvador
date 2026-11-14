@@ -7,14 +7,13 @@
   "objeto": "AVALIAÇÃO DE IMOVEIS",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MSOUZA CONSTRUTORA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 355000.0,
-    "obrasIds": [
-      "e91c66aa-67bb-4b2d-bcce-1f36ad5c12ce"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2018-12-18T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 355000.0,
     "valorEmpenhado": 355000.0,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 22.42,
     "valorAditivos": 325000.0,
     "deltaPercentualAditivos": 1083.33
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "270002"
 }

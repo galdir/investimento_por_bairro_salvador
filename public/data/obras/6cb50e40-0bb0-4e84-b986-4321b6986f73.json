@@ -7,15 +7,16 @@
   "objeto": "Serviços de recuperação e requalificação das muralhas da encosta do Centro Histórico ¿ Ladeira da Montanha e Ladeira da Misericórdia.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "EPTA EMPREENDIMENTOS EIRELI",
-    "totalObras": 3,
-    "totalObrasAtivas": 3,
-    "valorTotalContratado": 13144636.58,
-    "obrasIds": [
+    "cnpj": "25.173.473/0001-11",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 16322380.38,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "50cd795e-de05-428a-bf65-ea0e3d65304e",
       "4356d562-c194-4fa7-8026-0fecc91ddf74",
-      "8086a856-bed3-46c1-ba42-57bd54b67a28",
-      "6cb50e40-0bb0-4e84-b986-4321b6986f73"
+      "8086a856-bed3-46c1-ba42-57bd54b67a28"
     ]
   },
   "vigencia": {
@@ -34,7 +35,7 @@
     "valorContratualVigente": 4630292.05,
     "valorEmpenhado": 4630292.05,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 93.99,
     "valorAditivos": 61532.8,
     "deltaPercentualAditivos": 1.35
@@ -59,10 +60,11 @@
     ],
     "deltaPercentualValor": 1.35
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

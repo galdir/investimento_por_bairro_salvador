@@ -7,14 +7,14 @@
   "objeto": "execução das obras de Urbanização, Pavimentação, Drenagem e Edificações no Parque Pedra de Xangô, Fazenda Grande III Contrato: 002/2020",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CBR EMPREENDIMENTOS EIRELI",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 9608318.42,
-    "obrasIds": [
-      "f82c4cfe-b27c-4f12-acae-ba9f3beedf80",
-      "344206d5-78ea-40b7-abdb-817aafc159b6"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "f82c4cfe-b27c-4f12-acae-ba9f3beedf80"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 4648603.11,
     "valorEmpenhado": 4648603.11,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.94,
     "valorAditivos": 900742.61,
     "deltaPercentualAditivos": 24.03
@@ -58,10 +58,11 @@
     ],
     "deltaPercentualValor": 24.03
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Fazenda Grande III",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.904271,
+  "longitude": -38.395514,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

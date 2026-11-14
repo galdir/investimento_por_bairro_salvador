@@ -7,14 +7,13 @@
   "objeto": "Constitui objeto do presente Termo de Referenda a contratapao de servipos de engenharia para reestruturapao e adaptapao de espapos fisicos e bens moveis da Procuradoria Geral do Municipio do Salvador, localizada a Travessa dAjuda, n° 002, Edificio Sulamerica, Centro, Salvador - BA, CEP: 40026-038.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ESQUADROS ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 109818.67,
-    "obrasIds": [
-      "f0e1d753-b21d-4cb5-8fde-11c6871a318a"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2023-11-16T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 109818.67,
     "valorEmpenhado": 109818.67,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 85.15,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -57,10 +56,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "230002"
 }

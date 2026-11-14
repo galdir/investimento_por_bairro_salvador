@@ -7,14 +7,15 @@
   "objeto": "Execução dos serviços de implantação da Via de ligação entre a Avenida Gal Costa e Pau da Lima, Jardim Cajazeiras, Salvador/BA",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "BARRA S CONSTRUCAO, PROJETOS E SERVICOS LTDA",
-    "totalObras": 2,
-    "totalObrasAtivas": 2,
-    "valorTotalContratado": 21914961.57,
-    "obrasIds": [
-      "d503e868-607e-494e-905e-f31dc1695407",
-      "51bf8a08-fcad-4c39-aa60-c330ecfa1645"
+    "cnpj": "96.861.075/0001-36",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 33729228.52,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "e50b48a3-0d06-4736-9b0f-d423de68ab45",
+      "d503e868-607e-494e-905e-f31dc1695407"
     ]
   },
   "vigencia": {
@@ -33,7 +34,7 @@
     "valorContratualVigente": 9106550.32,
     "valorEmpenhado": 9106550.32,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 92.58,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -58,10 +59,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Sussuarana",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.933346,
+  "longitude": -38.445351,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

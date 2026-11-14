@@ -7,14 +7,13 @@
   "objeto": "Execução, sob o regime de empreitada por preço unitário, dos serviços de infraestrutura, estabilização e contenção de encostas no Município do Salvador/BA, em jurisdição das Prefeituras Bairros: I e VI,",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSORCIO MAF/LIGA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 119629401.7,
-    "obrasIds": [
-      "7a35bdcb-d83f-4f6f-8161-486e1247108c"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2017-12-07T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 119629401.7,
     "valorEmpenhado": 119629401.7,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 85.11,
     "valorAditivos": 98712832.49,
     "deltaPercentualAditivos": 471.94
@@ -63,5 +62,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

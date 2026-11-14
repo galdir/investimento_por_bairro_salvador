@@ -7,14 +7,14 @@
   "objeto": "Execução de obras de Requalificação do Acesso à Estação Pirajá e Implantação de duas Alças do Viaduto de Pirajá do Km 621+550 da pista Oeste da BR 324, Salvador/BA.",
   "situacao": "Cancelado",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "MHR ENGENHARIA LTDA",
+    "cnpj": "",
     "totalObras": 2,
-    "totalObrasAtivas": 2,
+    "totalObrasAtivas": 1,
     "valorTotalContratado": 8906588.81,
-    "obrasIds": [
-      "1f926d19-ae20-48b6-894c-7c962774b455",
-      "a05e3cad-1030-4fe8-89a9-828079049f44"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "1f926d19-ae20-48b6-894c-7c962774b455"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 4755259.08,
     "valorEmpenhado": 4755259.08,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 0.0,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -58,10 +58,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Pirajá",
+  "prefeituraBairro": "Valéria",
+  "latitude": -12.888251,
+  "longitude": -38.457286,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

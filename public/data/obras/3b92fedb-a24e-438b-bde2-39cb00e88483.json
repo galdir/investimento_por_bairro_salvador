@@ -7,14 +7,13 @@
   "objeto": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 06 - GRE CABULA E ITAPUÃ.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CCN CONSTRUTORA E INCORPORADORA LTDA",
+    "cnpj": "",
     "totalObras": 1,
     "totalObrasAtivas": 1,
     "valorTotalContratado": 11587683.39,
-    "obrasIds": [
-      "3b92fedb-a24e-438b-bde2-39cb00e88483"
-    ]
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
   },
   "vigencia": {
     "dataInicio": "2021-12-13T00:00:00.000Z",
@@ -32,7 +31,7 @@
     "valorContratualVigente": 11587683.39,
     "valorEmpenhado": 11587683.39,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.83,
     "valorAditivos": 2313903.11,
     "deltaPercentualAditivos": 24.95
@@ -62,5 +61,6 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.939631,
   "longitude": -38.358185,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "441010"
 }

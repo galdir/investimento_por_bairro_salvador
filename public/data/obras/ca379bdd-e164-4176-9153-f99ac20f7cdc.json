@@ -7,16 +7,24 @@
   "objeto": "AMPLIAÇÃO DA USF BOCA DA MATA",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 3040388.21,
-    "obrasIds": [
-      "ca379bdd-e164-4176-9153-f99ac20f7cdc",
+    "cnpj": "13.585.696/0001-07",
+    "totalObras": 12,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 51715355.41,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "99c639db-3833-40df-8149-d5279dfddd54",
+      "81edebcc-a3b9-48b6-ad0d-f34e7f526d50",
+      "9a094659-a858-407b-9d01-0d02a447effe",
       "70cd4c11-7793-4a6f-8306-3acf8005e667",
       "042278bf-71ea-4e3c-bc38-d389d64ba170",
-      "91d3e703-5e4d-4312-be89-82176b726a31"
+      "91d3e703-5e4d-4312-be89-82176b726a31",
+      "04f87a18-721e-4097-94cf-5c58739bbd51",
+      "eed47ecc-c7f9-4631-aa15-cfaa6a42d8d5",
+      "8b4257db-1da5-48da-8607-495ca76a6ac6",
+      "573ebec0-ee42-4b36-9240-503ef84c1206",
+      "9e814c7e-a813-44ac-89e1-84bd01b9420c"
     ]
   },
   "vigencia": {
@@ -35,7 +43,7 @@
     "valorContratualVigente": 221804.44,
     "valorEmpenhado": 221804.44,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 39.67,
     "valorAditivos": 40211.12,
     "deltaPercentualAditivos": 22.14
@@ -60,10 +68,11 @@
     ],
     "deltaPercentualValor": 22.14
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Boca da Mata",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.898982,
+  "longitude": -38.387426,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "301110"
 }

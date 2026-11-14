@@ -7,14 +7,14 @@
   "objeto": "Construção de 34 boxes e realização dos serviços complementares no camelódromo da rua Riachuelo, conforme contrato nº 050/2020",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "P S C SERVICOS DE ENGENHARIA CIVIL LTDA",
+    "cnpj": "",
     "totalObras": 2,
     "totalObrasAtivas": 2,
     "valorTotalContratado": 280999.94,
-    "obrasIds": [
-      "ce2bd086-13d6-46c6-a3f6-42d2b29db921",
-      "bb4cd017-58a8-4f6f-b2f0-948f5eaac150"
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "ce2bd086-13d6-46c6-a3f6-42d2b29db921"
     ]
   },
   "vigencia": {
@@ -33,7 +33,7 @@
     "valorContratualVigente": 173565.75,
     "valorEmpenhado": 173565.75,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 94.5,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,5 +63,6 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache"
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "450002"
 }

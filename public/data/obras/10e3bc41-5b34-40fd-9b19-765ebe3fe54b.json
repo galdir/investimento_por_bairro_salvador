@@ -7,15 +7,19 @@
   "objeto": "Constitui objeto da presente licitação a contratação de empresa capacitada para execução das obras de adequação de trechos da drenagem do Canal do Sossego, em Mata Escura",
   "situacao": "Ajustar Cronograma",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
-    "totalObras": 7,
-    "totalObrasAtivas": 7,
-    "valorTotalContratado": 222076005.14,
-    "obrasIds": [
+    "cnpj": "11.630.923/0001-43",
+    "totalObras": 11,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 788383859.89,
+    "outrasObrasCount": 10,
+    "outrasObrasIds": [
+      "b8143e33-99e5-4aa5-9b3b-adab18d909aa",
+      "db108947-6135-426a-8856-86a090083971",
+      "716d5c0c-f28b-4d96-ad73-4e8cc612dcb6",
       "0045f4fa-23bb-4b9f-8291-fbf99d4c81f4",
       "f416db4d-19d2-4228-bfca-87aa74167bb3",
-      "10e3bc41-5b34-40fd-9b19-765ebe3fe54b",
+      "c735d765-51cd-4270-b8dc-2982dc9ddb06",
       "0ae88bfe-920c-41d5-93ed-15f3a3074565",
       "9907044d-9227-43a6-9ce3-c0519e3fac0a",
       "8e50d73e-2760-48b6-aec9-45fab98615e6",
@@ -38,7 +42,7 @@
     "valorContratualVigente": 1028971.73,
     "valorEmpenhado": 1028971.73,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 96.64,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0
@@ -63,10 +67,11 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Mata Escura",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.932852,
+  "longitude": -38.458147,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "616002"
 }

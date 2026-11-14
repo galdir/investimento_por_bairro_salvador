@@ -7,13 +7,14 @@
   "objeto": "Execução das obras do MINIECOPONTO PILOTO, a situar-se na Rua Cardeal Jean, Rio Sena, Subúrbio Ferroviário - Salvador/BA, sob regime de empreitada por preços unitários, com fornecimento de mão-de-obra, materiais, equipamentos, e o que for necessário para a execução destes serviços, observados as disposições do Projeto Executivo. CT Nº 001-2023.",
   "situacao": "Em Execução",
   "empreiteira": {
-    "cnpj": "",
     "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
-    "totalObras": 4,
-    "totalObrasAtivas": 4,
-    "valorTotalContratado": 3259548.74,
-    "obrasIds": [
-      "2d60893e-b78c-421b-b1f5-48dfd23de997",
+    "cnpj": "20.852.647/0001-59",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 3524799.56,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "cba43365-3ca3-426e-819c-a93a714e70b8",
       "40051c5a-2bf2-43e0-b0c7-3ab13858833a",
       "5de1379b-62fe-422b-b557-76ec89cf7c69",
       "29bcca9f-e6dd-48b5-b99e-53fa8fbce3c7"
@@ -35,7 +36,7 @@
     "valorContratualVigente": 626290.24,
     "valorEmpenhado": 626290.24,
     "valorLiquidado": 0,
-    "valorPago": 0.0,
+    "valorPago": 0,
     "percentualExecutado": 110.33,
     "valorAditivos": 71939.14,
     "deltaPercentualAditivos": 12.98
@@ -60,10 +61,11 @@
     ],
     "deltaPercentualValor": 12.98
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache"
+  "nivel": "Bairro",
+  "bairro": "Rio Sena",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.881,
+  "longitude": -38.469748,
+  "estagioAlocacao": "Cache",
+  "cdUnidadeGestora": "610002"
 }
