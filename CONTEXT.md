@@ -28,6 +28,14 @@ _Avoid_: Prédio público, repartição, instalação
 Contrato administrativo vigente ou concluído no período cujo objeto compreende obras ou serviços de engenharia gerenciados por Unidades Gestoras do município de Salvador.
 _Avoid_: Despesa genérica, compra, licitação
 
+**Chave Canônica da Obra**:
+Identificador único e imutável de uma Obra Pública formado pelo par composto por sua Unidade Gestora e seu número de contrato no sistema contábil municipal, preservando a identidade do contrato independentemente de identificadores temporários de sessão gerados pelo portal da transparência.
+_Avoid_: ID temporário da API, UUID volátil, chave primária de banco
+
+**Empreiteira**:
+Pessoa jurídica ou consórcio contratado pelo município para executar uma Obra Pública, identificada univocamente pelo seu CNPJ (ou unificada pela Razão Social canônica quando o CNPJ estiver omitido em parte dos registros oficiais da mesma empresa).
+_Avoid_: Fornecedor genérico, prestador, parceiro
+
 **Mandato Municipal**:
 Ciclo quadrienal da administração municipal de Salvador (`2021–2024` ou `2025–2028`) utilizado como recorte temporal de controle social; uma Obra Pública integra todos os mandatos com os quais seu período de vigência (`dtInicioVigencia` a `dtTerminoVigenciaAtualizado`) se sobrepõe.
 _Avoid_: Ano civil isolado, ano de assinatura, exercício contábil
@@ -47,11 +55,15 @@ _Avoid_: Precisão de GPS, tipo de endereço, categoria espacial
 ### Indicadores Financeiros e de Execução
 
 **Valor Contratual Vigente**:
-Valor global atualizado do contrato da Obra Pública (soma do Valor Original Contratado com os Termos Aditivos de valor acumulados).
+Valor global atualizado do contrato da Obra Pública registrado no cabeçalho contábil municipal (soma do Valor Original Contratado com a Variação Contratual Acumulada).
 _Avoid_: Valor bruto, orçamento total, custo final
 
+**Variação Contratual Acumulada**:
+Diferença financeira positiva entre o Valor Contratual Vigente e o Valor Original Contratado de uma Obra Pública, abrangendo tanto Termos Aditivos de valor quanto apostilamentos e reajustes contratuais aplicados ao saldo global.
+_Avoid_: Lucro, sobrepreço, custo extra
+
 **Aditivo Contratual**:
-Alteração formal publicada no Diário Oficial do Município (DOM) que modifica o valor financeiro (Aditivo de Valor) ou a data de término da vigência (Aditivo de Prazo) de uma Obra Pública em relação ao contrato original.
+Termo formal publicado no Diário Oficial do Município (DOM) e listado individualmente no histórico contratual que modifica o valor financeiro (Aditivo de Valor) ou a data de término da vigência (Aditivo de Prazo) de uma Obra Pública.
 _Avoid_: Reajuste informal, multa, extra
 
 **Funil de Execução Financeira**:
