@@ -72,5 +72,29 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2022CT002881"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Subúrbio/Ilhas via Cache"
+    }
+  },
   "cdUnidadeGestora": "567002"
 }

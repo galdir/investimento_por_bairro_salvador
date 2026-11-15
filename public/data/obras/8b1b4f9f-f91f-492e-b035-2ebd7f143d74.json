@@ -1809,5 +1809,72 @@
   "latitude": -12.99875,
   "longitude": -38.50501,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2023CT008965"
+    },
+    "nuProcesso": "000023/2023",
+    "domContrato": {
+      "nuDom": "8670",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8851",
+        "dtPublicacao": "19/08/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8891",
+        "dtPublicacao": "14/10/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "8920",
+        "dtPublicacao": "27/11/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "8926",
+        "dtPublicacao": "05/12/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "9014",
+        "dtPublicacao": "23/04/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "6",
+        "nuDom": "9050",
+        "dtPublicacao": "17/06/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "7",
+        "nuDom": "9083",
+        "dtPublicacao": "07/08/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Federação via Cache"
+    }
+  },
   "cdUnidadeGestora": "301110"
 }

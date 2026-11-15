@@ -1851,5 +1851,54 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2021CT001819"
+    },
+    "nuProcesso": "000014/2020",
+    "domContrato": {
+      "nuDom": "7896",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8264",
+        "dtPublicacao": "12/04/2022",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8513",
+        "dtPublicacao": "12/04/2023",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "8765",
+        "dtPublicacao": "16/04/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9012",
+        "dtPublicacao": "15/04/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Subúrbio/Ilhas via Cache"
+    }
+  },
   "cdUnidadeGestora": "560002"
 }

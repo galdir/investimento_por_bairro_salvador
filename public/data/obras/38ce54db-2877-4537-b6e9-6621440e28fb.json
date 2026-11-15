@@ -1840,5 +1840,66 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "600002",
+      "unidadeGestora": "SEDUR",
+      "nuContratoSigef": "2020CT003598"
+    },
+    "nuProcesso": "047665/2019",
+    "domContrato": {
+      "nuDom": "7649",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8155",
+        "dtPublicacao": "19/11/2021",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8283",
+        "dtPublicacao": "12/05/2022",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "8482",
+        "dtPublicacao": "27/02/2023",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "8570",
+        "dtPublicacao": "05/07/2023",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "8757",
+        "dtPublicacao": "04/04/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "6",
+        "nuDom": "9022",
+        "dtPublicacao": "06/05/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
   "cdUnidadeGestora": "600002"
 }

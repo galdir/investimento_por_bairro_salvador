@@ -65,5 +65,29 @@
   "latitude": -12.943451,
   "longitude": -38.498601,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2025CT005387"
+    },
+    "nuProcesso": "107560/2024",
+    "domContrato": {
+      "nuDom": "9057",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Calçada",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Calçada via Cache"
+    }
+  },
   "cdUnidadeGestora": "301110"
 }

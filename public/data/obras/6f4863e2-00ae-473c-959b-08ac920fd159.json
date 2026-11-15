@@ -67,5 +67,29 @@
   "latitude": -12.980673,
   "longitude": -38.489068,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT006473"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Cosme de Farias",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Cosme de Farias via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

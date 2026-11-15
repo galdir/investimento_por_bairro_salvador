@@ -60,7 +60,13 @@ export interface BairroResumo {
   pct_analfabetismo_15mais?: number;
   vulnerabilidade_estimada_contiguidade?: boolean;
   valorTotal?: number;
+  valorLiquidado?: number;
   valorPago?: number;
+  valorLiquidadoDireto?: number;
+  valorPagoDireto?: number;
+  valorLiquidadoFrentes?: number;
+  valorPagoFrentes?: number;
+  totalFrentesMedicao?: number;
   totalObras?: number;
   obrasVerde?: number;
   obrasAmarelo?: number;
@@ -78,13 +84,32 @@ export interface PrefeituraBairroResumo {
   pct_agua_inadequada?: number;
   pct_analfabetismo_15mais?: number;
   valorTotal?: number;
+  valorLiquidado?: number;
   valorPago?: number;
+  valorLiquidadoDireto?: number;
+  valorPagoDireto?: number;
+  valorLiquidadoFrentes?: number;
+  valorPagoFrentes?: number;
+  totalFrentesMedicao?: number;
   totalObras?: number;
   obrasVerde?: number;
   obrasAmarelo?: number;
   obrasVermelho?: number;
   investimentoPorHabitante?: number;
   investimentoPorHabitantePago?: number;
+}
+
+export interface FrenteMedicao {
+  notaLiquidacao: string;
+  nivel: NivelAlocacaoTerritorial | string;
+  bairro?: string | null;
+  prefeituraBairro?: string | null;
+  valorLiquidado: number;
+  valorPago: number;
+  dataLiquidacao?: string | null;
+  trechoComprobatorio?: string | null;
+  documentoOrigem?: string | null;
+  justificativa?: string | null;
 }
 
 export interface ObraCompacta {
@@ -115,6 +140,7 @@ export interface ObraCompacta {
   latitude?: number | null;
   longitude?: number | null;
   estagioAlocacao?: string | null;
+  frentesMedicao?: FrenteMedicao[];
 }
 
 export interface EmpreiteiraResumo {
@@ -237,6 +263,7 @@ export interface FichaLimpaObra {
   longitude?: number | null;
   estagioAlocacao?: string | null;
   fontesOficiais?: FontesOficiaisInfo;
+  frentesMedicao?: FrenteMedicao[];
 }
 
 export interface IndexData {
@@ -266,7 +293,13 @@ export interface TerritorySelection {
   pct_analfabetismo_15mais?: number;
   vulnerabilidade_estimada_contiguidade?: boolean;
   valorTotal?: number;
+  valorLiquidado?: number;
   valorPago?: number;
+  valorLiquidadoDireto?: number;
+  valorPagoDireto?: number;
+  valorLiquidadoFrentes?: number;
+  valorPagoFrentes?: number;
+  totalFrentesMedicao?: number;
   totalObras?: number;
   obrasVerde?: number;
   obrasAmarelo?: number;

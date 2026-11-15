@@ -101,5 +101,29 @@
   "latitude": -12.890699,
   "longitude": -38.435616,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2026CT005609"
+    },
+    "nuProcesso": "0918222025",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Águas Claras",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Águas Claras via Cache"
+    }
+  },
   "cdUnidadeGestora": "520002"
 }

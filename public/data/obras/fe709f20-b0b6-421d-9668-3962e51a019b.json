@@ -749,5 +749,29 @@
   "latitude": -13.009333,
   "longitude": -38.473196,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT003274"
+    },
+    "nuProcesso": "1934172025",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Nordeste de Amaralina",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Nordeste de Amaralina via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

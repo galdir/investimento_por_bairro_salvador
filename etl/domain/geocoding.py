@@ -17,7 +17,7 @@ import urllib.request
 
 from shapely.geometry import Point, shape
 
-from etl.domain.territorio import normalizar_nome, normalizar_nome_prefeitura_bairro
+from etl.domain.territorio import normalizar_nome, normalizar_nome_prefeitura_bairro, parse_float
 
 # Diretório base dos dicionários de referência
 REF_DIR = Path(__file__).resolve().parent.parent / "reference"
@@ -670,14 +670,19 @@ def _aplicar_curadoria_territorial(
         "justificativa": entrada.get("justificativa"),
     }
 
-    if status in ("ambiguo", "nao_localizado"):
+    if status in ("ambiguo", "nao_localizado", "multi_frente"):
+        estagio = (
+            "Curadoria Territorial Auditável (Multi-Frente)"
+            if status == "multi_frente"
+            else "Curadoria Territorial Auditável (Ambíguo)"
+        )
         return {
             "nivel": "Escopo Cidade (Não-Localizado)",
             "bairro": None,
             "prefeitura_bairro": None,
             "latitude": None,
             "longitude": None,
-            "estagio": "Curadoria Territorial Auditável (Ambíguo)",
+            "estagio": estagio,
             "lastro_curadoria": lastro,
         }
 
@@ -722,6 +727,123 @@ def _aplicar_curadoria_territorial(
         }
 
     return None
+
+
+def _extrair_indices_territoriais(
+    bairros_geojson: dict[str, Any],
+) -> tuple[list[str], dict[str, str], dict[str, str], dict[str, str]]:
+    """Extrai nomes canônicos de bairros, sublocalidades normalizadas e mapas de Prefeitura-Bairro."""
+    subloc_dict = _carregar_json_referencia("sublocalidades.json") or {}
+    sublocalidades_norm = {normalizar_nome(k): v for k, v in subloc_dict.items()}
+
+    bairros_nomes: list[str] = []
+    bairro_para_pb: dict[str, str] = {}
+    bairro_para_pb_norm: dict[str, str] = {}
+    for feat in bairros_geojson.get("features", []):
+        props = feat.get("properties", {})
+        nome = (props.get("NM_BAIRRO") or props.get("nome") or props.get("NOME_BAIRR") or "").strip()
+        pb = (props.get("PREFEITURA_BAIRRO") or props.get("prefeitura_bairro") or "").strip()
+        if nome:
+            bairros_nomes.append(nome)
+            if pb:
+                bairro_para_pb[nome] = pb
+                bairro_para_pb_norm[normalizar_nome(nome)] = pb
+
+    return bairros_nomes, sublocalidades_norm, bairro_para_pb, bairro_para_pb_norm
+
+
+def resolver_frentes_medicao(
+    obra: dict[str, Any],
+    bairros_geojson: dict[str, Any],
+    liquidacoes: Optional[list[dict[str, Any]]] = None,
+    pagamentos: Optional[list[dict[str, Any]]] = None,
+    curadoria: Optional[dict[str, dict[str, Any]]] = None,
+) -> list[dict[str, Any]]:
+    """Resolve as Frentes de Medição comprovadas de um contrato guarda-chuva a partir da curadoria."""
+    cd_ug = obra.get("cdUnidadeGestora") or obra.get("unidadeGestora") or ""
+    nu_contrato = obra.get("nuContratoSigef") or obra.get("numeroContrato") or ""
+    chave = f"{str(cd_ug).strip()}:{str(nu_contrato).strip()}"
+
+    catalogo = curadoria if curadoria is not None else _carregar_curadoria_territorial()
+    entrada = catalogo.get(chave)
+    if not isinstance(entrada, dict):
+        return []
+
+    frentes_curadas = entrada.get("frentesMedicao")
+    if not isinstance(frentes_curadas, dict) or not frentes_curadas:
+        return []
+
+    bairros_nomes, sublocalidades_norm, bairro_para_pb, bairro_para_pb_norm = _extrair_indices_territoriais(
+        bairros_geojson
+    )
+
+    pagamentos_por_nl: dict[str, float] = {}
+    for pag in pagamentos or []:
+        if not isinstance(pag, dict):
+            continue
+        nl_pag = str(pag.get("notaLiquidacao") or "").strip()
+        if not nl_pag:
+            continue
+        pagamentos_por_nl[nl_pag] = pagamentos_por_nl.get(nl_pag, 0.0) + parse_float(pag.get("pago") or 0.0)
+
+    frentes_resolvidas: list[dict[str, Any]] = []
+    for liq in liquidacoes or []:
+        if not isinstance(liq, dict):
+            continue
+        nl = str(liq.get("notaLiquidacao") or "").strip()
+        if not nl:
+            continue
+        frente_cfg = frentes_curadas.get(nl)
+        if not isinstance(frente_cfg, dict):
+            continue
+        if str(frente_cfg.get("status") or "").strip().lower() != "promovido":
+            continue
+
+        nivel = str(frente_cfg.get("nivel") or "").strip()
+        bairro_canonico: Optional[str] = None
+        pb_final: Optional[str] = None
+
+        if nivel == "Bairro":
+            bairro_raw = str(frente_cfg.get("bairro") or "").strip()
+            bairro_canonico = reconciliar_bairro_canonico(bairro_raw, bairros_nomes, sublocalidades_norm) or bairro_raw
+            if not bairro_canonico:
+                continue
+            pb_raw = (
+                frente_cfg.get("prefeituraBairro")
+                or bairro_para_pb.get(bairro_canonico)
+                or bairro_para_pb_norm.get(normalizar_nome(bairro_canonico))
+            )
+            pb_final = normalizar_nome_prefeitura_bairro(str(pb_raw)) if pb_raw else None
+        elif nivel == "Regional (Prefeitura-Bairro)":
+            pb_raw = str(frente_cfg.get("prefeituraBairro") or "").strip()
+            pb_final = normalizar_nome_prefeitura_bairro(pb_raw) if pb_raw else None
+            if not pb_final:
+                continue
+        else:
+            continue
+
+        val_liq = parse_float(liq.get("valLiqLiquidacao") or 0.0)
+        val_pago = parse_float(liq.get("pago") or 0.0)
+        if val_pago == 0.0 and nl in pagamentos_por_nl:
+            val_pago = pagamentos_por_nl.pop(nl, 0.0)
+
+        if val_liq <= 0.0 and val_pago <= 0.0:
+            continue
+
+        frentes_resolvidas.append({
+            "notaLiquidacao": nl,
+            "nivel": nivel,
+            "bairro": bairro_canonico,
+            "prefeituraBairro": pb_final,
+            "valorLiquidado": round(val_liq, 2),
+            "valorPago": round(val_pago, 2),
+            "dataLiquidacao": liq.get("dataLiquidacao"),
+            "trechoComprobatorio": frente_cfg.get("trechoComprobatorio"),
+            "documentoOrigem": frente_cfg.get("documentoOrigem"),
+            "justificativa": frente_cfg.get("justificativa"),
+        })
+
+    return frentes_resolvidas
 
 
 def classificar_alocacao_territorial(

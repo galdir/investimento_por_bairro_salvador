@@ -91,5 +91,29 @@
   "latitude": -12.961189,
   "longitude": -38.482912,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2018CT007000"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Pau Miúdo",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em Pau Miúdo via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

@@ -1299,5 +1299,62 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
-  "cdUnidadeGestora": "616002"
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT007171"
+    },
+    "nuProcesso": "249177/2023",
+    "domContrato": {
+      "nuDom": "8820",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "9076",
+        "dtPublicacao": "01/08/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2024NL015121",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "bairro": null,
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 399486.9,
+      "valorPago": 378578.0,
+      "dataLiquidacao": "21/10/2024",
+      "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE MANUTENÇÃO DE QUADRAS E CAMPOS, LOTE 02 PREF. BAIRRO: II - SUBURBIO/",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL015121)",
+      "justificativa": "Nota de liquidação especifica execução exclusiva na Prefeitura-Bairro II (Subúrbio/Ilhas)."
+    },
+    {
+      "notaLiquidacao": "2024NL015124",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "bairro": null,
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 79177.51,
+      "valorPago": 79177.51,
+      "dataLiquidacao": "21/10/2024",
+      "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE MANUTENÇÃO DE QUADRAS E CAMPOS, LOTE 02 PREF. BAIRRO: II - SUBURBIO/",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL015124)",
+      "justificativa": "Nota de liquidação especifica execução exclusiva na Prefeitura-Bairro II (Subúrbio/Ilhas)."
+    }
+  ]
 }

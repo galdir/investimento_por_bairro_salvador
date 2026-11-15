@@ -62,5 +62,29 @@
   "latitude": -12.985735,
   "longitude": -38.481645,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "603002",
+      "unidadeGestora": "SEDUR",
+      "nuContratoSigef": "2023CT003980"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Brotas",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Brotas via Cache"
+    }
+  },
   "cdUnidadeGestora": "603002"
 }

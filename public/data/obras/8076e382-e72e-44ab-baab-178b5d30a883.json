@@ -139,5 +139,29 @@
   "latitude": -12.948165,
   "longitude": -38.441257,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT005734"
+    },
+    "nuProcesso": "0398222026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Arenoso",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Arenoso via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

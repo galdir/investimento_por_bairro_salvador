@@ -68,5 +68,29 @@
   "latitude": -13.00631,
   "longitude": -38.509647,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2018CT000094"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Ondina",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Ondina via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

@@ -92,5 +92,29 @@
   "latitude": -12.89745,
   "longitude": -38.357306,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2020CT000869"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Jardim das Margaridas",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Jardim das Margaridas via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

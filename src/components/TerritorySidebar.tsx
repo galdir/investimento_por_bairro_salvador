@@ -1,6 +1,7 @@
 import React from "react";
-import { MetricType, TerritorySelection } from "../types";
+import { MetricType, ObraCompacta, TerritorySelection } from "../types";
 import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
+import { filterFrentesByTerritory } from "../utils/territory";
 
 interface TerritorySidebarProps {
   /**
@@ -23,6 +24,14 @@ interface TerritorySidebarProps {
    * Callback para abrir o modal de nota metodológica do Índice de Vulnerabilidade.
    */
   onOpenNotaMetodologica?: () => void;
+  /**
+   * Lista de obras filtradas para listar Frentes de Medição vinculadas ao território.
+   */
+  obras?: ObraCompacta[];
+  /**
+   * Callback para abrir a Ficha Limpa da Obra ao clicar em uma Frente de Medição.
+   */
+  onSelectObra?: (obra: ObraCompacta) => void;
 }
 
 /**
@@ -45,6 +54,8 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   onViewWorksInTable,
   metricType = "vigente",
   onOpenNotaMetodologica,
+  obras = [],
+  onSelectObra,
 }) => {
   if (!territorio) {
     return (
@@ -89,6 +100,15 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   const obrasVerde = territorio.obrasVerde ?? 0;
   const obrasAmarelo = territorio.obrasAmarelo ?? 0;
   const obrasVermelho = territorio.obrasVermelho ?? 0;
+
+  const frentesNoTerritorio = filterFrentesByTerritory(obras, territorio);
+
+  const totalFrentes = territorio.totalFrentesMedicao ?? frentesNoTerritorio.length;
+  const valorPagoDireto = territorio.valorPagoDireto ?? territorio.valorPago ?? 0;
+  const valorPagoFrentes = territorio.valorPagoFrentes ?? 0;
+  const valorLiquidadoFrentes = territorio.valorLiquidadoFrentes ?? 0;
+  const temFrentes =
+    totalFrentes > 0 || valorPagoFrentes > 0 || valorLiquidadoFrentes > 0 || frentesNoTerritorio.length > 0;
 
   return (
     <aside
@@ -177,6 +197,80 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           </span>
         </div>
       </div>
+
+      {/* Distinção entre Contratos Diretos e Frentes de Medição (Guarda-Chuva) */}
+      {temFrentes && (
+        <div
+          data-testid="secao-frentes-medicao"
+          className="mt-4 bg-indigo-50/60 border border-indigo-200 rounded-xl p-3.5 space-y-2.5"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold text-indigo-950">
+              Origem da Execução Territorial
+            </span>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800">
+              {totalFrentes} {totalFrentes === 1 ? "frente" : "frentes"}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="bg-white/90 border border-slate-200 rounded-lg p-2">
+              <span className="text-[10px] font-medium text-slate-500 block">Contratos diretos</span>
+              <span className="font-bold text-slate-900">{formatCurrency(valorPagoDireto)}</span>
+              <span className="text-[10px] text-slate-400 block">pago ({totalObras} obras)</span>
+            </div>
+            <div className="bg-white/90 border border-indigo-200 rounded-lg p-2">
+              <span className="text-[10px] font-medium text-indigo-700 block">Frentes de Medição</span>
+              <span className="font-bold text-indigo-900">{formatCurrency(valorPagoFrentes)}</span>
+              <span className="text-[10px] text-indigo-600 block">
+                liquidado: {formatCurrency(valorLiquidadoFrentes)}
+              </span>
+            </div>
+          </div>
+
+          <p className="text-[10px] text-indigo-800 leading-relaxed">
+            Frentes de Medição somam apenas valores liquidados e pagos comprovados em notas de liquidação, sem inflar o Valor Contratual Vigente nem duplicar contratos.
+          </p>
+
+          {frentesNoTerritorio.length > 0 && (
+            <div className="space-y-1.5 max-h-48 overflow-y-auto pr-0.5">
+              {frentesNoTerritorio.map(({ obra, frente }) => (
+                <div
+                  key={`${obra.id}-${frente.notaLiquidacao}`}
+                  className="bg-white border border-indigo-100 rounded-lg p-2 text-[11px]"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-semibold text-slate-800">
+                      {obra.unidadeGestora} · {obra.numeroContrato}
+                    </span>
+                    <span className="font-mono text-[10px] text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded">
+                      {frente.notaLiquidacao}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-[10px] text-slate-600 mt-1">
+                    <span>Liquidado: {formatCurrency(frente.valorLiquidado)}</span>
+                    <span>Pago: {formatCurrency(frente.valorPago)}</span>
+                  </div>
+                  {frente.trechoComprobatorio && (
+                    <p className="text-[10px] text-slate-500 mt-1 line-clamp-2">
+                      {frente.trechoComprobatorio}
+                    </p>
+                  )}
+                  {onSelectObra && (
+                    <button
+                      type="button"
+                      onClick={() => onSelectObra(obra)}
+                      className="mt-1.5 text-[10px] font-semibold text-indigo-700 hover:text-indigo-900 underline"
+                    >
+                      Ver Ficha Limpa da Obra
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Breakdown de Obras por Semáforo */}
       <div className="mt-4 bg-slate-50 p-3.5 rounded-xl border border-slate-100">

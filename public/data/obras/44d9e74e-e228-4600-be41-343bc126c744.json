@@ -1688,5 +1688,60 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "610002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT005218"
+    },
+    "nuProcesso": "181625/2023",
+    "domContrato": {
+      "nuDom": "8772",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8864",
+        "dtPublicacao": "05/09/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9163",
+        "dtPublicacao": "01/12/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9183",
+        "dtPublicacao": "01/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9309",
+        "dtPublicacao": "17/07/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "9372",
+        "dtPublicacao": "16/10/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Cajazeiras via Cache"
+    }
+  },
   "cdUnidadeGestora": "610002"
 }

@@ -62,5 +62,29 @@
   "latitude": -12.981124,
   "longitude": -38.447243,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT003066"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "STIEP",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em STIEP via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

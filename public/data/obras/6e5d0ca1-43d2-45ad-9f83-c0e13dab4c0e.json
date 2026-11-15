@@ -66,5 +66,29 @@
   "latitude": -12.845118,
   "longitude": -38.375262,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2020CT005172"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Nova Esperança",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Nova Esperança via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

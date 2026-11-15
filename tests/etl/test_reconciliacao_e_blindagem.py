@@ -858,4 +858,92 @@ def test_reconciliar_acervo_local_ignora_kpis_antigos_inflados_e_trata_json_corr
     assert not (obras_dir / "corrompido.json").exists()
 
 
+def test_reconciliar_acervo_local_desdobra_frentes_medicao_sem_inflar_valor_total(tmp_path: Path) -> None:
+    """Seam 1 (E2E): reconciliar_acervo_local desdobra Frentes de Medição curadas preservando valorTotal e saldo opaco."""
+    from etl.reconcile import reconciliar_acervo_local
+
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+    (tmp_path / "index_2025.json").write_text(
+        json.dumps(
+            {
+                "metadata": {"anoReferencia": 2025},
+                "bairros": [
+                    {
+                        "id": 1,
+                        "nome": "Plataforma",
+                        "prefeitura_bairro": "Subúrbio/Ilhas",
+                        "populacao": 20000,
+                        "indice_vulnerabilidade": 0.6,
+                    }
+                ],
+                "prefeituras_bairro": [
+                    {"id": 1, "nome": "Subúrbio/Ilhas", "populacao_total": 20000}
+                ],
+                "obras": [
+                    {
+                        "id": "gc-semob",
+                        "cdUnidadeGestora": "530002",
+                        "unidadeGestora": "SEMOB",
+                        "numeroContrato": "2024CT006332",
+                        "objeto": "Manutenção predial de equipamentos de mobilidade",
+                        "valorContratualVigente": 2000000.0,
+                        "valorPago": 172343.21,
+                        "nivel": "Escopo Cidade (Não-Localizado)",
+                        "bairro": None,
+                        "prefeitura_bairro": None,
+                    }
+                ],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    (obras_dir / "gc-semob.json").write_text(
+        json.dumps(
+            {
+                "id": "gc-semob",
+                "cdUnidadeGestora": "530002",
+                "unidadeGestora": "SEMOB",
+                "numeroContrato": "2024CT006332",
+                "empreiteira": {"razaoSocial": "EMP MOB LTDA", "cnpj": "11.222.333/0001-44"},
+                "liquidacoes": [
+                    {
+                        "notaLiquidacao": "2025NL004858",
+                        "valLiqLiquidacao": "42.243,32",
+                        "pago": "0,00",
+                        "descObsLiquidacao": "Manutenção Terminal Maritimo Plataforma",
+                    },
+                    {
+                        "notaLiquidacao": "2025NL002039",
+                        "valLiqLiquidacao": "139.209,74",
+                        "pago": "0,00",
+                        "descObsLiquidacao": "Manutenção predial dos Ascensores",
+                    },
+                ],
+                "pagamentos": [
+                    {"notaLiquidacao": "2025NL004858", "pago": "40.000,00"},
+                    {"notaLiquidacao": "2025NL002039", "pago": "132.343,21"},
+                ],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    res = reconciliar_acervo_local(output_dir=tmp_path, year=2025)
+    idx_atualizado = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    plataforma = idx_atualizado["bairros"][0]
+
+    assert plataforma["valorTotal"] == 0.0
+    assert plataforma["totalObras"] == 0
+    assert plataforma["valorLiquidadoFrentes"] == 42243.32
+    assert plataforma["valorPagoFrentes"] == 40000.0
+    assert plataforma["totalFrentesMedicao"] == 1
+    assert plataforma["investimentoPorHabitantePago"] == 2.0
+    assert res["kpis_globais"]["valorNaoLocalizado"] == 2000000.0
+    assert res["kpis_globais"]["valorPagoNaoLocalizado"] == 132343.21
+
+
+
 

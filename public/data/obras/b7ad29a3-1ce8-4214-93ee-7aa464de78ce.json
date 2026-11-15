@@ -1207,5 +1207,48 @@
   "latitude": -12.954379,
   "longitude": -38.480505,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT006441"
+    },
+    "nuProcesso": "096384/2024",
+    "domContrato": {
+      "nuDom": "8902",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "9258",
+        "dtPublicacao": "27/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9302",
+        "dtPublicacao": "06/08/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9361",
+        "dtPublicacao": "01/10/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "IAPI",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em IAPI via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

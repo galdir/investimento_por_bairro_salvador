@@ -822,3 +822,7 @@ def sincronizar_obra_com_ficha(obra: dict[str, Any], ficha: dict[str, Any]) -> N
     obra["vlPagoReal"] = round(vl_pago_real, 2)
     obra["valorPago"] = valor_pago_indice
     obra["vlPago"] = valor_pago_indice
+    if ficha.get("frentesMedicao"):
+        obra["frentesMedicao"] = ficha["frentesMedicao"]
+    elif "frentesMedicao" in obra:
+        obra["frentesMedicao"] = []

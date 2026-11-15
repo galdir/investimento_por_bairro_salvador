@@ -1423,5 +1423,29 @@
   "latitude": -12.927206,
   "longitude": -38.507667,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT006773"
+    },
+    "nuProcesso": "204303/2022",
+    "domContrato": {
+      "nuDom": "8612",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Bonfim",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Bonfim via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

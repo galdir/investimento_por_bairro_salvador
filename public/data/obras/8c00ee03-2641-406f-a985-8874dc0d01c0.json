@@ -67,5 +67,29 @@
   "latitude": -12.976919,
   "longitude": -38.50577,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT006276"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Nazaré",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Nazaré via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

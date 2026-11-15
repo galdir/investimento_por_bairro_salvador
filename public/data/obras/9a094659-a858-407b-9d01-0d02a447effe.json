@@ -1656,5 +1656,92 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
-  "cdUnidadeGestora": "530002"
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "530002",
+      "unidadeGestora": "SEMOB",
+      "nuContratoSigef": "2024CT006332"
+    },
+    "nuProcesso": "116640/2023",
+    "domContrato": {
+      "nuDom": "8803",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "9050",
+        "dtPublicacao": "13/06/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9287",
+        "dtPublicacao": "12/06/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "530002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2025NL004858",
+      "nivel": "Bairro",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 42243.32,
+      "valorPago": 0.0,
+      "dataLiquidacao": "16/06/2025",
+      "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004858)",
+      "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+    },
+    {
+      "notaLiquidacao": "2025NL004865",
+      "nivel": "Bairro",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 44331.75,
+      "valorPago": 42338.25,
+      "dataLiquidacao": "16/06/2025",
+      "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004865)",
+      "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+    },
+    {
+      "notaLiquidacao": "2025NL005707",
+      "nivel": "Bairro",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 16462.31,
+      "valorPago": 15722.03,
+      "dataLiquidacao": "22/07/2025",
+      "trechoComprobatorio": "139160/2025; Manutenção Terminal Maritimo Plataforma, período 01 a 15/06/2025",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL005707)",
+      "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+    },
+    {
+      "notaLiquidacao": "2025NL006602",
+      "nivel": "Bairro",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 26255.68,
+      "valorPago": 0.0,
+      "dataLiquidacao": "22/08/2025",
+      "trechoComprobatorio": "163836/2025; Manutenção Terminal Maritimo Plataforma; 07/2025; 008/2024; nf 1584",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL006602)",
+      "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+    }
+  ]
 }

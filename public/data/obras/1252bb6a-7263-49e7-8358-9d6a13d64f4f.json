@@ -1576,5 +1576,29 @@
   "latitude": -12.945966,
   "longitude": -38.486766,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT005788"
+    },
+    "nuProcesso": "117976/2025",
+    "domContrato": {
+      "nuDom": "9117",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Curuzu",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em Curuzu via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

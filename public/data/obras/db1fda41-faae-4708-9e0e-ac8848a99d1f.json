@@ -1658,5 +1658,66 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2023CT004804"
+    },
+    "nuProcesso": "058002/2022",
+    "domContrato": {
+      "nuDom": "8564",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8802",
+        "dtPublicacao": "11/06/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8818",
+        "dtPublicacao": "05/07/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9018",
+        "dtPublicacao": "28/04/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9942",
+        "dtPublicacao": "03/06/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "9092",
+        "dtPublicacao": "19/08/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "6",
+        "nuDom": "9170",
+        "dtPublicacao": "10/12/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em Liberdade/São Caetano via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

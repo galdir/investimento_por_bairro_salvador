@@ -1213,5 +1213,54 @@
   "latitude": -12.986317,
   "longitude": -38.513577,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT007488"
+    },
+    "nuProcesso": "125188/2023",
+    "domContrato": {
+      "nuDom": "8631",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8751",
+        "dtPublicacao": "04/04/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8783",
+        "dtPublicacao": "06/06/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "8850",
+        "dtPublicacao": "09/10/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "8911",
+        "dtPublicacao": "22/11/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Barris",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Barris via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

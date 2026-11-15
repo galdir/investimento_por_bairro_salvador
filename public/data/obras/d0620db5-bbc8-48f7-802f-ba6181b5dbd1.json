@@ -67,5 +67,29 @@
   "latitude": -12.965297,
   "longitude": -38.485784,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT003844"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Cidade Nova",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em Cidade Nova via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

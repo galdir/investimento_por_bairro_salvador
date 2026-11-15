@@ -1835,5 +1835,48 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2024CT000050"
+    },
+    "nuProcesso": "193500/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8957",
+        "dtPublicacao": "23/01/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9012",
+        "dtPublicacao": "15/04/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9257",
+        "dtPublicacao": "01/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Subúrbio/Ilhas via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

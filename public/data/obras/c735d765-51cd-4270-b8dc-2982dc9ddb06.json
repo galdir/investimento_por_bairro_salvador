@@ -1827,5 +1827,92 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
-  "cdUnidadeGestora": "616002"
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT000499"
+    },
+    "nuProcesso": "113780/2022",
+    "domContrato": {
+      "nuDom": "8404",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8737",
+        "dtPublicacao": "12/03/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8949",
+        "dtPublicacao": "03/02/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9151",
+        "dtPublicacao": "04/03/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9244",
+        "dtPublicacao": "28/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2023NL009961",
+      "nivel": "Bairro",
+      "bairro": "Jardim das Margaridas",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 2018782.14,
+      "valorPago": 0.0,
+      "dataLiquidacao": "10/08/2023",
+      "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009961)",
+      "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+    },
+    {
+      "notaLiquidacao": "2023NL009962",
+      "nivel": "Bairro",
+      "bairro": "Jardim das Margaridas",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 282200.0,
+      "valorPago": 0.0,
+      "dataLiquidacao": "10/08/2023",
+      "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009962)",
+      "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+    },
+    {
+      "notaLiquidacao": "2023NL009963",
+      "nivel": "Bairro",
+      "bairro": "Jardim das Margaridas",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 144991.69,
+      "valorPago": 0.0,
+      "dataLiquidacao": "10/08/2023",
+      "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009963)",
+      "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+    }
+  ]
 }

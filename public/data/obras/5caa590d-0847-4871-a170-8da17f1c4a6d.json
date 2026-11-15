@@ -1077,5 +1077,48 @@
   "latitude": -12.865263,
   "longitude": -38.468467,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "450002",
+      "unidadeGestora": "SEMOP",
+      "nuContratoSigef": "2024CT005507"
+    },
+    "nuProcesso": "053009/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8926",
+        "dtPublicacao": "05/12/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9019",
+        "dtPublicacao": "05/05/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9095",
+        "dtPublicacao": "22/08/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Periperi",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Periperi via Cache"
+    }
+  },
   "cdUnidadeGestora": "450002"
 }

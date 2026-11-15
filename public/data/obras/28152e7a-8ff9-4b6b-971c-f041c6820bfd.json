@@ -1173,5 +1173,29 @@
   "latitude": -12.991747,
   "longitude": -38.513277,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT005355"
+    },
+    "nuProcesso": "257855/2024",
+    "domContrato": {
+      "nuDom": "8982",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Garcia",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Garcia via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

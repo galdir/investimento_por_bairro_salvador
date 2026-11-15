@@ -65,5 +65,29 @@
   "latitude": -12.925931,
   "longitude": -38.437574,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2019CT007924"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "São Marcos",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em São Marcos via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

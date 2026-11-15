@@ -72,5 +72,29 @@
   "latitude": -12.910504,
   "longitude": -38.363597,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT001794"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "São Cristóvão",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em São Cristóvão via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

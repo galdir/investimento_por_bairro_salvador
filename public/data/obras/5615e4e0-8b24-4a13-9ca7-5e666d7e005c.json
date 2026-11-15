@@ -142,5 +142,29 @@
   "latitude": -12.909807,
   "longitude": -38.405371,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2026CT004875"
+    },
+    "nuProcesso": "0019312026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Jaguaripe I",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Jaguaripe I via Cache"
+    }
+  },
   "cdUnidadeGestora": "301110"
 }

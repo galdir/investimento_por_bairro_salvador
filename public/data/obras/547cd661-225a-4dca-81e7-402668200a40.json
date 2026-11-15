@@ -72,5 +72,29 @@
   "latitude": -12.939631,
   "longitude": -38.358185,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2021CT005391"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Itapuã",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Itapuã via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

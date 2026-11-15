@@ -67,5 +67,29 @@
   "latitude": -13.009939,
   "longitude": -38.489939,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT000426"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Rio Vermelho",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Rio Vermelho via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

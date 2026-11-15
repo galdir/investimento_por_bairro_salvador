@@ -62,5 +62,29 @@
   "latitude": -12.950756,
   "longitude": -38.466593,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2021CT001337"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "São Gonçalo",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em São Gonçalo via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

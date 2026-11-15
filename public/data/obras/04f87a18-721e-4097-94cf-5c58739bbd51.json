@@ -856,5 +856,29 @@
   "latitude": -12.921229,
   "longitude": -38.459927,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT006599"
+    },
+    "nuProcesso": "167183/2025",
+    "domContrato": {
+      "nuDom": "9149",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Granjas Rurais Presidente Vargas",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Granjas Rurais Presidente Vargas via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

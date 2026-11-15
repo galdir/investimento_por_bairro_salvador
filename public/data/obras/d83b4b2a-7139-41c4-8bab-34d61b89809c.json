@@ -75,5 +75,29 @@
   "latitude": -12.970029,
   "longitude": -38.436722,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT002950"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Imbuí",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Imbuí via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

@@ -182,11 +182,13 @@ def calcular_kpis_globais(
     # Indicador de Transparência Opaca (Escopo Cidade)
     total_nao_localizado = 0
     valor_nao_localizado = 0.0
+    valor_pago_nao_localizado = 0.0
     percentual_nao_localizado = 0.0
 
     if indicador_opacidade:
         total_nao_localizado = int(indicador_opacidade.get("totalNaoLocalizado", 0))
         valor_nao_localizado = float(indicador_opacidade.get("valorNaoLocalizado", 0.0))
+        valor_pago_nao_localizado = float(indicador_opacidade.get("valorPagoNaoLocalizado", 0.0))
         if valor_total > 0:
             percentual_nao_localizado = round((valor_nao_localizado / valor_total) * 100.0, 1)
         else:
@@ -206,5 +208,6 @@ def calcular_kpis_globais(
         "investimentoPorHabitanteCidade": investimento_por_hab,
         "totalNaoLocalizado": total_nao_localizado,
         "valorNaoLocalizado": valor_nao_localizado,
+        "valorPagoNaoLocalizado": round(valor_pago_nao_localizado, 2),
         "percentualNaoLocalizado": percentual_nao_localizado,
     }

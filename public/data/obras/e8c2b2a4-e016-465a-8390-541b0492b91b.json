@@ -559,5 +559,29 @@
   "latitude": -12.934195,
   "longitude": -38.495021,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT003781"
+    },
+    "nuProcesso": "0072992026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Uruguai",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Uruguai via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

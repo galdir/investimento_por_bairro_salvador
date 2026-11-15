@@ -1818,5 +1818,146 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
-  "cdUnidadeGestora": "616002"
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT008627"
+    },
+    "nuProcesso": "161760/2023",
+    "domContrato": {
+      "nuDom": "8656",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8770",
+        "dtPublicacao": "02/05/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8905",
+        "dtPublicacao": "11/11/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9151",
+        "dtPublicacao": "13/11/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2023NL016696",
+      "nivel": "Bairro",
+      "bairro": "Pau da Lima",
+      "prefeituraBairro": "Pau da Lima",
+      "valorLiquidado": 432807.33,
+      "valorPago": 418402.93,
+      "dataLiquidacao": "05/12/2023",
+      "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE CONTENÇÃO DE ENCOSTA NA LIGAÇÃO GAL COSTA X PAU DA LIMA",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL016696)",
+      "justificativa": "Nota comprova contenção de encosta na ligação Gal Costa x Pau da Lima."
+    },
+    {
+      "notaLiquidacao": "2023NL018305",
+      "nivel": "Bairro",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 1773501.5,
+      "valorPago": 0.0,
+      "dataLiquidacao": "21/12/2023",
+      "trechoComprobatorio": "SERVS. DE CONTENÇÃO DE ENCOSTA NA RUA DIRETA EDÉN DO VALE- MATA ESCURA",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL018305)",
+      "justificativa": "Nota comprova contenção de encosta na Rua Direta Éden do Vale, Bairro Oficial Mata Escura."
+    },
+    {
+      "notaLiquidacao": "2024NL001678",
+      "nivel": "Bairro",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 1190478.75,
+      "valorPago": 0.0,
+      "dataLiquidacao": "15/02/2024",
+      "trechoComprobatorio": "EXEC. DE SERVS. DE CONTENÇÃO, ENCOSTA NA RUA DIRETA DO EDEN-MATA ESCURA",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001678)",
+      "justificativa": "Nota comprova contenção de encosta na Rua Direta do Éden, Bairro Oficial Mata Escura."
+    },
+    {
+      "notaLiquidacao": "2024NL001679",
+      "nivel": "Bairro",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 19862.37,
+      "valorPago": 0.0,
+      "dataLiquidacao": "15/02/2024",
+      "trechoComprobatorio": "EXEC. DE SERVS. DE CONTENÇÃO, ENCOSTA NA RUA DIRETA DO EDEN-MATA ESCURA",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001679)",
+      "justificativa": "Nota comprova contenção de encosta na Rua Direta do Éden, Bairro Oficial Mata Escura."
+    },
+    {
+      "notaLiquidacao": "2024NL001844",
+      "nivel": "Bairro",
+      "bairro": "Valéria",
+      "prefeituraBairro": "Valéria",
+      "valorLiquidado": 346347.49,
+      "valorPago": 0.0,
+      "dataLiquidacao": "19/02/2024",
+      "trechoComprobatorio": "SERVS. DE CONTENÇÃO DE ENCOSTA NA RUA P - JARDIM TERRA NOVA VALERIA",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001844)",
+      "justificativa": "Nota comprova contenção de encosta em Jardim Terra Nova, Bairro Oficial Valéria."
+    },
+    {
+      "notaLiquidacao": "2024NL003111",
+      "nivel": "Bairro",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 2740709.24,
+      "valorPago": 0.0,
+      "dataLiquidacao": "08/03/2024",
+      "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003111)",
+      "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
+    },
+    {
+      "notaLiquidacao": "2024NL003112",
+      "nivel": "Bairro",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 85365.01,
+      "valorPago": 0.0,
+      "dataLiquidacao": "08/03/2024",
+      "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003112)",
+      "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
+    },
+    {
+      "notaLiquidacao": "2024NL004470",
+      "nivel": "Bairro",
+      "bairro": "Alto do Cabrito",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "valorLiquidado": 1593457.44,
+      "valorPago": 0.0,
+      "dataLiquidacao": "04/04/2024",
+      "trechoComprobatorio": "SERVIÇOS DE MACRODRENAGEM, M006- SERV. DE DRENAG. NA RUA 9 DE DEZEMBRO - ALTO DO CABRITO",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL004470)",
+      "justificativa": "Nota comprova macrodrenagem na Rua 9 de Dezembro, Bairro Oficial Alto do Cabrito."
+    }
+  ]
 }

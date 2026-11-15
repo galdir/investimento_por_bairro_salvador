@@ -1847,5 +1847,66 @@
   "latitude": -13.009939,
   "longitude": -38.489939,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT007487"
+    },
+    "nuProcesso": "125187/2023",
+    "domContrato": {
+      "nuDom": "8631",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8666",
+        "dtPublicacao": "30/11/2023",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8748",
+        "dtPublicacao": "07/06/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "8793",
+        "dtPublicacao": "07/06/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "8829",
+        "dtPublicacao": "29/07/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "8889",
+        "dtPublicacao": "14/10/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "6",
+        "nuDom": "8947",
+        "dtPublicacao": "29/01/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Rio Vermelho",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Rio Vermelho via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

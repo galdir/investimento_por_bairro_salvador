@@ -1808,5 +1808,72 @@
   "latitude": -12.835351,
   "longitude": -38.468212,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT009075"
+    },
+    "nuProcesso": "159349/2023",
+    "domContrato": {
+      "nuDom": "8671",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8821",
+        "dtPublicacao": "12/08/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8985",
+        "dtPublicacao": "18/03/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9096",
+        "dtPublicacao": "27/08/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9153",
+        "dtPublicacao": "18/11/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "9221",
+        "dtPublicacao": "16/03/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "6",
+        "nuDom": "9273",
+        "dtPublicacao": "27/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "7",
+        "nuDom": "9279",
+        "dtPublicacao": "11/06/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Paripe",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Paripe via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

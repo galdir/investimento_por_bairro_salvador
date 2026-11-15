@@ -113,5 +113,29 @@
   "latitude": -12.835351,
   "longitude": -38.468212,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT002882"
+    },
+    "nuProcesso": "083585/2024",
+    "domContrato": {
+      "nuDom": "8892",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Paripe",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Paripe via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

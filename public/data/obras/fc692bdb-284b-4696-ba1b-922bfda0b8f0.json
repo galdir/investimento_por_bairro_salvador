@@ -91,5 +91,29 @@
   "latitude": -13.003446,
   "longitude": -38.475285,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT007070"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Santa Cruz",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Santa Cruz via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

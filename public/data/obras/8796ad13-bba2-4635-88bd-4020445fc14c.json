@@ -369,5 +369,29 @@
   "latitude": -12.927566,
   "longitude": -38.513752,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "603002",
+      "unidadeGestora": "SEDUR",
+      "nuContratoSigef": "2024CT007997"
+    },
+    "nuProcesso": "168757/2024",
+    "domContrato": {
+      "nuDom": "8860",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Monte Serrat",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Monte Serrat via Cache"
+    }
+  },
   "cdUnidadeGestora": "603002"
 }

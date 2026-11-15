@@ -1445,5 +1445,48 @@
   "latitude": -12.865315,
   "longitude": -38.433886,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT002731"
+    },
+    "nuProcesso": "223212/2023",
+    "domContrato": {
+      "nuDom": "8723",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8885",
+        "dtPublicacao": "09/10/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8913",
+        "dtPublicacao": "22/11/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "8956",
+        "dtPublicacao": "29/01/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Valéria",
+      "prefeituraBairro": "Valéria",
+      "origem": "Alocação em Valéria via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

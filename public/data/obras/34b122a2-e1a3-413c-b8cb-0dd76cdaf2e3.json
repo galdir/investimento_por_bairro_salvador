@@ -62,5 +62,29 @@
   "latitude": -12.981107,
   "longitude": -38.51728,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2020CT006465"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Dois de Julho",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Dois de Julho via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

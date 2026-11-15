@@ -66,5 +66,29 @@
   "latitude": -12.929128,
   "longitude": -38.329038,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "540002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2023CT002859"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Stella Maris",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Stella Maris via Cache"
+    }
+  },
   "cdUnidadeGestora": "540002"
 }

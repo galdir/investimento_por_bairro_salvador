@@ -1626,5 +1626,36 @@
   "latitude": -12.881,
   "longitude": -38.469748,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2023CT002850"
+    },
+    "nuProcesso": "108727/2022",
+    "domContrato": {
+      "nuDom": "8515",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8889",
+        "dtPublicacao": "10/10/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Rio Sena",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Rio Sena via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

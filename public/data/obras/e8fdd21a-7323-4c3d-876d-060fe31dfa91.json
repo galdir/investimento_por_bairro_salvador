@@ -1666,5 +1666,72 @@
   "latitude": -12.931379,
   "longitude": -38.468078,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2024CT000714"
+    },
+    "nuProcesso": "134397/2023",
+    "domContrato": {
+      "nuDom": "8712",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8904",
+        "dtPublicacao": "06/11/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9039",
+        "dtPublicacao": "29/05/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9235",
+        "dtPublicacao": "24/03/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9262",
+        "dtPublicacao": "07/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "9279",
+        "dtPublicacao": "30/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "6",
+        "nuDom": "7295",
+        "dtPublicacao": "01/06/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "7",
+        "nuDom": "9369",
+        "dtPublicacao": "13/10/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Calabetão",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Calabetão via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

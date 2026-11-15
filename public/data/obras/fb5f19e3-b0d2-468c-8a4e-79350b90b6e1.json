@@ -1121,5 +1121,42 @@
   "latitude": -12.960845,
   "longitude": -38.459509,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT004780"
+    },
+    "nuProcesso": "202837/2022",
+    "domContrato": {
+      "nuDom": "8545",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8989",
+        "dtPublicacao": "27/03/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9061",
+        "dtPublicacao": "08/07/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Cabula",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Cabula via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

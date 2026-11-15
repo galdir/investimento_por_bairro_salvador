@@ -77,5 +77,29 @@
   "latitude": -12.896157,
   "longitude": -38.482727,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2018CT006393"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Plataforma via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

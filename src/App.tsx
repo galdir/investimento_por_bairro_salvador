@@ -608,6 +608,8 @@ export const App: React.FC = () => {
               onViewWorksInTable={() => setActiveTab("tabela")}
               metricType={filters.metricType}
               onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+              obras={topFilteredObras}
+              onSelectObra={handleSelectObra}
             />
           </div>
         )}
@@ -640,6 +642,8 @@ export const App: React.FC = () => {
               onViewWorksInTable={() => setActiveTab("tabela")}
               metricType={filters.metricType}
               onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+              obras={topFilteredObras}
+              onSelectObra={handleSelectObra}
             />
           </div>
         )}

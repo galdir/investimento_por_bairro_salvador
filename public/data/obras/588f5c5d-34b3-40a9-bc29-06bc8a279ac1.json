@@ -1458,5 +1458,54 @@
   "latitude": -12.881,
   "longitude": -38.469748,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT002994"
+    },
+    "nuProcesso": "123864/2024",
+    "domContrato": {
+      "nuDom": "8860",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "9211",
+        "dtPublicacao": "06/03/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "9226",
+        "dtPublicacao": "15/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9309",
+        "dtPublicacao": "13/08/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9361",
+        "dtPublicacao": "01/10/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Rio Sena",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Rio Sena via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

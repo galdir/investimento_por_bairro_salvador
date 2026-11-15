@@ -1380,5 +1380,74 @@
   "latitude": null,
   "longitude": null,
   "estagioAlocacao": "Cache",
-  "cdUnidadeGestora": "616002"
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT007170"
+    },
+    "nuProcesso": "249177/2023",
+    "domContrato": {
+      "nuDom": "8820",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "9075",
+        "dtPublicacao": "28/07/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2025NL018688",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 409961.21,
+      "valorPago": 384597.13,
+      "dataLiquidacao": "08/10/2025",
+      "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018688)",
+      "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+    },
+    {
+      "notaLiquidacao": "2025NL018689",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 175.77,
+      "valorPago": 175.77,
+      "dataLiquidacao": "08/10/2025",
+      "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018689)",
+      "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+    },
+    {
+      "notaLiquidacao": "2025NL018690",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 108747.31,
+      "valorPago": 108747.31,
+      "dataLiquidacao": "08/10/2025",
+      "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018690)",
+      "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+    }
+  ]
 }

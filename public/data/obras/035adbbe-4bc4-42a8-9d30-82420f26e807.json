@@ -1184,5 +1184,60 @@
   "latitude": -12.965517,
   "longitude": -38.504289,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT008587"
+    },
+    "nuProcesso": "143672/2023",
+    "domContrato": {
+      "nuDom": "8644",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8817",
+        "dtPublicacao": "05/08/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8766",
+        "dtPublicacao": "05/08/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "8855",
+        "dtPublicacao": "03/09/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "8900",
+        "dtPublicacao": "22/11/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "5",
+        "nuDom": "8930",
+        "dtPublicacao": "13/12/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Santo Antônio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Santo Antônio via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

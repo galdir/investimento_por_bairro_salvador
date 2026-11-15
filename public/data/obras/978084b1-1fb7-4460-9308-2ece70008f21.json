@@ -76,5 +76,29 @@
   "latitude": -12.936346,
   "longitude": -38.434116,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2018CT007018"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Nova Sussuarana",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Nova Sussuarana via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }

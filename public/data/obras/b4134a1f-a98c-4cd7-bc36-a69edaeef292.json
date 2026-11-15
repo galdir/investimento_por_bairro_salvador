@@ -72,5 +72,29 @@
   "latitude": -13.008432,
   "longitude": -38.481255,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2020CT002990"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Vale das Pedrinhas",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Vale das Pedrinhas via Cache"
+    }
+  },
   "cdUnidadeGestora": "560002"
 }

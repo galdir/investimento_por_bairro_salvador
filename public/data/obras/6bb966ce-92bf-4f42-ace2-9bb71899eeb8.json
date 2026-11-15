@@ -67,5 +67,29 @@
   "latitude": -12.932679,
   "longitude": -38.511144,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2019CT008760"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Boa Viagem",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Boa Viagem via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

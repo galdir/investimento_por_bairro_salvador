@@ -20,6 +20,7 @@ from etl.domain.geocoding import (
     GeocodingCache,
     calcular_centroides_bairros,
     classificar_alocacao_territorial,
+    resolver_frentes_medicao,
 )
 from etl.domain.mandato import (
     MANDATOS_MUNICIPAIS,
@@ -396,6 +397,16 @@ def run_pipeline(
                 else ficha_nova
             )
 
+        frentes = resolver_frentes_medicao(
+            obra=obra,
+            bairros_geojson=raw_bairros,
+            liquidacoes=ficha_obra.get("liquidacoes"),
+            pagamentos=ficha_obra.get("pagamentos"),
+        )
+        if frentes:
+            ficha_obra["frentesMedicao"] = frentes
+        else:
+            ficha_obra.pop("frentesMedicao", None)
         sincronizar_obra_com_ficha(obra, ficha_obra)
         fichas_para_gravar[str(obra_id)] = ficha_obra
 

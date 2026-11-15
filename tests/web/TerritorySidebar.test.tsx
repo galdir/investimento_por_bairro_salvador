@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { TerritorySidebar } from "../../src/components/TerritorySidebar";
-import { TerritorySelection } from "../../src/types";
+import { ObraCompacta, TerritorySelection } from "../../src/types";
 
 describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Censo 2022", () => {
   const onClearMock = vi.fn();
@@ -129,5 +129,68 @@ describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Ce
 
     fireEvent.click(btnComoCalculado);
     expect(onOpenMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("distingue valores de contratos diretos e Frentes de Medição com acesso à Ficha Limpa da Obra", () => {
+    const onSelectObraMock = vi.fn();
+    const bairroComFrentes: TerritorySelection = {
+      tipo: "bairro",
+      id: 102,
+      nome: "Boca do Rio",
+      prefeitura_bairro: "Itapuã/Ipitanga",
+      populacao: 45000,
+      indice_vulnerabilidade: 0.35,
+      valorTotal: 1000000,
+      valorPago: 700000,
+      valorPagoDireto: 500000,
+      valorPagoFrentes: 200000,
+      valorLiquidadoFrentes: 250000,
+      totalObras: 2,
+      totalFrentesMedicao: 1,
+    };
+    const obraGuardaChuva: ObraCompacta = {
+      id: "obra-gc-1",
+      unidadeGestora: "SEINFRA",
+      numeroContrato: "2024CT007170",
+      objeto: "Manutenção de Quadras e Campos - Lote 01",
+      valorContratualVigente: 66000000,
+      valorPago: 12000000,
+      percentualExecutado: 18,
+      situacao: "Em Execução",
+      credor: "CONSTRUTORA BSM",
+      nivel: "Escopo Cidade (Não-Localizado)",
+      frentesMedicao: [
+        {
+          notaLiquidacao: "2025NL018688",
+          nivel: "Bairro",
+          bairro: "Boca do Rio",
+          prefeituraBairro: "Itapuã/Ipitanga",
+          valorLiquidado: 250000,
+          valorPago: 200000,
+          trechoComprobatorio: "REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO",
+        },
+      ],
+    };
+
+    render(
+      <TerritorySidebar
+        territorio={bairroComFrentes}
+        onClear={onClearMock}
+        metricType="executado"
+        obras={[obraGuardaChuva]}
+        onSelectObra={onSelectObraMock}
+      />
+    );
+
+    const secaoFrentes = screen.getByTestId("secao-frentes-medicao");
+    expect(secaoFrentes).toBeInTheDocument();
+    expect(secaoFrentes).toHaveTextContent("Contratos diretos");
+    expect(secaoFrentes).toHaveTextContent("Frentes de Medição");
+    expect(secaoFrentes).toHaveTextContent("2025NL018688");
+    expect(secaoFrentes).toHaveTextContent("2024CT007170");
+
+    const btnFicha = screen.getByRole("button", { name: /Ver Ficha Limpa/i });
+    fireEvent.click(btnFicha);
+    expect(onSelectObraMock).toHaveBeenCalledWith(obraGuardaChuva);
   });
 });

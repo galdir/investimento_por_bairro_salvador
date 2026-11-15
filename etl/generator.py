@@ -79,7 +79,13 @@ def generate_bairros_geojson(
             "pct_analfabetismo_15mais": parse_float(dados_rollup.get("pct_analfabetismo_15mais", 0.0)),
             "vulnerabilidade_estimada_contiguidade": bool(dados_rollup.get("vulnerabilidade_estimada_contiguidade", False)),
             "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
+            "valorLiquidado": parse_float(dados_rollup.get("valorLiquidado", 0.0)),
             "valorPago": parse_float(dados_rollup.get("valorPago", 0.0)),
+            "valorLiquidadoDireto": parse_float(dados_rollup.get("valorLiquidadoDireto", 0.0)),
+            "valorPagoDireto": parse_float(dados_rollup.get("valorPagoDireto", 0.0)),
+            "valorLiquidadoFrentes": parse_float(dados_rollup.get("valorLiquidadoFrentes", 0.0)),
+            "valorPagoFrentes": parse_float(dados_rollup.get("valorPagoFrentes", 0.0)),
+            "totalFrentesMedicao": int(dados_rollup.get("totalFrentesMedicao", 0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
             "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
             "investimentoPorHabitantePago": parse_float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
@@ -151,7 +157,13 @@ def generate_prefeituras_geojson(
             "pct_agua_inadequada": parse_float(dados_rollup.get("pct_agua_inadequada", 0.0)),
             "pct_analfabetismo_15mais": parse_float(dados_rollup.get("pct_analfabetismo_15mais", 0.0)),
             "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
+            "valorLiquidado": parse_float(dados_rollup.get("valorLiquidado", 0.0)),
             "valorPago": parse_float(dados_rollup.get("valorPago", 0.0)),
+            "valorLiquidadoDireto": parse_float(dados_rollup.get("valorLiquidadoDireto", 0.0)),
+            "valorPagoDireto": parse_float(dados_rollup.get("valorPagoDireto", 0.0)),
+            "valorLiquidadoFrentes": parse_float(dados_rollup.get("valorLiquidadoFrentes", 0.0)),
+            "valorPagoFrentes": parse_float(dados_rollup.get("valorPagoFrentes", 0.0)),
+            "totalFrentesMedicao": int(dados_rollup.get("totalFrentesMedicao", 0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
             "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
             "investimentoPorHabitantePago": parse_float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
@@ -256,7 +268,7 @@ def generate_index_json(
         estagio = o.get("estagioAlocacao")
         cnpj_credor = formatar_cnpj(str(o.get("nuDocumentoCredor") or o.get("cnpj") or o.get("cnpjCredor") or ""))
 
-        obras_compactas.append({
+        item_compacto = {
             "id": o.get("id"),
             "cdUnidadeGestora": o.get("cdUnidadeGestora"),
             "unidadeGestora": o.get("sgOrgao") or o.get("dsUnidadeGestora") or o.get("unidadeGestora"),
@@ -286,7 +298,10 @@ def generate_index_json(
             "latitude": lat,
             "longitude": lon,
             "estagioAlocacao": estagio,
-        })
+        }
+        if o.get("frentesMedicao"):
+            item_compacto["frentesMedicao"] = o["frentesMedicao"]
+        obras_compactas.append(item_compacto)
 
     # Converte concentração de empreiteiras para lista/dicionário ordenado
     conc_payload: list[dict[str, Any]] = []

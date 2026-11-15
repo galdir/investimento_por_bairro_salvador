@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-11-14T22:49:57.041169+00:00",
+    "generatedAt": "2026-11-15T01:40:13.794569+00:00",
     "anoReferencia": 2025,
     "mandatosDisponiveis": [
       "2021-2024",
@@ -21,6 +21,7 @@
     "investimentoPorHabitanteCidade": 4128.47,
     "totalNaoLocalizado": 353,
     "valorNaoLocalizado": 6237879946.75,
+    "valorPagoNaoLocalizado": 1838076362.78,
     "percentualNaoLocalizado": 62.5
   },
   "concentracao_empreiteiras": [
@@ -2864,13 +2865,19 @@
       "pct_agua_inadequada": 5.37,
       "pct_analfabetismo_15mais": 6.87,
       "valorTotal": 769365462.06,
-      "valorPago": 136303353.91,
+      "valorPago": 136819169.7,
       "totalObras": 52,
       "obrasVerde": 8,
       "obrasAmarelo": 6,
       "obrasVermelho": 38,
       "investimentoPorHabitante": 2947.49,
-      "investimentoPorHabitantePago": 522.19
+      "investimentoPorHabitantePago": 524.16,
+      "valorLiquidado": 159138746.69,
+      "valorLiquidadoDireto": 158530789.22,
+      "valorPagoDireto": 136303353.91,
+      "valorLiquidadoFrentes": 607957.47,
+      "valorPagoFrentes": 515815.79,
+      "totalFrentesMedicao": 6
     },
     {
       "id": 11,
@@ -2887,7 +2894,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 11,
       "investimentoPorHabitante": 913.73,
-      "investimentoPorHabitantePago": 410.2
+      "investimentoPorHabitantePago": 410.2,
+      "valorLiquidado": 33442202.63,
+      "valorLiquidadoDireto": 33442202.63,
+      "valorPagoDireto": 60813656.37,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 12,
@@ -2904,7 +2917,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 35,
       "investimentoPorHabitante": 1866.78,
-      "investimentoPorHabitantePago": 856.32
+      "investimentoPorHabitantePago": 856.32,
+      "valorLiquidado": 205599645.44,
+      "valorLiquidadoDireto": 205599645.44,
+      "valorPagoDireto": 277381939.38,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 14,
@@ -2915,13 +2934,19 @@
       "pct_agua_inadequada": 3.05,
       "pct_analfabetismo_15mais": 4.71,
       "valorTotal": 824059278.06,
-      "valorPago": 298895161.15,
+      "valorPago": 299388681.36,
       "totalObras": 42,
       "obrasVerde": 6,
       "obrasAmarelo": 2,
       "obrasVermelho": 34,
       "investimentoPorHabitante": 2123.33,
-      "investimentoPorHabitantePago": 770.16
+      "investimentoPorHabitantePago": 771.43,
+      "valorLiquidado": 153060245.93,
+      "valorLiquidadoDireto": 150095387.81,
+      "valorPagoDireto": 298895161.15,
+      "valorLiquidadoFrentes": 2964858.12,
+      "valorPagoFrentes": 493520.21,
+      "totalFrentesMedicao": 6
     },
     {
       "id": 15,
@@ -2938,7 +2963,13 @@
       "obrasAmarelo": 3,
       "obrasVermelho": 46,
       "investimentoPorHabitante": 1997.41,
-      "investimentoPorHabitantePago": 544.96
+      "investimentoPorHabitantePago": 544.96,
+      "valorLiquidado": 129677837.28,
+      "valorLiquidadoDireto": 129677837.28,
+      "valorPagoDireto": 130476929.83,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 16,
@@ -2955,7 +2986,13 @@
       "obrasAmarelo": 3,
       "obrasVermelho": 10,
       "investimentoPorHabitante": 1107.73,
-      "investimentoPorHabitantePago": 540.74
+      "investimentoPorHabitantePago": 540.74,
+      "valorLiquidado": 59824891.55,
+      "valorLiquidadoDireto": 58231434.11,
+      "valorPagoDireto": 160839225.43,
+      "valorLiquidadoFrentes": 1593457.44,
+      "valorPagoFrentes": 0.0,
+      "totalFrentesMedicao": 1
     },
     {
       "id": 17,
@@ -2972,7 +3009,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 28,
       "investimentoPorHabitante": 699.35,
-      "investimentoPorHabitantePago": 397.31
+      "investimentoPorHabitantePago": 397.31,
+      "valorLiquidado": 46946557.7,
+      "valorLiquidadoDireto": 41136640.83,
+      "valorPagoDireto": 126313990.2,
+      "valorLiquidadoFrentes": 5809916.87,
+      "valorPagoFrentes": 0.0,
+      "totalFrentesMedicao": 5
     },
     {
       "id": 18,
@@ -2983,13 +3026,19 @@
       "pct_agua_inadequada": 3.57,
       "pct_analfabetismo_15mais": 5.27,
       "valorTotal": 20271359.76,
-      "valorPago": 16811125.28,
+      "valorPago": 17229528.21,
       "totalObras": 4,
       "obrasVerde": 0,
       "obrasAmarelo": 0,
       "obrasVermelho": 4,
       "investimentoPorHabitante": 117.06,
-      "investimentoPorHabitantePago": 97.08
+      "investimentoPorHabitantePago": 99.49,
+      "valorLiquidado": 432807.33,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 16811125.28,
+      "valorLiquidadoFrentes": 432807.33,
+      "valorPagoFrentes": 418402.93,
+      "totalFrentesMedicao": 1
     },
     {
       "id": 19,
@@ -3006,7 +3055,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 15,
       "investimentoPorHabitante": 1808.36,
-      "investimentoPorHabitantePago": 283.41
+      "investimentoPorHabitantePago": 283.41,
+      "valorLiquidado": 67816401.69,
+      "valorLiquidadoDireto": 67816401.69,
+      "valorPagoDireto": 54607370.17,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 20,
@@ -3023,7 +3078,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 146.28,
-      "investimentoPorHabitantePago": 62.12
+      "investimentoPorHabitantePago": 62.12,
+      "valorLiquidado": 2328557.99,
+      "valorLiquidadoDireto": 1982210.5,
+      "valorPagoDireto": 4705307.74,
+      "valorLiquidadoFrentes": 346347.49,
+      "valorPagoFrentes": 0.0,
+      "totalFrentesMedicao": 1
     }
   ],
   "bairros": [
@@ -3046,7 +3107,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 12,
@@ -3067,7 +3134,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 13,
@@ -3088,7 +3161,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 608.06,
-      "investimentoPorHabitantePago": 568.53
+      "investimentoPorHabitantePago": 568.53,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 2322462.26,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 14,
@@ -3109,7 +3188,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 2296.62,
-      "investimentoPorHabitantePago": 353.91
+      "investimentoPorHabitantePago": 353.91,
+      "valorLiquidado": 16868132.8,
+      "valorLiquidadoDireto": 16868132.8,
+      "valorPagoDireto": 3191521.01,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 15,
@@ -3130,7 +3215,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 16,
@@ -3151,7 +3242,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 4788.05,
-      "investimentoPorHabitantePago": 1403.53
+      "investimentoPorHabitantePago": 1403.53,
+      "valorLiquidado": 17589755.75,
+      "valorLiquidadoDireto": 17589755.75,
+      "valorPagoDireto": 6095510.68,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 17,
@@ -3172,7 +3269,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 99.58,
-      "investimentoPorHabitantePago": 100.8
+      "investimentoPorHabitantePago": 100.8,
+      "valorLiquidado": 1064895.3,
+      "valorLiquidadoDireto": 1064895.3,
+      "valorPagoDireto": 1158242.51,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 18,
@@ -3193,7 +3296,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 19,
@@ -3214,7 +3323,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 47.8,
-      "investimentoPorHabitantePago": 14.43
+      "investimentoPorHabitantePago": 14.43,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 103794.94,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 20,
@@ -3235,7 +3350,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 21,
@@ -3256,7 +3377,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 209.43,
-      "investimentoPorHabitantePago": 154.04
+      "investimentoPorHabitantePago": 154.04,
+      "valorLiquidado": 562099.61,
+      "valorLiquidadoDireto": 562099.61,
+      "valorPagoDireto": 444875.02,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 22,
@@ -3277,7 +3404,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 23,
@@ -3298,7 +3431,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 24,
@@ -3319,7 +3458,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 1,
@@ -3340,7 +3485,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 3235.17,
-      "investimentoPorHabitantePago": 794.58
+      "investimentoPorHabitantePago": 794.58,
+      "valorLiquidado": 32571837.74,
+      "valorLiquidadoDireto": 32571837.74,
+      "valorPagoDireto": 16754428.72,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 2,
@@ -3361,7 +3512,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 54.34,
-      "investimentoPorHabitantePago": 51.69
+      "investimentoPorHabitantePago": 51.69,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1533413.3,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 3,
@@ -3382,7 +3539,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 44.71,
-      "investimentoPorHabitantePago": 18.05
+      "investimentoPorHabitantePago": 18.05,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 595007.0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 4,
@@ -3403,7 +3566,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 10,
       "investimentoPorHabitante": 8458.16,
-      "investimentoPorHabitantePago": 3411.2
+      "investimentoPorHabitantePago": 3411.2,
+      "valorLiquidado": 25408639.62,
+      "valorLiquidadoDireto": 25408639.62,
+      "valorPagoDireto": 46433319.99,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 5,
@@ -3424,7 +3593,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 1117.81,
-      "investimentoPorHabitantePago": 1115.13
+      "investimentoPorHabitantePago": 1115.13,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 14805562.8,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 6,
@@ -3445,7 +3620,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 7,
@@ -3466,7 +3647,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 2095.83,
-      "investimentoPorHabitantePago": 50.78
+      "investimentoPorHabitantePago": 50.78,
+      "valorLiquidado": 1014316.35,
+      "valorLiquidadoDireto": 1014316.35,
+      "valorPagoDireto": 1050058.12,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 8,
@@ -3487,7 +3674,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 113.65,
-      "investimentoPorHabitantePago": 124.41
+      "investimentoPorHabitantePago": 124.41,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 762479.31,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 9,
@@ -3508,7 +3701,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 10,
@@ -3529,7 +3728,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 91.98,
-      "investimentoPorHabitantePago": 66.37
+      "investimentoPorHabitantePago": 66.37,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1426581.91,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 30,
@@ -3550,7 +3755,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 31,
@@ -3571,7 +3782,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 32,
@@ -3592,7 +3809,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 23.2,
-      "investimentoPorHabitantePago": 21.55
+      "investimentoPorHabitantePago": 21.55,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 322873.49,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 45,
@@ -3613,7 +3836,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 47,
@@ -3634,7 +3863,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 175.3,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 0.0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 48,
@@ -3655,7 +3890,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 49,
@@ -3676,7 +3917,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 994.05,
-      "investimentoPorHabitantePago": 931.32
+      "investimentoPorHabitantePago": 931.32,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 5630769.4,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 50,
@@ -3697,7 +3944,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 51,
@@ -3718,7 +3971,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 620.84,
-      "investimentoPorHabitantePago": 31.38
+      "investimentoPorHabitantePago": 31.38,
+      "valorLiquidado": 7682090.78,
+      "valorLiquidadoDireto": 7682090.78,
+      "valorPagoDireto": 511672.38,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 52,
@@ -3739,7 +3998,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 53,
@@ -3760,7 +4025,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 54,
@@ -3781,7 +4052,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 3658.05,
-      "investimentoPorHabitantePago": 2508.86
+      "investimentoPorHabitantePago": 2508.86,
+      "valorLiquidado": 8385942.82,
+      "valorLiquidadoDireto": 8385942.82,
+      "valorPagoDireto": 20163701.27,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 55,
@@ -3802,7 +4079,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 33,
@@ -3823,7 +4106,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 34,
@@ -3844,7 +4133,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 2680.35,
-      "investimentoPorHabitantePago": 2570.48
+      "investimentoPorHabitantePago": 2570.48,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 10374459.45,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 35,
@@ -3865,7 +4160,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 36,
@@ -3886,7 +4187,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 6509.24,
-      "investimentoPorHabitantePago": 434.13
+      "investimentoPorHabitantePago": 434.13,
+      "valorLiquidado": 687109.08,
+      "valorLiquidadoDireto": 687109.08,
+      "valorPagoDireto": 709807.19,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 37,
@@ -3907,7 +4214,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 799.69,
-      "investimentoPorHabitantePago": 728.74
+      "investimentoPorHabitantePago": 728.74,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 7152610.54,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 38,
@@ -3928,7 +4241,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 482.68,
-      "investimentoPorHabitantePago": 441.71
+      "investimentoPorHabitantePago": 441.71,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 11348964.97,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 39,
@@ -3949,7 +4268,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 3516.96,
-      "investimentoPorHabitantePago": 556.62
+      "investimentoPorHabitantePago": 556.62,
+      "valorLiquidado": 1712391.78,
+      "valorLiquidadoDireto": 1712391.78,
+      "valorPagoDireto": 1642586.47,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 40,
@@ -3970,7 +4295,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 2212.95,
-      "investimentoPorHabitantePago": 800.42
+      "investimentoPorHabitantePago": 800.42,
+      "valorLiquidado": 12662986.62,
+      "valorLiquidadoDireto": 12662986.62,
+      "valorPagoDireto": 5900701.52,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 41,
@@ -3991,7 +4322,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 42,
@@ -4012,7 +4349,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 7,
       "investimentoPorHabitante": 1657.81,
-      "investimentoPorHabitantePago": 1215.2
+      "investimentoPorHabitantePago": 1215.2,
+      "valorLiquidado": 5809916.87,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 30847939.27,
+      "valorLiquidadoFrentes": 5809916.87,
+      "valorPagoFrentes": 0.0,
+      "totalFrentesMedicao": 5
     },
     {
       "id": 43,
@@ -4033,7 +4376,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 44,
@@ -4054,7 +4403,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 46,
@@ -4075,7 +4430,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 7,
       "investimentoPorHabitante": 1733.41,
-      "investimentoPorHabitantePago": 1622.69
+      "investimentoPorHabitantePago": 1622.69,
+      "valorLiquidado": 6271880.04,
+      "valorLiquidadoDireto": 6271880.04,
+      "valorPagoDireto": 62196013.75,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 25,
@@ -4096,7 +4457,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 26,
@@ -4117,7 +4484,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 27,
@@ -4138,7 +4511,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 140.29,
-      "investimentoPorHabitantePago": 122.74
+      "investimentoPorHabitantePago": 122.74,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1631416.86,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 28,
@@ -4159,7 +4538,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 321.1,
-      "investimentoPorHabitantePago": 291.11
+      "investimentoPorHabitantePago": 291.11,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 4597436.47,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 29,
@@ -4180,7 +4565,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 281.4,
-      "investimentoPorHabitantePago": 127.4
+      "investimentoPorHabitantePago": 127.4,
+      "valorLiquidado": 3429847.45,
+      "valorLiquidadoDireto": 3429847.45,
+      "valorPagoDireto": 2540531.97,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 70,
@@ -4201,7 +4592,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 1044.1,
-      "investimentoPorHabitantePago": 288.49
+      "investimentoPorHabitantePago": 288.49,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 5834633.61,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 71,
@@ -4222,7 +4619,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 72,
@@ -4243,7 +4646,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 225.55,
-      "investimentoPorHabitantePago": 204.32
+      "investimentoPorHabitantePago": 204.32,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1180992.52,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 73,
@@ -4264,7 +4673,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 58.21,
-      "investimentoPorHabitantePago": 55.97
+      "investimentoPorHabitantePago": 55.97,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1557707.12,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 74,
@@ -4285,7 +4700,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 75,
@@ -4306,7 +4727,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 76,
@@ -4327,7 +4754,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 77,
@@ -4348,7 +4781,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 78,
@@ -4369,7 +4808,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 79,
@@ -4390,7 +4835,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 329.68,
-      "investimentoPorHabitantePago": 270.59
+      "investimentoPorHabitantePago": 270.59,
+      "valorLiquidado": 10897.56,
+      "valorLiquidadoDireto": 10897.56,
+      "valorPagoDireto": 10905519.25,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 80,
@@ -4411,7 +4862,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 81,
@@ -4432,7 +4889,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 56,
@@ -4453,7 +4916,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 57,
@@ -4474,7 +4943,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 58,
@@ -4489,13 +4964,19 @@
       "pct_analfabetismo_15mais": 7.39,
       "vulnerabilidade_estimada_contiguidade": false,
       "valorTotal": 0,
-      "valorPago": 0,
+      "valorPago": 0.0,
       "totalObras": 0,
       "obrasVerde": 0,
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 1593457.44,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 1593457.44,
+      "valorPagoFrentes": 0.0,
+      "totalFrentesMedicao": 1
     },
     {
       "id": 59,
@@ -4516,7 +4997,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 33.21,
-      "investimentoPorHabitantePago": 30.6
+      "investimentoPorHabitantePago": 30.6,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 453364.84,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 60,
@@ -4537,7 +5024,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 61,
@@ -4558,7 +5051,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 62,
@@ -4579,7 +5078,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 15.7,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 0.0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 63,
@@ -4600,7 +5105,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 64,
@@ -4621,7 +5132,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 65,
@@ -4642,7 +5159,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 66,
@@ -4663,7 +5186,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 67,
@@ -4684,7 +5213,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 68,
@@ -4705,7 +5240,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 69,
@@ -4726,7 +5267,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 84,
@@ -4747,7 +5294,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 4,
       "investimentoPorHabitante": 2048.81,
-      "investimentoPorHabitantePago": 275.1
+      "investimentoPorHabitantePago": 275.1,
+      "valorLiquidado": 14911542.67,
+      "valorLiquidadoDireto": 14911542.67,
+      "valorPagoDireto": 6004107.05,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 85,
@@ -4768,7 +5321,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 242.38,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 0.0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 86,
@@ -4789,7 +5348,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 98,
@@ -4810,7 +5375,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 36.41,
-      "investimentoPorHabitantePago": 55.64
+      "investimentoPorHabitantePago": 55.64,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1643299.76,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 99,
@@ -4831,7 +5402,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 100,
@@ -4852,7 +5429,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 101,
@@ -4867,13 +5450,19 @@
       "pct_analfabetismo_15mais": 6.57,
       "vulnerabilidade_estimada_contiguidade": false,
       "valorTotal": 3048984.46,
-      "valorPago": 1207092.95,
+      "valorPago": 1625495.88,
       "totalObras": 1,
       "obrasVerde": 0,
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 147.54,
-      "investimentoPorHabitantePago": 58.41
+      "investimentoPorHabitantePago": 78.66,
+      "valorLiquidado": 432807.33,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1207092.95,
+      "valorLiquidadoFrentes": 432807.33,
+      "valorPagoFrentes": 418402.93,
+      "totalFrentesMedicao": 1
     },
     {
       "id": 102,
@@ -4894,7 +5483,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 298.87,
-      "investimentoPorHabitantePago": 284.86
+      "investimentoPorHabitantePago": 284.86,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 4887568.55,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 103,
@@ -4915,7 +5510,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 750.04,
-      "investimentoPorHabitantePago": 679.56
+      "investimentoPorHabitantePago": 679.56,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 15604032.33,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 104,
@@ -4936,7 +5537,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 105,
@@ -4957,7 +5564,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 106,
@@ -4978,7 +5591,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 107,
@@ -4999,7 +5618,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 8.81,
-      "investimentoPorHabitantePago": 8.05
+      "investimentoPorHabitantePago": 8.05,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 277170.93,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 108,
@@ -5020,7 +5645,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 87,
@@ -5041,7 +5672,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 8,
       "investimentoPorHabitante": 3459.08,
-      "investimentoPorHabitantePago": 885.24
+      "investimentoPorHabitantePago": 885.24,
+      "valorLiquidado": 27122821.52,
+      "valorLiquidadoDireto": 27122821.52,
+      "valorPagoDireto": 53971266.43,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 88,
@@ -5062,7 +5699,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 89,
@@ -5083,7 +5726,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 1072.67,
-      "investimentoPorHabitantePago": 1070.39
+      "investimentoPorHabitantePago": 1070.39,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 49942120.62,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 90,
@@ -5104,7 +5753,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 91,
@@ -5125,7 +5780,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 618.79,
-      "investimentoPorHabitantePago": 575.97
+      "investimentoPorHabitantePago": 575.97,
+      "valorLiquidado": 2445973.83,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 11886195.54,
+      "valorLiquidadoFrentes": 2445973.83,
+      "valorPagoFrentes": 0.0,
+      "totalFrentesMedicao": 3
     },
     {
       "id": 92,
@@ -5146,7 +5807,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 93,
@@ -5167,7 +5834,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 94,
@@ -5188,7 +5861,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 95,
@@ -5209,7 +5888,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 96,
@@ -5230,7 +5915,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 97,
@@ -5251,7 +5942,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 82,
@@ -5272,7 +5969,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 4,
       "investimentoPorHabitante": 3739.59,
-      "investimentoPorHabitantePago": 2486.9
+      "investimentoPorHabitantePago": 2486.9,
+      "valorLiquidado": 98124600.26,
+      "valorLiquidadoDireto": 98124600.26,
+      "valorPagoDireto": 76427516.24,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 83,
@@ -5293,7 +5996,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 254.01,
-      "investimentoPorHabitantePago": 228.25
+      "investimentoPorHabitantePago": 228.25,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 4533540.68,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 125,
@@ -5314,7 +6023,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 126,
@@ -5335,7 +6050,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 127,
@@ -5356,7 +6077,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 55.81,
-      "investimentoPorHabitantePago": 55.81
+      "investimentoPorHabitantePago": 55.81,
+      "valorLiquidado": 326329.11,
+      "valorLiquidadoDireto": 326329.11,
+      "valorPagoDireto": 328898.49,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 128,
@@ -5377,7 +6104,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 27.76,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 0.0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 129,
@@ -5398,7 +6131,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 403.2,
-      "investimentoPorHabitantePago": 272.51
+      "investimentoPorHabitantePago": 272.51,
+      "valorLiquidado": 2167864.9,
+      "valorLiquidadoDireto": 2167864.9,
+      "valorPagoDireto": 3303078.77,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 130,
@@ -5419,7 +6158,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 13.19,
-      "investimentoPorHabitantePago": 0.95
+      "investimentoPorHabitantePago": 0.95,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 19223.02,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 131,
@@ -5440,7 +6185,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 1554.96,
-      "investimentoPorHabitantePago": 331.35
+      "investimentoPorHabitantePago": 331.35,
+      "valorLiquidado": 14293402.31,
+      "valorLiquidadoDireto": 14293402.31,
+      "valorPagoDireto": 6936057.3,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 132,
@@ -5461,7 +6212,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 133,
@@ -5482,7 +6239,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 134,
@@ -5503,7 +6266,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 135,
@@ -5524,7 +6293,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 2268.92,
-      "investimentoPorHabitantePago": 540.43
+      "investimentoPorHabitantePago": 540.43,
+      "valorLiquidado": 35737623.07,
+      "valorLiquidadoDireto": 35737623.07,
+      "valorPagoDireto": 9471638.34,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 136,
@@ -5545,7 +6320,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 109,
@@ -5566,7 +6347,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 701.48,
-      "investimentoPorHabitantePago": 216.98
+      "investimentoPorHabitantePago": 216.98,
+      "valorLiquidado": 4502572.56,
+      "valorLiquidadoDireto": 4502572.56,
+      "valorPagoDireto": 2472035.54,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 110,
@@ -5587,7 +6374,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 111,
@@ -5608,7 +6401,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 112,
@@ -5629,7 +6428,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 6803.69,
-      "investimentoPorHabitantePago": 63.64
+      "investimentoPorHabitantePago": 63.64,
+      "valorLiquidado": 510872.7,
+      "valorLiquidadoDireto": 510872.7,
+      "valorPagoDireto": 510872.7,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 113,
@@ -5650,7 +6455,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 114,
@@ -5671,7 +6482,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 531.33,
-      "investimentoPorHabitantePago": 504.44
+      "investimentoPorHabitantePago": 504.44,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 4413383.79,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 115,
@@ -5692,7 +6509,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 25.32,
-      "investimentoPorHabitantePago": 10.04
+      "investimentoPorHabitantePago": 10.04,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 87989.82,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 116,
@@ -5713,7 +6536,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 137,
@@ -5734,7 +6563,13 @@
       "obrasAmarelo": 2,
       "obrasVermelho": 4,
       "investimentoPorHabitante": 1064.05,
-      "investimentoPorHabitantePago": 351.15
+      "investimentoPorHabitantePago": 351.15,
+      "valorLiquidado": 35812025.09,
+      "valorLiquidadoDireto": 35812025.09,
+      "valorPagoDireto": 18424411.38,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 138,
@@ -5755,7 +6590,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 70.49,
-      "investimentoPorHabitantePago": 29.02
+      "investimentoPorHabitantePago": 29.02,
+      "valorLiquidado": 2328557.99,
+      "valorLiquidadoDireto": 1982210.5,
+      "valorPagoDireto": 894387.05,
+      "valorLiquidadoFrentes": 346347.49,
+      "valorPagoFrentes": 0.0,
+      "totalFrentesMedicao": 1
     },
     {
       "id": 117,
@@ -5776,7 +6617,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 3039.39,
-      "investimentoPorHabitantePago": 1466.34
+      "investimentoPorHabitantePago": 1466.34,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 5808189.05,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 118,
@@ -5797,7 +6644,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 771.31,
-      "investimentoPorHabitantePago": 1299.27
+      "investimentoPorHabitantePago": 1299.27,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1264187.99,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 119,
@@ -5818,7 +6671,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 8742.1,
-      "investimentoPorHabitantePago": 140.6
+      "investimentoPorHabitantePago": 140.6,
+      "valorLiquidado": 427157.59,
+      "valorLiquidadoDireto": 427157.59,
+      "valorPagoDireto": 427157.59,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 120,
@@ -5839,7 +6698,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 4895.54,
-      "investimentoPorHabitantePago": 4864.21
+      "investimentoPorHabitantePago": 4864.21,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 7554112.5,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 121,
@@ -5860,7 +6725,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 349.83,
-      "investimentoPorHabitantePago": 305.78
+      "investimentoPorHabitantePago": 305.78,
+      "valorLiquidado": 601157.11,
+      "valorLiquidadoDireto": 601157.11,
+      "valorPagoDireto": 8089106.49,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 122,
@@ -5881,7 +6752,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 2006.71,
-      "investimentoPorHabitantePago": 481.47
+      "investimentoPorHabitantePago": 481.47,
+      "valorLiquidado": 3836622.18,
+      "valorLiquidadoDireto": 3836622.18,
+      "valorPagoDireto": 3498393.87,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 123,
@@ -5902,7 +6779,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 124,
@@ -5923,7 +6806,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 141,
@@ -5944,7 +6833,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 142,
@@ -5965,7 +6860,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 143,
@@ -5986,7 +6887,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 63.08,
-      "investimentoPorHabitantePago": 43.79
+      "investimentoPorHabitantePago": 43.79,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 717066.12,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 157,
@@ -6007,7 +6914,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 158,
@@ -6028,7 +6941,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 4,
       "investimentoPorHabitante": 4030.78,
-      "investimentoPorHabitantePago": 3654.08
+      "investimentoPorHabitantePago": 3654.08,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 50696694.41,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 159,
@@ -6043,13 +6962,19 @@
       "pct_analfabetismo_15mais": 7.22,
       "vulnerabilidade_estimada_contiguidade": false,
       "valorTotal": 6587413.8,
-      "valorPago": 6153876.41,
+      "valorPago": 6211936.69,
       "totalObras": 4,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 255.8,
-      "investimentoPorHabitantePago": 238.97
+      "investimentoPorHabitantePago": 241.22,
+      "valorLiquidado": 129293.06,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 6153876.41,
+      "valorLiquidadoFrentes": 129293.06,
+      "valorPagoFrentes": 58060.28,
+      "totalFrentesMedicao": 4
     },
     {
       "id": 160,
@@ -6070,7 +6995,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 319.54,
-      "investimentoPorHabitantePago": 136.72
+      "investimentoPorHabitantePago": 136.72,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 3810920.69,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 161,
@@ -6091,7 +7022,13 @@
       "obrasAmarelo": 2,
       "obrasVermelho": 7,
       "investimentoPorHabitante": 24038.46,
-      "investimentoPorHabitantePago": 1666.91
+      "investimentoPorHabitantePago": 1666.91,
+      "valorLiquidado": 38827293.28,
+      "valorLiquidadoDireto": 38827293.28,
+      "valorPagoDireto": 24258542.86,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 162,
@@ -6112,7 +7049,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 163,
@@ -6133,7 +7076,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 5,
       "investimentoPorHabitante": 1014.1,
-      "investimentoPorHabitantePago": 811.07
+      "investimentoPorHabitantePago": 811.07,
+      "valorLiquidado": 4937376.52,
+      "valorLiquidadoDireto": 4937376.52,
+      "valorPagoDireto": 30729003.33,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 164,
@@ -6154,7 +7103,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 275.55,
-      "investimentoPorHabitantePago": 296.99
+      "investimentoPorHabitantePago": 296.99,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 1064120.55,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 165,
@@ -6175,7 +7130,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 166,
@@ -6196,7 +7157,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 167,
@@ -6217,7 +7184,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 168,
@@ -6238,7 +7211,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 169,
@@ -6259,7 +7238,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 2,
       "investimentoPorHabitante": 92.02,
-      "investimentoPorHabitantePago": 88.84
+      "investimentoPorHabitantePago": 88.84,
+      "valorLiquidado": 1583508.17,
+      "valorLiquidadoDireto": 1583508.17,
+      "valorPagoDireto": 4557155.69,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 170,
@@ -6280,7 +7265,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 144,
@@ -6301,7 +7292,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 5,
       "investimentoPorHabitante": 3626.14,
-      "investimentoPorHabitantePago": 3076.19
+      "investimentoPorHabitantePago": 3076.19,
+      "valorLiquidado": 0.0,
+      "valorLiquidadoDireto": 0.0,
+      "valorPagoDireto": 58389143.12,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 145,
@@ -6322,7 +7319,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 1,
       "investimentoPorHabitante": 8711.06,
-      "investimentoPorHabitantePago": 47.67
+      "investimentoPorHabitantePago": 47.67,
+      "valorLiquidado": 64356608.3,
+      "valorLiquidadoDireto": 64356608.3,
+      "valorPagoDireto": 902576.01,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 146,
@@ -6337,13 +7340,19 @@
       "pct_analfabetismo_15mais": 5.26,
       "vulnerabilidade_estimada_contiguidade": false,
       "valorTotal": 70700090.08,
-      "valorPago": 34398712.31,
+      "valorPago": 34892232.52,
       "totalObras": 13,
       "obrasVerde": 4,
       "obrasAmarelo": 1,
       "obrasVermelho": 8,
       "investimentoPorHabitante": 1821.98,
-      "investimentoPorHabitantePago": 886.47
+      "investimentoPorHabitantePago": 899.19,
+      "valorLiquidado": 1236523.17,
+      "valorLiquidadoDireto": 717638.88,
+      "valorPagoDireto": 34398712.31,
+      "valorLiquidadoFrentes": 518884.29,
+      "valorPagoFrentes": 493520.21,
+      "totalFrentesMedicao": 3
     },
     {
       "id": 147,
@@ -6364,7 +7373,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 148,
@@ -6385,7 +7400,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 149,
@@ -6406,7 +7427,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 151,
@@ -6427,7 +7454,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 152,
@@ -6448,7 +7481,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 153,
@@ -6469,7 +7508,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 10,
       "investimentoPorHabitante": 11869.01,
-      "investimentoPorHabitantePago": 5893.38
+      "investimentoPorHabitantePago": 5893.38,
+      "valorLiquidado": 38483711.74,
+      "valorLiquidadoDireto": 38483711.74,
+      "valorPagoDireto": 47394536.18,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 154,
@@ -6490,7 +7535,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 3,
       "investimentoPorHabitante": 3291.55,
-      "investimentoPorHabitantePago": 3023.28
+      "investimentoPorHabitantePago": 3023.28,
+      "valorLiquidado": 265327.27,
+      "valorLiquidadoDireto": 265327.27,
+      "valorPagoDireto": 5115384.53,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 155,
@@ -6511,7 +7562,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 16,
       "investimentoPorHabitante": 216985.39,
-      "investimentoPorHabitantePago": 47187.3
+      "investimentoPorHabitantePago": 47187.3,
+      "valorLiquidado": 28907406.02,
+      "valorLiquidadoDireto": 28907406.02,
+      "valorPagoDireto": 45818866.1,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 156,
@@ -6532,7 +7589,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 139,
@@ -6553,7 +7616,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 140,
@@ -6574,7 +7643,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 321,
@@ -6595,7 +7670,13 @@
       "obrasAmarelo": 0,
       "obrasVermelho": 0,
       "investimentoPorHabitante": 0.0,
-      "investimentoPorHabitantePago": 0.0
+      "investimentoPorHabitantePago": 0.0,
+      "valorLiquidado": 0,
+      "valorLiquidadoDireto": 0,
+      "valorPagoDireto": 0,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     },
     {
       "id": 322,
@@ -6616,7 +7697,13 @@
       "obrasAmarelo": 1,
       "obrasVermelho": 6,
       "investimentoPorHabitante": 1118.49,
-      "investimentoPorHabitantePago": 1064.81
+      "investimentoPorHabitantePago": 1064.81,
+      "valorLiquidado": 7523784.94,
+      "valorLiquidadoDireto": 7523784.94,
+      "valorPagoDireto": 61646153.24,
+      "valorLiquidadoFrentes": 0,
+      "valorPagoFrentes": 0,
+      "totalFrentesMedicao": 0
     }
   ],
   "obras": [
@@ -7852,7 +8939,45 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Cache",
+      "frentesMedicao": [
+        {
+          "notaLiquidacao": "2025NL018688",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "valorLiquidado": 409961.21,
+          "valorPago": 384597.13,
+          "dataLiquidacao": "08/10/2025",
+          "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018688)",
+          "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+        },
+        {
+          "notaLiquidacao": "2025NL018689",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "valorLiquidado": 175.77,
+          "valorPago": 175.77,
+          "dataLiquidacao": "08/10/2025",
+          "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018689)",
+          "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+        },
+        {
+          "notaLiquidacao": "2025NL018690",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "valorLiquidado": 108747.31,
+          "valorPago": 108747.31,
+          "dataLiquidacao": "08/10/2025",
+          "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018690)",
+          "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+        }
+      ]
     },
     {
       "id": "e9fafb79-9a01-496a-83fe-c0daf69a4fcf",
@@ -7894,7 +9019,33 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Cache",
+      "frentesMedicao": [
+        {
+          "notaLiquidacao": "2024NL015121",
+          "nivel": "Regional (Prefeitura-Bairro)",
+          "bairro": null,
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "valorLiquidado": 399486.9,
+          "valorPago": 378578.0,
+          "dataLiquidacao": "21/10/2024",
+          "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE MANUTENÇÃO DE QUADRAS E CAMPOS, LOTE 02 PREF. BAIRRO: II - SUBURBIO/",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL015121)",
+          "justificativa": "Nota de liquidação especifica execução exclusiva na Prefeitura-Bairro II (Subúrbio/Ilhas)."
+        },
+        {
+          "notaLiquidacao": "2024NL015124",
+          "nivel": "Regional (Prefeitura-Bairro)",
+          "bairro": null,
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "valorLiquidado": 79177.51,
+          "valorPago": 79177.51,
+          "dataLiquidacao": "21/10/2024",
+          "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE MANUTENÇÃO DE QUADRAS E CAMPOS, LOTE 02 PREF. BAIRRO: II - SUBURBIO/",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL015124)",
+          "justificativa": "Nota de liquidação especifica execução exclusiva na Prefeitura-Bairro II (Subúrbio/Ilhas)."
+        }
+      ]
     },
     {
       "id": "83f99e6f-e43e-4adc-99d0-5cb68f1aaf77",
@@ -8302,7 +9453,57 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Cache",
+      "frentesMedicao": [
+        {
+          "notaLiquidacao": "2025NL004858",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "valorLiquidado": 42243.32,
+          "valorPago": 0.0,
+          "dataLiquidacao": "16/06/2025",
+          "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004858)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        },
+        {
+          "notaLiquidacao": "2025NL004865",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "valorLiquidado": 44331.75,
+          "valorPago": 42338.25,
+          "dataLiquidacao": "16/06/2025",
+          "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004865)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        },
+        {
+          "notaLiquidacao": "2025NL005707",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "valorLiquidado": 16462.31,
+          "valorPago": 15722.03,
+          "dataLiquidacao": "22/07/2025",
+          "trechoComprobatorio": "139160/2025; Manutenção Terminal Maritimo Plataforma, período 01 a 15/06/2025",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL005707)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        },
+        {
+          "notaLiquidacao": "2025NL006602",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "valorLiquidado": 26255.68,
+          "valorPago": 0.0,
+          "dataLiquidacao": "22/08/2025",
+          "trechoComprobatorio": "163836/2025; Manutenção Terminal Maritimo Plataforma; 07/2025; 008/2024; nf 1584",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL006602)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        }
+      ]
     },
     {
       "id": "b4cf9599-9ad5-45b0-8d03-628ef50065a9",
@@ -11531,7 +12732,105 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Cache",
+      "frentesMedicao": [
+        {
+          "notaLiquidacao": "2023NL016696",
+          "nivel": "Bairro",
+          "bairro": "Pau da Lima",
+          "prefeituraBairro": "Pau da Lima",
+          "valorLiquidado": 432807.33,
+          "valorPago": 418402.93,
+          "dataLiquidacao": "05/12/2023",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE CONTENÇÃO DE ENCOSTA NA LIGAÇÃO GAL COSTA X PAU DA LIMA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL016696)",
+          "justificativa": "Nota comprova contenção de encosta na ligação Gal Costa x Pau da Lima."
+        },
+        {
+          "notaLiquidacao": "2023NL018305",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "valorLiquidado": 1773501.5,
+          "valorPago": 0.0,
+          "dataLiquidacao": "21/12/2023",
+          "trechoComprobatorio": "SERVS. DE CONTENÇÃO DE ENCOSTA NA RUA DIRETA EDÉN DO VALE- MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL018305)",
+          "justificativa": "Nota comprova contenção de encosta na Rua Direta Éden do Vale, Bairro Oficial Mata Escura."
+        },
+        {
+          "notaLiquidacao": "2024NL001678",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "valorLiquidado": 1190478.75,
+          "valorPago": 0.0,
+          "dataLiquidacao": "15/02/2024",
+          "trechoComprobatorio": "EXEC. DE SERVS. DE CONTENÇÃO, ENCOSTA NA RUA DIRETA DO EDEN-MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001678)",
+          "justificativa": "Nota comprova contenção de encosta na Rua Direta do Éden, Bairro Oficial Mata Escura."
+        },
+        {
+          "notaLiquidacao": "2024NL001679",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "valorLiquidado": 19862.37,
+          "valorPago": 0.0,
+          "dataLiquidacao": "15/02/2024",
+          "trechoComprobatorio": "EXEC. DE SERVS. DE CONTENÇÃO, ENCOSTA NA RUA DIRETA DO EDEN-MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001679)",
+          "justificativa": "Nota comprova contenção de encosta na Rua Direta do Éden, Bairro Oficial Mata Escura."
+        },
+        {
+          "notaLiquidacao": "2024NL001844",
+          "nivel": "Bairro",
+          "bairro": "Valéria",
+          "prefeituraBairro": "Valéria",
+          "valorLiquidado": 346347.49,
+          "valorPago": 0.0,
+          "dataLiquidacao": "19/02/2024",
+          "trechoComprobatorio": "SERVS. DE CONTENÇÃO DE ENCOSTA NA RUA P - JARDIM TERRA NOVA VALERIA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001844)",
+          "justificativa": "Nota comprova contenção de encosta em Jardim Terra Nova, Bairro Oficial Valéria."
+        },
+        {
+          "notaLiquidacao": "2024NL003111",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "valorLiquidado": 2740709.24,
+          "valorPago": 0.0,
+          "dataLiquidacao": "08/03/2024",
+          "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003111)",
+          "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
+        },
+        {
+          "notaLiquidacao": "2024NL003112",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "valorLiquidado": 85365.01,
+          "valorPago": 0.0,
+          "dataLiquidacao": "08/03/2024",
+          "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003112)",
+          "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
+        },
+        {
+          "notaLiquidacao": "2024NL004470",
+          "nivel": "Bairro",
+          "bairro": "Alto do Cabrito",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "valorLiquidado": 1593457.44,
+          "valorPago": 0.0,
+          "dataLiquidacao": "04/04/2024",
+          "trechoComprobatorio": "SERVIÇOS DE MACRODRENAGEM, M006- SERV. DE DRENAG. NA RUA 9 DE DEZEMBRO - ALTO DO CABRITO",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL004470)",
+          "justificativa": "Nota comprova macrodrenagem na Rua 9 de Dezembro, Bairro Oficial Alto do Cabrito."
+        }
+      ]
     },
     {
       "id": "6e925a87-53ad-4ac8-a6f5-72f300c32086",
@@ -16116,7 +17415,45 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Cache",
+      "frentesMedicao": [
+        {
+          "notaLiquidacao": "2023NL009961",
+          "nivel": "Bairro",
+          "bairro": "Jardim das Margaridas",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "valorLiquidado": 2018782.14,
+          "valorPago": 0.0,
+          "dataLiquidacao": "10/08/2023",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009961)",
+          "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+        },
+        {
+          "notaLiquidacao": "2023NL009962",
+          "nivel": "Bairro",
+          "bairro": "Jardim das Margaridas",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "valorLiquidado": 282200.0,
+          "valorPago": 0.0,
+          "dataLiquidacao": "10/08/2023",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009962)",
+          "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+        },
+        {
+          "notaLiquidacao": "2023NL009963",
+          "nivel": "Bairro",
+          "bairro": "Jardim das Margaridas",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "valorLiquidado": 144991.69,
+          "valorPago": 0.0,
+          "dataLiquidacao": "10/08/2023",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009963)",
+          "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+        }
+      ]
     },
     {
       "id": "fd51db3b-afaf-4e22-955d-8391475ef4f7",

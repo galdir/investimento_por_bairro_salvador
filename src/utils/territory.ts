@@ -1,4 +1,4 @@
-import { BairroResumo, ObraCompacta, PrefeituraBairroResumo, TerritorySelection } from "../types";
+import { BairroResumo, FrenteMedicao, ObraCompacta, PrefeituraBairroResumo, TerritorySelection } from "../types";
 
 /**
  * Normaliza um nome textual para correspondência insensível a acentuação e caixa.
@@ -68,6 +68,43 @@ function aggregateObrasMetrics(obras: ObraCompacta[]): ObrasAggregatedMetrics {
 }
 
 /**
+ * Soma os valores liquidados e pagos de uma lista de Frentes de Medição.
+ */
+function sumFrentesMetrics(frentes: FrenteMedicao[]): { valorLiquidado: number; valorPago: number } {
+  let valorLiquidado = 0;
+  let valorPago = 0;
+  for (const f of frentes) {
+    valorLiquidado += f.valorLiquidado ?? 0;
+    valorPago += f.valorPago ?? 0;
+  }
+  return { valorLiquidado, valorPago };
+}
+
+/**
+ * Filtra as Frentes de Medição de um conjunto de obras que pertencem ao território selecionado.
+ */
+export function filterFrentesByTerritory(
+  obras: ObraCompacta[],
+  territorio: Pick<TerritorySelection, "tipo" | "nome">
+): Array<{ obra: ObraCompacta; frente: FrenteMedicao }> {
+  const territorioNorm = normalizeName(territorio.nome);
+  const ehBairro = territorio.tipo === "bairro";
+  const result: Array<{ obra: ObraCompacta; frente: FrenteMedicao }> = [];
+
+  for (const obra of obras) {
+    for (const frente of obra.frentesMedicao || []) {
+      const match = ehBairro
+        ? normalizeName(frente.bairro) === territorioNorm
+        : normalizeName(frente.prefeituraBairro) === territorioNorm;
+      if (match) {
+        result.push({ obra, frente });
+      }
+    }
+  }
+  return result;
+}
+
+/**
  * Converte um Bairro cadastral em um objeto de seleção territorial unificado.
  *
  * @summary Encapsula a conversão de tipo para evitar repetição de parâmetros (Data Clump).
@@ -89,7 +126,13 @@ export function createBairroSelection(bairro: BairroResumo): TerritorySelection 
     pct_analfabetismo_15mais: bairro.pct_analfabetismo_15mais,
     vulnerabilidade_estimada_contiguidade: bairro.vulnerabilidade_estimada_contiguidade,
     valorTotal: bairro.valorTotal,
+    valorLiquidado: bairro.valorLiquidado,
     valorPago: bairro.valorPago,
+    valorLiquidadoDireto: bairro.valorLiquidadoDireto,
+    valorPagoDireto: bairro.valorPagoDireto,
+    valorLiquidadoFrentes: bairro.valorLiquidadoFrentes,
+    valorPagoFrentes: bairro.valorPagoFrentes,
+    totalFrentesMedicao: bairro.totalFrentesMedicao,
     totalObras: bairro.totalObras,
     obrasVerde: bairro.obrasVerde,
     obrasAmarelo: bairro.obrasAmarelo,
@@ -117,7 +160,13 @@ export function createPrefeituraSelection(prefeitura: PrefeituraBairroResumo): T
     pct_agua_inadequada: prefeitura.pct_agua_inadequada,
     pct_analfabetismo_15mais: prefeitura.pct_analfabetismo_15mais,
     valorTotal: prefeitura.valorTotal,
+    valorLiquidado: prefeitura.valorLiquidado,
     valorPago: prefeitura.valorPago,
+    valorLiquidadoDireto: prefeitura.valorLiquidadoDireto,
+    valorPagoDireto: prefeitura.valorPagoDireto,
+    valorLiquidadoFrentes: prefeitura.valorLiquidadoFrentes,
+    valorPagoFrentes: prefeitura.valorPagoFrentes,
+    totalFrentesMedicao: prefeitura.totalFrentesMedicao,
     totalObras: prefeitura.totalObras,
     obrasVerde: prefeitura.obrasVerde,
     obrasAmarelo: prefeitura.obrasAmarelo,
@@ -163,9 +212,11 @@ export function calculateTerritorialRollup(
   bairros: BairroResumo[];
   prefeituras: PrefeituraBairroResumo[];
 } {
-  // 1. Agrupadores de obras por bairro e obras regionais por prefeitura-bairro
+  // 1. Agrupadores de obras e frentes de medição por bairro e por prefeitura-bairro
   const obrasPorBairro = new Map<string, ObraCompacta[]>();
   const obrasRegionaisPorPrefeitura = new Map<string, ObraCompacta[]>();
+  const frentesPorBairro = new Map<string, FrenteMedicao[]>();
+  const frentesRegionaisPorPrefeitura = new Map<string, FrenteMedicao[]>();
 
   for (const obra of obrasFiltradas) {
     const nivel = obra.nivel || "Escopo Cidade (Não-Localizado)";
@@ -183,13 +234,35 @@ export function calculateTerritorialRollup(
       list.push(obra);
       obrasRegionaisPorPrefeitura.set(prefeituraKey, list);
     }
+
+    for (const frente of obra.frentesMedicao || []) {
+      const fNivel = frente.nivel;
+      if ((fNivel === "Pontual" || fNivel === "Bairro") && frente.bairro) {
+        const bKey = normalizeName(frente.bairro);
+        const list = frentesPorBairro.get(bKey) || [];
+        list.push(frente);
+        frentesPorBairro.set(bKey, list);
+      } else if (fNivel === "Regional (Prefeitura-Bairro)" && frente.prefeituraBairro) {
+        const pKey = normalizeName(frente.prefeituraBairro);
+        const list = frentesRegionaisPorPrefeitura.get(pKey) || [];
+        list.push(frente);
+        frentesRegionaisPorPrefeitura.set(pKey, list);
+      }
+    }
   }
 
   // 2. Recálculo dos Bairros Oficiais
   const recalculatedBairros: BairroResumo[] = bairrosBase.map((bairro) => {
     const bairroKey = normalizeName(bairro.nome);
     const obrasDoBairro = obrasPorBairro.get(bairroKey) || [];
+    const frentesDoBairro = frentesPorBairro.get(bairroKey) || [];
     const metrics = aggregateObrasMetrics(obrasDoBairro);
+
+    const { valorLiquidado: valorLiquidadoFrentes, valorPago: valorPagoFrentes } =
+      sumFrentesMetrics(frentesDoBairro);
+
+    const valorPagoDireto = metrics.valorPago;
+    const valorPagoTotal = valorPagoDireto + valorPagoFrentes;
 
     const ehZonaEsp = isZonaEspecial(bairro);
     const populacao = bairro.populacao || 0;
@@ -198,13 +271,17 @@ export function calculateTerritorialRollup(
     let investimentoPorHabitantePago = 0.0;
     if (!ehZonaEsp && populacao > 0) {
       investimentoPorHabitante = Math.round(((metrics.valorTotal / populacao) + Number.EPSILON) * 100) / 100;
-      investimentoPorHabitantePago = Math.round(((metrics.valorPago / populacao) + Number.EPSILON) * 100) / 100;
+      investimentoPorHabitantePago = Math.round(((valorPagoTotal / populacao) + Number.EPSILON) * 100) / 100;
     }
 
     return {
       ...bairro,
       valorTotal: Math.round((metrics.valorTotal + Number.EPSILON) * 100) / 100,
-      valorPago: Math.round((metrics.valorPago + Number.EPSILON) * 100) / 100,
+      valorPago: Math.round((valorPagoTotal + Number.EPSILON) * 100) / 100,
+      valorPagoDireto: Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100,
+      valorLiquidadoFrentes: Math.round((valorLiquidadoFrentes + Number.EPSILON) * 100) / 100,
+      valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
+      totalFrentesMedicao: frentesDoBairro.length,
       totalObras: obrasDoBairro.length,
       obrasVerde: metrics.obrasVerde,
       obrasAmarelo: metrics.obrasAmarelo,
@@ -232,9 +309,13 @@ export function calculateTerritorialRollup(
     const prefeituraKey = normalizeName(prefeitura.nome);
     const bairrosFilhos = bairrosPorPrefeitura.get(prefeituraKey) || [];
     const obrasRegionais = obrasRegionaisPorPrefeitura.get(prefeituraKey) || [];
+    const frentesRegionais = frentesRegionaisPorPrefeitura.get(prefeituraKey) || [];
 
     let valorTotalBairros = 0;
-    let valorPagoBairros = 0;
+    let valorPagoDiretoBairros = 0;
+    let valorLiquidadoFrentesBairros = 0;
+    let valorPagoFrentesBairros = 0;
+    let totalFrentesBairros = 0;
     let totalObrasBairros = 0;
     let obrasVerdeBairros = 0;
     let obrasAmareloBairros = 0;
@@ -242,7 +323,10 @@ export function calculateTerritorialRollup(
 
     for (const bairro of bairrosFilhos) {
       valorTotalBairros += bairro.valorTotal ?? 0;
-      valorPagoBairros += bairro.valorPago ?? 0;
+      valorPagoDiretoBairros += bairro.valorPagoDireto ?? bairro.valorPago ?? 0;
+      valorLiquidadoFrentesBairros += bairro.valorLiquidadoFrentes ?? 0;
+      valorPagoFrentesBairros += bairro.valorPagoFrentes ?? 0;
+      totalFrentesBairros += bairro.totalFrentesMedicao ?? 0;
       totalObrasBairros += bairro.totalObras ?? 0;
       obrasVerdeBairros += bairro.obrasVerde ?? 0;
       obrasAmareloBairros += bairro.obrasAmarelo ?? 0;
@@ -250,9 +334,15 @@ export function calculateTerritorialRollup(
     }
 
     const regionalMetrics = aggregateObrasMetrics(obrasRegionais);
+    const { valorLiquidado: valorLiquidadoFrentesReg, valorPago: valorPagoFrentesReg } =
+      sumFrentesMetrics(frentesRegionais);
 
     const valorTotal = valorTotalBairros + regionalMetrics.valorTotal;
-    const valorPago = valorPagoBairros + regionalMetrics.valorPago;
+    const valorPagoDireto = valorPagoDiretoBairros + regionalMetrics.valorPago;
+    const valorLiquidadoFrentes = valorLiquidadoFrentesBairros + valorLiquidadoFrentesReg;
+    const valorPagoFrentes = valorPagoFrentesBairros + valorPagoFrentesReg;
+    const valorPago = valorPagoDireto + valorPagoFrentes;
+    const totalFrentesMedicao = totalFrentesBairros + frentesRegionais.length;
     const totalObras = totalObrasBairros + obrasRegionais.length;
     const populacaoTotal = prefeitura.populacao_total || 0;
 
@@ -308,6 +398,10 @@ export function calculateTerritorialRollup(
       pct_analfabetismo_15mais: pctAnalf,
       valorTotal: Math.round((valorTotal + Number.EPSILON) * 100) / 100,
       valorPago: Math.round((valorPago + Number.EPSILON) * 100) / 100,
+      valorPagoDireto: Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100,
+      valorLiquidadoFrentes: Math.round((valorLiquidadoFrentes + Number.EPSILON) * 100) / 100,
+      valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
+      totalFrentesMedicao,
       totalObras,
       obrasVerde: obrasVerdeBairros + regionalMetrics.obrasVerde,
       obrasAmarelo: obrasAmareloBairros + regionalMetrics.obrasAmarelo,

@@ -64,5 +64,29 @@
   "latitude": -12.945674,
   "longitude": -38.44836,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2020CT005339"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Beiru/Tancredo Neves",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Beiru/Tancredo Neves via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

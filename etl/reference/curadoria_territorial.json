@@ -38,13 +38,51 @@
     "530002:2024CT006332": {
       "cdUnidadeGestora": "530002",
       "nuContratoSigef": "2024CT006332",
-      "status": "ambiguo",
+      "status": "multi_frente",
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
       "trechoComprobatorio": "Manutenção predial dos Ascensores (...) Manutenção Terminal Maritimo Plataforma",
       "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2024)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição distintas (Ascensores e Terminal Marítimo de Plataforma); mantido em Escopo Cidade para evitar alocação única arbitrária."
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição; notas do Terminal Marítimo de Plataforma são alocadas ao Bairro Oficial Plataforma e notas genéricas de Ascensores/Planos permanecem em Escopo Cidade.",
+      "frentesMedicao": {
+        "2025NL004858": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004858)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        },
+        "2025NL004865": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004865)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        },
+        "2025NL005707": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "139160/2025; Manutenção Terminal Maritimo Plataforma, período 01 a 15/06/2025",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL005707)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        },
+        "2025NL006602": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "163836/2025; Manutenção Terminal Maritimo Plataforma; 07/2025; 008/2024; nf 1584",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL006602)",
+          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
+        }
+      }
     },
     "616002:2024CT006616": {
       "cdUnidadeGestora": "616002",
@@ -93,24 +131,73 @@
     "616002:2024CT007170": {
       "cdUnidadeGestora": "616002",
       "nuContratoSigef": "2024CT007170",
-      "status": "ambiguo",
+      "status": "multi_frente",
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
       "trechoComprobatorio": "LOTE 01 (...) REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO",
       "documentoOrigem": "descObsLiquidacao (Contrato 006/2024)",
-      "justificativa": "O LOTE 01 de Manutenção de Quadras e Campos executou frentes na Boca do Rio (Barra/Pituba), demonstrando que a numeração de lote da licitação não corresponde às Prefeituras-Bairro."
+      "justificativa": "O LOTE 01 de Manutenção de Quadras e Campos possui notas comprovadas na Boca do Rio; demais notas genéricas do lote permanecem em Escopo Cidade.",
+      "frentesMedicao": {
+        "2025NL018688": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018688)",
+          "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+        },
+        "2025NL018689": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018689)",
+          "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+        },
+        "2025NL018690": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018690)",
+          "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
+        }
+      }
     },
     "616002:2024CT007171": {
       "cdUnidadeGestora": "616002",
       "nuContratoSigef": "2024CT007171",
-      "status": "ambiguo",
+      "status": "multi_frente",
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
       "trechoComprobatorio": "SERVIÇOS DE MANUTENÇÃO DE QUADRAS E CAMPOS , LOTE 02 PREFS. BS. II, V E VII",
       "documentoOrigem": "descObsLiquidacao (Contrato 007/2024)",
-      "justificativa": "O LOTE 02 de Manutenção de Quadras e Campos abrange múltiplas Prefeituras-Bairro (II, V e VII)."
+      "justificativa": "O LOTE 02 abrange múltiplas Prefeituras-Bairro (II, V e VII), mas duas notas comprovam execução exclusiva na Prefeitura-Bairro II - Subúrbio/Ilhas.",
+      "frentesMedicao": {
+        "2024NL015121": {
+          "status": "promovido",
+          "nivel": "Regional (Prefeitura-Bairro)",
+          "bairro": null,
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE MANUTENÇÃO DE QUADRAS E CAMPOS, LOTE 02 PREF. BAIRRO: II - SUBURBIO/",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL015121)",
+          "justificativa": "Nota de liquidação especifica execução exclusiva na Prefeitura-Bairro II (Subúrbio/Ilhas)."
+        },
+        "2024NL015124": {
+          "status": "promovido",
+          "nivel": "Regional (Prefeitura-Bairro)",
+          "bairro": null,
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE MANUTENÇÃO DE QUADRAS E CAMPOS, LOTE 02 PREF. BAIRRO: II - SUBURBIO/",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL015124)",
+          "justificativa": "Nota de liquidação especifica execução exclusiva na Prefeitura-Bairro II (Subúrbio/Ilhas)."
+        }
+      }
     },
     "616002:2024CT009097": {
       "cdUnidadeGestora": "616002",
@@ -265,6 +352,131 @@
       "trechoComprobatorio": "ESCOLA MUNICIPAL IVONE VIEIRA LIMA -LOTE 02",
       "documentoOrigem": "dsObjeto (Contrato)",
       "justificativa": "LOTE 02 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Subúrbio/Ilhas."
+    },
+    "616002:2023CT000499": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT000499",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Serviços de Requalificação de Vias Urbanas em diversos logradouros da Cidade Lote 01",
+      "documentoOrigem": "descObsLiquidacao (Contrato 040/2022)",
+      "justificativa": "Contrato guarda-chuva multi-bairro; notas P004 comprovam pavimentação no Jardim das Margaridas, enquanto notas com múltiplos trechos ou sem logradouro permanecem em Escopo Cidade.",
+      "frentesMedicao": {
+        "2023NL009961": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Jardim das Margaridas",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009961)",
+          "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+        },
+        "2023NL009962": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Jardim das Margaridas",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009962)",
+          "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+        },
+        "2023NL009963": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Jardim das Margaridas",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009963)",
+          "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+        }
+      }
+    },
+    "616002:2023CT008627": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT008627",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Execução dos serviços de Infraestrutura, Estabilização e Contenção de Encostas, em diversos logradouros da Cidade.",
+      "documentoOrigem": "descObsLiquidacao (Contrato 038/2023)",
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de encostas e drenagem; notas com bairro único comprovado são desdobradas e notas multi-trecho permanecem em Escopo Cidade.",
+      "frentesMedicao": {
+        "2023NL016696": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pau da Lima",
+          "prefeituraBairro": "Pau da Lima",
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE CONTENÇÃO DE ENCOSTA NA LIGAÇÃO GAL COSTA X PAU DA LIMA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL016696)",
+          "justificativa": "Nota comprova contenção de encosta na ligação Gal Costa x Pau da Lima."
+        },
+        "2023NL018305": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "trechoComprobatorio": "SERVS. DE CONTENÇÃO DE ENCOSTA NA RUA DIRETA EDÉN DO VALE- MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL018305)",
+          "justificativa": "Nota comprova contenção de encosta na Rua Direta Éden do Vale, Bairro Oficial Mata Escura."
+        },
+        "2024NL001678": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "trechoComprobatorio": "EXEC. DE SERVS. DE CONTENÇÃO, ENCOSTA NA RUA DIRETA DO EDEN-MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001678)",
+          "justificativa": "Nota comprova contenção de encosta na Rua Direta do Éden, Bairro Oficial Mata Escura."
+        },
+        "2024NL001679": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "trechoComprobatorio": "EXEC. DE SERVS. DE CONTENÇÃO, ENCOSTA NA RUA DIRETA DO EDEN-MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001679)",
+          "justificativa": "Nota comprova contenção de encosta na Rua Direta do Éden, Bairro Oficial Mata Escura."
+        },
+        "2024NL001844": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Valéria",
+          "prefeituraBairro": "Valéria",
+          "trechoComprobatorio": "SERVS. DE CONTENÇÃO DE ENCOSTA NA RUA P - JARDIM TERRA NOVA VALERIA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001844)",
+          "justificativa": "Nota comprova contenção de encosta em Jardim Terra Nova, Bairro Oficial Valéria."
+        },
+        "2024NL003111": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003111)",
+          "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
+        },
+        "2024NL003112": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003112)",
+          "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
+        },
+        "2024NL004470": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Alto do Cabrito",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "trechoComprobatorio": "SERVIÇOS DE MACRODRENAGEM, M006- SERV. DE DRENAG. NA RUA 9 DE DEZEMBRO - ALTO DO CABRITO",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL004470)",
+          "justificativa": "Nota comprova macrodrenagem na Rua 9 de Dezembro, Bairro Oficial Alto do Cabrito."
+        }
+      }
     }
   }
 }

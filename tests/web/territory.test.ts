@@ -374,5 +374,76 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
     expect(selPb.pct_agua_inadequada).toBe(10.2);
     expect(selPb.pct_analfabetismo_15mais).toBe(8.4);
   });
+
+  it("aloca Frentes de Medição apenas em valorLiquidado/valorPago sem inflar valorTotal nem totalObras", () => {
+    const obrasComFrentes: ObraCompacta[] = [
+      {
+        id: 2001,
+        unidadeGestora: "SEINFRA",
+        numeroContrato: "010/2024",
+        objeto: "Obra direta na Pituba",
+        valorContratualVigente: 1000000,
+        valorPago: 400000,
+        percentualExecutado: 40,
+        situacao: "Em Execução",
+        credor: "CONSTRUTORA A",
+        nivel: "Bairro",
+        bairro: "Pituba",
+        prefeituraBairro: "Barra/Pituba",
+      },
+      {
+        id: 2002,
+        unidadeGestora: "SEINFRA",
+        numeroContrato: "020/2024",
+        objeto: "Contrato guarda-chuva multi-bairro",
+        valorContratualVigente: 5000000,
+        valorPago: 1000000,
+        percentualExecutado: 20,
+        situacao: "Em Execução",
+        credor: "CONSTRUTORA B",
+        nivel: "Escopo Cidade (Não-Localizado)",
+        bairro: null,
+        prefeituraBairro: null,
+        frentesMedicao: [
+          {
+            notaLiquidacao: "2024NL0001",
+            nivel: "Bairro",
+            bairro: "Pituba",
+            prefeituraBairro: "Barra/Pituba",
+            valorLiquidado: 300000,
+            valorPago: 250000,
+          },
+          {
+            notaLiquidacao: "2024NL0002",
+            nivel: "Bairro",
+            bairro: "Aeroporto",
+            prefeituraBairro: "Itapuã/Ipitanga",
+            valorLiquidado: 150000,
+            valorPago: 120000,
+          },
+        ],
+      },
+    ];
+
+    const { bairros } = calculateTerritorialRollup(bairrosBase, prefeiturasBase, obrasComFrentes);
+    const pituba = bairros.find((b) => b.nome === "Pituba");
+    const aeroporto = bairros.find((b) => b.nome === "Aeroporto");
+
+    expect(pituba?.valorTotal).toBe(1000000);
+    expect(pituba?.totalObras).toBe(1);
+    expect(pituba?.valorPagoDireto).toBe(400000);
+    expect(pituba?.valorPagoFrentes).toBe(250000);
+    expect(pituba?.valorLiquidadoFrentes).toBe(300000);
+    expect(pituba?.valorPago).toBe(650000);
+    expect(pituba?.totalFrentesMedicao).toBe(1);
+    expect(pituba?.investimentoPorHabitante).toBe(15.38); // 1M / 65k
+    expect(pituba?.investimentoPorHabitantePago).toBe(10); // 650k / 65k
+
+    // Zona Especial Não-Residencial recebe montante mas mantém per capita zerado
+    expect(aeroporto?.valorPago).toBe(120000);
+    expect(aeroporto?.totalFrentesMedicao).toBe(1);
+    expect(aeroporto?.investimentoPorHabitante).toBe(0);
+    expect(aeroporto?.investimentoPorHabitantePago).toBe(0);
+  });
 });
 

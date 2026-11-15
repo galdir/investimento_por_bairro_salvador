@@ -65,5 +65,29 @@
   "latitude": -12.933346,
   "longitude": -38.445351,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2020CT004977"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Sussuarana",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Sussuarana via Cache"
+    }
+  },
   "cdUnidadeGestora": "301110"
 }

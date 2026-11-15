@@ -67,5 +67,29 @@
   "latitude": -12.88046,
   "longitude": -38.4766,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT006474"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Alto da Terezinha",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Alto da Terezinha via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

@@ -8,6 +8,7 @@ from etl.domain.geocoding import (
     GeocodingCache,
     calcular_centroides_bairros,
     classificar_alocacao_territorial,
+    resolver_frentes_medicao,
 )
 from tests.etl.fixtures.sample_data import (
     SAMPLE_GEOSALVADOR_BAIRROS,
@@ -467,4 +468,81 @@ def test_curadoria_preserva_contrato_ambiguo_em_escopo_cidade(sample_centroides,
     assert resultado["bairro"] is None
     assert resultado["prefeitura_bairro"] is None
     assert resultado["lastro_curadoria"]["trechoComprobatorio"] == "LOTE 02 PREFS. BS. II, V E VII"
+
+
+def test_resolver_frentes_medicao_separa_notas_promovidas_e_ambiguas() -> None:
+    """Verifica que resolver_frentes_medicao extrai apenas notas promovidas e vincula pagamentos pela notaLiquidacao."""
+    obra = {
+        "id": 9003,
+        "cdUnidadeGestora": "530002",
+        "nuContratoSigef": "2024CT006332",
+        "dsObjeto": "Manutenção predial de equipamentos de mobilidade urbana",
+    }
+    liquidacoes = [
+        {
+            "notaLiquidacao": "2025NL004858",
+            "valLiqLiquidacao": "42.243,32",
+            "pago": "0,00",
+            "dataLiquidacao": "15/05/2025",
+            "descObsLiquidacao": "Manutenção Terminal Maritimo Plataforma",
+        },
+        {
+            "notaLiquidacao": "2025NL002039",
+            "valLiqLiquidacao": "139.209,74",
+            "pago": "0,00",
+            "dataLiquidacao": "10/02/2025",
+            "descObsLiquidacao": "Manutenção predial dos Ascensores",
+        },
+    ]
+    pagamentos = [
+        {"notaLiquidacao": "2025NL004858", "pago": "40.000,00"},
+        {"notaLiquidacao": "2025NL002039", "pago": "132.343,21"},
+        {"notaLiquidacao": " ", "pago": "4.904,66"},
+    ]
+    curadoria = {
+        "530002:2024CT006332": {
+            "cdUnidadeGestora": "530002",
+            "nuContratoSigef": "2024CT006332",
+            "status": "multi_frente",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "frentesMedicao": {
+                "2025NL004858": {
+                    "status": "promovido",
+                    "nivel": "Bairro",
+                    "bairro": "Pituba",
+                    "prefeituraBairro": "Barra/Pituba",
+                    "trechoComprobatorio": "Manutenção Terminal Maritimo Plataforma",
+                    "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004858)",
+                    "justificativa": "Localização única comprovada.",
+                },
+                "2025NL002039": {
+                    "status": "ambiguo",
+                    "nivel": "Escopo Cidade (Não-Localizado)",
+                    "bairro": None,
+                    "prefeituraBairro": None,
+                    "trechoComprobatorio": "Manutenção predial dos Ascensores",
+                    "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL002039)",
+                    "justificativa": "Sem bairro definido.",
+                },
+            },
+        }
+    }
+
+    frentes = resolver_frentes_medicao(
+        obra=obra,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        liquidacoes=liquidacoes,
+        pagamentos=pagamentos,
+        curadoria=curadoria,
+    )
+
+    assert len(frentes) == 1
+    assert frentes[0]["notaLiquidacao"] == "2025NL004858"
+    assert frentes[0]["nivel"] == "Bairro"
+    assert frentes[0]["bairro"] == "Pituba"
+    assert frentes[0]["prefeituraBairro"] == "Barra/Pituba"
+    assert frentes[0]["valorLiquidado"] == 42243.32
+    assert frentes[0]["valorPago"] == 40000.0
+    assert frentes[0]["trechoComprobatorio"] == "Manutenção Terminal Maritimo Plataforma"
+
 

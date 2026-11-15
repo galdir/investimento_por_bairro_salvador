@@ -113,5 +113,29 @@
   "latitude": -12.9473,
   "longitude": -38.403517,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT002733"
+    },
+    "nuProcesso": "191105/2023",
+    "domContrato": {
+      "nuDom": "8737",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Patamares",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Patamares via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

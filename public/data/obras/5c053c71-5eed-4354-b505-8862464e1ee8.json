@@ -278,5 +278,29 @@
   "latitude": -12.761133,
   "longitude": -38.640728,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT003144"
+    },
+    "nuProcesso": "3200322025",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Ilha de Bom Jesus dos Passos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Ilha de Bom Jesus dos Passos via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

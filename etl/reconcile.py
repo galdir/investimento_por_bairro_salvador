@@ -21,6 +21,7 @@ from etl.domain.ficha_limpa import (
     mesclar_fichas_obra,
     sincronizar_obra_com_ficha,
 )
+from etl.domain.geocoding import resolver_frentes_medicao
 from etl.domain.kpis import calcular_kpis_globais
 from etl.domain.mandato import cds_ug_compativeis, obter_chaves_candidatas_obra
 from etl.domain.territorio import calcular_rollup_territorial
@@ -318,6 +319,15 @@ def reconciliar_acervo_local(output_dir: Path, year: int = 2025) -> dict[str, An
     obras_dir.mkdir(parents=True, exist_ok=True)
     fichas_por_chave, fichas_por_id = indexar_fichas_locais(obras_dir)
 
+    bairros_geo_path = output_path / "geo" / "bairros.geojson"
+    raw_bairros_geo: dict[str, Any] | None = None
+    if bairros_geo_path.exists():
+        with open(bairros_geo_path, "r", encoding="utf-8") as f:
+            raw_bairros_geo = json.load(f)
+    bairros_geo_para_frentes = raw_bairros_geo or {
+        "features": [{"properties": b} for b in bairros_base]
+    }
+
     fichas_consolidadas: dict[str, dict[str, Any]] = {}
     obras_mescladas = 0
 
@@ -329,6 +339,16 @@ def reconciliar_acervo_local(output_dir: Path, year: int = 2025) -> dict[str, An
         if len(candidatas) > 1:
             obras_mescladas += 1
         ficha = mesclar_fichas_obra(obra, candidatas)
+        frentes = resolver_frentes_medicao(
+            obra=obra,
+            bairros_geojson=bairros_geo_para_frentes,
+            liquidacoes=ficha.get("liquidacoes"),
+            pagamentos=ficha.get("pagamentos"),
+        )
+        if frentes:
+            ficha["frentesMedicao"] = frentes
+        else:
+            ficha.pop("frentesMedicao", None)
         sincronizar_obra_com_ficha(obra, ficha)
         fichas_consolidadas[str(obra_id)] = ficha
 
@@ -345,10 +365,7 @@ def reconciliar_acervo_local(output_dir: Path, year: int = 2025) -> dict[str, An
         obras_alocadas=obras_catalogo,
     )
 
-    bairros_geo_path = output_path / "geo" / "bairros.geojson"
-    if bairros_geo_path.exists():
-        with open(bairros_geo_path, "r", encoding="utf-8") as f:
-            raw_bairros_geo = json.load(f)
+    if raw_bairros_geo is not None:
         generate_bairros_geojson(raw_bairros_geo, bairros_rollup, bairros_geo_path)
 
     pb_geo_path = output_path / "geo" / "prefeituras_bairro.geojson"

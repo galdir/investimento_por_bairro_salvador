@@ -217,5 +217,29 @@
   "latitude": -12.935759,
   "longitude": -38.504476,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT004955"
+    },
+    "nuProcesso": "1053332026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Roma",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Roma via Cache"
+    }
+  },
   "cdUnidadeGestora": "616002"
 }

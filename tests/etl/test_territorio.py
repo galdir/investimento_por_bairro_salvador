@@ -396,3 +396,131 @@ def test_rollup_territorial_consolida_subindicadores_prefeituras_bairro() -> Non
     assert pb["pct_agua_inadequada"] == 0.7
     # Analfabetismo: (60k*1.0 + 40k*1.5)/100k = 1.2
     assert pb["pct_analfabetismo_15mais"] == 1.2
+
+
+def test_rollup_frentes_de_medicao_conservadorismo_contabil() -> None:
+    """Valida que Frentes de Medição somam apenas em valorLiquidado/valorPago sem inflar valorTotal ou totalObras."""
+    bairros = [
+        {
+            "id": 101,
+            "nome": "Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "populacao": 50000,
+            "indice_vulnerabilidade": 0.10,
+            "is_zona_especial_nao_residencial": False,
+        },
+        {
+            "id": 102,
+            "nome": "Aeroporto",
+            "prefeitura_bairro": "Itapuã/Ipitanga",
+            "populacao": 0,
+            "indice_vulnerabilidade": 0.0,
+            "is_zona_especial_nao_residencial": True,
+        },
+        {
+            "id": 103,
+            "nome": "Plataforma",
+            "prefeitura_bairro": "Subúrbio/Ilhas",
+            "populacao": 20000,
+            "indice_vulnerabilidade": 0.60,
+            "is_zona_especial_nao_residencial": False,
+        },
+    ]
+    prefeituras = [
+        {"id": 1, "nome": "Barra/Pituba", "populacao_total": 50000},
+        {"id": 2, "nome": "Itapuã/Ipitanga", "populacao_total": 100000},
+        {"id": 3, "nome": "Subúrbio/Ilhas", "populacao_total": 20000},
+    ]
+    obras = [
+        {
+            "id": "direta-1",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "vlAtualizado": 500000.0,
+            "vlLiquidado": 300000.0,
+            "vlPago": 250000.0,
+            "semaforo": {"status": "VERDE"},
+        },
+        {
+            "id": "guarda-chuva-1",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeitura_bairro": None,
+            "vlAtualizado": 1000000.0,
+            "vlLiquidado": 600000.0,
+            "vlPago": 500000.0,
+            "semaforo": {"status": "AMARELO"},
+            "frentesMedicao": [
+                {
+                    "notaLiquidacao": "2025NL0001",
+                    "nivel": "Bairro",
+                    "bairro": "Pituba",
+                    "prefeituraBairro": "Barra/Pituba",
+                    "valorLiquidado": 200000.0,
+                    "valorPago": 180000.0,
+                },
+                {
+                    "notaLiquidacao": "2025NL0002",
+                    "nivel": "Bairro",
+                    "bairro": "Aeroporto",
+                    "prefeituraBairro": "Itapuã/Ipitanga",
+                    "valorLiquidado": 100000.0,
+                    "valorPago": 90000.0,
+                },
+                {
+                    "notaLiquidacao": "2025NL0003",
+                    "nivel": "Regional (Prefeitura-Bairro)",
+                    "bairro": None,
+                    "prefeituraBairro": "Subúrbio/Ilhas",
+                    "valorLiquidado": 50000.0,
+                    "valorPago": 40000.0,
+                },
+            ],
+        },
+    ]
+
+    b_proc, pb_proc, opacidade = calcular_rollup_territorial(
+        bairros_resumo=bairros,
+        prefeituras_resumo=prefeituras,
+        obras_alocadas=obras,
+    )
+
+    pituba = next(b for b in b_proc if b["nome"] == "Pituba")
+    assert pituba["valorTotal"] == 500000.0
+    assert pituba["totalObras"] == 1
+    assert pituba["valorLiquidadoDireto"] == 300000.0
+    assert pituba["valorPagoDireto"] == 250000.0
+    assert pituba["valorLiquidadoFrentes"] == 200000.0
+    assert pituba["valorPagoFrentes"] == 180000.0
+    assert pituba["valorLiquidado"] == 500000.0
+    assert pituba["valorPago"] == 430000.0
+    assert pituba["totalFrentesMedicao"] == 1
+    assert pituba["investimentoPorHabitante"] == 10.0
+    assert pituba["investimentoPorHabitantePago"] == 8.6
+
+    aeroporto = next(b for b in b_proc if b["nome"] == "Aeroporto")
+    assert aeroporto["valorTotal"] == 0.0
+    assert aeroporto["totalObras"] == 0
+    assert aeroporto["valorLiquidado"] == 100000.0
+    assert aeroporto["valorPago"] == 90000.0
+    assert aeroporto["totalFrentesMedicao"] == 1
+    assert aeroporto["investimentoPorHabitante"] == 0.0
+    assert aeroporto["investimentoPorHabitantePago"] == 0.0
+
+    plataforma = next(b for b in b_proc if b["nome"] == "Plataforma")
+    assert plataforma["valorTotal"] == 0.0
+    assert plataforma["valorPago"] == 0.0
+    assert plataforma["totalFrentesMedicao"] == 0
+
+    pb_suburbio = next(p for p in pb_proc if p["nome"] == "Subúrbio/Ilhas")
+    assert pb_suburbio["valorTotal"] == 0.0
+    assert pb_suburbio["totalObras"] == 0
+    assert pb_suburbio["valorLiquidado"] == 50000.0
+    assert pb_suburbio["valorPago"] == 40000.0
+    assert pb_suburbio["valorPagoFrentes"] == 40000.0
+    assert pb_suburbio["totalFrentesMedicao"] == 1
+
+    assert opacidade["totalNaoLocalizado"] == 1
+    assert opacidade["valorNaoLocalizado"] == 1000000.0
+    assert opacidade["valorPagoNaoLocalizado"] == 190000.0

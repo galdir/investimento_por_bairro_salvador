@@ -74,5 +74,29 @@
   "latitude": -12.898982,
   "longitude": -38.387426,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2022CT001205"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Boca da Mata",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Boca da Mata via Cache"
+    }
+  },
   "cdUnidadeGestora": "301110"
 }

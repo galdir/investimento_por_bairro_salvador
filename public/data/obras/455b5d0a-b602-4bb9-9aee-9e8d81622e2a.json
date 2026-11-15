@@ -76,5 +76,29 @@
   "latitude": -13.002886,
   "longitude": -38.515342,
   "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2018CT006727"
+    },
+    "nuProcesso": null,
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Calabar",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Calabar via Cache"
+    }
+  },
   "cdUnidadeGestora": "441010"
 }
