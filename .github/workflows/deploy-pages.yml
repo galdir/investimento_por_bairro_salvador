@@ -1,11 +1,21 @@
-name: Publicar Painel no GitHub Pages
+name: CI e Publicação no GitHub Pages (Publicação Pausada)
 
 on:
   push:
     branches:
       - main
       - master
+  pull_request:
+    branches:
+      - main
+      - master
   workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publicar no GitHub Pages (requer Pages habilitado nas configurações do repositório)"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -53,10 +63,13 @@ jobs:
       - name: Compilar build estático do Painel Web para o GitHub Pages
         run: npm run build
 
+      # Publicação no GitHub Pages pausada provisoriamente; só executa via workflow_dispatch com publish=true.
       - name: Configurar GitHub Pages
+        if: github.event_name == 'workflow_dispatch' && inputs.publish
         uses: actions/configure-pages@v5
 
       - name: Empacotar artefato estático (dist/)
+        if: github.event_name == 'workflow_dispatch' && inputs.publish
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -64,6 +77,7 @@ jobs:
   deploy:
     name: Publicar no GitHub Pages
     needs: test-and-build
+    if: github.event_name == 'workflow_dispatch' && inputs.publish
     runs-on: ubuntu-latest
     environment:
       name: github-pages
