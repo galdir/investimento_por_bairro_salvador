@@ -204,6 +204,9 @@ export interface FontesOficiaisInfo {
     bairro: string | null;
     prefeituraBairro: string | null;
     origem: string;
+    trechoComprobatorio?: string | null;
+    documentoOrigem?: string | null;
+    justificativa?: string | null;
   };
 }
 

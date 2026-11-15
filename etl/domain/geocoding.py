@@ -453,9 +453,10 @@ def _buscar_lote_regional_no_objeto(
     Erros:
         Não lança exceções.
     """
+    objeto_lote_norm = re.sub(r"\bLOTE\s*0+([1-9]\d*)\b", r"LOTE \1", objeto_norm)
     for chave, pb_nome in dicionario_lotes.items():
         chave_norm = normalizar_nome(chave)
-        if chave_norm and re.search(rf"\b{re.escape(chave_norm)}\b", objeto_norm):
+        if chave_norm and re.search(rf"\b{re.escape(chave_norm)}\b", objeto_lote_norm):
             return pb_nome
     return None
 
@@ -634,12 +635,102 @@ def _extrator_llm_opcional(ds_objeto: str) -> Optional[dict[str, Optional[str]]]
     return None
 
 
+def _carregar_curadoria_territorial() -> dict[str, dict[str, Any]]:
+    """Carrega o catálogo versionado de Curadoria Territorial Auditável."""
+    dados = _carregar_json_referencia("curadoria_territorial.json")
+    if not isinstance(dados, dict):
+        return {}
+    registros = dados.get("registros")
+    if isinstance(registros, dict):
+        return registros
+    return dados
+
+
+def _aplicar_curadoria_territorial(
+    cd_ug: Any,
+    nu_contrato: Any,
+    curadoria: dict[str, dict[str, Any]],
+    bairros_nomes: list[str],
+    sublocalidades_norm: dict[str, str],
+    bairros_centroides: dict[str, tuple[float, float]],
+    bairros_centroides_norm: dict[str, tuple[float, float]],
+    bairro_para_pb: dict[str, str],
+    bairro_para_pb_norm: dict[str, str],
+) -> Optional[dict[str, Any]]:
+    """Aplica o julgamento semântico explícito do catálogo de Curadoria Territorial Auditável."""
+    chave = f"{str(cd_ug).strip()}:{str(nu_contrato).strip()}"
+    entrada = curadoria.get(chave)
+    if not isinstance(entrada, dict):
+        return None
+
+    status = str(entrada.get("status") or "").strip().lower()
+    lastro = {
+        "trechoComprobatorio": entrada.get("trechoComprobatorio"),
+        "documentoOrigem": entrada.get("documentoOrigem"),
+        "justificativa": entrada.get("justificativa"),
+    }
+
+    if status in ("ambiguo", "nao_localizado"):
+        return {
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeitura_bairro": None,
+            "latitude": None,
+            "longitude": None,
+            "estagio": "Curadoria Territorial Auditável (Ambíguo)",
+            "lastro_curadoria": lastro,
+        }
+
+    if status != "promovido":
+        return None
+
+    nivel = str(entrada.get("nivel") or "").strip()
+    if nivel == "Bairro":
+        bairro_raw = str(entrada.get("bairro") or "").strip()
+        bairro_canonico = reconciliar_bairro_canonico(bairro_raw, bairros_nomes, sublocalidades_norm) or bairro_raw
+        centroide = (
+            bairros_centroides.get(bairro_canonico)
+            or bairros_centroides_norm.get(normalizar_nome(bairro_canonico))
+        )
+        pb_raw = (
+            entrada.get("prefeituraBairro")
+            or bairro_para_pb.get(bairro_canonico)
+            or bairro_para_pb_norm.get(normalizar_nome(bairro_canonico))
+        )
+        pb_final = normalizar_nome_prefeitura_bairro(str(pb_raw)) if pb_raw else None
+        return {
+            "nivel": "Bairro",
+            "bairro": bairro_canonico or None,
+            "prefeitura_bairro": pb_final,
+            "latitude": centroide[0] if centroide else None,
+            "longitude": centroide[1] if centroide else None,
+            "estagio": "Curadoria Territorial Auditável",
+            "lastro_curadoria": lastro,
+        }
+
+    if nivel == "Regional (Prefeitura-Bairro)":
+        pb_raw = str(entrada.get("prefeituraBairro") or "").strip()
+        pb_final = normalizar_nome_prefeitura_bairro(pb_raw) if pb_raw else None
+        return {
+            "nivel": "Regional (Prefeitura-Bairro)",
+            "bairro": None,
+            "prefeitura_bairro": pb_final,
+            "latitude": None,
+            "longitude": None,
+            "estagio": "Curadoria Territorial Auditável",
+            "lastro_curadoria": lastro,
+        }
+
+    return None
+
+
 def classificar_alocacao_territorial(
     obra: dict[str, Any],
     bairros_geojson: dict[str, Any],
     bairros_centroides: dict[str, tuple[float, float]],
     cache: Optional[GeocodingCache] = None,
     habilitar_rede: bool = False,
+    curadoria: Optional[dict[str, dict[str, Any]]] = None,
 ) -> dict[str, Any]:
     """Classifica a Obra Pública no Funil de Alocação Territorial em 3 estágios com cache incremental.
 
@@ -708,6 +799,25 @@ def classificar_alocacao_territorial(
     bairros_nomes = list(bairro_para_pb.keys())
     bairro_para_pb_norm = {normalizar_nome(k): v for k, v in bairro_para_pb.items()}
     bairros_centroides_norm = {normalizar_nome(k): v for k, v in bairros_centroides.items()}
+
+    # 1b. Curadoria Territorial Auditável (precedência determinística offline)
+    catalogo_curadoria = curadoria if curadoria is not None else _carregar_curadoria_territorial()
+    if catalogo_curadoria:
+        resultado_curado = _aplicar_curadoria_territorial(
+            cd_ug=cd_ug,
+            nu_contrato=nu_contrato,
+            curadoria=catalogo_curadoria,
+            bairros_nomes=bairros_nomes,
+            sublocalidades_norm=sublocalidades_norm,
+            bairros_centroides=bairros_centroides,
+            bairros_centroides_norm=bairros_centroides_norm,
+            bairro_para_pb=bairro_para_pb,
+            bairro_para_pb_norm=bairro_para_pb_norm,
+        )
+        if resultado_curado is not None:
+            if cache is not None:
+                cache.set(cd_ug, nu_contrato, ds_objeto, resultado_curado)
+            return resultado_curado
 
     # 2. Verificação no Cache Incremental com Reconciliação e Hidratação de Bairro
     if cache is not None:

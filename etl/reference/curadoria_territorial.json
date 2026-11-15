@@ -1,0 +1,270 @@
+{
+  "versao": 1,
+  "descricao": "Catálogo versionado de Curadoria Territorial Auditável (ADR 0004): julgamento semântico explícito de contratos em Escopo Cidade (Não-Localizado), com trecho comprobatório e documento de origem.",
+  "registros": {
+    "301110:2025CT005813": {
+      "cdUnidadeGestora": "301110",
+      "nuContratoSigef": "2025CT005813",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "trechoComprobatorio": "REFORMA DA USF FAZENDA COUTOS.II.",
+      "documentoOrigem": "dsObjetoAditivo (2º Termo Aditivo ao Contrato nº 387/2025)",
+      "justificativa": "O aditivo contratual identifica univocamente a reforma da USF Fazenda Coutos II no Bairro Oficial Fazenda Coutos."
+    },
+    "616002:2025CT005497": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2025CT005497",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "URBANIZAÇÃO PROMENADE CONTORNO, AV. LAFAYETE COUTINHO - CENTRO, SALVADOR-BA, CONT. 033/2025",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 033/2025)",
+      "justificativa": "As notas de liquidação confirmam a execução integral da 1ª etapa da Urbanização Promenade Contorno no Bairro Oficial Centro."
+    },
+    "616002:2024CT004935": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT004935",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Barra/Pituba",
+      "trechoComprobatorio": "SERVIÇOS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA, BOCA DO RIO SSA/BA, - NFSE 0001",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação do Contrato 005/2024)",
+      "justificativa": "As notas de liquidação do Complexo Multiuso Arena Salvador explicitam a localização única no Bairro Oficial Boca do Rio."
+    },
+    "530002:2024CT006332": {
+      "cdUnidadeGestora": "530002",
+      "nuContratoSigef": "2024CT006332",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Manutenção predial dos Ascensores (...) Manutenção Terminal Maritimo Plataforma",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2024)",
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição distintas (Ascensores e Terminal Marítimo de Plataforma); mantido em Escopo Cidade para evitar alocação única arbitrária."
+    },
+    "616002:2024CT006616": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT006616",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Requalificação Urbana do Canteiro Central da Avenida Mário Leal Ferreira - Salvador/BA",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 012/2024)",
+      "justificativa": "A Avenida Mário Leal Ferreira (Bonocô) atravessa múltiplos bairros; a menção 'BARRA S' no aditivo refere-se à razão social da contratada, não ao bairro Barra."
+    },
+    "520002:2021CT004128": {
+      "cdUnidadeGestora": "520002",
+      "nuContratoSigef": "2021CT004128",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "LOTE 03- Prefeituras Bairros: III, V e VI",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Apesar de citar LOTE 03, o objeto explicita abrangência em três Prefeituras-Bairro (III, V e VI)."
+    },
+    "616002:2019CT004977": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2019CT004977",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "SERVIÇOS DE REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 03 PREF BAIRROS I, VI E VII",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), impedindo alocação regional única."
+    },
+    "616002:2022CT006729": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT006729",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "EXEC. DE SERVS. DE REQUALIF. DE VIAS URNANAS - PREFS. BAIROS; I, VI E VII, LOTE 03",
+      "documentoOrigem": "descObsLiquidacao (Contrato 042/2022)",
+      "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), conforme comprovado nas notas de liquidação."
+    },
+    "616002:2024CT007170": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT007170",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "LOTE 01 (...) REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO",
+      "documentoOrigem": "descObsLiquidacao (Contrato 006/2024)",
+      "justificativa": "O LOTE 01 de Manutenção de Quadras e Campos executou frentes na Boca do Rio (Barra/Pituba), demonstrando que a numeração de lote da licitação não corresponde às Prefeituras-Bairro."
+    },
+    "616002:2024CT007171": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT007171",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "SERVIÇOS DE MANUTENÇÃO DE QUADRAS E CAMPOS , LOTE 02 PREFS. BS. II, V E VII",
+      "documentoOrigem": "descObsLiquidacao (Contrato 007/2024)",
+      "justificativa": "O LOTE 02 de Manutenção de Quadras e Campos abrange múltiplas Prefeituras-Bairro (II, V e VII)."
+    },
+    "616002:2024CT009097": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT009097",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Manutenção de Quadras e Campos no Município de Salvador/BA, LOTE 04",
+      "documentoOrigem": "dsObjeto (Contrato 009/2024)",
+      "justificativa": "A divisão em 4 lotes de Manutenção de Quadras e Campos agrupa múltiplas Prefeituras-Bairro por lote, sem correspondência 1:1 com a PB IV."
+    },
+    "610002:2026CT002746": {
+      "cdUnidadeGestora": "610002",
+      "nuContratoSigef": "2026CT002746",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Manutenção de Quadras e Campos no Município de Salvador/BA, subdivididos em 04 (quatro) Lotes (...) LOTE03",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao",
+      "justificativa": "A divisão em 4 lotes agrupa múltiplas Prefeituras-Bairro, não correspondendo à PB III."
+    },
+    "567002:2023CT002375": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2023CT002375",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 3",
+      "documentoOrigem": "dsObjeto (Contrato 029/2023)",
+      "justificativa": "LOTE 3 refere-se a lote licitatório de passarelas do BRT ao longo das avenidas Vasco da Gama e Juracy Magalhães, não à Prefeitura-Bairro Cajazeiras."
+    },
+    "567002:2023CT002263": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2023CT002263",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 2",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
+    },
+    "567002:2023CT002371": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2023CT002371",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 2",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
+    },
+    "567002:2023CT002377": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2023CT002377",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 4",
+      "documentoOrigem": "dsObjeto (Contrato 030/2023)",
+      "justificativa": "LOTE 4 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Barra/Pituba."
+    },
+    "441010:2022CT000786": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2022CT000786",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12(DOZE0 UNIDADES ESCOLARES DA SMED: LOTE 09 - ESCOLA MUNICIPAL CLÉRISTON ANDRADE",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 09 identifica o lote da unidade escolar na licitação de 12 escolas da SMED, não a Prefeitura-Bairro Cidade Baixa."
+    },
+    "441010:2021CT005053": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2021CT005053",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "construção e reconstrução da EM PROFESSOR MILTON SANTOS - LOTE 06",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 06 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cabula/Tancredo Neves."
+    },
+    "441010:2021CT005052": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2021CT005052",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "construção e reconstrução da EM ELYSIO ATHAYDE- LOTE 05",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 05 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Liberdade/São Caetano."
+    },
+    "441010:2021CT005058": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2021CT005058",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "construção e reconstrução da EM SOL NASCENTE- LOTE 08",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 08 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Itapuã/Ipitanga."
+    },
+    "441010:2022CT000960": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2022CT000960",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DA ESCOMA MUNICIPAL CARMELITANA DO MENINO JESUS - LOTE 01",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 01 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Centro/Brotas."
+    },
+    "441010:2022CT003659": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2022CT003659",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12 UNIDADES ESCOLARES DA SMED - LOTE 07 - EM PROFESSORA ANITA BARBUDA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 07 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Pau da Lima."
+    },
+    "441010:2024CT003886": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2024CT003886",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "CONSTRUÇÃO DA ESCOLA MUNICIAL DO CEASA (LOTE 03)",
+      "documentoOrigem": "dsObjeto (Contrato 283/2024)",
+      "justificativa": "LOTE 03 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cajazeiras."
+    },
+    "441010:2020CT006678": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2020CT006678",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "ESCOLA MUNICIPAL IVONE VIEIRA LIMA -LOTE 02",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 02 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Subúrbio/Ilhas."
+    }
+  }
+}

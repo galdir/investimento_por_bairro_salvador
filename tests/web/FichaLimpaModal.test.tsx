@@ -202,4 +202,40 @@ describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () 
       "Contrato sem localização territorial específica (Cache)"
     );
   });
+
+  it("exibe justificativa, trecho comprobatório e documento de origem quando promovida por Curadoria Territorial Auditável", () => {
+    const obraCurada: FichaLimpaObra = {
+      ...OBRA_COMPLETA,
+      id: 9100,
+      nivel: "Bairro",
+      bairro: "Fazenda Coutos",
+      prefeituraBairro: "Subúrbio/Ilhas",
+      estagioAlocacao: "Curadoria Territorial Auditável",
+      fontesOficiais: {
+        ...OBRA_COMPLETA.fontesOficiais!,
+        lastroTerritorial: {
+          nivel: "Bairro",
+          estagioAlocacao: "Curadoria Territorial Auditável",
+          bairro: "Fazenda Coutos",
+          prefeituraBairro: "Subúrbio/Ilhas",
+          origem: "Alocação em Fazenda Coutos via Curadoria Territorial Auditável",
+          documentoOrigem: "dsObjetoAditivo (Aditivo Contratual)",
+          trechoComprobatorio: "REFORMA DA USF FAZENDA COUTOS.II.",
+          justificativa: "Aditivo contratual identifica univocamente a USF Fazenda Coutos II.",
+        },
+      },
+    };
+
+    render(<FichaLimpaModal obra={obraCurada} onClose={vi.fn()} />);
+
+    expect(screen.getByTestId("fontes-lastro-documento")).toHaveTextContent(
+      "dsObjetoAditivo (Aditivo Contratual)"
+    );
+    expect(screen.getByTestId("fontes-lastro-trecho")).toHaveTextContent(
+      "REFORMA DA USF FAZENDA COUTOS.II."
+    );
+    expect(screen.getByTestId("fontes-lastro-justificativa")).toHaveTextContent(
+      "Aditivo contratual identifica univocamente a USF Fazenda Coutos II."
+    );
+  });
 });

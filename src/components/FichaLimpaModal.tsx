@@ -109,22 +109,20 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
               )}
               {obra?.semaforo && (
                 <span
-                  className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 ${
-                    obra.semaforo.status === "VERMELHO"
-                      ? "bg-rose-950/60 text-rose-300 border-rose-600/40"
-                      : obra.semaforo.status === "AMARELO"
+                  className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 ${obra.semaforo.status === "VERMELHO"
+                    ? "bg-rose-950/60 text-rose-300 border-rose-600/40"
+                    : obra.semaforo.status === "AMARELO"
                       ? "bg-amber-950/60 text-amber-300 border-amber-600/40"
                       : "bg-emerald-950/60 text-emerald-300 border-emerald-600/40"
-                  }`}
+                    }`}
                 >
                   <span
-                    className={`w-2 h-2 rounded-full ${
-                      obra.semaforo.status === "VERMELHO"
-                        ? "bg-rose-500 animate-pulse"
-                        : obra.semaforo.status === "AMARELO"
+                    className={`w-2 h-2 rounded-full ${obra.semaforo.status === "VERMELHO"
+                      ? "bg-rose-500 animate-pulse"
+                      : obra.semaforo.status === "AMARELO"
                         ? "bg-amber-400"
                         : "bg-emerald-400"
-                    }`}
+                      }`}
                   ></span>
                   {obra.semaforo.rotulo}
                 </span>
@@ -577,6 +575,9 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   (obra.estagioAlocacao
                     ? `Alocação territorial via ${obra.estagioAlocacao}`
                     : obra.nivel || "Origem territorial não informada");
+                const lastroDocOrigem = fontesOficiais?.lastroTerritorial.documentoOrigem || null;
+                const lastroTrecho = fontesOficiais?.lastroTerritorial.trechoComprobatorio || null;
+                const lastroJustificativa = fontesOficiais?.lastroTerritorial.justificativa || null;
 
                 const renderBotaoCopiar = (valor: string, campo: "contrato" | "processo", label: string, testId: string) => (
                   <button
@@ -688,13 +689,31 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                         </div>
                       </div>
 
-                      <div className="bg-white p-3 rounded-lg border border-slate-200">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                      <div className="bg-white p-3 rounded-lg border border-slate-200 space-y-1.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                           Lastro Territorial
                         </span>
                         <p data-testid="fontes-lastro-territorial" className="text-slate-700 font-medium">
                           {origemLastro}
                         </p>
+                        {lastroDocOrigem && (
+                          <p data-testid="fontes-lastro-documento" className="text-[11px] text-slate-600">
+                            <span className="font-semibold text-slate-700">Documento:</span> {lastroDocOrigem}
+                          </p>
+                        )}
+                        {lastroTrecho && (
+                          <blockquote
+                            data-testid="fontes-lastro-trecho"
+                            className="text-[11px] text-slate-700 bg-slate-50 border-l-2 border-indigo-400 pl-2 py-1 italic"
+                          >
+                            “{lastroTrecho}”
+                          </blockquote>
+                        )}
+                        {lastroJustificativa && (
+                          <p data-testid="fontes-lastro-justificativa" className="text-[11px] text-slate-500">
+                            {lastroJustificativa}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>

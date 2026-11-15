@@ -198,3 +198,66 @@ def test_pipeline_generates_fontes_oficiais_and_lastro_territorial(tmp_path: Pat
     assert fontes_1099["domAditivos"] == []
     assert fontes_1099["lastroTerritorial"]["nivel"] == "Escopo Cidade (Não-Localizado)"
     assert fontes_1099["lastroTerritorial"]["origem"]
+
+
+def test_pipeline_propagates_curadoria_lastro_to_ficha_limpa(tmp_path: Path) -> None:
+    """Valida que o lastro documental da Curadoria Territorial é gravado em `fontesOficiais.lastroTerritorial`."""
+    from etl.runner import run_pipeline
+
+    obra_curada = {
+        "id": 9100,
+        "cdUnidadeGestora": 301110,
+        "dsUnidadeGestora": "SECRETARIA MUNICIPAL DA SAUDE",
+        "sgOrgao": "SMS",
+        "nuContratoSigef": "2025CT005813",
+        "nuContratoOriginal": "387/2025",
+        "nuProcesso": "9999/2025",
+        "dsObjeto": "Lançamento do Contrato Nº 387/2025",
+        "vlOriginal": 500000.00,
+        "vlAtualizado": 500000.00,
+        "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+        "dtFimVigenciaOriginal": "2025-12-31T00:00:00.000Z",
+        "dtTerminoVigenciaAtualizado": "2025-12-31T00:00:00.000Z",
+        "dtAssinatura": "2025-01-05T00:00:00.000Z",
+        "percentualExecutado": 25.0,
+        "dsSituacao": "Em Execução",
+        "nmCredor": "CONSTRUTORA TESTE LTDA",
+        "nuDocumentoCredor": "15.198.195/0001-01",
+        "nuDom": None,
+    }
+
+    curadoria_mock = {
+        "301110:2025CT005813": {
+            "cdUnidadeGestora": "301110",
+            "nuContratoSigef": "2025CT005813",
+            "status": "promovido",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "trechoComprobatorio": "REFORMA DA USF PITUBA II.",
+            "documentoOrigem": "dsObjetoAditivo (Aditivo Contratual)",
+            "justificativa": "Aditivo contratual identifica univocamente o bairro Pituba.",
+        }
+    }
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value=SAMPLE_TRANSPARENCIA_TOTALIZADOR),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=[obra_curada]),
+        patch("etl.domain.geocoding._carregar_curadoria_territorial", return_value=curadoria_mock),
+    ):
+        result = run_pipeline(output_dir=tmp_path, year=2025)
+
+    assert result["success"] is True
+
+    with open(tmp_path / "obras" / "9100.json", "r", encoding="utf-8") as f:
+        ficha = json.load(f)
+
+    assert ficha["nivel"] == "Bairro"
+    assert ficha["bairro"] == "Pituba"
+    lastro = ficha["fontesOficiais"]["lastroTerritorial"]
+    assert lastro["trechoComprobatorio"] == "REFORMA DA USF PITUBA II."
+    assert lastro["documentoOrigem"] == "dsObjetoAditivo (Aditivo Contratual)"
+    assert lastro["justificativa"] == "Aditivo contratual identifica univocamente o bairro Pituba."

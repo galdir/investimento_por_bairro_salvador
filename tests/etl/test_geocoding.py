@@ -188,6 +188,28 @@ def test_estagio_1_vincula_lote_regional_a_prefeitura_bairro(sample_centroides, 
     assert resultado["longitude"] is None
 
 
+def test_estagio_1_normaliza_lote_regional_com_zero_a_esquerda(sample_centroides, sample_cache) -> None:
+    """Verifica se lotes regionais com zero à esquerda (Lote 01 a Lote 10) são normalizados."""
+    obra = {
+        "id": 10030,
+        "cdUnidadeGestora": 1501,
+        "nuContratoSigef": "016/2024",
+        "dsObjeto": "Manutenção preventiva em escolas do Lote 02",
+    }
+    resultado = classificar_alocacao_territorial(
+        obra=obra,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+    )
+
+    assert resultado["nivel"] == "Regional (Prefeitura-Bairro)"
+    assert resultado["bairro"] is None
+    assert resultado["prefeitura_bairro"] == "Subúrbio/Ilhas"
+    assert resultado["latitude"] is None
+    assert resultado["longitude"] is None
+
+
 def test_contrato_sem_localizacao_vira_escopo_cidade(sample_centroides, sample_cache) -> None:
     """Verifica se obras genéricas sem logradouro/bairro são classificadas como Escopo Cidade.
 
@@ -369,4 +391,80 @@ def test_cache_reavalia_entrada_nao_localizada_contra_malha_oficial(sample_centr
     assert resultado["latitude"] == sample_centroides["Pituba"][0]
     assert resultado["longitude"] == sample_centroides["Pituba"][1]
     assert resultado["estagio"] == "Cache"
+
+
+def test_curadoria_promove_contrato_unico_para_bairro_com_lastro(sample_centroides, sample_cache) -> None:
+    """Verifica promoção determinística via Curadoria Territorial Auditável para Bairro Oficial."""
+    obra = {
+        "id": 9001,
+        "cdUnidadeGestora": "301110",
+        "nuContratoSigef": "2025CT005813",
+        "dsObjeto": "Lançamento do Contrato Nº 387/2025",
+    }
+    curadoria = {
+        "301110:2025CT005813": {
+            "cdUnidadeGestora": "301110",
+            "nuContratoSigef": "2025CT005813",
+            "status": "promovido",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "trechoComprobatorio": "REFORMA DA USF PITUBA II.",
+            "documentoOrigem": "dsObjetoAditivo (Aditivo Contratual)",
+            "justificativa": "Aditivo contratual identifica univocamente o bairro Pituba.",
+        }
+    }
+
+    resultado = classificar_alocacao_territorial(
+        obra=obra,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+        curadoria=curadoria,
+    )
+
+    assert resultado["nivel"] == "Bairro"
+    assert resultado["bairro"] == "Pituba"
+    assert resultado["prefeitura_bairro"] == "Barra/Pituba"
+    assert resultado["latitude"] == sample_centroides["Pituba"][0]
+    assert resultado["longitude"] == sample_centroides["Pituba"][1]
+    assert resultado["estagio"] == "Curadoria Territorial Auditável"
+    assert resultado["lastro_curadoria"]["documentoOrigem"] == "dsObjetoAditivo (Aditivo Contratual)"
+    assert resultado["lastro_curadoria"]["trechoComprobatorio"] == "REFORMA DA USF PITUBA II."
+
+
+def test_curadoria_preserva_contrato_ambiguo_em_escopo_cidade(sample_centroides, sample_cache) -> None:
+    """Verifica que contratos marcados como ambíguos na curadoria permanecem em Escopo Cidade."""
+    obra = {
+        "id": 9002,
+        "cdUnidadeGestora": "616002",
+        "nuContratoSigef": "2024CT007171",
+        "dsObjeto": "Manutenção de Quadras e Campos, LOTE 02",
+    }
+    curadoria = {
+        "616002:2024CT007171": {
+            "cdUnidadeGestora": "616002",
+            "nuContratoSigef": "2024CT007171",
+            "status": "ambiguo",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeituraBairro": None,
+            "trechoComprobatorio": "LOTE 02 PREFS. BS. II, V E VII",
+            "documentoOrigem": "descObsLiquidacao (Nota de Liquidação)",
+            "justificativa": "Contrato abrange múltiplas Prefeituras-Bairro (II, V e VII).",
+        }
+    }
+
+    resultado = classificar_alocacao_territorial(
+        obra=obra,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+        curadoria=curadoria,
+    )
+
+    assert resultado["nivel"] == "Escopo Cidade (Não-Localizado)"
+    assert resultado["bairro"] is None
+    assert resultado["prefeitura_bairro"] is None
+    assert resultado["lastro_curadoria"]["trechoComprobatorio"] == "LOTE 02 PREFS. BS. II, V E VII"
 

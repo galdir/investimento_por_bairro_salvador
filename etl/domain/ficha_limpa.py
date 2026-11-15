@@ -65,6 +65,7 @@ def _construir_fontes_oficiais(
     bairro: Any,
     prefeitura_bairro: Any,
     estagio_alocacao: Any,
+    lastro_curadoria: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Constrói o bloco estruturado de Fontes Oficiais & Lastro Territorial da Ficha Limpa."""
     cd_ug_txt = _texto_limpo(cd_ug)
@@ -90,6 +91,24 @@ def _construir_fontes_oficiais(
         if eh_dom_valido(ad.get("nuDom"))
     ]
 
+    lastro_territorial: dict[str, Any] = {
+        "nivel": _texto_limpo(nivel) or None,
+        "estagioAlocacao": _texto_limpo(estagio_alocacao) or None,
+        "bairro": _texto_limpo(bairro) or None,
+        "prefeituraBairro": _texto_limpo(prefeitura_bairro) or None,
+        "origem": _descrever_origem_alocacao(nivel, estagio_alocacao, bairro, prefeitura_bairro),
+    }
+    if isinstance(lastro_curadoria, dict):
+        trecho = _texto_limpo(lastro_curadoria.get("trechoComprobatorio"))
+        doc_origem = _texto_limpo(lastro_curadoria.get("documentoOrigem"))
+        justificativa = _texto_limpo(lastro_curadoria.get("justificativa"))
+        if trecho:
+            lastro_territorial["trechoComprobatorio"] = trecho
+        if doc_origem:
+            lastro_territorial["documentoOrigem"] = doc_origem
+        if justificativa:
+            lastro_territorial["justificativa"] = justificativa
+
     return {
         "portalTransparencia": {
             "nome": "Portal da Transparência de Salvador",
@@ -103,13 +122,7 @@ def _construir_fontes_oficiais(
         "nuProcesso": nu_proc_txt or None,
         "domContrato": dom_contrato,
         "domAditivos": dom_aditivos,
-        "lastroTerritorial": {
-            "nivel": _texto_limpo(nivel) or None,
-            "estagioAlocacao": _texto_limpo(estagio_alocacao) or None,
-            "bairro": _texto_limpo(bairro) or None,
-            "prefeituraBairro": _texto_limpo(prefeitura_bairro) or None,
-            "origem": _descrever_origem_alocacao(nivel, estagio_alocacao, bairro, prefeitura_bairro),
-        },
+        "lastroTerritorial": lastro_territorial,
     }
 
 
@@ -178,6 +191,7 @@ def _montar_ficha_base(
     longitude: Any,
     estagio_alocacao: Any,
     concentracao_map: dict[str, dict[str, Any]] | None,
+    lastro_curadoria: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Monta o dicionário estruturado da Ficha Limpa e aplica o resumo da empreiteira."""
     ficha: dict[str, Any] = {
@@ -225,6 +239,7 @@ def _montar_ficha_base(
             bairro=bairro,
             prefeitura_bairro=prefeitura_bairro,
             estagio_alocacao=estagio_alocacao,
+            lastro_curadoria=lastro_curadoria,
         ),
     }
     if cd_ug is not None:
@@ -437,6 +452,7 @@ def construir_ficha_obra(
         longitude=obra.get("longitude"),
         estagio_alocacao=obra.get("estagioAlocacao"),
         concentracao_map=concentracao_map,
+        lastro_curadoria=obra.get("lastroCuradoria"),
     )
 
 
@@ -763,6 +779,7 @@ def mesclar_fichas_obra(
         longitude=obra.get("longitude") if obra.get("longitude") is not None else next((f.get("longitude") for f in candidatas if f.get("longitude") is not None), None),
         estagio_alocacao=obra.get("estagioAlocacao") or next((f.get("estagioAlocacao") for f in candidatas if f.get("estagioAlocacao")), None),
         concentracao_map=concentracao_map,
+        lastro_curadoria=obra.get("lastroCuradoria"),
     )
 
 
