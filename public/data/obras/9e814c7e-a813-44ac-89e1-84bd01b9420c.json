@@ -108,12 +108,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Paripe",
-  "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.835351,
-  "longitude": -38.468212,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -131,11 +131,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Paripe",
-      "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Paripe via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Centro de Referência Especializado de Assistência Social (CREAS): em Brotas, Paripe e Parque São Cristóvão",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato abrange 3 unidades (Brotas, Paripe e Parque São Cristóvão, em divisa territorial próxima a Cassange/São Cristóvão e sem liquidações discriminadas); além de impedir rateio sem regra contratual, o Estágio 1 capturava Paripe indevidamente."
     }
   },
   "cdUnidadeGestora": "616002"

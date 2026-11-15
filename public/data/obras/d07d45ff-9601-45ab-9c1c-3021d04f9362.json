@@ -81,7 +81,7 @@
   "prefeituraBairro": "Cabula/Tancredo Neves",
   "latitude": -12.960845,
   "longitude": -38.459509,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -100,10 +100,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Cabula",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Cabula via Cache"
+      "origem": "Alocação em Cabula via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "590002"

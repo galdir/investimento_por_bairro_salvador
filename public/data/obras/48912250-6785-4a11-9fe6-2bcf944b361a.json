@@ -66,12 +66,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Nova Sussuarana",
   "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.936346,
-  "longitude": -38.434116,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.9365,
+  "longitude": -38.4362,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -89,11 +89,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Nova Sussuarana",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Nova Sussuarana via Cache"
+      "origem": "Alocação em Nova Sussuarana via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

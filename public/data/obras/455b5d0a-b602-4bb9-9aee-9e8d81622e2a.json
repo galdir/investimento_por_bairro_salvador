@@ -71,12 +71,12 @@
     ],
     "deltaPercentualValor": 17.97
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Calabar",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -13.002886,
-  "longitude": -38.515342,
-  "estagioAlocacao": "Cache",
+  "latitude": -13.003046,
+  "longitude": -38.515117,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -94,11 +94,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Calabar",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Calabar via Cache"
+      "origem": "Alocação em Calabar via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

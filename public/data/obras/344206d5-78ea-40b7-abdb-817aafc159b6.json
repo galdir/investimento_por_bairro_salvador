@@ -59,12 +59,12 @@
     ],
     "deltaPercentualValor": 24.03
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Fazenda Grande III",
   "prefeituraBairro": "Cajazeiras",
-  "latitude": -12.904271,
-  "longitude": -38.395514,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.904751,
+  "longitude": -38.395157,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -82,11 +82,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Fazenda Grande III",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Fazenda Grande III via Cache"
+      "origem": "Alocação em Fazenda Grande III via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "616002"

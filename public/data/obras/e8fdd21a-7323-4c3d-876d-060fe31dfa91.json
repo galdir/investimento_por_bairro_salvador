@@ -1661,12 +1661,12 @@
     ],
     "deltaPercentualValor": 16.85
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Calabetão",
   "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.931379,
-  "longitude": -38.468078,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.931596,
+  "longitude": -38.467824,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1727,11 +1727,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Calabetão",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Calabetão via Cache"
+      "origem": "Alocação em Calabetão via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

@@ -804,12 +804,12 @@
     ],
     "deltaPercentualValor": 24.27
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Bairro",
+  "bairro": "Porto Seco Pirajá",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.91001,
+  "longitude": -38.454366,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -827,11 +827,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Porto Seco Pirajá via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "REFORMA DE ALOJAMENTO E SANITÁRIOS DOS EMPREGADOS OPERACIONAIS DA DESAL",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
     }
   },
   "cdUnidadeGestora": "567002"

@@ -68,12 +68,12 @@
     ],
     "deltaPercentualValor": 28.01
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Brotas",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.9875,
+  "longitude": -38.4832,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -91,11 +91,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Brotas",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Brotas via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

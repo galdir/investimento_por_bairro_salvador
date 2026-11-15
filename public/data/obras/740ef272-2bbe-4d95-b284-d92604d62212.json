@@ -1388,12 +1388,12 @@
     ],
     "deltaPercentualValor": 24.47
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Castelo Branco",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.904084,
+  "longitude": -38.432123,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1424,11 +1424,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Castelo Branco",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Castelo Branco via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

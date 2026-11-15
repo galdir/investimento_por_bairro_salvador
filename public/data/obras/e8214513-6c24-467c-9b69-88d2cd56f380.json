@@ -58,11 +58,11 @@
     "deltaPercentualValor": 1.99
   },
   "nivel": "Bairro",
-  "bairro": "Beiru/Tancredo Neves",
-  "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.945674,
-  "longitude": -38.44836,
-  "estagioAlocacao": "Cache",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -81,10 +81,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Beiru/Tancredo Neves",
-      "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Beiru/Tancredo Neves via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Caminho das Árvores",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Caminho das Árvores via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "TRINCHEIRA BIDIRECIONAL DE LIGAÇÃO ENTRE AS AVENIDAS TANCREDO NEVES E MAGALHÃES NETO",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A interseção das avenidas Tancredo Neves e Magalhães Neto (Intervenção E) situa-se inteiramente no Bairro Oficial Caminho das Árvores, corrigindo falso positivo em Beiru/Tancredo Neves."
     }
   },
   "cdUnidadeGestora": "616002"

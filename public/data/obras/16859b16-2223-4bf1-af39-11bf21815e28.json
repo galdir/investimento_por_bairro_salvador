@@ -1846,12 +1846,12 @@
     ],
     "deltaPercentualValor": 587.5
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Subúrbio/Ilhas",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1906,12 +1906,245 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
-      "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Subúrbio/Ilhas via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "englobando as Prefeituras Bairro: PB II -",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 02/2021)",
+      "justificativa": "Contrato multi-Prefeitura-Bairro de projetos urbanos (PBs II, V, VIII, IX e X); promove medições lídimas por frente em Ribeira, Ilha de Maré, Uruguai, Calçada e Plataforma, mantendo itens transversais/não locais e estornados sem alocação."
     }
   },
-  "cdUnidadeGestora": "603002"
+  "cdUnidadeGestora": "603002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2021NL003530",
+      "nivel": "Bairro",
+      "bairro": "Ribeira",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 38066.27,
+      "valorPago": 36162.96,
+      "dataLiquidacao": "27/10/2021",
+      "trechoComprobatorio": "Projeto Executivo de Urbanização do Porto da Lenha",
+      "documentoOrigem": "descObsLiquidacao (2021NL003530 - Contrato 02/2021)",
+      "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+    },
+    {
+      "notaLiquidacao": "2021NL003870",
+      "nivel": "Bairro",
+      "bairro": "Ribeira",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 50755.03,
+      "valorPago": 48217.28,
+      "dataLiquidacao": "26/11/2021",
+      "trechoComprobatorio": "Concepção Urbanística do projeto do Porto da Lenha",
+      "documentoOrigem": "descObsLiquidacao (2021NL003870 - Contrato 02/2021)",
+      "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+    },
+    {
+      "notaLiquidacao": "2021NL003927",
+      "nivel": "Bairro",
+      "bairro": "Ilha de Maré",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 90919.21,
+      "valorPago": 86373.25,
+      "dataLiquidacao": "01/12/2021",
+      "trechoComprobatorio": "PLANO INTEGRADO DE URBANIZAÇÃO DA ILHA DE MARÉ",
+      "documentoOrigem": "descObsLiquidacao (2021NL003927 - Contrato 02/2021)",
+      "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+    },
+    {
+      "notaLiquidacao": "2021NL004262",
+      "nivel": "Bairro",
+      "bairro": "Uruguai",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 73965.21,
+      "valorPago": 70266.95,
+      "dataLiquidacao": "15/12/2021",
+      "trechoComprobatorio": "Urbanização e Infraestrutura do entorno da Igreja Nossa Senhora dos Alagados",
+      "documentoOrigem": "descObsLiquidacao (2021NL004262 - Contrato 02/2021)",
+      "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+    },
+    {
+      "notaLiquidacao": "2021NL004405",
+      "nivel": "Bairro",
+      "bairro": "Ilha de Maré",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 227298.04,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/12/2021",
+      "trechoComprobatorio": "PLANO INTEGRADO DE URBANIZAÇÃO DA ILHA DE MARÉ.",
+      "documentoOrigem": "descObsLiquidacao (2021NL004405 - Contrato 02/2021)",
+      "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+    },
+    {
+      "notaLiquidacao": "2021NL004406",
+      "nivel": "Bairro",
+      "bairro": "Ilha de Maré",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 45459.61,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/12/2021",
+      "trechoComprobatorio": "PLANO INTEGRADO DA ILHA DE MARÉ.",
+      "documentoOrigem": "descObsLiquidacao (2021NL004406 - Contrato 02/2021)",
+      "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+    },
+    {
+      "notaLiquidacao": "2021NL004407",
+      "nivel": "Bairro",
+      "bairro": "Ribeira",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 63443.75,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/12/2021",
+      "trechoComprobatorio": "Projeto Executivo   Requalificação de Porto da Lenha PTA 02",
+      "documentoOrigem": "descObsLiquidacao (2021NL004407 - Contrato 02/2021)",
+      "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+    },
+    {
+      "notaLiquidacao": "2022NL001168",
+      "nivel": "Bairro",
+      "bairro": "Uruguai",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 51775.64,
+      "valorPago": 0.0,
+      "dataLiquidacao": "16/02/2022",
+      "trechoComprobatorio": "URBANIZAÇÃO ENTORNO DA IGREJA NOSSA SENHORA DOS ALAGADOS CONT.02/2021",
+      "documentoOrigem": "descObsLiquidacao (2022NL001168 - Contrato 02/2021)",
+      "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+    },
+    {
+      "notaLiquidacao": "2022NL001334",
+      "nivel": "Bairro",
+      "bairro": "Calçada",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 81370.81,
+      "valorPago": 0.0,
+      "dataLiquidacao": "21/02/2022",
+      "trechoComprobatorio": "Projeto Arquitetônico da Feira do Curtume, PTA 05/2021",
+      "documentoOrigem": "descObsLiquidacao (2022NL001334 - Contrato 02/2021)",
+      "justificativa": "Feira do Curtume situa-se na Calçada/Largo do Curtume (CEP 40410-550), mapeada em sublocalidades.json para o Bairro Oficial Calçada."
+    },
+    {
+      "notaLiquidacao": "2022NL001980",
+      "nivel": "Bairro",
+      "bairro": "Uruguai",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 40680.86,
+      "valorPago": 0.0,
+      "dataLiquidacao": "23/03/2022",
+      "trechoComprobatorio": "Urbanização e Infraestrutura da área da Igreja Nossa Senhora dos Alagados.",
+      "documentoOrigem": "descObsLiquidacao (2022NL001980 - Contrato 02/2021)",
+      "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+    },
+    {
+      "notaLiquidacao": "2022NL002674",
+      "nivel": "Bairro",
+      "bairro": "Calçada",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 30904.34,
+      "valorPago": 0.0,
+      "dataLiquidacao": "07/04/2022",
+      "trechoComprobatorio": "Estrutura de Apoio da Cobertura Métalica da Feira do Curtume.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002674 - Contrato 02/2021)",
+      "justificativa": "Feira do Curtume situa-se na Calçada/Largo do Curtume (CEP 40410-550), mapeada em sublocalidades.json para o Bairro Oficial Calçada."
+    },
+    {
+      "notaLiquidacao": "2022NL003403",
+      "nivel": "Bairro",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 16853.55,
+      "valorPago": 0.0,
+      "dataLiquidacao": "04/05/2022",
+      "trechoComprobatorio": "URBANISTICO PRAÇA PLANALTO REAL CONT.02/2021",
+      "documentoOrigem": "descObsLiquidacao (2022NL003403 - Contrato 02/2021)",
+      "justificativa": "Praça Planalto Real localiza-se no Loteamento Planalto Real (CEP 40715-120), Bairro Oficial Plataforma, excluindo estornos 2022NL003285/3286."
+    },
+    {
+      "notaLiquidacao": "2022NL003404",
+      "nivel": "Bairro",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 5574.27,
+      "valorPago": 0.0,
+      "dataLiquidacao": "04/05/2022",
+      "trechoComprobatorio": "URBANISTICO PRAÇA PLANALTO REAL CONT.02/2021",
+      "documentoOrigem": "descObsLiquidacao (2022NL003404 - Contrato 02/2021)",
+      "justificativa": "Praça Planalto Real localiza-se no Loteamento Planalto Real (CEP 40715-120), Bairro Oficial Plataforma, excluindo estornos 2022NL003285/3286."
+    },
+    {
+      "notaLiquidacao": "2022NL003434",
+      "nivel": "Bairro",
+      "bairro": "Plataforma",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 41651.67,
+      "valorPago": 0.0,
+      "dataLiquidacao": "18/05/2022",
+      "trechoComprobatorio": "PROJETO URBANISTICO DA PRAÇA PLANALTO REAL.",
+      "documentoOrigem": "descObsLiquidacao (2022NL003434 - Contrato 02/2021)",
+      "justificativa": "Praça Planalto Real localiza-se no Loteamento Planalto Real (CEP 40715-120), Bairro Oficial Plataforma, excluindo estornos 2022NL003285/3286."
+    },
+    {
+      "notaLiquidacao": "2022NL003470",
+      "nivel": "Bairro",
+      "bairro": "Ribeira",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 78670.26,
+      "valorPago": 0.0,
+      "dataLiquidacao": "19/05/2022",
+      "trechoComprobatorio": "PTA 02/2021 Elaboração dos Projetos Executivos de Urbanização e",
+      "documentoOrigem": "descObsLiquidacao (2022NL003470 - Contrato 02/2021)",
+      "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+    },
+    {
+      "notaLiquidacao": "2022NL003752",
+      "nivel": "Bairro",
+      "bairro": "Ribeira",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 22839.77,
+      "valorPago": 0.0,
+      "dataLiquidacao": "30/05/2022",
+      "trechoComprobatorio": "ELABORAÇÃO PROJETOS URBANIZAÇÃO PORTO DA LENHA AV.BEIRA MAR -RIBEIRA",
+      "documentoOrigem": "descObsLiquidacao (2022NL003752 - Contrato 02/2021)",
+      "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+    },
+    {
+      "notaLiquidacao": "2022NL003822",
+      "nivel": "Bairro",
+      "bairro": "Ilha de Maré",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "valorLiquidado": 63588.51,
+      "valorPago": 0.0,
+      "dataLiquidacao": "02/06/2022",
+      "trechoComprobatorio": "PLANO INTEGRADO DE URBANIZAÇÃO DA ILHA DE MARÉ. CONTRATO 02/2021",
+      "documentoOrigem": "descObsLiquidacao (2022NL003822 - Contrato 02/2021)",
+      "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+    },
+    {
+      "notaLiquidacao": "2022NL003870",
+      "nivel": "Bairro",
+      "bairro": "Uruguai",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 44379.12,
+      "valorPago": 0.0,
+      "dataLiquidacao": "02/06/2022",
+      "trechoComprobatorio": "ELABORAÇÃO DOS PROJETOS EXECUTIVOS DA ÁREA DO ENTORNO DA IGREJA NOSSA SENHORA DOS ALAGADOS.",
+      "documentoOrigem": "descObsLiquidacao (2022NL003870 - Contrato 02/2021)",
+      "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+    },
+    {
+      "notaLiquidacao": "2022NL003873",
+      "nivel": "Bairro",
+      "bairro": "Calçada",
+      "prefeituraBairro": "Cidade Baixa",
+      "valorLiquidado": 27123.6,
+      "valorPago": 0.0,
+      "dataLiquidacao": "02/06/2022",
+      "trechoComprobatorio": "ELABORAÇÃO DE PROJETOS DA FEIRA DO CURTUME",
+      "documentoOrigem": "descObsLiquidacao (2022NL003873 - Contrato 02/2021)",
+      "justificativa": "Feira do Curtume situa-se na Calçada/Largo do Curtume (CEP 40410-550), mapeada em sublocalidades.json para o Bairro Oficial Calçada."
+    }
+  ]
 }

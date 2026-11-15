@@ -59,12 +59,12 @@
     ],
     "deltaPercentualValor": 18.49
   },
-  "nivel": "Bairro",
-  "bairro": "Praia Grande",
+  "nivel": "Pontual",
+  "bairro": "Ilha de Maré",
   "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.873451,
-  "longitude": -38.47615,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.7667,
+  "longitude": -38.5333,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -82,11 +82,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Praia Grande",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Ilha de Maré",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Praia Grande via Cache"
+      "origem": "Alocação em Ilha de Maré via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

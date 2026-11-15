@@ -93,7 +93,7 @@
   "prefeituraBairro": "Cabula/Tancredo Neves",
   "latitude": -12.970924,
   "longitude": -38.464563,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -112,10 +112,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Pernambués",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Pernambués via Cache"
+      "origem": "Alocação em Pernambués via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

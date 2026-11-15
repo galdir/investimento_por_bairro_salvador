@@ -62,12 +62,12 @@
     ],
     "deltaPercentualValor": 8.23
   },
-  "nivel": "Bairro",
-  "bairro": "Boca do Rio",
+  "nivel": "Pontual",
+  "bairro": "Imbuí",
   "prefeituraBairro": "Itapuã/Ipitanga",
-  "latitude": -12.975454,
-  "longitude": -38.428853,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.9735,
+  "longitude": -38.4318,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -85,11 +85,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Boca do Rio",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Imbuí",
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Boca do Rio via Cache"
+      "origem": "Alocação em Imbuí via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

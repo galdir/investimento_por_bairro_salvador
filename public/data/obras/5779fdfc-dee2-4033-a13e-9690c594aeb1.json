@@ -73,12 +73,12 @@
     ],
     "deltaPercentualValor": 26.64
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Fazenda Grande II",
   "prefeituraBairro": "Cajazeiras",
-  "latitude": -12.89633,
-  "longitude": -38.398476,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.896954,
+  "longitude": -38.398281,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -96,11 +96,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Fazenda Grande II",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Fazenda Grande II via Cache"
+      "origem": "Alocação em Fazenda Grande II via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

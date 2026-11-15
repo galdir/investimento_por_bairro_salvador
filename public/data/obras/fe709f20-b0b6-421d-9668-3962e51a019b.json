@@ -749,7 +749,7 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -13.009333,
   "longitude": -38.473196,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -768,10 +768,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Nordeste de Amaralina",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Nordeste de Amaralina via Cache"
+      "origem": "Alocação em Nordeste de Amaralina via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

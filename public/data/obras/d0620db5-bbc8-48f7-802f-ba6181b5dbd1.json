@@ -67,7 +67,7 @@
   "prefeituraBairro": "Liberdade/São Caetano",
   "latitude": -12.965297,
   "longitude": -38.485784,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,10 +86,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Cidade Nova",
       "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em Cidade Nova via Cache"
+      "origem": "Alocação em Cidade Nova via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

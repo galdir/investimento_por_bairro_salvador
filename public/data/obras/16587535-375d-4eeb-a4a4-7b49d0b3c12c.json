@@ -66,11 +66,11 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Centro",
+  "bairro": "Centro Histórico",
   "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.985173,
-  "longitude": -38.51879,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -89,10 +89,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Centro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro Histórico",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Centro via Cache"
+      "origem": "Alocação em Centro Histórico via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Edifício da Secretaria Municipal da Fazenda (SEFAZ), localizada na Rua das Vassouras, nº 01 - Centro, Salvador",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A sede da SEFAZ na Rua das Vassouras, nº 01 (CEP 40020-020, coordenadas -12.975692, -38.512847) situa-se integralmente dentro do polígono do Bairro Oficial Centro Histórico na malha cartográfica oficial, apesar da menção genérica 'Centro' no endereço."
     }
   },
   "cdUnidadeGestora": "560002"

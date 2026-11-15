@@ -77,7 +77,7 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.988371,
   "longitude": -38.501321,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -96,10 +96,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Engenho Velho de Brotas",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Engenho Velho de Brotas via Cache"
+      "origem": "Alocação em Engenho Velho de Brotas via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

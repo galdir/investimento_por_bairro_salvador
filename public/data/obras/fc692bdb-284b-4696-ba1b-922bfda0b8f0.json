@@ -91,7 +91,7 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -13.003446,
   "longitude": -38.475285,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -110,10 +110,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Santa Cruz",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Santa Cruz via Cache"
+      "origem": "Alocação em Santa Cruz via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

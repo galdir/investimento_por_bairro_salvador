@@ -69,12 +69,12 @@
     ],
     "deltaPercentualValor": 22.51
   },
-  "nivel": "Bairro",
-  "bairro": "Federação",
+  "nivel": "Pontual",
+  "bairro": "Engenho Velho da Federação",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -12.99875,
-  "longitude": -38.50501,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.9972,
+  "longitude": -38.4969,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -92,11 +92,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Federação",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Engenho Velho da Federação",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Federação via Cache"
+      "origem": "Alocação em Engenho Velho da Federação via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

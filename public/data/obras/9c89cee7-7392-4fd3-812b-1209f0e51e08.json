@@ -68,7 +68,7 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -13.00631,
   "longitude": -38.509647,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -87,10 +87,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Ondina",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Ondina via Cache"
+      "origem": "Alocação em Ondina via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

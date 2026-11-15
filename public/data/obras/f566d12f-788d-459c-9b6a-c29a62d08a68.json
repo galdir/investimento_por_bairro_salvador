@@ -57,12 +57,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Barbalho",
-  "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.964932,
-  "longitude": -38.500043,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -80,11 +80,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Barbalho",
-      "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Barbalho via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Multi-Bairro (Prefeituras-Bairro Múltiplas))"
     }
   },
   "cdUnidadeGestora": "616002"

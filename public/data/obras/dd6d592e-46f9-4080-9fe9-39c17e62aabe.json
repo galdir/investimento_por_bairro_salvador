@@ -104,7 +104,7 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.890699,
   "longitude": -38.435616,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -123,10 +123,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Águas Claras",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Águas Claras via Cache"
+      "origem": "Alocação em Águas Claras via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "520002"

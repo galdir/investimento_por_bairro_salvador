@@ -58,11 +58,11 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Plataforma",
-  "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.896157,
-  "longitude": -38.482727,
-  "estagioAlocacao": "Cache",
+  "bairro": "Barris",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.986317,
+  "longitude": -38.513577,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -81,10 +81,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Plataforma",
-      "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Plataforma via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Barris",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Barris via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Laudo Técnico de Tirante T10 da Plataforma de Acesso à Estação da Lapa",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A Estação da Lapa situa-se integralmente no Bairro Oficial Barris (CEP 40070-040); 'Plataforma de Acesso' é elemento construtivo, não o bairro Plataforma."
     }
   },
   "cdUnidadeGestora": "616002"

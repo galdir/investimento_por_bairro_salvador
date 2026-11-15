@@ -60,12 +60,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Sussuarana",
-  "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.933346,
-  "longitude": -38.445351,
-  "estagioAlocacao": "Cache",
+  "nivel": "Regional (Prefeitura-Bairro)",
+  "bairro": null,
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -83,11 +83,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Sussuarana",
-      "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Sussuarana via Cache"
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": null,
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Pau da Lima via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Via de ligação entre a Avenida Gal Costa e Pau da Lima, Jardim Cajazeiras, Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O eixo viário de ligação entre a Av. Gal Costa e Pau da Lima via Jardim Cajazeiras localiza-se integralmente na Prefeitura-Bairro IX (Pau da Lima), corrigindo falso positivo em Sussuarana."
     }
   },
   "cdUnidadeGestora": "616002"

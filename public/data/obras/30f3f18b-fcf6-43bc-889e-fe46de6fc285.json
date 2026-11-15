@@ -72,7 +72,7 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.99875,
   "longitude": -38.50501,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -91,11 +91,62 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
       "bairro": "Federação",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Federação via Cache"
+      "origem": "Alocação em Federação via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "Requalificação de duas Praças Públicas, sendo uma localizada na Rua Segunda Travessa Domingos de Brito no bairro da Federação, e a outra na Rua Almirante Mourão De Sá na Fazenda Coutos",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 praças públicas explícitas: Segunda Travessa Domingos de Brito (Federação) e Rua Almirante Mourão de Sá (Fazenda Coutos).",
+      "cotasListaFechada": [
+        {
+          "bairro": "Federação",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.99875,
+          "longitude": -38.50501,
+          "descricaoUnidades": "Praça Pública na Rua Segunda Travessa Domingos de Brito (Federação)"
+        },
+        {
+          "bairro": "Fazenda Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.847682,
+          "longitude": -38.461693,
+          "descricaoUnidades": "Praça Pública na Rua Almirante Mourão de Sá (Fazenda Coutos)"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.99875,
+      "longitude": -38.50501,
+      "descricaoUnidades": "Praça Pública na Rua Segunda Travessa Domingos de Brito (Federação)"
+    },
+    {
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.847682,
+      "longitude": -38.461693,
+      "descricaoUnidades": "Praça Pública na Rua Almirante Mourão de Sá (Fazenda Coutos)"
+    }
+  ],
   "cdUnidadeGestora": "560002"
 }

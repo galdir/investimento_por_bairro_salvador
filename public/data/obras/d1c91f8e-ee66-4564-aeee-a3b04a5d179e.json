@@ -57,12 +57,12 @@
     ],
     "deltaPercentualValor": 16.86
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "STIEP",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -12.981124,
-  "longitude": -38.447243,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.9773,
+  "longitude": -38.4508,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -80,11 +80,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "STIEP",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em STIEP via Cache"
+      "origem": "Alocação em STIEP via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "616002"

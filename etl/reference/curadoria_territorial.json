@@ -20,7 +20,7 @@
       "nivel": "Bairro",
       "bairro": "Centro",
       "prefeituraBairro": "Centro/Brotas",
-      "trechoComprobatorio": "URBANIZAÇÃO PROMENADE CONTORNO, AV. LAFAYETE COUTINHO - CENTRO, SALVADOR-BA, CONT. 033/2025",
+      "trechoComprobatorio": "URBANIZAÇÃO PROMENADE CONTORNO, AV. LAFAYETE COUTINHO - CENTRO, SALVADOR-BA",
       "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 033/2025)",
       "justificativa": "As notas de liquidação confirmam a execução integral da 1ª etapa da Urbanização Promenade Contorno no Bairro Oficial Centro."
     },
@@ -30,7 +30,7 @@
       "status": "promovido",
       "nivel": "Bairro",
       "bairro": "Boca do Rio",
-      "prefeituraBairro": "Barra/Pituba",
+      "prefeituraBairro": "Itapuã/Ipitanga",
       "trechoComprobatorio": "SERVIÇOS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA, BOCA DO RIO SSA/BA, - NFSE 0001",
       "documentoOrigem": "descObsLiquidacao (Nota de Liquidação do Contrato 005/2024)",
       "justificativa": "As notas de liquidação do Complexo Multiuso Arena Salvador explicitam a localização única no Bairro Oficial Boca do Rio."
@@ -42,19 +42,10 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "Manutenção predial dos Ascensores (...) Manutenção Terminal Maritimo Plataforma",
-      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2024)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição; notas do Terminal Marítimo de Plataforma são alocadas ao Bairro Oficial Plataforma e notas genéricas de Ascensores/Planos permanecem em Escopo Cidade.",
+      "trechoComprobatorio": "prestação de serviços continuados de manutenção das edificações onde funcionam os equipamentos de transporte público de Salvador",
+      "documentoOrigem": "dsObjeto (Contrato 008/2024) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição; notas do Terminal Marítimo de Plataforma são alocadas ao Bairro Oficial Plataforma (nota 2025NL004858 estornada por 2025NL004864 e substituída por 2025NL004865), enquanto notas genéricas de Ascensores/Planos permanecem em Escopo Cidade.",
       "frentesMedicao": {
-        "2025NL004858": {
-          "status": "promovido",
-          "nivel": "Bairro",
-          "bairro": "Plataforma",
-          "prefeituraBairro": "Subúrbio/Ilhas",
-          "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
-          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004858)",
-          "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
-        },
         "2025NL004865": {
           "status": "promovido",
           "nivel": "Bairro",
@@ -135,7 +126,7 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "LOTE 01 (...) REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO",
+      "trechoComprobatorio": "SERVS. DE MANUTENÇÃO DE QUADRAS E CAMPOS, (REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO )",
       "documentoOrigem": "descObsLiquidacao (Contrato 006/2024)",
       "justificativa": "O LOTE 01 de Manutenção de Quadras e Campos possui notas comprovadas na Boca do Rio; demais notas genéricas do lote permanecem em Escopo Cidade.",
       "frentesMedicao": {
@@ -176,7 +167,7 @@
       "bairro": null,
       "prefeituraBairro": null,
       "trechoComprobatorio": "SERVIÇOS DE MANUTENÇÃO DE QUADRAS E CAMPOS , LOTE 02 PREFS. BS. II, V E VII",
-      "documentoOrigem": "descObsLiquidacao (Contrato 007/2024)",
+      "documentoOrigem": "descObsLiquidacao (Notas 2024NL016185 / 2024NL016218 - Contrato 007/2024)",
       "justificativa": "O LOTE 02 abrange múltiplas Prefeituras-Bairro (II, V e VII), mas duas notas comprovam execução exclusiva na Prefeitura-Bairro II - Subúrbio/Ilhas.",
       "frentesMedicao": {
         "2024NL015121": {
@@ -217,8 +208,8 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "Manutenção de Quadras e Campos no Município de Salvador/BA, subdivididos em 04 (quatro) Lotes (...) LOTE03",
-      "documentoOrigem": "dsObjeto / descObsLiquidacao",
+      "trechoComprobatorio": "Execução das obras de Manutenção de Quadras e Campos em Salvador/BA, correspondente LOTE03",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação 2026NL009957 / 2026NL011942)",
       "justificativa": "A divisão em 4 lotes agrupa múltiplas Prefeituras-Bairro, não correspondendo à PB III."
     },
     "567002:2023CT002375": {
@@ -228,8 +219,8 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 3",
-      "documentoOrigem": "dsObjeto (Contrato 029/2023)",
+      "trechoComprobatorio": "EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 29/2023)",
       "justificativa": "LOTE 3 refere-se a lote licitatório de passarelas do BRT ao longo das avenidas Vasco da Gama e Juracy Magalhães, não à Prefeitura-Bairro Cajazeiras."
     },
     "567002:2023CT002263": {
@@ -239,7 +230,7 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 2",
+      "trechoComprobatorio": "EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT",
       "documentoOrigem": "dsObjeto (Contrato)",
       "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
     },
@@ -250,7 +241,7 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 2",
+      "trechoComprobatorio": "EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT",
       "documentoOrigem": "dsObjeto (Contrato)",
       "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
     },
@@ -261,42 +252,9 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 4",
-      "documentoOrigem": "dsObjeto (Contrato 030/2023)",
+      "trechoComprobatorio": "EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato)",
       "justificativa": "LOTE 4 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Barra/Pituba."
-    },
-    "441010:2022CT000786": {
-      "cdUnidadeGestora": "441010",
-      "nuContratoSigef": "2022CT000786",
-      "status": "ambiguo",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12(DOZE0 UNIDADES ESCOLARES DA SMED: LOTE 09 - ESCOLA MUNICIPAL CLÉRISTON ANDRADE",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 09 identifica o lote da unidade escolar na licitação de 12 escolas da SMED, não a Prefeitura-Bairro Cidade Baixa."
-    },
-    "441010:2021CT005053": {
-      "cdUnidadeGestora": "441010",
-      "nuContratoSigef": "2021CT005053",
-      "status": "ambiguo",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "trechoComprobatorio": "construção e reconstrução da EM PROFESSOR MILTON SANTOS - LOTE 06",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 06 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cabula/Tancredo Neves."
-    },
-    "441010:2021CT005052": {
-      "cdUnidadeGestora": "441010",
-      "nuContratoSigef": "2021CT005052",
-      "status": "ambiguo",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "trechoComprobatorio": "construção e reconstrução da EM ELYSIO ATHAYDE- LOTE 05",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 05 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Liberdade/São Caetano."
     },
     "441010:2021CT005058": {
       "cdUnidadeGestora": "441010",
@@ -308,50 +266,6 @@
       "trechoComprobatorio": "construção e reconstrução da EM SOL NASCENTE- LOTE 08",
       "documentoOrigem": "dsObjeto (Contrato)",
       "justificativa": "LOTE 08 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Itapuã/Ipitanga."
-    },
-    "441010:2022CT000960": {
-      "cdUnidadeGestora": "441010",
-      "nuContratoSigef": "2022CT000960",
-      "status": "ambiguo",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DA ESCOMA MUNICIPAL CARMELITANA DO MENINO JESUS - LOTE 01",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 01 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Centro/Brotas."
-    },
-    "441010:2022CT003659": {
-      "cdUnidadeGestora": "441010",
-      "nuContratoSigef": "2022CT003659",
-      "status": "ambiguo",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12 UNIDADES ESCOLARES DA SMED - LOTE 07 - EM PROFESSORA ANITA BARBUDA",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 07 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Pau da Lima."
-    },
-    "441010:2024CT003886": {
-      "cdUnidadeGestora": "441010",
-      "nuContratoSigef": "2024CT003886",
-      "status": "ambiguo",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "trechoComprobatorio": "CONSTRUÇÃO DA ESCOLA MUNICIAL DO CEASA (LOTE 03)",
-      "documentoOrigem": "dsObjeto (Contrato 283/2024)",
-      "justificativa": "LOTE 03 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cajazeiras."
-    },
-    "441010:2020CT006678": {
-      "cdUnidadeGestora": "441010",
-      "nuContratoSigef": "2020CT006678",
-      "status": "ambiguo",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "trechoComprobatorio": "ESCOLA MUNICIPAL IVONE VIEIRA LIMA -LOTE 02",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 02 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Subúrbio/Ilhas."
     },
     "616002:2023CT000499": {
       "cdUnidadeGestora": "616002",
@@ -402,7 +316,7 @@
       "prefeituraBairro": null,
       "trechoComprobatorio": "Execução dos serviços de Infraestrutura, Estabilização e Contenção de Encostas, em diversos logradouros da Cidade.",
       "documentoOrigem": "descObsLiquidacao (Contrato 038/2023)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de encostas e drenagem; notas com bairro único comprovado são desdobradas e notas multi-trecho permanecem em Escopo Cidade.",
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de encostas e drenagem; notas com bairro único comprovado são desdobradas e notas multi-trecho ou truncadas em separador ';' (como 2024NL004470) permanecem em Escopo Cidade.",
       "frentesMedicao": {
         "2023NL016696": {
           "status": "promovido",
@@ -467,14 +381,41 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003112)",
           "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
         },
-        "2024NL004470": {
+        "2023NL018578": {
           "status": "promovido",
           "nivel": "Bairro",
-          "bairro": "Alto do Cabrito",
+          "bairro": "Fazenda Grande do Retiro",
           "prefeituraBairro": "Liberdade/São Caetano",
-          "trechoComprobatorio": "SERVIÇOS DE MACRODRENAGEM, M006- SERV. DE DRENAG. NA RUA 9 DE DEZEMBRO - ALTO DO CABRITO",
-          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL004470)",
-          "justificativa": "Nota comprova macrodrenagem na Rua 9 de Dezembro, Bairro Oficial Alto do Cabrito."
+          "trechoComprobatorio": "EXEC. DE SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS (FERRO VELHO DO MEMEU)- MARGINAL",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL018578 - Contrato 038/2023)",
+          "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
+        },
+        "2024NL001853": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Fazenda Grande do Retiro",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "trechoComprobatorio": "SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS ( FERRO VELHO DO MEMEU) - MARGINAL",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001853 - Contrato 038/2023)",
+          "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
+        },
+        "2024NL001854": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Fazenda Grande do Retiro",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "trechoComprobatorio": "SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS ( FERRO VELHO DO MEMEU) - MARGINAL",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001854 - Contrato 038/2023)",
+          "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
+        },
+        "2024NL001857": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Fazenda Grande do Retiro",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "trechoComprobatorio": "SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS ( FERRO VELHO DO MEMEU) - MARGINAL",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001857 - Contrato 038/2023)",
+          "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
         }
       }
     },
@@ -529,8 +470,8 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "Execução de obras de Modernização de Campos de Futebol (...) REQUALIF. ASFALTICA NA RUA DO ENTORNO DO LGO. DO CAMPO GRANDE - TRECHO DA AV. SETE DE SETE",
-      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 616002:2023CT007782)",
+      "trechoComprobatorio": "Execução de obras de Modernização de Campos de Futebol, através da Implantação de Grama Sintética, Manta Drenante e Embasamento Granular, Salvador/BA.",
+      "documentoOrigem": "dsObjeto (Contrato)",
       "justificativa": "Contrato guarda-chuva multi-bairro; a nota 2024NL002313 comprova execução no entorno do Largo do Campo Grande / Av. Sete de Setembro (Bairro Oficial Centro), enquanto as demais notas genéricas permanecem em Escopo Cidade.",
       "frentesMedicao": {
         "2024NL002313": {
@@ -562,8 +503,8 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "Prefeituras Bairros III, IX e X - Cajazeiras, Pau da Lima e Valéria Contrato: 041/2022",
-      "documentoOrigem": "dsObjetoAditivo / descObsLiquidacao (Contrato 041/2022)",
+      "trechoComprobatorio": "Prefeituras Bairros III, IX e X - Cajazeiras, Pau da Lima e Valéria",
+      "documentoOrigem": "dsObjetoAditivo (1º e 2º Termos Aditivos ao Contrato 041/2022)",
       "justificativa": "Lote 02 abrange explicitamente três Prefeituras-Bairro (III, IX e X - Cajazeiras, Pau da Lima e Valéria), impedindo alocação territorial única."
     },
     "616002:2022CT006728": {
@@ -727,8 +668,8 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "MANUTENÇÃO DE QUADRAS E CAMPOS, SLAVADOR-BA, LOTE 03 PB: VIII - CABULA E IX - TANCREDO NEVES",
-      "documentoOrigem": "descObsLiquidacao (Contrato 616002:2024CT008172)",
+      "trechoComprobatorio": "MANUTENÇÃO DE QUADRAS E CAMPOS, SLAVADOR-BA, LOTE 03 PB: VIII - CABULA E IX - TANCREDO NEV",
+      "documentoOrigem": "descObsLiquidacao (Notas 2025NL003336 / 2025NL003337)",
       "justificativa": "Lote 03 agrupa múltiplas Prefeituras-Bairro (VIII e IX), conforme explicitado nas notas de liquidação."
     },
     "616002:2023CT006855": {
@@ -738,8 +679,8 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "Implantação da Intervenção \"H\" - Viaduto Direcional de Retorno - localizado na Av. Antônio Carlos Magalhães/ Av. Mario Leal Ferreira - Salvador/BA.",
-      "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 616002:2023CT006855)",
+      "trechoComprobatorio": "Av. Antônio Carlos Magalhães/ Av. Mario Leal Ferreira - Salvador/BA.",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato)",
       "justificativa": "O viaduto situa-se em nó viário limítrofe entre múltiplos Bairros Oficiais (Brotas, Cabula, Pernambués e Caminho das Árvores), sem especificação de bairro único nos documentos."
     },
     "610002:2026CT002299": {
@@ -815,9 +756,1615 @@
       "nivel": "Escopo Cidade (Não-Localizado)",
       "bairro": null,
       "prefeituraBairro": null,
-      "trechoComprobatorio": "manutenção preventiva e corretiva de equipamentos pesados da SEMAN (...) SALVADOR COMÉRCIO E SERVIÇOS DE PEÇAS E ACESSÓRIOS",
-      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 012/2022)",
+      "trechoComprobatorio": "serviços de manutenção preventiva e corretiva de equipamentos pesados da Secretaria Municipal de Manutenção da Cidade do Salvador - SEMAN",
+      "documentoOrigem": "dsObjeto (Contrato 012/2022)",
       "justificativa": "Contrato de manutenção de equipamentos pesados da frota municipal sem alocação territorial; a palavra 'Comércio' no aditivo pertence à razão social da contratada."
+    },
+    "441010:2021CT005383": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2021CT005383",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 02- GRE PIRAJÁ E CAJAZEIRAS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A GRE Pirajá e Cajazeiras abrange escolas em múltiplos bairros e Prefeituras-Bairro distintas (Pirajá/Cabula vs. Cajazeiras), impedindo atribuição a um único bairro."
+    },
+    "441010:2021CT005391": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2021CT005391",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 05-  GRE ITAPUÃ",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato multi-escolar da Gerência Regional de Educação (GRE) Itapuã sem discriminação individualizada das unidades escolares nem medições por escola."
+    },
+    "441010:2021CT005431": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2021CT005431",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 0005- GRE SÃO CAETANO E LIBERDADE",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato multi-escolar da GRE São Caetano e Liberdade; não pertence exclusivamente ao Bairro Oficial São Caetano e as fronteiras da GRE não garantem delimitação única."
+    },
+    "450002:2023CT009200": {
+      "cdUnidadeGestora": "450002",
+      "nuContratoSigef": "2023CT009200",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria",
+      "documentoOrigem": "dsObjeto (Contrato / AFM 2023013459)",
+      "justificativa": "A palavra 'comércio' integra a expressão genérica 'comércio informal' em áreas públicas da cidade, não se referindo ao Bairro Oficial Comércio."
+    },
+    "450002:2024CT003702": {
+      "cdUnidadeGestora": "450002",
+      "nuContratoSigef": "2024CT003702",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A palavra 'comércio' integra a expressão genérica 'comércio informal' em áreas públicas da cidade, não se referindo ao Bairro Oficial Comércio."
+    },
+    "450002:2026CT002605": {
+      "cdUnidadeGestora": "450002",
+      "nuContratoSigef": "2026CT002605",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A palavra 'comércio' integra a expressão genérica 'comércio informal' em áreas públicas da cidade, não se referindo ao Bairro Oficial Comércio."
+    },
+    "616002:2019CT008330": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2019CT008330",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "requalificação viária da Avenida Aliomar Baleeiro, Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A Avenida Aliomar Baleeiro é um corredor estruturante de ~10 km que atravessa múltiplos bairros (São Cristóvão, Mussurunga, Pau da Lima, Nova Brasília, Sete de Abril e Cajazeiras), inviabilizando alocação em São Cristóvão."
+    },
+    "616002:2020CT005339": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2020CT005339",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "ÀS OBRAS REFERENTES ÀS INTERVENÇÕES A, C, E E H, INTEGRANTES DO PROJETO NOVA TANCREDO NEVES",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O empreendimento 'Nova Tancredo Neves' situa-se ao longo da Av. Tancredo Neves / Av. ACM / Ligação Iguatemi-Paralela (Caminho das Árvores/Pernambués/Brotas), não no Bairro Oficial Beiru/Tancredo Neves."
+    },
+    "616002:2022CT001130": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT001130",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "às Obras referentes às Intervenções A, C, E e H, integrantes do Projeto Nova Tancredo Neves",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O empreendimento 'Nova Tancredo Neves' situa-se ao longo da Av. Tancredo Neves / Av. ACM / Ligação Iguatemi-Paralela (Caminho das Árvores/Pernambués/Brotas), não no Bairro Oficial Beiru/Tancredo Neves."
+    },
+    "616002:2022CT004779": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT004779",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "INTEGRANTES DO PROJETO NOVA TANCREDO NEVES, SALVADOR-BAHIA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O empreendimento 'Nova Tancredo Neves' situa-se ao longo da Av. Tancredo Neves / Av. ACM / Ligação Iguatemi-Paralela (Caminho das Árvores/Pernambués/Brotas), não no Bairro Oficial Beiru/Tancredo Neves."
+    },
+    "616002:2024CT008334": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT008334",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "referentes as intervenções ¿C¿ e ¿H¿, integrantes do projeto da Nova Tancredo Neves",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O empreendimento 'Nova Tancredo Neves' situa-se ao longo da Av. Tancredo Neves / Av. ACM / Ligação Iguatemi-Paralela (Caminho das Árvores/Pernambués/Brotas), não no Bairro Oficial Beiru/Tancredo Neves."
+    },
+    "616002:2025CT000587": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2025CT000587",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Apoio Técnico das obras referentes as Intervenções \"C\" e \"H\", integrantes do projeto da Nova Tancredo Neves",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 002/2025)",
+      "justificativa": "O empreendimento 'Nova Tancredo Neves' situa-se ao longo da Av. Tancredo Neves / Av. ACM / Ligação Iguatemi-Paralela (Caminho das Árvores/Pernambués/Brotas), não no Bairro Oficial Beiru/Tancredo Neves."
+    },
+    "616002:2023CT007487": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT007487",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Estações do BRT¿Trecho 2-Cidade Jardim, Pedrinhas, Rio Vermelho, HGE, Ogunjá, Vasco da Gama e Lapa - Salvador/BA.",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Obra contempla 7 estações do Trecho 2 do BRT distribuídas por múltiplos bairros e Prefeituras-Bairro (Centro/Brotas e Barra/Pituba), sem medições isoladas por estação nas liquidações."
+    },
+    "616002:2020CT004219": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2020CT004219",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "EMPREENDIMENTO ¿CORREDOR DE TRANSPORTE PÚBLICO INTEGRADO PARQUE DA CIDADE ¿ PITUBA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Corredor BRT Parque da Cidade - Pituba atravessa Itaigara, Pituba e vias de divisa sem partilha ou medição por bairro; 'Pituba' no título do eixo não autoriza atribuição exclusiva ao Bairro Pituba."
+    },
+    "616002:2020CT004433": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2020CT004433",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REFERENTES AO ¿CORREDOR PARQUE DA CIDADE ¿ PITUBA¿, OBRA INTEGRANTE DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Corredor BRT Parque da Cidade - Pituba atravessa Itaigara, Pituba e vias de divisa sem partilha ou medição por bairro; 'Pituba' no título do eixo não autoriza atribuição exclusiva ao Bairro Pituba."
+    },
+    "616002:2021CT004954": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2021CT004954",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REFERENTES AO ¿CORREDOR PARQUE DA CIDADE ¿ PITUBA¿, OBRA INTEGRANTE DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Corredor BRT Parque da Cidade - Pituba atravessa Itaigara, Pituba e vias de divisa sem partilha ou medição por bairro; 'Pituba' no título do eixo não autoriza atribuição exclusiva ao Bairro Pituba."
+    },
+    "616002:2022CT003977": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT003977",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REFERENTES AO CORREDOR PARQUE DA CIDADE  PITUBA, OBRA INTEGRANTE DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Corredor BRT Parque da Cidade - Pituba atravessa Itaigara, Pituba e vias de divisa sem partilha ou medição por bairro; 'Pituba' no título do eixo não autoriza atribuição exclusiva ao Bairro Pituba."
+    },
+    "616002:2023CT000673": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT000673",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "corredor \"Pq da Cidade - Pituba\" Obra integrante do sistema BRT",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Corredor BRT Parque da Cidade - Pituba atravessa Itaigara, Pituba e vias de divisa sem partilha ou medição por bairro; 'Pituba' no título do eixo não autoriza atribuição exclusiva ao Bairro Pituba."
+    },
+    "616002:2023CT002947": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT002947",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REFERENTES AO ¿CORREDOR PARQUE DA CIDADE  PITUBA, OBRA INTEGRANTE DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Corredor BRT Parque da Cidade - Pituba atravessa Itaigara, Pituba e vias de divisa sem partilha ou medição por bairro; 'Pituba' no título do eixo não autoriza atribuição exclusiva ao Bairro Pituba."
+    },
+    "616002:2021CT001515": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2021CT001515",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 03",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As estações BRT Hiper e Cidadela distribuem-se entre Brotas (Centro/Brotas) e a divisa com Caminho das Árvores/Parque Bela Vista (Barra/Pituba), sem medições separadas por estação."
+    },
+    "616002:2021CT001516": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2021CT001516",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 02",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As estações BRT Hiper e Cidadela distribuem-se entre Brotas (Centro/Brotas) e a divisa com Caminho das Árvores/Parque Bela Vista (Barra/Pituba), sem medições separadas por estação."
+    },
+    "616002:2021CT001517": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2021CT001517",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 01",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As estações BRT Hiper e Cidadela distribuem-se entre Brotas (Centro/Brotas) e a divisa com Caminho das Árvores/Parque Bela Vista (Barra/Pituba), sem medições separadas por estação."
+    },
+    "616002:2021CT001518": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2021CT001518",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 05",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As estações BRT Hiper e Cidadela distribuem-se entre Brotas (Centro/Brotas) e a divisa com Caminho das Árvores/Parque Bela Vista (Barra/Pituba), sem medições separadas por estação."
+    },
+    "616002:2021CT001519": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2021CT001519",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 05",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As estações BRT Hiper e Cidadela distribuem-se entre Brotas (Centro/Brotas) e a divisa com Caminho das Árvores/Parque Bela Vista (Barra/Pituba), sem medições separadas por estação."
+    },
+    "616002:2023CT002959": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT002959",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Áreas Livres do BRT ¿ Estações Cidadela e Hiper-Av. Antônio Carlos Magalhães-Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As estações BRT Hiper e Cidadela distribuem-se entre Brotas (Centro/Brotas) e a divisa com Caminho das Árvores/Parque Bela Vista (Barra/Pituba), sem medições separadas por estação."
+    },
+    "616002:2023CT009400": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT009400",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "CONSTRUÇÃO DE PISTAS DE SKATE NOS BAIRROS DA RIBEIRA, SÃO CAETANO E CAJAZEIRAS-SALVADOR/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato multi-unidade cita 'Cajazeiras' sem especificar qual bairro oficial de Cajazeiras (II a XI), e não possui liquidações individualizadas por pista."
+    },
+    "616002:2025CT002882": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2025CT002882",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Centro de Referência Especializado de Assistência Social (CREAS): em Brotas, Paripe e Parque São Cristóvão",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato abrange 3 unidades (Brotas, Paripe e Parque São Cristóvão, em divisa territorial próxima a Cassange/São Cristóvão e sem liquidações discriminadas); além de impedir rateio sem regra contratual, o Estágio 1 capturava Paripe indevidamente."
+    },
+    "616002:2025CT005028": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2025CT005028",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Centros de Referência de Assistência Social (CRAS), nas localidades Brotas, Narandiba, Paripe e Parque São Cristóvão",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O objeto abrange Brotas, Narandiba, Paripe e Parque São Cristóvão (CRAS Parque São Cristóvão situado na Rua Oeste I, nº 04 - Loteamento Cassange, CEP 41505-370, divisa Cassange/São Cristóvão), e as notas de liquidação misturam Brotas, Paripe e Parque São Cristóvão na mesma medição (omitindo Narandiba); impede atribuição exclusiva a Paripe."
+    },
+    "520002:2022CT003316": {
+      "cdUnidadeGestora": "520002",
+      "nuContratoSigef": "2022CT003316",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Stella Maris",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "trechoComprobatorio": "construção de pista de skate, localizada em Stella Mares.",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Grafia 'Stella Mares' designa univocamente o Bairro Oficial Stella Maris (Itapuã/Ipitanga), corrigindo falso positivo lexical em 'Mares'."
+    },
+    "616002:2024CT002145": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT002145",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Barris",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "Laudo Técnico de Tirante T10 da Plataforma de Acesso à Estação da Lapa",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A Estação da Lapa situa-se integralmente no Bairro Oficial Barris (CEP 40070-040); 'Plataforma de Acesso' é elemento construtivo, não o bairro Plataforma."
+    },
+    "616002:2025CT001843": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2025CT001843",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Nordeste de Amaralina",
+      "prefeituraBairro": "Barra/Pituba",
+      "trechoComprobatorio": "OBRA DE INFRAESTR. DA URBANIZAÇÃO DA COMUNIDADE DO PÉ PRETO NO B. NORDESTE DE AMARALINA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação 2025NL006073 / 2025NL009599 / 2025NL016839)",
+      "justificativa": "As notas de liquidação corrigem a referência genérica à Pituba no objeto e comprovam que a Comunidade do Pé Preto situa-se no Bairro Oficial Nordeste de Amaralina."
+    },
+    "450002:2022CT004793": {
+      "cdUnidadeGestora": "450002",
+      "nuContratoSigef": "2022CT004793",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "trechoComprobatorio": "na rua Hélio Machado, Boca do Rio (final de linha). CT 016/2022.",
+      "documentoOrigem": "dsObjeto (Contrato 016/2022)",
+      "justificativa": "Objeto localiza univocamente a obra na Rua Hélio Machado, Bairro Oficial Boca do Rio."
+    },
+    "616002:2020CT003969": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2020CT003969",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Caminho das Árvores",
+      "prefeituraBairro": "Barra/Pituba",
+      "trechoComprobatorio": "TRINCHEIRA BIDIRECIONAL DE LIGAÇÃO ENTRE AS AVENIDAS TANCREDO NEVES E MAGALHÃES NETO",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A interseção das avenidas Tancredo Neves e Magalhães Neto (Intervenção E) situa-se inteiramente no Bairro Oficial Caminho das Árvores, corrigindo falso positivo em Beiru/Tancredo Neves."
+    },
+    "616002:2022CT006475": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT006475",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Caminho das Árvores",
+      "prefeituraBairro": "Barra/Pituba",
+      "trechoComprobatorio": "Recuperação Estrutural da Ponte sobre o Rio Camarajipe (vizinho a Nova Estação Rodoviária do BRT) situada na Av. Tancredo Neves",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A ponte sobre o Rio Camarajipe na Av. Tancredo Neves (junto à Nova Estação Rodoviária do BRT) situa-se integralmente no Bairro Oficial Caminho das Árvores."
+    },
+    "450002:2020CT007254": {
+      "cdUnidadeGestora": "450002",
+      "nuContratoSigef": "2020CT007254",
+      "status": "promovido",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "bairro": null,
+      "prefeituraBairro": "Cajazeiras",
+      "trechoComprobatorio": "cobertura para abrigo de 124 licenciados que exercem comércio no largo da rotatória de Cajazeiras, contrato 049/2020.",
+      "documentoOrigem": "dsObjeto (Contrato 049/2020)",
+      "justificativa": "A rotatória de Cajazeiras situa-se integralmente na Prefeitura-Bairro III (Cajazeiras), evitando falso positivo lexical em Comércio sem eleger arbitrariamente uma subunidade numérica."
+    },
+    "616002:2019CT009533": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2019CT009533",
+      "status": "promovido",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "bairro": null,
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "Via de ligação entre a Avenida Gal Costa e Pau da Lima, Jardim Cajazeiras, Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O eixo viário de ligação entre a Av. Gal Costa e Pau da Lima via Jardim Cajazeiras localiza-se integralmente na Prefeitura-Bairro IX (Pau da Lima), corrigindo falso positivo em Sussuarana."
+    },
+    "630002:2026CT003195": {
+      "cdUnidadeGestora": "630002",
+      "nuContratoSigef": "2026CT003195",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "instalado na sede da SEMIT no edifício Sintral",
+      "documentoOrigem": "dsObjeto (Contrato 028/2026)",
+      "justificativa": "A sede da SEMIT no Edifício Sintral (Rua Miguel Calmon, nº 15) localiza-se integralmente no Bairro Oficial Comércio."
+    },
+    "567002:2023CT005453": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2023CT005453",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "SUBESTAÇÃO ABRIGADA (CABINE PRIMÁRIA) DA DESAL.",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    },
+    "567002:2024CT009421": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2024CT009421",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "RECUPERAÇÃO DA COBERTURA DE GALPÃO DA DESAL",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    },
+    "567002:2025CT000957": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2025CT000957",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "REFORMA NA SEDE DA DESAL",
+      "documentoOrigem": "descObsLiquidacao (Notas 2025NL001743 / 2025NL001744)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    },
+    "567002:2025CT005295": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2025CT005295",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "MANUTENÇÃO DO PÁTIO FABRIL DA DESAL",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    },
+    "567002:2026CT001217": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2026CT001217",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "REFORMA DE ALOJAMENTO E SANITÁRIOS DOS EMPREGADOS OPERACIONAIS DA DESAL",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    },
+    "567002:2026CT004073": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2026CT004073",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "REFORMA PÁTIO FABRIL DA DESAL.",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    },
+    "560002:2020CT002990": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2020CT002990",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Bonfim",
+      "prefeituraBairro": "Cidade Baixa",
+      "trechoComprobatorio": "REQUALIFICAÇÃO DA PRAÇA NA RUA HENRIQUE DIAS, LOCALIZADA NO BAIRRO DO BOMFIM, DA PRAÇA QUINZE DE AGOSTO, LOCALIZADA NO BAIRRO DA VILA RUI BARBOSA E DA PRAÇA ANA SIRONE, LOCALIZADA NO BAIRRO VALE DAS PEDRINHAS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 3 praças públicas explicitamente nomeadas em 3 bairros oficiais distintos (Bonfim, Vila Ruy Barbosa\\Jardim Cruzeiro e Vale das Pedrinhas), corrigindo captura isolada do Estágio 1.",
+      "cotas": [
+        {
+          "bairro": "Bonfim",
+          "prefeituraBairro": "Cidade Baixa",
+          "unidades": 1,
+          "descricaoUnidades": "Praça na Rua Henrique Dias (Bonfim)"
+        },
+        {
+          "bairro": "Vila Ruy Barbosa\\Jardim Cruzeiro",
+          "prefeituraBairro": "Cidade Baixa",
+          "unidades": 1,
+          "descricaoUnidades": "Praça Quinze de Agosto (Vila Ruy Barbosa)"
+        },
+        {
+          "bairro": "Vale das Pedrinhas",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "descricaoUnidades": "Praça Ana Sirone (Vale das Pedrinhas)"
+        }
+      ]
+    },
+    "616002:2023CT009404": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT009404",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Brotas",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "Reforma para Manutenção nas seguintes Unidades de Saúde: UPA BROTAS, UPA VALE DO MATATU, USF CURRALINHO, COMPLEXO MUNICIPAL DE VIGILÂNCIA À SAÚDE, CENTRO DE SAÚDE MARIO ANDRÉA, UBS SANTO INÁCIO, USF CLEMENTINO FRAGA, USF TEOTÔNIO VILELA II",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata de 8 unidades de saúde da SMS explicitadas no objeto e repetidas em conjunto nas notas de liquidação, distribuídas por 7 bairros oficiais (2 unidades em Brotas e 1 em cada demais bairro).",
+      "cotas": [
+        {
+          "bairro": "Brotas",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 2,
+          "descricaoUnidades": "UPA Brotas e Complexo Municipal de Vigilância à Saúde (Av. Vasco da Gama, 4209, CEP 40286-000)"
+        },
+        {
+          "bairro": "Matatu",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "descricaoUnidades": "UPA Vale do Matatu"
+        },
+        {
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "unidades": 1,
+          "descricaoUnidades": "USF Curralinho"
+        },
+        {
+          "bairro": "Nazaré",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "descricaoUnidades": "Centro de Saúde Mário Andréa"
+        },
+        {
+          "bairro": "Jardim Santo Inácio",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "unidades": 1,
+          "descricaoUnidades": "UBS Santo Inácio"
+        },
+        {
+          "bairro": "Garcia",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "descricaoUnidades": "USF Clementino Fraga"
+        },
+        {
+          "bairro": "Fazenda Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "USF Teotônio Vilela II"
+        }
+      ]
+    },
+    "616002:2021CT001664": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2021CT001664",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Itapuã",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "trechoComprobatorio": "Recuperação de 03 Campos de Futebol (Lad. Mirante - Abaeté e Rua da Ilha, Km 17 em Itapuã. Rua da Glória - Rua Walter de Almeida - Periperi)",
+      "documentoOrigem": "dsObjeto (Contrato 008/2021)",
+      "justificativa": "Lista fechada exata com 3 campos de futebol em 2 bairros oficiais: 2 em Itapuã (Ladeira do Mirante/Abaeté e Rua da Ilha, Km 17) e 1 em Periperi (Rua da Glória / Walter de Almeida).",
+      "cotas": [
+        {
+          "bairro": "Itapuã",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "unidades": 2,
+          "descricaoUnidades": "Campos Ladeira do Mirante (Abaeté) e Rua da Ilha Km 17 (Itapuã)"
+        },
+        {
+          "bairro": "Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "Campo Rua da Glória / Rua Walter de Almeida (Periperi)"
+        }
+      ]
+    },
+    "616002:2022CT006925": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT006925",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Stella Maris",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "trechoComprobatorio": "REQUALIFICAÇÃO DO CAMPO DA ALAMEDA PRAIA DE GUARAPARI - STELLA MARIS E DO CAMPO DA RUA ORLANDO BAHIA - FAZENDA GRANDE I, SALVADOR/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 campos de futebol explicitamente nomeados em Stella Maris e Fazenda Grande I.",
+      "cotas": [
+        {
+          "bairro": "Stella Maris",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "unidades": 1,
+          "descricaoUnidades": "Campo da Alameda Praia de Guarapari (Stella Maris)"
+        },
+        {
+          "bairro": "Fazenda Grande I",
+          "prefeituraBairro": "Cajazeiras",
+          "unidades": 1,
+          "descricaoUnidades": "Campo da Rua Orlando Bahia (Fazenda Grande I)"
+        }
+      ]
+    },
+    "450002:2024CT005507": {
+      "cdUnidadeGestora": "450002",
+      "nuContratoSigef": "2024CT005507",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Paripe",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "trechoComprobatorio": "fechamento do perímetro externo dos cemitérios públicos municipais de Paripe, Periperi, Ilha de Maré, Ilha de Bom Jesus",
+      "documentoOrigem": "dsObjeto (Contrato 043/2024)",
+      "justificativa": "Lista fechada exata com os 4 cemitérios públicos municipais explicitados no objeto e medidos conjuntamente nas liquidações (Paripe, Periperi, Ilha de Maré e Ilha de Bom Jesus dos Passos).",
+      "cotas": [
+        {
+          "bairro": "Paripe",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "Cemitério Público Municipal de Paripe"
+        },
+        {
+          "bairro": "Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "Cemitério Público Municipal de Periperi"
+        },
+        {
+          "bairro": "Ilha de Maré",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "Cemitério Público Municipal de Ilha de Maré"
+        },
+        {
+          "bairro": "Ilha de Bom Jesus dos Passos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "Cemitério Público Municipal da Ilha de Bom Jesus dos Passos"
+        }
+      ]
+    },
+    "520002:2024CT008159": {
+      "cdUnidadeGestora": "520002",
+      "nuContratoSigef": "2024CT008159",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Pau da Lima",
+      "prefeituraBairro": "Pau da Lima",
+      "trechoComprobatorio": "requalificação e modernização da QUADRA POLIESPORTIVA da Rua da Paz, Pau da Lima, Salvador/Ba e do CAMPO DE FUTEBOL da Rua Principal, Nova Esperança, Salvador/Ba",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 equipamentos esportivos explícitos: Quadra na Rua da Paz (Pau da Lima) e Campo na Rua Principal (Nova Esperança).",
+      "cotas": [
+        {
+          "bairro": "Pau da Lima",
+          "prefeituraBairro": "Pau da Lima",
+          "unidades": 1,
+          "descricaoUnidades": "Quadra Poliesportiva da Rua da Paz (Pau da Lima)"
+        },
+        {
+          "bairro": "Nova Esperança",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "unidades": 1,
+          "descricaoUnidades": "Campo de Futebol da Rua Principal (Nova Esperança)"
+        }
+      ]
+    },
+    "520002:2026CT005609": {
+      "cdUnidadeGestora": "520002",
+      "nuContratoSigef": "2026CT005609",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Águas Claras",
+      "prefeituraBairro": "Cajazeiras",
+      "trechoComprobatorio": "requalificação e modernização da quadra poliesportiva da Rua Lourival Costa com a Rua Joinville, Águas Claras - Salvador/BA, e do campo de futebol da Rua Almirante Mourão de Sá, Fazenda Coutos - Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 equipamentos esportivos explícitos: Quadra em Águas Claras e Campo em Fazenda Coutos.",
+      "cotas": [
+        {
+          "bairro": "Águas Claras",
+          "prefeituraBairro": "Cajazeiras",
+          "unidades": 1,
+          "descricaoUnidades": "Quadra Poliesportiva Rua Lourival Costa x Rua Joinville (Águas Claras)"
+        },
+        {
+          "bairro": "Fazenda Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "Campo de Futebol Rua Almirante Mourão de Sá (Fazenda Coutos)"
+        }
+      ]
+    },
+    "560002:2022CT001469": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2022CT001469",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "trechoComprobatorio": "Requalificação de duas Praças Públicas, sendo uma localizada na Rua Segunda Travessa Domingos de Brito no bairro da Federação, e a outra na Rua Almirante Mourão De Sá na Fazenda Coutos",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 praças públicas explícitas: Segunda Travessa Domingos de Brito (Federação) e Rua Almirante Mourão de Sá (Fazenda Coutos).",
+      "cotas": [
+        {
+          "bairro": "Federação",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "descricaoUnidades": "Praça Pública na Rua Segunda Travessa Domingos de Brito (Federação)"
+        },
+        {
+          "bairro": "Fazenda Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "descricaoUnidades": "Praça Pública na Rua Almirante Mourão de Sá (Fazenda Coutos)"
+        }
+      ]
+    },
+    "616002:2019CT007924": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2019CT007924",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "São Gonçalo",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "trechoComprobatorio": "LOTE 2 - RUA DE SÃO GONÇALO - CABULA, RUA 8 - QUADRA 8 - LOTEAMENTO ACM - SÃO MARCOS e RUA DAS PALMEIRAS - VALE DOS LAGOS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 3 obras de contenção de encostas explícitas: Rua de São Gonçalo (CEP 41185-055, Bairro Oficial São Gonçalo), Rua 8/Loteamento ACM (São Marcos) e Rua das Palmeiras (Vale dos Lagos).",
+      "cotas": [
+        {
+          "bairro": "São Gonçalo",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "unidades": 1,
+          "descricaoUnidades": "Encosta na Rua de São Gonçalo (CEP 41185-055, Bairro Oficial São Gonçalo)"
+        },
+        {
+          "bairro": "São Marcos",
+          "prefeituraBairro": "Pau da Lima",
+          "unidades": 1,
+          "descricaoUnidades": "Encosta na Rua 8, Quadra 8, Loteamento ACM (São Marcos)"
+        },
+        {
+          "bairro": "Vale dos Lagos",
+          "prefeituraBairro": "Pau da Lima",
+          "unidades": 1,
+          "descricaoUnidades": "Encosta na Rua das Palmeiras (Vale dos Lagos)"
+        }
+      ]
+    },
+    "616002:2019CT007925": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2019CT007925",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Barbalho",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "LOTE 1-RUA CEL. FELISBERTO CALDEIRA - BARBALHO, RUA ALTO DO BOM GOSTO ¿ CALÇADA e RUA NOVA CAMURUGIPE 2ª ETAPA - SÃO CAETANO",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 3 encostas explícitas no Lote 1: Barbalho, Calçada e São Caetano.",
+      "cotas": [
+        {
+          "bairro": "Barbalho",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "descricaoUnidades": "Encosta na Rua Cel. Felisberto Caldeira (Barbalho)"
+        },
+        {
+          "bairro": "Calçada",
+          "prefeituraBairro": "Cidade Baixa",
+          "unidades": 1,
+          "descricaoUnidades": "Encosta na Rua Alto do Bom Gosto (Calçada)"
+        },
+        {
+          "bairro": "São Caetano",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "unidades": 1,
+          "descricaoUnidades": "Encosta na Rua Nova Camurugipe 2ª Etapa (São Caetano)"
+        }
+      ]
+    },
+    "301110:2016CT001386": {
+      "cdUnidadeGestora": "301110",
+      "nuContratoSigef": "2016CT001386",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "construção de 4 (quatro) Unidades de Saúde da Família (USF): LOTE 1 USF Curralinho",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 014/2016)",
+      "justificativa": "Contrato multi-unidade com 4 USFs em 4 bairros distintos; medições isoladas atribuídas às frentes de Vale dos Lagos, Colinas de Periperi, Patamares e Boca do Rio, preservando notas conjuntas ou ambíguas em Escopo Cidade (Não-Localizado).",
+      "frentesMedicao": {
+        "2016NL022752": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Vale dos Lagos",
+          "prefeituraBairro": "Pau da Lima",
+          "trechoComprobatorio": "1ª MEDIÇÃO DA CONSTRUÇÃO DA UNID. DE SAÚDE USF VALE DOS LAGOS",
+          "documentoOrigem": "descObsLiquidacao (2016NL022752 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Vale dos Lagos (equipamento cadastrado em Vale dos Lagos)."
+        },
+        "2016NL041737": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Vale dos Lagos",
+          "prefeituraBairro": "Pau da Lima",
+          "trechoComprobatorio": "CONSTRUÇÃO USF SÃO MARCOS - 2ª MEDIÇÃO",
+          "documentoOrigem": "descObsLiquidacao (2016NL041737 - Contrato 014/2016)",
+          "justificativa": "Medição da 4ª USF do contrato (USF Vale dos Lagos / São Marcos, instalada na Estrada da Muriçoca, Bairro Oficial Vale dos Lagos)."
+        },
+        "2017NL005370": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Vale dos Lagos",
+          "prefeituraBairro": "Pau da Lima",
+          "trechoComprobatorio": "4ª MEDIÇÃO DA CONSTRUÇÃO DAS UNID. DE SAUDE USF VALE DOS LAGOS",
+          "documentoOrigem": "descObsLiquidacao (2017NL005370 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Vale dos Lagos (equipamento cadastrado em Vale dos Lagos)."
+        },
+        "2017NL006850": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Vale dos Lagos",
+          "prefeituraBairro": "Pau da Lima",
+          "trechoComprobatorio": "5ª MEDIÇÃO DA CONSTRUÇAO DA UNIDADE DE SAUDE USF VALE DOS LAGOS (SAO MARCOS)",
+          "documentoOrigem": "descObsLiquidacao (2017NL006850 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Vale dos Lagos (equipamento cadastrado em Vale dos Lagos)."
+        },
+        "2017NL006851": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Vale dos Lagos",
+          "prefeituraBairro": "Pau da Lima",
+          "trechoComprobatorio": "5ª MEDIÇÃO DA CONSTRUÇAO DA UNIDADE DE SAUDE USF VALE DOS LAGOS (SAO MARCOS)",
+          "documentoOrigem": "descObsLiquidacao (2017NL006851 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Vale dos Lagos (equipamento cadastrado em Vale dos Lagos)."
+        },
+        "2016NL024320": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "1ª MEDIÇÃO COMPLEMENTAR DA UNID. DE SAUDE DA FAMILIA DA CIDADE DE SSA, LOTE 1 - USF COLINAS DE PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL024320 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL025109": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "1ª MEDIÇÃO COMPLEMENTAR DA UNID. DE SAUDE DA FAMILIA DA CIDADE DE SSA, LOTE 1 - USF COLINAS DE PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL025109 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL035703": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "2ª MEDIÇÃO. USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL035703 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL035704": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "2ª MEDIÇÃO. USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL035704 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL035830": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "2ª MEDIÇÃO. USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL035830 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL035831": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "2ª MEDIÇÃO. USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL035831 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL035834": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "2ª MEDIÇÃO. USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL035834 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL035835": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "2ª MEDIÇÃO. USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL035835 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL042294": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "3ª MEDIÇÃO DA CONSTRUÇÃO USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL042294 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL042305": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "3ª MEDIÇÃO DA CONSTRUÇÃO USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL042305 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL043282": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "3ª MEDIÇÃO DA CONSTRUÇÃO USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL043282 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL044946": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "4ª MEDIÇÃO DA CONSTRUÇÃO USF COLINAS PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2016NL044946 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2017NL005372": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "5ª MEDIÇÃO DE 04 UNIDADS DE USF - COLINAS DE PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2017NL005372 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2017NL005478": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "5ª MEDIÇÃO DE 04 UNIDADS DE USF - COLINAS DE PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2017NL005478 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2017NL008899": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "6ª MEDIÇÃO DA CONSTRUÇÃO DA UNID. DE SAUDE DA FAMILIA USF COLINAS DE PERIPERI",
+          "documentoOrigem": "descObsLiquidacao (2017NL008899 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2017NL017895": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Colinas de Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "8ª MEDIÇAO DA CONSTRUÇAO DA UNIDADE DE SAUDE DA FAMILIA USFCOLINAS DE PERIRI",
+          "documentoOrigem": "descObsLiquidacao (2017NL017895 - Contrato 014/2016)",
+          "justificativa": "Medição específica da USF Colinas de Periperi (Bairro Oficial Colinas de Periperi)."
+        },
+        "2016NL036869": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Patamares",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "MEDIÇÃO COMPLEMENTAR DA 2ª MEDIÇÃO. USF JAGUARIBE",
+          "documentoOrigem": "descObsLiquidacao (2016NL036869 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Jaguaribe (equipamento oficial cadastrado no Bairro Patamares)."
+        },
+        "2017NL005371": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Patamares",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "4ª MEDIÇÃO DA CONSTRUÇÃO DAS UNID. DE SAUDE USF JAGUARIBE",
+          "documentoOrigem": "descObsLiquidacao (2017NL005371 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Jaguaribe (equipamento oficial cadastrado no Bairro Patamares)."
+        },
+        "2017NL006847": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Patamares",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "5ª MEDIÇÃO DA CONSTRUÇAO DA UNIDADE DE SAUDE USF JAGUARIBE",
+          "documentoOrigem": "descObsLiquidacao (2017NL006847 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Jaguaribe (equipamento oficial cadastrado no Bairro Patamares)."
+        },
+        "2017NL006848": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Patamares",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "5ª MEDIÇÃO DA CONSTRUÇAO DA UNIDADE DE SAUDE USF JAGUARIBE",
+          "documentoOrigem": "descObsLiquidacao (2017NL006848 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Jaguaribe (equipamento oficial cadastrado no Bairro Patamares)."
+        },
+        "2017NL009613": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "6ª MEDIÇÃO DA CONSTRUÇAO DA UNID. DE SAUDE USF CURRALINHO",
+          "documentoOrigem": "descObsLiquidacao (2017NL009613 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Curralinho (equipamento oficial cadastrado no Bairro Boca do Rio)."
+        },
+        "2017NL011348": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "7ª MEDIÇÃO DA CONSTRUÇAO DA UNID. DE SAUDE USF CURRALINHO",
+          "documentoOrigem": "descObsLiquidacao (2017NL011348 - Contrato 014/2016)",
+          "justificativa": "Medição individualizada da USF Curralinho (equipamento oficial cadastrado no Bairro Boca do Rio)."
+        }
+      }
+    },
+    "441010:2022CT003188": {
+      "cdUnidadeGestora": "441010",
+      "nuContratoSigef": "2022CT003188",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12 (DOZE) UNIDADES ESOLARES DA SMED.",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 134/2022)",
+      "justificativa": "Contrato de 12 escolas municipais; 2 liquidações explicitam integralmente a EM Cônego Emílio Lobo (Lapinha), enquanto notas com nome truncado no SIGEF permanecem em Escopo Cidade.",
+      "frentesMedicao": {
+        "2022NL050257": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Lapinha",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "trechoComprobatorio": "RECONSTRUÇÃO DA ESCOLA MUNICIPAL CONEGO EMÍLIO LOBO",
+          "documentoOrigem": "descObsLiquidacao (2022NL050257 - Contrato 134/2022)",
+          "justificativa": "Nota de liquidação explicita reconstrução da EM Cônego Emílio Lobo (INEP cadastrado em Lapinha)."
+        },
+        "2022NL056345": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Lapinha",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "trechoComprobatorio": "RECONSTRUÇÃO DA ESCOLA MUNICIPAL CONEGO EMÍLIO LOBO",
+          "documentoOrigem": "descObsLiquidacao (2022NL056345 - Contrato 134/2022)",
+          "justificativa": "Nota de liquidação explicita reconstrução da EM Cônego Emílio Lobo (INEP cadastrado em Lapinha)."
+        }
+      }
+    },
+    "603002:2021CT003102": {
+      "cdUnidadeGestora": "603002",
+      "nuContratoSigef": "2021CT003102",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "englobando as Prefeituras Bairro: PB I -",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 01/2021)",
+      "justificativa": "Contrato multi-Prefeitura-Bairro (PBs I, III, IV, VI e VII) de projetos urbanos; medições isoladas de Pituaçu, Comércio, Engenho Velho de Brotas e Itapuã são alocadas em Bairro, preservando estudos transversais (BRT, Forte São Marcelo, economia da cidade e notas duplas) fora da partilha pontual.",
+      "frentesMedicao": {
+        "2021NL003360": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "Requalificação Urbana da Orla de Pituaçu -  PTA 01",
+          "documentoOrigem": "descObsLiquidacao (2021NL003360 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2021NL003915": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "PTA 01 - Requalificação Urbana da Orla de Pituaçu - Produto 02",
+          "documentoOrigem": "descObsLiquidacao (2021NL003915 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL002731": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "Requalificação Urbana da orla de Pituaçú. Produto 04.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002731 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL002734": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "Reqyualifica Urbana da orla de Pituaçu. Produto 05.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002734 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL002781": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "PTA 01 - Requalificação Urbana da orla de Pituaçu - produto 15",
+          "documentoOrigem": "descObsLiquidacao (2022NL002781 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL002782": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "PTA 01 - Projeto Requalificação Urbana da Orla de Pituaçu - Produto 12",
+          "documentoOrigem": "descObsLiquidacao (2022NL002782 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL002783": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "PT 01 - Requalificação da Orla Urbana de Pituaçu - Produto 14.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002783 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL002995": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "Requalificação Urbana da Orla de Pituaçu.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002995 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL002996": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "Requalificação Urbana Orla de Pituaçu.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002996 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL003617": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "PTA 11 PROJETO EXECUTIVO DE REQUALIFICAÇÃO URBANA DA ORLA DE PITUAÇU",
+          "documentoOrigem": "descObsLiquidacao (2022NL003617 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL003906": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "ESTUDO DE IMPACTO AMBIENTAL PARAS ORLA DE PITUAÇÚ.",
+          "documentoOrigem": "descObsLiquidacao (2022NL003906 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2022NL003907": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pituaçu",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "ESTUDO DE IMPACTO AMBIENTAL PARAS ORLA DE PITUAÇÚ.",
+          "documentoOrigem": "descObsLiquidacao (2022NL003907 - Contrato 01/2021)",
+          "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+        },
+        "2021NL003914": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Comércio",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "PTA 04 - PROJETO ARQUITETÔNICO CASA DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+          "documentoOrigem": "descObsLiquidacao (2021NL003914 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+        },
+        "2021NL004412": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Comércio",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "PTA 04 - PROJETO ARQUITETÔNICO - CASA DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+          "documentoOrigem": "descObsLiquidacao (2021NL004412 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+        },
+        "2021NL004413": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Comércio",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "PTA 04- PROJETO ARQUITETÔNICO CASA DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+          "documentoOrigem": "descObsLiquidacao (2021NL004413 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+        },
+        "2022NL000492": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Comércio",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "PTA 04- PROJETO ARQUITETONICO CIDADE DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+          "documentoOrigem": "descObsLiquidacao (2022NL000492 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+        },
+        "2021NL004411": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Engenho Velho de Brotas",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "PTA03 - Projeto de Requalificação Urbana do Engenho Velho de Brotas",
+          "documentoOrigem": "descObsLiquidacao (2021NL004411 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se ao projeto de requalificação urbana no Bairro Oficial Engenho Velho de Brotas."
+        },
+        "2022NL002525": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Engenho Velho de Brotas",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "Projeto de Requalificação Urbana do Engenho Velho de Brotas.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002525 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se ao projeto de requalificação urbana no Bairro Oficial Engenho Velho de Brotas."
+        },
+        "2022NL003616": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Engenho Velho de Brotas",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "PTA 13 PROJETO EXECUTIVO DE REQUALIFICAÇÃO URBANA ENGENHO VELHO DE BROTAS",
+          "documentoOrigem": "descObsLiquidacao (2022NL003616 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se ao projeto de requalificação urbana no Bairro Oficial Engenho Velho de Brotas."
+        },
+        "2022NL002994": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Itapuã",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "Projeto executivo de drenagem pluvial,loteamento Farol de Itapoan.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002994 - Contrato 01/2021)",
+          "justificativa": "Nota refere-se a drenagem no Loteamento Farol de Itapuã, Bairro Oficial Itapuã."
+        }
+      }
+    },
+    "603002:2021CT003103": {
+      "cdUnidadeGestora": "603002",
+      "nuContratoSigef": "2021CT003103",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "englobando as Prefeituras Bairro: PB II -",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 02/2021)",
+      "justificativa": "Contrato multi-Prefeitura-Bairro de projetos urbanos (PBs II, V, VIII, IX e X); promove medições lídimas por frente em Ribeira, Ilha de Maré, Uruguai, Calçada e Plataforma, mantendo itens transversais/não locais e estornados sem alocação.",
+      "frentesMedicao": {
+        "2021NL003530": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ribeira",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "Projeto Executivo de Urbanização do Porto da Lenha",
+          "documentoOrigem": "descObsLiquidacao (2021NL003530 - Contrato 02/2021)",
+          "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+        },
+        "2021NL003870": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ribeira",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "Concepção Urbanística do projeto do Porto da Lenha",
+          "documentoOrigem": "descObsLiquidacao (2021NL003870 - Contrato 02/2021)",
+          "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+        },
+        "2021NL004407": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ribeira",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "Projeto Executivo   Requalificação de Porto da Lenha PTA 02",
+          "documentoOrigem": "descObsLiquidacao (2021NL004407 - Contrato 02/2021)",
+          "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+        },
+        "2022NL003470": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ribeira",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "PTA 02/2021 Elaboração dos Projetos Executivos de Urbanização e",
+          "documentoOrigem": "descObsLiquidacao (2022NL003470 - Contrato 02/2021)",
+          "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+        },
+        "2022NL003752": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ribeira",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "ELABORAÇÃO PROJETOS URBANIZAÇÃO PORTO DA LENHA AV.BEIRA MAR -RIBEIRA",
+          "documentoOrigem": "descObsLiquidacao (2022NL003752 - Contrato 02/2021)",
+          "justificativa": "Nota comprova estudo/projeto do Porto da Lenha (Av. Beira Mar - Ribeira), excluindo liquidações estornadas (2022NL003438/3441)."
+        },
+        "2021NL003927": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ilha de Maré",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "PLANO INTEGRADO DE URBANIZAÇÃO DA ILHA DE MARÉ",
+          "documentoOrigem": "descObsLiquidacao (2021NL003927 - Contrato 02/2021)",
+          "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+        },
+        "2021NL004405": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ilha de Maré",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "PLANO INTEGRADO DE URBANIZAÇÃO DA ILHA DE MARÉ.",
+          "documentoOrigem": "descObsLiquidacao (2021NL004405 - Contrato 02/2021)",
+          "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+        },
+        "2021NL004406": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ilha de Maré",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "PLANO INTEGRADO DA ILHA DE MARÉ.",
+          "documentoOrigem": "descObsLiquidacao (2021NL004406 - Contrato 02/2021)",
+          "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+        },
+        "2022NL003822": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ilha de Maré",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "PLANO INTEGRADO DE URBANIZAÇÃO DA ILHA DE MARÉ. CONTRATO 02/2021",
+          "documentoOrigem": "descObsLiquidacao (2022NL003822 - Contrato 02/2021)",
+          "justificativa": "Nota refere-se ao Plano Integrado de Urbanização da Ilha de Maré (Bairro Oficial Ilha de Maré)."
+        },
+        "2021NL004262": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Uruguai",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "Urbanização e Infraestrutura do entorno da Igreja Nossa Senhora dos Alagados",
+          "documentoOrigem": "descObsLiquidacao (2021NL004262 - Contrato 02/2021)",
+          "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+        },
+        "2022NL001168": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Uruguai",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "URBANIZAÇÃO ENTORNO DA IGREJA NOSSA SENHORA DOS ALAGADOS CONT.02/2021",
+          "documentoOrigem": "descObsLiquidacao (2022NL001168 - Contrato 02/2021)",
+          "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+        },
+        "2022NL001980": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Uruguai",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "Urbanização e Infraestrutura da área da Igreja Nossa Senhora dos Alagados.",
+          "documentoOrigem": "descObsLiquidacao (2022NL001980 - Contrato 02/2021)",
+          "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+        },
+        "2022NL003870": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Uruguai",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "ELABORAÇÃO DOS PROJETOS EXECUTIVOS DA ÁREA DO ENTORNO DA IGREJA NOSSA SENHORA DOS ALAGADOS.",
+          "documentoOrigem": "descObsLiquidacao (2022NL003870 - Contrato 02/2021)",
+          "justificativa": "Entorno da Igreja Nossa Senhora dos Alagados situa-se na Rua Luiz Régis Pacheco, 1618, Bairro Oficial Uruguai."
+        },
+        "2022NL001334": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Calçada",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "Projeto Arquitetônico da Feira do Curtume, PTA 05/2021",
+          "documentoOrigem": "descObsLiquidacao (2022NL001334 - Contrato 02/2021)",
+          "justificativa": "Feira do Curtume situa-se na Calçada/Largo do Curtume (CEP 40410-550), mapeada em sublocalidades.json para o Bairro Oficial Calçada."
+        },
+        "2022NL002674": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Calçada",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "Estrutura de Apoio da Cobertura Métalica da Feira do Curtume.",
+          "documentoOrigem": "descObsLiquidacao (2022NL002674 - Contrato 02/2021)",
+          "justificativa": "Feira do Curtume situa-se na Calçada/Largo do Curtume (CEP 40410-550), mapeada em sublocalidades.json para o Bairro Oficial Calçada."
+        },
+        "2022NL003873": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Calçada",
+          "prefeituraBairro": "Cidade Baixa",
+          "trechoComprobatorio": "ELABORAÇÃO DE PROJETOS DA FEIRA DO CURTUME",
+          "documentoOrigem": "descObsLiquidacao (2022NL003873 - Contrato 02/2021)",
+          "justificativa": "Feira do Curtume situa-se na Calçada/Largo do Curtume (CEP 40410-550), mapeada em sublocalidades.json para o Bairro Oficial Calçada."
+        },
+        "2022NL003403": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "URBANISTICO PRAÇA PLANALTO REAL CONT.02/2021",
+          "documentoOrigem": "descObsLiquidacao (2022NL003403 - Contrato 02/2021)",
+          "justificativa": "Praça Planalto Real localiza-se no Loteamento Planalto Real (CEP 40715-120), Bairro Oficial Plataforma, excluindo estornos 2022NL003285/3286."
+        },
+        "2022NL003404": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "URBANISTICO PRAÇA PLANALTO REAL CONT.02/2021",
+          "documentoOrigem": "descObsLiquidacao (2022NL003404 - Contrato 02/2021)",
+          "justificativa": "Praça Planalto Real localiza-se no Loteamento Planalto Real (CEP 40715-120), Bairro Oficial Plataforma, excluindo estornos 2022NL003285/3286."
+        },
+        "2022NL003434": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "trechoComprobatorio": "PROJETO URBANISTICO DA PRAÇA PLANALTO REAL.",
+          "documentoOrigem": "descObsLiquidacao (2022NL003434 - Contrato 02/2021)",
+          "justificativa": "Praça Planalto Real localiza-se no Loteamento Planalto Real (CEP 40715-120), Bairro Oficial Plataforma, excluindo estornos 2022NL003285/3286."
+        }
+      }
+    },
+    "616002:2024CT007773": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT007773",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Prefeitura Bairro IV que abrange os Bairros Itapuã e Ipitanga",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 017/2024)",
+      "justificativa": "Embora o objeto mencione PB IV (Itapuã/Ipitanga), suas medições comprovam obras em toda a cidade (Federação, Centro, Granjas Rurais Presidente Vargas, Boca do Rio, Imbuí, Jaguaribe/Piatã e Periperi/Plataforma); promove apenas medições de obra única não ambíguas.",
+      "frentesMedicao": {
+        "2024NL013951": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Federação",
+          "prefeituraBairro": "Barra/Pituba",
+          "trechoComprobatorio": "OBRA: E001 - SERV. DE  ENCOSTAS NA 2ª TRAV. P",
+          "documentoOrigem": "descObsLiquidacao (2024NL013951 - Contrato 017/2024)",
+          "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+        },
+        "2024NL015737": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Federação",
+          "prefeituraBairro": "Barra/Pituba",
+          "trechoComprobatorio": "OBRA  E001-  SERVS. DE ENCOSTA NA 2ª TRAV. PADRE DOMINGOS DE BRITO - FEDERAÇÃO",
+          "documentoOrigem": "descObsLiquidacao (2024NL015737 - Contrato 017/2024)",
+          "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+        },
+        "2025NL001420": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Federação",
+          "prefeituraBairro": "Barra/Pituba",
+          "trechoComprobatorio": "OBRA: E001 SERV. DE ENCOSTA NA 2ª TRAV. PADRE DOMINGOS DE B",
+          "documentoOrigem": "descObsLiquidacao (2025NL001420 - Contrato 017/2024)",
+          "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+        },
+        "2025NL001421": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Federação",
+          "prefeituraBairro": "Barra/Pituba",
+          "trechoComprobatorio": "OBRA: E001 SERV. DE ENCOSTA NA 2ª TRAV. PADRE DOMINGOS DE B",
+          "documentoOrigem": "descObsLiquidacao (2025NL001421 - Contrato 017/2024)",
+          "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+        },
+        "2025NL002504": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "OBRAS DE DRENAGEM NA RUA JAIME SAPOLNIK - BOCA DO RIO",
+          "documentoOrigem": "descObsLiquidacao (2025NL002504 - Contrato 017/2024)",
+          "justificativa": "Obra D001 na Rua Jaime Sapolnik, Bairro Oficial Boca do Rio."
+        },
+        "2025NL008360": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "D001- SERV. DE DRENAGEGEM NA RUA JAIME SAPOLNIK-BOCA DO RIO",
+          "documentoOrigem": "descObsLiquidacao (2025NL008360 - Contrato 017/2024)",
+          "justificativa": "Obra D001 na Rua Jaime Sapolnik, Bairro Oficial Boca do Rio."
+        },
+        "2025NL008356": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Centro",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "RECUPERAÇÃO DO VIADUTO SÃO PEDRO- CAMPO GRANDE",
+          "documentoOrigem": "descObsLiquidacao (2025NL008356 - Contrato 017/2024)",
+          "justificativa": "Viaduto São Pedro no Campo Grande localiza-se no Bairro Oficial Centro."
+        },
+        "2025NL010825": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Granjas Rurais Presidente Vargas",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "trechoComprobatorio": "OBRA E004 CONT. NA RUA S. FRANC. XA",
+          "documentoOrigem": "descObsLiquidacao (2025NL010825 - Contrato 017/2024)",
+          "justificativa": "Obra E004 identificada nas liquidações como Rua São Francisco Xavier, Granjas Rurais Presidente Vargas (CEP 41230-140)."
+        },
+        "2025NL015182": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Granjas Rurais Presidente Vargas",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "trechoComprobatorio": "OBRA: E004 - SERV. DE ENCOSTA, RUA SÃO FRANCI",
+          "documentoOrigem": "descObsLiquidacao (2025NL015182 - Contrato 017/2024)",
+          "justificativa": "Obra E004 identificada nas liquidações como Rua São Francisco Xavier, Granjas Rurais Presidente Vargas (CEP 41230-140)."
+        },
+        "2025NL014744": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Imbuí",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "P037: SERV. INFRA AV. JORGE AMADO - IMBUÍ",
+          "documentoOrigem": "descObsLiquidacao (2025NL014744 - Contrato 017/2024)",
+          "justificativa": "Obra P037 na Av. Jorge Amado, Bairro Oficial Imbuí."
+        },
+        "2025NL017217": {
+          "status": "promovido",
+          "nivel": "Regional (Prefeitura-Bairro)",
+          "bairro": null,
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "trechoComprobatorio": "P001 - SERVIÇOS DE INFRAESTR. NA RUA LAFAYETTE VELLOSO JAGUARIPE",
+          "documentoOrigem": "descObsLiquidacao (2025NL017217 - Contrato 017/2024)",
+          "justificativa": "Rua Des. Lafayette Velloso situa-se em Jaguaribe/Piatã (PB IV Itapuã/Ipitanga; 'Jaguaripe' é grafia imprópria de Jaguaribe); na divisa Patamares/Piatã, aloca-se conservadoramente na Prefeitura-Bairro Itapuã/Ipitanga."
+        }
+      }
+    },
+    "616002:2018CT000094": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2018CT000094",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "Barra",
+      "prefeituraBairro": "Barra/Pituba",
+      "trechoComprobatorio": "REQUALIFICAÇÃO DA INFRAESTRUTURA TURÍSTICA DA ORLA DA BARRA/ONDINA",
+      "documentoOrigem": "dsObjeto (Contrato 003/2018)",
+      "justificativa": "Lista fechada exata com 2 trechos de orla explicitamente nomeados no objeto contratual (Barra e Ondina), permitindo rateio determinístico igualitário (1/2 cada) citado na ADR-0006 em vez de permanecer apenas no nível Prefeitura-Bairro.",
+      "cotas": [
+        {
+          "bairro": "Barra",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "descricaoUnidades": "Trecho Orla da Barra (Contrato 003/2018)"
+        },
+        {
+          "bairro": "Ondina",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "descricaoUnidades": "Trecho Orla de Ondina (Contrato 003/2018)"
+        }
+      ]
+    },
+    "560002:2020CT006188": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2020CT006188",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "Edifício da Secretaria Municipal da Fazenda (SEFAZ), localizada na Rua das Vassouras, nº 01 - Centro, Salvador",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A sede da SEFAZ na Rua das Vassouras, nº 01 (CEP 40020-020, coordenadas -12.975692, -38.512847) situa-se integralmente dentro do polígono do Bairro Oficial Centro Histórico na malha cartográfica oficial, apesar da menção genérica 'Centro' no endereço."
+    },
+    "543002:2021CT003439": {
+      "cdUnidadeGestora": "543002",
+      "nuContratoSigef": "2021CT003439",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "Casa do Benin, Espaço Cultural da Barroquinha, Teatro Gregório deMattos e sede da Fundação Gregório de Mattos",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Todos os 4 equipamentos culturais objeto do estudo técnico (Casa do Benin no Pelourinho e complexo Espaço Cultural/Teatro Gregório de Mattos/sede FGM na Ladeira da Barroquinha nº 02) situam-se no polígono do Bairro Oficial Centro Histórico."
     }
   }
 }

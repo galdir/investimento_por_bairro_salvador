@@ -61,12 +61,12 @@
     ],
     "deltaPercentualValor": 40.51
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "nivel": "Pontual",
+  "bairro": "São João do Cabrito",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.901514,
+  "longitude": -38.474979,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -84,14 +84,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "ESCOLA MUNICIPAL IVONE VIEIRA LIMA -LOTE 02",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 02 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Subúrbio/Ilhas."
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "São João do Cabrito",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em São João do Cabrito via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

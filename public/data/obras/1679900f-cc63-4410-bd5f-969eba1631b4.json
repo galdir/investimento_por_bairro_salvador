@@ -67,12 +67,12 @@
     ],
     "deltaPercentualValor": 24.83
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Cajazeiras",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -90,11 +90,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
-      "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Cajazeiras via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 02- GRE PIRAJÁ E CAJAZEIRAS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A GRE Pirajá e Cajazeiras abrange escolas em múltiplos bairros e Prefeituras-Bairro distintas (Pirajá/Cabula vs. Cajazeiras), impedindo atribuição a um único bairro."
     }
   },
   "cdUnidadeGestora": "441010"

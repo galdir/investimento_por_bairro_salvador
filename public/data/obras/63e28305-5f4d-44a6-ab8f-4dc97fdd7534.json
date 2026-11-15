@@ -69,12 +69,12 @@
     ],
     "deltaPercentualValor": 22.24
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Cidade Baixa",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -92,11 +92,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
       "bairro": null,
-      "prefeituraBairro": "Cidade Baixa",
-      "origem": "Alocação em Cidade Baixa via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Múltiplas Prefeituras-Bairro)"
     }
   },
   "cdUnidadeGestora": "441010"

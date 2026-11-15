@@ -86,12 +86,12 @@
     ],
     "deltaPercentualValor": 13.07
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Pau da Lima",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.9214,
+  "longitude": -38.4436,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -109,11 +109,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Pau da Lima",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Pau da Lima via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

@@ -851,12 +851,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Granjas Rurais Presidente Vargas",
   "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.921229,
-  "longitude": -38.459927,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.92129,
+  "longitude": -38.46461,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -874,11 +874,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Granjas Rurais Presidente Vargas",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Granjas Rurais Presidente Vargas via Cache"
+      "origem": "Alocação em Granjas Rurais Presidente Vargas via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "616002"

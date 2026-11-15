@@ -67,7 +67,7 @@
   "prefeituraBairro": "Liberdade/São Caetano",
   "latitude": -12.955803,
   "longitude": -38.499155,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,10 +86,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Lapinha",
       "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em Lapinha via Cache"
+      "origem": "Alocação em Lapinha via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

@@ -734,8 +734,8 @@
       "bairro": null,
       "prefeituraBairro": null,
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "Manutenção de Quadras e Campos no Município de Salvador/BA, subdivididos em 04 (quatro) Lotes (...) LOTE03",
-      "documentoOrigem": "dsObjeto / descObsLiquidacao",
+      "trechoComprobatorio": "Execução das obras de Manutenção de Quadras e Campos em Salvador/BA, correspondente LOTE03",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação 2026NL009957 / 2026NL011942)",
       "justificativa": "A divisão em 4 lotes agrupa múltiplas Prefeituras-Bairro, não correspondendo à PB III."
     }
   },

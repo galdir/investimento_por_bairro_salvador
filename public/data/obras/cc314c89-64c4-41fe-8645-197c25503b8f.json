@@ -61,11 +61,11 @@
     "deltaPercentualValor": 10.66
   },
   "nivel": "Bairro",
-  "bairro": "São Marcos",
-  "prefeituraBairro": "Pau da Lima",
-  "latitude": -12.925931,
-  "longitude": -38.437574,
-  "estagioAlocacao": "Cache",
+  "bairro": "São Gonçalo",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.950756,
+  "longitude": -38.466593,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -84,11 +84,84 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "São Marcos",
-      "prefeituraBairro": "Pau da Lima",
-      "origem": "Alocação em São Marcos via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+      "bairro": "São Gonçalo",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em São Gonçalo via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "LOTE 2 - RUA DE SÃO GONÇALO - CABULA, RUA 8 - QUADRA 8 - LOTEAMENTO ACM - SÃO MARCOS e RUA DAS PALMEIRAS - VALE DOS LAGOS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 3 obras de contenção de encostas explícitas: Rua de São Gonçalo (CEP 41185-055, Bairro Oficial São Gonçalo), Rua 8/Loteamento ACM (São Marcos) e Rua das Palmeiras (Vale dos Lagos).",
+      "cotasListaFechada": [
+        {
+          "bairro": "São Gonçalo",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.950756,
+          "longitude": -38.466593,
+          "descricaoUnidades": "Encosta na Rua de São Gonçalo (CEP 41185-055, Bairro Oficial São Gonçalo)"
+        },
+        {
+          "bairro": "São Marcos",
+          "prefeituraBairro": "Pau da Lima",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.925931,
+          "longitude": -38.437574,
+          "descricaoUnidades": "Encosta na Rua 8, Quadra 8, Loteamento ACM (São Marcos)"
+        },
+        {
+          "bairro": "Vale dos Lagos",
+          "prefeituraBairro": "Pau da Lima",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.933189,
+          "longitude": -38.418317,
+          "descricaoUnidades": "Encosta na Rua das Palmeiras (Vale dos Lagos)"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "São Gonçalo",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.950756,
+      "longitude": -38.466593,
+      "descricaoUnidades": "Encosta na Rua de São Gonçalo (CEP 41185-055, Bairro Oficial São Gonçalo)"
+    },
+    {
+      "bairro": "São Marcos",
+      "prefeituraBairro": "Pau da Lima",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.925931,
+      "longitude": -38.437574,
+      "descricaoUnidades": "Encosta na Rua 8, Quadra 8, Loteamento ACM (São Marcos)"
+    },
+    {
+      "bairro": "Vale dos Lagos",
+      "prefeituraBairro": "Pau da Lima",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.933189,
+      "longitude": -38.418317,
+      "descricaoUnidades": "Encosta na Rua das Palmeiras (Vale dos Lagos)"
+    }
+  ],
   "cdUnidadeGestora": "616002"
 }

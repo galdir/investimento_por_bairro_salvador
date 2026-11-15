@@ -89,9 +89,9 @@
       "bairro": null,
       "prefeituraBairro": null,
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "SERVIÇOS DE REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 03 PREF BAIRROS I, VI E VII",
+      "trechoComprobatorio": "SERVIÇOS DE REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 03\r\nPREF BAIRROS I, VI E VII",
       "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), impedindo alocação regional única."
+      "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), impedindo alocação territorial única."
     }
   },
   "cdUnidadeGestora": "616002"

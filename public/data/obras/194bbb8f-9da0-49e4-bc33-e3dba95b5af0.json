@@ -1692,12 +1692,12 @@
     ],
     "deltaPercentualValor": 22.37
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Cajazeiras VI",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.895002,
+  "longitude": -38.428704,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1746,11 +1746,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Cajazeiras VI",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Cajazeiras VI via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

@@ -1625,12 +1625,12 @@
     ],
     "deltaPercentualValor": 3.29
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Cosme de Farias",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.98154,
+  "longitude": -38.48617,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1667,11 +1667,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Cosme de Farias",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Cosme de Farias via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

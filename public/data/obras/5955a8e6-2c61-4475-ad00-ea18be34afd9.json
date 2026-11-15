@@ -1244,12 +1244,12 @@
     ],
     "deltaPercentualValor": 5.16
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Paripe",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.83351,
+  "longitude": -38.46722,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1286,11 +1286,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Paripe",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Paripe via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

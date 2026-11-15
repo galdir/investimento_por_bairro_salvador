@@ -1864,8 +1864,8 @@
       "bairro": null,
       "prefeituraBairro": null,
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "Implantação da Intervenção \"H\" - Viaduto Direcional de Retorno - localizado na Av. Antônio Carlos Magalhães/ Av. Mario Leal Ferreira - Salvador/BA.",
-      "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 616002:2023CT006855)",
+      "trechoComprobatorio": "Av. Antônio Carlos Magalhães/ Av. Mario Leal Ferreira - Salvador/BA.",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato)",
       "justificativa": "O viaduto situa-se em nó viário limítrofe entre múltiplos Bairros Oficiais (Brotas, Cabula, Pernambués e Caminho das Árvores), sem especificação de bairro único nos documentos."
     }
   },

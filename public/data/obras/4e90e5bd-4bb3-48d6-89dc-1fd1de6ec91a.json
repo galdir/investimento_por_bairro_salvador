@@ -82,7 +82,7 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.975454,
   "longitude": -38.428853,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -101,10 +101,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Boca do Rio",
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Boca do Rio via Cache"
+      "origem": "Alocação em Boca do Rio via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

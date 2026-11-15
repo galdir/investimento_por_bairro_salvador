@@ -63,11 +63,11 @@
     "deltaPercentualValor": 21.67
   },
   "nivel": "Bairro",
-  "bairro": "São Caetano",
-  "prefeituraBairro": "Liberdade/São Caetano",
-  "latitude": -12.933649,
-  "longitude": -38.4795,
-  "estagioAlocacao": "Cache",
+  "bairro": "Barbalho",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.964932,
+  "longitude": -38.500043,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,11 +86,84 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "São Caetano",
-      "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em São Caetano via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+      "bairro": "Barbalho",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Barbalho via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "LOTE 1-RUA CEL. FELISBERTO CALDEIRA - BARBALHO, RUA ALTO DO BOM GOSTO ¿ CALÇADA e RUA NOVA CAMURUGIPE 2ª ETAPA - SÃO CAETANO",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 3 encostas explícitas no Lote 1: Barbalho, Calçada e São Caetano.",
+      "cotasListaFechada": [
+        {
+          "bairro": "Barbalho",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.964932,
+          "longitude": -38.500043,
+          "descricaoUnidades": "Encosta na Rua Cel. Felisberto Caldeira (Barbalho)"
+        },
+        {
+          "bairro": "Calçada",
+          "prefeituraBairro": "Cidade Baixa",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.943451,
+          "longitude": -38.498601,
+          "descricaoUnidades": "Encosta na Rua Alto do Bom Gosto (Calçada)"
+        },
+        {
+          "bairro": "São Caetano",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.933649,
+          "longitude": -38.4795,
+          "descricaoUnidades": "Encosta na Rua Nova Camurugipe 2ª Etapa (São Caetano)"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Barbalho",
+      "prefeituraBairro": "Centro/Brotas",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.964932,
+      "longitude": -38.500043,
+      "descricaoUnidades": "Encosta na Rua Cel. Felisberto Caldeira (Barbalho)"
+    },
+    {
+      "bairro": "Calçada",
+      "prefeituraBairro": "Cidade Baixa",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.943451,
+      "longitude": -38.498601,
+      "descricaoUnidades": "Encosta na Rua Alto do Bom Gosto (Calçada)"
+    },
+    {
+      "bairro": "São Caetano",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.933649,
+      "longitude": -38.4795,
+      "descricaoUnidades": "Encosta na Rua Nova Camurugipe 2ª Etapa (São Caetano)"
+    }
+  ],
   "cdUnidadeGestora": "616002"
 }

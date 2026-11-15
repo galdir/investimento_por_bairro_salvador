@@ -65,7 +65,7 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.896157,
   "longitude": -38.482727,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -84,10 +84,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Plataforma",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Plataforma via Cache"
+      "origem": "Alocação em Plataforma via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "450002"

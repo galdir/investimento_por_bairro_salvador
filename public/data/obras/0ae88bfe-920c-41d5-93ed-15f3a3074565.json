@@ -68,12 +68,12 @@
     ],
     "deltaPercentualValor": 24.25
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "nivel": "Pontual",
+  "bairro": "São Marcos",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.92517,
+  "longitude": -38.43559,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -91,14 +91,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12(DOZE0 UNIDADES ESCOLARES DA SMED: LOTE 09 - ESCOLA MUNICIPAL CLÉRISTON ANDRADE",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 09 identifica o lote da unidade escolar na licitação de 12 escolas da SMED, não a Prefeitura-Bairro Cidade Baixa."
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "São Marcos",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em São Marcos via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

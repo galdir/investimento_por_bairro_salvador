@@ -62,7 +62,7 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.985735,
   "longitude": -38.481645,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -81,10 +81,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Brotas",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Brotas via Cache"
+      "origem": "Alocação em Brotas via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "603002"

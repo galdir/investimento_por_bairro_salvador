@@ -64,11 +64,11 @@
     "deltaPercentualValor": 35.86
   },
   "nivel": "Bairro",
-  "bairro": "Ondina",
+  "bairro": "Barra",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -13.00631,
-  "longitude": -38.509647,
-  "estagioAlocacao": "Cache",
+  "latitude": -13.005618,
+  "longitude": -38.527577,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -87,11 +87,62 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Ondina",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+      "bairro": "Barra",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Ondina via Cache"
+      "origem": "Alocação em Barra via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "REQUALIFICAÇÃO DA INFRAESTRUTURA TURÍSTICA DA ORLA DA BARRA/ONDINA",
+      "documentoOrigem": "dsObjeto (Contrato 003/2018)",
+      "justificativa": "Lista fechada exata com 2 trechos de orla explicitamente nomeados no objeto contratual (Barra e Ondina), permitindo rateio determinístico igualitário (1/2 cada) citado na ADR-0006 em vez de permanecer apenas no nível Prefeitura-Bairro.",
+      "cotasListaFechada": [
+        {
+          "bairro": "Barra",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -13.005618,
+          "longitude": -38.527577,
+          "descricaoUnidades": "Trecho Orla da Barra (Contrato 003/2018)"
+        },
+        {
+          "bairro": "Ondina",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -13.00631,
+          "longitude": -38.509647,
+          "descricaoUnidades": "Trecho Orla de Ondina (Contrato 003/2018)"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Barra",
+      "prefeituraBairro": "Barra/Pituba",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -13.005618,
+      "longitude": -38.527577,
+      "descricaoUnidades": "Trecho Orla da Barra (Contrato 003/2018)"
+    },
+    {
+      "bairro": "Ondina",
+      "prefeituraBairro": "Barra/Pituba",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -13.00631,
+      "longitude": -38.509647,
+      "descricaoUnidades": "Trecho Orla de Ondina (Contrato 003/2018)"
+    }
+  ],
   "cdUnidadeGestora": "616002"
 }

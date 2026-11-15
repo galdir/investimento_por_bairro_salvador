@@ -69,12 +69,12 @@
     ],
     "deltaPercentualValor": 441.82
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Liberdade/São Caetano",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -92,11 +92,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
       "bairro": null,
-      "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em Liberdade/São Caetano via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Múltiplas Prefeituras-Bairro)"
     }
   },
   "cdUnidadeGestora": "616002"

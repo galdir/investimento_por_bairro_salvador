@@ -62,7 +62,7 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.981107,
   "longitude": -38.51728,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -81,10 +81,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Dois de Julho",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Dois de Julho via Cache"
+      "origem": "Alocação em Dois de Julho via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "603002"

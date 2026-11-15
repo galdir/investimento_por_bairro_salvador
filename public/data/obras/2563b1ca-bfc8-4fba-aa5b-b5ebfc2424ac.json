@@ -63,7 +63,7 @@
   "prefeituraBairro": "Cidade Baixa",
   "latitude": -12.927206,
   "longitude": -38.507667,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -82,10 +82,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Bonfim",
       "prefeituraBairro": "Cidade Baixa",
-      "origem": "Alocação em Bonfim via Cache"
+      "origem": "Alocação em Bonfim via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

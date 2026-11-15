@@ -71,12 +71,12 @@
     ],
     "deltaPercentualValor": 17.71
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "nivel": "Pontual",
+  "bairro": "Valéria",
+  "prefeituraBairro": "Valéria",
+  "latitude": -12.864781,
+  "longitude": -38.436751,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -94,14 +94,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "construção e reconstrução da EM PROFESSOR MILTON SANTOS - LOTE 06",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 06 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cabula/Tancredo Neves."
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Valéria",
+      "prefeituraBairro": "Valéria",
+      "origem": "Alocação em Valéria via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

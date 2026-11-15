@@ -1607,12 +1607,12 @@
     ],
     "deltaPercentualValor": 26.52
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Federação",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -13.00115,
+  "longitude": -38.51079,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1643,11 +1643,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Federação via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

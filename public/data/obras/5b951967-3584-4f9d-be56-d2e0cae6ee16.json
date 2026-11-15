@@ -1019,12 +1019,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Itapuã/Ipitanga",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1042,11 +1042,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
       "bairro": null,
-      "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Itapuã/Ipitanga via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Múltiplas Prefeituras-Bairro)"
     }
   },
   "cdUnidadeGestora": "610002"

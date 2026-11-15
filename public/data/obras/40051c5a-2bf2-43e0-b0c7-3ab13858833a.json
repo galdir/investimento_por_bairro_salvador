@@ -67,7 +67,7 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -13.009939,
   "longitude": -38.489939,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,10 +86,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Rio Vermelho",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Rio Vermelho via Cache"
+      "origem": "Alocação em Rio Vermelho via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

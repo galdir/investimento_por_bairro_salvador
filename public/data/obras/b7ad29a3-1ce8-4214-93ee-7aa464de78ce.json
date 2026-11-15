@@ -1207,7 +1207,7 @@
   "prefeituraBairro": "Liberdade/São Caetano",
   "latitude": -12.954379,
   "longitude": -38.480505,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1245,10 +1245,10 @@
     ],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "IAPI",
       "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em IAPI via Cache"
+      "origem": "Alocação em IAPI via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

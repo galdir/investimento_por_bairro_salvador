@@ -1794,7 +1794,7 @@
   "prefeituraBairro": "Cidade Baixa",
   "latitude": -12.916592,
   "longitude": -38.497148,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1850,10 +1850,10 @@
     ],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Ribeira",
       "prefeituraBairro": "Cidade Baixa",
-      "origem": "Alocação em Ribeira via Cache"
+      "origem": "Alocação em Ribeira via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

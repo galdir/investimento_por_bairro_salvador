@@ -67,12 +67,12 @@
     ],
     "deltaPercentualValor": 11.17
   },
-  "nivel": "Bairro",
-  "bairro": "Itapuã",
-  "prefeituraBairro": "Itapuã/Ipitanga",
-  "latitude": -12.939631,
-  "longitude": -38.358185,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -90,11 +90,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Itapuã",
-      "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Itapuã via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 05-  GRE ITAPUÃ",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato multi-escolar da Gerência Regional de Educação (GRE) Itapuã sem discriminação individualizada das unidades escolares nem medições por escola."
     }
   },
   "cdUnidadeGestora": "441010"

@@ -369,7 +369,7 @@
   "prefeituraBairro": "Cidade Baixa",
   "latitude": -12.927566,
   "longitude": -38.513752,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -388,10 +388,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Monte Serrat",
       "prefeituraBairro": "Cidade Baixa",
-      "origem": "Alocação em Monte Serrat via Cache"
+      "origem": "Alocação em Monte Serrat via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "603002"

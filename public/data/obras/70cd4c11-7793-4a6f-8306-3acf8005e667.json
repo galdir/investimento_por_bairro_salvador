@@ -74,7 +74,7 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -93,10 +93,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
       "bairro": null,
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Cajazeiras via Cache"
+      "origem": "Alocação em Cajazeiras via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "cobertura para abrigo de 124 licenciados que exercem comércio no largo da rotatória de Cajazeiras, contrato 049/2020.",
+      "documentoOrigem": "dsObjeto (Contrato 049/2020)",
+      "justificativa": "A rotatória de Cajazeiras situa-se integralmente na Prefeitura-Bairro III (Cajazeiras), evitando falso positivo lexical em Comércio sem eleger arbitrariamente uma subunidade numérica."
     }
   },
   "cdUnidadeGestora": "450002"

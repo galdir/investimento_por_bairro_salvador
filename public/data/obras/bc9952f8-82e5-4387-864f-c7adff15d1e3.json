@@ -71,7 +71,7 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.929128,
   "longitude": -38.329038,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -90,11 +90,62 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
       "bairro": "Stella Maris",
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Stella Maris via Cache"
+      "origem": "Alocação em Stella Maris via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "REQUALIFICAÇÃO DO CAMPO DA ALAMEDA PRAIA DE GUARAPARI - STELLA MARIS E DO CAMPO DA RUA ORLANDO BAHIA - FAZENDA GRANDE I, SALVADOR/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 campos de futebol explicitamente nomeados em Stella Maris e Fazenda Grande I.",
+      "cotasListaFechada": [
+        {
+          "bairro": "Stella Maris",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.929128,
+          "longitude": -38.329038,
+          "descricaoUnidades": "Campo da Alameda Praia de Guarapari (Stella Maris)"
+        },
+        {
+          "bairro": "Fazenda Grande I",
+          "prefeituraBairro": "Cajazeiras",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.892417,
+          "longitude": -38.404062,
+          "descricaoUnidades": "Campo da Rua Orlando Bahia (Fazenda Grande I)"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Stella Maris",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.929128,
+      "longitude": -38.329038,
+      "descricaoUnidades": "Campo da Alameda Praia de Guarapari (Stella Maris)"
+    },
+    {
+      "bairro": "Fazenda Grande I",
+      "prefeituraBairro": "Cajazeiras",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.892417,
+      "longitude": -38.404062,
+      "descricaoUnidades": "Campo da Rua Orlando Bahia (Fazenda Grande I)"
+    }
+  ],
   "cdUnidadeGestora": "616002"
 }

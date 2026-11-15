@@ -62,12 +62,12 @@
     ],
     "deltaPercentualValor": 9.55
   },
-  "nivel": "Bairro",
-  "bairro": "Pau da Lima",
+  "nivel": "Pontual",
+  "bairro": "Canabrava",
   "prefeituraBairro": "Pau da Lima",
-  "latitude": -12.920121,
-  "longitude": -38.443119,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.919,
+  "longitude": -38.427,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -85,11 +85,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Pau da Lima",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Canabrava",
       "prefeituraBairro": "Pau da Lima",
-      "origem": "Alocação em Pau da Lima via Cache"
+      "origem": "Alocação em Canabrava via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "430002"

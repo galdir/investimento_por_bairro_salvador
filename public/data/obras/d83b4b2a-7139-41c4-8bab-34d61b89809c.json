@@ -75,7 +75,7 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.970029,
   "longitude": -38.436722,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -94,10 +94,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Imbuí",
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Imbuí via Cache"
+      "origem": "Alocação em Imbuí via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

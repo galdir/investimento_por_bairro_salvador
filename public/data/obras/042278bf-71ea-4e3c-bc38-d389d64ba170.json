@@ -70,12 +70,12 @@
     ],
     "deltaPercentualValor": 44.86
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Rio Vermelho",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -13.009939,
-  "longitude": -38.489939,
-  "estagioAlocacao": "Cache",
+  "latitude": -13.009278,
+  "longitude": -38.490938,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -93,11 +93,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Rio Vermelho",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Rio Vermelho via Cache"
+      "origem": "Alocação em Rio Vermelho via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

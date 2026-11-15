@@ -64,12 +64,12 @@
     ],
     "deltaPercentualValor": 24.69
   },
-  "nivel": "Bairro",
-  "bairro": "São Cristóvão",
-  "prefeituraBairro": "Itapuã/Ipitanga",
-  "latitude": -12.910504,
-  "longitude": -38.363597,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -87,11 +87,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "São Cristóvão",
-      "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em São Cristóvão via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "requalificação viária da Avenida Aliomar Baleeiro, Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A Avenida Aliomar Baleeiro é um corredor estruturante de ~10 km que atravessa múltiplos bairros (São Cristóvão, Mussurunga, Pau da Lima, Nova Brasília, Sete de Abril e Cajazeiras), inviabilizando alocação em São Cristóvão."
     }
   },
   "cdUnidadeGestora": "616002"

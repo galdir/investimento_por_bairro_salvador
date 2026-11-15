@@ -973,7 +973,7 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.985735,
   "longitude": -38.481645,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1023,11 +1023,172 @@
     ],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
       "bairro": "Brotas",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Brotas via Cache"
+      "origem": "Alocação em Brotas via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "Reforma para Manutenção nas seguintes Unidades de Saúde: UPA BROTAS, UPA VALE DO MATATU, USF CURRALINHO, COMPLEXO MUNICIPAL DE VIGILÂNCIA À SAÚDE, CENTRO DE SAÚDE MARIO ANDRÉA, UBS SANTO INÁCIO, USF CLEMENTINO FRAGA, USF TEOTÔNIO VILELA II",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata de 8 unidades de saúde da SMS explicitadas no objeto e repetidas em conjunto nas notas de liquidação, distribuídas por 7 bairros oficiais (2 unidades em Brotas e 1 em cada demais bairro).",
+      "cotasListaFechada": [
+        {
+          "bairro": "Brotas",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 2,
+          "totalUnidades": 8,
+          "peso": 0.25,
+          "fracao": "2/8",
+          "latitude": -12.985735,
+          "longitude": -38.481645,
+          "descricaoUnidades": "UPA Brotas e Complexo Municipal de Vigilância à Saúde (Av. Vasco da Gama, 4209, CEP 40286-000)"
+        },
+        {
+          "bairro": "Matatu",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "totalUnidades": 8,
+          "peso": 0.125,
+          "fracao": "1/8",
+          "latitude": -12.974572,
+          "longitude": -38.496105,
+          "descricaoUnidades": "UPA Vale do Matatu"
+        },
+        {
+          "bairro": "Boca do Rio",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "unidades": 1,
+          "totalUnidades": 8,
+          "peso": 0.125,
+          "fracao": "1/8",
+          "latitude": -12.975454,
+          "longitude": -38.428853,
+          "descricaoUnidades": "USF Curralinho"
+        },
+        {
+          "bairro": "Nazaré",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "totalUnidades": 8,
+          "peso": 0.125,
+          "fracao": "1/8",
+          "latitude": -12.976919,
+          "longitude": -38.50577,
+          "descricaoUnidades": "Centro de Saúde Mário Andréa"
+        },
+        {
+          "bairro": "Jardim Santo Inácio",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "unidades": 1,
+          "totalUnidades": 8,
+          "peso": 0.125,
+          "fracao": "1/8",
+          "latitude": -12.929358,
+          "longitude": -38.461723,
+          "descricaoUnidades": "UBS Santo Inácio"
+        },
+        {
+          "bairro": "Garcia",
+          "prefeituraBairro": "Centro/Brotas",
+          "unidades": 1,
+          "totalUnidades": 8,
+          "peso": 0.125,
+          "fracao": "1/8",
+          "latitude": -12.991747,
+          "longitude": -38.513277,
+          "descricaoUnidades": "USF Clementino Fraga"
+        },
+        {
+          "bairro": "Fazenda Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 8,
+          "peso": 0.125,
+          "fracao": "1/8",
+          "latitude": -12.847682,
+          "longitude": -38.461693,
+          "descricaoUnidades": "USF Teotônio Vilela II"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Brotas",
+      "prefeituraBairro": "Centro/Brotas",
+      "unidades": 2,
+      "totalUnidades": 8,
+      "peso": 0.25,
+      "fracao": "2/8",
+      "latitude": -12.985735,
+      "longitude": -38.481645,
+      "descricaoUnidades": "UPA Brotas e Complexo Municipal de Vigilância à Saúde (Av. Vasco da Gama, 4209, CEP 40286-000)"
+    },
+    {
+      "bairro": "Matatu",
+      "prefeituraBairro": "Centro/Brotas",
+      "unidades": 1,
+      "totalUnidades": 8,
+      "peso": 0.125,
+      "fracao": "1/8",
+      "latitude": -12.974572,
+      "longitude": -38.496105,
+      "descricaoUnidades": "UPA Vale do Matatu"
+    },
+    {
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "unidades": 1,
+      "totalUnidades": 8,
+      "peso": 0.125,
+      "fracao": "1/8",
+      "latitude": -12.975454,
+      "longitude": -38.428853,
+      "descricaoUnidades": "USF Curralinho"
+    },
+    {
+      "bairro": "Nazaré",
+      "prefeituraBairro": "Centro/Brotas",
+      "unidades": 1,
+      "totalUnidades": 8,
+      "peso": 0.125,
+      "fracao": "1/8",
+      "latitude": -12.976919,
+      "longitude": -38.50577,
+      "descricaoUnidades": "Centro de Saúde Mário Andréa"
+    },
+    {
+      "bairro": "Jardim Santo Inácio",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "unidades": 1,
+      "totalUnidades": 8,
+      "peso": 0.125,
+      "fracao": "1/8",
+      "latitude": -12.929358,
+      "longitude": -38.461723,
+      "descricaoUnidades": "UBS Santo Inácio"
+    },
+    {
+      "bairro": "Garcia",
+      "prefeituraBairro": "Centro/Brotas",
+      "unidades": 1,
+      "totalUnidades": 8,
+      "peso": 0.125,
+      "fracao": "1/8",
+      "latitude": -12.991747,
+      "longitude": -38.513277,
+      "descricaoUnidades": "USF Clementino Fraga"
+    },
+    {
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 8,
+      "peso": 0.125,
+      "fracao": "1/8",
+      "latitude": -12.847682,
+      "longitude": -38.461693,
+      "descricaoUnidades": "USF Teotônio Vilela II"
+    }
+  ],
   "cdUnidadeGestora": "616002"
 }

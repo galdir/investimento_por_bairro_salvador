@@ -1173,7 +1173,7 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.991747,
   "longitude": -38.513277,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1192,10 +1192,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Garcia",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Garcia via Cache"
+      "origem": "Alocação em Garcia via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

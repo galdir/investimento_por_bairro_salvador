@@ -58,12 +58,12 @@
     ],
     "deltaPercentualValor": 103.82
   },
-  "nivel": "Bairro",
-  "bairro": "Itapuã",
+  "nivel": "Regional (Prefeitura-Bairro)",
+  "bairro": null,
   "prefeituraBairro": "Itapuã/Ipitanga",
-  "latitude": -12.939631,
-  "longitude": -38.358185,
-  "estagioAlocacao": "Cache",
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Stage 1 (Lote Regional)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -81,11 +81,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Itapuã",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Stage 1 (Lote Regional)",
+      "bairro": null,
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Itapuã via Cache"
+      "origem": "Alocação em Itapuã/Ipitanga via Stage 1 (Lote Regional)"
     }
   },
   "cdUnidadeGestora": "616002"

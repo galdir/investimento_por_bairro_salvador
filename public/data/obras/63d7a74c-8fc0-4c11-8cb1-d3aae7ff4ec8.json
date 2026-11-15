@@ -316,7 +316,7 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.9473,
   "longitude": -38.403517,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -335,10 +335,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Patamares",
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Patamares via Cache"
+      "origem": "Alocação em Patamares via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

@@ -67,7 +67,7 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.769613,
   "longitude": -38.527424,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,10 +86,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Ilha de Maré",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Ilha de Maré via Cache"
+      "origem": "Alocação em Ilha de Maré via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

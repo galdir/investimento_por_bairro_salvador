@@ -142,7 +142,7 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.909807,
   "longitude": -38.405371,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -161,10 +161,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Jaguaripe I",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Jaguaripe I via Cache"
+      "origem": "Alocação em Jaguaripe I via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "301110"

@@ -649,12 +649,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Bairro",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.9632,
+  "longitude": -38.507445,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -672,11 +672,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Comércio via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "instalado na sede da SEMIT no edifício Sintral",
+      "documentoOrigem": "dsObjeto (Contrato 028/2026)",
+      "justificativa": "A sede da SEMIT no Edifício Sintral (Rua Miguel Calmon, nº 15) localiza-se integralmente no Bairro Oficial Comércio."
     }
   },
   "cdUnidadeGestora": "630002"

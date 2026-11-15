@@ -60,12 +60,12 @@
     ],
     "deltaPercentualValor": 12.56
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Sussuarana",
   "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.933346,
-  "longitude": -38.445351,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.933167,
+  "longitude": -38.444517,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -83,11 +83,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Sussuarana",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Sussuarana via Cache"
+      "origem": "Alocação em Sussuarana via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

@@ -73,11 +73,11 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Mares",
-  "prefeituraBairro": "Cidade Baixa",
-  "latitude": -12.940737,
-  "longitude": -38.501861,
-  "estagioAlocacao": "Cache",
+  "bairro": "Stella Maris",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.929128,
+  "longitude": -38.329038,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -96,10 +96,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Mares",
-      "prefeituraBairro": "Cidade Baixa",
-      "origem": "Alocação em Mares via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Stella Maris",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Stella Maris via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "construção de pista de skate, localizada em Stella Mares.",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Grafia 'Stella Mares' designa univocamente o Bairro Oficial Stella Maris (Itapuã/Ipitanga), corrigindo falso positivo lexical em 'Mares'."
     }
   },
   "cdUnidadeGestora": "520002"

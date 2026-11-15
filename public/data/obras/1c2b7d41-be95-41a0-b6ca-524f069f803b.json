@@ -1842,12 +1842,12 @@
     ],
     "deltaPercentualValor": 18.15
   },
-  "nivel": "Bairro",
-  "bairro": "Rio Vermelho",
-  "prefeituraBairro": "Barra/Pituba",
-  "latitude": -13.009939,
-  "longitude": -38.489939,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1902,11 +1902,14 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Rio Vermelho",
-      "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Rio Vermelho via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Estações do BRT¿Trecho 2-Cidade Jardim, Pedrinhas, Rio Vermelho, HGE, Ogunjá, Vasco da Gama e Lapa - Salvador/BA.",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Obra contempla 7 estações do Trecho 2 do BRT distribuídas por múltiplos bairros e Prefeituras-Bairro (Centro/Brotas e Barra/Pituba), sem medições isoladas por estação nas liquidações."
     }
   },
   "cdUnidadeGestora": "616002"

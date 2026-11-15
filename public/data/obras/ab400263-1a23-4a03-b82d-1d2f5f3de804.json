@@ -1582,12 +1582,12 @@
     ],
     "deltaPercentualValor": 7.1
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Subúrbio/Ilhas",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1618,11 +1618,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
       "bairro": null,
-      "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Subúrbio/Ilhas via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Múltiplas Prefeituras-Bairro)"
     }
   },
   "cdUnidadeGestora": "610002"

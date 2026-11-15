@@ -75,7 +75,7 @@
   "prefeituraBairro": "Liberdade/São Caetano",
   "latitude": -12.946881,
   "longitude": -38.493335,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -94,10 +94,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Liberdade",
       "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em Liberdade via Cache"
+      "origem": "Alocação em Liberdade via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "450002"

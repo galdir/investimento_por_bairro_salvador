@@ -1073,11 +1073,11 @@
     "deltaPercentualValor": 24.64
   },
   "nivel": "Bairro",
-  "bairro": "Periperi",
+  "bairro": "Paripe",
   "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.865263,
-  "longitude": -38.468467,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.835351,
+  "longitude": -38.468212,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1115,11 +1115,106 @@
     ],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Periperi",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+      "bairro": "Paripe",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Periperi via Cache"
+      "origem": "Alocação em Paripe via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "fechamento do perímetro externo dos cemitérios públicos municipais de Paripe, Periperi, Ilha de Maré, Ilha de Bom Jesus",
+      "documentoOrigem": "dsObjeto (Contrato 043/2024)",
+      "justificativa": "Lista fechada exata com os 4 cemitérios públicos municipais explicitados no objeto e medidos conjuntamente nas liquidações (Paripe, Periperi, Ilha de Maré e Ilha de Bom Jesus dos Passos).",
+      "cotasListaFechada": [
+        {
+          "bairro": "Paripe",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 4,
+          "peso": 0.25,
+          "fracao": "1/4",
+          "latitude": -12.835351,
+          "longitude": -38.468212,
+          "descricaoUnidades": "Cemitério Público Municipal de Paripe"
+        },
+        {
+          "bairro": "Periperi",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 4,
+          "peso": 0.25,
+          "fracao": "1/4",
+          "latitude": -12.865263,
+          "longitude": -38.468467,
+          "descricaoUnidades": "Cemitério Público Municipal de Periperi"
+        },
+        {
+          "bairro": "Ilha de Maré",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 4,
+          "peso": 0.25,
+          "fracao": "1/4",
+          "latitude": -12.769613,
+          "longitude": -38.527424,
+          "descricaoUnidades": "Cemitério Público Municipal de Ilha de Maré"
+        },
+        {
+          "bairro": "Ilha de Bom Jesus dos Passos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 4,
+          "peso": 0.25,
+          "fracao": "1/4",
+          "latitude": -12.761133,
+          "longitude": -38.640728,
+          "descricaoUnidades": "Cemitério Público Municipal da Ilha de Bom Jesus dos Passos"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Paripe",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 4,
+      "peso": 0.25,
+      "fracao": "1/4",
+      "latitude": -12.835351,
+      "longitude": -38.468212,
+      "descricaoUnidades": "Cemitério Público Municipal de Paripe"
+    },
+    {
+      "bairro": "Periperi",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 4,
+      "peso": 0.25,
+      "fracao": "1/4",
+      "latitude": -12.865263,
+      "longitude": -38.468467,
+      "descricaoUnidades": "Cemitério Público Municipal de Periperi"
+    },
+    {
+      "bairro": "Ilha de Maré",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 4,
+      "peso": 0.25,
+      "fracao": "1/4",
+      "latitude": -12.769613,
+      "longitude": -38.527424,
+      "descricaoUnidades": "Cemitério Público Municipal de Ilha de Maré"
+    },
+    {
+      "bairro": "Ilha de Bom Jesus dos Passos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 4,
+      "peso": 0.25,
+      "fracao": "1/4",
+      "latitude": -12.761133,
+      "longitude": -38.640728,
+      "descricaoUnidades": "Cemitério Público Municipal da Ilha de Bom Jesus dos Passos"
+    }
+  ],
   "cdUnidadeGestora": "450002"
 }

@@ -64,7 +64,7 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.999274,
   "longitude": -38.460677,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -83,10 +83,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Pituba",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Pituba via Cache"
+      "origem": "Alocação em Pituba via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

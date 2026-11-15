@@ -1506,12 +1506,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Nazaré",
-  "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.976919,
-  "longitude": -38.50577,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Nova Sussuarana",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.9351,
+  "longitude": -38.4377,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1536,11 +1536,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Nazaré",
-      "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Nazaré via Cache"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Nova Sussuarana",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Nova Sussuarana via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

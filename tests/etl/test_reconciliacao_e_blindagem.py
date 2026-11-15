@@ -909,7 +909,7 @@ def test_reconciliar_acervo_local_desdobra_frentes_medicao_sem_inflar_valor_tota
                 "empreiteira": {"razaoSocial": "EMP MOB LTDA", "cnpj": "11.222.333/0001-44"},
                 "liquidacoes": [
                     {
-                        "notaLiquidacao": "2025NL004858",
+                        "notaLiquidacao": "2025NL004865",
                         "valLiqLiquidacao": "42.243,32",
                         "pago": "0,00",
                         "descObsLiquidacao": "Manutenção Terminal Maritimo Plataforma",
@@ -922,7 +922,7 @@ def test_reconciliar_acervo_local_desdobra_frentes_medicao_sem_inflar_valor_tota
                     },
                 ],
                 "pagamentos": [
-                    {"notaLiquidacao": "2025NL004858", "pago": "40.000,00"},
+                    {"notaLiquidacao": "2025NL004865", "pago": "40.000,00"},
                     {"notaLiquidacao": "2025NL002039", "pago": "132.343,21"},
                 ],
             },

@@ -1596,12 +1596,12 @@
     ],
     "deltaPercentualValor": 3.26
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Cajazeiras VIII",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.89747,
+  "longitude": -38.41396,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1632,11 +1632,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Cajazeiras VIII",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Cajazeiras VIII via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

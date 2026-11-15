@@ -1866,9 +1866,9 @@
       "bairro": null,
       "prefeituraBairro": null,
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "Serviços de Requalificação de Vias urbanas em diversos logradouros da Cidade. Contrato: 043/2022 CBV",
+      "trechoComprobatorio": "Serviços de Requalificação de Vias urbanas em diversos logradouros da Cidade.\r\nContrato: 043/2022 CBV",
       "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 043/2022)",
-      "justificativa": "Contrato guarda-chuva multi-regional (Prefeituras-Bairro II, V e demais); as notas de liquidação citam múltiplas regionais ou combinam múltiplas obras na mesma nota sem discriminação única."
+      "justificativa": "Contrato guarda-chuva multi-Prefeitura-Bairro (Prefeituras-Bairro II, V e demais); as notas de liquidação citam múltiplas Prefeituras-Bairro ou combinam múltiplas obras na mesma nota sem discriminação única."
     }
   },
   "cdUnidadeGestora": "616002"

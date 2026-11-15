@@ -1291,12 +1291,12 @@
     ],
     "deltaPercentualValor": 24.74
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Dom Avelar",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.9032564,
+  "longitude": -38.4490102,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1321,11 +1321,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Dom Avelar",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Dom Avelar via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

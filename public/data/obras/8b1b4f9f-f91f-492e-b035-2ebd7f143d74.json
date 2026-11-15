@@ -1804,12 +1804,12 @@
     ],
     "deltaPercentualValor": 37.19
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Federação",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -12.99875,
-  "longitude": -38.50501,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.9977,
+  "longitude": -38.5101,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1870,11 +1870,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Federação",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Federação via Cache"
+      "origem": "Alocação em Federação via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

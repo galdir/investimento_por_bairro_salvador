@@ -1810,12 +1810,12 @@
     ],
     "deltaPercentualValor": 223.98
   },
-  "nivel": "Bairro",
-  "bairro": "Itapuã",
-  "prefeituraBairro": "Itapuã/Ipitanga",
-  "latitude": -12.939631,
-  "longitude": -38.358185,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1846,12 +1846,149 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Itapuã",
-      "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Itapuã via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "Prefeitura Bairro IV que abrange os Bairros Itapuã e Ipitanga",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 017/2024)",
+      "justificativa": "Embora o objeto mencione PB IV (Itapuã/Ipitanga), suas medições comprovam obras em toda a cidade (Federação, Centro, Granjas Rurais Presidente Vargas, Boca do Rio, Imbuí, Jaguaribe/Piatã e Periperi/Plataforma); promove apenas medições de obra única não ambíguas."
     }
   },
-  "cdUnidadeGestora": "616002"
+  "cdUnidadeGestora": "616002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2024NL013951",
+      "nivel": "Bairro",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "valorLiquidado": 102613.96,
+      "valorPago": 98131.61,
+      "dataLiquidacao": "30/09/2024",
+      "trechoComprobatorio": "OBRA: E001 - SERV. DE  ENCOSTAS NA 2ª TRAV. P",
+      "documentoOrigem": "descObsLiquidacao (2024NL013951 - Contrato 017/2024)",
+      "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+    },
+    {
+      "notaLiquidacao": "2024NL015737",
+      "nivel": "Bairro",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "valorLiquidado": 121366.31,
+      "valorPago": 116064.82,
+      "dataLiquidacao": "11/11/2024",
+      "trechoComprobatorio": "OBRA  E001-  SERVS. DE ENCOSTA NA 2ª TRAV. PADRE DOMINGOS DE BRITO - FEDERAÇÃO",
+      "documentoOrigem": "descObsLiquidacao (2024NL015737 - Contrato 017/2024)",
+      "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+    },
+    {
+      "notaLiquidacao": "2025NL001420",
+      "nivel": "Bairro",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "valorLiquidado": 414002.52,
+      "valorPago": 389028.68,
+      "dataLiquidacao": "18/02/2025",
+      "trechoComprobatorio": "OBRA: E001 SERV. DE ENCOSTA NA 2ª TRAV. PADRE DOMINGOS DE B",
+      "documentoOrigem": "descObsLiquidacao (2025NL001420 - Contrato 017/2024)",
+      "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+    },
+    {
+      "notaLiquidacao": "2025NL001421",
+      "nivel": "Bairro",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "valorLiquidado": 157720.0,
+      "valorPago": 157720.0,
+      "dataLiquidacao": "18/02/2025",
+      "trechoComprobatorio": "OBRA: E001 SERV. DE ENCOSTA NA 2ª TRAV. PADRE DOMINGOS DE B",
+      "documentoOrigem": "descObsLiquidacao (2025NL001421 - Contrato 017/2024)",
+      "justificativa": "Obra E001 na 2ª Trav. Padre Domingos de Brito, explicitamente situada no Bairro Oficial Federação (fora da PB IV)."
+    },
+    {
+      "notaLiquidacao": "2025NL002504",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 528438.78,
+      "valorPago": 505355.65,
+      "dataLiquidacao": "17/03/2025",
+      "trechoComprobatorio": "OBRAS DE DRENAGEM NA RUA JAIME SAPOLNIK - BOCA DO RIO",
+      "documentoOrigem": "descObsLiquidacao (2025NL002504 - Contrato 017/2024)",
+      "justificativa": "Obra D001 na Rua Jaime Sapolnik, Bairro Oficial Boca do Rio."
+    },
+    {
+      "notaLiquidacao": "2025NL008356",
+      "nivel": "Bairro",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 469261.19,
+      "valorPago": 0.0,
+      "dataLiquidacao": "22/05/2025",
+      "trechoComprobatorio": "RECUPERAÇÃO DO VIADUTO SÃO PEDRO- CAMPO GRANDE",
+      "documentoOrigem": "descObsLiquidacao (2025NL008356 - Contrato 017/2024)",
+      "justificativa": "Viaduto São Pedro no Campo Grande localiza-se no Bairro Oficial Centro."
+    },
+    {
+      "notaLiquidacao": "2025NL008360",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 176117.36,
+      "valorPago": 0.0,
+      "dataLiquidacao": "22/05/2025",
+      "trechoComprobatorio": "D001- SERV. DE DRENAGEGEM NA RUA JAIME SAPOLNIK-BOCA DO RIO",
+      "documentoOrigem": "descObsLiquidacao (2025NL008360 - Contrato 017/2024)",
+      "justificativa": "Obra D001 na Rua Jaime Sapolnik, Bairro Oficial Boca do Rio."
+    },
+    {
+      "notaLiquidacao": "2025NL010825",
+      "nivel": "Bairro",
+      "bairro": "Granjas Rurais Presidente Vargas",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 314195.24,
+      "valorPago": 0.0,
+      "dataLiquidacao": "16/06/2025",
+      "trechoComprobatorio": "OBRA E004 CONT. NA RUA S. FRANC. XA",
+      "documentoOrigem": "descObsLiquidacao (2025NL010825 - Contrato 017/2024)",
+      "justificativa": "Obra E004 identificada nas liquidações como Rua São Francisco Xavier, Granjas Rurais Presidente Vargas (CEP 41230-140)."
+    },
+    {
+      "notaLiquidacao": "2025NL014744",
+      "nivel": "Bairro",
+      "bairro": "Imbuí",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 576664.15,
+      "valorPago": 0.0,
+      "dataLiquidacao": "14/08/2025",
+      "trechoComprobatorio": "P037: SERV. INFRA AV. JORGE AMADO - IMBUÍ",
+      "documentoOrigem": "descObsLiquidacao (2025NL014744 - Contrato 017/2024)",
+      "justificativa": "Obra P037 na Av. Jorge Amado, Bairro Oficial Imbuí."
+    },
+    {
+      "notaLiquidacao": "2025NL015182",
+      "nivel": "Bairro",
+      "bairro": "Granjas Rurais Presidente Vargas",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 267293.14,
+      "valorPago": 0.0,
+      "dataLiquidacao": "18/08/2025",
+      "trechoComprobatorio": "OBRA: E004 - SERV. DE ENCOSTA, RUA SÃO FRANCI",
+      "documentoOrigem": "descObsLiquidacao (2025NL015182 - Contrato 017/2024)",
+      "justificativa": "Obra E004 identificada nas liquidações como Rua São Francisco Xavier, Granjas Rurais Presidente Vargas (CEP 41230-140)."
+    },
+    {
+      "notaLiquidacao": "2025NL017217",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "bairro": null,
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 616842.47,
+      "valorPago": 0.0,
+      "dataLiquidacao": "19/09/2025",
+      "trechoComprobatorio": "P001 - SERVIÇOS DE INFRAESTR. NA RUA LAFAYETTE VELLOSO JAGUARIPE",
+      "documentoOrigem": "descObsLiquidacao (2025NL017217 - Contrato 017/2024)",
+      "justificativa": "Rua Des. Lafayette Velloso situa-se em Jaguaribe/Piatã (PB IV Itapuã/Ipitanga; 'Jaguaripe' é grafia imprópria de Jaguaribe); na divisa Patamares/Piatã, aloca-se conservadoramente na Prefeitura-Bairro Itapuã/Ipitanga."
+    }
+  ]
 }

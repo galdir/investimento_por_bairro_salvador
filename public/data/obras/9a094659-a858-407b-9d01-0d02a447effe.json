@@ -1692,25 +1692,13 @@
       "bairro": null,
       "prefeituraBairro": null,
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
-      "trechoComprobatorio": "Manutenção predial dos Ascensores (...) Manutenção Terminal Maritimo Plataforma",
-      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2024)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição; notas do Terminal Marítimo de Plataforma são alocadas ao Bairro Oficial Plataforma e notas genéricas de Ascensores/Planos permanecem em Escopo Cidade."
+      "trechoComprobatorio": "prestação de serviços continuados de manutenção das edificações onde funcionam os equipamentos de transporte público de Salvador",
+      "documentoOrigem": "dsObjeto (Contrato 008/2024) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição; notas do Terminal Marítimo de Plataforma são alocadas ao Bairro Oficial Plataforma (nota 2025NL004858 estornada por 2025NL004864 e substituída por 2025NL004865), enquanto notas genéricas de Ascensores/Planos permanecem em Escopo Cidade."
     }
   },
   "cdUnidadeGestora": "530002",
   "frentesMedicao": [
-    {
-      "notaLiquidacao": "2025NL004858",
-      "nivel": "Bairro",
-      "bairro": "Plataforma",
-      "prefeituraBairro": "Subúrbio/Ilhas",
-      "valorLiquidado": 42243.32,
-      "valorPago": 0.0,
-      "dataLiquidacao": "16/06/2025",
-      "trechoComprobatorio": "112721/2025; Manutenção Terminal Maritimo Plataforma; 05/2025; 008/2024; nf 1490",
-      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL004858)",
-      "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
-    },
     {
       "notaLiquidacao": "2025NL004865",
       "nivel": "Bairro",

@@ -65,7 +65,7 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.835351,
   "longitude": -38.468212,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -84,10 +84,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Paripe",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Paripe via Cache"
+      "origem": "Alocação em Paripe via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "450002"

@@ -549,12 +549,12 @@
     ],
     "deltaPercentualValor": 24.94
   },
-  "nivel": "Bairro",
-  "bairro": "Paripe",
+  "nivel": "Pontual",
+  "bairro": "São Tomé",
   "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.835351,
-  "longitude": -38.468212,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.8255,
+  "longitude": -38.481,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -579,11 +579,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Paripe",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "São Tomé",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Paripe via Cache"
+      "origem": "Alocação em São Tomé via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "520002"

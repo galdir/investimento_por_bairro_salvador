@@ -82,7 +82,7 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Lote Regional)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -101,10 +101,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Lote Regional)",
       "bairro": null,
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Itapuã/Ipitanga via Cache"
+      "origem": "Alocação em Itapuã/Ipitanga via Stage 1 (Lote Regional)"
     }
   },
   "cdUnidadeGestora": "616002"

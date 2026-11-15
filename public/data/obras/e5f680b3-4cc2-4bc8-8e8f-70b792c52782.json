@@ -1423,12 +1423,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Bairro da Paz",
   "prefeituraBairro": "Itapuã/Ipitanga",
-  "latitude": -12.929765,
-  "longitude": -38.375311,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.926,
+  "longitude": -38.3769,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1446,11 +1446,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Bairro da Paz",
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Bairro da Paz via Cache"
+      "origem": "Alocação em Bairro da Paz via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

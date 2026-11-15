@@ -1160,11 +1160,11 @@
     "deltaPercentualValor": 12.86
   },
   "nivel": "Bairro",
-  "bairro": "Pituba",
+  "bairro": "Nordeste de Amaralina",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -12.999274,
-  "longitude": -38.460677,
-  "estagioAlocacao": "Cache",
+  "latitude": -13.009333,
+  "longitude": -38.473196,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1190,10 +1190,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Pituba",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Nordeste de Amaralina",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Pituba via Cache"
+      "origem": "Alocação em Nordeste de Amaralina via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "OBRA DE INFRAESTR. DA URBANIZAÇÃO DA COMUNIDADE DO PÉ PRETO NO B. NORDESTE DE AMARALINA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação 2025NL006073 / 2025NL009599 / 2025NL016839)",
+      "justificativa": "As notas de liquidação corrigem a referência genérica à Pituba no objeto e comprovam que a Comunidade do Pé Preto situa-se no Bairro Oficial Nordeste de Amaralina."
     }
   },
   "cdUnidadeGestora": "616002"

@@ -101,7 +101,7 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.890699,
   "longitude": -38.435616,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -120,11 +120,62 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
       "bairro": "Águas Claras",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Águas Claras via Cache"
+      "origem": "Alocação em Águas Claras via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "requalificação e modernização da quadra poliesportiva da Rua Lourival Costa com a Rua Joinville, Águas Claras - Salvador/BA, e do campo de futebol da Rua Almirante Mourão de Sá, Fazenda Coutos - Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 equipamentos esportivos explícitos: Quadra em Águas Claras e Campo em Fazenda Coutos.",
+      "cotasListaFechada": [
+        {
+          "bairro": "Águas Claras",
+          "prefeituraBairro": "Cajazeiras",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.890699,
+          "longitude": -38.435616,
+          "descricaoUnidades": "Quadra Poliesportiva Rua Lourival Costa x Rua Joinville (Águas Claras)"
+        },
+        {
+          "bairro": "Fazenda Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.847682,
+          "longitude": -38.461693,
+          "descricaoUnidades": "Campo de Futebol Rua Almirante Mourão de Sá (Fazenda Coutos)"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Águas Claras",
+      "prefeituraBairro": "Cajazeiras",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.890699,
+      "longitude": -38.435616,
+      "descricaoUnidades": "Quadra Poliesportiva Rua Lourival Costa x Rua Joinville (Águas Claras)"
+    },
+    {
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.847682,
+      "longitude": -38.461693,
+      "descricaoUnidades": "Campo de Futebol Rua Almirante Mourão de Sá (Fazenda Coutos)"
+    }
+  ],
   "cdUnidadeGestora": "520002"
 }

@@ -1233,8 +1233,8 @@
       "bairro": null,
       "prefeituraBairro": null,
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 3",
-      "documentoOrigem": "dsObjeto (Contrato 029/2023)",
+      "trechoComprobatorio": "EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 29/2023)",
       "justificativa": "LOTE 3 refere-se a lote licitatório de passarelas do BRT ao longo das avenidas Vasco da Gama e Juracy Magalhães, não à Prefeitura-Bairro Cajazeiras."
     }
   },

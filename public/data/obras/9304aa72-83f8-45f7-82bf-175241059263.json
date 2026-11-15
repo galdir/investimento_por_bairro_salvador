@@ -198,7 +198,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -217,10 +217,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
     }
   },
   "cdUnidadeGestora": "547002"

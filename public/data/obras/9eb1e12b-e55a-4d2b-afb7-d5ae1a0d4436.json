@@ -70,7 +70,7 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.90416,
   "longitude": -38.432149,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -89,10 +89,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Castelo Branco",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Castelo Branco via Cache"
+      "origem": "Alocação em Castelo Branco via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

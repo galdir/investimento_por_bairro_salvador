@@ -68,11 +68,11 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Vale das Pedrinhas",
-  "prefeituraBairro": "Barra/Pituba",
-  "latitude": -13.008432,
-  "longitude": -38.481255,
-  "estagioAlocacao": "Cache",
+  "bairro": "Bonfim",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.927206,
+  "longitude": -38.507667,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -91,11 +91,84 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Vale das Pedrinhas",
-      "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Vale das Pedrinhas via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+      "bairro": "Bonfim",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Bonfim via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "REQUALIFICAÇÃO DA PRAÇA NA RUA HENRIQUE DIAS, LOCALIZADA NO BAIRRO DO BOMFIM, DA PRAÇA QUINZE DE AGOSTO, LOCALIZADA NO BAIRRO DA VILA RUI BARBOSA E DA PRAÇA ANA SIRONE, LOCALIZADA NO BAIRRO VALE DAS PEDRINHAS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 3 praças públicas explicitamente nomeadas em 3 bairros oficiais distintos (Bonfim, Vila Ruy Barbosa\\Jardim Cruzeiro e Vale das Pedrinhas), corrigindo captura isolada do Estágio 1.",
+      "cotasListaFechada": [
+        {
+          "bairro": "Bonfim",
+          "prefeituraBairro": "Cidade Baixa",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.927206,
+          "longitude": -38.507667,
+          "descricaoUnidades": "Praça na Rua Henrique Dias (Bonfim)"
+        },
+        {
+          "bairro": "Vila Ruy Barbosa\\Jardim Cruzeiro",
+          "prefeituraBairro": "Cidade Baixa",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -12.931668,
+          "longitude": -38.499463,
+          "descricaoUnidades": "Praça Quinze de Agosto (Vila Ruy Barbosa)"
+        },
+        {
+          "bairro": "Vale das Pedrinhas",
+          "prefeituraBairro": "Barra/Pituba",
+          "unidades": 1,
+          "totalUnidades": 3,
+          "peso": 0.3333333333333333,
+          "fracao": "1/3",
+          "latitude": -13.008432,
+          "longitude": -38.481255,
+          "descricaoUnidades": "Praça Ana Sirone (Vale das Pedrinhas)"
+        }
+      ]
     }
   },
+  "cotasListaFechada": [
+    {
+      "bairro": "Bonfim",
+      "prefeituraBairro": "Cidade Baixa",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.927206,
+      "longitude": -38.507667,
+      "descricaoUnidades": "Praça na Rua Henrique Dias (Bonfim)"
+    },
+    {
+      "bairro": "Vila Ruy Barbosa\\Jardim Cruzeiro",
+      "prefeituraBairro": "Cidade Baixa",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -12.931668,
+      "longitude": -38.499463,
+      "descricaoUnidades": "Praça Quinze de Agosto (Vila Ruy Barbosa)"
+    },
+    {
+      "bairro": "Vale das Pedrinhas",
+      "prefeituraBairro": "Barra/Pituba",
+      "unidades": 1,
+      "totalUnidades": 3,
+      "peso": 0.3333333333333333,
+      "fracao": "1/3",
+      "latitude": -13.008432,
+      "longitude": -38.481255,
+      "descricaoUnidades": "Praça Ana Sirone (Vale das Pedrinhas)"
+    }
+  ],
   "cdUnidadeGestora": "560002"
 }

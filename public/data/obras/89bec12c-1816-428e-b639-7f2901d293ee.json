@@ -72,12 +72,12 @@
     ],
     "deltaPercentualValor": 24.19
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Periperi",
   "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.865263,
-  "longitude": -38.468467,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.8675,
+  "longitude": -38.4742,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -95,11 +95,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Periperi",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Periperi via Cache"
+      "origem": "Alocação em Periperi via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

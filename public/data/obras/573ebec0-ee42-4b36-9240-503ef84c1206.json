@@ -1538,12 +1538,12 @@
     ],
     "deltaPercentualValor": 20.23
   },
-  "nivel": "Bairro",
-  "bairro": "Paripe",
-  "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.835351,
-  "longitude": -38.468212,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1586,11 +1586,14 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Paripe",
-      "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Paripe via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Centros de Referência de Assistência Social (CRAS), nas localidades Brotas, Narandiba, Paripe e Parque São Cristóvão",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O objeto abrange Brotas, Narandiba, Paripe e Parque São Cristóvão (CRAS Parque São Cristóvão situado na Rua Oeste I, nº 04 - Loteamento Cassange, CEP 41505-370, divisa Cassange/São Cristóvão), e as notas de liquidação misturam Brotas, Paripe e Parque São Cristóvão na mesma medição (omitindo Narandiba); impede atribuição exclusiva a Paripe."
     }
   },
   "cdUnidadeGestora": "616002"

@@ -1723,7 +1723,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1773,11 +1773,40 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12 (DOZE) UNIDADES ESOLARES DA SMED.",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 134/2022)",
+      "justificativa": "Contrato de 12 escolas municipais; 2 liquidações explicitam integralmente a EM Cônego Emílio Lobo (Lapinha), enquanto notas com nome truncado no SIGEF permanecem em Escopo Cidade."
     }
   },
-  "cdUnidadeGestora": "441010"
+  "cdUnidadeGestora": "441010",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2022NL050257",
+      "nivel": "Bairro",
+      "bairro": "Lapinha",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "valorLiquidado": 116594.3,
+      "valorPago": 111351.3,
+      "dataLiquidacao": "06/12/2022",
+      "trechoComprobatorio": "RECONSTRUÇÃO DA ESCOLA MUNICIPAL CONEGO EMÍLIO LOBO",
+      "documentoOrigem": "descObsLiquidacao (2022NL050257 - Contrato 134/2022)",
+      "justificativa": "Nota de liquidação explicita reconstrução da EM Cônego Emílio Lobo (INEP cadastrado em Lapinha)."
+    },
+    {
+      "notaLiquidacao": "2022NL056345",
+      "nivel": "Bairro",
+      "bairro": "Lapinha",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "valorLiquidado": 173073.1,
+      "valorPago": 0.0,
+      "dataLiquidacao": "27/12/2022",
+      "trechoComprobatorio": "RECONSTRUÇÃO DA ESCOLA MUNICIPAL CONEGO EMÍLIO LOBO",
+      "documentoOrigem": "descObsLiquidacao (2022NL056345 - Contrato 134/2022)",
+      "justificativa": "Nota de liquidação explicita reconstrução da EM Cônego Emílio Lobo (INEP cadastrado em Lapinha)."
+    }
+  ]
 }

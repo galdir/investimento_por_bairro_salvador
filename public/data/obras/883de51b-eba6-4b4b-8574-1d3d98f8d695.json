@@ -1072,7 +1072,7 @@
   "prefeituraBairro": "Cajazeiras",
   "latitude": -12.89529,
   "longitude": -38.428728,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1091,10 +1091,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Cajazeiras VI",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Cajazeiras VI via Cache"
+      "origem": "Alocação em Cajazeiras VI via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "610002"

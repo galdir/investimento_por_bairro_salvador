@@ -59,12 +59,12 @@
     ],
     "deltaPercentualValor": 23.81
   },
-  "nivel": "Bairro",
-  "bairro": "Beiru/Tancredo Neves",
-  "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.945674,
-  "longitude": -38.44836,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -82,11 +82,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Beiru/Tancredo Neves",
-      "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Beiru/Tancredo Neves via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "ÀS OBRAS REFERENTES ÀS INTERVENÇÕES A, C, E E H, INTEGRANTES DO PROJETO NOVA TANCREDO NEVES",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O empreendimento 'Nova Tancredo Neves' situa-se ao longo da Av. Tancredo Neves / Av. ACM / Ligação Iguatemi-Paralela (Caminho das Árvores/Pernambués/Brotas), não no Bairro Oficial Beiru/Tancredo Neves."
     }
   },
   "cdUnidadeGestora": "616002"

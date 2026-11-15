@@ -57,12 +57,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Caminho das Árvores",
-  "prefeituraBairro": "Barra/Pituba",
-  "latitude": -12.982567,
-  "longitude": -38.458986,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -80,11 +80,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Caminho das Árvores",
-      "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Caminho das Árvores via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "DAS ESTAÇÕES HIPER E CIDADELA DO EMPREES BRT LOTE 03",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As estações BRT Hiper e Cidadela distribuem-se entre Brotas (Centro/Brotas) e a divisa com Caminho das Árvores/Parque Bela Vista (Barra/Pituba), sem medições separadas por estação."
     }
   },
   "cdUnidadeGestora": "616002"

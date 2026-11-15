@@ -1835,7 +1835,7 @@
   "prefeituraBairro": "Itapuã/Ipitanga",
   "latitude": -12.939631,
   "longitude": -38.358185,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1879,10 +1879,10 @@
     ],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Itapuã",
       "prefeituraBairro": "Itapuã/Ipitanga",
-      "origem": "Alocação em Itapuã via Cache"
+      "origem": "Alocação em Itapuã via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

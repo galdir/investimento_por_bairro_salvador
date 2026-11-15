@@ -72,12 +72,12 @@
     ],
     "deltaPercentualValor": 31.4
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "São Marcos",
   "prefeituraBairro": "Pau da Lima",
-  "latitude": -12.925931,
-  "longitude": -38.437574,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.92917,
+  "longitude": -38.43466,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -95,11 +95,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "São Marcos",
       "prefeituraBairro": "Pau da Lima",
-      "origem": "Alocação em São Marcos via Cache"
+      "origem": "Alocação em São Marcos via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "616002"

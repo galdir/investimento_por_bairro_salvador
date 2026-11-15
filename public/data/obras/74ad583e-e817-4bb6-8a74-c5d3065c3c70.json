@@ -69,12 +69,12 @@
     ],
     "deltaPercentualValor": 21.51
   },
-  "nivel": "Bairro",
-  "bairro": "São Caetano",
-  "prefeituraBairro": "Liberdade/São Caetano",
-  "latitude": -12.933649,
-  "longitude": -38.4795,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -92,11 +92,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "São Caetano",
-      "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em São Caetano via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "REFORMA DAS UNIDADES ESCOLARES NO MUNICÍPIO DE SALVADOR -   LOTE 0005- GRE SÃO CAETANO E LIBERDADE",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato multi-escolar da GRE São Caetano e Liberdade; não pertence exclusivamente ao Bairro Oficial São Caetano e as fronteiras da GRE não garantem delimitação única."
     }
   },
   "cdUnidadeGestora": "441010"

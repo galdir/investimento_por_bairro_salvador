@@ -1245,12 +1245,12 @@
     ],
     "deltaPercentualValor": 49.87
   },
-  "nivel": "Bairro",
-  "bairro": "Centro",
+  "nivel": "Regional (Prefeitura-Bairro)",
+  "bairro": null,
   "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.985173,
-  "longitude": -38.51879,
-  "estagioAlocacao": "Cache",
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1293,11 +1293,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Centro",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)",
+      "bairro": null,
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Centro via Cache"
+      "origem": "Alocação em Centro/Brotas via Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)"
     }
   },
   "cdUnidadeGestora": "616002"

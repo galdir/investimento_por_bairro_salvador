@@ -66,7 +66,7 @@
   "prefeituraBairro": "Cabula/Tancredo Neves",
   "latitude": -12.932852,
   "longitude": -38.458147,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -85,10 +85,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Mata Escura",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Mata Escura via Cache"
+      "origem": "Alocação em Mata Escura via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

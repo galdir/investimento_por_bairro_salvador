@@ -87,12 +87,12 @@
     ],
     "deltaPercentualValor": 27.82
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "nivel": "Pontual",
+  "bairro": "Cajazeiras V",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.893836,
+  "longitude": -38.418571,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -110,14 +110,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "construção e reconstrução da EM ELYSIO ATHAYDE- LOTE 05",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 05 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Liberdade/São Caetano."
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Cajazeiras V",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Cajazeiras V via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

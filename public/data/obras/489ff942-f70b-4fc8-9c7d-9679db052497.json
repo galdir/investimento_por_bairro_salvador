@@ -62,12 +62,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Pituba",
-  "prefeituraBairro": "Barra/Pituba",
-  "latitude": -12.999274,
-  "longitude": -38.460677,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -85,11 +85,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Pituba",
-      "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Pituba via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "corredor \"Pq da Cidade - Pituba\" Obra integrante do sistema BRT",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Corredor BRT Parque da Cidade - Pituba atravessa Itaigara, Pituba e vias de divisa sem partilha ou medição por bairro; 'Pituba' no título do eixo não autoriza atribuição exclusiva ao Bairro Pituba."
     }
   },
   "cdUnidadeGestora": "616002"

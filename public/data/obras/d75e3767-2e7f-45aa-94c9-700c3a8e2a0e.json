@@ -1430,12 +1430,12 @@
     ],
     "deltaPercentualValor": 24.01
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Mata Escura",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.938,
+  "longitude": -38.4605,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1460,11 +1460,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Mata Escura via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

@@ -1116,12 +1116,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Cabula",
-  "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.960845,
-  "longitude": -38.459509,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1152,11 +1152,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Cabula",
-      "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Cabula via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Multi-Bairro (Prefeituras-Bairro Múltiplas))"
     }
   },
   "cdUnidadeGestora": "616002"

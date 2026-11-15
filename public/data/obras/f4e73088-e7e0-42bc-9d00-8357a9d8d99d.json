@@ -1113,8 +1113,8 @@
       "bairro": null,
       "prefeituraBairro": null,
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 4",
-      "documentoOrigem": "dsObjeto (Contrato 030/2023)",
+      "trechoComprobatorio": "EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato)",
       "justificativa": "LOTE 4 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Barra/Pituba."
     }
   },

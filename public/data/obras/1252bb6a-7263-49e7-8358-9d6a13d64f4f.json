@@ -1576,7 +1576,7 @@
   "prefeituraBairro": "Liberdade/São Caetano",
   "latitude": -12.945966,
   "longitude": -38.486766,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1595,10 +1595,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Curuzu",
       "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em Curuzu via Cache"
+      "origem": "Alocação em Curuzu via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

@@ -67,7 +67,7 @@
   "prefeituraBairro": "Subúrbio/Ilhas",
   "latitude": -12.88046,
   "longitude": -38.4766,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,10 +86,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Alto da Terezinha",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Alto da Terezinha via Cache"
+      "origem": "Alocação em Alto da Terezinha via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

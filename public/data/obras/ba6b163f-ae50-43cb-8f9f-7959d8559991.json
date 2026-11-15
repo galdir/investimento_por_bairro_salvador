@@ -1358,12 +1358,12 @@
     ],
     "deltaPercentualValor": 3.36
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "nivel": "Pontual",
+  "bairro": "Nova Esperança",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.84737,
+  "longitude": -38.377166,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1394,14 +1394,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "CONSTRUÇÃO DA ESCOLA MUNICIAL DO CEASA (LOTE 03)",
-      "documentoOrigem": "dsObjeto (Contrato 283/2024)",
-      "justificativa": "LOTE 03 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cajazeiras."
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Nova Esperança",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Nova Esperança via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

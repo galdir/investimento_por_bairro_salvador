@@ -69,12 +69,12 @@
     ],
     "deltaPercentualValor": 22.14
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Boca da Mata",
   "prefeituraBairro": "Cajazeiras",
-  "latitude": -12.898982,
-  "longitude": -38.387426,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.898536,
+  "longitude": -38.389205,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -92,11 +92,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Boca da Mata",
       "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Boca da Mata via Cache"
+      "origem": "Alocação em Boca da Mata via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

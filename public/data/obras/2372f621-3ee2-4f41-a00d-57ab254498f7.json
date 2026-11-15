@@ -1445,7 +1445,7 @@
   "prefeituraBairro": "Valéria",
   "latitude": -12.865315,
   "longitude": -38.433886,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1483,10 +1483,10 @@
     ],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Valéria",
       "prefeituraBairro": "Valéria",
-      "origem": "Alocação em Valéria via Cache"
+      "origem": "Alocação em Valéria via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

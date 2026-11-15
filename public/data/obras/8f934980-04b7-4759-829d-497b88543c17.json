@@ -1851,12 +1851,12 @@
     ],
     "deltaPercentualValor": 587.5
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Cajazeiras",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1911,12 +1911,257 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
-      "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Cajazeiras via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "englobando as Prefeituras Bairro: PB I -",
+      "documentoOrigem": "dsObjeto e descObsLiquidacao (Contrato 01/2021)",
+      "justificativa": "Contrato multi-Prefeitura-Bairro (PBs I, III, IV, VI e VII) de projetos urbanos; medições isoladas de Pituaçu, Comércio, Engenho Velho de Brotas e Itapuã são alocadas em Bairro, preservando estudos transversais (BRT, Forte São Marcelo, economia da cidade e notas duplas) fora da partilha pontual."
     }
   },
-  "cdUnidadeGestora": "603002"
+  "cdUnidadeGestora": "603002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2021NL003360",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 46083.48,
+      "valorPago": 43088.06,
+      "dataLiquidacao": "19/10/2021",
+      "trechoComprobatorio": "Requalificação Urbana da Orla de Pituaçu -  PTA 01",
+      "documentoOrigem": "descObsLiquidacao (2021NL003360 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2021NL003915",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 92166.97,
+      "valorPago": 86176.12,
+      "dataLiquidacao": "26/11/2021",
+      "trechoComprobatorio": "PTA 01 - Requalificação Urbana da Orla de Pituaçu - Produto 02",
+      "documentoOrigem": "descObsLiquidacao (2021NL003915 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2021NL003914",
+      "nivel": "Bairro",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 209991.18,
+      "valorPago": 196341.75,
+      "dataLiquidacao": "29/11/2021",
+      "trechoComprobatorio": "PTA 04 - PROJETO ARQUITETÔNICO CASA DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+      "documentoOrigem": "descObsLiquidacao (2021NL003914 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+    },
+    {
+      "notaLiquidacao": "2021NL004411",
+      "nivel": "Bairro",
+      "bairro": "Engenho Velho de Brotas",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 16618.32,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/12/2021",
+      "trechoComprobatorio": "PTA03 - Projeto de Requalificação Urbana do Engenho Velho de Brotas",
+      "documentoOrigem": "descObsLiquidacao (2021NL004411 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se ao projeto de requalificação urbana no Bairro Oficial Engenho Velho de Brotas."
+    },
+    {
+      "notaLiquidacao": "2021NL004412",
+      "nivel": "Bairro",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 149993.7,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/12/2021",
+      "trechoComprobatorio": "PTA 04 - PROJETO ARQUITETÔNICO - CASA DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+      "documentoOrigem": "descObsLiquidacao (2021NL004412 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+    },
+    {
+      "notaLiquidacao": "2021NL004413",
+      "nivel": "Bairro",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 89996.23,
+      "valorPago": 0.0,
+      "dataLiquidacao": "21/12/2021",
+      "trechoComprobatorio": "PTA 04- PROJETO ARQUITETÔNICO CASA DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+      "documentoOrigem": "descObsLiquidacao (2021NL004413 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+    },
+    {
+      "notaLiquidacao": "2022NL000492",
+      "nivel": "Bairro",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 59997.48,
+      "valorPago": 0.0,
+      "dataLiquidacao": "10/02/2022",
+      "trechoComprobatorio": "PTA 04- PROJETO ARQUITETONICO CIDADE DA MÚSICA - TEATRO E ESCOLA DE ARTE E TECNOLOGIA",
+      "documentoOrigem": "descObsLiquidacao (2022NL000492 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se ao PTA 04 (Complexo Cidade da Música / Teatro e Escola de Arte e Tecnologia na Praça Cayru), Bairro Oficial Comércio."
+    },
+    {
+      "notaLiquidacao": "2022NL002525",
+      "nivel": "Bairro",
+      "bairro": "Engenho Velho de Brotas",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 33236.63,
+      "valorPago": 0.0,
+      "dataLiquidacao": "30/03/2022",
+      "trechoComprobatorio": "Projeto de Requalificação Urbana do Engenho Velho de Brotas.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002525 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se ao projeto de requalificação urbana no Bairro Oficial Engenho Velho de Brotas."
+    },
+    {
+      "notaLiquidacao": "2022NL002731",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 92166.97,
+      "valorPago": 0.0,
+      "dataLiquidacao": "08/04/2022",
+      "trechoComprobatorio": "Requalificação Urbana da orla de Pituaçú. Produto 04.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002731 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL002734",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 27650.09,
+      "valorPago": 0.0,
+      "dataLiquidacao": "08/04/2022",
+      "trechoComprobatorio": "Reqyualifica Urbana da orla de Pituaçu. Produto 05.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002734 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL002781",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 46083.48,
+      "valorPago": 0.0,
+      "dataLiquidacao": "12/04/2022",
+      "trechoComprobatorio": "PTA 01 - Requalificação Urbana da orla de Pituaçu - produto 15",
+      "documentoOrigem": "descObsLiquidacao (2022NL002781 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL002782",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 27650.09,
+      "valorPago": 0.0,
+      "dataLiquidacao": "12/04/2022",
+      "trechoComprobatorio": "PTA 01 - Projeto Requalificação Urbana da Orla de Pituaçu - Produto 12",
+      "documentoOrigem": "descObsLiquidacao (2022NL002782 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL002783",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 27650.09,
+      "valorPago": 0.0,
+      "dataLiquidacao": "12/04/2022",
+      "trechoComprobatorio": "PT 01 - Requalificação da Orla Urbana de Pituaçu - Produto 14.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002783 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL002994",
+      "nivel": "Bairro",
+      "bairro": "Itapuã",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 26245.77,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/04/2022",
+      "trechoComprobatorio": "Projeto executivo de drenagem pluvial,loteamento Farol de Itapoan.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002994 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se a drenagem no Loteamento Farol de Itapuã, Bairro Oficial Itapuã."
+    },
+    {
+      "notaLiquidacao": "2022NL002995",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 46083.48,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/04/2022",
+      "trechoComprobatorio": "Requalificação Urbana da Orla de Pituaçu.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002995 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL002996",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 73733.57,
+      "valorPago": 0.0,
+      "dataLiquidacao": "20/04/2022",
+      "trechoComprobatorio": "Requalificação Urbana Orla de Pituaçu.",
+      "documentoOrigem": "descObsLiquidacao (2022NL002996 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL003616",
+      "nivel": "Bairro",
+      "bairro": "Engenho Velho de Brotas",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 28816.19,
+      "valorPago": 0.0,
+      "dataLiquidacao": "24/05/2022",
+      "trechoComprobatorio": "PTA 13 PROJETO EXECUTIVO DE REQUALIFICAÇÃO URBANA ENGENHO VELHO DE BROTAS",
+      "documentoOrigem": "descObsLiquidacao (2022NL003616 - Contrato 01/2021)",
+      "justificativa": "Nota refere-se ao projeto de requalificação urbana no Bairro Oficial Engenho Velho de Brotas."
+    },
+    {
+      "notaLiquidacao": "2022NL003617",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 64516.88,
+      "valorPago": 0.0,
+      "dataLiquidacao": "24/05/2022",
+      "trechoComprobatorio": "PTA 11 PROJETO EXECUTIVO DE REQUALIFICAÇÃO URBANA DA ORLA DE PITUAÇU",
+      "documentoOrigem": "descObsLiquidacao (2022NL003617 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL003906",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 11187.79,
+      "valorPago": 0.0,
+      "dataLiquidacao": "02/06/2022",
+      "trechoComprobatorio": "ESTUDO DE IMPACTO AMBIENTAL PARAS ORLA DE PITUAÇÚ.",
+      "documentoOrigem": "descObsLiquidacao (2022NL003906 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    },
+    {
+      "notaLiquidacao": "2022NL003907",
+      "nivel": "Bairro",
+      "bairro": "Pituaçu",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 14312.35,
+      "valorPago": 0.0,
+      "dataLiquidacao": "02/06/2022",
+      "trechoComprobatorio": "ESTUDO DE IMPACTO AMBIENTAL PARAS ORLA DE PITUAÇÚ.",
+      "documentoOrigem": "descObsLiquidacao (2022NL003907 - Contrato 01/2021)",
+      "justificativa": "Nota comprova estudo/projeto específico da Orla de Pituaçu (Bairro Oficial Pituaçu)."
+    }
+  ]
 }

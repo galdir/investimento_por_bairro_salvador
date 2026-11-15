@@ -1453,12 +1453,12 @@
     ],
     "deltaPercentualValor": 22.95
   },
-  "nivel": "Bairro",
-  "bairro": "Rio Sena",
+  "nivel": "Pontual",
+  "bairro": "Ilha Amarela",
   "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.881,
-  "longitude": -38.469748,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.890839,
+  "longitude": -38.471967,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1501,11 +1501,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Rio Sena",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Ilha Amarela",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Rio Sena via Cache"
+      "origem": "Alocação em Ilha Amarela via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "616002"

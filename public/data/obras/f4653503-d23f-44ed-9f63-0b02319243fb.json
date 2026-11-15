@@ -1692,12 +1692,12 @@
     ],
     "deltaPercentualValor": 21.7
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Rio Sena",
   "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.881,
-  "longitude": -38.469748,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.880676,
+  "longitude": -38.469172,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1734,11 +1734,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Rio Sena",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Rio Sena via Cache"
+      "origem": "Alocação em Rio Sena via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

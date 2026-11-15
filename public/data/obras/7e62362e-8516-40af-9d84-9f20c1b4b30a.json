@@ -67,12 +67,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
+  "nivel": "Escopo Cidade (Não-Localizado)",
   "bairro": null,
-  "prefeituraBairro": "Cajazeiras",
+  "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -90,11 +90,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Cache",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
-      "prefeituraBairro": "Cajazeiras",
-      "origem": "Alocação em Cajazeiras via Cache"
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONSTRUÇÃO DE PISTAS DE SKATE NOS BAIRROS DA RIBEIRA, SÃO CAETANO E CAJAZEIRAS-SALVADOR/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato multi-unidade cita 'Cajazeiras' sem especificar qual bairro oficial de Cajazeiras (II a XI), e não possui liquidações individualizadas por pista."
     }
   },
   "cdUnidadeGestora": "616002"

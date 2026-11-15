@@ -58,11 +58,11 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Centro",
+  "bairro": "Centro Histórico",
   "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.985173,
-  "longitude": -38.51879,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -81,10 +81,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Centro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro Histórico",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Centro via Cache"
+      "origem": "Alocação em Centro Histórico via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Casa do Benin, Espaço Cultural da Barroquinha, Teatro Gregório deMattos e sede da Fundação Gregório de Mattos",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Todos os 4 equipamentos culturais objeto do estudo técnico (Casa do Benin no Pelourinho e complexo Espaço Cultural/Teatro Gregório de Mattos/sede FGM na Ladeira da Barroquinha nº 02) situam-se no polígono do Bairro Oficial Centro Histórico."
     }
   },
   "cdUnidadeGestora": "543002"

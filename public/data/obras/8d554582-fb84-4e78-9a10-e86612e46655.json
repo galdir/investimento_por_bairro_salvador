@@ -1771,12 +1771,12 @@
     ],
     "deltaPercentualValor": 39.94
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Comércio",
   "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.9632,
-  "longitude": -38.507445,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.97297,
+  "longitude": -38.51399,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1794,11 +1794,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Comércio",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Comércio via Cache"
+      "origem": "Alocação em Comércio via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "616002"

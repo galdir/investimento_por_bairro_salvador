@@ -1455,12 +1455,12 @@
     ],
     "deltaPercentualValor": 21.19
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Pero Vaz",
+  "prefeituraBairro": "Liberdade/São Caetano",
+  "latitude": -12.952838,
+  "longitude": -38.489215,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1497,11 +1497,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Pero Vaz",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em Pero Vaz via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

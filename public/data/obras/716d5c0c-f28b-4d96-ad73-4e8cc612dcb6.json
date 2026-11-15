@@ -1862,7 +1862,7 @@
       "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
       "trechoComprobatorio": "Execução dos serviços de Infraestrutura, Estabilização e Contenção de Encostas, em diversos logradouros da Cidade.",
       "documentoOrigem": "descObsLiquidacao (Contrato 038/2023)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de encostas e drenagem; notas com bairro único comprovado são desdobradas e notas multi-trecho permanecem em Escopo Cidade."
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de encostas e drenagem; notas com bairro único comprovado são desdobradas e notas multi-trecho ou truncadas em separador ';' (como 2024NL004470) permanecem em Escopo Cidade."
     }
   },
   "cdUnidadeGestora": "616002",
@@ -1890,6 +1890,18 @@
       "trechoComprobatorio": "SERVS. DE CONTENÇÃO DE ENCOSTA NA RUA DIRETA EDÉN DO VALE- MATA ESCURA",
       "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL018305)",
       "justificativa": "Nota comprova contenção de encosta na Rua Direta Éden do Vale, Bairro Oficial Mata Escura."
+    },
+    {
+      "notaLiquidacao": "2023NL018578",
+      "nivel": "Bairro",
+      "bairro": "Fazenda Grande do Retiro",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "valorLiquidado": 1014397.83,
+      "valorPago": 0.0,
+      "dataLiquidacao": "22/12/2023",
+      "trechoComprobatorio": "EXEC. DE SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS (FERRO VELHO DO MEMEU)- MARGINAL",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL018578 - Contrato 038/2023)",
+      "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
     },
     {
       "notaLiquidacao": "2024NL001678",
@@ -1928,6 +1940,42 @@
       "justificativa": "Nota comprova contenção de encosta em Jardim Terra Nova, Bairro Oficial Valéria."
     },
     {
+      "notaLiquidacao": "2024NL001853",
+      "nivel": "Bairro",
+      "bairro": "Fazenda Grande do Retiro",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "valorLiquidado": 479707.53,
+      "valorPago": 0.0,
+      "dataLiquidacao": "19/02/2024",
+      "trechoComprobatorio": "SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS ( FERRO VELHO DO MEMEU) - MARGINAL",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001853 - Contrato 038/2023)",
+      "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
+    },
+    {
+      "notaLiquidacao": "2024NL001854",
+      "nivel": "Bairro",
+      "bairro": "Fazenda Grande do Retiro",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "valorLiquidado": 21906.26,
+      "valorPago": 0.0,
+      "dataLiquidacao": "19/02/2024",
+      "trechoComprobatorio": "SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS ( FERRO VELHO DO MEMEU) - MARGINAL",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001854 - Contrato 038/2023)",
+      "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
+    },
+    {
+      "notaLiquidacao": "2024NL001857",
+      "nivel": "Bairro",
+      "bairro": "Fazenda Grande do Retiro",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "valorLiquidado": 5170.88,
+      "valorPago": 0.0,
+      "dataLiquidacao": "19/02/2024",
+      "trechoComprobatorio": "SERVS. DE DRAGAGEM E PAVIM. NA AV. BARROS REIS ( FERRO VELHO DO MEMEU) - MARGINAL",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001857 - Contrato 038/2023)",
+      "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
+    },
+    {
       "notaLiquidacao": "2024NL003111",
       "nivel": "Bairro",
       "bairro": "Mata Escura",
@@ -1950,18 +1998,6 @@
       "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
       "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003112)",
       "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
-    },
-    {
-      "notaLiquidacao": "2024NL004470",
-      "nivel": "Bairro",
-      "bairro": "Alto do Cabrito",
-      "prefeituraBairro": "Liberdade/São Caetano",
-      "valorLiquidado": 1593457.44,
-      "valorPago": 0.0,
-      "dataLiquidacao": "04/04/2024",
-      "trechoComprobatorio": "SERVIÇOS DE MACRODRENAGEM, M006- SERV. DE DRENAG. NA RUA 9 DE DEZEMBRO - ALTO DO CABRITO",
-      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL004470)",
-      "justificativa": "Nota comprova macrodrenagem na Rua 9 de Dezembro, Bairro Oficial Alto do Cabrito."
     }
   ]
 }

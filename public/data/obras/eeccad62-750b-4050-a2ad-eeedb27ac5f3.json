@@ -70,7 +70,7 @@
   "prefeituraBairro": "Barra/Pituba",
   "latitude": -12.982567,
   "longitude": -38.458986,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -89,10 +89,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Caminho das Árvores",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Caminho das Árvores via Cache"
+      "origem": "Alocação em Caminho das Árvores via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

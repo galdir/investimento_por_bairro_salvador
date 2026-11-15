@@ -69,12 +69,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Calçada",
   "prefeituraBairro": "Cidade Baixa",
-  "latitude": -12.943451,
-  "longitude": -38.498601,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.943002,
+  "longitude": -38.49658,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -92,11 +92,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Calçada",
       "prefeituraBairro": "Cidade Baixa",
-      "origem": "Alocação em Calçada via Cache"
+      "origem": "Alocação em Calçada via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

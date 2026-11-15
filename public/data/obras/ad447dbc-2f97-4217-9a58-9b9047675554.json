@@ -63,12 +63,12 @@
     ],
     "deltaPercentualValor": 29.6
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "nivel": "Pontual",
+  "bairro": "Santa Cruz",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -13.002288,
+  "longitude": -38.47567,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,14 +86,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12 UNIDADES ESCOLARES DA SMED - LOTE 07 - EM PROFESSORA ANITA BARBUDA",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 07 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Pau da Lima."
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Santa Cruz",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Santa Cruz via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

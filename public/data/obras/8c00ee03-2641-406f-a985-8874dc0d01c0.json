@@ -67,7 +67,7 @@
   "prefeituraBairro": "Centro/Brotas",
   "latitude": -12.976919,
   "longitude": -38.50577,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,10 +86,10 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
       "bairro": "Nazaré",
       "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Nazaré via Cache"
+      "origem": "Alocação em Nazaré via Stage 1 (Bairro / Sublocalidade)"
     }
   },
   "cdUnidadeGestora": "616002"

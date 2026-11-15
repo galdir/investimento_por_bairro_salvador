@@ -86,12 +86,12 @@
     ],
     "deltaPercentualValor": 4.04
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Pau Miúdo",
   "prefeituraBairro": "Liberdade/São Caetano",
-  "latitude": -12.961189,
-  "longitude": -38.482912,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.9625,
+  "longitude": -38.48238,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -109,11 +109,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Pau Miúdo",
       "prefeituraBairro": "Liberdade/São Caetano",
-      "origem": "Alocação em Pau Miúdo via Cache"
+      "origem": "Alocação em Pau Miúdo via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

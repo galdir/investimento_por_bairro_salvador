@@ -61,11 +61,11 @@
     "deltaPercentualValor": 0.0
   },
   "nivel": "Bairro",
-  "bairro": "Comércio",
-  "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.9632,
-  "longitude": -38.507445,
-  "estagioAlocacao": "Cache",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -84,10 +84,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Comércio",
-      "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Comércio via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Boca do Rio via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "na rua Hélio Machado, Boca do Rio (final de linha). CT 016/2022.",
+      "documentoOrigem": "dsObjeto (Contrato 016/2022)",
+      "justificativa": "Objeto localiza univocamente a obra na Rua Hélio Machado, Bairro Oficial Boca do Rio."
     }
   },
   "cdUnidadeGestora": "450002"

@@ -76,12 +76,12 @@
     ],
     "deltaPercentualValor": 14.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "São Caetano",
+  "prefeituraBairro": "Liberdade/São Caetano",
+  "latitude": -12.93536,
+  "longitude": -38.48597,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -99,11 +99,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "São Caetano",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em São Caetano via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

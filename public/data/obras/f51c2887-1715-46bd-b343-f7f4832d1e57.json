@@ -493,12 +493,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Comércio",
-  "prefeituraBairro": "Centro/Brotas",
-  "latitude": -12.9632,
-  "longitude": -38.507445,
-  "estagioAlocacao": "Cache",
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -516,11 +516,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Comércio",
-      "prefeituraBairro": "Centro/Brotas",
-      "origem": "Alocação em Comércio via Cache"
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A palavra 'comércio' integra a expressão genérica 'comércio informal' em áreas públicas da cidade, não se referindo ao Bairro Oficial Comércio."
     }
   },
   "cdUnidadeGestora": "450002"

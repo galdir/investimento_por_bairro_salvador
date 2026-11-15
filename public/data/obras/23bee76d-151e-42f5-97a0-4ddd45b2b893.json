@@ -60,11 +60,11 @@
     "deltaPercentualValor": 21.39
   },
   "nivel": "Bairro",
-  "bairro": "Beiru/Tancredo Neves",
-  "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": -12.945674,
-  "longitude": -38.44836,
-  "estagioAlocacao": "Cache",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -83,10 +83,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Beiru/Tancredo Neves",
-      "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Beiru/Tancredo Neves via Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Caminho das Árvores",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Caminho das Árvores via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Recuperação Estrutural da Ponte sobre o Rio Camarajipe (vizinho a Nova Estação Rodoviária do BRT) situada na Av. Tancredo Neves",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A ponte sobre o Rio Camarajipe na Av. Tancredo Neves (junto à Nova Estação Rodoviária do BRT) situa-se integralmente no Bairro Oficial Caminho das Árvores."
     }
   },
   "cdUnidadeGestora": "616002"

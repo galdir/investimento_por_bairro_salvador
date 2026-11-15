@@ -59,12 +59,12 @@
     ],
     "deltaPercentualValor": 21.06
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Pontual",
+  "bairro": "Vila Ruy Barbosa\\Jardim Cruzeiro",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.9293005,
+  "longitude": -38.499327,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -82,11 +82,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Vila Ruy Barbosa\\Jardim Cruzeiro",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Vila Ruy Barbosa\\Jardim Cruzeiro via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

@@ -1309,12 +1309,12 @@
     ],
     "deltaPercentualValor": 24.21
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Alto da Terezinha",
   "prefeituraBairro": "Subúrbio/Ilhas",
-  "latitude": -12.88046,
-  "longitude": -38.4766,
-  "estagioAlocacao": "Cache",
+  "latitude": -12.8848836,
+  "longitude": -38.4755603,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1345,11 +1345,11 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Alto da Terezinha",
       "prefeituraBairro": "Subúrbio/Ilhas",
-      "origem": "Alocação em Alto da Terezinha via Cache"
+      "origem": "Alocação em Alto da Terezinha via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "301110"

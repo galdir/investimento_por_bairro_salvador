@@ -73,12 +73,12 @@
     ],
     "deltaPercentualValor": 35.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "nivel": "Pontual",
+  "bairro": "Uruguai",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.93437,
+  "longitude": -38.49424,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -96,14 +96,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
-      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DA ESCOMA MUNICIPAL CARMELITANA DO MENINO JESUS - LOTE 01",
-      "documentoOrigem": "dsObjeto (Contrato)",
-      "justificativa": "LOTE 01 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Centro/Brotas."
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Uruguai",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Uruguai via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"

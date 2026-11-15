@@ -60,12 +60,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Bairro",
-  "bairro": "Pituba",
+  "nivel": "Regional (Prefeitura-Bairro)",
+  "bairro": null,
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -12.999274,
-  "longitude": -38.460677,
-  "estagioAlocacao": "Cache",
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Stage 1 (Lote Regional)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -83,11 +83,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
-      "bairro": "Pituba",
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Stage 1 (Lote Regional)",
+      "bairro": null,
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Pituba via Cache"
+      "origem": "Alocação em Barra/Pituba via Stage 1 (Lote Regional)"
     }
   },
   "cdUnidadeGestora": "616002"

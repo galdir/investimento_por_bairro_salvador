@@ -60,12 +60,12 @@
     ],
     "deltaPercentualValor": 9.39
   },
-  "nivel": "Bairro",
+  "nivel": "Pontual",
   "bairro": "Vale das Pedrinhas",
   "prefeituraBairro": "Barra/Pituba",
-  "latitude": -13.008432,
-  "longitude": -38.481255,
-  "estagioAlocacao": "Cache",
+  "latitude": -13.0084,
+  "longitude": -38.4814,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -83,11 +83,11 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Bairro",
-      "estagioAlocacao": "Cache",
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
       "bairro": "Vale das Pedrinhas",
       "prefeituraBairro": "Barra/Pituba",
-      "origem": "Alocação em Vale das Pedrinhas via Cache"
+      "origem": "Alocação em Vale das Pedrinhas via Stage 1 (Equipamento Oficial)"
     }
   },
   "cdUnidadeGestora": "441010"
