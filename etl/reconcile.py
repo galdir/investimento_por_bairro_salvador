@@ -21,7 +21,13 @@ from etl.domain.ficha_limpa import (
     mesclar_fichas_obra,
     sincronizar_obra_com_ficha,
 )
-from etl.domain.geocoding import resolver_frentes_medicao
+from etl.domain.geocoding import (
+    _carregar_curadoria_territorial,
+    _extrair_indices_territoriais,
+    aplicar_curadoria_obra,
+    calcular_centroides_bairros,
+    resolver_frentes_medicao,
+)
 from etl.domain.kpis import calcular_kpis_globais
 from etl.domain.mandato import cds_ug_compativeis, obter_chaves_candidatas_obra
 from etl.domain.territorio import calcular_rollup_territorial
@@ -275,7 +281,11 @@ def finalizar_acervo_obras(
     return concentracao_map, orfaos_removidos
 
 
-def reconciliar_acervo_local(output_dir: Path, year: int = 2025) -> dict[str, Any]:
+def reconciliar_acervo_local(
+    output_dir: Path,
+    year: int = 2025,
+    curadoria: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     """Executa a reconciliação canônica completa do acervo estático local de obras.
 
     Sumário:
@@ -327,6 +337,9 @@ def reconciliar_acervo_local(output_dir: Path, year: int = 2025) -> dict[str, An
     bairros_geo_para_frentes = raw_bairros_geo or {
         "features": [{"properties": b} for b in bairros_base]
     }
+    bairros_centroides = calcular_centroides_bairros(bairros_geo_para_frentes)
+    catalogo_curadoria = curadoria if curadoria is not None else _carregar_curadoria_territorial()
+    indices_territoriais = _extrair_indices_territoriais(bairros_geo_para_frentes)
 
     fichas_consolidadas: dict[str, dict[str, Any]] = {}
     obras_mescladas = 0
@@ -335,6 +348,22 @@ def reconciliar_acervo_local(output_dir: Path, year: int = 2025) -> dict[str, An
         obra_id = obra.get("id")
         if obra_id in (None, ""):
             raise ValueError("Entrada no índice sem identificador válido ('id').")
+        resultado_curadoria = aplicar_curadoria_obra(
+            obra=obra,
+            bairros_geojson=bairros_geo_para_frentes,
+            bairros_centroides=bairros_centroides,
+            curadoria=catalogo_curadoria,
+            indices_territoriais=indices_territoriais,
+        )
+        if resultado_curadoria is not None:
+            obra["nivel"] = resultado_curadoria["nivel"]
+            obra["bairro"] = resultado_curadoria["bairro"]
+            obra["prefeitura_bairro"] = resultado_curadoria["prefeitura_bairro"]
+            obra["prefeituraBairro"] = resultado_curadoria["prefeitura_bairro"]
+            obra["latitude"] = resultado_curadoria["latitude"]
+            obra["longitude"] = resultado_curadoria["longitude"]
+            obra["estagioAlocacao"] = resultado_curadoria["estagio"]
+            obra["lastroCuradoria"] = resultado_curadoria.get("lastro_curadoria")
         candidatas = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
         if len(candidatas) > 1:
             obras_mescladas += 1
@@ -344,6 +373,7 @@ def reconciliar_acervo_local(output_dir: Path, year: int = 2025) -> dict[str, An
             bairros_geojson=bairros_geo_para_frentes,
             liquidacoes=ficha.get("liquidacoes"),
             pagamentos=ficha.get("pagamentos"),
+            curadoria=catalogo_curadoria,
         )
         if frentes:
             ficha["frentesMedicao"] = frentes

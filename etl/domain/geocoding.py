@@ -729,6 +729,48 @@ def _aplicar_curadoria_territorial(
     return None
 
 
+def aplicar_curadoria_obra(
+    obra: dict[str, Any],
+    bairros_geojson: dict[str, Any],
+    bairros_centroides: Optional[dict[str, tuple[float, float]]] = None,
+    curadoria: Optional[dict[str, dict[str, Any]]] = None,
+    indices_territoriais: Optional[tuple[list[str], dict[str, str], dict[str, str], dict[str, str]]] = None,
+) -> Optional[dict[str, Any]]:
+    """Aplica o catálogo de Curadoria Territorial Auditável a uma obra específica."""
+    catalogo = curadoria if curadoria is not None else _carregar_curadoria_territorial()
+    if not catalogo:
+        return None
+
+    cd_ug = obra.get("cdUnidadeGestora") or obra.get("unidadeGestora") or ""
+    nu_contrato = obra.get("nuContratoSigef") or obra.get("numeroContrato") or ""
+    if not str(cd_ug).strip() or not str(nu_contrato).strip():
+        return None
+
+    bairros_nomes, sublocalidades_norm, bairro_para_pb, bairro_para_pb_norm = (
+        indices_territoriais
+        if indices_territoriais is not None
+        else _extrair_indices_territoriais(bairros_geojson)
+    )
+    centroides = (
+        bairros_centroides
+        if bairros_centroides is not None
+        else calcular_centroides_bairros(bairros_geojson)
+    )
+    bairros_centroides_norm = {normalizar_nome(k): v for k, v in centroides.items()}
+
+    return _aplicar_curadoria_territorial(
+        cd_ug=cd_ug,
+        nu_contrato=nu_contrato,
+        curadoria=catalogo,
+        bairros_nomes=bairros_nomes,
+        sublocalidades_norm=sublocalidades_norm,
+        bairros_centroides=centroides,
+        bairros_centroides_norm=bairros_centroides_norm,
+        bairro_para_pb=bairro_para_pb,
+        bairro_para_pb_norm=bairro_para_pb_norm,
+    )
+
+
 def _extrair_indices_territoriais(
     bairros_geojson: dict[str, Any],
 ) -> tuple[list[str], dict[str, str], dict[str, str], dict[str, str]]:

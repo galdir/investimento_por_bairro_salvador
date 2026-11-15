@@ -945,5 +945,266 @@ def test_reconciliar_acervo_local_desdobra_frentes_medicao_sem_inflar_valor_tota
     assert res["kpis_globais"]["valorPagoNaoLocalizado"] == 132343.21
 
 
+def test_reconciliar_acervo_local_promove_curadoria_territorio_unico_e_propaga_lastro(
+    tmp_path: Path,
+) -> None:
+    """Seam 1 (E2E): reconciliar_acervo_local aplica curadoria de território único (promovido e ambiguo)."""
+    from etl.reconcile import reconciliar_acervo_local
+
+    geo_dir = tmp_path / "geo"
+    geo_dir.mkdir(parents=True, exist_ok=True)
+    bairros_geo = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "CD_BAIRRO": 10,
+                    "NM_BAIRRO": "Fazenda Coutos",
+                    "PREFEITURA_BAIRRO": "Subúrbio/Ilhas",
+                },
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [-38.470, -12.840],
+                            [-38.460, -12.840],
+                            [-38.460, -12.830],
+                            [-38.470, -12.830],
+                            [-38.470, -12.840],
+                        ]
+                    ],
+                },
+            }
+        ],
+    }
+    pb_geo = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {"OBJECTID": 1, "PREFEITURA_BAIRRO": "Subúrbio/Ilhas"},
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [-38.480, -12.850],
+                            [-38.450, -12.850],
+                            [-38.450, -12.820],
+                            [-38.480, -12.820],
+                            [-38.480, -12.850],
+                        ]
+                    ],
+                },
+            },
+            {
+                "type": "Feature",
+                "properties": {"OBJECTID": 2, "PREFEITURA_BAIRRO": "Centro/Brotas"},
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [-38.520, -12.990],
+                            [-38.500, -12.990],
+                            [-38.500, -12.970],
+                            [-38.520, -12.970],
+                            [-38.520, -12.990],
+                        ]
+                    ],
+                },
+            },
+        ],
+    }
+    (geo_dir / "bairros.geojson").write_text(
+        json.dumps(bairros_geo, ensure_ascii=False), encoding="utf-8"
+    )
+    (geo_dir / "prefeituras_bairro.geojson").write_text(
+        json.dumps(pb_geo, ensure_ascii=False), encoding="utf-8"
+    )
+
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+
+    id_promovido_bairro = "obra-curada-bairro"
+    id_ambiguo = "obra-curada-ambigua"
+    id_promovido_regional = "obra-curada-regional"
+
+    (tmp_path / "index_2025.json").write_text(
+        json.dumps(
+            {
+                "metadata": {"anoReferencia": 2025},
+                "bairros": [
+                    {
+                        "id": 10,
+                        "nome": "Fazenda Coutos",
+                        "prefeitura_bairro": "Subúrbio/Ilhas",
+                        "populacao": 30000,
+                        "indice_vulnerabilidade": 0.55,
+                    }
+                ],
+                "prefeituras_bairro": [
+                    {"id": 1, "nome": "Subúrbio/Ilhas", "populacao_total": 30000},
+                    {"id": 2, "nome": "Centro/Brotas", "populacao_total": 50000},
+                ],
+                "obras": [
+                    {
+                        "id": id_promovido_bairro,
+                        "cdUnidadeGestora": "301110",
+                        "unidadeGestora": "SMS",
+                        "numeroContrato": "2025CT005813",
+                        "objeto": "Reforma de unidade de saúde",
+                        "valorContratualVigente": 500000.0,
+                        "valorPago": 250000.0,
+                        "nivel": "Escopo Cidade (Não-Localizado)",
+                        "bairro": None,
+                        "prefeitura_bairro": None,
+                        "estagioAlocacao": "Não Localizado",
+                    },
+                    {
+                        "id": id_ambiguo,
+                        "cdUnidadeGestora": "616002",
+                        "unidadeGestora": "SUCOP",
+                        "numeroContrato": "2024CT006616",
+                        "objeto": "Requalificação da Avenida Mário Leal Ferreira",
+                        "valorContratualVigente": 1200000.0,
+                        "valorPago": 300000.0,
+                        "nivel": "Escopo Cidade (Não-Localizado)",
+                        "bairro": None,
+                        "prefeitura_bairro": None,
+                        "estagioAlocacao": "Não Localizado",
+                    },
+                    {
+                        "id": id_promovido_regional,
+                        "cdUnidadeGestora": "567002",
+                        "unidadeGestora": "SEMAN",
+                        "numeroContrato": "2025CT999001",
+                        "objeto": "Manutenção regional de vias",
+                        "valorContratualVigente": 800000.0,
+                        "valorPago": 400000.0,
+                        "nivel": "Escopo Cidade (Não-Localizado)",
+                        "bairro": None,
+                        "prefeitura_bairro": None,
+                        "estagioAlocacao": "Não Localizado",
+                    },
+                ],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    for oid, ug_cd, ug_sg, num, liq_val, pag_val in [
+        (id_promovido_bairro, "301110", "SMS", "2025CT005813", "250.000,00", "250.000,00"),
+        (id_ambiguo, "616002", "SUCOP", "2024CT006616", "300.000,00", "300.000,00"),
+        (id_promovido_regional, "567002", "SEMAN", "2025CT999001", "400.000,00", "400.000,00"),
+    ]:
+        (obras_dir / f"{oid}.json").write_text(
+            json.dumps(
+                {
+                    "id": oid,
+                    "cdUnidadeGestora": ug_cd,
+                    "unidadeGestora": ug_sg,
+                    "numeroContrato": num,
+                    "empreiteira": {"razaoSocial": "EMP TESTE LTDA", "cnpj": "11.222.333/0001-44"},
+                    "liquidacoes": [{"notaLiquidacao": "NL1", "valLiqLiquidacao": liq_val}],
+                    "pagamentos": [{"notaLiquidacao": "NL1", "pago": pag_val}],
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+    curadoria_custom = {
+        "301110:2025CT005813": {
+            "status": "promovido",
+            "nivel": "Bairro",
+            "bairro": "Fazenda Coutos",
+            "prefeituraBairro": "Subúrbio/Ilhas",
+            "trechoComprobatorio": "REFORMA DA USF FAZENDA COUTOS.II.",
+            "documentoOrigem": "dsObjetoAditivo (2º Termo Aditivo ao Contrato nº 387/2025)",
+            "justificativa": "O aditivo contratual identifica univocamente o bairro Fazenda Coutos.",
+        },
+        "616002:2024CT006616": {
+            "status": "ambiguo",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeituraBairro": None,
+            "trechoComprobatorio": "Requalificação Urbana do Canteiro Central da Avenida Mário Leal Ferreira",
+            "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 012/2024)",
+            "justificativa": "A Avenida Mário Leal Ferreira atravessa múltiplos bairros.",
+        },
+        "567002:2025CT999001": {
+            "status": "promovido",
+            "nivel": "Regional (Prefeitura-Bairro)",
+            "bairro": None,
+            "prefeituraBairro": "Centro/Brotas",
+            "trechoComprobatorio": "LOTE 01 - PREFEITURA-BAIRRO CENTRO/BROTAS",
+            "documentoOrigem": "dsObjetoAditivo (Contrato Regional)",
+            "justificativa": "Contrato de lote regional vinculado à Prefeitura-Bairro Centro/Brotas.",
+        },
+    }
+
+    res = reconciliar_acervo_local(output_dir=tmp_path, year=2025, curadoria=curadoria_custom)
+    idx_atualizado = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    obras_por_id = {o["id"]: o for o in idx_atualizado["obras"]}
+
+    # 1. Contrato promovido para Bairro Oficial
+    obra_bairro = obras_por_id[id_promovido_bairro]
+    assert obra_bairro["nivel"] == "Bairro"
+    assert obra_bairro["bairro"] == "Fazenda Coutos"
+    assert obra_bairro["prefeituraBairro"] == "Subúrbio/Ilhas"
+    assert obra_bairro["latitude"] is not None
+    assert obra_bairro["longitude"] is not None
+    assert obra_bairro["estagioAlocacao"] == "Curadoria Territorial Auditável"
+    assert obra_bairro["lastroCuradoria"]["trechoComprobatorio"] == "REFORMA DA USF FAZENDA COUTOS.II."
+
+    ficha_bairro = json.loads((obras_dir / f"{id_promovido_bairro}.json").read_text(encoding="utf-8"))
+    assert ficha_bairro["nivel"] == "Bairro"
+    assert ficha_bairro["bairro"] == "Fazenda Coutos"
+    assert ficha_bairro["prefeituraBairro"] == "Subúrbio/Ilhas"
+    assert ficha_bairro["estagioAlocacao"] == "Curadoria Territorial Auditável"
+    assert ficha_bairro["fontesOficiais"]["lastroTerritorial"]["trechoComprobatorio"] == "REFORMA DA USF FAZENDA COUTOS.II."
+    assert ficha_bairro["fontesOficiais"]["lastroTerritorial"]["documentoOrigem"] == "dsObjetoAditivo (2º Termo Aditivo ao Contrato nº 387/2025)"
+
+    # 2. Contrato promovido para Regional (Prefeitura-Bairro)
+    obra_reg = obras_por_id[id_promovido_regional]
+    assert obra_reg["nivel"] == "Regional (Prefeitura-Bairro)"
+    assert obra_reg["bairro"] is None
+    assert obra_reg["prefeituraBairro"] == "Centro/Brotas"
+    assert obra_reg["estagioAlocacao"] == "Curadoria Territorial Auditável"
+    assert obra_reg["lastroCuradoria"]["trechoComprobatorio"] == "LOTE 01 - PREFEITURA-BAIRRO CENTRO/BROTAS"
+
+    # 3. Contrato ambíguo mantém Escopo Cidade mas propaga estágio e lastro
+    obra_amb = obras_por_id[id_ambiguo]
+    assert obra_amb["nivel"] == "Escopo Cidade (Não-Localizado)"
+    assert obra_amb["bairro"] is None
+    assert obra_amb["estagioAlocacao"] == "Curadoria Territorial Auditável (Ambíguo)"
+    assert obra_amb["lastroCuradoria"]["trechoComprobatorio"] == "Requalificação Urbana do Canteiro Central da Avenida Mário Leal Ferreira"
+
+    ficha_amb = json.loads((obras_dir / f"{id_ambiguo}.json").read_text(encoding="utf-8"))
+    assert ficha_amb["nivel"] == "Escopo Cidade (Não-Localizado)"
+    assert ficha_amb["estagioAlocacao"] == "Curadoria Territorial Auditável (Ambíguo)"
+    assert ficha_amb["fontesOficiais"]["lastroTerritorial"]["justificativa"] == "A Avenida Mário Leal Ferreira atravessa múltiplos bairros."
+
+    # 4. Agregados territoriais e não-localizados
+    fazenda_coutos = idx_atualizado["bairros"][0]
+    assert fazenda_coutos["totalObras"] == 1
+    assert fazenda_coutos["valorTotal"] == 500000.0
+    assert fazenda_coutos["valorPago"] == 250000.0
+
+    pbs_por_nome = {pb["nome"]: pb for pb in idx_atualizado["prefeituras_bairro"]}
+    assert pbs_por_nome["Subúrbio/Ilhas"]["totalObras"] == 1
+    assert pbs_por_nome["Subúrbio/Ilhas"]["valorTotal"] == 500000.0
+    assert pbs_por_nome["Subúrbio/Ilhas"]["valorPago"] == 250000.0
+    assert pbs_por_nome["Centro/Brotas"]["totalObras"] == 1
+    assert pbs_por_nome["Centro/Brotas"]["valorTotal"] == 800000.0
+    assert pbs_por_nome["Centro/Brotas"]["valorPago"] == 400000.0
+
+    assert res["kpis_globais"]["totalNaoLocalizado"] == 1
+    assert res["kpis_globais"]["valorNaoLocalizado"] == 1200000.0
+    assert res["kpis_globais"]["valorPagoNaoLocalizado"] == 300000.0
+
+
+
 
 

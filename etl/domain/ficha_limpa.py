@@ -746,6 +746,35 @@ def mesclar_fichas_obra(
     tema = obra.get("tema") or next((f.get("tema") for f in candidatas if f.get("tema")), None) or classificar_tema(obra)
     semaforo = obra.get("semaforo") or next((f.get("semaforo") for f in candidatas if f.get("semaforo")), None) or classificar_semaforo(obra)
 
+    tem_curadoria = isinstance(obra.get("lastroCuradoria"), dict)
+
+    def _resolver_territorial(
+        valor_obra: Any,
+        chave_ficha: str,
+        *,
+        aceitar_none: bool = False,
+    ) -> Any:
+        if tem_curadoria or (aceitar_none and valor_obra is not None) or (not aceitar_none and valor_obra):
+            return valor_obra
+        return next(
+            (
+                f.get(chave_ficha)
+                for f in candidatas
+                if (f.get(chave_ficha) is not None if aceitar_none else bool(f.get(chave_ficha)))
+            ),
+            None,
+        )
+
+    nivel_final = _resolver_territorial(obra.get("nivel"), "nivel")
+    bairro_final = _resolver_territorial(obra.get("bairro"), "bairro", aceitar_none=True)
+    prefeitura_bairro_final = _resolver_territorial(
+        obra.get("prefeitura_bairro") or obra.get("prefeituraBairro"),
+        "prefeituraBairro",
+    )
+    latitude_final = _resolver_territorial(obra.get("latitude"), "latitude", aceitar_none=True)
+    longitude_final = _resolver_territorial(obra.get("longitude"), "longitude", aceitar_none=True)
+    estagio_final = _resolver_territorial(obra.get("estagioAlocacao"), "estagioAlocacao")
+
     return _montar_ficha_base(
         obra_id=obra_id,
         cd_ug=cd_ug,
@@ -772,12 +801,12 @@ def mesclar_fichas_obra(
         pagamentos=pagamentos,
         tema=tema,
         semaforo=semaforo,
-        nivel=obra.get("nivel") or next((f.get("nivel") for f in candidatas if f.get("nivel")), None),
-        bairro=obra.get("bairro") if obra.get("bairro") is not None else next((f.get("bairro") for f in candidatas if f.get("bairro") is not None), None),
-        prefeitura_bairro=obra.get("prefeitura_bairro") or obra.get("prefeituraBairro") or next((f.get("prefeituraBairro") for f in candidatas if f.get("prefeituraBairro")), None),
-        latitude=obra.get("latitude") if obra.get("latitude") is not None else next((f.get("latitude") for f in candidatas if f.get("latitude") is not None), None),
-        longitude=obra.get("longitude") if obra.get("longitude") is not None else next((f.get("longitude") for f in candidatas if f.get("longitude") is not None), None),
-        estagio_alocacao=obra.get("estagioAlocacao") or next((f.get("estagioAlocacao") for f in candidatas if f.get("estagioAlocacao")), None),
+        nivel=nivel_final,
+        bairro=bairro_final,
+        prefeitura_bairro=prefeitura_bairro_final,
+        latitude=latitude_final,
+        longitude=longitude_final,
+        estagio_alocacao=estagio_final,
         concentracao_map=concentracao_map,
         lastro_curadoria=obra.get("lastroCuradoria"),
     )
