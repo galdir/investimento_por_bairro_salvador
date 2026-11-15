@@ -22,10 +22,10 @@ from etl.domain.ficha_limpa import (
     sincronizar_obra_com_ficha,
 )
 from etl.domain.geocoding import (
+    GeocodingCache,
     _carregar_curadoria_territorial,
-    _extrair_indices_territoriais,
-    aplicar_curadoria_obra,
     calcular_centroides_bairros,
+    classificar_alocacao_territorial,
     resolver_frentes_medicao,
 )
 from etl.domain.kpis import calcular_kpis_globais
@@ -339,31 +339,55 @@ def reconciliar_acervo_local(
     }
     bairros_centroides = calcular_centroides_bairros(bairros_geo_para_frentes)
     catalogo_curadoria = curadoria if curadoria is not None else _carregar_curadoria_territorial()
-    indices_territoriais = _extrair_indices_territoriais(bairros_geo_para_frentes)
+
+    cache_geocodificacao = GeocodingCache(output_path / "geocoding_cache.json", auto_save=False)
+    for obra in obras_catalogo:
+        obra_id = obra.get("id")
+        if obra_id in (None, ""):
+            raise ValueError("Entrada no índice sem identificador válido ('id').")
+        nivel_anterior = obra.get("nivel")
+        bairro_anterior = obra.get("bairro")
+        lat_anterior = obra.get("latitude")
+        lon_anterior = obra.get("longitude")
+
+        resultado_alocacao = classificar_alocacao_territorial(
+            obra=obra,
+            bairros_geojson=bairros_geo_para_frentes,
+            bairros_centroides=bairros_centroides,
+            cache=cache_geocodificacao,
+            habilitar_rede=False,
+            curadoria=catalogo_curadoria,
+            recalcular=True,
+        )
+        obra["nivel"] = resultado_alocacao["nivel"]
+        obra["bairro"] = resultado_alocacao["bairro"]
+        obra["prefeitura_bairro"] = resultado_alocacao["prefeitura_bairro"]
+        obra["prefeituraBairro"] = resultado_alocacao["prefeitura_bairro"]
+        if (
+            resultado_alocacao["latitude"] is None
+            and resultado_alocacao["nivel"] in {"Bairro", "Pontual"}
+            and (nivel_anterior, bairro_anterior) == (resultado_alocacao["nivel"], resultado_alocacao["bairro"])
+            and lat_anterior is not None
+            and lon_anterior is not None
+        ):
+            obra["latitude"] = lat_anterior
+            obra["longitude"] = lon_anterior
+        else:
+            obra["latitude"] = resultado_alocacao["latitude"]
+            obra["longitude"] = resultado_alocacao["longitude"]
+        obra["estagioAlocacao"] = resultado_alocacao["estagio"]
+        lastro_curadoria = resultado_alocacao.get("lastro_curadoria")
+        if lastro_curadoria is not None:
+            obra["lastroCuradoria"] = lastro_curadoria
+        else:
+            obra.pop("lastroCuradoria", None)
+    cache_geocodificacao.save()
 
     fichas_consolidadas: dict[str, dict[str, Any]] = {}
     obras_mescladas = 0
 
     for obra in obras_catalogo:
         obra_id = obra.get("id")
-        if obra_id in (None, ""):
-            raise ValueError("Entrada no índice sem identificador válido ('id').")
-        resultado_curadoria = aplicar_curadoria_obra(
-            obra=obra,
-            bairros_geojson=bairros_geo_para_frentes,
-            bairros_centroides=bairros_centroides,
-            curadoria=catalogo_curadoria,
-            indices_territoriais=indices_territoriais,
-        )
-        if resultado_curadoria is not None:
-            obra["nivel"] = resultado_curadoria["nivel"]
-            obra["bairro"] = resultado_curadoria["bairro"]
-            obra["prefeitura_bairro"] = resultado_curadoria["prefeitura_bairro"]
-            obra["prefeituraBairro"] = resultado_curadoria["prefeitura_bairro"]
-            obra["latitude"] = resultado_curadoria["latitude"]
-            obra["longitude"] = resultado_curadoria["longitude"]
-            obra["estagioAlocacao"] = resultado_curadoria["estagio"]
-            obra["lastroCuradoria"] = resultado_curadoria.get("lastro_curadoria")
         candidatas = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
         if len(candidatas) > 1:
             obras_mescladas += 1

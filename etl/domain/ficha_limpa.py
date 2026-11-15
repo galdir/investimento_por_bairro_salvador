@@ -752,6 +752,14 @@ def mesclar_fichas_obra(
     semaforo = obra.get("semaforo") or next((f.get("semaforo") for f in candidatas if f.get("semaforo")), None) or classificar_semaforo(obra)
 
     tem_curadoria = isinstance(obra.get("lastroCuradoria"), dict)
+    nivel_obra = obra.get("nivel")
+    bairro_obra = obra.get("bairro")
+    candidatas_compativeis = [
+        f
+        for f in candidatas
+        if (not nivel_obra or f.get("nivel") == nivel_obra)
+        and (bairro_obra is None or f.get("bairro") == bairro_obra)
+    ]
 
     def _resolver_territorial(
         valor_obra: Any,
@@ -761,10 +769,19 @@ def mesclar_fichas_obra(
     ) -> Any:
         if tem_curadoria or (aceitar_none and valor_obra is not None) or (not aceitar_none and valor_obra):
             return valor_obra
+        if (
+            nivel_obra in {"Regional (Prefeitura-Bairro)", "Escopo Cidade (Não-Localizado)"}
+            and chave_ficha in {"bairro", "latitude", "longitude"}
+        ):
+            return None
+        if nivel_obra == "Pontual" and chave_ficha == "bairro" and bool(obra.get("estagioAlocacao")):
+            return None
+        if nivel_obra == "Escopo Cidade (Não-Localizado)" and chave_ficha == "prefeituraBairro":
+            return None
         return next(
             (
                 f.get(chave_ficha)
-                for f in candidatas
+                for f in candidatas_compativeis
                 if (f.get(chave_ficha) is not None if aceitar_none else bool(f.get(chave_ficha)))
             ),
             None,

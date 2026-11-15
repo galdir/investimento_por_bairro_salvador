@@ -1372,7 +1372,422 @@ def test_reconciliar_acervo_local_propaga_vocacao_e_centralidade_metropolitana(
     assert comercio_geo["investimentoPorHabitante"] == 0.0
 
 
+def test_reconciliar_acervo_local_reexecuta_funil_integral_e_atualiza_cache_indice_geo_e_fichas(
+    tmp_path: Path,
+) -> None:
+    """reconciliar_acervo_local deve reexecutar todo o funil determinístico offline e sobrescrever legados."""
+    from etl.domain.geocoding import GeocodingCache
+    from etl.reconcile import reconciliar_acervo_local
+
+    def _poly(lon: float, lat: float) -> dict:
+        d = 0.005
+        return {
+            "type": "Polygon",
+            "coordinates": [[[lon - d, lat - d], [lon + d, lat - d], [lon + d, lat + d], [lon - d, lat + d], [lon - d, lat - d]]],
+        }
+
+    bairros_specs = [
+        ("Pituba", "Barra/Pituba", -38.46, -13.00, 60000),
+        ("Itaigara", "Barra/Pituba", -38.465, -12.995, 25000),
+        ("Beiru/Tancredo Neves", "Cabula/Tancredo Neves", -38.445, -12.94, 45000),
+        ("Boca do Rio", "Itapuã/Ipitanga", -38.42, -12.98, 50000),
+        ("Imbuí", "Itapuã/Ipitanga", -38.43, -12.97, 30000),
+        ("Brotas", "Centro/Brotas", -38.49, -12.99, 70000),
+        ("Paripe", "Subúrbio/Ilhas", -38.47, -12.83, 60000),
+        ("São Cristóvão", "Itapuã/Ipitanga", -38.34, -12.91, 40000),
+    ]
+    pbs_specs = [
+        ("Barra/Pituba", 200000),
+        ("Cabula/Tancredo Neves", 300000),
+        ("Itapuã/Ipitanga", 250000),
+        ("Centro/Brotas", 350000),
+        ("Subúrbio/Ilhas", 280000),
+    ]
+
+    geo_dir = tmp_path / "geo"
+    geo_dir.mkdir(parents=True, exist_ok=True)
+    bairros_fc = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": idx,
+                    "NM_BAIRRO": nome,
+                    "nome": nome,
+                    "PREFEITURA_BAIRRO": pb,
+                    "prefeitura_bairro": pb,
+                    "populacao": pop,
+                    "indice_vulnerabilidade": 0.4,
+                },
+                "geometry": _poly(lon, lat),
+            }
+            for idx, (nome, pb, lon, lat, pop) in enumerate(bairros_specs, start=1)
+        ],
+    }
+    pbs_fc = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {"OBJECTID": idx, "nome": pb, "NM_PREFEITURA_BAIRRO": pb},
+                "geometry": _poly(-38.45, -12.95),
+            }
+            for idx, (pb, _) in enumerate(pbs_specs, start=1)
+        ],
+    }
+    (geo_dir / "bairros.geojson").write_text(json.dumps(bairros_fc, ensure_ascii=False), encoding="utf-8")
+    (geo_dir / "prefeituras_bairro.geojson").write_text(json.dumps(pbs_fc, ensure_ascii=False), encoding="utf-8")
+
+    # Casos legados com classificações erradas que estavam congeladas no cache, índice e ficha limpa
+    obras_iniciais = [
+        {
+            "id": "obra-lote-cego",
+            "cdUnidadeGestora": "567002",
+            "nuContratoSigef": "2024CT010011",
+            "objeto": "Manutenção preventiva em escolas do Lote 02",
+            "nivel": "Regional (Prefeitura-Bairro)",
+            "bairro": None,
+            "prefeituraBairro": "Subúrbio/Ilhas",
+            "prefeitura_bairro": "Subúrbio/Ilhas",
+            "estagioAlocacao": "Stage 1 (Lote Regional)",
+            "valorContratualVigente": 100000.0,
+            "valorPago": 50000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-av-tancredo",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2022CT000100",
+            "objeto": "Recuperação Estrutural da Ponte situada na Av. Tancredo Neves",
+            "nivel": "Bairro",
+            "bairro": "Beiru/Tancredo Neves",
+            "prefeituraBairro": "Cabula/Tancredo Neves",
+            "prefeitura_bairro": "Cabula/Tancredo Neves",
+            "latitude": -12.94,
+            "longitude": -38.445,
+            "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+            "valorContratualVigente": 200000.0,
+            "valorPago": 100000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-pb-barra-pituba",
+            "cdUnidadeGestora": "616002",
+            "nuContratoSigef": "2019CT000200",
+            "objeto": "PROG MORAR MELHOR MELHORIAS HABITACIONAIS PREFEITURA BAIRRO VI BARRA/ PITUBA",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "latitude": -13.0,
+            "longitude": -38.46,
+            "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+            "valorContratualVigente": 300000.0,
+            "valorPago": 150000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-curralinho-imbui",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2024CT000300",
+            "objeto": "Construção dos Lava-Jatos 01 e 02, Curralinho, Imbui, Salvador/BA",
+            "nivel": "Bairro",
+            "bairro": "Boca do Rio",
+            "prefeituraBairro": "Itapuã/Ipitanga",
+            "prefeitura_bairro": "Itapuã/Ipitanga",
+            "latitude": -12.98,
+            "longitude": -38.42,
+            "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+            "valorContratualVigente": 400000.0,
+            "valorPago": 200000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-multi-bairro-distintas",
+            "cdUnidadeGestora": "616002",
+            "nuContratoSigef": "2025CT002882",
+            "objeto": "Centro de Referência Especializado (CREAS): em Brotas, Paripe e São Cristóvão",
+            "nivel": "Bairro",
+            "bairro": "Brotas",
+            "prefeituraBairro": "Centro/Brotas",
+            "prefeitura_bairro": "Centro/Brotas",
+            "latitude": -12.99,
+            "longitude": -38.49,
+            "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+            "valorContratualVigente": 500000.0,
+            "valorPago": 250000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-multi-bairro-mesma-pb",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2025CT009999",
+            "objeto": "Requalificação de vias na Pituba e Itaigara, Salvador/BA",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "latitude": -13.0,
+            "longitude": -38.46,
+            "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+            "valorContratualVigente": 600000.0,
+            "valorPago": 300000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-curada",
+            "cdUnidadeGestora": "530002",
+            "nuContratoSigef": "2024CT888001",
+            "objeto": "Execução de serviços de conservação predial",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeituraBairro": None,
+            "prefeitura_bairro": None,
+            "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+            "valorContratualVigente": 700000.0,
+            "valorPago": 350000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+    ]
+
+    cache_path = tmp_path / "geocoding_cache.json"
+    cache = GeocodingCache(cache_path)
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+    for o in obras_iniciais:
+        cache.set(
+            o["cdUnidadeGestora"],
+            o["nuContratoSigef"],
+            o["objeto"],
+            {
+                "nivel": o["nivel"],
+                "bairro": o["bairro"],
+                "prefeitura_bairro": o.get("prefeituraBairro"),
+                "latitude": o.get("latitude"),
+                "longitude": o.get("longitude"),
+                "estagio": "Cache",
+            },
+        )
+        ficha = {
+            "id": o["id"],
+            "cdUnidadeGestora": o["cdUnidadeGestora"],
+            "numeroContrato": o["nuContratoSigef"],
+            "objeto": o["objeto"],
+            "nivel": o["nivel"],
+            "bairro": o["bairro"],
+            "prefeituraBairro": o.get("prefeituraBairro"),
+            "latitude": o.get("latitude"),
+            "longitude": o.get("longitude"),
+            "estagioAlocacao": o["estagioAlocacao"],
+            "funilFinanceiro": {
+                "valorContratualVigente": o["valorContratualVigente"],
+                "valorPago": o["valorPago"],
+            },
+        }
+        (obras_dir / f"{o['id']}.json").write_text(json.dumps(ficha, ensure_ascii=False), encoding="utf-8")
+
+    indice_inicial = {
+        "ano": 2025,
+        "obras": obras_iniciais,
+        "bairros": [
+            {"id": idx, "nome": nome, "prefeitura_bairro": pb, "populacao": pop, "indice_vulnerabilidade": 0.4}
+            for idx, (nome, pb, _, _, pop) in enumerate(bairros_specs, start=1)
+        ],
+        "prefeituras_bairro": [
+            {"id": idx, "nome": pb, "populacao_total": pop}
+            for idx, (pb, pop) in enumerate(pbs_specs, start=1)
+        ],
+    }
+    (tmp_path / "index_2025.json").write_text(json.dumps(indice_inicial, ensure_ascii=False), encoding="utf-8")
+
+    curadoria_teste = {
+        "530002:2024CT888001": {
+            "cdUnidadeGestora": "530002",
+            "nuContratoSigef": "2024CT888001",
+            "status": "promovido",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "trechoComprobatorio": "Ordem de Serviço nº 12 - Unidade Pituba",
+            "documentoOrigem": "Diário Oficial do Município",
+            "justificativa": "Localização auditada documentalmente.",
+        }
+    }
+
+    with patch("urllib.request.urlopen", side_effect=AssertionError("Não deve chamar rede na reconciliação!")):
+        reconciliar_acervo_local(output_dir=tmp_path, year=2025, curadoria=curadoria_teste)
+
+    idx_final = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    idx_alias = json.loads((tmp_path / "index.json").read_text(encoding="utf-8"))
+    assert len(idx_final["obras"]) == len(idx_alias["obras"]) == 7
+
+    obras_final = {o["id"]: o for o in idx_final["obras"]}
+    esperado = {
+        "obra-lote-cego": ("Escopo Cidade (Não-Localizado)", None, None),
+        "obra-av-tancredo": ("Escopo Cidade (Não-Localizado)", None, None),
+        "obra-pb-barra-pituba": ("Regional (Prefeitura-Bairro)", None, "Barra/Pituba"),
+        "obra-curralinho-imbui": ("Bairro", "Imbuí", "Itapuã/Ipitanga"),
+        "obra-multi-bairro-distintas": ("Escopo Cidade (Não-Localizado)", None, None),
+        "obra-multi-bairro-mesma-pb": ("Regional (Prefeitura-Bairro)", None, "Barra/Pituba"),
+        "obra-curada": ("Bairro", "Pituba", "Barra/Pituba"),
+    }
+
+    cache_reloaded = GeocodingCache(cache_path)
+    for oid, (nivel_esp, bairro_esp, pb_esp) in esperado.items():
+        obra = obras_final[oid]
+        assert obra["nivel"] == nivel_esp, oid
+        assert obra["bairro"] == bairro_esp, oid
+        assert obra["prefeituraBairro"] == pb_esp, oid
+        if nivel_esp != "Bairro":
+            assert obra["latitude"] is None, oid
+            assert obra["longitude"] is None, oid
+
+        ficha = json.loads((obras_dir / f"{oid}.json").read_text(encoding="utf-8"))
+        assert ficha["nivel"] == nivel_esp, oid
+        assert ficha["bairro"] == bairro_esp, oid
+        assert ficha["prefeituraBairro"] == pb_esp, oid
+        if nivel_esp != "Bairro":
+            assert ficha["latitude"] is None, oid
+            assert ficha["longitude"] is None, oid
+
+        entrada_cache = cache_reloaded.get(obra["cdUnidadeGestora"], obra["nuContratoSigef"], obra["objeto"])
+        assert entrada_cache is not None, oid
+        assert entrada_cache["nivel"] == nivel_esp, oid
+        assert entrada_cache["bairro"] == bairro_esp, oid
+        assert entrada_cache["prefeitura_bairro"] == pb_esp, oid
+
+    assert obras_final["obra-curada"]["lastroCuradoria"]["documentoOrigem"] == "Diário Oficial do Município"
+    assert obras_final["obra-lote-cego"].get("lastroCuradoria") is None
+
+    # GeoJSONs atualizados sem inflação legada
+    bairros_geo_final = {
+        f["properties"]["nome"]: f["properties"]
+        for f in json.loads((geo_dir / "bairros.geojson").read_text(encoding="utf-8"))["features"]
+    }
+    pbs_geo_final = {
+        f["properties"]["nome"]: f["properties"]
+        for f in json.loads((geo_dir / "prefeituras_bairro.geojson").read_text(encoding="utf-8"))["features"]
+    }
+    assert bairros_geo_final["Imbuí"]["valorTotal"] == 400000.0
+    assert bairros_geo_final["Pituba"]["valorTotal"] == 700000.0
+    assert bairros_geo_final["Beiru/Tancredo Neves"]["valorTotal"] == 0.0
+    assert bairros_geo_final["Boca do Rio"]["valorTotal"] == 0.0
+    assert bairros_geo_final["Brotas"]["valorTotal"] == 0.0
+    assert pbs_geo_final["Subúrbio/Ilhas"]["valorTotal"] == 0.0
+    assert pbs_geo_final["Barra/Pituba"]["valorTotal"] == 1600000.0  # 700k curada + 300k PB VI + 600k multi-bairro Barra/Pituba
 
 
+def test_reconciliar_acervo_local_bloqueia_nominatim_preserva_stage2_e_nao_herda_bairro_stale(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    """Reconciliação força modo offline com ENABLE_NOMINATIM=1, preserva Stage 2 e limpa bairro stale de Pontual."""
+    from etl.domain.geocoding import GeocodingCache
+    from etl.reconcile import reconciliar_acervo_local
 
+    monkeypatch.setenv("ENABLE_NOMINATIM", "1")
+    _criar_geo_minimo(tmp_path)
+
+    obras_iniciais = [
+        {
+            "id": "obra-stage2-sem-bairro",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2024STG2001",
+            "objeto": "Recuperação de trecho na Avenida Sete de Setembro, s/n",
+            "nivel": "Pontual",
+            "bairro": "Brotas",
+            "prefeituraBairro": "Centro/Brotas",
+            "prefeitura_bairro": "Centro/Brotas",
+            "latitude": -12.981,
+            "longitude": -38.515,
+            "estagioAlocacao": "Stage 2 (Nominatim OSM)",
+            "valorContratualVigente": 250000.0,
+            "valorPago": 100000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-rua-sem-stage1",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2024NORED002",
+            "objeto": "Pavimentação na Rua das Palmeiras, s/n",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeituraBairro": None,
+            "prefeitura_bairro": None,
+            "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+            "valorContratualVigente": 150000.0,
+            "valorPago": 0.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+    ]
+
+    cache_path = tmp_path / "geocoding_cache.json"
+    cache = GeocodingCache(cache_path)
+    cache.set(
+        "610002",
+        "2024STG2001",
+        "Recuperação de trecho na Avenida Sete de Setembro, s/n",
+        {
+            "nivel": "Pontual",
+            "bairro": None,
+            "prefeitura_bairro": "Centro/Brotas",
+            "latitude": -12.981,
+            "longitude": -38.515,
+            "estagio": "Stage 2 (Nominatim OSM)",
+        },
+    )
+
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+    for o in obras_iniciais:
+        ficha = {
+            "id": o["id"],
+            "cdUnidadeGestora": o["cdUnidadeGestora"],
+            "numeroContrato": o["nuContratoSigef"],
+            "objeto": o["objeto"],
+            "nivel": o["nivel"],
+            "bairro": o["bairro"],
+            "prefeituraBairro": o["prefeituraBairro"],
+            "latitude": o.get("latitude"),
+            "longitude": o.get("longitude"),
+            "estagioAlocacao": o["estagioAlocacao"],
+            "funilFinanceiro": {
+                "valorContratualVigente": o["valorContratualVigente"],
+                "valorPago": o["valorPago"],
+            },
+        }
+        (obras_dir / f"{o['id']}.json").write_text(json.dumps(ficha, ensure_ascii=False), encoding="utf-8")
+
+    (tmp_path / "index_2025.json").write_text(
+        json.dumps({"ano": 2025, "obras": obras_iniciais, "bairros": [], "prefeituras_bairro": []}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+
+    with patch("urllib.request.urlopen", side_effect=AssertionError("Não deve consultar Nominatim na reconciliação!")):
+        reconciliar_acervo_local(output_dir=tmp_path, year=2025, curadoria={})
+
+    idx_final = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    obras_final = {o["id"]: o for o in idx_final["obras"]}
+
+    assert obras_final["obra-stage2-sem-bairro"]["nivel"] == "Pontual"
+    assert obras_final["obra-stage2-sem-bairro"]["bairro"] is None
+    assert obras_final["obra-stage2-sem-bairro"]["latitude"] == -12.981
+    assert obras_final["obra-stage2-sem-bairro"]["longitude"] == -38.515
+    assert obras_final["obra-rua-sem-stage1"]["nivel"] == "Escopo Cidade (Não-Localizado)"
+
+    ficha_pontual = json.loads((obras_dir / "obra-stage2-sem-bairro.json").read_text(encoding="utf-8"))
+    assert ficha_pontual["nivel"] == "Pontual"
+    assert ficha_pontual["bairro"] is None
+    assert ficha_pontual["latitude"] == -12.981
+    assert ficha_pontual["longitude"] == -38.515
 

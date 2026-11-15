@@ -5,6 +5,7 @@ Responsável por classificar cada contrato público de Salvador em seu nível te
 coordenadas geográficas exatas ou centroides de bairro e persistir resultados em cache de disco.
 """
 
+from functools import lru_cache
 import hashlib
 import json
 import os
@@ -55,7 +56,7 @@ class GeocodingCache:
         cache_file_path: Caminho do arquivo JSON onde o cache será persistido.
     """
 
-    def __init__(self, cache_file_path: Optional[Path] = None) -> None:
+    def __init__(self, cache_file_path: Optional[Path] = None, *, auto_save: bool = True) -> None:
         """Inicializa a instância do cache com o caminho do arquivo JSON.
 
         Sumário:
@@ -67,6 +68,7 @@ class GeocodingCache:
 
         Argumentos:
             cache_file_path: Caminho opcional do arquivo de cache.
+            auto_save: Se True (padrão), persiste imediatamente no disco a cada set().
 
         Retornos:
             None.
@@ -79,6 +81,7 @@ class GeocodingCache:
         else:
             self.cache_file_path = Path(cache_file_path)
 
+        self.auto_save = auto_save
         self._entries: dict[str, dict[str, Any]] = {}
         self.load()
 
@@ -187,7 +190,8 @@ class GeocodingCache:
         """
         key = self._gerar_chave(cd_unidade_gestora, nu_contrato, ds_objeto)
         self._entries[key] = resultado
-        self.save()
+        if self.auto_save:
+            self.save()
 
     def save(self) -> None:
         """Grava as entradas acumuladas do cache no arquivo JSON.
@@ -293,7 +297,7 @@ class GeocodingCache:
             if modificado:
                 atualizadas += 1
 
-        if atualizadas > 0:
+        if atualizadas > 0 and self.auto_save:
             self.save()
 
         return atualizadas
@@ -430,103 +434,335 @@ def _buscar_equipamento_no_objeto(
     return None
 
 
-def _buscar_lote_regional_no_objeto(
+_ROMANO_PARA_PB: dict[str, str] = {
+    "I": "Centro/Brotas",
+    "II": "Subúrbio/Ilhas",
+    "III": "Cajazeiras",
+    "IV": "Itapuã/Ipitanga",
+    "V": "Cidade Baixa",
+    "VI": "Barra/Pituba",
+    "VII": "Liberdade/São Caetano",
+    "VIII": "Cabula/Tancredo Neves",
+    "IX": "Pau da Lima",
+    "X": "Valéria",
+}
+
+_PADROES_NOME_PB: tuple[tuple[str, str], ...] = (
+    (r"CENTRO\s*/\s*BROTAS", "Centro/Brotas"),
+    (r"SUBURBIO\s*(?:/|E)\s*ILHAS?", "Subúrbio/Ilhas"),
+    (r"SUBURBIO\s+FERROVIARIO", "Subúrbio/Ilhas"),
+    (r"ITAP[UO]A\s*/\s*IPITANGA", "Itapuã/Ipitanga"),
+    (r"CIDADE\s+BAIXA", "Cidade Baixa"),
+    (r"BARRA\s*/\s*PITUBA", "Barra/Pituba"),
+    (r"LIBERDADE\s*/\s*SAO\s+CAETANO", "Liberdade/São Caetano"),
+    (r"CABULA\s*/\s*TANCREDO(?:\s+NEVES)?", "Cabula/Tancredo Neves"),
+)
+
+_PADROES_MACRO_REGIOES: tuple[tuple[str, str], ...] = (
+    (r"SUBURBIO\s+FERROVIARIO", "Subúrbio/Ilhas"),
+    (r"SUBURBIO\s*(?:/|E)\s*ILHAS?", "Subúrbio/Ilhas"),
+    (r"CIDADE\s+BAIXA", "Cidade Baixa"),
+)
+
+_PADROES_NOME_PB_COM_PREFIXO: tuple[tuple[str, str], ...] = (
+    *_PADROES_NOME_PB,
+    (r"CAJAZEIRAS", "Cajazeiras"),
+    (r"PAU\s+DA\s+LIMA", "Pau da Lima"),
+    (r"VALERIA", "Valéria"),
+)
+
+_ALTERNACAO_NOMES_PB = "|".join(padrao for padrao, _ in _PADROES_NOME_PB_COM_PREFIXO)
+_NOME_PARCIAL_PB = (
+    rf"(?:{_ALTERNACAO_NOMES_PB}|CENTRO|BROTAS|SUBURBIO|ILHAS?|ITAP[UO]A|IPITANGA|"
+    r"BARRA|PITUBA|LIBERDADE|SAO\s+CAETANO|CABULA|TANCREDO(?:\s+NEVES)?)"
+)
+_ROMANO_TOKEN = r"(?:VIII|VII|III|IX|VI|IV|II|X|V|I)"
+_ROTULO_PB_OPCIONAL = rf"(?:(?:\s*-\s*|\s+){_NOME_PARCIAL_PB})?"
+_SEP_LISTA_PB = r"(?:\s*(?:,|;|/|\bE\b|\bA\b)\s*(?:\.\.\.\s*,\s*)?)"
+_PREFIXO_PB = (
+    r"\b(?:PREFEITURAS?(?:\s+D[EAO]S?)?[\s-]*BAIRROS?"
+    r"|PREFS?\.?(?:\s+D[EAO]S?)?\s*(?:BAIRROS?|BS?\.?)"
+    r"|PREF\.?"
+    r"|PBS?\.?)"
+)
+_RE_LISTA_ROMANO_PB = re.compile(
+    rf"{_PREFIXO_PB}"
+    rf"(?:\s*[:\-]\s*|\s+)"
+    rf"({_ROMANO_TOKEN}\b{_ROTULO_PB_OPCIONAL}(?:{_SEP_LISTA_PB}{_ROMANO_TOKEN}\b{_ROTULO_PB_OPCIONAL})*)"
+)
+_RE_PREFIXO_NOME_PB = re.compile(
+    rf"(?:{_PREFIXO_PB}(?:\s*[:\-]\s*|\s+)|PB\.?\s*[-]?\s*)"
+    rf"(?:{_ROMANO_TOKEN}\b\s*[-:]?\s*)?"
+    rf"(?:D[EAO]S?\s+)?"
+    rf"({_ALTERNACAO_NOMES_PB})\b"
+)
+_RE_LOTE_COM_MACRO = re.compile(
+    r"\bLOTE\s*\d+\s*[-:]\s*(SUBURBIO\s+FERROVIARIO|SUBURBIO\s*(?:/|E)\s*ILHAS?|CIDADE\s+BAIXA)\b"
+)
+
+
+def _detectar_prefeituras_bairro_no_objeto(
     objeto_norm: str,
     dicionario_lotes: dict[str, str],
-) -> Optional[str]:
-    """Identifica se o objeto cita um Lote Regional mapeado para Prefeitura-Bairro.
-
-    Sumário:
-        Detecta contratos de lote regional guarda-chuva no texto do objeto.
-
-    Descrição Estendida:
-        Verifica se alguma chave do dicionário declarativo de lotes aparece como palavra inteira
-        no objeto da obra, retornando a Prefeitura-Bairro correspondente.
-
-    Argumentos:
-        objeto_norm: String com o objeto da obra normalizado.
-        dicionario_lotes: Dicionário mapeando termos de lotes para Prefeituras-Bairro.
+) -> list[str]:
+    """Extrai Prefeituras-Bairro explicitamente mencionadas no objeto da obra (Estágio 1B).
 
     Retornos:
-        Nome da Prefeitura-Bairro mapeada, ou None se não identificado.
-
-    Erros:
-        Não lança exceções.
+        Lista ordenada de nomes canônicos únicos das Prefeituras-Bairro explicitamente citadas.
+        Retorna vazia se não houver menção explícita; retorna 2+ itens em objetos multi-regionais.
     """
-    objeto_lote_norm = re.sub(r"\bLOTE\s*0+([1-9]\d*)\b", r"LOTE \1", objeto_norm)
+    if not objeto_norm:
+        return []
+
+    pbs_encontradas: set[str] = set()
+
+    # 1. Menções explícitas com algarismo romano (ex.: Pref. Bairro VIII, PREF IV, PREFS. BS. II, V e VII)
+    for match in _RE_LISTA_ROMANO_PB.finditer(objeto_norm):
+        for romano in re.findall(rf"\b{_ROMANO_TOKEN}\b", match.group(1)):
+            pb_canonica = _ROMANO_PARA_PB.get(romano)
+            if pb_canonica:
+                pbs_encontradas.add(pb_canonica)
+
+    # 2. Prefixos explícitos seguidos do nome da Prefeitura-Bairro (ex.: PB PAU DA LIMA, PREF. BAIRRO DE PAU DA LIMA)
+    for match in _RE_PREFIXO_NOME_PB.finditer(objeto_norm):
+        trecho_nome = match.group(1)
+        for padrao, pb_canonica in _PADROES_NOME_PB_COM_PREFIXO:
+            if re.fullmatch(padrao, trecho_nome):
+                pbs_encontradas.add(normalizar_nome_prefeitura_bairro(pb_canonica))
+                break
+
+    # 3. Lotes explícitos acompanhados de macro-região (ex.: LOTE 01 - SUBURBIO FERROVIARIO)
+    for match in _RE_LOTE_COM_MACRO.finditer(objeto_norm):
+        trecho_macro = match.group(1)
+        for padrao, pb_canonica in _PADROES_MACRO_REGIOES:
+            if re.fullmatch(padrao, trecho_macro):
+                pbs_encontradas.add(normalizar_nome_prefeitura_bairro(pb_canonica))
+                break
+
+    # 4. Chaves explícitas em lotes_regionais.json (nunca casa LOTE N isolado)
     for chave, pb_nome in dicionario_lotes.items():
         chave_norm = normalizar_nome(chave)
-        if chave_norm and re.search(rf"\b{re.escape(chave_norm)}\b", objeto_lote_norm):
-            return pb_nome
-    return None
+        if not chave_norm or re.fullmatch(r"LOTE\s*\d+", chave_norm):
+            continue
+        padrao_chave = re.escape(chave_norm).replace("/", r"\s*/\s*")
+        if re.search(rf"\b{padrao_chave}\b", objeto_norm):
+            pbs_encontradas.add(normalizar_nome_prefeitura_bairro(pb_nome))
+
+    return sorted(pbs_encontradas)
 
 
-def _buscar_bairro_ou_sublocalidade(
+def _detectar_macro_regioes_no_objeto(objeto_norm: str) -> list[str]:
+    """Detecta macro-regiões sem prefixo explícito de Prefeitura-Bairro (ex.: Subúrbio Ferroviário, Cidade Baixa)."""
+    if not objeto_norm:
+        return []
+    encontradas: set[str] = set()
+    for padrao, pb_canonica in _PADROES_MACRO_REGIOES:
+        if re.search(rf"\b{padrao}\b", objeto_norm):
+            encontradas.add(normalizar_nome_prefeitura_bairro(pb_canonica))
+    return sorted(encontradas)
+
+
+_RE_TANCREDO_VIARIO = re.compile(
+    r"\b(?:AV\s*\.\s*|(?:AV|AVENIDAS?|VIADUTO|PASSARELA|ESTACAO)\b\s+)"
+    r"(?:(?:DA|DE|DO)\s+)?"
+    r"(?:(?:PRES\.?|PRESIDENTE|SEN\.?|SENADOR|DR\.?|DOUTOR)\s+)?"
+    r"TANCREDO\s+NEVES\b"
+)
+_ADJETIVOS_CENTRO_INSTITUCIONAL = (
+    r"ADMINISTRATIV[OA]|MUNICIPAL|COMUNITARI[OA]|CULTURAL|ESCOLAR|CIRURGIC[OA]|"
+    r"DIAGNOSTIC[OA]|REFERENCIA|ESPECIALIZAD[OA]|INTEGRAD[OA]|COMERCIAL|ESPORTIV[OA]|"
+    r"HISTORIC[OA]|MEDIC[OA]|ODONTOLOGIC[OA]|VETERINARI[OA]|UNIVERSITARI[OA]|"
+    r"POPULAR|SOCIAL|CRAS|CREAS|CAPS|POP"
+)
+_TIPOS_CENTRO_INSTITUCIONAL = (
+    r"REFERENCIA|SAUDE|ATENCAO|ATENDIMENTO|CONVIVENCIA|OPERACOES|EDUCACAO|"
+    r"ESPORTES?|LAZER|CULTURA|ARTES?|TECNOLOGIA|INOVACAO|ZOONOSES|"
+    r"REABILITACAO|ESPECIALIDADES|APOIO|ACOLHIMENTO|FORMACAO|CAPACITACAO|"
+    r"ESTUDOS|TRIAGEM|PESQUISA|MEMORIA|DOCUMENTACAO|INTEGRACAO|INICIACAO|"
+    r"EXPOSICOES|CONVENCOES|EVENTOS|NEGOCIOS|MODA|ARTESANATO|DISTRIBUICAO|"
+    r"ABASTECIMENTO|OBSERVACAO|CONTROLE|MONITORAMENTO|IDOSO|JUVENTUDE|CRIANCA|MULHER|CIDADANIA|ENSINO"
+)
+_RE_QUALIFICADORES_CENTRO = re.compile(
+    rf"^(?:(?:\s*,\s*|\s*[-/]\s*|\s+)(?:{_ADJETIVOS_CENTRO_INSTITUCIONAL})\b"
+    rf"|(?:\s*[-/]\s*|\s+)D[EAO]S?\s+(?:{_TIPOS_CENTRO_INSTITUCIONAL})\b)"
+)
+_RE_QUALIFICADORES_ARMACAO = re.compile(r"^\s+(?:DE|METALICA|ESTRUTURAL)\b")
+_RE_SAUDE_CONTEXTO_VALIDO = re.compile(r"\b(?:BAIRRO|EM|NO|NA)\s+(?:DA\s+)?$")
+_RE_SAUDE_CONTEXTO_INVALIDO = re.compile(r"\b(?:DE|DA|POSTO|UNIDADE|SECRETARIA|FUNDO|SERVICO)\s+$")
+_ROMANO_PARA_ARABICO: dict[str, str] = {
+    "II": "2",
+    "III": "3",
+    "IV": "4",
+    "V": "5",
+    "VI": "6",
+    "VII": "7",
+    "VIII": "8",
+    "IX": "9",
+    "X": "10",
+    "XI": "11",
+}
+
+
+def _mascarar_trecho(texto: str, start: int, end: int) -> str:
+    """Substitui o intervalo [start, end) por espaços preservando índices e limites de palavra."""
+    return f"{texto[:start]}{' ' * (end - start)}{texto[end:]}"
+
+
+@lru_cache(maxsize=512)
+def _compilar_padrao_toponimo(termo_norm: str) -> re.Pattern[str]:
+    """Compila regex com fronteira de palavra tolerando espaços ao redor de barras '/'."""
+    padrao = re.escape(termo_norm).replace("/", r"\s*/\s*")
+    return re.compile(rf"\b{padrao}\b")
+
+
+def _eh_ocorrencia_valida_toponimo(
+    termo_norm: str,
+    texto: str,
+    start: int,
+    end: int,
+) -> bool:
+    """Aplica blindagem sintática contextual sobre uma ocorrência candidata de topônimo."""
+    if termo_norm == "SAUDE":
+        prefixo = texto[:start]
+        if not _RE_SAUDE_CONTEXTO_VALIDO.search(prefixo):
+            return False
+        if _RE_SAUDE_CONTEXTO_INVALIDO.search(prefixo):
+            return False
+        return True
+
+    if termo_norm == "CENTRO":
+        return not bool(_RE_QUALIFICADORES_CENTRO.match(texto[end:]))
+
+    if termo_norm == "ARMACAO":
+        return not bool(_RE_QUALIFICADORES_ARMACAO.match(texto[end:]))
+
+    return True
+
+
+def _consumir_candidatos_toponimos(
+    texto_trabalho: str,
+    candidatos_ordenados: list[tuple[str, str]],
+) -> tuple[list[tuple[str, int, int]], str]:
+    """Consome candidatos ordenados por tamanho decrescente, mascarando spans válidos."""
+    ocorrencias: list[tuple[str, int, int]] = []
+
+    for termo_bruto, destino_canonico in candidatos_ordenados:
+        termo_norm = normalizar_nome(termo_bruto)
+        destino_norm = normalizar_nome(destino_canonico)
+        if not termo_norm or not destino_norm:
+            continue
+        padrao = _compilar_padrao_toponimo(termo_norm)
+        while True:
+            consumiu = False
+            for match in padrao.finditer(texto_trabalho):
+                start, end = match.span()
+                if not _eh_ocorrencia_valida_toponimo(termo_norm, texto_trabalho, start, end):
+                    continue
+                texto_trabalho = _mascarar_trecho(texto_trabalho, start, end)
+                ocorrencias.append((destino_canonico, start, end))
+                consumiu = True
+                break
+            if not consumiu:
+                break
+
+    return ocorrencias, texto_trabalho
+
+
+def _gerar_aliases_bairros_oficiais(bairros_nomes: list[str]) -> list[tuple[str, str]]:
+    """Constrói lista de Bairros Oficiais incluindo variantes arábicas (II..XI) e desambiguação composta."""
+    candidatos: list[tuple[str, str]] = [(b_nome, b_nome) for b_nome in bairros_nomes]
+    nome_sao_goncalo: Optional[str] = None
+
+    for b_nome in bairros_nomes:
+        b_norm = normalizar_nome(b_nome)
+        if b_norm == "SAO GONCALO":
+            nome_sao_goncalo = b_nome
+        for romano, arabico in _ROMANO_PARA_ARABICO.items():
+            sufixo = f" {romano}"
+            if b_norm.endswith(sufixo):
+                prefixo = b_norm[: -len(sufixo)]
+                candidatos.append((f"{prefixo} {arabico}", b_nome))
+                break
+
+    if nome_sao_goncalo:
+        candidatos.append(("SAO GONCALO DO RETIRO", nome_sao_goncalo))
+
+    return sorted(
+        candidatos,
+        key=lambda item: len(normalizar_nome(item[0])),
+        reverse=True,
+    )
+
+
+def _eh_sublocalidade_subordinada(
+    objeto_norm: str,
+    sub_span: tuple[int, int],
+    spans_oficiais: list[tuple[int, int]],
+) -> bool:
+    """Verifica se uma sublocalidade está imediatamente justaposta a um Bairro Oficial via , / - / ( sem conjunção."""
+    s_sub, e_sub = sub_span
+    for s_bai, e_bai in spans_oficiais:
+        if e_sub <= s_bai:
+            entre = objeto_norm[e_sub:s_bai]
+        elif e_bai <= s_sub:
+            entre = objeto_norm[e_bai:s_sub]
+        else:
+            continue
+        if re.fullmatch(r"[\s,\-\(\)]+", entre):
+            return True
+    return False
+
+
+def _buscar_toponimos_blindados(
     objeto_norm: str,
     bairros_nomes: list[str],
     dicionario_sublocalidades: dict[str, str],
-) -> Optional[str]:
-    """Identifica Bairro Oficial ou sublocalidade informal no texto do objeto.
+) -> list[str]:
+    """Extrai Bairros Oficiais distintos com blindagem sintática, priorizando Bairros Oficiais subordinantes."""
+    texto_trabalho = _RE_TANCREDO_VIARIO.sub(
+        lambda m: " " * len(m.group(0)),
+        objeto_norm,
+    )
 
-    Sumário:
-        Localiza topônimos oficiais ou apelidos de bairros no texto descritivo.
+    candidatos_oficiais = _gerar_aliases_bairros_oficiais(bairros_nomes)
+    ocorrencias_oficiais, texto_restante = _consumir_candidatos_toponimos(
+        texto_trabalho,
+        candidatos_oficiais,
+    )
+    spans_oficiais = [(s, e) for _, s, e in ocorrencias_oficiais]
 
-    Descrição Estendida:
-        Trata casos especiais de falsos positivos da língua portuguesa:
-        - 'SAÚDE' não deve casar quando for 'UNIDADE DE SAÚDE', 'POSTO DE SAÚDE', 'SECRETARIA DE SAÚDE';
-        - 'CENTRO' não deve casar quando for 'CENTRO ADMINISTRATIVO', 'CENTRO CULTURAL', etc.;
-        - 'ARMAÇÃO' não deve casar quando for 'ARMAÇÃO METÁLICA' ou 'ARMAÇÃO DE FERRO'.
+    candidatos_sub = sorted(
+        list(dicionario_sublocalidades.items()),
+        key=lambda item: len(normalizar_nome(item[0])),
+        reverse=True,
+    )
+    ocorrencias_sub, _ = _consumir_candidatos_toponimos(
+        texto_restante,
+        candidatos_sub,
+    )
 
-    Argumentos:
-        objeto_norm: Texto normalizado do objeto.
-        bairros_nomes: Lista de nomes canônicos de Bairros Oficiais.
-        dicionario_sublocalidades: Dicionário mapeando sublocalidades para Bairros Oficiais.
+    encontrados: list[str] = []
+    vistos: set[str] = set()
 
-    Retornos:
-        Nome canônico do Bairro Oficial identificado, ou None.
+    for destino, _, _ in ocorrencias_oficiais:
+        dest_norm = normalizar_nome(destino)
+        if dest_norm not in vistos:
+            vistos.add(dest_norm)
+            encontrados.append(destino)
 
-    Erros:
-        Não lança exceções.
-    """
-    # 1. Verifica no dicionário de sublocalidades
-    for sub, bairro_alvo in dicionario_sublocalidades.items():
-        sub_norm = normalizar_nome(sub)
-        if not sub_norm:
+    for destino, s_sub, e_sub in ocorrencias_sub:
+        if spans_oficiais and _eh_sublocalidade_subordinada(
+            objeto_norm,
+            (s_sub, e_sub),
+            spans_oficiais,
+        ):
             continue
+        dest_norm = normalizar_nome(destino)
+        if dest_norm not in vistos:
+            vistos.add(dest_norm)
+            encontrados.append(destino)
 
-        if sub_norm == "SAUDE":
-            if not re.search(r"\b(BAIRRO|EM|NO|NA)\s+(DA\s+)?SAUDE\b", objeto_norm):
-                continue
-            if re.search(r"\b(DE|DA|POSTO|UNIDADE|SECRETARIA|FUNDO|SERVICO)\s+SAUDE\b", objeto_norm):
-                continue
-
-        if re.search(rf"\b{re.escape(sub_norm)}\b", objeto_norm):
-            return bairro_alvo
-
-    # 2. Verifica contra a lista de bairros oficiais (ordenados por tamanho decrescente)
-    for b_nome in sorted(bairros_nomes, key=len, reverse=True):
-        b_norm = normalizar_nome(b_nome)
-        if not b_norm:
-            continue
-
-        if b_norm == "SAUDE":
-            if not re.search(r"\b(BAIRRO|EM|NO|NA)\s+(DA\s+)?SAUDE\b", objeto_norm):
-                continue
-            if re.search(r"\b(DE|DA|POSTO|UNIDADE|SECRETARIA|FUNDO|SERVICO)\s+SAUDE\b", objeto_norm):
-                continue
-
-        if b_norm == "CENTRO":
-            if re.search(r"\bCENTRO\s+(ADMINISTRATIVO|DE|MUNICIPAL|COMUNITARIO|CULTURAL|ESCOLAR|CIRURGICO)\b", objeto_norm):
-                continue
-
-        if b_norm == "ARMACAO":
-            if re.search(r"\bARMACAO\s+(DE|METALICA|ESTRUTURAL)\b", objeto_norm):
-                continue
-
-        if re.search(rf"\b{re.escape(b_norm)}\b", objeto_norm):
-            return b_nome
-
-    return None
+    return encontrados
 
 
 def _fallback_nominatim(
@@ -888,13 +1124,215 @@ def resolver_frentes_medicao(
     return frentes_resolvidas
 
 
+def _classificar_estagio_1c_toponimos(
+    *,
+    objeto_norm: str,
+    bairros_nomes: list[str],
+    dicionario_sublocalidades: dict[str, str],
+    sublocalidades_norm: dict[str, str],
+    bairros_centroides: dict[str, tuple[float, float]],
+    bairros_centroides_norm: dict[str, tuple[float, float]],
+    bairro_para_pb: dict[str, str],
+    bairro_para_pb_norm: dict[str, str],
+) -> Optional[dict[str, Any]]:
+    """Executa o Estágio 1C considerando multi-bairro sem curadoria, macro-regiões e blindagem sintática."""
+    bairros_detectados = _buscar_toponimos_blindados(
+        objeto_norm,
+        bairros_nomes,
+        dicionario_sublocalidades,
+    )
+    macros_detectadas = _detectar_macro_regioes_no_objeto(objeto_norm)
+
+    bairros_unicos: list[str] = []
+    vistos: set[str] = set()
+    for b_det in bairros_detectados:
+        b_canonico = reconciliar_bairro_canonico(b_det, bairros_nomes, sublocalidades_norm)
+        b_final = b_canonico or b_det
+        b_chave = normalizar_nome(b_final)
+        if b_chave and b_chave not in vistos:
+            vistos.add(b_chave)
+            bairros_unicos.append(b_final)
+
+    if not bairros_unicos:
+        if len(macros_detectadas) == 1:
+            return {
+                "nivel": "Regional (Prefeitura-Bairro)",
+                "bairro": None,
+                "prefeitura_bairro": macros_detectadas[0],
+                "latitude": None,
+                "longitude": None,
+                "estagio": "Stage 1 (Macro-Região Prefeitura-Bairro)",
+            }
+        if len(macros_detectadas) > 1:
+            return {
+                "nivel": "Escopo Cidade (Não-Localizado)",
+                "bairro": None,
+                "prefeitura_bairro": None,
+                "latitude": None,
+                "longitude": None,
+                "estagio": "Múltiplas Prefeituras-Bairro",
+            }
+        return None
+
+    if len(bairros_unicos) == 1:
+        bairro_final = bairros_unicos[0]
+        pb_bairro = (
+            bairro_para_pb.get(bairro_final)
+            or bairro_para_pb_norm.get(normalizar_nome(bairro_final))
+        )
+        if pb_bairro:
+            pb_bairro = normalizar_nome_prefeitura_bairro(pb_bairro)
+        pbs_envolvidas = {pb for pb in [pb_bairro, *macros_detectadas] if pb}
+        if macros_detectadas and len(pbs_envolvidas) > 1:
+            return {
+                "nivel": "Escopo Cidade (Não-Localizado)",
+                "bairro": None,
+                "prefeitura_bairro": None,
+                "latitude": None,
+                "longitude": None,
+                "estagio": "Múltiplas Prefeituras-Bairro",
+            }
+        centroide = (
+            bairros_centroides.get(bairro_final)
+            or bairros_centroides_norm.get(normalizar_nome(bairro_final))
+        )
+        return {
+            "nivel": "Bairro",
+            "bairro": bairro_final,
+            "prefeitura_bairro": pb_bairro,
+            "latitude": centroide[0] if centroide else None,
+            "longitude": centroide[1] if centroide else None,
+            "estagio": "Stage 1 (Bairro / Sublocalidade)",
+        }
+
+    pbs_bairros = []
+    for b_nome in bairros_unicos:
+        pb = bairro_para_pb.get(b_nome) or bairro_para_pb_norm.get(normalizar_nome(b_nome))
+        pbs_bairros.append(normalizar_nome_prefeitura_bairro(pb) if pb else "")
+
+    pbs_todas = {pb for pb in [*pbs_bairros, *macros_detectadas] if pb}
+    if all(pbs_bairros) and len(pbs_todas) == 1:
+        return {
+            "nivel": "Regional (Prefeitura-Bairro)",
+            "bairro": None,
+            "prefeitura_bairro": next(iter(pbs_todas)),
+            "latitude": None,
+            "longitude": None,
+            "estagio": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)",
+        }
+
+    return {
+        "nivel": "Escopo Cidade (Não-Localizado)",
+        "bairro": None,
+        "prefeitura_bairro": None,
+        "latitude": None,
+        "longitude": None,
+        "estagio": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
+    }
+
+
+def _executar_estagio_1_deterministico(
+    *,
+    objeto_norm: str,
+    equipamentos: list[dict[str, Any]],
+    dicionario_lotes: dict[str, str],
+    bairros_nomes: list[str],
+    dicionario_sublocalidades: dict[str, str],
+    sublocalidades_norm: dict[str, str],
+    bairros_centroides: dict[str, tuple[float, float]],
+    bairros_centroides_norm: dict[str, tuple[float, float]],
+    bairro_para_pb: dict[str, str],
+    bairro_para_pb_norm: dict[str, str],
+) -> Optional[dict[str, Any]]:
+    """Executa o funil determinístico local (1A Pontual -> 1B Regional -> 1C Bairro/Multi-Bairro)."""
+    eq_encontrado = _buscar_equipamento_no_objeto(objeto_norm, equipamentos)
+    if eq_encontrado:
+        eq_bairro = eq_encontrado.get("bairro")
+        eq_pb = eq_encontrado.get("prefeitura_bairro")
+        if not eq_pb and eq_bairro:
+            eq_pb = bairro_para_pb.get(eq_bairro) or bairro_para_pb_norm.get(normalizar_nome(eq_bairro))
+        if eq_pb:
+            eq_pb = normalizar_nome_prefeitura_bairro(eq_pb)
+        return {
+            "nivel": "Pontual",
+            "bairro": eq_bairro,
+            "prefeitura_bairro": eq_pb,
+            "latitude": eq_encontrado.get("latitude"),
+            "longitude": eq_encontrado.get("longitude"),
+            "estagio": "Stage 1 (Equipamento Oficial)",
+        }
+
+    pbs_detectadas = _detectar_prefeituras_bairro_no_objeto(objeto_norm, dicionario_lotes)
+    if len(pbs_detectadas) == 1:
+        return {
+            "nivel": "Regional (Prefeitura-Bairro)",
+            "bairro": None,
+            "prefeitura_bairro": normalizar_nome_prefeitura_bairro(pbs_detectadas[0]),
+            "latitude": None,
+            "longitude": None,
+            "estagio": "Stage 1 (Lote Regional)",
+        }
+    if len(pbs_detectadas) > 1:
+        return {
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeitura_bairro": None,
+            "latitude": None,
+            "longitude": None,
+            "estagio": "Múltiplas Prefeituras-Bairro",
+        }
+
+    return _classificar_estagio_1c_toponimos(
+        objeto_norm=objeto_norm,
+        bairros_nomes=bairros_nomes,
+        dicionario_sublocalidades=dicionario_sublocalidades,
+        sublocalidades_norm=sublocalidades_norm,
+        bairros_centroides=bairros_centroides,
+        bairros_centroides_norm=bairros_centroides_norm,
+        bairro_para_pb=bairro_para_pb,
+        bairro_para_pb_norm=bairro_para_pb_norm,
+    )
+
+
+def _eh_pontual_estagio_avancado(entry: dict[str, Any]) -> bool:
+    """Identifica entrada pontual válida já geocodificada pelos Estágios 2 ou 3."""
+    estagio = str(entry.get("estagio") or "")
+    return (
+        entry.get("nivel") == "Pontual"
+        and estagio.startswith(("Stage 2", "Stage 3"))
+        and entry.get("latitude") is not None
+        and entry.get("longitude") is not None
+    )
+
+
+def _hidratar_pontual_preservado(
+    entry: dict[str, Any],
+    bairro_para_pb: dict[str, str],
+    bairro_para_pb_norm: dict[str, str],
+) -> dict[str, Any]:
+    """Normaliza/hidrata a Prefeitura-Bairro de entrada pontual preservada em cache."""
+    preservado = dict(entry)
+    pb_atual = preservado.get("prefeitura_bairro")
+    if pb_atual:
+        pb_norm = normalizar_nome_prefeitura_bairro(str(pb_atual))
+        if pb_norm != pb_atual:
+            preservado["prefeitura_bairro"] = pb_norm
+    elif preservado.get("bairro"):
+        b_chave = str(preservado["bairro"])
+        pb_hid = bairro_para_pb.get(b_chave) or bairro_para_pb_norm.get(normalizar_nome(b_chave))
+        if pb_hid:
+            preservado["prefeitura_bairro"] = pb_hid
+    return preservado
+
+
 def classificar_alocacao_territorial(
     obra: dict[str, Any],
     bairros_geojson: dict[str, Any],
     bairros_centroides: dict[str, tuple[float, float]],
     cache: Optional[GeocodingCache] = None,
-    habilitar_rede: bool = False,
+    habilitar_rede: Optional[bool] = None,
     curadoria: Optional[dict[str, dict[str, Any]]] = None,
+    recalcular: bool = False,
 ) -> dict[str, Any]:
     """Classifica a Obra Pública no Funil de Alocação Territorial em 3 estágios com cache incremental.
 
@@ -903,41 +1341,50 @@ def classificar_alocacao_territorial(
 
     Descrição Estendida:
         Executa os seguintes passos em ordem estrita de precedência:
-        1. Consulta o cache incremental em disco: se a chave já existir, retorna o resultado imediatamente.
-        2. Estágio 1 (Determinístico Local):
-           a) Mapeamento contra catálogo oficial de 368 Escolas e 118 Unidades de Saúde.
-              Se encontrar, aloca como nível 'Pontual' com coordenadas e bairro conhecidos.
-           b) Mapeamento de lotes regionais via lotes_regionais.json.
-              Se encontrar, aloca como 'Regional (Prefeitura-Bairro)' sem inflar bairros individuais.
-           c) Mapeamento de Bairros Oficiais e sublocalidades via sublocalidades.json.
-              Se encontrar, aloca como nível 'Bairro', atribuindo as coordenadas do centróide oficial.
-        3. Estágio 2 (Nominatim OSM):
-           Se houver indicação de rua e a rede estiver habilitada (ou forçada), busca coordenadas
-           e valida ponto dentro do polígono de Salvador.
-        4. Estágio 3 (Extrator LLM opcional):
-           Se chaves de IA estiverem no ambiente e a localização permanecer ambígua.
-        5. Fallback Final:
-           Se nenhuma correspondência for obtida, aloca como 'Escopo Cidade (Não-Localizado)'.
-        6. Salva o resultado no cache incremental em disco.
+        1. Curadoria Territorial Auditável (quando aplicável ao contrato/UG):
+           Tem precedência determinística offline e atualiza o cache se necessário.
+        2. Cache incremental em disco (quando ``recalcular=False``):
+           Reconcilia Bairros Oficiais, hidrata centróide/Prefeitura-Bairro e reavalia entradas
+           antigas de ``Escopo Cidade (Não-Localizado)`` contra as regras determinísticas locais.
+        3. Estágio 1 (Determinístico Local):
+           a) Mapeamento contra catálogo oficial de Escolas e Unidades de Saúde -> ``Pontual``.
+           b) Menção explícita a Prefeitura-Bairro (I..X, prefixo ``PB``/``Pref. Bairro``,
+              pares compostos) -> ``Regional (Prefeitura-Bairro)`` se única, ou
+              ``Escopo Cidade (Não-Localizado)`` se múltiplas Prefeituras-Bairro.
+           c) Extração com blindagem sintática de Bairros Oficiais, sublocalidades e
+              macro-regiões: 1 Bairro -> ``Bairro`` (salvo conflito com macro-região distinta);
+              múltiplos Bairros da mesma Prefeitura-Bairro -> ``Regional (Prefeitura-Bairro)``;
+              múltiplas Prefeituras-Bairro -> ``Escopo Cidade (Não-Localizado)``.
+        4. Estágio 2 (Nominatim OSM):
+           Quando autorizado (``habilitar_rede=True``, ou ``habilitar_rede=None`` com
+           ``ENABLE_NOMINATIM=1``), busca coordenadas de logradouro e valida em Salvador.
+           Se ``habilitar_rede=False``, bloqueia a rede mesmo com ``ENABLE_NOMINATIM=1``; em
+           ``recalcular=True``, preserva entradas ``Pontual`` prévias de Estágio 2/3 no cache
+           caso o Estágio 1 retorne sem correspondência local.
+        5. Estágio 3 (Extrator LLM opcional) e Fallback Final (``Escopo Cidade (Não-Localizado)``).
 
     Argumentos:
-        obra: Dicionário contendo dados do contrato (dsObjeto, cdUnidadeGestora, nuContratoSigef).
+        obra: Dicionário contendo dados do contrato (``dsObjeto``, ``cdUnidadeGestora``, ``nuContratoSigef``).
         bairros_geojson: FeatureCollection oficial dos Bairros Oficiais de Salvador.
-        bairros_centroides: Dicionário mapeando nome do bairro para (latitude, longitude).
-        cache: Instância opcional de GeocodingCache para persistência incremental.
-        habilitar_rede: Booleano indicando se requisições externas ao Nominatim estão autorizadas.
+        bairros_centroides: Dicionário mapeando nome do Bairro Oficial para ``(latitude, longitude)``.
+        cache: Instância opcional de ``GeocodingCache`` para persistência incremental.
+        habilitar_rede: ``True`` autoriza Nominatim; ``False`` força modo estritamente offline
+            (ignora ``ENABLE_NOMINATIM=1``); ``None`` respeita ``os.getenv("ENABLE_NOMINATIM") == "1"``.
+        curadoria: Catálogo opcional pré-carregado de curadoria territorial por chave canônica.
+        recalcular: Se ``True``, ignora leitura prévia do cache para reavaliar o Estágio 1
+            e sobrescrever o cache (preservando apenas pontuais de Estágio 2/3 no modo offline).
 
     Retornos:
         Dicionário com a estrutura de alocação contendo:
-        - nivel: 'Pontual' | 'Bairro' | 'Regional (Prefeitura-Bairro)' | 'Escopo Cidade (Não-Localizado)'.
-        - bairro: Nome do Bairro Oficial ou None.
-        - prefeitura_bairro: Nome da Prefeitura-Bairro ou None.
-        - latitude: Float ou None.
-        - longitude: Float ou None.
+        - nivel: ``Pontual`` | ``Bairro`` | ``Regional (Prefeitura-Bairro)`` | ``Escopo Cidade (Não-Localizado)``.
+        - bairro: Nome do Bairro Oficial ou ``None``.
+        - prefeitura_bairro: Nome da Prefeitura-Bairro ou ``None``.
+        - latitude: Float ou ``None``.
+        - longitude: Float ou ``None``.
         - estagio: Descrição da regra ou estágio que determinou a localização.
 
     Erros:
-        Não lança exceções; em caso de falha retorna nível 'Escopo Cidade (Não-Localizado)'.
+        Não lança exceções; em caso de falha retorna nível ``Escopo Cidade (Não-Localizado)``.
     """
     cd_ug = obra.get("cdUnidadeGestora") or obra.get("unidadeGestora") or "UG"
     nu_contrato = obra.get("nuContratoSigef") or obra.get("numeroContrato") or "S_N"
@@ -979,12 +1426,14 @@ def classificar_alocacao_territorial(
             bairro_para_pb_norm=bairro_para_pb_norm,
         )
         if resultado_curado is not None:
-            if cache is not None:
+            if cache is not None and (
+                recalcular or cache.get(cd_ug, nu_contrato, ds_objeto) != resultado_curado
+            ):
                 cache.set(cd_ug, nu_contrato, ds_objeto, resultado_curado)
             return resultado_curado
 
     # 2. Verificação no Cache Incremental com Reconciliação e Hidratação de Bairro
-    if cache is not None:
+    if cache is not None and not recalcular:
         cached = cache.get(cd_ug, nu_contrato, ds_objeto)
         if cached:
             resultado_cached = dict(cached)
@@ -1046,63 +1495,21 @@ def classificar_alocacao_territorial(
                         modificado = True
 
             elif resultado_cached.get("nivel") == "Escopo Cidade (Não-Localizado)":
-                eq_rec = _buscar_equipamento_no_objeto(objeto_norm, equipamentos)
-                if eq_rec:
-                    eq_bairro = eq_rec.get("bairro")
-                    eq_pb = eq_rec.get("prefeitura_bairro")
-                    if not eq_pb and eq_bairro:
-                        eq_pb = bairro_para_pb.get(eq_bairro) or bairro_para_pb_norm.get(normalizar_nome(eq_bairro))
-                    if eq_pb:
-                        eq_pb = normalizar_nome_prefeitura_bairro(eq_pb)
-                    resultado_cached = {
-                        "nivel": "Pontual",
-                        "bairro": eq_bairro,
-                        "prefeitura_bairro": eq_pb,
-                        "latitude": eq_rec.get("latitude"),
-                        "longitude": eq_rec.get("longitude"),
-                        "estagio": "Stage 1 (Equipamento Oficial)",
-                    }
+                res_rec = _executar_estagio_1_deterministico(
+                    objeto_norm=objeto_norm,
+                    equipamentos=equipamentos,
+                    dicionario_lotes=dicionario_lotes,
+                    bairros_nomes=bairros_nomes,
+                    dicionario_sublocalidades=dicionario_sublocalidades,
+                    sublocalidades_norm=sublocalidades_norm,
+                    bairros_centroides=bairros_centroides,
+                    bairros_centroides_norm=bairros_centroides_norm,
+                    bairro_para_pb=bairro_para_pb,
+                    bairro_para_pb_norm=bairro_para_pb_norm,
+                )
+                if res_rec and res_rec.get("nivel") != "Escopo Cidade (Não-Localizado)":
+                    resultado_cached = res_rec
                     modificado = True
-                else:
-                    pb_lote_rec = _buscar_lote_regional_no_objeto(objeto_norm, dicionario_lotes)
-                    if pb_lote_rec and "RUA " not in objeto_norm and "AVENIDA " not in objeto_norm:
-                        resultado_cached = {
-                            "nivel": "Regional (Prefeitura-Bairro)",
-                            "bairro": None,
-                            "prefeitura_bairro": normalizar_nome_prefeitura_bairro(pb_lote_rec),
-                            "latitude": None,
-                            "longitude": None,
-                            "estagio": "Stage 1 (Lote Regional)",
-                        }
-                        modificado = True
-                    else:
-                        bairro_rec = _buscar_bairro_ou_sublocalidade(
-                            objeto_norm,
-                            bairros_nomes,
-                            dicionario_sublocalidades,
-                        )
-                        if bairro_rec:
-                            b_canonico = reconciliar_bairro_canonico(bairro_rec, bairros_nomes, sublocalidades_norm)
-                            bairro_final = b_canonico or bairro_rec
-                            centroide = (
-                                bairros_centroides.get(bairro_final)
-                                or bairros_centroides_norm.get(normalizar_nome(bairro_final))
-                            )
-                            pb_bairro = (
-                                bairro_para_pb.get(bairro_final)
-                                or bairro_para_pb_norm.get(normalizar_nome(bairro_final))
-                            )
-                            if pb_bairro:
-                                pb_bairro = normalizar_nome_prefeitura_bairro(pb_bairro)
-                            resultado_cached = {
-                                "nivel": "Bairro",
-                                "bairro": bairro_final,
-                                "prefeitura_bairro": pb_bairro,
-                                "latitude": centroide[0] if centroide else None,
-                                "longitude": centroide[1] if centroide else None,
-                                "estagio": "Stage 1 (Bairro / Sublocalidade)",
-                            }
-                            modificado = True
 
             if modificado:
                 cache.set(cd_ug, nu_contrato, ds_objeto, resultado_cached)
@@ -1110,80 +1517,39 @@ def classificar_alocacao_territorial(
             resultado_cached["estagio"] = "Cache"
             return resultado_cached
 
-    # --- ESTÁGIO 1A: Equipamento Público Oficial (Escolas ou Saúde) ---
-    eq_encontrado = _buscar_equipamento_no_objeto(objeto_norm, equipamentos)
-    if eq_encontrado:
-        eq_bairro = eq_encontrado.get("bairro")
-        eq_pb = eq_encontrado.get("prefeitura_bairro")
-        if not eq_pb and eq_bairro:
-            eq_pb = bairro_para_pb.get(eq_bairro) or bairro_para_pb_norm.get(normalizar_nome(eq_bairro))
-        if eq_pb:
-            eq_pb = normalizar_nome_prefeitura_bairro(eq_pb)
-
-        resultado = {
-            "nivel": "Pontual",
-            "bairro": eq_bairro,
-            "prefeitura_bairro": eq_pb,
-            "latitude": eq_encontrado.get("latitude"),
-            "longitude": eq_encontrado.get("longitude"),
-            "estagio": "Stage 1 (Equipamento Oficial)",
-        }
-        if cache:
-            cache.set(cd_ug, nu_contrato, ds_objeto, resultado)
-        return resultado
-
-    # --- ESTÁGIO 1B: Lote Regional (Prefeitura-Bairro) ---
-    pb_lote = _buscar_lote_regional_no_objeto(objeto_norm, dicionario_lotes)
-    if pb_lote and "RUA " not in objeto_norm and "AVENIDA " not in objeto_norm:
-        resultado = {
-            "nivel": "Regional (Prefeitura-Bairro)",
-            "bairro": None,
-            "prefeitura_bairro": normalizar_nome_prefeitura_bairro(pb_lote),
-            "latitude": None,
-            "longitude": None,
-            "estagio": "Stage 1 (Lote Regional)",
-        }
-        if cache:
-            cache.set(cd_ug, nu_contrato, ds_objeto, resultado)
-        return resultado
-
-    # --- ESTÁGIO 1C: Bairro Oficial ou Sublocalidade ---
-    bairro_detectado = _buscar_bairro_ou_sublocalidade(
-        objeto_norm,
-        bairros_nomes,
-        dicionario_sublocalidades,
+    # --- ESTÁGIO 1: Funil Determinístico Local (Equipamento -> Regional PB -> Bairro/Multi-Bairro) ---
+    res_estagio_1 = _executar_estagio_1_deterministico(
+        objeto_norm=objeto_norm,
+        equipamentos=equipamentos,
+        dicionario_lotes=dicionario_lotes,
+        bairros_nomes=bairros_nomes,
+        dicionario_sublocalidades=dicionario_sublocalidades,
+        sublocalidades_norm=sublocalidades_norm,
+        bairros_centroides=bairros_centroides,
+        bairros_centroides_norm=bairros_centroides_norm,
+        bairro_para_pb=bairro_para_pb,
+        bairro_para_pb_norm=bairro_para_pb_norm,
     )
-    if bairro_detectado:
-        b_canonico = reconciliar_bairro_canonico(bairro_detectado, bairros_nomes, sublocalidades_norm)
-        bairro_final = b_canonico or bairro_detectado
-
-        centroide = (
-            bairros_centroides.get(bairro_final)
-            or bairros_centroides_norm.get(normalizar_nome(bairro_final))
-        )
-        lat = centroide[0] if centroide else None
-        lon = centroide[1] if centroide else None
-        pb_bairro = (
-            bairro_para_pb.get(bairro_final)
-            or bairro_para_pb_norm.get(normalizar_nome(bairro_final))
-        )
-        if pb_bairro:
-            pb_bairro = normalizar_nome_prefeitura_bairro(pb_bairro)
-
-        resultado = {
-            "nivel": "Bairro",
-            "bairro": bairro_final,
-            "prefeitura_bairro": pb_bairro,
-            "latitude": lat,
-            "longitude": lon,
-            "estagio": "Stage 1 (Bairro / Sublocalidade)",
-        }
+    if res_estagio_1 is not None:
         if cache:
-            cache.set(cd_ug, nu_contrato, ds_objeto, resultado)
-        return resultado
+            cache.set(cd_ug, nu_contrato, ds_objeto, res_estagio_1)
+        return res_estagio_1
+
+    rede_autorizada = (
+        habilitar_rede is True
+        or (habilitar_rede is None and os.getenv("ENABLE_NOMINATIM") == "1")
+    )
+
+    if recalcular and cache is not None and not rede_autorizada:
+        cached_previo = cache.get(cd_ug, nu_contrato, ds_objeto)
+        if cached_previo and _eh_pontual_estagio_avancado(cached_previo):
+            preservado = _hidratar_pontual_preservado(cached_previo, bairro_para_pb, bairro_para_pb_norm)
+            if preservado != cached_previo:
+                cache.set(cd_ug, nu_contrato, ds_objeto, preservado)
+            return preservado
 
     # --- ESTÁGIO 2: Nominatim OSM com Bounding Box de Salvador ---
-    if habilitar_rede or os.getenv("ENABLE_NOMINATIM") == "1":
+    if rede_autorizada:
         match_rua = re.search(r"\b(RUA|AVENIDA|TRAVESSA|ALAMEDA|PRACA)\s+[^,\.;\(\)]+", objeto_norm)
         if match_rua:
             candidato_rua = match_rua.group(0).strip()
