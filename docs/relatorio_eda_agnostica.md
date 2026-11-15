@@ -985,3 +985,12 @@
 | Pau da Lima | 12 | 10 | R$ 0,00 | R$ 750,04 | 0,53 |
 | Subúrbio/Ilhas | 19 | 9 | R$ 13,19 | R$ 24.038,46 | 0,92 |
 | Valéria | 4 | 2 | R$ 35,24 | R$ 319,54 | 0,73 |
+
+---
+
+## Nota de Hipóteses para Redução da Opacidade Territorial (Exploração Futura — Fase 2)
+
+> Registrado em alinhamento ao **ADR-0004**: após a **Fase 1 (offline)** — baseada em **Curadoria Territorial Auditável** sobre `liquidacoes.descObsLiquidacao` (`177` contratos não-localizados), `aditivos.dsObjetoAditivo` (`128` contratos) e normalização de lotes regionais — permanecem como hipóteses de **Fase 2** (fora do escopo de implementação imediato) os seguintes conectores externos para detalhamento físico de contratos em **Escopo Cidade (Não-Localizado)**:
+>
+> 1. **DOM + Portal de Licitações de Salvador**: cruzar `dom.nuDom` (`150` contratos não-localizados já possuem edição do DOM) e `nuProcesso` para obter editais, Termos de Referência e Ordens de Serviço com a delimitação geográfica de cada Lote (`SEINFRA`, `SEMAN`, `SMED`).
+> 2. **TCM-BA (SIGA / Portal de Obras) e Transferegov / Obrasgov.br**: cruzar por número de contrato ou processo administrativo para recuperar boletins de medição georreferenciados, coordenadas e metas físicas em convênios federais e obras de engenharia.

@@ -90,5 +90,13 @@ Classificação automática de risco e andamento de cada Obra Pública pela pior
 _Avoid_: Status do contrato, nota da obra, cor do pino
 
 **Ficha Limpa da Obra**:
-Visão detalhada de uma Obra Pública individual contendo objeto, empreiteira (nome e CNPJ), datas de vigência, número do DOM, Funil de Execução Financeira, histórico de Aditivos Contratuais e fonte de recurso (Dotação).
+Visão detalhada de uma Obra Pública individual contendo objeto, empreiteira (nome e CNPJ), datas de vigência, número do DOM, Funil de Execução Financeira, histórico de Aditivos Contratuais, fonte de recurso (Dotação) e referências às fontes oficiais comprobatórias (Chave Canônica da Obra, processo administrativo, DOM e lastro documental territorial).
 _Avoid_: Relatório contábil, extrato SIGEF
+
+**Frente de Medição**:
+Parcela de uma Obra Pública guarda-chuva vinculada a um Bairro Oficial ou Prefeitura-Bairro específico mediante lastro documental em nota de liquidação, ordem de serviço ou curadoria semântica auditável, contabilizada estritamente nos valores liquidados e pagos comprovados sem rateio artificial do saldo contratual global.
+_Avoid_: Rateio de contrato, estimativa por bairro, subcontrato informal
+
+**Curadoria Territorial Auditável**:
+Julgamento semântico explícito e versionado sobre textos livres de contratos, aditivos e liquidações, registrando a decisão e o trecho documental comprobatório para vincular uma Obra Pública ou Frente de Medição ao território sem heurísticas cegas por palavras-chave.
+_Avoid_: Regex de bairro, geocodificação automática por palavra-chave

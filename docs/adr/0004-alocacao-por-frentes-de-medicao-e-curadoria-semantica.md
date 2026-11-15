@@ -1,0 +1,15 @@
+# Alocação por Frentes de Medição, Curadoria Semântica Auditável e Lastro em Fontes Oficiais
+
+Para reduzir a opacidade territorial dos contratos em **Escopo Cidade (Não-Localizado)** (`353` obras, R$ 6,24 bilhões) sem introduzir falsos positivos geográficos nem rateios artificiais, o pipeline passa a adotar três princípios complementares na **Fase 1 (100% offline sobre o acervo local)**: (1) desdobramento financeiro estritamente por **Frente de Medição** para contratos guarda-chuva com múltiplas frentes comprovadas em notas de liquidação (`descObsLiquidacao`); (2) **Curadoria Territorial Auditável** por leitura e julgamento semântico explícito de cada texto livre (em vez de casamento automático por palavras-chave); e (3) exposição do bloco de **Fontes Oficiais & Lastro Territorial** na **Ficha Limpa da Obra** (`nuContratoSigef`, `nuProcesso`, `dom.nuDom` e referência da nota/documento comprobatório). Conectores externos (DOM, Portal de Licitações, TCM-BA/SIGA e Transferegov/Obrasgov.br) ficam registrados como hipótese de **Fase 2** fora do escopo imediato.
+
+## Opções Consideradas
+
+- **Manter cada Obra Pública estritamente indivisível em um único território**: Rejeitado para contratos guarda-chuva multi-bairro (`SMED`, `SEINFRA`, `SEMAN`), pois obrigaria a escolher arbitrariamente um único bairro ou manter bilhões de reais inteiramente opacos mesmo quando as notas de liquidação identificam escolas, ruas ou lotes específicos.
+- **Extração automática por palavras-chave/regex sobre `descObsLiquidacao` e `dsObjetoAditivo`**: Rejeitado pelo alto risco de falsos positivos em textos livres (nomes curtos de bairros como *Paz*, *Liberdade* ou *Centro*, ou endereços administrativos da sede da empreiteira).
+- **Rateio igualitário ou proporcional do `Valor Contratual Vigente` entre bairros**: Rejeitado por violar o princípio de conservadorismo contábil; apenas parcelas efetivamente liquidadas/pagas com lastro documental na medição podem ser atribuídas ao território.
+
+## Consequências
+
+- **Conservadorismo Contábil nos Rollups Territoriais**: As **Frentes de Medição** somam exclusivamente nos valores executados comprovados (`valorLiquidado` e `valorPago`) do **Bairro Oficial** ou **Prefeitura-Bairro**, sem inflar o `valorTotal` (Valor Contratual Vigente) reservado a contratos de alocação direta única; a parcela não comprovada do contrato permanece visível em **Escopo Cidade (Não-Localizado)**.
+- **Catálogo Versionado de Curadoria Semântica**: Toda promoção territorial extraída de `descObsLiquidacao`, `dsObjetoAditivo` ou lotes regionais é registrada com o julgamento explícito, o trecho comprobatório e a referência da nota/documento, garantindo reprodutibilidade determinística no ETL.
+- **Transparência na Interface Web**: A **Ficha Limpa da Obra** e o painel do bairro passam a exibir os links/identificadores oficiais (Portal da Transparência, DOM quando `nuDom` existir e documento de lastro territorial) e a distinguir valores de contratos diretos daqueles oriundos de **Frentes de Medição**.
