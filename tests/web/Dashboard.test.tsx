@@ -1838,4 +1838,156 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("ranking-prefeituras-container")).toBeInTheDocument();
     });
   });
+
+  describe("Cota-Parte de Lista Fechada no Painel (Tabela, Mapa e KPIs)", () => {
+    it("filtra Tabela de Obras, pinos/contador do Mapa e KPIs dinâmicos por território e Prefeitura-Bairro", async () => {
+      const obraListaFechada = {
+        id: 9901,
+        unidadeGestora: "SEINFRA",
+        numeroContrato: "099/2025",
+        objeto: "Reforma de 3 CREAS (Pituba, Graça e São Caetano)",
+        valorOriginal: 3000000.0,
+        valorContratualVigente: 3000000.0,
+        valorAditivos: 0.0,
+        deltaPercentualValor: 0.0,
+        valorPago: 1500000.0,
+        percentualExecutado: 50.0,
+        situacao: "Em Execução",
+        credor: "CONSTRUTORA COTA LTDA",
+        tema: "Manutenção Urbana e Outros",
+        semaforo: {
+          status: "VERDE",
+          rotulo: "Verde (No Prazo)",
+          motivos: ["No prazo"],
+          deltaPercentualValor: 0.0,
+        },
+        ano: 2025,
+        mandatos: ["2025-2028"],
+        dtInicioVigencia: "2025-02-01T00:00:00.000Z",
+        dtTerminoVigenciaAtualizado: "2027-12-31T00:00:00.000Z",
+        nivel: "Bairro",
+        bairro: "Pituba",
+        prefeituraBairro: "Barra/Pituba",
+        latitude: -12.9965,
+        longitude: -38.4552,
+        estagioAlocacao: "Curadoria Territorial Auditável (Lista Fechada)",
+        cotasListaFechada: [
+          {
+            bairro: "Pituba",
+            prefeituraBairro: "Barra/Pituba",
+            unidades: 1,
+            totalUnidades: 3,
+            peso: 1 / 3,
+            fracao: "1/3",
+            latitude: -12.9965,
+            longitude: -38.4552,
+            descricaoUnidades: "CREAS Pituba",
+          },
+          {
+            bairro: "Graça",
+            prefeituraBairro: "Barra/Pituba",
+            unidades: 1,
+            totalUnidades: 3,
+            peso: 1 / 3,
+            fracao: "1/3",
+            latitude: -12.998,
+            longitude: -38.522,
+            descricaoUnidades: "CREAS Graça",
+          },
+          {
+            bairro: "São Caetano",
+            prefeituraBairro: "Liberdade/São Caetano",
+            unidades: 1,
+            totalUnidades: 3,
+            peso: 1 / 3,
+            fracao: "1/3",
+            latitude: -12.937,
+            longitude: -38.481,
+            descricaoUnidades: "CREAS São Caetano",
+          },
+        ],
+      };
+
+      const indexComListaFechada = {
+        ...mockIndexData,
+        obras: [...mockIndexData.obras, obraListaFechada],
+      };
+
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((url: string) => {
+          if (url.includes("index_")) {
+            return Promise.resolve({
+              ok: true,
+              json: () => Promise.resolve(indexComListaFechada),
+            });
+          }
+          if (url.includes("bairros.geojson")) {
+            return Promise.resolve({
+              ok: true,
+              json: () => Promise.resolve(mockBairrosGeo),
+            });
+          }
+          if (url.includes("prefeituras_bairro.geojson")) {
+            return Promise.resolve({
+              ok: true,
+              json: () => Promise.resolve(mockPbGeo),
+            });
+          }
+          return Promise.reject(new Error("URL desconhecida: " + url));
+        })
+      );
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("territory-selector-sao-caetano")).toBeInTheDocument();
+      });
+
+      // Visão cidade inteira: 2 pinos base (1001, 1002) + 3 pinos das cotas da obra 9901 = 5
+      expect(screen.getByTestId("btn-toggle-pinos-obras")).toHaveTextContent("Pinos de Obras (5)");
+
+      // KPIs Globais com métrica Executado contam a obra 9901 apenas 1 vez em 100% (5 contratos totais, R$ 12.710.000)
+      fireEvent.click(screen.getByTestId("btn-metrica-executado"));
+      await waitFor(() => {
+        expect(screen.getByTestId("kpi-obras-ativas")).toHaveTextContent("5 / 5");
+      });
+      expect(screen.getByTestId("kpi-total-investido")).toHaveTextContent(/12\.710\.000/);
+      fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+
+      // 1. Seleciona o bairro secundário da lista (São Caetano), que NÃO é o bairro escalar raiz
+      fireEvent.click(screen.getByTestId("territory-selector-sao-caetano"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("btn-toggle-pinos-obras")).toHaveTextContent("Pinos de Obras (1)");
+      });
+      expect(screen.getByTestId("map-pin-obra-9901")).toBeInTheDocument();
+      // KPI reflete apenas 1/3 do contrato (R$ 1.000.000,00) e 1 obra
+      expect(screen.getByTestId("kpi-total-investido")).toHaveTextContent(/1\.000\.000/);
+      expect(screen.getByTestId("kpi-obras-ativas")).toHaveTextContent("1 / 1");
+
+      // Tabela deve incluir a obra 9901 ao filtrar por São Caetano
+      fireEvent.click(screen.getByTestId("tab-tabela"));
+      await waitFor(() => {
+        expect(screen.getByTestId("linha-obra-9901")).toBeInTheDocument();
+      });
+      expect(screen.queryByTestId("linha-obra-1001")).not.toBeInTheDocument();
+
+      // 2. Volta ao mapa, limpa seleção, alterna para Prefeitura-Bairro e seleciona Barra/Pituba
+      fireEvent.click(screen.getByTestId("tab-mapa"));
+      fireEvent.click(screen.getByTestId("btn-limpar-filtro-territorial"));
+      fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
+      await waitFor(() => {
+        expect(screen.getByTestId("territory-selector-barra-pituba")).toBeInTheDocument();
+      });
+      fireEvent.click(screen.getByTestId("territory-selector-barra-pituba"));
+
+      // Em Barra/Pituba: 1001 (12M) + 2/3 de 9901 (2M) = 14M, 2 obras deduplicadas, 3 pinos no mapa
+      await waitFor(() => {
+        expect(screen.getByTestId("kpi-total-investido")).toHaveTextContent(/14\.000\.000/);
+      });
+      expect(screen.getByTestId("kpi-obras-ativas")).toHaveTextContent("2 / 2");
+      expect(screen.getByTestId("btn-toggle-pinos-obras")).toHaveTextContent("Pinos de Obras (3)");
+    });
+  });
 });

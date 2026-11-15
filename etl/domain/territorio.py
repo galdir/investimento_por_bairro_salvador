@@ -411,6 +411,44 @@ def calcular_indice_vulnerabilidade_bairros(
     return resultado
 
 
+def _chave_obra_rollup(obra: dict[str, Any]) -> str:
+    """Retorna chave canônica para deduplicar contagem de obras em consolidações territoriais."""
+    cd_ug = (
+        obra.get("cdUnidadeGestora")
+        or obra.get("dsUnidadeGestora")
+        or obra.get("sgOrgao")
+        or obra.get("unidadeGestora")
+    )
+    nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
+    if cd_ug is not None and nu_sigef is not None and str(cd_ug).strip() and str(nu_sigef).strip():
+        return f"canon:{str(cd_ug).strip()}::{str(nu_sigef).strip()}"
+    oid = obra.get("id")
+    if oid is not None and str(oid).strip() != "":
+        return f"id:{str(oid).strip()}"
+    return f"obj:{id(obra)}"
+
+
+def extrair_status_semaforo(semaforo: Any) -> str:
+    """Extrai o status normalizado do Semáforo da Obra (dicionário ou string)."""
+    if isinstance(semaforo, dict):
+        return str(semaforo.get("status") or "").strip().upper()
+    if isinstance(semaforo, str):
+        return semaforo.strip().upper()
+    return ""
+
+
+def _contar_obras_e_semaforos(obras: list[dict[str, Any]]) -> tuple[int, int, int, int]:
+    """Conta obras únicas e respectivos status do Semáforo da Obra evitando dupla contagem."""
+    unicas: dict[str, dict[str, Any]] = {}
+    for obra in obras:
+        unicas.setdefault(_chave_obra_rollup(obra), obra)
+    statuses = [extrair_status_semaforo(o.get("semaforo")) for o in unicas.values()]
+    verde = sum(1 for st in statuses if st == "VERDE")
+    amarelo = sum(1 for st in statuses if st == "AMARELO")
+    vermelho = sum(1 for st in statuses if st == "VERMELHO")
+    return len(unicas), verde, amarelo, vermelho
+
+
 def calcular_rollup_territorial(
     bairros_resumo: list[dict[str, Any]],
     prefeituras_resumo: list[dict[str, Any]],
@@ -450,7 +488,7 @@ def calcular_rollup_territorial(
     valor_total_todas_obras = 0.0
 
     # 2. Agrupadores auxiliares
-    obras_por_bairro: dict[str, list[dict[str, Any]]] = {}
+    obras_por_bairro: dict[str, list[tuple[dict[str, Any], float]]] = {}
     obras_regionais_por_pb: dict[str, list[dict[str, Any]]] = {}
     obras_escopo_cidade: list[dict[str, Any]] = []
     frentes_por_bairro: dict[str, list[dict[str, Any]]] = {}
@@ -464,9 +502,36 @@ def calcular_rollup_territorial(
         bairro_nome = obra.get("bairro")
         pb_nome = obra.get("prefeitura_bairro")
 
-        if nivel in {"Pontual", "Bairro"} and bairro_nome:
+        frentes_validas = [
+            f
+            for f in (obra.get("frentesMedicao") or [])
+            if isinstance(f, dict)
+            and (
+                (f.get("nivel") in {"Pontual", "Bairro"} and f.get("bairro"))
+                or (
+                    f.get("nivel") == "Regional (Prefeitura-Bairro)"
+                    and (f.get("prefeituraBairro") or f.get("prefeitura_bairro"))
+                )
+            )
+        ]
+
+        cotas_validas = (
+            []
+            if frentes_validas
+            else [
+                (normalizar_nome(c["bairro"]), parse_float(c.get("peso")))
+                for c in (obra.get("cotasListaFechada") or [])
+                if isinstance(c, dict) and c.get("bairro") and parse_float(c.get("peso")) > 0
+            ]
+        )
+
+        if cotas_validas:
+            for b_norm, peso in cotas_validas:
+                obras_por_bairro.setdefault(b_norm, []).append((obra, peso))
+
+        elif nivel in {"Pontual", "Bairro"} and bairro_nome:
             b_norm = normalizar_nome(bairro_nome)
-            obras_por_bairro.setdefault(b_norm, []).append(obra)
+            obras_por_bairro.setdefault(b_norm, []).append((obra, 1.0))
 
         elif nivel == "Regional (Prefeitura-Bairro)" and pb_nome:
             pb_norm = normalizar_nome(pb_nome)
@@ -475,9 +540,7 @@ def calcular_rollup_territorial(
         else:
             obras_escopo_cidade.append(obra)
 
-        for frente in obra.get("frentesMedicao") or []:
-            if not isinstance(frente, dict):
-                continue
+        for frente in frentes_validas:
             f_nivel = frente.get("nivel")
             f_bairro = frente.get("bairro")
             f_pb = frente.get("prefeituraBairro") or frente.get("prefeitura_bairro")
@@ -503,16 +566,16 @@ def calcular_rollup_territorial(
         frentes_do_bairro = frentes_por_bairro.get(b_norm, [])
 
         vl_total_bairro = sum(
-            parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
-            for o in obras_do_bairro
+            parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0) * peso
+            for o, peso in obras_do_bairro
         )
         vl_liq_direto_bairro = sum(
-            parse_float(o.get("vlLiquidado") or o.get("valorLiquidado") or 0.0)
-            for o in obras_do_bairro
+            parse_float(o.get("vlLiquidado") or o.get("valorLiquidado") or 0.0) * peso
+            for o, peso in obras_do_bairro
         )
         vl_pago_direto_bairro = sum(
-            parse_float(o.get("vlPago") or o.get("valorPago") or 0.0)
-            for o in obras_do_bairro
+            parse_float(o.get("vlPago") or o.get("valorPago") or 0.0) * peso
+            for o, peso in obras_do_bairro
         )
         vl_liq_frentes_bairro = sum(parse_float(f.get("valorLiquidado") or 0.0) for f in frentes_do_bairro)
         vl_pago_frentes_bairro = sum(parse_float(f.get("valorPago") or 0.0) for f in frentes_do_bairro)
@@ -520,9 +583,9 @@ def calcular_rollup_territorial(
         vl_liq_bairro = vl_liq_direto_bairro + vl_liq_frentes_bairro
         vl_pago_bairro = vl_pago_direto_bairro + vl_pago_frentes_bairro
 
-        verde_count = sum(1 for o in obras_do_bairro if (o.get("semaforo") or {}).get("status") == "VERDE")
-        amarelo_count = sum(1 for o in obras_do_bairro if (o.get("semaforo") or {}).get("status") == "AMARELO")
-        vermelho_count = sum(1 for o in obras_do_bairro if (o.get("semaforo") or {}).get("status") == "VERMELHO")
+        total_obras_bairro, verde_count, amarelo_count, vermelho_count = _contar_obras_e_semaforos(
+            [o for o, _ in obras_do_bairro]
+        )
 
         populacao = int(b.get("populacao", 0))
         eh_zona_especial = is_zona_especial_nao_residencial(nome_bairro) or bool(
@@ -558,7 +621,7 @@ def calcular_rollup_territorial(
             "valorLiquidadoFrentes": round(vl_liq_frentes_bairro, 2),
             "valorPagoFrentes": round(vl_pago_frentes_bairro, 2),
             "totalFrentesMedicao": len(frentes_do_bairro),
-            "totalObras": len(obras_do_bairro),
+            "totalObras": total_obras_bairro,
             "obrasVerde": verde_count,
             "obrasAmarelo": amarelo_count,
             "obrasVermelho": vermelho_count,
@@ -596,10 +659,6 @@ def calcular_rollup_territorial(
         vl_liq_frentes_bairros = sum(b.get("valorLiquidadoFrentes", 0.0) for b in bairros_filhos)
         vl_pago_frentes_bairros = sum(b.get("valorPagoFrentes", 0.0) for b in bairros_filhos)
         total_frentes_bairros = sum(b.get("totalFrentesMedicao", 0) for b in bairros_filhos)
-        obras_bairros_count = sum(b.get("totalObras", 0) for b in bairros_filhos)
-        verde_pb = sum(b.get("obrasVerde", 0) for b in bairros_filhos)
-        amarelo_pb = sum(b.get("obrasAmarelo", 0) for b in bairros_filhos)
-        vermelho_pb = sum(b.get("obrasVermelho", 0) for b in bairros_filhos)
 
         # Soma as obras regionais e frentes regionais mapeadas diretamente para a prefeitura-bairro
         obras_regionais = obras_regionais_por_pb.get(pb_norm, [])
@@ -619,10 +678,6 @@ def calcular_rollup_territorial(
         vl_liq_frentes_regionais = sum(parse_float(f.get("valorLiquidado") or 0.0) for f in frentes_regionais)
         vl_pago_frentes_regionais = sum(parse_float(f.get("valorPago") or 0.0) for f in frentes_regionais)
 
-        verde_pb += sum(1 for o in obras_regionais if (o.get("semaforo") or {}).get("status") == "VERDE")
-        amarelo_pb += sum(1 for o in obras_regionais if (o.get("semaforo") or {}).get("status") == "AMARELO")
-        vermelho_pb += sum(1 for o in obras_regionais if (o.get("semaforo") or {}).get("status") == "VERMELHO")
-
         vl_total_pb = vl_bairros + vl_regionais
         vl_liq_direto_pb = vl_liq_direto_bairros + vl_liq_direto_regionais
         vl_pago_direto_pb = vl_pago_direto_bairros + vl_pago_direto_regionais
@@ -631,7 +686,10 @@ def calcular_rollup_territorial(
         vl_liq_pb = vl_liq_direto_pb + vl_liq_frentes_pb
         vl_pago_pb = vl_pago_direto_pb + vl_pago_frentes_pb
         total_frentes_pb = total_frentes_bairros + len(frentes_regionais)
-        total_obras_pb = obras_bairros_count + len(obras_regionais)
+        total_obras_pb, verde_pb, amarelo_pb, vermelho_pb = _contar_obras_e_semaforos(
+            [o for bn in bairros_filhos_nomes if bn in bairros_index for o, _ in obras_por_bairro.get(bn, [])]
+            + obras_regionais
+        )
 
         pop_total = int(pb.get("populacao_total", 0))
         inv_per_capita_pb = round(vl_total_pb / pop_total, 2) if pop_total > 0 else 0.0

@@ -274,6 +274,10 @@ def run_pipeline(
         obra["longitude"] = aloc["longitude"]
         obra["estagioAlocacao"] = aloc["estagio"]
         obra["lastroCuradoria"] = aloc.get("lastro_curadoria")
+        if aloc.get("cotas_lista_fechada"):
+            obra["cotasListaFechada"] = aloc["cotas_lista_fechada"]
+        else:
+            obra.pop("cotasListaFechada", None)
 
     # 4. Estruturação base de Bairros Oficiais
     demografia_norm = {normalizar_nome(k): v for k, v in demografia_map.items()}

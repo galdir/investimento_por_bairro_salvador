@@ -24,7 +24,9 @@ import {
   calculateTerritorialRollup,
   createBairroSelection,
   createPrefeituraSelection,
+  getObraTerritoryShare,
   isTerritoryCompatibleWithLayer,
+  obraMatchesTerritory,
 } from "./utils/territory";
 
 const TEMAS_PADRAO: TemaObra[] = [
@@ -291,15 +293,9 @@ export const App: React.FC = () => {
   const filteredObras = useMemo(() => {
     if (!activeSelectedTerritory) return topFilteredObras;
 
-    return topFilteredObras.filter((obra) => {
-      if (activeSelectedTerritory.tipo === "bairro") {
-        return obra.bairro === activeSelectedTerritory.nome;
-      } else if (activeSelectedTerritory.tipo === "prefeitura_bairro") {
-        const pbObra = obra.prefeituraBairro || obra.prefeitura_bairro;
-        return pbObra === activeSelectedTerritory.nome;
-      }
-      return true;
-    });
+    return topFilteredObras.filter((obra) =>
+      obraMatchesTerritory(obra, activeSelectedTerritory)
+    );
   }, [topFilteredObras, activeSelectedTerritory]);
 
   // Recálculo dinâmico dos KPIs superiores sob filtros e métrica ativa
@@ -356,10 +352,12 @@ export const App: React.FC = () => {
     const situacoesInativas = new Set(["CONCLUÍDA", "CONCLUIDA", "CANCELADA", "RESCINDIDA"]);
 
     for (const o of filteredObras) {
-      const vl =
+      const share = getObraTerritoryShare(o, activeSelectedTerritory);
+      const vlBase =
         filters.metricType === "vigente"
           ? o.valorContratualVigente
           : (o.valorPago ?? o.valorContratualVigente);
+      const vl = vlBase * share.peso;
       valorTotalRecalc += vl;
 
       const sit = (o.situacao || "").toUpperCase();
@@ -372,7 +370,7 @@ export const App: React.FC = () => {
       }
 
       if (o.valorAditivos && o.valorAditivos > 0) {
-        aditivosValorRecalc += o.valorAditivos;
+        aditivosValorRecalc += o.valorAditivos * share.peso;
       }
       if (o.deltaPercentualValor !== undefined) {
         deltasPercentuais.push(o.deltaPercentualValor);
@@ -668,6 +666,7 @@ export const App: React.FC = () => {
               <WorksTable
                 obras={filteredObras}
                 metricType={filters.metricType}
+                selectedTerritory={activeSelectedTerritory}
                 onSelectObra={handleSelectObra}
               />
             </div>

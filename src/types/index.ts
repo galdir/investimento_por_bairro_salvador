@@ -131,6 +131,18 @@ export interface FrenteMedicao {
   justificativa?: string | null;
 }
 
+export interface CotaListaFechada {
+  bairro: string;
+  prefeituraBairro?: string | null;
+  unidades: number;
+  totalUnidades: number;
+  peso: number;
+  fracao: string;
+  latitude?: number | null;
+  longitude?: number | null;
+  descricaoUnidades?: string | null;
+}
+
 export interface ObraCompacta {
   id: number | string;
   unidadeGestora: string;
@@ -161,6 +173,7 @@ export interface ObraCompacta {
   longitude?: number | null;
   estagioAlocacao?: string | null;
   frentesMedicao?: FrenteMedicao[];
+  cotasListaFechada?: CotaListaFechada[];
 }
 
 export interface EmpreiteiraResumo {
@@ -253,6 +266,7 @@ export interface FontesOficiaisInfo {
     trechoComprobatorio?: string | null;
     documentoOrigem?: string | null;
     justificativa?: string | null;
+    cotasListaFechada?: CotaListaFechada[];
   };
 }
 
@@ -285,6 +299,7 @@ export interface FichaLimpaObra {
   estagioAlocacao?: string | null;
   fontesOficiais?: FontesOficiaisInfo;
   frentesMedicao?: FrenteMedicao[];
+  cotasListaFechada?: CotaListaFechada[];
 }
 
 export interface IndexData {

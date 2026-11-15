@@ -320,6 +320,8 @@ def generate_index_json(
         }
         if o.get("frentesMedicao"):
             item_compacto["frentesMedicao"] = o["frentesMedicao"]
+        if o.get("cotasListaFechada"):
+            item_compacto["cotasListaFechada"] = o["cotasListaFechada"]
         if o.get("lastroCuradoria"):
             item_compacto["lastroCuradoria"] = o["lastroCuradoria"]
         obras_compactas.append(item_compacto)

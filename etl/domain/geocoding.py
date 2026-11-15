@@ -1053,6 +1053,101 @@ def _carregar_curadoria_territorial() -> dict[str, dict[str, Any]]:
     return dados
 
 
+def _resolver_cotas_lista_fechada(
+    entrada: dict[str, Any],
+    bairros_nomes: list[str],
+    sublocalidades_norm: dict[str, str],
+    bairros_centroides: dict[str, tuple[float, float]],
+    bairros_centroides_norm: dict[str, tuple[float, float]],
+    bairro_para_pb: dict[str, str],
+    bairro_para_pb_norm: dict[str, str],
+) -> tuple[list[dict[str, Any]], bool] | None:
+    """Resolve e normaliza as cotas proporcionais de uma entrada de Curadoria lista_fechada."""
+    raw_cotas = entrada.get("cotas")
+    if not isinstance(raw_cotas, list) or not raw_cotas:
+        return None
+
+    agrupadas: dict[str, dict[str, Any]] = {}
+    for item in raw_cotas:
+        if not isinstance(item, dict):
+            return None
+        bairro_raw = str(item.get("bairro") or "").strip()
+        bairro_canonico = reconciliar_bairro_canonico(bairro_raw, bairros_nomes, sublocalidades_norm)
+        if not bairro_canonico:
+            return None
+
+        unidades_raw = item.get("unidades", 1)
+        try:
+            unidades_val = int(unidades_raw)
+        except (TypeError, ValueError):
+            return None
+        if unidades_val <= 0:
+            return None
+
+        b_norm = normalizar_nome(bairro_canonico)
+        pb_raw = (
+            item.get("prefeituraBairro")
+            or bairro_para_pb.get(bairro_canonico)
+            or bairro_para_pb_norm.get(b_norm)
+        )
+        pb_final = normalizar_nome_prefeitura_bairro(str(pb_raw)) if pb_raw else None
+
+        lat_raw = item.get("latitude")
+        lng_raw = item.get("longitude")
+        tem_coord_explicita = lat_raw is not None and lng_raw is not None
+        if tem_coord_explicita:
+            lat, lng = float(lat_raw), float(lng_raw)
+        else:
+            centroide = bairros_centroides.get(bairro_canonico) or bairros_centroides_norm.get(b_norm)
+            lat, lng = (centroide[0], centroide[1]) if centroide else (None, None)
+
+        desc = str(item.get("descricaoUnidades") or item.get("descricao") or "").strip()
+        existente = agrupadas.get(bairro_canonico)
+        if existente is None:
+            agrupadas[bairro_canonico] = {
+                "bairro": bairro_canonico,
+                "prefeituraBairro": pb_final,
+                "unidades": unidades_val,
+                "latitude": lat,
+                "longitude": lng,
+                "explicita": tem_coord_explicita,
+                "descricoes": [desc] if desc else [],
+            }
+        else:
+            existente["unidades"] += unidades_val
+            if tem_coord_explicita and not existente["explicita"]:
+                existente["latitude"] = lat
+                existente["longitude"] = lng
+                existente["explicita"] = True
+            if desc and desc not in existente["descricoes"]:
+                existente["descricoes"].append(desc)
+
+    lista_agrupada = list(agrupadas.values())
+    total_unidades = sum(c["unidades"] for c in lista_agrupada)
+    if total_unidades < 2 or total_unidades > 8:
+        return None
+
+    cotas: list[dict[str, Any]] = []
+    for item in lista_agrupada:
+        n_b = item["unidades"]
+        cota: dict[str, Any] = {
+            "bairro": item["bairro"],
+            "prefeituraBairro": item["prefeituraBairro"],
+            "unidades": n_b,
+            "totalUnidades": total_unidades,
+            "peso": n_b / total_unidades,
+            "fracao": f"{n_b}/{total_unidades}",
+            "latitude": item["latitude"],
+            "longitude": item["longitude"],
+        }
+        if item["descricoes"]:
+            cota["descricaoUnidades"] = "; ".join(item["descricoes"])
+        cotas.append(cota)
+
+    todas_explicitas = all(c["explicita"] for c in lista_agrupada)
+    return cotas, todas_explicitas
+
+
 def _aplicar_curadoria_territorial(
     cd_ug: Any,
     nu_contrato: Any,
@@ -1091,6 +1186,36 @@ def _aplicar_curadoria_territorial(
             "longitude": None,
             "estagio": estagio,
             "lastro_curadoria": lastro,
+        }
+
+    if status == "lista_fechada":
+        resolvido = _resolver_cotas_lista_fechada(
+            entrada=entrada,
+            bairros_nomes=bairros_nomes,
+            sublocalidades_norm=sublocalidades_norm,
+            bairros_centroides=bairros_centroides,
+            bairros_centroides_norm=bairros_centroides_norm,
+            bairro_para_pb=bairro_para_pb,
+            bairro_para_pb_norm=bairro_para_pb_norm,
+        )
+        if resolvido is None:
+            return None
+        cotas, todas_explicitas = resolvido
+        cota_principal = max(cotas, key=lambda c: c["unidades"])
+        nivel_entrada = str(entrada.get("nivel") or "").strip()
+        if nivel_entrada in ("Pontual", "Bairro"):
+            nivel_final = nivel_entrada
+        else:
+            nivel_final = "Pontual" if todas_explicitas else "Bairro"
+        return {
+            "nivel": nivel_final,
+            "bairro": cota_principal["bairro"],
+            "prefeitura_bairro": cota_principal["prefeituraBairro"],
+            "latitude": cota_principal["latitude"],
+            "longitude": cota_principal["longitude"],
+            "estagio": "Curadoria Territorial Auditável (Lista Fechada)",
+            "lastro_curadoria": lastro,
+            "cotas_lista_fechada": cotas,
         }
 
     if status != "promovido":

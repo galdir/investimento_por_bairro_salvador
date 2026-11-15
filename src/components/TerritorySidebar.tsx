@@ -1,7 +1,11 @@
 import React from "react";
 import { MetricType, ObraCompacta, TerritorySelection } from "../types";
 import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
-import { filterFrentesByTerritory, isCentralidadeMetropolitana } from "../utils/territory";
+import {
+  filterFrentesByTerritory,
+  getObraTerritoryShare,
+  isCentralidadeMetropolitana,
+} from "../utils/territory";
 
 interface TerritorySidebarProps {
   /**
@@ -109,6 +113,21 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   const obrasVermelho = territorio.obrasVermelho ?? 0;
 
   const frentesNoTerritorio = filterFrentesByTerritory(obras, territorio);
+  const cotasNoTerritorio = obras
+    .map((obra) => {
+      const share = getObraTerritoryShare(obra, territorio);
+      if (!share.isCotaParte || !share.matched) return null;
+      const valorBase = isExecutado
+        ? (obra.valorPago ?? obra.valorContratualVigente ?? 0)
+        : (obra.valorContratualVigente ?? 0);
+      return {
+        obra,
+        share,
+        valorProporcional: valorBase * share.peso,
+        valorIntegral: valorBase,
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const totalFrentes = territorio.totalFrentesMedicao ?? frentesNoTerritorio.length;
   const valorPagoDireto = territorio.valorPagoDireto ?? territorio.valorPago ?? 0;
@@ -323,6 +342,91 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
               ))}
             </div>
           )}
+        </div>
+      )}
+
+      {cotasNoTerritorio.length > 0 && (
+        <div
+          data-testid="secao-cotas-lista-fechada"
+          className="mt-4 bg-amber-50/70 p-3.5 rounded-xl border border-amber-200 space-y-2.5"
+        >
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-xs font-semibold text-amber-950">
+              Rateio por Cota-Parte (Lista Fechada)
+            </span>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900">
+              {cotasNoTerritorio.length} {cotasNoTerritorio.length === 1 ? "contrato" : "contratos"}
+            </span>
+          </div>
+
+          <p className="text-[10px] text-amber-900 leading-relaxed">
+            Contratos com lista fechada distribuídos proporcionalmente às unidades/equipamentos deste território (peso n/M), sem duplicação global.
+          </p>
+
+          <div className="space-y-2 max-h-60 overflow-y-auto pr-0.5">
+            {cotasNoTerritorio.map(({ obra, share, valorProporcional, valorIntegral }) => (
+              <div
+                key={obra.id}
+                data-testid={`raiox-cota-item-${obra.id}`}
+                className="bg-white border border-amber-200/80 rounded-lg p-2.5 text-[11px] space-y-1.5"
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-semibold text-slate-800">
+                    {obra.unidadeGestora} · {obra.numeroContrato || "S/N"}
+                  </span>
+                  <span
+                    data-testid={`badge-cota-parte-${obra.id}`}
+                    className="font-semibold text-[10px] text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300 shrink-0"
+                  >
+                    Cota-Parte ({share.fracao})
+                  </span>
+                </div>
+
+                <p className="text-[11px] text-slate-700 line-clamp-2">{obra.objeto}</p>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-600">
+                  <span>
+                    Cota territorial:{" "}
+                    <strong className="text-slate-900">{formatCurrency(valorProporcional)}</strong>
+                  </span>
+                  <span className="text-[10px] text-slate-500">
+                    Total contrato: <strong className="text-slate-700">{formatCurrency(valorIntegral)}</strong>
+                  </span>
+                </div>
+
+                <div className="space-y-1">
+                  {share.cotas.map((cota) => (
+                    <div
+                      key={`${obra.id}-${cota.bairro}`}
+                      className="text-[10px] text-slate-600 bg-amber-50/60 border border-amber-200/70 rounded px-2 py-1"
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-semibold text-slate-800">{cota.bairro}</span>
+                        <span className="font-medium text-amber-900">
+                          {cota.fracao} · {formatCurrency(valorIntegral * cota.peso)}
+                        </span>
+                      </div>
+                      {cota.descricaoUnidades && (
+                        <p className="text-[10px] text-slate-500 mt-0.5">
+                          {cota.descricaoUnidades}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {onSelectObra && (
+                  <button
+                    type="button"
+                    onClick={() => onSelectObra(obra)}
+                    className="text-[10px] font-semibold text-amber-800 hover:text-amber-950 underline"
+                  >
+                    Ver Ficha Limpa da Obra
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 

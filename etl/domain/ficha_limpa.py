@@ -67,6 +67,7 @@ def _construir_fontes_oficiais(
     prefeitura_bairro: Any,
     estagio_alocacao: Any,
     lastro_curadoria: dict[str, Any] | None = None,
+    cotas_lista_fechada: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Constrói o bloco estruturado de Fontes Oficiais & Lastro Territorial da Ficha Limpa."""
     cd_ug_txt = _texto_limpo(cd_ug)
@@ -109,6 +110,8 @@ def _construir_fontes_oficiais(
             lastro_territorial["documentoOrigem"] = doc_origem
         if justificativa:
             lastro_territorial["justificativa"] = justificativa
+    if isinstance(cotas_lista_fechada, list) and cotas_lista_fechada:
+        lastro_territorial["cotasListaFechada"] = cotas_lista_fechada
 
     return {
         "portalTransparencia": {
@@ -194,6 +197,7 @@ def _montar_ficha_base(
     estagio_alocacao: Any,
     concentracao_map: dict[str, dict[str, Any]] | None,
     lastro_curadoria: dict[str, Any] | None = None,
+    cotas_lista_fechada: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Monta o dicionário estruturado da Ficha Limpa e aplica o resumo da empreiteira."""
     ficha: dict[str, Any] = {
@@ -243,8 +247,11 @@ def _montar_ficha_base(
             prefeitura_bairro=prefeitura_bairro,
             estagio_alocacao=estagio_alocacao,
             lastro_curadoria=lastro_curadoria,
+            cotas_lista_fechada=cotas_lista_fechada,
         ),
     }
+    if isinstance(cotas_lista_fechada, list) and cotas_lista_fechada:
+        ficha["cotasListaFechada"] = cotas_lista_fechada
     if cd_ug is not None:
         ficha["cdUnidadeGestora"] = cd_ug
 
@@ -457,6 +464,7 @@ def construir_ficha_obra(
         estagio_alocacao=obra.get("estagioAlocacao"),
         concentracao_map=concentracao_map,
         lastro_curadoria=obra.get("lastroCuradoria"),
+        cotas_lista_fechada=obra.get("cotasListaFechada"),
     )
 
 
@@ -832,6 +840,7 @@ def mesclar_fichas_obra(
         estagio_alocacao=estagio_final,
         concentracao_map=concentracao_map,
         lastro_curadoria=obra.get("lastroCuradoria"),
+        cotas_lista_fechada=obra.get("cotasListaFechada"),
     )
 
 
@@ -878,3 +887,7 @@ def sincronizar_obra_com_ficha(obra: dict[str, Any], ficha: dict[str, Any]) -> N
         obra["frentesMedicao"] = ficha["frentesMedicao"]
     elif "frentesMedicao" in obra:
         obra["frentesMedicao"] = []
+    if ficha.get("cotasListaFechada"):
+        obra["cotasListaFechada"] = ficha["cotasListaFechada"]
+    else:
+        obra.pop("cotasListaFechada", None)

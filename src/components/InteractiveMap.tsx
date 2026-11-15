@@ -13,10 +13,64 @@ import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters
 import {
   createBairroSelection,
   createPrefeituraSelection,
+  getObraTerritoryShare,
   isCentralidadeMetropolitana,
   isZonaEspecial,
   normalizeName,
 } from "../utils/territory";
+
+interface MapPinEntry {
+  key: string;
+  obra: ObraCompacta;
+  latitude: number;
+  longitude: number;
+  isPrimaryPin: boolean;
+  fracao?: string;
+  bairroLabel?: string | null;
+}
+
+/**
+ * Converte contratos (incluindo múltiplas cotas de Lista Fechada) em entradas de pinos para o mapa.
+ */
+function buildMapPinEntries(
+  obras: ObraCompacta[],
+  selectedTerritory: TerritorySelection | null
+): MapPinEntry[] {
+  const entries: MapPinEntry[] = [];
+  for (const obra of obras) {
+    const share = getObraTerritoryShare(obra, selectedTerritory);
+    if (share.isCotaParte && share.cotas.length > 0) {
+      const cotasComCoord = share.cotas.filter(
+        (c) => Boolean(c.latitude) && Boolean(c.longitude)
+      );
+      if (cotasComCoord.length > 0) {
+        cotasComCoord.forEach((cota, idx) => {
+          entries.push({
+            key: `${obra.id}-cota-${idx}`,
+            obra,
+            latitude: cota.latitude!,
+            longitude: cota.longitude!,
+            isPrimaryPin: idx === 0,
+            fracao: cota.fracao,
+            bairroLabel: cota.bairro,
+          });
+        });
+        continue;
+      }
+    }
+    if (obra.latitude && obra.longitude) {
+      entries.push({
+        key: String(obra.id),
+        obra,
+        latitude: obra.latitude,
+        longitude: obra.longitude,
+        isPrimaryPin: true,
+        bairroLabel: obra.bairro,
+      });
+    }
+  }
+  return entries;
+}
 
 export const SALVADOR_CENTER: L.LatLngTuple = [-12.88, -38.48];
 export const SALVADOR_DEFAULT_ZOOM = 11;
@@ -175,6 +229,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
   const [showPins, setShowPins] = useState<boolean>(true);
   const [territorySearch, setTerritorySearch] = useState<string>("");
+
+  const mapPinEntries = useMemo(
+    () => buildMapPinEntries(obras, selectedTerritory),
+    [obras, selectedTerritory]
+  );
 
   // Inicialização do Leaflet centrada em Salvador
   useEffect(() => {
@@ -491,23 +550,22 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     try {
       const markersGroup = L.layerGroup();
 
-      // Agrupa obras com coordenadas idênticas para aplicar dispersão radial
-      const obrasPorCoord: Record<string, ObraCompacta[]> = {};
-      for (const obra of obras) {
-        if (obra.latitude && obra.longitude) {
-          const coordKey = `${obra.latitude.toFixed(4)}_${obra.longitude.toFixed(4)}`;
-          if (!obrasPorCoord[coordKey]) obrasPorCoord[coordKey] = [];
-          obrasPorCoord[coordKey].push(obra);
-        }
+      // Agrupa pinos com coordenadas idênticas para aplicar dispersão radial
+      const entriesPorCoord: Record<string, MapPinEntry[]> = {};
+      for (const entry of mapPinEntries) {
+        const coordKey = `${entry.latitude.toFixed(4)}_${entry.longitude.toFixed(4)}`;
+        if (!entriesPorCoord[coordKey]) entriesPorCoord[coordKey] = [];
+        entriesPorCoord[coordKey].push(entry);
       }
 
-      for (const coordGroup of Object.values(obrasPorCoord)) {
+      for (const coordGroup of Object.values(entriesPorCoord)) {
         const total = coordGroup.length;
-        coordGroup.forEach((obra, idx) => {
-          let lat = obra.latitude!;
-          let lon = obra.longitude!;
+        coordGroup.forEach((entry, idx) => {
+          const { obra } = entry;
+          let lat = entry.latitude;
+          let lon = entry.longitude;
 
-          // Se houver mais de uma obra no mesmo ponto exato/centróide, aplica dispersão circular
+          // Se houver mais de um pino no mesmo ponto exato/centróide, aplica dispersão circular
           if (total > 1) {
             const angulo = (idx * (2 * Math.PI)) / total;
             const raio = 0.0015; // Aproximadamente 150m de dispersão visual
@@ -532,6 +590,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               <strong style="color: #0f172a;">${obra.objeto}</strong><br/>
               <span style="color: #64748b;">${obra.unidadeGestora} • ${formatCurrency(obra.valorContratualVigente)}</span><br/>
               <span style="font-weight: 600; color: ${corPino};">Semáforo: ${obra.semaforo?.rotulo || status}</span>
+              ${entry.fracao ? `<br/><span style="color: #0f766e; font-size: 10px; font-weight: 600;">Cota-Parte (${entry.fracao})${entry.bairroLabel ? ` • ${entry.bairroLabel}` : ""}</span>` : ""}
               ${obra.nivel ? `<br/><span style="color: #475569; font-size: 10px;">Nível: ${obra.nivel}</span>` : ""}
             </div>
           `;
@@ -548,7 +607,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       markersGroup.addTo(map);
       markersLayerRef.current = markersGroup;
     } catch { }
-  }, [obras, showPins, onSelectObra]);
+  }, [mapPinEntries, showPins, onSelectObra]);
 
   const handleRecenter = () => {
     recenterMap(leafletMapRef.current);
@@ -675,7 +734,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               }`}
           >
             <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            Pinos de Obras ({obras.filter((o) => o.latitude && o.longitude).length})
+            Pinos de Obras ({mapPinEntries.length})
           </button>
 
           {/* Botão de Recentralizar */}
@@ -742,18 +801,21 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           {/* Atalhos acessíveis dos pinos de obras no mapa */}
           {showPins && (
             <div className="sr-only" aria-label="Obras georreferenciadas no mapa">
-              {obras
-                .filter((o) => o.latitude && o.longitude)
-                .map((o) => (
-                  <button
-                    key={o.id}
-                    type="button"
-                    data-testid={`map-pin-obra-${o.id}`}
-                    onClick={() => onSelectObra && onSelectObra(o)}
-                  >
-                    Abrir Ficha Limpa da Obra: {o.objeto}
-                  </button>
-                ))}
+              {mapPinEntries.map((entry) => (
+                <button
+                  key={entry.key}
+                  type="button"
+                  data-testid={
+                    entry.isPrimaryPin
+                      ? `map-pin-obra-${entry.obra.id}`
+                      : `map-pin-obra-${entry.obra.id}-extra-${entry.key}`
+                  }
+                  onClick={() => onSelectObra && onSelectObra(entry.obra)}
+                >
+                  Abrir Ficha Limpa da Obra: {entry.obra.objeto}
+                  {entry.fracao ? ` (Cota-Parte ${entry.fracao}${entry.bairroLabel ? ` - ${entry.bairroLabel}` : ""})` : ""}
+                </button>
+              ))}
             </div>
           )}
         </div>

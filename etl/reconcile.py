@@ -381,6 +381,11 @@ def reconciliar_acervo_local(
             obra["lastroCuradoria"] = lastro_curadoria
         else:
             obra.pop("lastroCuradoria", None)
+        cotas_lista = resultado_alocacao.get("cotas_lista_fechada")
+        if cotas_lista:
+            obra["cotasListaFechada"] = cotas_lista
+        else:
+            obra.pop("cotasListaFechada", None)
     cache_geocodificacao.save()
 
     fichas_consolidadas: dict[str, dict[str, Any]] = {}

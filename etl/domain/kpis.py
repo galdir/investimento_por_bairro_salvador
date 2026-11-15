@@ -8,7 +8,7 @@ investimento por habitante em âmbito municipal e transparência opaca (Escopo C
 from typing import Any, Optional
 from etl.domain.empreiteiras import SITUACOES_INATIVAS
 from etl.domain.semaforo import classificar_semaforo
-from etl.domain.territorio import parse_float
+from etl.domain.territorio import extrair_status_semaforo, parse_float
 
 
 def calcular_kpis_globais(
@@ -146,7 +146,7 @@ def calcular_kpis_globais(
         if not semaforo:
             semaforo = classificar_semaforo(obra)
 
-        if semaforo.get("status") == "VERMELHO":
+        if extrair_status_semaforo(semaforo) == "VERMELHO":
             obras_criticas_count += 1
 
         # Aditivos de valor

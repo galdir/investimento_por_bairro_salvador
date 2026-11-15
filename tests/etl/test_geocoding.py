@@ -1282,4 +1282,207 @@ def test_sublocalidades_expandidas_recuperam_logradouros_de_bairro_unico(
     assert resultado["estagio"] == "Stage 1 (Bairro / Sublocalidade)"
 
 
+def test_curadoria_lista_fechada_gera_cotas_pesos_fracoes_e_cota_majoritaria_na_raiz(
+    sample_centroides, sample_cache
+) -> None:
+    """Seam 1: status lista_fechada gera cotasListaFechada proporcionais e promove cota majoritária na raiz."""
+    obra = {
+        "id": 9401,
+        "cdUnidadeGestora": "610002",
+        "nuContratoSigef": "2025LF0001",
+        "dsObjeto": "Reforma dos equipamentos sociais de Brotas e de Paripe (2 unidades em Paripe)",
+    }
+    curadoria = {
+        "610002:2025LF0001": {
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2025LF0001",
+            "status": "lista_fechada",
+            "cotas": [
+                {
+                    "bairro": "Brotas",
+                    "unidades": 1,
+                    "descricaoUnidades": "CREAS Brotas",
+                },
+                {
+                    "bairro": "Paripe",
+                    "unidades": 2,
+                    "descricaoUnidades": "CREAS Paripe I e II",
+                },
+            ],
+            "trechoComprobatorio": "Atendimento exclusivo em Brotas (1 unidade) e Paripe (2 unidades).",
+            "documentoOrigem": "dsObjeto / Termo de Referência",
+            "justificativa": "Lista fechada contratual com 3 equipamentos explicitados em 2 bairros.",
+        }
+    }
+
+    with patch("urllib.request.urlopen", side_effect=AssertionError("Não deve consultar Nominatim")):
+        resultado = classificar_alocacao_territorial(
+            obra=obra,
+            bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+            bairros_centroides=sample_centroides,
+            cache=sample_cache,
+            curadoria=curadoria,
+        )
+
+    assert resultado["nivel"] == "Bairro"
+    assert resultado["estagio"] == "Curadoria Territorial Auditável (Lista Fechada)"
+    # Cota majoritária (Paripe: 2/3) preenche campos escalares na raiz
+    assert resultado["bairro"] == "Paripe"
+    assert resultado["prefeitura_bairro"] == "Subúrbio/Ilhas"
+    assert resultado["latitude"] == sample_centroides["Paripe"][0]
+    assert resultado["longitude"] == sample_centroides["Paripe"][1]
+    assert resultado["lastro_curadoria"]["documentoOrigem"] == "dsObjeto / Termo de Referência"
+
+    cotas = resultado["cotas_lista_fechada"]
+    assert len(cotas) == 2
+    assert sum(c["peso"] for c in cotas) == pytest.approx(1.0)
+    assert cotas[0]["bairro"] == "Brotas"
+    assert cotas[0]["prefeituraBairro"] == "Centro/Brotas"
+    assert cotas[0]["unidades"] == 1
+    assert cotas[0]["totalUnidades"] == 3
+    assert cotas[0]["fracao"] == "1/3"
+    assert cotas[0]["peso"] == pytest.approx(1 / 3)
+    assert cotas[0]["descricaoUnidades"] == "CREAS Brotas"
+    assert cotas[0]["latitude"] == sample_centroides["Brotas"][0]
+    assert cotas[0]["longitude"] == sample_centroides["Brotas"][1]
+
+    assert cotas[1]["bairro"] == "Paripe"
+    assert cotas[1]["prefeituraBairro"] == "Subúrbio/Ilhas"
+    assert cotas[1]["unidades"] == 2
+    assert cotas[1]["totalUnidades"] == 3
+    assert cotas[1]["fracao"] == "2/3"
+    assert cotas[1]["peso"] == pytest.approx(2 / 3)
+
+
+def test_curadoria_lista_fechada_com_coordenadas_pontuais_e_empate_usa_pontual_e_primeiro(
+    sample_centroides, sample_cache
+) -> None:
+    """Seam 1: lista_fechada com coordenadas explícitas promove nível Pontual e usa primeira cota em empate."""
+    obra = {
+        "id": 9402,
+        "cdUnidadeGestora": "301110",
+        "nuContratoSigef": "2025LF0002",
+        "dsObjeto": "Reforma das USFs Pituba e Amaralina",
+    }
+    curadoria = {
+        "301110:2025LF0002": {
+            "cdUnidadeGestora": "301110",
+            "nuContratoSigef": "2025LF0002",
+            "status": "lista_fechada",
+            "cotas": [
+                {
+                    "bairro": "Pituba",
+                    "unidades": 1,
+                    "latitude": -12.999,
+                    "longitude": -38.458,
+                    "descricaoUnidades": "USF Pituba",
+                },
+                {
+                    "bairro": "Amaralina",
+                    "unidades": 1,
+                    "latitude": -13.008,
+                    "longitude": -38.472,
+                    "descricaoUnidades": "USF Amaralina",
+                },
+            ],
+            "trechoComprobatorio": "USF Pituba e USF Amaralina",
+            "documentoOrigem": "dsObjeto",
+            "justificativa": "Duas unidades específicas com coordenadas exatas.",
+        }
+    }
+
+    resultado = classificar_alocacao_territorial(
+        obra=obra,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+        curadoria=curadoria,
+    )
+
+    assert resultado["nivel"] == "Pontual"
+    assert resultado["estagio"] == "Curadoria Territorial Auditável (Lista Fechada)"
+    assert resultado["bairro"] == "Pituba"
+    assert resultado["prefeitura_bairro"] == "Barra/Pituba"
+    assert resultado["latitude"] == pytest.approx(-12.999)
+    assert resultado["longitude"] == pytest.approx(-38.458)
+    assert [c["fracao"] for c in resultado["cotas_lista_fechada"]] == ["1/2", "1/2"]
+
+
+def test_curadoria_lista_fechada_rejeita_acima_de_8_e_bairro_invalido_e_exige_coords_completas_para_pontual(
+    sample_centroides, sample_cache
+) -> None:
+    """Seam 1: respeita limite 2 <= M <= 8, valida Bairro Oficial e só promove Pontual com todas coords explícitas."""
+    obra_m9 = {
+        "id": 9403,
+        "cdUnidadeGestora": "301110",
+        "nuContratoSigef": "2025LF0009",
+        "dsObjeto": "Contrato genérico com 9 unidades",
+    }
+    obra_invalido = {
+        "id": 9404,
+        "cdUnidadeGestora": "301110",
+        "nuContratoSigef": "2025LF0004",
+        "dsObjeto": "Contrato com bairro inexistente",
+    }
+    obra_misto = {
+        "id": 9405,
+        "cdUnidadeGestora": "301110",
+        "nuContratoSigef": "2025LF0005",
+        "dsObjeto": "Reforma parcial sem todas coordenadas explícitas",
+    }
+    curadoria = {
+        "301110:2025LF0009": {
+            "status": "lista_fechada",
+            "cotas": [
+                {"bairro": "Pituba", "unidades": 5},
+                {"bairro": "Brotas", "unidades": 4},
+            ],
+        },
+        "301110:2025LF0004": {
+            "status": "lista_fechada",
+            "cotas": [
+                {"bairro": "Pituba", "unidades": 1},
+                {"bairro": "Bairro Inexistente XYZ", "unidades": 1},
+            ],
+        },
+        "301110:2025LF0005": {
+            "status": "lista_fechada",
+            "cotas": [
+                {"bairro": "Pituba", "unidades": 2, "latitude": -12.999, "longitude": -38.458},
+                {"bairro": "Brotas", "unidades": 1},
+            ],
+        },
+    }
+
+    res_m9 = classificar_alocacao_territorial(
+        obra=obra_m9,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+        curadoria=curadoria,
+    )
+    assert res_m9.get("cotas_lista_fechada") is None
+    assert res_m9["estagio"] != "Curadoria Territorial Auditável (Lista Fechada)"
+
+    res_inv = classificar_alocacao_territorial(
+        obra=obra_invalido,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+        curadoria=curadoria,
+    )
+    assert res_inv.get("cotas_lista_fechada") is None
+
+    res_misto = classificar_alocacao_territorial(
+        obra=obra_misto,
+        bairros_geojson=SAMPLE_GEOSALVADOR_BAIRROS,
+        bairros_centroides=sample_centroides,
+        cache=sample_cache,
+        curadoria=curadoria,
+    )
+    assert res_misto["estagio"] == "Curadoria Territorial Auditável (Lista Fechada)"
+    assert res_misto["nivel"] == "Bairro"
+
+
+
 

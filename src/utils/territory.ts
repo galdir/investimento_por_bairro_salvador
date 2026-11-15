@@ -1,4 +1,135 @@
-import { BairroResumo, FrenteMedicao, ObraCompacta, PrefeituraBairroResumo, TerritorySelection } from "../types";
+import {
+  BairroResumo,
+  CotaListaFechada,
+  FrenteMedicao,
+  ObraCompacta,
+  PrefeituraBairroResumo,
+  TerritorySelection,
+} from "../types";
+
+export interface ObraTerritoryShare {
+  isCotaParte: boolean;
+  matched: boolean;
+  peso: number;
+  unidades?: number;
+  totalUnidades?: number;
+  fracao?: string;
+  cotas: CotaListaFechada[];
+}
+
+/**
+ * Extrai as cotas de Lista Fechada válidas de um contrato, respeitando a precedência
+ * contábil de Frentes de Medição quando existirem (ADR-0006).
+ */
+export function getObraCotasListaFechada(obra: {
+  cotasListaFechada?: CotaListaFechada[];
+  frentesMedicao?: FrenteMedicao[];
+  fontesOficiais?: { lastroTerritorial?: { cotasListaFechada?: CotaListaFechada[] } };
+} | null | undefined): CotaListaFechada[] {
+  if (!obra) return [];
+  const temFrentes = (obra.frentesMedicao || []).some(
+    (f) =>
+      ((f.nivel === "Pontual" || f.nivel === "Bairro") && Boolean(f.bairro)) ||
+      (f.nivel === "Regional (Prefeitura-Bairro)" && Boolean(f.prefeituraBairro))
+  );
+  if (temFrentes) return [];
+  const rawCotas =
+    obra.cotasListaFechada || obra.fontesOficiais?.lastroTerritorial?.cotasListaFechada || [];
+  return rawCotas.filter(
+    (c): c is CotaListaFechada => Boolean(c?.bairro) && Number(c?.peso ?? 0) > 0
+  );
+}
+
+/**
+ * Extrai a participação (peso, fração n/M e cotas) de um contrato no território selecionado.
+ */
+export function getObraTerritoryShare(
+  obra: ObraCompacta,
+  territorio: Pick<TerritorySelection, "tipo" | "nome"> | null | undefined
+): ObraTerritoryShare {
+  const cotas = getObraCotasListaFechada(obra);
+
+  if (cotas.length > 0) {
+    const totalUnidades =
+      cotas[0].totalUnidades || cotas.reduce((acc, c) => acc + (c.unidades || 0), 0);
+
+    if (!territorio) {
+      return {
+        isCotaParte: true,
+        matched: true,
+        peso: 1,
+        unidades: totalUnidades,
+        totalUnidades,
+        cotas,
+      };
+    }
+
+    const targetKey = normalizeName(territorio.nome);
+    const matching = cotas.filter((c) => {
+      if (territorio.tipo === "bairro") {
+        return normalizeName(c.bairro) === targetKey;
+      }
+      return normalizeName(c.prefeituraBairro) === targetKey;
+    });
+
+    if (matching.length === 0) {
+      return {
+        isCotaParte: true,
+        matched: false,
+        peso: 0,
+        totalUnidades,
+        cotas: [],
+      };
+    }
+
+    const peso = matching.reduce((acc, c) => acc + Number(c.peso ?? 0), 0);
+    const unidades = matching.reduce((acc, c) => acc + Number(c.unidades ?? 0), 0);
+    const fracao =
+      matching.length === 1 && matching[0].fracao
+        ? matching[0].fracao
+        : `${unidades}/${totalUnidades}`;
+
+    return {
+      isCotaParte: true,
+      matched: true,
+      peso,
+      unidades,
+      totalUnidades,
+      fracao,
+      cotas: matching,
+    };
+  }
+
+  if (!territorio) {
+    return { isCotaParte: false, matched: true, peso: 1, cotas: [] };
+  }
+
+  const targetKey = normalizeName(territorio.nome);
+  const matched =
+    territorio.tipo === "bairro"
+      ? Boolean(obra.bairro && normalizeName(obra.bairro) === targetKey)
+      : Boolean(
+          (obra.prefeituraBairro || obra.prefeitura_bairro) &&
+            normalizeName(obra.prefeituraBairro || obra.prefeitura_bairro) === targetKey
+        );
+
+  return {
+    isCotaParte: false,
+    matched,
+    peso: matched ? 1 : 0,
+    cotas: [],
+  };
+}
+
+/**
+ * Verifica se um contrato pertence ao território selecionado (direto ou via Cota-Parte).
+ */
+export function obraMatchesTerritory(
+  obra: ObraCompacta,
+  territorio: Pick<TerritorySelection, "tipo" | "nome"> | null | undefined
+): boolean {
+  return getObraTerritoryShare(obra, territorio).matched;
+}
 
 /**
  * Normaliza um nome textual para correspondência insensível a acentuação e caixa.
@@ -51,34 +182,84 @@ export function isCentralidadeMetropolitana(
   return normalizeName(bairro.nome) === "COMERCIO";
 }
 
+interface WeightedObra {
+  obra: ObraCompacta;
+  peso: number;
+}
+
 interface ObrasAggregatedMetrics {
   valorTotal: number;
   valorPago: number;
+  totalObras: number;
   obrasVerde: number;
   obrasAmarelo: number;
   obrasVermelho: number;
 }
 
 /**
- * Agrega financeiramente e em contagens por semáforo uma lista de obras públicas.
+ * Retorna a chave canônica do contrato (UG + contrato SIGEF) com fallback para id.
  */
-function aggregateObrasMetrics(obras: ObraCompacta[]): ObrasAggregatedMetrics {
-  let valorTotal = 0;
-  let valorPago = 0;
+function getObraCanonicalKey(obra: ObraCompacta): string {
+  const ug = obra.unidadeGestora;
+  const contrato = obra.numeroContrato;
+  if (ug && contrato && ug.trim() && contrato.trim()) {
+    return `canon:${ug.trim()}::${contrato.trim()}`;
+  }
+  return `id:${String(obra.id)}`;
+}
+
+/**
+ * Conta obras únicas (deduplicadas pela chave canônica) e distribui os status do Semáforo da Obra.
+ */
+function countUniqueObrasSemaforos(obras: ObraCompacta[]): {
+  totalObras: number;
+  obrasVerde: number;
+  obrasAmarelo: number;
+  obrasVermelho: number;
+} {
+  const unicas = new Map<string, ObraCompacta>();
+  for (const obra of obras) {
+    const key = getObraCanonicalKey(obra);
+    if (!unicas.has(key)) {
+      unicas.set(key, obra);
+    }
+  }
+
   let obrasVerde = 0;
   let obrasAmarelo = 0;
   let obrasVermelho = 0;
 
-  for (const obra of obras) {
-    valorTotal += obra.valorContratualVigente ?? 0;
-    valorPago += obra.valorPago ?? 0;
+  for (const obra of unicas.values()) {
     const status = obra.semaforo?.status;
     if (status === "VERDE") obrasVerde++;
     else if (status === "AMARELO") obrasAmarelo++;
     else if (status === "VERMELHO") obrasVermelho++;
   }
 
-  return { valorTotal, valorPago, obrasVerde, obrasAmarelo, obrasVermelho };
+  return { totalObras: unicas.size, obrasVerde, obrasAmarelo, obrasVermelho };
+}
+
+/**
+ * Agrega valores financeiros ponderados (ou integrais) e contagem deduplicada de obras.
+ */
+function aggregateWeightedObras(entries: WeightedObra[]): ObrasAggregatedMetrics {
+  let valorTotal = 0;
+  let valorPago = 0;
+
+  for (const { obra, peso } of entries) {
+    valorTotal += (obra.valorContratualVigente ?? 0) * peso;
+    valorPago += (obra.valorPago ?? 0) * peso;
+  }
+
+  const contagem = countUniqueObrasSemaforos(entries.map((entry) => entry.obra));
+  return { valorTotal, valorPago, ...contagem };
+}
+
+/**
+ * Agrega financeiramente e em contagens por semáforo uma lista de obras públicas.
+ */
+function aggregateObrasMetrics(obras: ObraCompacta[]): ObrasAggregatedMetrics {
+  return aggregateWeightedObras(obras.map((obra) => ({ obra, peso: 1 })));
 }
 
 /**
@@ -232,7 +413,7 @@ export function calculateTerritorialRollup(
   prefeituras: PrefeituraBairroResumo[];
 } {
   // 1. Agrupadores de obras e frentes de medição por bairro e por prefeitura-bairro
-  const obrasPorBairro = new Map<string, ObraCompacta[]>();
+  const obrasPorBairro = new Map<string, WeightedObra[]>();
   const obrasRegionaisPorPrefeitura = new Map<string, ObraCompacta[]>();
   const frentesPorBairro = new Map<string, FrenteMedicao[]>();
   const frentesRegionaisPorPrefeitura = new Map<string, FrenteMedicao[]>();
@@ -241,11 +422,19 @@ export function calculateTerritorialRollup(
     const nivel = obra.nivel || "Escopo Cidade (Não-Localizado)";
     const bairroNome = obra.bairro;
     const prefeituraNome = obra.prefeituraBairro || obra.prefeitura_bairro;
+    const cotasValidas = getObraCotasListaFechada(obra);
 
-    if ((nivel === "Pontual" || nivel === "Bairro") && bairroNome) {
+    if (cotasValidas.length > 0) {
+      for (const cota of cotasValidas) {
+        const bairroKey = normalizeName(cota.bairro);
+        const list = obrasPorBairro.get(bairroKey) || [];
+        list.push({ obra, peso: Number(cota.peso) });
+        obrasPorBairro.set(bairroKey, list);
+      }
+    } else if ((nivel === "Pontual" || nivel === "Bairro") && bairroNome) {
       const bairroKey = normalizeName(bairroNome);
       const list = obrasPorBairro.get(bairroKey) || [];
-      list.push(obra);
+      list.push({ obra, peso: 1 });
       obrasPorBairro.set(bairroKey, list);
     } else if (nivel === "Regional (Prefeitura-Bairro)" && prefeituraNome) {
       const prefeituraKey = normalizeName(prefeituraNome);
@@ -275,7 +464,7 @@ export function calculateTerritorialRollup(
     const bairroKey = normalizeName(bairro.nome);
     const obrasDoBairro = obrasPorBairro.get(bairroKey) || [];
     const frentesDoBairro = frentesPorBairro.get(bairroKey) || [];
-    const metrics = aggregateObrasMetrics(obrasDoBairro);
+    const metrics = aggregateWeightedObras(obrasDoBairro);
 
     const { valorLiquidado: valorLiquidadoFrentes, valorPago: valorPagoFrentes } =
       sumFrentesMetrics(frentesDoBairro);
@@ -302,7 +491,7 @@ export function calculateTerritorialRollup(
       valorLiquidadoFrentes: Math.round((valorLiquidadoFrentes + Number.EPSILON) * 100) / 100,
       valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
       totalFrentesMedicao: frentesDoBairro.length,
-      totalObras: obrasDoBairro.length,
+      totalObras: metrics.totalObras,
       obrasVerde: metrics.obrasVerde,
       obrasAmarelo: metrics.obrasAmarelo,
       obrasVermelho: metrics.obrasVermelho,
@@ -338,10 +527,6 @@ export function calculateTerritorialRollup(
     let valorLiquidadoFrentesBairros = 0;
     let valorPagoFrentesBairros = 0;
     let totalFrentesBairros = 0;
-    let totalObrasBairros = 0;
-    let obrasVerdeBairros = 0;
-    let obrasAmareloBairros = 0;
-    let obrasVermelhoBairros = 0;
 
     for (const bairro of bairrosFilhos) {
       valorTotalBairros += bairro.valorTotal ?? 0;
@@ -349,11 +534,15 @@ export function calculateTerritorialRollup(
       valorLiquidadoFrentesBairros += bairro.valorLiquidadoFrentes ?? 0;
       valorPagoFrentesBairros += bairro.valorPagoFrentes ?? 0;
       totalFrentesBairros += bairro.totalFrentesMedicao ?? 0;
-      totalObrasBairros += bairro.totalObras ?? 0;
-      obrasVerdeBairros += bairro.obrasVerde ?? 0;
-      obrasAmareloBairros += bairro.obrasAmarelo ?? 0;
-      obrasVermelhoBairros += bairro.obrasVermelho ?? 0;
     }
+
+    const obrasUnicasPrefeitura: ObraCompacta[] = [...obrasRegionais];
+    for (const bairro of bairrosFilhos) {
+      for (const item of obrasPorBairro.get(normalizeName(bairro.nome)) || []) {
+        obrasUnicasPrefeitura.push(item.obra);
+      }
+    }
+    const contagemUnica = countUniqueObrasSemaforos(obrasUnicasPrefeitura);
 
     const regionalMetrics = aggregateObrasMetrics(obrasRegionais);
     const { valorLiquidado: valorLiquidadoFrentesReg, valorPago: valorPagoFrentesReg } =
@@ -365,7 +554,7 @@ export function calculateTerritorialRollup(
     const valorPagoFrentes = valorPagoFrentesBairros + valorPagoFrentesReg;
     const valorPago = valorPagoDireto + valorPagoFrentes;
     const totalFrentesMedicao = totalFrentesBairros + frentesRegionais.length;
-    const totalObras = totalObrasBairros + obrasRegionais.length;
+    const totalObras = contagemUnica.totalObras;
     const populacaoTotal = prefeitura.populacao_total || 0;
 
     const investimentoPorHabitante =
@@ -425,9 +614,9 @@ export function calculateTerritorialRollup(
       valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
       totalFrentesMedicao,
       totalObras,
-      obrasVerde: obrasVerdeBairros + regionalMetrics.obrasVerde,
-      obrasAmarelo: obrasAmareloBairros + regionalMetrics.obrasAmarelo,
-      obrasVermelho: obrasVermelhoBairros + regionalMetrics.obrasVermelho,
+      obrasVerde: contagemUnica.obrasVerde,
+      obrasAmarelo: contagemUnica.obrasAmarelo,
+      obrasVermelho: contagemUnica.obrasVermelho,
       investimentoPorHabitante,
       investimentoPorHabitantePago,
     };

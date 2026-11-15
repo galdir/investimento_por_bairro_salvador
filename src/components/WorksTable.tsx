@@ -1,6 +1,14 @@
 import React, { useMemo, useState } from "react";
-import { MetricType, ObraCompacta, SemaforoStatus, VOCACAO_BADGE_CLASS, VocacaoObra } from "../types";
+import {
+  MetricType,
+  ObraCompacta,
+  SemaforoStatus,
+  TerritorySelection,
+  VOCACAO_BADGE_CLASS,
+  VocacaoObra,
+} from "../types";
 import { formatCurrency, formatNumber, formatDate } from "../utils/formatters";
+import { getObraTerritoryShare } from "../utils/territory";
 
 interface WorksTableProps {
   /**
@@ -11,6 +19,10 @@ interface WorksTableProps {
    * Métrica financeira ativa: 'vigente' ou 'executado'.
    */
   metricType: MetricType;
+  /**
+   * Território selecionado para exibição proporcional de contratos em Cota-Parte.
+   */
+  selectedTerritory?: TerritorySelection | null;
   /**
    * Callback opcional ao clicar em uma obra para inspecionar detalhes.
    */
@@ -96,6 +108,7 @@ function renderSemaforoBadge(status: SemaforoStatus, rotulo?: string) {
 export const WorksTable: React.FC<WorksTableProps> = ({
   obras,
   metricType,
+  selectedTerritory = null,
   onSelectObra,
 }) => {
   const [sortField, setSortField] = useState<SortField>("valorContratualVigente");
@@ -119,6 +132,8 @@ export const WorksTable: React.FC<WorksTableProps> = ({
     return [...obras].sort((a, b) => {
       let valA: any = "";
       let valB: any = "";
+      const pesoA = getObraTerritoryShare(a, selectedTerritory).peso;
+      const pesoB = getObraTerritoryShare(b, selectedTerritory).peso;
 
       switch (sortField) {
         case "objeto":
@@ -138,12 +153,12 @@ export const WorksTable: React.FC<WorksTableProps> = ({
           valB = b.tema || "";
           break;
         case "valorOriginal":
-          valA = a.valorOriginal || 0;
-          valB = b.valorOriginal || 0;
+          valA = (a.valorOriginal || 0) * pesoA;
+          valB = (b.valorOriginal || 0) * pesoB;
           break;
         case "valorContratualVigente":
-          valA = metricType === "vigente" ? a.valorContratualVigente : (a.valorPago || 0);
-          valB = metricType === "vigente" ? b.valorContratualVigente : (b.valorPago || 0);
+          valA = (metricType === "vigente" ? a.valorContratualVigente : (a.valorPago || 0)) * pesoA;
+          valB = (metricType === "vigente" ? b.valorContratualVigente : (b.valorPago || 0)) * pesoB;
           break;
         case "percentualExecutado":
           valA = a.percentualExecutado || 0;
@@ -157,8 +172,8 @@ export const WorksTable: React.FC<WorksTableProps> = ({
           break;
         }
         default:
-          valA = a.valorContratualVigente;
-          valB = b.valorContratualVigente;
+          valA = a.valorContratualVigente * pesoA;
+          valB = b.valorContratualVigente * pesoB;
       }
 
       if (typeof valA === "string" && typeof valB === "string") {
@@ -166,7 +181,7 @@ export const WorksTable: React.FC<WorksTableProps> = ({
       }
       return sortDirection === "asc" ? (valA > valB ? 1 : -1) : (valA < valB ? 1 : -1);
     });
-  }, [obras, sortField, sortDirection, metricType]);
+  }, [obras, sortField, sortDirection, metricType, selectedTerritory]);
 
   // Paginação client-side
   const totalPages = Math.max(1, Math.ceil(sortedObras.length / pageSize));
@@ -343,6 +358,14 @@ export const WorksTable: React.FC<WorksTableProps> = ({
               const hasAditivo = deltaPerc > 0;
               const semaforoStatus = o.semaforo?.status || "VERDE";
               const semaforoRotulo = o.semaforo?.rotulo;
+              const share = getObraTerritoryShare(o, selectedTerritory);
+              const isCotaFiltrada = Boolean(selectedTerritory && share.isCotaParte && share.matched);
+              const valorBase =
+                metricType === "vigente"
+                  ? o.valorContratualVigente
+                  : (o.valorPago ?? o.valorContratualVigente);
+              const valorOriginalExibido = (o.valorOriginal || o.valorContratualVigente) * share.peso;
+              const valorPrincipalExibido = valorBase * share.peso;
 
               return (
                 <tr
@@ -385,12 +408,47 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                                 : "text-purple-700 bg-purple-50 border-purple-200"
                             }`}
                           >
-                            {o.nivel}
-                            {o.bairro ? `: ${o.bairro}` : o.prefeituraBairro ? `: ${o.prefeituraBairro}` : ""}
+                            {share.isCotaParte
+                              ? o.nivel
+                              : `${o.nivel}${o.bairro ? `: ${o.bairro}` : o.prefeituraBairro ? `: ${o.prefeituraBairro}` : ""}`}
                           </span>
                         </>
                       )}
+                      {share.isCotaParte && (
+                        <span
+                          data-testid={`badge-cota-parte-${o.id}`}
+                          className="font-semibold px-1.5 py-0.5 rounded border text-amber-800 bg-amber-50 border-amber-200"
+                        >
+                          {isCotaFiltrada
+                            ? `Cota-Parte (${share.fracao})`
+                            : `Cota-Parte (${share.totalUnidades}/${share.totalUnidades})`}
+                        </span>
+                      )}
                     </div>
+                    {share.isCotaParte && o.cotasListaFechada && o.cotasListaFechada.length > 0 && (
+                      <div
+                        data-testid={`cota-breakdown-${o.id}`}
+                        className="flex flex-wrap items-center gap-1 mt-1.5 text-[10px]"
+                      >
+                        {o.cotasListaFechada.map((cota) => {
+                          const isMatchedQuota =
+                            Boolean(selectedTerritory) &&
+                            share.cotas.some((mc) => mc.bairro === cota.bairro);
+                          return (
+                            <span
+                              key={cota.bairro}
+                              className={`px-1.5 py-0.5 rounded border ${
+                                isMatchedQuota
+                                  ? "bg-amber-100 text-amber-900 border-amber-300 font-semibold"
+                                  : "bg-slate-50 text-slate-600 border-slate-200"
+                              }`}
+                            >
+                              {cota.bairro} ({cota.fracao})
+                            </span>
+                          );
+                        })}
+                      </div>
+                    )}
                   </td>
 
                   {/* Órgão */}
@@ -427,18 +485,22 @@ export const WorksTable: React.FC<WorksTableProps> = ({
 
                   {/* Valor Original */}
                   <td className="py-3 px-3 text-right whitespace-nowrap text-slate-500 font-medium">
-                    {formatCurrency(o.valorOriginal || o.valorContratualVigente)}
+                    <div>{formatCurrency(valorOriginalExibido)}</div>
+                    {isCotaFiltrada && (
+                      <div className="text-[10px] font-normal text-slate-400">
+                        Total: {formatCurrency(o.valorOriginal || o.valorContratualVigente)}
+                      </div>
+                    )}
                   </td>
 
                   {/* Valor Vigente com Delta de Aditivo */}
                   <td className="py-3 px-3 text-right whitespace-nowrap font-bold text-slate-900">
-                    <div>
-                      {formatCurrency(
-                        metricType === "vigente"
-                          ? o.valorContratualVigente
-                          : (o.valorPago ?? o.valorContratualVigente)
-                      )}
-                    </div>
+                    <div>{formatCurrency(valorPrincipalExibido)}</div>
+                    {isCotaFiltrada && (
+                      <div className="text-[10px] font-normal text-slate-500">
+                        Total: {formatCurrency(valorBase)}
+                      </div>
+                    )}
                     {hasAditivo && (
                       <span
                         className={`text-[10px] font-semibold ${
@@ -448,7 +510,7 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                             ? "text-amber-600"
                             : "text-emerald-600"
                         }`}
-                        title={`Acréscimo de ${formatCurrency(o.valorAditivos ?? 0)}`}
+                        title={`Acréscimo de ${formatCurrency((o.valorAditivos ?? 0) * share.peso)}`}
                       >
                         +{deltaPerc.toFixed(1).replace(".", ",")}%
                       </span>

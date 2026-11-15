@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FichaLimpaObra } from "../types";
 import { formatCurrency } from "../utils/formatters";
+import { getObraCotasListaFechada } from "../utils/territory";
 
 const PORTAL_TRANSPARENCIA_URL = "https://www.transparencia.salvador.ba.gov.br/";
 const PORTAL_DOM_URL = "https://dom.salvador.ba.gov.br/";
@@ -79,6 +80,11 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
     return null;
   }
 
+  const cotasListaFechada = getObraCotasListaFechada(obra);
+  const totalCotasUnidades =
+    cotasListaFechada[0]?.totalUnidades ||
+    cotasListaFechada.reduce((acc, c) => acc + (c.unidades || 0), 0);
+
   return (
     <div
       role="dialog"
@@ -137,8 +143,17 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
               )}
               {obra?.nivel && (
                 <span className="bg-slate-800 text-sky-300 text-[11px] px-2.5 py-0.5 rounded-full border border-sky-500/30">
-                  {obra.nivel}
-                  {obra.bairro ? `: ${obra.bairro}` : obra.prefeituraBairro ? `: ${obra.prefeituraBairro}` : ""}
+                  {cotasListaFechada.length > 0
+                    ? obra.nivel
+                    : `${obra.nivel}${obra.bairro ? `: ${obra.bairro}` : obra.prefeituraBairro ? `: ${obra.prefeituraBairro}` : ""}`}
+                </span>
+              )}
+              {cotasListaFechada.length > 0 && (
+                <span
+                  data-testid="ficha-badge-cota-parte"
+                  className="bg-amber-950/80 text-amber-200 text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-amber-400/40"
+                >
+                  Cota-Parte ({totalCotasUnidades}/{totalCotasUnidades})
                 </span>
               )}
             </div>
@@ -558,16 +573,16 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
               {/* 6. Fontes Oficiais & Lastro Territorial */}
               {(() => {
                 const fontesOficiais = obra.fontesOficiais;
-                const portalUrl = fontesOficiais?.portalTransparencia.url || PORTAL_TRANSPARENCIA_URL;
+                const portalUrl = fontesOficiais?.portalTransparencia?.url || PORTAL_TRANSPARENCIA_URL;
                 const cdUg =
-                  fontesOficiais?.chaveCanonica.cdUnidadeGestora ??
+                  fontesOficiais?.chaveCanonica?.cdUnidadeGestora ??
                   (obra.cdUnidadeGestora != null ? String(obra.cdUnidadeGestora) : null);
-                const nuContratoSigef = fontesOficiais?.chaveCanonica.nuContratoSigef || obra.numeroContrato;
+                const nuContratoSigef = fontesOficiais?.chaveCanonica?.nuContratoSigef || obra.numeroContrato;
                 const nuProcesso = fontesOficiais?.nuProcesso ?? obra.nuProcesso ?? null;
                 const domContratoNu =
-                  fontesOficiais?.domContrato.nuDom ?? (isDomValido(obra.dom?.nuDom) ? obra.dom?.nuDom : null);
+                  fontesOficiais?.domContrato?.nuDom ?? (isDomValido(obra.dom?.nuDom) ? obra.dom?.nuDom : null);
                 const domContratoUrl =
-                  fontesOficiais?.domContrato.url || (domContratoNu ? PORTAL_DOM_URL : null);
+                  fontesOficiais?.domContrato?.url || (domContratoNu ? PORTAL_DOM_URL : null);
                 const domAditivos =
                   fontesOficiais?.domAditivos ??
                   (obra.aditivos || [])
@@ -579,13 +594,15 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                       url: PORTAL_DOM_URL,
                     }));
                 const origemLastro =
-                  fontesOficiais?.lastroTerritorial.origem ||
+                  fontesOficiais?.lastroTerritorial?.origem ||
                   (obra.estagioAlocacao
                     ? `Alocação territorial via ${obra.estagioAlocacao}`
                     : obra.nivel || "Origem territorial não informada");
-                const lastroDocOrigem = fontesOficiais?.lastroTerritorial.documentoOrigem || null;
-                const lastroTrecho = fontesOficiais?.lastroTerritorial.trechoComprobatorio || null;
-                const lastroJustificativa = fontesOficiais?.lastroTerritorial.justificativa || null;
+                const lastroDocOrigem = fontesOficiais?.lastroTerritorial?.documentoOrigem || null;
+                const lastroTrecho = fontesOficiais?.lastroTerritorial?.trechoComprobatorio || null;
+                const lastroJustificativa = fontesOficiais?.lastroTerritorial?.justificativa || null;
+                const baseVigente = obra.funilFinanceiro?.valorContratualVigente || 0;
+                const basePago = obra.funilFinanceiro?.valorPago || 0;
                 const frentesMedicao = obra.frentesMedicao || [];
 
                 const renderBotaoCopiar = (valor: string, campo: "contrato" | "processo", label: string, testId: string) => (
@@ -725,6 +742,82 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                         )}
                       </div>
                     </div>
+
+                    {cotasListaFechada.length > 0 && (
+                      <div
+                        data-testid="fontes-cotas-lista-fechada"
+                        className="bg-white p-3 rounded-lg border border-amber-200 space-y-2 text-xs"
+                      >
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800">
+                            Cota-Parte Territorial (Lista Fechada Contratual)
+                          </span>
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200">
+                            {cotasListaFechada.length} {cotasListaFechada.length === 1 ? "bairro" : "bairros"} · {totalCotasUnidades} un.
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-600">
+                          Total integral do contrato:{" "}
+                          <strong className="text-slate-800">{formatCurrency(baseVigente)}</strong>{" "}
+                          vigente ·{" "}
+                          <strong className="text-emerald-700">{formatCurrency(basePago)}</strong>{" "}
+                          pago
+                        </p>
+
+                        <div className="space-y-2">
+                          {cotasListaFechada.map((cota, idx) => {
+                            const territorioLabel = cota.prefeituraBairro
+                              ? `${cota.bairro} (${cota.prefeituraBairro})`
+                              : cota.bairro;
+
+                            return (
+                              <div
+                                key={`${cota.bairro}-${idx}`}
+                                data-testid={`fontes-cota-item-${idx}`}
+                                className="bg-amber-50/40 border border-amber-200/80 rounded-lg p-2.5 space-y-1"
+                              >
+                                <div className="flex flex-wrap items-center justify-between gap-2">
+                                  <span className="font-semibold text-slate-800">
+                                    {territorioLabel}
+                                  </span>
+                                  <span
+                                    data-testid={`fontes-cota-badge-${idx}`}
+                                    className="font-semibold text-[11px] text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300"
+                                  >
+                                    Cota-Parte ({cota.fracao})
+                                  </span>
+                                </div>
+                                <div className="flex flex-wrap items-center gap-4 text-[11px] text-slate-600">
+                                  <span>
+                                    Unidades:{" "}
+                                    <strong className="text-slate-800">
+                                      {cota.unidades}/{cota.totalUnidades}
+                                    </strong>
+                                  </span>
+                                  <span>
+                                    Valor Vigente ({(cota.peso * 100).toFixed(1).replace(".", ",")}%):{" "}
+                                    <strong className="text-slate-800">
+                                      {formatCurrency(baseVigente * cota.peso)}
+                                    </strong>
+                                  </span>
+                                  <span>
+                                    Pago:{" "}
+                                    <strong className="text-emerald-700">
+                                      {formatCurrency(basePago * cota.peso)}
+                                    </strong>
+                                  </span>
+                                </div>
+                                {cota.descricaoUnidades && (
+                                  <p className="text-[11px] text-slate-600">
+                                    {cota.descricaoUnidades}
+                                  </p>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
 
                     {frentesMedicao.length > 0 && (
                       <div
