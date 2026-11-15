@@ -610,6 +610,7 @@ export const App: React.FC = () => {
               onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
               obras={topFilteredObras}
               onSelectObra={handleSelectObra}
+              onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
             />
           </div>
         )}
@@ -644,6 +645,7 @@ export const App: React.FC = () => {
               onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
               obras={topFilteredObras}
               onSelectObra={handleSelectObra}
+              onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
             />
           </div>
         )}

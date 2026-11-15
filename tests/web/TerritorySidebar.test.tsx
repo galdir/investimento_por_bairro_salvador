@@ -193,4 +193,76 @@ describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Ce
     fireEvent.click(btnFicha);
     expect(onSelectObraMock).toHaveBeenCalledWith(obraGuardaChuva);
   });
+
+  it("exibe aviso contextual na seção de Frentes de Medição quando metricType é 'vigente' e dispara onSwitchToExecutado ao clicar no atalho, ocultando o aviso quando metricType é 'executado'", () => {
+    const onSwitchToExecutadoMock = vi.fn();
+    const bairroComFrentes: TerritorySelection = {
+      tipo: "bairro",
+      id: 102,
+      nome: "Boca do Rio",
+      prefeitura_bairro: "Itapuã/Ipitanga",
+      populacao: 45000,
+      indice_vulnerabilidade: 0.35,
+      valorTotal: 1000000,
+      valorPago: 700000,
+      valorPagoDireto: 500000,
+      valorPagoFrentes: 200000,
+      valorLiquidadoFrentes: 250000,
+      totalObras: 2,
+      totalFrentesMedicao: 1,
+    };
+
+    const { rerender } = render(
+      <TerritorySidebar
+        territorio={bairroComFrentes}
+        onClear={onClearMock}
+        metricType="vigente"
+        onSwitchToExecutado={onSwitchToExecutadoMock}
+      />
+    );
+
+    const aviso = screen.getByTestId("aviso-metrica-vigente-frentes");
+    expect(aviso).toBeInTheDocument();
+    expect(aviso).toHaveTextContent(/Valor Executado \/ Pago/i);
+
+    const btnAtalho = screen.getByTestId("btn-atalho-metrica-executado");
+    expect(btnAtalho).toBeInTheDocument();
+    fireEvent.click(btnAtalho);
+    expect(onSwitchToExecutadoMock).toHaveBeenCalledTimes(1);
+
+    rerender(
+      <TerritorySidebar
+        territorio={bairroComFrentes}
+        onClear={onClearMock}
+        metricType="executado"
+        onSwitchToExecutado={onSwitchToExecutadoMock}
+      />
+    );
+
+    expect(screen.queryByTestId("aviso-metrica-vigente-frentes")).not.toBeInTheDocument();
+
+    const bairroSemFrentes: TerritorySelection = {
+      tipo: "bairro",
+      id: 101,
+      nome: "Pituba",
+      prefeitura_bairro: "Barra/Pituba",
+      populacao: 65000,
+      valorTotal: 12000000,
+      totalObras: 1,
+      totalFrentesMedicao: 0,
+      valorPagoFrentes: 0,
+      valorLiquidadoFrentes: 0,
+    };
+
+    rerender(
+      <TerritorySidebar
+        territorio={bairroSemFrentes}
+        onClear={onClearMock}
+        metricType="vigente"
+        onSwitchToExecutado={onSwitchToExecutadoMock}
+      />
+    );
+
+    expect(screen.queryByTestId("aviso-metrica-vigente-frentes")).not.toBeInTheDocument();
+  });
 });

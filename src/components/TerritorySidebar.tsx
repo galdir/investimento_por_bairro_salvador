@@ -32,6 +32,10 @@ interface TerritorySidebarProps {
    * Callback para abrir a Ficha Limpa da Obra ao clicar em uma Frente de Medição.
    */
   onSelectObra?: (obra: ObraCompacta) => void;
+  /**
+   * Callback opcional para alternar a métrica financeira global diretamente para "executado" (Valor Executado / Pago).
+   */
+  onSwitchToExecutado?: () => void;
 }
 
 /**
@@ -56,6 +60,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   onOpenNotaMetodologica,
   obras = [],
   onSelectObra,
+  onSwitchToExecutado,
 }) => {
   if (!territorio) {
     return (
@@ -231,6 +236,27 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           <p className="text-[10px] text-indigo-800 leading-relaxed">
             Frentes de Medição somam apenas valores liquidados e pagos comprovados em notas de liquidação, sem inflar o Valor Contratual Vigente nem duplicar contratos.
           </p>
+
+          {!isExecutado && (
+            <div
+              data-testid="aviso-metrica-vigente-frentes"
+              className="bg-amber-50 border border-amber-200 rounded-lg p-2.5 text-[11px] text-amber-900 space-y-1.5"
+            >
+              <p className="leading-relaxed">
+                Com a métrica <strong>Valor Contratual Vigente</strong> ativa, o Total Investido do território reflete apenas obras de alocação direta. As <strong>Frentes de Medição</strong> somam apenas em <strong>Valor Executado / Pago</strong>.
+              </p>
+              {onSwitchToExecutado && (
+                <button
+                  type="button"
+                  data-testid="btn-atalho-metrica-executado"
+                  onClick={onSwitchToExecutado}
+                  className="w-full py-1.5 px-2.5 rounded-md bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-semibold transition-colors shadow-sm"
+                >
+                  Alternar para Valor Executado / Pago
+                </button>
+              )}
+            </div>
+          )}
 
           {frentesNoTerritorio.length > 0 && (
             <div className="space-y-1.5 max-h-48 overflow-y-auto pr-0.5">
