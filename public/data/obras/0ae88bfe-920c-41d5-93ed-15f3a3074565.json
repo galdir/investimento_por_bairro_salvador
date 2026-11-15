@@ -72,7 +72,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -91,10 +91,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12(DOZE0 UNIDADES ESCOLARES DA SMED: LOTE 09 - ESCOLA MUNICIPAL CLÉRISTON ANDRADE",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 09 identifica o lote da unidade escolar na licitação de 12 escolas da SMED, não a Prefeitura-Bairro Cidade Baixa."
     }
   },
   "cdUnidadeGestora": "441010"

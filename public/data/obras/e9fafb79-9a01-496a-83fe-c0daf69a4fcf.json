@@ -1298,7 +1298,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1324,10 +1324,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "SERVIÇOS DE MANUTENÇÃO DE QUADRAS E CAMPOS , LOTE 02 PREFS. BS. II, V E VII",
+      "documentoOrigem": "descObsLiquidacao (Contrato 007/2024)",
+      "justificativa": "O LOTE 02 abrange múltiplas Prefeituras-Bairro (II, V e VII), mas duas notas comprovam execução exclusiva na Prefeitura-Bairro II - Subúrbio/Ilhas."
     }
   },
   "cdUnidadeGestora": "616002",

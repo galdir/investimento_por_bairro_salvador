@@ -62,7 +62,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -81,10 +81,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "EXECUÇÃO DA OBRA DE CONSTRUÇÃO E RESTAURAÇÃO DA",
+      "documentoOrigem": "dsObjeto (Contrato 540002:2019CT008040)",
+      "justificativa": "Objeto truncado na base de origem e ausência de aditivos ou liquidações no acervo local impedem identificação territorial inequívoca."
     }
   },
   "cdUnidadeGestora": "540002"

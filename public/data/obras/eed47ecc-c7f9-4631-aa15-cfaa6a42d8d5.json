@@ -559,12 +559,12 @@
     ],
     "deltaPercentualValor": 49.63
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -601,11 +601,14 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro Histórico via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Contratação de empresa capacitada para execução de obras de Reforma para adequação da acessibilidade da Catedral Basílica de Salvador-Salvador/BA.",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 616002:2025CT006047)",
+      "justificativa": "O objeto, os aditivos e as liquidações identificam univocamente a Catedral Basílica de Salvador (Terreiro de Jesus), situada no polígono oficial do Bairro Oficial Centro Histórico."
     }
   },
   "cdUnidadeGestora": "616002"

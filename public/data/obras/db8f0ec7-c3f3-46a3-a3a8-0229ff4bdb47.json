@@ -98,12 +98,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Bairro",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -121,11 +121,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Boca do Rio via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "EXECUÇÃO DAS OBRAS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA SALVADOR",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2024CT004834, DOM nº 8758) e lastro complementar do Contrato 616002:2024CT004935",
+      "justificativa": "O objeto identifica univocamente a construção do Complexo Multiuso Arena Salvador, localizado no Bairro Oficial Boca do Rio conforme comprovado nas notas de liquidação do contrato complementar 616002:2024CT004935."
     }
   },
   "cdUnidadeGestora": "616002"

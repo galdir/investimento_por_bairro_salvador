@@ -1795,7 +1795,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1827,10 +1827,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "prestação de serviços contínuos de adequação e conservação de áreas externas das Unidades de Saúde do Município de Salvador",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 238/2024)",
+      "justificativa": "Contrato guarda-chuva multi-unidade da SMS sem discriminação de Bairro Oficial ou unidade específica nos registros."
     }
   },
   "cdUnidadeGestora": "301110"

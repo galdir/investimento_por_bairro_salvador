@@ -65,7 +65,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -84,10 +84,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "SERVIÇOS DE REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 03 PREF BAIRROS I, VI E VII",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), impedindo alocação regional única."
     }
   },
   "cdUnidadeGestora": "616002"

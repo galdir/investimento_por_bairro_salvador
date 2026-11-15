@@ -1817,7 +1817,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1861,10 +1861,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "manutenção preventiva e corretiva de equipamentos pesados da SEMAN (...) SALVADOR COMÉRCIO E SERVIÇOS DE PEÇAS E ACESSÓRIOS",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 012/2022)",
+      "justificativa": "Contrato de manutenção de equipamentos pesados da frota municipal sem alocação territorial; a palavra 'Comércio' no aditivo pertence à razão social da contratada."
     }
   },
   "cdUnidadeGestora": "560002"

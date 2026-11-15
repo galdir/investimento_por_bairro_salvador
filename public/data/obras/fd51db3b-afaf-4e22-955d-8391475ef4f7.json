@@ -1817,7 +1817,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1861,10 +1861,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Serviços de Requalificação de Vias urbanas em diversos logradouros da Cidade. Contrato: 043/2022 CBV",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 043/2022)",
+      "justificativa": "Contrato guarda-chuva multi-regional (Prefeituras-Bairro II, V e demais); as notas de liquidação citam múltiplas regionais ou combinam múltiplas obras na mesma nota sem discriminação única."
     }
   },
   "cdUnidadeGestora": "616002"

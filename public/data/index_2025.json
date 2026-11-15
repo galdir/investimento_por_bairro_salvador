@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-11-15T01:40:13.794569+00:00",
+    "generatedAt": "2026-11-15T12:31:09.236143+00:00",
     "anoReferencia": 2025,
     "mandatosDisponiveis": [
       "2021-2024",
@@ -19,10 +19,10 @@
     "totalLiquidado": 1949817856.37,
     "totalPago": 746324479.49,
     "investimentoPorHabitanteCidade": 4128.47,
-    "totalNaoLocalizado": 353,
-    "valorNaoLocalizado": 6237879946.75,
-    "valorPagoNaoLocalizado": 1838076362.78,
-    "percentualNaoLocalizado": 62.5
+    "totalNaoLocalizado": 346,
+    "valorNaoLocalizado": 5863783894.33,
+    "valorPagoNaoLocalizado": 1829339641.92,
+    "percentualNaoLocalizado": 58.7
   },
   "concentracao_empreiteiras": [
     {
@@ -2864,17 +2864,17 @@
       "pct_esgoto_inadequado": 38.59,
       "pct_agua_inadequada": 5.37,
       "pct_analfabetismo_15mais": 6.87,
-      "valorTotal": 769365462.06,
-      "valorPago": 136819169.7,
-      "totalObras": 52,
+      "valorTotal": 769636608.05,
+      "valorPago": 136932768.56,
+      "totalObras": 53,
       "obrasVerde": 8,
       "obrasAmarelo": 6,
-      "obrasVermelho": 38,
-      "investimentoPorHabitante": 2947.49,
-      "investimentoPorHabitantePago": 524.16,
-      "valorLiquidado": 159138746.69,
-      "valorLiquidadoDireto": 158530789.22,
-      "valorPagoDireto": 136303353.91,
+      "obrasVermelho": 39,
+      "investimentoPorHabitante": 2948.53,
+      "investimentoPorHabitantePago": 524.6,
+      "valorLiquidado": 159284901.04,
+      "valorLiquidadoDireto": 158676943.57,
+      "valorPagoDireto": 136416952.77,
       "valorLiquidadoFrentes": 607957.47,
       "valorPagoFrentes": 515815.79,
       "totalFrentesMedicao": 6
@@ -2933,17 +2933,17 @@
       "pct_esgoto_inadequado": 23.23,
       "pct_agua_inadequada": 3.05,
       "pct_analfabetismo_15mais": 4.71,
-      "valorTotal": 824059278.06,
-      "valorPago": 299388681.36,
-      "totalObras": 42,
+      "valorTotal": 1174406379.44,
+      "valorPago": 305293793.09,
+      "totalObras": 44,
       "obrasVerde": 6,
-      "obrasAmarelo": 2,
-      "obrasVermelho": 34,
-      "investimentoPorHabitante": 2123.33,
-      "investimentoPorHabitantePago": 771.43,
-      "valorLiquidado": 153060245.93,
-      "valorLiquidadoDireto": 150095387.81,
-      "valorPagoDireto": 298895161.15,
+      "obrasAmarelo": 3,
+      "obrasVermelho": 35,
+      "investimentoPorHabitante": 3026.06,
+      "investimentoPorHabitantePago": 786.64,
+      "valorLiquidado": 214266335.22,
+      "valorLiquidadoDireto": 211301477.1,
+      "valorPagoDireto": 304800272.88,
       "valorLiquidadoFrentes": 2964858.12,
       "valorPagoFrentes": 493520.21,
       "totalFrentesMedicao": 6
@@ -2956,20 +2956,20 @@
       "pct_esgoto_inadequado": 18.32,
       "pct_agua_inadequada": 2.32,
       "pct_analfabetismo_15mais": 4.0,
-      "valorTotal": 478226869.16,
-      "valorPago": 130476929.83,
-      "totalObras": 55,
-      "obrasVerde": 6,
+      "valorTotal": 501704674.21,
+      "valorPago": 133194940.1,
+      "totalObras": 59,
+      "obrasVerde": 7,
       "obrasAmarelo": 3,
-      "obrasVermelho": 46,
-      "investimentoPorHabitante": 1997.41,
-      "investimentoPorHabitantePago": 544.96,
-      "valorLiquidado": 129677837.28,
-      "valorLiquidadoDireto": 129677837.28,
-      "valorPagoDireto": 130476929.83,
-      "valorLiquidadoFrentes": 0,
-      "valorPagoFrentes": 0,
-      "totalFrentesMedicao": 0
+      "obrasVermelho": 49,
+      "investimentoPorHabitante": 2095.47,
+      "investimentoPorHabitantePago": 556.31,
+      "valorLiquidado": 134069125.43,
+      "valorLiquidadoDireto": 134059125.43,
+      "valorPagoDireto": 133184940.1,
+      "valorLiquidadoFrentes": 10000.0,
+      "valorPagoFrentes": 10000.0,
+      "totalFrentesMedicao": 1
     },
     {
       "id": 16,
@@ -6151,17 +6151,17 @@
       "pct_agua_inadequada": 5.97,
       "pct_analfabetismo_15mais": 7.39,
       "vulnerabilidade_estimada_contiguidade": false,
-      "valorTotal": 268103.46,
-      "valorPago": 19223.02,
-      "totalObras": 1,
+      "valorTotal": 539249.45,
+      "valorPago": 132821.88,
+      "totalObras": 2,
       "obrasVerde": 0,
       "obrasAmarelo": 0,
-      "obrasVermelho": 1,
-      "investimentoPorHabitante": 13.19,
-      "investimentoPorHabitantePago": 0.95,
-      "valorLiquidado": 0.0,
-      "valorLiquidadoDireto": 0.0,
-      "valorPagoDireto": 19223.02,
+      "obrasVermelho": 2,
+      "investimentoPorHabitante": 26.53,
+      "investimentoPorHabitantePago": 6.53,
+      "valorLiquidado": 146154.35,
+      "valorLiquidadoDireto": 146154.35,
+      "valorPagoDireto": 132821.88,
       "valorLiquidadoFrentes": 0,
       "valorPagoFrentes": 0,
       "totalFrentesMedicao": 0
@@ -7339,17 +7339,17 @@
       "pct_agua_inadequada": 3.51,
       "pct_analfabetismo_15mais": 5.26,
       "vulnerabilidade_estimada_contiguidade": false,
-      "valorTotal": 70700090.08,
-      "valorPago": 34892232.52,
-      "totalObras": 13,
+      "valorTotal": 421047191.46,
+      "valorPago": 40797344.25,
+      "totalObras": 15,
       "obrasVerde": 4,
-      "obrasAmarelo": 1,
-      "obrasVermelho": 8,
-      "investimentoPorHabitante": 1821.98,
-      "investimentoPorHabitantePago": 899.19,
-      "valorLiquidado": 1236523.17,
-      "valorLiquidadoDireto": 717638.88,
-      "valorPagoDireto": 34398712.31,
+      "obrasAmarelo": 2,
+      "obrasVermelho": 9,
+      "investimentoPorHabitante": 10850.61,
+      "investimentoPorHabitantePago": 1051.37,
+      "valorLiquidado": 62442612.46,
+      "valorLiquidadoDireto": 61923728.17,
+      "valorPagoDireto": 40303824.04,
       "valorLiquidadoFrentes": 518884.29,
       "valorPagoFrentes": 493520.21,
       "totalFrentesMedicao": 3
@@ -7501,20 +7501,20 @@
       "pct_agua_inadequada": 2.69,
       "pct_analfabetismo_15mais": 4.44,
       "vulnerabilidade_estimada_contiguidade": false,
-      "valorTotal": 95450601.45,
-      "valorPago": 47394536.18,
-      "totalObras": 12,
-      "obrasVerde": 1,
+      "valorTotal": 115967128.63,
+      "valorPago": 48232528.73,
+      "totalObras": 13,
+      "obrasVerde": 2,
       "obrasAmarelo": 1,
       "obrasVermelho": 10,
-      "investimentoPorHabitante": 11869.01,
-      "investimentoPorHabitantePago": 5893.38,
-      "valorLiquidado": 38483711.74,
-      "valorLiquidadoDireto": 38483711.74,
-      "valorPagoDireto": 47394536.18,
-      "valorLiquidadoFrentes": 0,
-      "valorPagoFrentes": 0,
-      "totalFrentesMedicao": 0
+      "investimentoPorHabitante": 14420.19,
+      "investimentoPorHabitantePago": 5997.58,
+      "valorLiquidado": 41053085.05,
+      "valorLiquidadoDireto": 41043085.05,
+      "valorPagoDireto": 48222528.73,
+      "valorLiquidadoFrentes": 10000.0,
+      "valorPagoFrentes": 10000.0,
+      "totalFrentesMedicao": 1
     },
     {
       "id": 154,
@@ -7528,17 +7528,17 @@
       "pct_agua_inadequada": 2.85,
       "pct_analfabetismo_15mais": 4.6,
       "vulnerabilidade_estimada_contiguidade": false,
-      "valorTotal": 5569298.02,
-      "valorPago": 5115384.53,
-      "totalObras": 4,
+      "valorTotal": 8530575.89,
+      "valorPago": 6995402.25,
+      "totalObras": 7,
       "obrasVerde": 1,
       "obrasAmarelo": 0,
-      "obrasVermelho": 3,
-      "investimentoPorHabitante": 3291.55,
-      "investimentoPorHabitantePago": 3023.28,
-      "valorLiquidado": 265327.27,
-      "valorLiquidadoDireto": 265327.27,
-      "valorPagoDireto": 5115384.53,
+      "obrasVermelho": 6,
+      "investimentoPorHabitante": 5041.71,
+      "investimentoPorHabitantePago": 4134.4,
+      "valorLiquidado": 2087242.11,
+      "valorLiquidadoDireto": 2087242.11,
+      "valorPagoDireto": 6995402.25,
       "valorLiquidadoFrentes": 0,
       "valorPagoFrentes": 0,
       "totalFrentesMedicao": 0
@@ -8361,7 +8361,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Manutenção de Quadras e Campos no Município de Salvador/BA, LOTE 04",
+        "documentoOrigem": "dsObjeto (Contrato 009/2024)",
+        "justificativa": "A divisão em 4 lotes de Manutenção de Quadras e Campos agrupa múltiplas Prefeituras-Bairro por lote, sem correspondência 1:1 com a PB IV."
+      }
     },
     {
       "id": "5180416c-cbd1-4606-904a-7f466d9260e2",
@@ -8692,7 +8697,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "MANUTENÇÃO DE QUADRAS E CAMPOS, SLAVADOR-BA, LOTE 03 PB: VIII - CABULA E IX - TANCREDO NEVES",
+        "documentoOrigem": "descObsLiquidacao (Contrato 616002:2024CT008172)",
+        "justificativa": "Lote 03 agrupa múltiplas Prefeituras-Bairro (VIII e IX), conforme explicitado nas notas de liquidação."
+      }
     },
     {
       "id": "cba43365-3ca3-426e-819c-a93a714e70b8",
@@ -8939,7 +8949,7 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "frentesMedicao": [
         {
           "notaLiquidacao": "2025NL018688",
@@ -8977,7 +8987,12 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL018690)",
           "justificativa": "Nota de liquidação comprova execução de reforma de campos e quadras no Bairro Oficial Boca do Rio."
         }
-      ]
+      ],
+      "lastroCuradoria": {
+        "trechoComprobatorio": "LOTE 01 (...) REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO",
+        "documentoOrigem": "descObsLiquidacao (Contrato 006/2024)",
+        "justificativa": "O LOTE 01 de Manutenção de Quadras e Campos possui notas comprovadas na Boca do Rio; demais notas genéricas do lote permanecem em Escopo Cidade."
+      }
     },
     {
       "id": "e9fafb79-9a01-496a-83fe-c0daf69a4fcf",
@@ -9019,7 +9034,7 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "frentesMedicao": [
         {
           "notaLiquidacao": "2024NL015121",
@@ -9045,7 +9060,12 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL015124)",
           "justificativa": "Nota de liquidação especifica execução exclusiva na Prefeitura-Bairro II (Subúrbio/Ilhas)."
         }
-      ]
+      ],
+      "lastroCuradoria": {
+        "trechoComprobatorio": "SERVIÇOS DE MANUTENÇÃO DE QUADRAS E CAMPOS , LOTE 02 PREFS. BS. II, V E VII",
+        "documentoOrigem": "descObsLiquidacao (Contrato 007/2024)",
+        "justificativa": "O LOTE 02 abrange múltiplas Prefeituras-Bairro (II, V e VII), mas duas notas comprovam execução exclusiva na Prefeitura-Bairro II - Subúrbio/Ilhas."
+      }
     },
     {
       "id": "83f99e6f-e43e-4adc-99d0-5cb68f1aaf77",
@@ -9208,7 +9228,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Requalificação Urbana do Canteiro Central da Avenida Mário Leal Ferreira - Salvador/BA",
+        "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 012/2024)",
+        "justificativa": "A Avenida Mário Leal Ferreira (Bonocô) atravessa múltiplos bairros; a menção 'BARRA S' no aditivo refere-se à razão social da contratada, não ao bairro Barra."
+      }
     },
     {
       "id": "be2e481f-f6c2-4ef4-8100-3eb59aed2043",
@@ -9453,7 +9478,7 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "frentesMedicao": [
         {
           "notaLiquidacao": "2025NL004858",
@@ -9503,7 +9528,12 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2025NL006602)",
           "justificativa": "Nota de liquidação comprova manutenção no Terminal Marítimo de Plataforma, no Bairro Oficial Plataforma."
         }
-      ]
+      ],
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Manutenção predial dos Ascensores (...) Manutenção Terminal Maritimo Plataforma",
+        "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2024)",
+        "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição; notas do Terminal Marítimo de Plataforma são alocadas ao Bairro Oficial Plataforma e notas genéricas de Ascensores/Planos permanecem em Escopo Cidade."
+      }
     },
     {
       "id": "b4cf9599-9ad5-45b0-8d03-628ef50065a9",
@@ -9579,13 +9609,18 @@
       ],
       "dtInicioVigencia": "2024-06-03T00:00:00.000Z",
       "dtTerminoVigenciaAtualizado": "2026-11-29T00:00:00.000Z",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "prefeitura_bairro": null,
-      "latitude": null,
-      "longitude": null,
-      "estagioAlocacao": "Cache"
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Barra/Pituba",
+      "prefeitura_bairro": "Barra/Pituba",
+      "latitude": -12.975454,
+      "longitude": -38.428853,
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "SERVIÇOS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA, BOCA DO RIO SSA/BA, - NFSE 0001",
+        "documentoOrigem": "descObsLiquidacao (Nota de Liquidação do Contrato 005/2024)",
+        "justificativa": "As notas de liquidação do Complexo Multiuso Arena Salvador explicitam a localização única no Bairro Oficial Boca do Rio."
+      }
     },
     {
       "id": "169c9f35-025d-4d18-84d5-62251ef2fa6a",
@@ -9744,13 +9779,18 @@
       ],
       "dtInicioVigencia": "2024-05-09T00:00:00.000Z",
       "dtTerminoVigenciaAtualizado": "2026-07-07T00:00:00.000Z",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "prefeitura_bairro": null,
-      "latitude": null,
-      "longitude": null,
-      "estagioAlocacao": "Cache"
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "prefeitura_bairro": "Itapuã/Ipitanga",
+      "latitude": -12.975454,
+      "longitude": -38.428853,
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "EXECUÇÃO DAS OBRAS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA SALVADOR",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2024CT004834, DOM nº 8758) e lastro complementar do Contrato 616002:2024CT004935",
+        "justificativa": "O objeto identifica univocamente a construção do Complexo Multiuso Arena Salvador, localizado no Bairro Oficial Boca do Rio conforme comprovado nas notas de liquidação do contrato complementar 616002:2024CT004935."
+      }
     },
     {
       "id": "aa9684b4-def9-4ada-8fe9-5bce5b406550",
@@ -10035,7 +10075,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "CONSTRUÇÃO DA ESCOLA MUNICIAL DO CEASA (LOTE 03)",
+        "documentoOrigem": "dsObjeto (Contrato 283/2024)",
+        "justificativa": "LOTE 03 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cajazeiras."
+      }
     },
     {
       "id": "120fcfb8-d661-4cb4-965b-9531056c1a87",
@@ -10239,7 +10284,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "prestação de serviços contínuos de adequação e conservação de áreas externas das Unidades de Saúde do Município de Salvador",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 238/2024)",
+        "justificativa": "Contrato guarda-chuva multi-unidade da SMS sem discriminação de Bairro Oficial ou unidade específica nos registros."
+      }
     },
     {
       "id": "d40c9862-7baf-4b4f-bc54-b9e1b4c4cf63",
@@ -11833,7 +11883,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Serviços de obras viárias destinadas à melhoria e ordenamento do trânsito no Município do Salvador",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 014/2023)",
+        "justificativa": "Contrato guarda-chuva da SEMOB sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto, aditivos ou liquidações."
+      }
     },
     {
       "id": "7149f9f1-68ad-4c12-ac47-90dc616e00e2",
@@ -11874,7 +11929,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Serviços de obras viárias destinadas à melhoria e ordenamento do trânsito no Município do Salvador",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 011/2023)",
+        "justificativa": "Contrato guarda-chuva da SEMOB sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto ou liquidações."
+      }
     },
     {
       "id": "e4041783-8ac0-476f-93bd-e4089cfa1c50",
@@ -11915,7 +11975,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Serviços de obras viárias destinadas à melhoria e ordenamento do trânsito no Município do Salvador",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 012/2023)",
+        "justificativa": "Contrato guarda-chuva da SEMOB sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto, aditivos ou liquidações."
+      }
     },
     {
       "id": "60ae07bc-f4bb-4b9d-9337-6049e0724583",
@@ -12690,7 +12755,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Execução dos serviços de Infraestrutura, Estabilização e Contenção de Encostas, em diversos logradouros da Cidade",
+        "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 037/2023)",
+        "justificativa": "Contrato guarda-chuva em diversos logradouros sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto, aditivos ou liquidações."
+      }
     },
     {
       "id": "716d5c0c-f28b-4d96-ad73-4e8cc612dcb6",
@@ -12732,7 +12802,7 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "frentesMedicao": [
         {
           "notaLiquidacao": "2023NL016696",
@@ -12830,7 +12900,12 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL004470)",
           "justificativa": "Nota comprova macrodrenagem na Rua 9 de Dezembro, Bairro Oficial Alto do Cabrito."
         }
-      ]
+      ],
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Execução dos serviços de Infraestrutura, Estabilização e Contenção de Encostas, em diversos logradouros da Cidade.",
+        "documentoOrigem": "descObsLiquidacao (Contrato 038/2023)",
+        "justificativa": "Contrato guarda-chuva com múltiplas frentes de encostas e drenagem; notas com bairro único comprovado são desdobradas e notas multi-trecho permanecem em Escopo Cidade."
+      }
     },
     {
       "id": "6e925a87-53ad-4ac8-a6f5-72f300c32086",
@@ -13116,7 +13191,26 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
+      "frentesMedicao": [
+        {
+          "notaLiquidacao": "2024NL002313",
+          "nivel": "Bairro",
+          "bairro": "Centro",
+          "prefeituraBairro": "Centro/Brotas",
+          "valorLiquidado": 10000.0,
+          "valorPago": 10000.0,
+          "dataLiquidacao": "23/02/2024",
+          "trechoComprobatorio": "REQUALIF. ASFALTICA NA RUA DO ENTORNO DO LGO. DO CAMPO GRANDE - TRECHO DA AV. SETE DE SETE",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL002313)",
+          "justificativa": "Nota de liquidação comprova requalificação asfáltica no entorno do Largo do Campo Grande / Av. Sete de Setembro, Bairro Oficial Centro."
+        }
+      ],
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Execução de obras de Modernização de Campos de Futebol (...) REQUALIF. ASFALTICA NA RUA DO ENTORNO DO LGO. DO CAMPO GRANDE - TRECHO DA AV. SETE DE SETE",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 616002:2023CT007782)",
+        "justificativa": "Contrato guarda-chuva multi-bairro; a nota 2024NL002313 comprova execução no entorno do Largo do Campo Grande / Av. Sete de Setembro (Bairro Oficial Centro), enquanto as demais notas genéricas permanecem em Escopo Cidade."
+      }
     },
     {
       "id": "cd4e35b8-00c2-49e9-acd3-76ce5ebd88f3",
@@ -13766,7 +13860,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Implantação da Intervenção \"H\" - Viaduto Direcional de Retorno - localizado na Av. Antônio Carlos Magalhães/ Av. Mario Leal Ferreira - Salvador/BA.",
+        "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 616002:2023CT006855)",
+        "justificativa": "O viaduto situa-se em nó viário limítrofe entre múltiplos Bairros Oficiais (Brotas, Cabula, Pernambués e Caminho das Árvores), sem especificação de bairro único nos documentos."
+      }
     },
     {
       "id": "0e038d9f-b436-49b5-9fce-965a4676cf15",
@@ -16731,7 +16830,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 4",
+        "documentoOrigem": "dsObjeto (Contrato 030/2023)",
+        "justificativa": "LOTE 4 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Barra/Pituba."
+      }
     },
     {
       "id": "0403a24c-c0c3-45e2-a33c-512c4facdd84",
@@ -16812,7 +16916,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 3",
+        "documentoOrigem": "dsObjeto (Contrato 029/2023)",
+        "justificativa": "LOTE 3 refere-se a lote licitatório de passarelas do BRT ao longo das avenidas Vasco da Gama e Juracy Magalhães, não à Prefeitura-Bairro Cajazeiras."
+      }
     },
     {
       "id": "cf9b3729-452c-422e-a911-c0d1eadb7590",
@@ -16852,7 +16961,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 2",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
+      }
     },
     {
       "id": "706f081d-901f-40db-b128-c5a882b930e3",
@@ -16892,7 +17006,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 2",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
+      }
     },
     {
       "id": "a80a796a-0cfc-4abb-bca7-bdecd3b367f1",
@@ -17415,7 +17534,7 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "frentesMedicao": [
         {
           "notaLiquidacao": "2023NL009961",
@@ -17453,7 +17572,12 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009963)",
           "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
         }
-      ]
+      ],
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Serviços de Requalificação de Vias Urbanas em diversos logradouros da Cidade Lote 01",
+        "documentoOrigem": "descObsLiquidacao (Contrato 040/2022)",
+        "justificativa": "Contrato guarda-chuva multi-bairro; notas P004 comprovam pavimentação no Jardim das Margaridas, enquanto notas com múltiplos trechos ou sem logradouro permanecem em Escopo Cidade."
+      }
     },
     {
       "id": "fd51db3b-afaf-4e22-955d-8391475ef4f7",
@@ -17494,7 +17618,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Serviços de Requalificação de Vias urbanas em diversos logradouros da Cidade. Contrato: 043/2022 CBV",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 043/2022)",
+        "justificativa": "Contrato guarda-chuva multi-regional (Prefeituras-Bairro II, V e demais); as notas de liquidação citam múltiplas regionais ou combinam múltiplas obras na mesma nota sem discriminação única."
+      }
     },
     {
       "id": "489ff942-f70b-4fc8-9c7d-9679db052497",
@@ -17977,7 +18106,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Prefeituras Bairros III, IX e X - Cajazeiras, Pau da Lima e Valéria Contrato: 041/2022",
+        "documentoOrigem": "dsObjetoAditivo / descObsLiquidacao (Contrato 041/2022)",
+        "justificativa": "Lote 02 abrange explicitamente três Prefeituras-Bairro (III, IX e X - Cajazeiras, Pau da Lima e Valéria), impedindo alocação territorial única."
+      }
     },
     {
       "id": "5cd450c2-83f1-4863-9c79-10ebf821b7fc",
@@ -18017,7 +18151,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Requalificação de Vias Urbanas em diversos logradouros da Cidade Lote 02 Contrato: 041/2022",
+        "documentoOrigem": "dsObjeto (Contrato 041/2022)",
+        "justificativa": "Refere-se ao mesmo Contrato 041/2022 (Lote 02) cuja abrangência envolve múltiplas Prefeituras-Bairro (III, IX e X)."
+      }
     },
     {
       "id": "9e4e90eb-3bcc-4a0e-abcf-6e312e18a39a",
@@ -18100,7 +18239,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "EXEC. DE SERVS. DE REQUALIF. DE VIAS URNANAS - PREFS. BAIROS; I, VI E VII, LOTE 03",
+        "documentoOrigem": "descObsLiquidacao (Contrato 042/2022)",
+        "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), conforme comprovado nas notas de liquidação."
+      }
     },
     {
       "id": "bc9952f8-82e5-4387-864f-c7adff15d1e3",
@@ -18542,7 +18686,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "EXEC. DOS SERVS. DE INFRAESTR., ESTAB. E CONTENÇÃO DE ENCOSTAS - PREFS. BAIRROS: I, VI, CENTRO/BROTAS E BARRA/PITUBA",
+        "documentoOrigem": "descObsLiquidacao (Contrato 032/2022)",
+        "justificativa": "Contrato multi-regional abrangendo múltiplas Prefeituras-Bairro (I, VI, Centro/Brotas e Barra/Pituba) e notas que agrupam diferentes bairros simultaneamente."
+      }
     },
     {
       "id": "7766d790-e655-4952-a36c-d6bd3516013f",
@@ -18664,7 +18813,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "manutenção preventiva e corretiva de equipamentos pesados da SEMAN (...) SALVADOR COMÉRCIO E SERVIÇOS DE PEÇAS E ACESSÓRIOS",
+        "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 012/2022)",
+        "justificativa": "Contrato de manutenção de equipamentos pesados da frota municipal sem alocação territorial; a palavra 'Comércio' no aditivo pertence à razão social da contratada."
+      }
     },
     {
       "id": "9eb1e12b-e55a-4d2b-afb7-d5ae1a0d4436",
@@ -19399,7 +19553,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12 UNIDADES ESCOLARES DA SMED - LOTE 07 - EM PROFESSORA ANITA BARBUDA",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 07 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Pau da Lima."
+      }
     },
     {
       "id": "164411b8-378f-4378-979a-cc3a2aa5a1e1",
@@ -20288,7 +20447,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DA ESCOMA MUNICIPAL CARMELITANA DO MENINO JESUS - LOTE 01",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 01 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Centro/Brotas."
+      }
     },
     {
       "id": "decb283f-a2f9-450d-a65f-2b459745c0b2",
@@ -20410,7 +20574,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12(DOZE0 UNIDADES ESCOLARES DA SMED: LOTE 09 - ESCOLA MUNICIPAL CLÉRISTON ANDRADE",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 09 identifica o lote da unidade escolar na licitação de 12 escolas da SMED, não a Prefeitura-Bairro Cidade Baixa."
+      }
     },
     {
       "id": "a12825e3-c963-4c1a-abd7-817475bec20e",
@@ -21215,7 +21384,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "construção e reconstrução da EM PROFESSOR MILTON SANTOS - LOTE 06",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 06 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cabula/Tancredo Neves."
+      }
     },
     {
       "id": "5d962803-d71e-4b70-b363-2e21da90c261",
@@ -21256,7 +21430,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "construção e reconstrução da EM ELYSIO ATHAYDE- LOTE 05",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 05 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Liberdade/São Caetano."
+      }
     },
     {
       "id": "a1951fa5-8315-4d00-9d24-6922136bf915",
@@ -21297,7 +21476,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "construção e reconstrução da EM SOL NASCENTE- LOTE 08",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 08 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Itapuã/Ipitanga."
+      }
     },
     {
       "id": "509084f6-8b54-4edb-8c77-cce012ce8749",
@@ -22760,7 +22944,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "LOTE 03- Prefeituras Bairros: III, V e VI",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "Apesar de citar LOTE 03, o objeto explicita abrangência em três Prefeituras-Bairro (III, V e VI)."
+      }
     },
     {
       "id": "254c9aac-a56d-4a20-bb0b-eee07f86ab54",
@@ -23766,7 +23955,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "ESCOLA MUNICIPAL IVONE VIEIRA LIMA -LOTE 02",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 02 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Subúrbio/Ilhas."
+      }
     },
     {
       "id": "18f54767-6da1-43e7-ab5c-2247c8b5761d",
@@ -25136,7 +25330,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "MANUTENÇÃO DE CAMPOS E QUADRAS DO MUNICIPAL DE SALVADOR/BA, EM ÁREAS QUE COMPREENDEM AS PREFEITURAS BAIRROS I, VIII E X.",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2020CT004496)",
+        "justificativa": "Objeto explicita abrangência em três Prefeituras-Bairro (I, VIII e X), impedindo alocação regional única."
+      }
     },
     {
       "id": "d109f3a6-9f0b-4c35-b3f1-baea55279e8e",
@@ -25296,7 +25495,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "IMPLANTAÇÃO DO TRECHO 2 DO EMPREENDIMENTO \"CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR - LAPA/LIP\".",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2020CT004218)",
+        "justificativa": "Obra linear estruturante (Corredor Lapa/LIP - Trecho 2) que atravessa múltiplos Bairros Oficiais sem discriminação financeira por bairro no acervo local."
+      }
     },
     {
       "id": "aa4f71c4-49fc-44ad-9ffc-990fdba30e75",
@@ -26504,7 +26708,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 02",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2020CT000310)",
+        "justificativa": "Contrato em lote de pavimentação urbana sem discriminação territorial inequívoca; lotes da SUCOP historicamente agrupam múltiplas Prefeituras-Bairro."
+      }
     },
     {
       "id": "51bf8a08-fcad-4c39-aa60-c330ecfa1645",
@@ -27029,7 +27238,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "EXECUÇÃO DA OBRA DE CONSTRUÇÃO E RESTAURAÇÃO DA",
+        "documentoOrigem": "dsObjeto (Contrato 540002:2019CT008040)",
+        "justificativa": "Objeto truncado na base de origem e ausência de aditivos ou liquidações no acervo local impedem identificação territorial inequívoca."
+      }
     },
     {
       "id": "a18f2109-4830-4780-8259-7f4a126d27d1",
@@ -27677,7 +27891,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "SERVIÇOS DE REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 03 PREF BAIRROS I, VI E VII",
+        "documentoOrigem": "dsObjeto (Contrato)",
+        "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), impedindo alocação regional única."
+      }
     },
     {
       "id": "c9b26d30-490f-4c2d-b326-8803b076cd79",
@@ -27719,7 +27938,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "ENGENHARIA AGRONÔMICA DE MANUTENÇÃO E CONSERVAÇÃO DE ÁREAS VERDES, COM PODA E SUPRESSÃO DE ÁRVORES",
+        "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 024/2019)",
+        "justificativa": "Contrato contínuo de manutenção de áreas verdes em abrangência municipal sem discriminação territorial."
+      }
     },
     {
       "id": "9d628cb0-99cf-45c3-972a-506d7c313c20",
@@ -28931,7 +29155,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "IMPLANTAÇÃO DO TRECHO 1 DO EMPREENDIMENTO CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR - LAPA/LIP",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2018CT001246)",
+        "justificativa": "Obra linear estruturante (Corredor Lapa/LIP - Trecho 1) que atravessa múltiplos Bairros Oficiais sem discriminação financeira por bairro no acervo local."
+      }
     },
     {
       "id": "7a35bdcb-d83f-4f6f-8161-486e1247108c",
@@ -28972,7 +29201,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "serviços de infraestrutura, estabilização e contenção de encostas no Município do Salvador/BA, em jurisdição das Prefeituras Bairros: I e VI",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2017CT006157)",
+        "justificativa": "Objeto explicita abrangência em duas Prefeituras-Bairro distintas (I e VI), impedindo alocação regional única."
+      }
     },
     {
       "id": "d6d8fe37-5e22-42cd-ae6f-e58ec0c49834",
@@ -29173,7 +29407,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "EXECUÇÃO DOS SERVIÇOS DE REQUALIFICAÇÃO ASFÁLTICA DE VIAS URBANAS EM DIVERSOS LOGRADOUROS DA CIDADE DO SALVADOR/BA, EM JURISDIÇÃO DAS PREFEITURAS BAIRROS: III, IX E X",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2017CT005940)",
+        "justificativa": "Objeto explicita abrangência em três Prefeituras-Bairro (III, IX e X), impedindo alocação regional única."
+      }
     },
     {
       "id": "c34adb94-080e-4721-8173-f090ab6ff437",
@@ -30901,7 +31140,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Manutenção de Quadras e Campos no Município de Salvador/BA, subdivididos em 04 (quatro) Lotes (...) LOTE03",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao",
+        "justificativa": "A divisão em 4 lotes agrupa múltiplas Prefeituras-Bairro, não correspondendo à PB III."
+      }
     },
     {
       "id": "a88a1218-bac9-4f83-a337-01b2783eaa6b",
@@ -31101,7 +31345,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Programa MORAR MELHOR 05, subdivididos em 04 (quatro) lotes por Prefeituras Bairros",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 610002:2026CT002299)",
+        "justificativa": "O objeto e as liquidações não discriminam qual dos 4 lotes ou qual Prefeitura-Bairro específica é atendida por este contrato."
+      }
     },
     {
       "id": "5b951967-3584-4f9d-be56-d2e0cae6ee16",
@@ -31735,13 +31984,18 @@
       ],
       "dtInicioVigencia": "2026-01-20T00:00:00.000Z",
       "dtTerminoVigenciaAtualizado": "2026-04-19T00:00:00.000Z",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "prefeitura_bairro": null,
-      "latitude": null,
-      "longitude": null,
-      "estagioAlocacao": "Cache"
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "prefeitura_bairro": "Centro/Brotas",
+      "latitude": -12.973943,
+      "longitude": -38.510481,
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+        "documentoOrigem": "dsObjeto (Contrato 616002:2026CT001524)",
+        "justificativa": "O objeto identifica univocamente o Edifício Cine Excelsior (Praça da Sé), situado no polígono oficial do Bairro Oficial Centro Histórico."
+      }
     },
     {
       "id": "bb67dafa-9bde-4fde-a76d-5e9ece808222",
@@ -31775,13 +32029,18 @@
       ],
       "dtInicioVigencia": "2026-01-20T00:00:00.000Z",
       "dtTerminoVigenciaAtualizado": "2026-05-21T00:00:00.000Z",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "prefeitura_bairro": null,
-      "latitude": null,
-      "longitude": null,
-      "estagioAlocacao": "Cache"
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "prefeitura_bairro": "Centro/Brotas",
+      "latitude": -12.973943,
+      "longitude": -38.510481,
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 616002:2026CT001597)",
+        "justificativa": "O objeto e as liquidações identificam univocamente o Edifício Cine Excelsior (Praça da Sé), situado no polígono oficial do Bairro Oficial Centro Histórico."
+      }
     },
     {
       "id": "fc3bb8e4-92ad-4333-8389-4c488e170d9e",
@@ -32021,7 +32280,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 04",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 020/2025)",
+        "justificativa": "Lote 04 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+      }
     },
     {
       "id": "9bb8fca8-e891-45c6-8bfc-8a01c3228b8d",
@@ -32061,7 +32325,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 02",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 018/2025)",
+        "justificativa": "Lote 02 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+      }
     },
     {
       "id": "2acb5cfc-d190-4397-9141-5426aa96e801",
@@ -32101,7 +32370,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 03",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 019/2025)",
+        "justificativa": "Lote 03 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+      }
     },
     {
       "id": "45bb4782-f26b-432f-b255-a92f5ec7fa91",
@@ -32141,7 +32415,12 @@
       "prefeitura_bairro": null,
       "latitude": null,
       "longitude": null,
-      "estagioAlocacao": "Cache"
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 01",
+        "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 017/2025)",
+        "justificativa": "Lote 01 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+      }
     },
     {
       "id": "b97ec829-ab3f-448c-b995-111379a52b6d",
@@ -32496,13 +32775,18 @@
       ],
       "dtInicioVigencia": "2025-11-03T00:00:00.000Z",
       "dtTerminoVigenciaAtualizado": "2026-07-30T00:00:00.000Z",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "prefeitura_bairro": null,
-      "latitude": null,
-      "longitude": null,
-      "estagioAlocacao": "Cache"
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "prefeitura_bairro": "Centro/Brotas",
+      "latitude": -12.973943,
+      "longitude": -38.510481,
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "Contratação de empresa capacitada para execução de obras de Reforma para adequação da acessibilidade da Catedral Basílica de Salvador-Salvador/BA.",
+        "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 616002:2025CT006047)",
+        "justificativa": "O objeto, os aditivos e as liquidações identificam univocamente a Catedral Basílica de Salvador (Terreiro de Jesus), situada no polígono oficial do Bairro Oficial Centro Histórico."
+      }
     },
     {
       "id": "d71a833e-46c1-43e0-934a-24804c1ff549",
@@ -32576,13 +32860,18 @@
       ],
       "dtInicioVigencia": "2025-10-20T00:00:00.000Z",
       "dtTerminoVigenciaAtualizado": "2026-10-20T00:00:00.000Z",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "prefeitura_bairro": null,
-      "latitude": null,
-      "longitude": null,
-      "estagioAlocacao": "Cache"
+      "nivel": "Bairro",
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "prefeitura_bairro": "Subúrbio/Ilhas",
+      "latitude": -12.847682,
+      "longitude": -38.461693,
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "REFORMA DA USF FAZENDA COUTOS.II.",
+        "documentoOrigem": "dsObjetoAditivo (2º Termo Aditivo ao Contrato nº 387/2025)",
+        "justificativa": "O aditivo contratual identifica univocamente a reforma da USF Fazenda Coutos II no Bairro Oficial Fazenda Coutos."
+      }
     },
     {
       "id": "1252bb6a-7263-49e7-8358-9d6a13d64f4f",
@@ -32776,13 +33065,18 @@
       ],
       "dtInicioVigencia": "2025-09-08T00:00:00.000Z",
       "dtTerminoVigenciaAtualizado": "2027-01-30T00:00:00.000Z",
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "prefeitura_bairro": null,
-      "latitude": null,
-      "longitude": null,
-      "estagioAlocacao": "Cache"
+      "nivel": "Bairro",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "prefeitura_bairro": "Centro/Brotas",
+      "latitude": -12.985173,
+      "longitude": -38.51879,
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "lastroCuradoria": {
+        "trechoComprobatorio": "URBANIZAÇÃO PROMENADE CONTORNO, AV. LAFAYETE COUTINHO - CENTRO, SALVADOR-BA, CONT. 033/2025",
+        "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 033/2025)",
+        "justificativa": "As notas de liquidação confirmam a execução integral da 1ª etapa da Urbanização Promenade Contorno no Bairro Oficial Centro."
+      }
     },
     {
       "id": "28152e7a-8ff9-4b6b-971c-f041c6820bfd",

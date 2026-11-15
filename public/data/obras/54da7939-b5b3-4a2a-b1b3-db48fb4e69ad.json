@@ -75,7 +75,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -94,10 +94,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "construção e reconstrução da EM PROFESSOR MILTON SANTOS - LOTE 06",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 06 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Cabula/Tancredo Neves."
     }
   },
   "cdUnidadeGestora": "441010"

@@ -1826,7 +1826,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1870,10 +1870,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "Serviços de Requalificação de Vias Urbanas em diversos logradouros da Cidade Lote 01",
+      "documentoOrigem": "descObsLiquidacao (Contrato 040/2022)",
+      "justificativa": "Contrato guarda-chuva multi-bairro; notas P004 comprovam pavimentação no Jardim das Margaridas, enquanto notas com múltiplos trechos ou sem logradouro permanecem em Escopo Cidade."
     }
   },
   "cdUnidadeGestora": "616002",

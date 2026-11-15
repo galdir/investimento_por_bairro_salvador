@@ -64,7 +64,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -83,10 +83,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 02",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2020CT000310)",
+      "justificativa": "Contrato em lote de pavimentação urbana sem discriminação territorial inequívoca; lotes da SUCOP historicamente agrupam múltiplas Prefeituras-Bairro."
     }
   },
   "cdUnidadeGestora": "616002"

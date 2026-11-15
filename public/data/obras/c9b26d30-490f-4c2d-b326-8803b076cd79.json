@@ -1846,7 +1846,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1902,10 +1902,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "ENGENHARIA AGRONÔMICA DE MANUTENÇÃO E CONSERVAÇÃO DE ÁREAS VERDES, COM PODA E SUPRESSÃO DE ÁRVORES",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 024/2019)",
+      "justificativa": "Contrato contínuo de manutenção de áreas verdes em abrangência municipal sem discriminação territorial."
     }
   },
   "cdUnidadeGestora": "560002"

@@ -489,7 +489,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -508,10 +508,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Manutenção de Quadras e Campos no Município de Salvador/BA, LOTE 04",
+      "documentoOrigem": "dsObjeto (Contrato 009/2024)",
+      "justificativa": "A divisão em 4 lotes de Manutenção de Quadras e Campos agrupa múltiplas Prefeituras-Bairro por lote, sem correspondência 1:1 com a PB IV."
     }
   },
   "cdUnidadeGestora": "616002"

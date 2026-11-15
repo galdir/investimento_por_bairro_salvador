@@ -1785,7 +1785,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1811,10 +1811,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 04",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 020/2025)",
+      "justificativa": "Lote 04 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
     }
   },
   "cdUnidadeGestora": "560002"

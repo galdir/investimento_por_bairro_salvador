@@ -1817,7 +1817,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1855,10 +1855,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "Execução dos serviços de Infraestrutura, Estabilização e Contenção de Encostas, em diversos logradouros da Cidade.",
+      "documentoOrigem": "descObsLiquidacao (Contrato 038/2023)",
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de encostas e drenagem; notas com bairro único comprovado são desdobradas e notas multi-trecho permanecem em Escopo Cidade."
     }
   },
   "cdUnidadeGestora": "616002",

@@ -65,7 +65,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -84,10 +84,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "PASSARELAS (...) AVENIDA VASCO DA GAMA (...) E AVENIDA JURACY MAGALHÃES (...) - LOTE 2",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
     }
   },
   "cdUnidadeGestora": "567002"

@@ -1379,7 +1379,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1405,10 +1405,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "LOTE 01 (...) REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO",
+      "documentoOrigem": "descObsLiquidacao (Contrato 006/2024)",
+      "justificativa": "O LOTE 01 de Manutenção de Quadras e Campos possui notas comprovadas na Boca do Rio; demais notas genéricas do lote permanecem em Escopo Cidade."
     }
   },
   "cdUnidadeGestora": "616002",

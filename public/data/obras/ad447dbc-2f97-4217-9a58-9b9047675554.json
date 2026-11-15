@@ -67,7 +67,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -86,10 +86,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONSTRUÇÃO E RECONSTRUÇÃO DE 12 UNIDADES ESCOLARES DA SMED - LOTE 07 - EM PROFESSORA ANITA BARBUDA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 07 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Pau da Lima."
     }
   },
   "cdUnidadeGestora": "441010"

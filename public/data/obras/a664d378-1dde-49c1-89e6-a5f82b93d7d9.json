@@ -1199,12 +1199,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1222,11 +1222,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "URBANIZAÇÃO PROMENADE CONTORNO, AV. LAFAYETE COUTINHO - CENTRO, SALVADOR-BA, CONT. 033/2025",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 033/2025)",
+      "justificativa": "As notas de liquidação confirmam a execução integral da 1ª etapa da Urbanização Promenade Contorno no Bairro Oficial Centro."
     }
   },
   "cdUnidadeGestora": "616002"

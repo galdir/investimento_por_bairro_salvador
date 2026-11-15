@@ -477,6 +477,347 @@
           "justificativa": "Nota comprova macrodrenagem na Rua 9 de Dezembro, Bairro Oficial Alto do Cabrito."
         }
       }
+    },
+    "616002:2024CT004834": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT004834",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "trechoComprobatorio": "EXECUÇÃO DAS OBRAS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA SALVADOR",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2024CT004834, DOM nº 8758) e lastro complementar do Contrato 616002:2024CT004935",
+      "justificativa": "O objeto identifica univocamente a construção do Complexo Multiuso Arena Salvador, localizado no Bairro Oficial Boca do Rio conforme comprovado nas notas de liquidação do contrato complementar 616002:2024CT004935."
+    },
+    "616002:2025CT006047": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2025CT006047",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "Contratação de empresa capacitada para execução de obras de Reforma para adequação da acessibilidade da Catedral Basílica de Salvador-Salvador/BA.",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 616002:2025CT006047)",
+      "justificativa": "O objeto, os aditivos e as liquidações identificam univocamente a Catedral Basílica de Salvador (Terreiro de Jesus), situada no polígono oficial do Bairro Oficial Centro Histórico."
+    },
+    "616002:2026CT001597": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2026CT001597",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 616002:2026CT001597)",
+      "justificativa": "O objeto e as liquidações identificam univocamente o Edifício Cine Excelsior (Praça da Sé), situado no polígono oficial do Bairro Oficial Centro Histórico."
+    },
+    "616002:2026CT001524": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2026CT001524",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2026CT001524)",
+      "justificativa": "O objeto identifica univocamente o Edifício Cine Excelsior (Praça da Sé), situado no polígono oficial do Bairro Oficial Centro Histórico."
+    },
+    "616002:2023CT007782": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT007782",
+      "status": "multi_frente",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Execução de obras de Modernização de Campos de Futebol (...) REQUALIF. ASFALTICA NA RUA DO ENTORNO DO LGO. DO CAMPO GRANDE - TRECHO DA AV. SETE DE SETE",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 616002:2023CT007782)",
+      "justificativa": "Contrato guarda-chuva multi-bairro; a nota 2024NL002313 comprova execução no entorno do Largo do Campo Grande / Av. Sete de Setembro (Bairro Oficial Centro), enquanto as demais notas genéricas permanecem em Escopo Cidade.",
+      "frentesMedicao": {
+        "2024NL002313": {
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Centro",
+          "prefeituraBairro": "Centro/Brotas",
+          "trechoComprobatorio": "REQUALIF. ASFALTICA NA RUA DO ENTORNO DO LGO. DO CAMPO GRANDE - TRECHO DA AV. SETE DE SETE",
+          "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL002313)",
+          "justificativa": "Nota de liquidação comprova requalificação asfáltica no entorno do Largo do Campo Grande / Av. Sete de Setembro, Bairro Oficial Centro."
+        }
+      }
+    },
+    "616002:2023CT001916": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT001916",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Serviços de Requalificação de Vias urbanas em diversos logradouros da Cidade. Contrato: 043/2022 CBV",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 043/2022)",
+      "justificativa": "Contrato guarda-chuva multi-regional (Prefeituras-Bairro II, V e demais); as notas de liquidação citam múltiplas regionais ou combinam múltiplas obras na mesma nota sem discriminação única."
+    },
+    "616002:2022CT007124": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT007124",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Prefeituras Bairros III, IX e X - Cajazeiras, Pau da Lima e Valéria Contrato: 041/2022",
+      "documentoOrigem": "dsObjetoAditivo / descObsLiquidacao (Contrato 041/2022)",
+      "justificativa": "Lote 02 abrange explicitamente três Prefeituras-Bairro (III, IX e X - Cajazeiras, Pau da Lima e Valéria), impedindo alocação territorial única."
+    },
+    "616002:2022CT006728": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT006728",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "EXEC. DOS SERVS. DE INFRAESTR., ESTAB. E CONTENÇÃO DE ENCOSTAS - PREFS. BAIRROS: I, VI, CENTRO/BROTAS E BARRA/PITUBA",
+      "documentoOrigem": "descObsLiquidacao (Contrato 032/2022)",
+      "justificativa": "Contrato multi-regional abrangendo múltiplas Prefeituras-Bairro (I, VI, Centro/Brotas e Barra/Pituba) e notas que agrupam diferentes bairros simultaneamente."
+    },
+    "616002:2018CT001246": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2018CT001246",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "IMPLANTAÇÃO DO TRECHO 1 DO EMPREENDIMENTO CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR - LAPA/LIP",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2018CT001246)",
+      "justificativa": "Obra linear estruturante (Corredor Lapa/LIP - Trecho 1) que atravessa múltiplos Bairros Oficiais sem discriminação financeira por bairro no acervo local."
+    },
+    "616002:2020CT004218": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2020CT004218",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "IMPLANTAÇÃO DO TRECHO 2 DO EMPREENDIMENTO \"CORREDORES DE TRANSPORTE PÚBLICO INTEGRADO DE SALVADOR - LAPA/LIP\".",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2020CT004218)",
+      "justificativa": "Obra linear estruturante (Corredor Lapa/LIP - Trecho 2) que atravessa múltiplos Bairros Oficiais sem discriminação financeira por bairro no acervo local."
+    },
+    "616002:2023CT008626": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT008626",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Execução dos serviços de Infraestrutura, Estabilização e Contenção de Encostas, em diversos logradouros da Cidade",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 037/2023)",
+      "justificativa": "Contrato guarda-chuva em diversos logradouros sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto, aditivos ou liquidações."
+    },
+    "616002:2017CT006157": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2017CT006157",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "serviços de infraestrutura, estabilização e contenção de encostas no Município do Salvador/BA, em jurisdição das Prefeituras Bairros: I e VI",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2017CT006157)",
+      "justificativa": "Objeto explicita abrangência em duas Prefeituras-Bairro distintas (I e VI), impedindo alocação regional única."
+    },
+    "616002:2020CT000310": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2020CT000310",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "REQUALIFICAÇÃO DAS PAVIMENTAÇÕES EM VIAS URBANAS LOTE 02",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2020CT000310)",
+      "justificativa": "Contrato em lote de pavimentação urbana sem discriminação territorial inequívoca; lotes da SUCOP historicamente agrupam múltiplas Prefeituras-Bairro."
+    },
+    "560002:2025CT006745": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2025CT006745",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 02",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 018/2025)",
+      "justificativa": "Lote 02 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+    },
+    "536002:2023CT009307": {
+      "cdUnidadeGestora": "536002",
+      "nuContratoSigef": "2023CT009307",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Serviços de obras viárias destinadas à melhoria e ordenamento do trânsito no Município do Salvador",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 012/2023)",
+      "justificativa": "Contrato guarda-chuva da SEMOB sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto, aditivos ou liquidações."
+    },
+    "560002:2025CT006744": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2025CT006744",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 01",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 017/2025)",
+      "justificativa": "Lote 01 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+    },
+    "560002:2025CT006746": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2025CT006746",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 03",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 019/2025)",
+      "justificativa": "Lote 03 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+    },
+    "536002:2023CT009254": {
+      "cdUnidadeGestora": "536002",
+      "nuContratoSigef": "2023CT009254",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Serviços de obras viárias destinadas à melhoria e ordenamento do trânsito no Município do Salvador",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 011/2023)",
+      "justificativa": "Contrato guarda-chuva da SEMOB sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto ou liquidações."
+    },
+    "560002:2025CT006747": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2025CT006747",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "execução de serviços continuados de conservação e manutenção preditiva urbana do município de Salvador, conforme Lote 04",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 020/2025)",
+      "justificativa": "Lote 04 de manutenção preditiva urbana da SEMAN sem correspondência territorial única comprovada em objeto, aditivos ou liquidações."
+    },
+    "616002:2022CT007113": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2022CT007113",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Requalificação de Vias Urbanas em diversos logradouros da Cidade Lote 02 Contrato: 041/2022",
+      "documentoOrigem": "dsObjeto (Contrato 041/2022)",
+      "justificativa": "Refere-se ao mesmo Contrato 041/2022 (Lote 02) cuja abrangência envolve múltiplas Prefeituras-Bairro (III, IX e X)."
+    },
+    "616002:2017CT005940": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2017CT005940",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "EXECUÇÃO DOS SERVIÇOS DE REQUALIFICAÇÃO ASFÁLTICA DE VIAS URBANAS EM DIVERSOS LOGRADOUROS DA CIDADE DO SALVADOR/BA, EM JURISDIÇÃO DAS PREFEITURAS BAIRROS: III, IX E X",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2017CT005940)",
+      "justificativa": "Objeto explicita abrangência em três Prefeituras-Bairro (III, IX e X), impedindo alocação regional única."
+    },
+    "616002:2024CT008172": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2024CT008172",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "MANUTENÇÃO DE QUADRAS E CAMPOS, SLAVADOR-BA, LOTE 03 PB: VIII - CABULA E IX - TANCREDO NEVES",
+      "documentoOrigem": "descObsLiquidacao (Contrato 616002:2024CT008172)",
+      "justificativa": "Lote 03 agrupa múltiplas Prefeituras-Bairro (VIII e IX), conforme explicitado nas notas de liquidação."
+    },
+    "616002:2023CT006855": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT006855",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Implantação da Intervenção \"H\" - Viaduto Direcional de Retorno - localizado na Av. Antônio Carlos Magalhães/ Av. Mario Leal Ferreira - Salvador/BA.",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 616002:2023CT006855)",
+      "justificativa": "O viaduto situa-se em nó viário limítrofe entre múltiplos Bairros Oficiais (Brotas, Cabula, Pernambués e Caminho das Árvores), sem especificação de bairro único nos documentos."
+    },
+    "610002:2026CT002299": {
+      "cdUnidadeGestora": "610002",
+      "nuContratoSigef": "2026CT002299",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Programa MORAR MELHOR 05, subdivididos em 04 (quatro) lotes por Prefeituras Bairros",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 610002:2026CT002299)",
+      "justificativa": "O objeto e as liquidações não discriminam qual dos 4 lotes ou qual Prefeitura-Bairro específica é atendida por este contrato."
+    },
+    "536002:2023CT009309": {
+      "cdUnidadeGestora": "536002",
+      "nuContratoSigef": "2023CT009309",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "Serviços de obras viárias destinadas à melhoria e ordenamento do trânsito no Município do Salvador",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 014/2023)",
+      "justificativa": "Contrato guarda-chuva da SEMOB sem discriminação de Bairro Oficial ou Prefeitura-Bairro em objeto, aditivos ou liquidações."
+    },
+    "560002:2019CT004715": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2019CT004715",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "ENGENHARIA AGRONÔMICA DE MANUTENÇÃO E CONSERVAÇÃO DE ÁREAS VERDES, COM PODA E SUPRESSÃO DE ÁRVORES",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo / descObsLiquidacao (Contrato 024/2019)",
+      "justificativa": "Contrato contínuo de manutenção de áreas verdes em abrangência municipal sem discriminação territorial."
+    },
+    "540002:2019CT008040": {
+      "cdUnidadeGestora": "540002",
+      "nuContratoSigef": "2019CT008040",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "EXECUÇÃO DA OBRA DE CONSTRUÇÃO E RESTAURAÇÃO DA",
+      "documentoOrigem": "dsObjeto (Contrato 540002:2019CT008040)",
+      "justificativa": "Objeto truncado na base de origem e ausência de aditivos ou liquidações no acervo local impedem identificação territorial inequívoca."
+    },
+    "301110:2024CT003385": {
+      "cdUnidadeGestora": "301110",
+      "nuContratoSigef": "2024CT003385",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "prestação de serviços contínuos de adequação e conservação de áreas externas das Unidades de Saúde do Município de Salvador",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 238/2024)",
+      "justificativa": "Contrato guarda-chuva multi-unidade da SMS sem discriminação de Bairro Oficial ou unidade específica nos registros."
+    },
+    "616002:2020CT004496": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2020CT004496",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "MANUTENÇÃO DE CAMPOS E QUADRAS DO MUNICIPAL DE SALVADOR/BA, EM ÁREAS QUE COMPREENDEM AS PREFEITURAS BAIRROS I, VIII E X.",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2020CT004496)",
+      "justificativa": "Objeto explicita abrangência em três Prefeituras-Bairro (I, VIII e X), impedindo alocação regional única."
+    },
+    "560002:2022CT006254": {
+      "cdUnidadeGestora": "560002",
+      "nuContratoSigef": "2022CT006254",
+      "status": "ambiguo",
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "trechoComprobatorio": "manutenção preventiva e corretiva de equipamentos pesados da SEMAN (...) SALVADOR COMÉRCIO E SERVIÇOS DE PEÇAS E ACESSÓRIOS",
+      "documentoOrigem": "dsObjeto / dsObjetoAditivo (Contrato 012/2022)",
+      "justificativa": "Contrato de manutenção de equipamentos pesados da frota municipal sem alocação territorial; a palavra 'Comércio' no aditivo pertence à razão social da contratada."
     }
   }
 }

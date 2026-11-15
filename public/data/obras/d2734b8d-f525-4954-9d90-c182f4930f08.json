@@ -667,7 +667,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -686,10 +686,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Programa MORAR MELHOR 05, subdivididos em 04 (quatro) lotes por Prefeituras Bairros",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 610002:2026CT002299)",
+      "justificativa": "O objeto e as liquidações não discriminam qual dos 4 lotes ou qual Prefeitura-Bairro específica é atendida por este contrato."
     }
   },
   "cdUnidadeGestora": "610002"

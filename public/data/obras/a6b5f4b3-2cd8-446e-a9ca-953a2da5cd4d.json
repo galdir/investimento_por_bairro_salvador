@@ -1439,7 +1439,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1483,10 +1483,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "EXEC. DE SERVS. DE REQUALIF. DE VIAS URNANAS - PREFS. BAIROS; I, VI E VII, LOTE 03",
+      "documentoOrigem": "descObsLiquidacao (Contrato 042/2022)",
+      "justificativa": "LOTE 03 abrange múltiplas Prefeituras-Bairro (I, VI e VII), conforme comprovado nas notas de liquidação."
     }
   },
   "cdUnidadeGestora": "616002"

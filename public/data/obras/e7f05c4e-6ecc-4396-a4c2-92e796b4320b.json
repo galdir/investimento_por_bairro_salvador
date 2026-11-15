@@ -1812,12 +1812,12 @@
     ],
     "deltaPercentualValor": 15.06
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Bairro",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1860,11 +1860,14 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Boca do Rio via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "SERVIÇOS DE CONSTRUÇÃO DO COMPLEXO MULTIUSO ARENA, BOCA DO RIO SSA/BA, - NFSE 0001",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação do Contrato 005/2024)",
+      "justificativa": "As notas de liquidação do Complexo Multiuso Arena Salvador explicitam a localização única no Bairro Oficial Boca do Rio."
     }
   },
   "cdUnidadeGestora": "616002"

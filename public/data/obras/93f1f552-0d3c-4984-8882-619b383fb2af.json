@@ -1106,12 +1106,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Cache",
+  "nivel": "Bairro",
+  "bairro": "Fazenda Coutos",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.847682,
+  "longitude": -38.461693,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1142,11 +1142,14 @@
       }
     ],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Fazenda Coutos via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "REFORMA DA USF FAZENDA COUTOS.II.",
+      "documentoOrigem": "dsObjetoAditivo (2º Termo Aditivo ao Contrato nº 387/2025)",
+      "justificativa": "O aditivo contratual identifica univocamente a reforma da USF Fazenda Coutos II no Bairro Oficial Fazenda Coutos."
     }
   },
   "cdUnidadeGestora": "301110"

@@ -1606,7 +1606,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1650,11 +1650,28 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "Execução de obras de Modernização de Campos de Futebol (...) REQUALIF. ASFALTICA NA RUA DO ENTORNO DO LGO. DO CAMPO GRANDE - TRECHO DA AV. SETE DE SETE",
+      "documentoOrigem": "dsObjeto / descObsLiquidacao (Contrato 616002:2023CT007782)",
+      "justificativa": "Contrato guarda-chuva multi-bairro; a nota 2024NL002313 comprova execução no entorno do Largo do Campo Grande / Av. Sete de Setembro (Bairro Oficial Centro), enquanto as demais notas genéricas permanecem em Escopo Cidade."
     }
   },
-  "cdUnidadeGestora": "616002"
+  "cdUnidadeGestora": "616002",
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2024NL002313",
+      "nivel": "Bairro",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "valorLiquidado": 10000.0,
+      "valorPago": 10000.0,
+      "dataLiquidacao": "23/02/2024",
+      "trechoComprobatorio": "REQUALIF. ASFALTICA NA RUA DO ENTORNO DO LGO. DO CAMPO GRANDE - TRECHO DA AV. SETE DE SETE",
+      "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL002313)",
+      "justificativa": "Nota de liquidação comprova requalificação asfáltica no entorno do Largo do Campo Grande / Av. Sete de Setembro, Bairro Oficial Centro."
+    }
+  ]
 }

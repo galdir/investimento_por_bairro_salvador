@@ -1655,7 +1655,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -1687,10 +1687,13 @@
     ],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Multi-Frente)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Multi-Frente))",
+      "trechoComprobatorio": "Manutenção predial dos Ascensores (...) Manutenção Terminal Maritimo Plataforma",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2024)",
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição; notas do Terminal Marítimo de Plataforma são alocadas ao Bairro Oficial Plataforma e notas genéricas de Ascensores/Planos permanecem em Escopo Cidade."
     }
   },
   "cdUnidadeGestora": "530002",

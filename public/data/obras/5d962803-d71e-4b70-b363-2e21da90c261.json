@@ -91,7 +91,7 @@
   "prefeituraBairro": null,
   "latitude": null,
   "longitude": null,
-  "estagioAlocacao": "Cache",
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -110,10 +110,13 @@
     "domAditivos": [],
     "lastroTerritorial": {
       "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Cache",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
       "bairro": null,
       "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Cache)"
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "construção e reconstrução da EM ELYSIO ATHAYDE- LOTE 05",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 05 identifica o lote da unidade escolar na licitação da SMED, não a Prefeitura-Bairro Liberdade/São Caetano."
     }
   },
   "cdUnidadeGestora": "441010"
