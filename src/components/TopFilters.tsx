@@ -1,5 +1,31 @@
 import React from "react";
-import { FilterState, SemaforoStatus } from "../types";
+import { FilterState, SemaforoStatus, VocacaoObra } from "../types";
+
+const VOCACOES_CONFIG: Array<{
+  value: VocacaoObra;
+  label: string;
+  testId: string;
+  activeClass: string;
+}> = [
+  {
+    value: "Vizinhança e Comunidade",
+    label: "Vizinhança e Comunidade",
+    testId: "chip-vocacao-vizinhanca",
+    activeClass: "bg-emerald-600 text-white border-emerald-600 shadow-sm",
+  },
+  {
+    value: "Mobilidade Estrutural e Orlas",
+    label: "Mobilidade Estrutural e Orlas",
+    testId: "chip-vocacao-mobilidade",
+    activeClass: "bg-sky-600 text-white border-sky-600 shadow-sm",
+  },
+  {
+    value: "Equipamentos e Marcos da Cidade",
+    label: "Equipamentos e Marcos da Cidade",
+    testId: "chip-vocacao-equipamentos",
+    activeClass: "bg-amber-600 text-white border-amber-600 shadow-sm",
+  },
+];
 
 interface TopFiltersProps {
   /**
@@ -64,11 +90,30 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
       ? availableMandatos
       : ["2025-2028", "2021-2024"];
 
+  const vocacoesAtivas = filters.vocacoes ?? VOCACOES_CONFIG.map((v) => v.value);
+
+  const handleToggleVocacao = (vocacao: VocacaoObra) => {
+    const isSelected = vocacoesAtivas.includes(vocacao);
+    if (isSelected) {
+      if (vocacoesAtivas.length <= 1) {
+        return;
+      }
+      onFilterChange({
+        vocacoes: vocacoesAtivas.filter((v) => v !== vocacao),
+      });
+    } else {
+      onFilterChange({
+        vocacoes: [...vocacoesAtivas, vocacao],
+      });
+    }
+  };
+
   const hasActiveFilters =
     (filters.mandato && filters.mandato !== "todos") ||
     (filters.ano && filters.ano !== "todos") ||
     filters.orgao !== "todos" ||
     filters.tema !== "todos" ||
+    vocacoesAtivas.length < VOCACOES_CONFIG.length ||
     filters.semaforo !== "todos" ||
     filters.busca.trim().length > 0;
 
@@ -155,7 +200,39 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
           </div>
         </div>
 
-        {/* Linha 2: Dropdowns de Filtro Combinado (Mandato, Órgão, Tema, Semáforo) e Botão Limpar */}
+        {/* Linha 2: Chips Multi-Seleção de Vocação da Obra */}
+        <div
+          data-testid="filtro-vocacao-chips"
+          className="flex flex-wrap items-center gap-2 pt-0.5"
+        >
+          <span className="text-xs font-medium text-slate-500">Vocação da Obra:</span>
+          {VOCACOES_CONFIG.map((item) => {
+            const isSelected = vocacoesAtivas.includes(item.value);
+            return (
+              <button
+                key={item.value}
+                type="button"
+                data-testid={item.testId}
+                aria-pressed={isSelected}
+                onClick={() => handleToggleVocacao(item.value)}
+                className={`px-2.5 py-1 text-xs font-medium rounded-full border transition-all flex items-center gap-1.5 ${
+                  isSelected
+                    ? item.activeClass
+                    : "bg-slate-50 text-slate-500 border-slate-300 hover:bg-slate-100 hover:text-slate-700"
+                }`}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    isSelected ? "bg-white" : "bg-slate-300"
+                  }`}
+                />
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Linha 3: Dropdowns de Filtro Combinado (Mandato, Órgão, Tema, Semáforo) e Botão Limpar */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
           {/* Filtro: Mandato Municipal */}
           <div className="flex items-center gap-1.5">

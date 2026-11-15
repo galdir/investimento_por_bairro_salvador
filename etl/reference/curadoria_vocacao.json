@@ -1,0 +1,66 @@
+{
+  "versao": 1,
+  "descricao": "Catálogo versionado de Curadoria Semântica de Vocação da Obra por Chave Canônica da Obra (cdUnidadeGestora:nuContratoSigef).",
+  "registros": {
+    "616002:2024CT004935": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Construção do Complexo Multiuso Arena Salvador (equipamento metropolitano na Boca do Rio)."
+    },
+    "616002:2024CT004834": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Execução das obras do Complexo Multiuso Arena Salvador."
+    },
+    "616002:2023CT008196": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Construção da Escola de Artes e Tecnologia e Casa de Espetáculos de escopo municipal."
+    },
+    "301110:2023CT008965": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Implantação do Hospital Municipal (equipamento hospitalar de abrangência municipal)."
+    },
+    "616002:2023CT009444": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Restauração e Requalificação do Elevador Lacerda (marco histórico e patrimonial)."
+    },
+    "616002:2021CT003731": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Restauração e Ampliação do Museu da Santa Casa da Misericórdia."
+    },
+    "616002:2024CT009064": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Reforma e Requalificação do Teatro Vila Velha."
+    },
+    "616002:2024CT008417": {
+      "vocacao": "Equipamentos e Marcos da Cidade",
+      "justificativa": "Reforma e Requalificação do Teatro Vila Velha."
+    },
+    "616002:2022CT006198": {
+      "vocacao": "Mobilidade Estrutural e Orlas",
+      "justificativa": "Requalificação Urbana e Ambiental da Orla de Pituaçu (Fases 01 e 02)."
+    },
+    "616002:2024CT002733": {
+      "vocacao": "Mobilidade Estrutural e Orlas",
+      "justificativa": "Requalificação Urbana da Orla de Jaguaribe."
+    },
+    "616002:2024CT002751": {
+      "vocacao": "Mobilidade Estrutural e Orlas",
+      "justificativa": "Requalificação Urbana da Orla de Jaguaribe."
+    },
+    "616002:2018CT000094": {
+      "vocacao": "Mobilidade Estrutural e Orlas",
+      "justificativa": "Requalificação da Infraestrutura Turística da Orla da Barra/Ondina."
+    },
+    "616002:2019CT008760": {
+      "vocacao": "Mobilidade Estrutural e Orlas",
+      "justificativa": "Urbanização da Orla da Boa Viagem."
+    },
+    "616002:2025CT005497": {
+      "vocacao": "Mobilidade Estrutural e Orlas",
+      "justificativa": "Urbanização Promenade Contorno na Av. Lafayete Coutinho."
+    },
+    "616002:2023CT005109": {
+      "vocacao": "Vizinhança e Comunidade",
+      "justificativa": "Construção de praça comunitária sob o Viaduto Juscelino Kubitschek."
+    }
+  }
+}

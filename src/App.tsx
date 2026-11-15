@@ -17,6 +17,8 @@ import {
   PrefeituraBairroResumo,
   TemaObra,
   TerritorySelection,
+  VOCACOES_PADRAO,
+  VocacaoObra,
 } from "./types";
 import {
   calculateTerritorialRollup,
@@ -39,6 +41,7 @@ const INITIAL_FILTERS: FilterState = {
   ano: "todos",
   orgao: "todos",
   tema: "todos",
+  vocacoes: VOCACOES_PADRAO,
   semaforo: "todos",
   busca: "",
   metricType: "vigente",
@@ -200,6 +203,13 @@ export const App: React.FC = () => {
       if (filters.tema !== "todos" && obra.tema !== filters.tema) {
         return false;
       }
+      // Filtro multi-seleção por Vocação da Obra (fallback conservador para Vizinhança e Comunidade)
+      if (filters.vocacoes.length < VOCACOES_PADRAO.length) {
+        const vocacaoObra = (obra.vocacao as VocacaoObra) || "Vizinhança e Comunidade";
+        if (!filters.vocacoes.includes(vocacaoObra)) {
+          return false;
+        }
+      }
       // Filtro por cor do Semáforo da Obra
       if (filters.semaforo !== "todos" && obra.semaforo?.status !== filters.semaforo) {
         return false;
@@ -222,6 +232,7 @@ export const App: React.FC = () => {
     (filters.ano && filters.ano !== "todos") ||
     filters.orgao !== "todos" ||
     filters.tema !== "todos" ||
+    filters.vocacoes.length < VOCACOES_PADRAO.length ||
     filters.semaforo !== "todos" ||
     filters.busca.trim() !== "" ||
     filters.metricType === "executado";
@@ -317,6 +328,7 @@ export const App: React.FC = () => {
       (filters.ano && filters.ano !== "todos") ||
       filters.orgao !== "todos" ||
       filters.tema !== "todos" ||
+      filters.vocacoes.length < VOCACOES_PADRAO.length ||
       filters.semaforo !== "todos" ||
       filters.busca.trim() !== "" ||
       filters.metricType === "executado" ||

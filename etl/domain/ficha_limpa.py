@@ -10,6 +10,7 @@ from etl.domain.empreiteiras import eh_cnpj_valido, formatar_cnpj, obter_chave_e
 from etl.domain.mandato import formatar_data_iso
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
+from etl.domain.vocacao import classificar_vocacao
 from etl.domain.territorio import parse_float
 
 _DOM_INVALIDOS = {"", "nao informado", "não informado", "nao informada", "não informada", "none", "null"}
@@ -183,6 +184,7 @@ def _montar_ficha_base(
     liquidacoes: list[dict[str, Any]],
     pagamentos: list[dict[str, Any]],
     tema: Any,
+    vocacao: Any,
     semaforo: Any,
     nivel: Any,
     bairro: Any,
@@ -221,6 +223,7 @@ def _montar_ficha_base(
         "liquidacoes": liquidacoes,
         "pagamentos": pagamentos,
         "tema": tema,
+        "vocacao": vocacao,
         "semaforo": semaforo,
         "nivel": nivel,
         "bairro": bairro,
@@ -444,6 +447,7 @@ def construir_ficha_obra(
         liquidacoes=liquidacoes_raw,
         pagamentos=pagamentos_raw,
         tema=obra.get("tema") or classificar_tema(obra),
+        vocacao=obra.get("vocacao") or classificar_vocacao(obra),
         semaforo=obra.get("semaforo") or classificar_semaforo(obra),
         nivel=obra.get("nivel"),
         bairro=obra.get("bairro"),
@@ -744,6 +748,7 @@ def mesclar_fichas_obra(
 
     funil = _resolver_funil_mesclado(obra, candidatas, empenhos, liquidacoes, pagamentos)
     tema = obra.get("tema") or next((f.get("tema") for f in candidatas if f.get("tema")), None) or classificar_tema(obra)
+    vocacao = obra.get("vocacao") or next((f.get("vocacao") for f in candidatas if f.get("vocacao")), None) or classificar_vocacao(obra)
     semaforo = obra.get("semaforo") or next((f.get("semaforo") for f in candidatas if f.get("semaforo")), None) or classificar_semaforo(obra)
 
     tem_curadoria = isinstance(obra.get("lastroCuradoria"), dict)
@@ -800,6 +805,7 @@ def mesclar_fichas_obra(
         liquidacoes=liquidacoes,
         pagamentos=pagamentos,
         tema=tema,
+        vocacao=vocacao,
         semaforo=semaforo,
         nivel=nivel_final,
         bairro=bairro_final,

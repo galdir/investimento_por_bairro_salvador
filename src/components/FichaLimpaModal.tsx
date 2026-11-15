@@ -107,6 +107,14 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   {obra.tema}
                 </span>
               )}
+              {obra?.vocacao && (
+                <span
+                  data-testid="ficha-limpa-vocacao"
+                  className="bg-sky-950/60 text-sky-200 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-sky-600/40"
+                >
+                  {obra.vocacao}
+                </span>
+              )}
               {obra?.semaforo && (
                 <span
                   className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border flex items-center gap-1.5 ${obra.semaforo.status === "VERMELHO"

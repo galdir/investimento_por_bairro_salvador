@@ -32,6 +32,7 @@ from etl.domain.mandato import (
 )
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
+from etl.domain.vocacao import classificar_vocacao
 from etl.domain.territorio import (
     calcular_rollup_territorial,
     is_centralidade_metropolitana,
@@ -329,9 +330,10 @@ def run_pipeline(
             "populacao_total": pop_total,
         })
 
-    # Classificação de Tema e Semáforo da Obra antes da consolidação detalhada
+    # Classificação de Tema, Vocação e Semáforo da Obra antes da consolidação detalhada
     for obra in grid_obras:
         obra["tema"] = classificar_tema(obra)
+        obra["vocacao"] = classificar_vocacao(obra)
         obra["semaforo"] = classificar_semaforo(obra)
 
     # 6. Detalhamento individual com reconciliação local e blindagem histórica

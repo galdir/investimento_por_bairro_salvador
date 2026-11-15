@@ -18,6 +18,7 @@ from etl.domain.mandato import (
 )
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
+from etl.domain.vocacao import classificar_vocacao
 from etl.domain.territorio import (
     is_centralidade_metropolitana,
     is_zona_especial_nao_residencial,
@@ -259,8 +260,9 @@ def generate_index_json(
                 o.get("vlPago") or o.get("valorPago") or round(vl_atua * (perc_exec / 100.0), 2)
             )
 
-        # Classificações determinísticas de Tema e Semáforo da Obra
+        # Classificações determinísticas de Tema, Vocação e Semáforo da Obra
         tema = o.get("tema") or classificar_tema(o)
+        vocacao = o.get("vocacao") or classificar_vocacao(o)
         semaforo = o.get("semaforo") or classificar_semaforo(o)
 
         # Mandatos Municipais e vigência
@@ -302,6 +304,7 @@ def generate_index_json(
             "cnpj": cnpj_credor,
             "cnpjCredor": cnpj_credor,
             "tema": tema,
+            "vocacao": vocacao,
             "semaforo": semaforo,
             "ano": ano_obra,
             "mandatos": mandatos_obra,

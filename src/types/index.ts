@@ -19,6 +19,23 @@ export type TemaObra =
   | "Mobilidade, Pavimentação e Drenagem"
   | "Manutenção Urbana e Outros";
 
+export type VocacaoObra =
+  | "Vizinhança e Comunidade"
+  | "Mobilidade Estrutural e Orlas"
+  | "Equipamentos e Marcos da Cidade";
+
+export const VOCACOES_PADRAO: VocacaoObra[] = [
+  "Vizinhança e Comunidade",
+  "Mobilidade Estrutural e Orlas",
+  "Equipamentos e Marcos da Cidade",
+];
+
+export const VOCACAO_BADGE_CLASS: Record<VocacaoObra, string> = {
+  "Vizinhança e Comunidade": "bg-emerald-50 text-emerald-800 border border-emerald-200",
+  "Mobilidade Estrutural e Orlas": "bg-sky-50 text-sky-800 border border-sky-200",
+  "Equipamentos e Marcos da Cidade": "bg-amber-50 text-amber-800 border border-amber-200",
+};
+
 export type MetricType = "vigente" | "executado";
 
 export type ChoroplethMetric = "investimentoPorHabitante" | "vulnerabilidade";
@@ -130,6 +147,7 @@ export interface ObraCompacta {
   cnpj?: string;
   cnpjCredor?: string;
   tema?: TemaObra | string;
+  vocacao?: VocacaoObra | string;
   semaforo?: SemaforoInfo;
   ano?: number;
   mandatos?: string[];
@@ -257,6 +275,7 @@ export interface FichaLimpaObra {
   liquidacoes?: any[];
   pagamentos?: any[];
   tema?: string;
+  vocacao?: VocacaoObra | string;
   semaforo?: SemaforoInfo;
   nivel?: string;
   bairro?: string | null;
@@ -317,6 +336,7 @@ export interface FilterState {
   ano?: number | "todos";
   orgao: string | "todos";
   tema: string | "todos";
+  vocacoes: VocacaoObra[];
   semaforo: SemaforoStatus | "todos";
   busca: string;
   metricType: MetricType;

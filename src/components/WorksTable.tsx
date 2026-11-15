@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { MetricType, ObraCompacta, SemaforoStatus } from "../types";
+import { MetricType, ObraCompacta, SemaforoStatus, VOCACAO_BADGE_CLASS, VocacaoObra } from "../types";
 import { formatCurrency, formatNumber, formatDate } from "../utils/formatters";
 
 interface WorksTableProps {
@@ -407,11 +407,22 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     </p>
                   </td>
 
-                  {/* Tema da Obra */}
+                  {/* Tema e Vocação da Obra */}
                   <td className="py-3 px-3 whitespace-nowrap">
-                    <span className="text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full text-[11px] font-medium">
-                      {o.tema || "Manutenção Urbana e Outros"}
-                    </span>
+                    <div className="flex flex-col items-start gap-1">
+                      <span className="text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full text-[11px] font-medium">
+                        {o.tema || "Manutenção Urbana e Outros"}
+                      </span>
+                      <span
+                        data-testid={`badge-vocacao-${o.id}`}
+                        className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+                          VOCACAO_BADGE_CLASS[(o.vocacao as VocacaoObra) || "Vizinhança e Comunidade"] ||
+                          VOCACAO_BADGE_CLASS["Vizinhança e Comunidade"]
+                        }`}
+                      >
+                        {o.vocacao || "Vizinhança e Comunidade"}
+                      </span>
+                    </div>
                   </td>
 
                   {/* Valor Original */}
