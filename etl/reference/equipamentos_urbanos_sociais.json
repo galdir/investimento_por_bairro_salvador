@@ -1,0 +1,116 @@
+[
+  {
+    "id": 201,
+    "nome": "CRAS BOCA DO RIO",
+    "tipo": "CRAS",
+    "bairro": "Boca do Rio",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.97604,
+    "longitude": -38.42579,
+    "aliases": ["CRAS LOCALIZADO NO BAIRRO DA BOCA DO RIO"]
+  },
+  {
+    "id": 202,
+    "nome": "CRAS MANE DENDE",
+    "tipo": "CRAS",
+    "bairro": "Ilha Amarela",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.890839,
+    "longitude": -38.471967,
+    "aliases": ["CRAS DO MANE DENDE"]
+  },
+  {
+    "id": 203,
+    "nome": "CONVIVE GRANJAS RURAIS",
+    "tipo": "UNIDADE SOCIAL",
+    "bairro": "Granjas Rurais Presidente Vargas",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.92129,
+    "longitude": -38.46461,
+    "aliases": ["CENTRO COMUNITARIO PELA VIDA CONVIVE"]
+  },
+  {
+    "id": 209,
+    "nome": "PARQUE DO JARDIM BOTANICO DE SALVADOR",
+    "tipo": "PARQUE",
+    "bairro": "São Marcos",
+    "prefeitura_bairro": "Pau da Lima",
+    "latitude": -12.92917,
+    "longitude": -38.43466,
+    "aliases": [
+      "JARDIM BOTANICO DE SALVADOR",
+      "JARDIM BOTANICO DO MUNICIPIO DO SALVADOR",
+      "PARQUE DO JARDIM BOTANICO"
+    ]
+  },
+  {
+    "id": 210,
+    "nome": "PARQUE NATURAL MUNICIPAL MARINHO DA BARRA",
+    "tipo": "PARQUE",
+    "bairro": "Barra",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.0095,
+    "longitude": -38.5325,
+    "aliases": [
+      "PARQUE MARINHO DA BARRA",
+      "PARQUE NATURAL MUNICIPAL MARINHO DA BA"
+    ]
+  },
+  {
+    "id": 211,
+    "nome": "PARQUE PEDRA DE XANGO",
+    "tipo": "PARQUE",
+    "bairro": "Fazenda Grande III",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.904751,
+    "longitude": -38.395157,
+    "aliases": ["PEDRA DE XANGO"]
+  },
+  {
+    "id": 215,
+    "nome": "MERCADO MODELO",
+    "tipo": "MERCADO",
+    "bairro": "Comércio",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.97297,
+    "longitude": -38.51399,
+    "aliases": ["MERDADO MODELE"]
+  },
+  {
+    "id": 236,
+    "nome": "CASA DA MULHER BRASILEIRA",
+    "tipo": "UNIDADE SOCIAL",
+    "bairro": "STIEP",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.9773,
+    "longitude": -38.4508
+  },
+  {
+    "id": 237,
+    "nome": "UNIDADE PRATO POPULAR",
+    "tipo": "UNIDADE SOCIAL",
+    "bairro": "São Tomé",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.8255,
+    "longitude": -38.4810
+  },
+  {
+    "id": 243,
+    "nome": "MERCADO DE SAO CRISTOVAO",
+    "tipo": "MERCADO",
+    "bairro": "São Cristóvão",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.91148,
+    "longitude": -38.354228
+  },
+  {
+    "id": 244,
+    "nome": "MERCADO MUNICIPAL NA ILHA DE BOM JESUS DOS PASSOS",
+    "tipo": "MERCADO",
+    "bairro": "Ilha de Bom Jesus dos Passos",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.760617,
+    "longitude": -38.641299,
+    "aliases": ["MERCADO MUNICIPAL DA ILHA DE BOM JESUS DOS PASSOS"]
+  }
+]

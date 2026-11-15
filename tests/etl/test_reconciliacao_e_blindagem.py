@@ -1791,3 +1791,150 @@ def test_reconciliar_acervo_local_bloqueia_nominatim_preserva_stage2_e_nao_herda
     assert ficha_pontual["latitude"] == -12.981
     assert ficha_pontual["longitude"] == -38.515
 
+
+def test_reconciliar_acervo_local_promove_equipamento_unico_a_pontual_e_abstem_multiplos(
+    tmp_path: Path,
+) -> None:
+    """Seam 1: reconciliação offline promove equipamento único para Pontual, expande logradouro e abstém múltiplos."""
+    import shutil
+    from shapely.geometry import Point, shape
+    from etl.domain.geocoding import GeocodingCache
+    from etl.reconcile import reconciliar_acervo_local
+
+    raiz_repo = Path(__file__).resolve().parents[2]
+    geo_dir = tmp_path / "geo"
+    geo_dir.mkdir(parents=True, exist_ok=True)
+    bairros_src = raiz_repo / "public" / "data" / "geo" / "bairros.geojson"
+    pb_src = raiz_repo / "public" / "data" / "geo" / "prefeituras_bairro.geojson"
+    shutil.copy2(bairros_src, geo_dir / "bairros.geojson")
+    shutil.copy2(pb_src, geo_dir / "prefeituras_bairro.geojson")
+
+    bairros_fc = json.loads(bairros_src.read_text(encoding="utf-8"))
+    poligonos = {
+        f["properties"]["nome"]: shape(f["geometry"])
+        for f in bairros_fc["features"]
+    }
+
+    obras_iniciais = [
+        {
+            "id": "obra-eq-em-jesus",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2024EQ001",
+            "objeto": "Execução da obra da E.M. Jesus de Nazaré",
+            "nivel": "Bairro",
+            "bairro": "Nazaré",
+            "prefeituraBairro": "Centro/Brotas",
+            "prefeitura_bairro": "Centro/Brotas",
+            "latitude": -12.976,
+            "longitude": -38.510,
+            "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+            "valorContratualVigente": 500000.0,
+            "valorPago": 250000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-eq-multiplos",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2024EQ002",
+            "objeto": "Reforma do Mercado Modelo e do CRAS Boca do Rio",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeituraBairro": None,
+            "prefeitura_bairro": None,
+            "latitude": None,
+            "longitude": None,
+            "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+            "valorContratualVigente": 300000.0,
+            "valorPago": 0.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+        {
+            "id": "obra-logradouro-brotas",
+            "cdUnidadeGestora": "610002",
+            "nuContratoSigef": "2024LOG003",
+            "objeto": "Requalificação da Rua Odilon Dórea e Avenida Dom João VI",
+            "nivel": "Escopo Cidade (Não-Localizado)",
+            "bairro": None,
+            "prefeituraBairro": None,
+            "prefeitura_bairro": None,
+            "latitude": None,
+            "longitude": None,
+            "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+            "valorContratualVigente": 200000.0,
+            "valorPago": 100000.0,
+            "ano": 2025,
+            "mandatos": ["Bruno Reis (2025–2028)"],
+        },
+    ]
+
+    cache = GeocodingCache(tmp_path / "geocoding_cache.json")
+    cache.set(
+        "610002",
+        "2024EQ001",
+        "Execução da obra da E.M. Jesus de Nazaré",
+        {
+            "nivel": "Bairro",
+            "bairro": "Nazaré",
+            "prefeitura_bairro": "Centro/Brotas",
+            "latitude": -12.976,
+            "longitude": -38.510,
+            "estagio": "Stage 1 (Bairro / Sublocalidade)",
+        },
+    )
+
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+    for o in obras_iniciais:
+        ficha = {
+            "id": o["id"],
+            "cdUnidadeGestora": o["cdUnidadeGestora"],
+            "numeroContrato": o["nuContratoSigef"],
+            "objeto": o["objeto"],
+            "nivel": o["nivel"],
+            "bairro": o["bairro"],
+            "prefeituraBairro": o["prefeituraBairro"],
+            "latitude": o["latitude"],
+            "longitude": o["longitude"],
+            "estagioAlocacao": o["estagioAlocacao"],
+            "funilFinanceiro": {
+                "valorContratualVigente": o["valorContratualVigente"],
+                "valorPago": o["valorPago"],
+            },
+        }
+        (obras_dir / f"{o['id']}.json").write_text(json.dumps(ficha, ensure_ascii=False), encoding="utf-8")
+
+    (tmp_path / "index_2025.json").write_text(
+        json.dumps({"ano": 2025, "obras": obras_iniciais, "bairros": [], "prefeituras_bairro": []}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+
+    with patch("urllib.request.urlopen", side_effect=AssertionError("Não deve consultar Nominatim na reconciliação!")):
+        reconciliar_acervo_local(output_dir=tmp_path, year=2025, curadoria={})
+
+    idx_final = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    obras_final = {o["id"]: o for o in idx_final["obras"]}
+
+    eq_unica = obras_final["obra-eq-em-jesus"]
+    assert eq_unica["nivel"] == "Pontual"
+    assert eq_unica["bairro"] == "Nova Sussuarana"
+    assert eq_unica["prefeituraBairro"] == "Cabula/Tancredo Neves"
+    assert eq_unica["estagioAlocacao"] == "Stage 1 (Equipamento Oficial)"
+    assert poligonos["Nova Sussuarana"].contains(Point(eq_unica["longitude"], eq_unica["latitude"]))
+
+    ficha_unica = json.loads((obras_dir / "obra-eq-em-jesus.json").read_text(encoding="utf-8"))
+    assert ficha_unica["nivel"] == "Pontual"
+    assert ficha_unica["bairro"] == "Nova Sussuarana"
+    assert ficha_unica["latitude"] == eq_unica["latitude"]
+    assert ficha_unica["longitude"] == eq_unica["longitude"]
+
+    assert obras_final["obra-eq-multiplos"]["nivel"] == "Escopo Cidade (Não-Localizado)"
+    assert obras_final["obra-eq-multiplos"]["bairro"] is None
+    assert obras_final["obra-eq-multiplos"]["latitude"] is None
+
+    assert obras_final["obra-logradouro-brotas"]["nivel"] == "Bairro"
+    assert obras_final["obra-logradouro-brotas"]["bairro"] == "Brotas"
+    assert obras_final["obra-logradouro-brotas"]["prefeituraBairro"] == "Centro/Brotas"
+
+

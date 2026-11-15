@@ -6,7 +6,10 @@
     "bairro": "Pituba",
     "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.9970,
-    "longitude": -38.4560
+    "longitude": -38.4560,
+    "aliases": [
+      "USF PITUBA"
+    ]
   },
   {
     "id": 102,
@@ -14,8 +17,11 @@
     "tipo": "UBS",
     "bairro": "Liberdade",
     "prefeitura_bairro": "Liberdade/São Caetano",
-    "latitude": -12.9560,
-    "longitude": -38.4860
+    "latitude": -12.947048,
+    "longitude": -38.493816,
+    "aliases": [
+      "UBS LIBERDADE"
+    ]
   },
   {
     "id": 103,
@@ -24,7 +30,10 @@
     "bairro": "Barris",
     "prefeitura_bairro": "Centro/Brotas",
     "latitude": -12.9860,
-    "longitude": -38.5130
+    "longitude": -38.5130,
+    "aliases": [
+      "UPA VALE DOS BARRIS"
+    ]
   },
   {
     "id": 104,
@@ -33,7 +42,10 @@
     "bairro": "Cabula",
     "prefeitura_bairro": "Cabula/Tancredo Neves",
     "latitude": -12.9590,
-    "longitude": -38.4690
+    "longitude": -38.4690,
+    "aliases": [
+      "USF CABULA"
+    ]
   },
   {
     "id": 105,
@@ -41,7 +53,356 @@
     "tipo": "MULTICENTRO",
     "bairro": "Liberdade",
     "prefeitura_bairro": "Liberdade/São Caetano",
-    "latitude": -12.9570,
-    "longitude": -38.4870
+    "latitude": -12.9482,
+    "longitude": -38.495
+  },
+  {
+    "id": 106,
+    "nome": "HOSPITAL VETERINARIO MUNICIPAL",
+    "tipo": "HOSPITAL",
+    "bairro": "Canabrava",
+    "prefeitura_bairro": "Pau da Lima",
+    "latitude": -12.9190,
+    "longitude": -38.4270,
+    "aliases": [
+      "HOSPITAL VETERINARIO"
+    ]
+  },
+  {
+    "id": 107,
+    "nome": "HOSPITAL MUNICIPAL DE SALVADOR",
+    "tipo": "HOSPITAL",
+    "bairro": "Boca da Mata",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.89761,
+    "longitude": -38.38987,
+    "aliases": [
+      "HOSPITAL MUNICIPAL DE SALVADOR HMS",
+      "FARMACIA VIVA E ABRIGO DE RESIDUOS SOLIDOS HMS",
+      "ABRIGO DE RESIDUOS SOLIDOS HMS",
+      "HMS"
+    ]
+  },
+  {
+    "id": 108,
+    "nome": "USF URSULA CATARINO",
+    "tipo": "USF",
+    "bairro": "Garcia",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.99013,
+    "longitude": -38.50783,
+    "aliases": [
+      "USF URSULA CATHARINO"
+    ]
+  },
+  {
+    "id": 109,
+    "nome": "HOSPITAL MATERNIDADE E DA CRIANCA",
+    "tipo": "HOSPITAL",
+    "bairro": "Federação",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.9977,
+    "longitude": -38.5101
+  },
+  {
+    "id": 110,
+    "nome": "CENTRO DIAGNOSTICO MUNICIPAL DA MULHER - CDMM",
+    "tipo": "CENTRO DIAGNOSTICO",
+    "bairro": "Federação",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.9980456,
+    "longitude": -38.5098991,
+    "aliases": [
+      "CDMM"
+    ]
+  },
+  {
+    "id": 111,
+    "nome": "CAPS III MARIA CELIA ROCHA",
+    "tipo": "CAPS",
+    "bairro": "Alto da Terezinha",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.8848836,
+    "longitude": -38.4755603,
+    "aliases": [
+      "CAPS MARIA CELIA ROCHA",
+      "CAPS 3 MARIA CELIA ROCHA"
+    ]
+  },
+  {
+    "id": 112,
+    "nome": "CAPS IA DISTRITO SANITARIO DE ITAPAGIPE",
+    "tipo": "CAPS",
+    "bairro": "Calçada",
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": -12.943002,
+    "longitude": -38.49658,
+    "aliases": [
+      "CAPS IA"
+    ]
+  },
+  {
+    "id": 113,
+    "nome": "CAPS III SAO CAETANO",
+    "tipo": "CAPS",
+    "bairro": "São Caetano",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.9342,
+    "longitude": -38.4792,
+    "aliases": [
+      "CAPS SAO CAETANO",
+      "CAPS 3 SAO CAETANO"
+    ]
+  },
+  {
+    "id": 114,
+    "nome": "USF FAZENDA COUTOS II",
+    "tipo": "USF",
+    "bairro": "Fazenda Coutos",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.84549,
+    "longitude": -38.46237,
+    "aliases": [
+      "USF FAZENDA COUTOS 2"
+    ]
+  },
+  {
+    "id": 115,
+    "nome": "PRONTO ATENDIMENTO DE ILHA DE MARE",
+    "tipo": "PA",
+    "bairro": "Ilha de Maré",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.7667,
+    "longitude": -38.5333,
+    "aliases": [
+      "PRONTO ATENDIMENTO DE LLHA DE MARE",
+      "PRONTO ATENDIMENTO ILHA DE MARE",
+      "PA ILHA DE MARE",
+      "PA DE ILHA DE MARE"
+    ]
+  },
+  {
+    "id": 116,
+    "nome": "USF POLEMICA",
+    "tipo": "USF",
+    "bairro": "Brotas",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.98624,
+    "longitude": -38.47160
+  },
+  {
+    "id": 117,
+    "nome": "USF BOCA DA MATA",
+    "tipo": "USF",
+    "bairro": "Boca da Mata",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.898536,
+    "longitude": -38.389205
+  },
+  {
+    "id": 118,
+    "nome": "USF SAO MARCOS II",
+    "tipo": "USF",
+    "bairro": "São Marcos",
+    "prefeitura_bairro": "Pau da Lima",
+    "latitude": -12.925704,
+    "longitude": -38.438253,
+    "aliases": [
+      "USF SAO MARCOS 2"
+    ]
+  },
+  {
+    "id": 119,
+    "nome": "UBS VILA MATOS",
+    "tipo": "UBS",
+    "bairro": "Rio Vermelho",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.009278,
+    "longitude": -38.490938
+  },
+  {
+    "id": 120,
+    "nome": "USF NOVA SUSSUARANA",
+    "tipo": "USF",
+    "bairro": "Nova Sussuarana",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.9365,
+    "longitude": -38.4362
+  },
+  {
+    "id": 121,
+    "nome": "USF NOVA SUSSUARANA II",
+    "tipo": "USF",
+    "bairro": "Nova Sussuarana",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.9348,
+    "longitude": -38.4332,
+    "aliases": [
+      "USF NOVA SUSSUARANA 2"
+    ]
+  },
+  {
+    "id": 122,
+    "nome": "USF AVENIDA GAL COSTA",
+    "tipo": "USF",
+    "bairro": "Sussuarana",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.933167,
+    "longitude": -38.444517,
+    "aliases": [
+      "USF GAL COSTA"
+    ]
+  },
+  {
+    "id": 123,
+    "nome": "USF VALE DA MURICOCA",
+    "tipo": "USF",
+    "bairro": "Engenho Velho da Federação",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.9972,
+    "longitude": -38.4969
+  },
+  {
+    "id": 124,
+    "nome": "USF CURRALINHO",
+    "tipo": "USF",
+    "bairro": "Boca do Rio",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9772,
+    "longitude": -38.4384,
+    "aliases": [
+      "USF DO CURRALINHO"
+    ]
+  },
+  {
+    "id": 125,
+    "nome": "UPA BROTAS",
+    "tipo": "UPA",
+    "bairro": "Brotas",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.9855,
+    "longitude": -38.4805,
+    "aliases": [
+      "UPA DE BROTAS"
+    ]
+  },
+  {
+    "id": 126,
+    "nome": "UPA VALE DO MATATU",
+    "tipo": "UPA",
+    "bairro": "Matatu",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.974092,
+    "longitude": -38.49316
+  },
+  {
+    "id": 127,
+    "nome": "CENTRO DE SAUDE MARIO ANDREA",
+    "tipo": "CENTRO DE SAUDE",
+    "bairro": "Nazaré",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.9711,
+    "longitude": -38.4997,
+    "aliases": [
+      "CS MARIO ANDREA"
+    ]
+  },
+  {
+    "id": 128,
+    "nome": "UBS SANTO INACIO",
+    "tipo": "UBS",
+    "bairro": "Jardim Santo Inácio",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.929059,
+    "longitude": -38.461654,
+    "aliases": [
+      "UBS JARDIM SANTO INACIO"
+    ]
+  },
+  {
+    "id": 129,
+    "nome": "USF CLEMENTINO FRAGA",
+    "tipo": "USF",
+    "bairro": "Garcia",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.991888,
+    "longitude": -38.513057
+  },
+  {
+    "id": 130,
+    "nome": "USF TEOTONIO VILELA II",
+    "tipo": "USF",
+    "bairro": "Fazenda Coutos",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.846774,
+    "longitude": -38.460438,
+    "aliases": [
+      "USF TEOTONIO VILELA 2"
+    ]
+  },
+  {
+    "id": 131,
+    "nome": "USF COLINAS DE PERIPERI",
+    "tipo": "USF",
+    "bairro": "Colinas de Periperi",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.870928,
+    "longitude": -38.462137
+  },
+  {
+    "id": 132,
+    "nome": "USF JAGUARIBE",
+    "tipo": "USF",
+    "bairro": "Patamares",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.949107,
+    "longitude": -38.402485
+  },
+  {
+    "id": 133,
+    "nome": "USF VALE DOS LAGOS",
+    "tipo": "USF",
+    "bairro": "Vale dos Lagos",
+    "prefeitura_bairro": "Pau da Lima",
+    "latitude": -12.933049,
+    "longitude": -38.419889
+  },
+  {
+    "id": 134,
+    "nome": "POLICLINICA MUNICIPAL DE JAGUARIPE I",
+    "tipo": "POLICLINICA",
+    "bairro": "Jaguaripe I",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.909368,
+    "longitude": -38.406525,
+    "aliases": [
+      "POLICLINICA MUNICIPAL DE JAGUARIPE",
+      "POLICLINICA DE JAGUARIPE I"
+    ]
+  },
+  {
+    "id": 135,
+    "nome": "UNIDADE DE SAUDE DA FAMILIA CALCADA",
+    "tipo": "USF",
+    "bairro": "Calçada",
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": -12.9422,
+    "longitude": -38.4972,
+    "aliases": [
+      "USF CALCADA"
+    ]
+  },
+  {
+    "id": 136,
+    "nome": "UBS E CENTRO DE ESPECIALIDADES ODONTOLOGICAS PERIPERI",
+    "tipo": "UBS",
+    "bairro": "Periperi",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.8675,
+    "longitude": -38.4742,
+    "aliases": [
+      "UBS PERIPERI",
+      "UNIDADE BASICA DE SAUDE SEM ESTRATEGIA DE SAUDE DA FAMILIA E DO CENTRO DE ESPECIALIDADES ODONTOLOGICAS"
+    ]
   }
 ]

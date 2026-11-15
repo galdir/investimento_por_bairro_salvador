@@ -6,16 +6,25 @@
     "bairro": "Pituba",
     "prefeitura_bairro": "Barra/Pituba",
     "latitude": -12.9965,
-    "longitude": -38.4552
+    "longitude": -38.4552,
+    "aliases": [
+      "EM PROFESSORA MARIA QUITERIA",
+      "EM PROFA MARIA QUITERIA",
+      "EM PROF MARIA QUITERIA",
+      "ESCOLA MUNICIPAL PROFA MARIA QUITERIA"
+    ]
   },
   {
     "id": 2,
     "nome": "ESCOLA MUNICIPAL JORGE AMADO",
     "tipo": "ESCOLA",
-    "bairro": "Liberdade",
-    "prefeitura_bairro": "Liberdade/São Caetano",
-    "latitude": -12.9550,
-    "longitude": -38.4850
+    "bairro": "Piatã",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9285,
+    "longitude": -38.3842,
+    "aliases": [
+      "EM JORGE AMADO"
+    ]
   },
   {
     "id": 3,
@@ -33,7 +42,12 @@
     "bairro": "Cabula",
     "prefeitura_bairro": "Cabula/Tancredo Neves",
     "latitude": -12.9580,
-    "longitude": -38.4680
+    "longitude": -38.4680,
+    "aliases": [
+      "EM PROFESSOR EDGARD SANTOS",
+      "EM PROF EDGARD SANTOS",
+      "EM EDGARD SANTOS"
+    ]
   },
   {
     "id": 5,
@@ -41,8 +55,8 @@
     "tipo": "CMEI",
     "bairro": "São Caetano",
     "prefeitura_bairro": "Liberdade/São Caetano",
-    "latitude": -12.9420,
-    "longitude": -38.4910
+    "latitude": -12.933254,
+    "longitude": -38.477795
   },
   {
     "id": 6,
@@ -51,6 +65,754 @@
     "bairro": "Paripe",
     "prefeitura_bairro": "Subúrbio/Ilhas",
     "latitude": -12.8250,
-    "longitude": -38.4720
+    "longitude": -38.4720,
+    "aliases": [
+      "EM ALVARO DA SILVA"
+    ]
+  },
+  {
+    "id": 7,
+    "nome": "ESCOLA MUNICIPAL DE NOVA ESPERANCA PROFESSOR ARX TOURINHO",
+    "tipo": "ESCOLA",
+    "bairro": "Nova Esperança",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.84737,
+    "longitude": -38.377166,
+    "aliases": [
+      "ESCOLA MUNICIPAL DO CEASA",
+      "EM DO CEASA",
+      "EM DE NOVA ESPERANCA",
+      "ESCOLA MUNICIPAL PROFESSOR ARX TOURINHO",
+      "EM PROFESSOR ARX TOURINHO",
+      "EM PROF ARX TOURINHO"
+    ]
+  },
+  {
+    "id": 8,
+    "nome": "ESCOLA MUNICIPAL 15 DE OUTUBRO",
+    "tipo": "ESCOLA",
+    "bairro": "Fazenda Grande do Retiro",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.94614,
+    "longitude": -38.47940,
+    "aliases": [
+      "EM 15 DE OUTUBRO"
+    ]
+  },
+  {
+    "id": 9,
+    "nome": "ESCOLA MUNICIPAL CLERISTON ANDRADE",
+    "tipo": "ESCOLA",
+    "bairro": "São Marcos",
+    "prefeitura_bairro": "Pau da Lima",
+    "latitude": -12.92517,
+    "longitude": -38.43559,
+    "aliases": [
+      "EM CLERISTON ANDRADE"
+    ]
+  },
+  {
+    "id": 10,
+    "nome": "ESCOLA MUNICIPAL ALMIRANTE ERNESTO MOURAO DE SA",
+    "tipo": "ESCOLA",
+    "bairro": "Paripe",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.83351,
+    "longitude": -38.46722,
+    "aliases": [
+      "ESCOLA MUNICIPAL ERNESTO MOURAO DE SA",
+      "EM ERNESTO MOURAO DE SA",
+      "EM ALMIRANTE ERNESTO DE MOURAO SA"
+    ]
+  },
+  {
+    "id": 11,
+    "nome": "ESCOLA MUNICIPAL OLGA FIGUEIREDO DE AZEVEDO",
+    "tipo": "ESCOLA",
+    "bairro": "Cosme de Farias",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.97760,
+    "longitude": -38.48641,
+    "aliases": [
+      "EM OLGA FIGUEIREDO DE AZEVEDO",
+      "EM OLGA FIGUEIREDO"
+    ]
+  },
+  {
+    "id": 12,
+    "nome": "ESCOLA MUNICIPAL CONSELHEIRO LUIZ ROGERIO",
+    "tipo": "ESCOLA",
+    "bairro": "Castelo Branco",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.904084,
+    "longitude": -38.432123,
+    "aliases": [
+      "EM CONSELHEIRO LUIZ ROGERIO"
+    ]
+  },
+  {
+    "id": 13,
+    "nome": "ESCOLA MUNICIPAL ALVARO VASCONCELOS DA ROCHA",
+    "tipo": "ESCOLA",
+    "bairro": "Coutos",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.853168,
+    "longitude": -38.469595,
+    "aliases": [
+      "EM ALVARO VASCONCELOS DA ROCHA"
+    ]
+  },
+  {
+    "id": 14,
+    "nome": "ESCOLA MUNICIPAL MARIA CONSTANCA MORAES DE CARVALHO",
+    "tipo": "ESCOLA",
+    "bairro": "Mata Escura",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.9380,
+    "longitude": -38.4605,
+    "aliases": [
+      "ESCOLA MUNICIPAL MARIA CONSTANCA",
+      "ESCOLA MUNICIPAL MARIA CONSTANCIA",
+      "EM MARIA CONSTANCA",
+      "EM MARIA CONSTANCIA"
+    ]
+  },
+  {
+    "id": 15,
+    "nome": "ESCOLA MUNICIPAL ELYSIO ATHAYDE",
+    "tipo": "ESCOLA",
+    "bairro": "Cajazeiras V",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.893836,
+    "longitude": -38.418571,
+    "aliases": [
+      "EM ELYSIO ATHAYDE"
+    ]
+  },
+  {
+    "id": 16,
+    "nome": "ESCOLA MUNICIPAL OSCAR DA PENHA",
+    "tipo": "ESCOLA",
+    "bairro": "Cajazeiras VI",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.895002,
+    "longitude": -38.428704,
+    "aliases": [
+      "EM OSCAR DA PENHA"
+    ]
+  },
+  {
+    "id": 17,
+    "nome": "ESCOLA MUNICIPAL PROFESSORA MARIA DE LOURDES SANTANA ALVES",
+    "tipo": "ESCOLA",
+    "bairro": "Capelinha",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.92676,
+    "longitude": -38.48258,
+    "aliases": [
+      "ESCOLA MUNICIPAL MARIA DE LOURDES SANTANA ALVES",
+      "EM MARIA DE LOURDES SANTANA ALVES",
+      "EM PROF MARIA DE LOURDES SANTANA ALVES",
+      "EM PROFA MARIA DE LOURDES SANTANA ALVES",
+      "EM PROFESSORA MARIA DE LOURDES SANTANA ALVES"
+    ]
+  },
+  {
+    "id": 18,
+    "nome": "ESCOLA MUNICIPAL CARMELITANA DO MENINO JESUS",
+    "tipo": "ESCOLA",
+    "bairro": "Uruguai",
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": -12.93437,
+    "longitude": -38.49424,
+    "aliases": [
+      "EM CARMELITANA DO MENINO JESUS"
+    ]
+  },
+  {
+    "id": 19,
+    "nome": "ESCOLA MUNICIPAL NOSSA SENHORA DOS ANJOS",
+    "tipo": "ESCOLA",
+    "bairro": "Brotas",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.986597,
+    "longitude": -38.481977,
+    "aliases": [
+      "EM NOSSA SENHORA DOS ANJOS",
+      "ESCOLA MUNICIPAL NOSSA SNHORA DOS ANJOS",
+      "EM NOSSA SNHORA DOS ANJOS"
+    ]
+  },
+  {
+    "id": 20,
+    "nome": "ESCOLA MUNICIPAL MARIA ANTONIETA ALFARANO",
+    "tipo": "ESCOLA",
+    "bairro": "Cajazeiras XI",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.883224,
+    "longitude": -38.399236,
+    "aliases": [
+      "EM MARIA ANTONIETA ALFARANO"
+    ]
+  },
+  {
+    "id": 21,
+    "nome": "ESCOLA MUNICIPAL PROFESSORA ANITA BARBUDA",
+    "tipo": "ESCOLA",
+    "bairro": "Santa Cruz",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.002288,
+    "longitude": -38.47567,
+    "aliases": [
+      "EM PROFESSORA ANITA BARBUDA",
+      "EM PROFA ANITA BARBUDA",
+      "EM PROF ANITA BARBUDA",
+      "EM ANITA BARBUDA"
+    ]
+  },
+  {
+    "id": 22,
+    "nome": "ESCOLA MUNICIPAL PROFESSOR MILTON SANTOS",
+    "tipo": "ESCOLA",
+    "bairro": "Valéria",
+    "prefeitura_bairro": "Valéria",
+    "latitude": -12.864781,
+    "longitude": -38.436751,
+    "aliases": [
+      "EM PROFESSOR MILTON SANTOS",
+      "EM PROF MILTON SANTOS",
+      "EM MILTON SANTOS"
+    ]
+  },
+  {
+    "id": 23,
+    "nome": "ESCOLA MUNICIPAL ANFILOFIO DE CARVALHO",
+    "tipo": "ESCOLA",
+    "bairro": "Periperi",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.866526,
+    "longitude": -38.472906,
+    "aliases": [
+      "EM ANFILOFIO DE CARVALHO"
+    ]
+  },
+  {
+    "id": 24,
+    "nome": "ESCOLA MUNICIPAL SATURNINO CABRAL",
+    "tipo": "ESCOLA",
+    "bairro": "Cosme de Farias",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.98154,
+    "longitude": -38.48617,
+    "aliases": [
+      "EM SATURNINO CABRAL"
+    ]
+  },
+  {
+    "id": 25,
+    "nome": "ESCOLA MUNICIPAL ROBERTO CORREIA",
+    "tipo": "ESCOLA",
+    "bairro": "Pau da Lima",
+    "prefeitura_bairro": "Pau da Lima",
+    "latitude": -12.9214,
+    "longitude": -38.4436,
+    "aliases": [
+      "EM ROBERTO CORREIA"
+    ]
+  },
+  {
+    "id": 26,
+    "nome": "ESCOLA MUNICIPAL PROFESSORA ELISA SALDANHA",
+    "tipo": "ESCOLA",
+    "bairro": "Fazenda Grande III",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.9062,
+    "longitude": -38.3965,
+    "aliases": [
+      "EM PROFESSORA ELISA SALDANHA",
+      "EM PROFA ELISA SALDANHA",
+      "EM PROF ELISA SALDANHA",
+      "EM ELISA SALDANHA"
+    ]
+  },
+  {
+    "id": 27,
+    "nome": "ESCOLA MUNICIPAL PROFESSOR AFONSO TEMPORAL",
+    "tipo": "ESCOLA",
+    "bairro": "Valéria",
+    "prefeitura_bairro": "Valéria",
+    "latitude": -12.85959,
+    "longitude": -38.4415,
+    "aliases": [
+      "EM PROFESSOR AFONSO TEMPORAL",
+      "EM PROF AFONSO TEMPORAL",
+      "EM AFONSO TEMPORAL"
+    ]
+  },
+  {
+    "id": 28,
+    "nome": "ESCOLA MUNICIPAL OSWALDO CRUZ",
+    "tipo": "ESCOLA",
+    "bairro": "Rio Vermelho",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.0131,
+    "longitude": -38.4871,
+    "aliases": [
+      "ESCOLA MUNICIPAL OSVALDO CRUZ",
+      "EM OSWALDO CRUZ",
+      "EM OSVALDO CRUZ"
+    ]
+  },
+  {
+    "id": 29,
+    "nome": "ESCOLA MUNICIPAL JOAO LINO",
+    "tipo": "ESCOLA",
+    "bairro": "Centro Histórico",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.9739,
+    "longitude": -38.5100,
+    "aliases": [
+      "EM JOAO LINO"
+    ]
+  },
+  {
+    "id": 30,
+    "nome": "ESCOLA MUNICIPAL PROFESSOR ANTONIO CARVALHO GUEDES",
+    "tipo": "ESCOLA",
+    "bairro": "Capelinha",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.9303,
+    "longitude": -38.4830,
+    "aliases": [
+      "EM PROFESSOR ANTONIO CARVALHO GUEDES",
+      "EM PROF ANTONIO CARVALHO GUEDES",
+      "EM ANTONIO CARVALHO GUEDES"
+    ]
+  },
+  {
+    "id": 31,
+    "nome": "ESCOLA MUNICIPAL FRANCISCO MANGABEIRA",
+    "tipo": "ESCOLA",
+    "bairro": "São Caetano",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.93536,
+    "longitude": -38.48597,
+    "aliases": [
+      "EM FRANCISCO MANGABEIRA"
+    ]
+  },
+  {
+    "id": 32,
+    "nome": "ESCOLA MUNICIPAL FRANCISCA DE SANDE",
+    "tipo": "ESCOLA",
+    "bairro": "Coutos",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.8523,
+    "longitude": -38.4685,
+    "aliases": [
+      "EM FRANCISCA DE SANDE"
+    ]
+  },
+  {
+    "id": 33,
+    "nome": "ESCOLA MUNICIPAL JESUS DE NAZARE",
+    "tipo": "ESCOLA",
+    "bairro": "Nova Sussuarana",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.9351,
+    "longitude": -38.4377,
+    "aliases": [
+      "EM JESUS DE NAZARE"
+    ]
+  },
+  {
+    "id": 34,
+    "nome": "ESCOLA MUNICIPAL DO CALABETAO",
+    "tipo": "ESCOLA",
+    "bairro": "Calabetão",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.931596,
+    "longitude": -38.467824,
+    "aliases": [
+      "EM DO CALABETAO"
+    ]
+  },
+  {
+    "id": 35,
+    "nome": "ESCOLA MUNICIPAL NOVA DO BAIRRO DA PAZ",
+    "tipo": "ESCOLA",
+    "bairro": "Bairro da Paz",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9260,
+    "longitude": -38.3769,
+    "aliases": [
+      "ESCOLA MUNICIPAL DO BAIRRO DA PAZ",
+      "EM NOVA DO BAIRRO DA PAZ",
+      "EM DO BAIRRO DA PAZ"
+    ]
+  },
+  {
+    "id": 36,
+    "nome": "ESCOLA MUNICIPAL DO CURRALINHO",
+    "tipo": "ESCOLA",
+    "bairro": "Boca do Rio",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.97704,
+    "longitude": -38.43896,
+    "aliases": [
+      "EM DO CURRALINHO"
+    ]
+  },
+  {
+    "id": 37,
+    "nome": "ESCOLA MUNICIPAL DO MANE DENDE",
+    "tipo": "ESCOLA",
+    "bairro": "Rio Sena",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.880676,
+    "longitude": -38.469172,
+    "aliases": [
+      "EM DO MANE DENDE"
+    ]
+  },
+  {
+    "id": 38,
+    "nome": "ESCOLA MUNICIPAL FAZENDA GRANDE II MINISTRO CARLOS SANTANA",
+    "tipo": "ESCOLA",
+    "bairro": "Fazenda Grande II",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.896954,
+    "longitude": -38.398281,
+    "aliases": [
+      "EM FAZENDA GRANDE II MINISTRO CARLOS SANTANA",
+      "ESCOLA MUNICIPAL MINISTRO CARLOS SANTANA"
+    ]
+  },
+  {
+    "id": 39,
+    "nome": "ESCOLA MUNICIPAL VALE DAS PEDRINHAS",
+    "tipo": "ESCOLA",
+    "bairro": "Vale das Pedrinhas",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.0084,
+    "longitude": -38.4814,
+    "aliases": [
+      "EM VALE DAS PEDRINHAS"
+    ]
+  },
+  {
+    "id": 40,
+    "nome": "ESCOLA MUNICIPAL ZACARIAS BOA MORTE",
+    "tipo": "ESCOLA",
+    "bairro": "Pero Vaz",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.952838,
+    "longitude": -38.489215,
+    "aliases": [
+      "EM ZACARIAS BOA MORTE"
+    ]
+  },
+  {
+    "id": 41,
+    "nome": "ESCOLA MUNICIPAL PAU MIUDO",
+    "tipo": "ESCOLA",
+    "bairro": "Pau Miúdo",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.96250,
+    "longitude": -38.48238,
+    "aliases": [
+      "EM PAU MIUDO",
+      "EM DO PAU MIUDO",
+      "ESCOLA MUNICIPAL DO PAU MIUDO"
+    ]
+  },
+  {
+    "id": 42,
+    "nome": "ESCOLA MUNICIPAL ENGENHO VELHO DA FEDERACAO",
+    "tipo": "ESCOLA",
+    "bairro": "Engenho Velho da Federação",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.00172,
+    "longitude": -38.49418,
+    "aliases": [
+      "EM ENGENHO VELHO DA FEDERACAO",
+      "EM DO ENGENHO VELHO DA FEDERACAO"
+    ]
+  },
+  {
+    "id": 43,
+    "nome": "ESCOLA MUNICIPAL DE SAO GONCALO DO RETIRO",
+    "tipo": "ESCOLA",
+    "bairro": "São Gonçalo",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.949595,
+    "longitude": -38.466903,
+    "aliases": [
+      "EM DE SAO GONCALO DO RETIRO"
+    ]
+  },
+  {
+    "id": 44,
+    "nome": "ESCOLA MUNICIPAL IVONE VIEIRA LIMA",
+    "tipo": "ESCOLA",
+    "bairro": "São João do Cabrito",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.901514,
+    "longitude": -38.474979,
+    "aliases": [
+      "EM IVONE VIEIRA LIMA"
+    ]
+  },
+  {
+    "id": 45,
+    "nome": "ESCOLA DE ARTES E TECNOLOGIA",
+    "tipo": "ESCOLA",
+    "bairro": "Comércio",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.97263,
+    "longitude": -38.51244,
+    "aliases": [
+      "ESCOLA DE ARTE E TECNOLOGIA"
+    ]
+  },
+  {
+    "id": 46,
+    "nome": "ESCOLAB BOCA DO RIO",
+    "tipo": "ESCOLA",
+    "bairro": "Boca do Rio",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.978253,
+    "longitude": -38.427523
+  },
+  {
+    "id": 47,
+    "nome": "CMEI JARDIM DAS MARGARIDAS",
+    "tipo": "CMEI",
+    "bairro": "Jardim das Margaridas",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.895834,
+    "longitude": -38.360482,
+    "aliases": [
+      "CMEI JD DAS MARGARIDAS"
+    ]
+  },
+  {
+    "id": 48,
+    "nome": "ESCOLA MUNICIPAL CONEGO EMILIO LOBO",
+    "tipo": "ESCOLA",
+    "bairro": "Lapinha",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.955896,
+    "longitude": -38.499165,
+    "aliases": [
+      "EM CONEGO EMILIO LOBO"
+    ]
+  },
+  {
+    "id": 49,
+    "nome": "CMEI ELOYNA BARRADAS",
+    "tipo": "CMEI",
+    "bairro": "Ribeira",
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": -12.917655,
+    "longitude": -38.494203
+  },
+  {
+    "id": 50,
+    "nome": "CMEI ANIVAL RAZONI FIGUEIREDO",
+    "tipo": "CMEI",
+    "bairro": "Dom Avelar",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.9032564,
+    "longitude": -38.4490102
+  },
+  {
+    "id": 51,
+    "nome": "CMEI MARIO ALTENFELDER",
+    "tipo": "CMEI",
+    "bairro": "Lobato",
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": -12.9244464,
+    "longitude": -38.4887777
+  },
+  {
+    "id": 52,
+    "nome": "CMEI TERTULIANO DE GOES",
+    "tipo": "CMEI",
+    "bairro": "Federação",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.00115,
+    "longitude": -38.51079
+  },
+  {
+    "id": 53,
+    "nome": "CMEI RAFAEL DE OLIVEIRA",
+    "tipo": "CMEI",
+    "bairro": "Cajazeiras VIII",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.89747,
+    "longitude": -38.41396
+  },
+  {
+    "id": 54,
+    "nome": "CMEI ALVARO BAHIA",
+    "tipo": "CMEI",
+    "bairro": "Paripe",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.8454784,
+    "longitude": -38.4667203
+  },
+  {
+    "id": 55,
+    "nome": "CMEI VOVO ZEZINHO",
+    "tipo": "CMEI",
+    "bairro": "Arenoso",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.9503051,
+    "longitude": -38.4394800
+  },
+  {
+    "id": 56,
+    "nome": "CMEI MARIA DA CONCEICAO COSTA",
+    "tipo": "CMEI",
+    "bairro": "Vila Ruy Barbosa\\Jardim Cruzeiro",
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": -12.9293005,
+    "longitude": -38.4993270,
+    "aliases": [
+      "CMEI MARIA CONCEICAO COSTA"
+    ]
+  },
+  {
+    "id": 57,
+    "nome": "CMEI MARIA ROSA FREIRE",
+    "tipo": "CMEI",
+    "bairro": "Palestina",
+    "prefeitura_bairro": "Valéria",
+    "latitude": -12.86355,
+    "longitude": -38.420284
+  },
+  {
+    "id": 58,
+    "nome": "CMEI LIRIO DO VALE",
+    "tipo": "CMEI",
+    "bairro": "Vale dos Lagos",
+    "prefeitura_bairro": "Pau da Lima",
+    "latitude": -12.934632,
+    "longitude": -38.418439
+  },
+  {
+    "id": 59,
+    "nome": "CMEI CASTRO ALVES",
+    "tipo": "CMEI",
+    "bairro": "Boca do Rio",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.974386,
+    "longitude": -38.426382
+  },
+  {
+    "id": 60,
+    "nome": "CMEI RAUL QUEIROZ",
+    "tipo": "CMEI",
+    "bairro": "São Cristóvão",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9139872,
+    "longitude": -38.3480250
+  },
+  {
+    "id": 61,
+    "nome": "CMEI LUIS EDUARDO MAGALHAES",
+    "tipo": "CMEI",
+    "bairro": "Brotas",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.9875,
+    "longitude": -38.4832,
+    "aliases": [
+      "CMEI LUIS EDUCARDO MAGALHAES"
+    ]
+  },
+  {
+    "id": 62,
+    "nome": "CMEI ANGELINA ROCHA DE ASSIS",
+    "tipo": "CMEI",
+    "bairro": "Lobato",
+    "prefeitura_bairro": "Cidade Baixa",
+    "latitude": -12.91921,
+    "longitude": -38.47698
+  },
+  {
+    "id": 63,
+    "nome": "CMEI NOSSA LUTA",
+    "tipo": "CMEI",
+    "bairro": "Pernambués",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.971618,
+    "longitude": -38.461075
+  },
+  {
+    "id": 64,
+    "nome": "CMEI SEMENTE DO AMANHA",
+    "tipo": "CMEI",
+    "bairro": "IAPI",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.953591,
+    "longitude": -38.479628
+  },
+  {
+    "id": 65,
+    "nome": "CMEI IEDA BARRADAS CARNEIRO",
+    "tipo": "CMEI",
+    "bairro": "Brotas",
+    "prefeitura_bairro": "Centro/Brotas",
+    "latitude": -12.9855,
+    "longitude": -38.4725
+  },
+  {
+    "id": 66,
+    "nome": "CMEI MANE DENDE",
+    "tipo": "CMEI",
+    "bairro": "Rio Sena",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.8815,
+    "longitude": -38.4705,
+    "aliases": [
+      "CMEI DO MANE DENDE"
+    ]
+  },
+  {
+    "id": 67,
+    "nome": "CMEI UNIAO BOCA DO RIO",
+    "tipo": "CMEI",
+    "bairro": "Imbuí",
+    "prefeitura_bairro": "Itapuã/Ipitanga",
+    "latitude": -12.9735,
+    "longitude": -38.4318
+  },
+  {
+    "id": 68,
+    "nome": "CMEI NOVA SUSSUARANA",
+    "tipo": "CMEI",
+    "bairro": "Nova Sussuarana",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.935906,
+    "longitude": -38.434536
+  },
+  {
+    "id": 69,
+    "nome": "CMEI CALABAR",
+    "tipo": "CMEI",
+    "bairro": "Calabar",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -13.003046,
+    "longitude": -38.515117
+  },
+  {
+    "id": 70,
+    "nome": "CMEI PLATAFORMA",
+    "tipo": "CMEI",
+    "bairro": "Plataforma",
+    "prefeitura_bairro": "Subúrbio/Ilhas",
+    "latitude": -12.896925,
+    "longitude": -38.486653
   }
 ]

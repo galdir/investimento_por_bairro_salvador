@@ -455,7 +455,7 @@ def test_estagio_1_preserva_centro_historico_cab_e_nova_tancredo_neves(sample_ca
         ("Bairro de Fazenda Coutos II, Distrito Sanitário Subúrbio Ferroviário", "Fazenda Coutos"),
         ("Pavimentação na Rua X, Rio Sena, Subúrbio Ferroviário", "Rio Sena"),
         ("Requalificação na Ponta de Humaitá, Cidade Baixa", "Monte Serrat"),
-        ("Escola Municipal de São Gonçalo do Retiro", "São Gonçalo"),
+        ("Reforma de praça em São Gonçalo do Retiro", "São Gonçalo"),
     ]
     for idx, (ds_objeto, bairro_esperado) in enumerate(casos):
         resultado = classificar_alocacao_territorial(
@@ -1014,5 +1014,272 @@ def test_recalcular_offline_preserva_pontual_estagio_2_do_cache(sample_cache) ->
     assert resultado["latitude"] == -12.976
     assert resultado["longitude"] == -38.513
     assert resultado["estagio"] == "Stage 2 (Nominatim OSM)"
+
+
+def _carregar_geo_oficial_salvador() -> tuple[dict, dict[str, tuple[float, float]]]:
+    """Carrega os 171 Bairros Oficiais de public/data/geo/bairros.geojson e seus centróides."""
+    import json
+
+    raiz_repo = Path(__file__).resolve().parents[2]
+    bairros_fc = json.loads((raiz_repo / "public" / "data" / "geo" / "bairros.geojson").read_text(encoding="utf-8"))
+    return bairros_fc, calcular_centroides_bairros(bairros_fc)
+
+
+def _classificar_offline(
+    cache: GeocodingCache,
+    ds_objeto: str,
+    prefixo_id: str,
+    offset_id: int,
+) -> dict:
+    """Executa classificar_alocacao_territorial em modo estritamente offline para testes Stage 1."""
+    malha, centroides = _carregar_geo_oficial_salvador()
+    crc = zlib.crc32(ds_objeto.encode("utf-8"))
+    obra = {
+        "id": offset_id + (crc % 10000),
+        "cdUnidadeGestora": 610002,
+        "nuContratoSigef": f"{prefixo_id}-{crc & 0xFFFF}",
+        "dsObjeto": ds_objeto,
+    }
+    with patch("urllib.request.urlopen", side_effect=AssertionError("Não deve consultar rede!")):
+        return classificar_alocacao_territorial(
+            obra=obra,
+            bairros_geojson=malha,
+            bairros_centroides=centroides,
+            cache=cache,
+            habilitar_rede=False,
+        )
+
+
+def test_catalogos_equipamentos_possuem_campos_obrigatorios_e_point_in_polygon_estrito() -> None:
+    """Seam 1B: 100% dos equipamentos e sublocalidades validam esquema, unicidade e GIS nos 171 bairros."""
+    import json
+    from shapely.geometry import Point, shape
+    from etl.domain.territorio import normalizar_nome_prefeitura_bairro
+
+    raiz_repo = Path(__file__).resolve().parents[2]
+    ref_dir = raiz_repo / "etl" / "reference"
+    bairros_fc, _ = _carregar_geo_oficial_salvador()
+
+    poligonos = {}
+    pb_oficial = {}
+    for feat in bairros_fc["features"]:
+        props = feat["properties"]
+        nome = props["nome"]
+        poligonos[nome] = shape(feat["geometry"])
+        pb_oficial[nome] = normalizar_nome_prefeitura_bairro(props["prefeitura_bairro"])
+
+    arquivos_catalogos = [
+        "equipamentos_educacao.json",
+        "equipamentos_saude.json",
+        "equipamentos_urbanos_sociais.json",
+    ]
+    ids_vistos: set[int] = set()
+    coords_vistas: dict[tuple[float, float], str] = {}
+    campos_obrigatorios = {"id", "nome", "tipo", "bairro", "prefeitura_bairro", "latitude", "longitude"}
+
+    for nome_arquivo in arquivos_catalogos:
+        caminho = ref_dir / nome_arquivo
+        assert caminho.exists(), f"Catálogo obrigatório ausente: {nome_arquivo}"
+        itens = json.loads(caminho.read_text(encoding="utf-8"))
+        assert isinstance(itens, list) and len(itens) >= 10, f"Catálogo insuficiente: {nome_arquivo}"
+
+        for item in itens:
+            faltantes = campos_obrigatorios - set(item.keys())
+            assert not faltantes, f"{nome_arquivo} item {item.get('nome')} sem campos: {faltantes}"
+            eq_id = item["id"]
+            assert isinstance(eq_id, int) and eq_id not in ids_vistos, f"ID inválido ou duplicado: {eq_id}"
+            ids_vistos.add(eq_id)
+
+            bairro = item["bairro"]
+            assert bairro in poligonos, f"Bairro não-oficial em {nome_arquivo}: {bairro} ({item['nome']})"
+            pb_decl = normalizar_nome_prefeitura_bairro(item["prefeitura_bairro"])
+            assert pb_decl == pb_oficial[bairro], (
+                f"Prefeitura-Bairro divergente em {item['nome']}: {pb_decl} != {pb_oficial[bairro]}"
+            )
+            coord_chave = (round(float(item["latitude"]), 7), round(float(item["longitude"]), 7))
+            assert coord_chave not in coords_vistas, (
+                f"Coordenada duplicada em {nome_arquivo}: {item['nome']} compartilha {coord_chave} com "
+                f"{coords_vistas[coord_chave]}"
+            )
+            coords_vistas[coord_chave] = f"{nome_arquivo}:{item['nome']}"
+
+            pt = Point(float(item["longitude"]), float(item["latitude"]))
+            assert poligonos[bairro].contains(pt), (
+                f"Coordenada ({item['latitude']}, {item['longitude']}) de {item['nome']} "
+                f"cai fora do polígono oficial de {bairro}"
+            )
+
+    sublocalidades = json.loads((ref_dir / "sublocalidades.json").read_text(encoding="utf-8"))
+    for alias, bairro_destino in sublocalidades.items():
+        assert bairro_destino in poligonos, f"Sublocalidade {alias!r} aponta para bairro não-oficial: {bairro_destino}"
+
+
+@pytest.mark.parametrize(
+    "ds_objeto,bairro_esperado",
+    [
+        ("Construção e reconstrução da E.M. Jesus de Nazaré", "Nova Sussuarana"),
+        ("Reforma da EM Profa. Maria Quitéria", "Pituba"),
+        ("Obra de reconstrução da ESC. MUN. 15 de Outubro", "Fazenda Grande do Retiro"),
+        ("Execução da obra da ESCOMA MUNICIPAL CARMELITANA DO MENINO JESUS - LOTE 01", "Uruguai"),
+        ("Reforma da E.M. Profa. Maria de Lourdes Santana Alves", "Capelinha"),
+        ("Construção da ESCOLA MUNICIPAL MARIA DE LOURDES SANTANA ALVES", "Capelinha"),
+        ("Reforma do CMEI Jd. das Margaridas", "Jardim das Margaridas"),
+        ("Reconstrução do Centro Municipal de Educação Infantil Àlvaro Bahia", "Paripe"),
+        ("Reconstrução do CMEI Luis Educardo Magalhães", "Brotas"),
+        ("Reforma na Escola Municipal Nossa Snhora dos Anjos", "Brotas"),
+        ("CONSTRUÇÃO DO HOSPITAL VETERINÁRIO", "Canabrava"),
+        ("Reforma da USF Calçada", "Calçada"),
+        ("Ampliação da UBS Periperi", "Periperi"),
+        (
+            "Reforma e adequação da Unidade Básica de Saúde sem Estratégia de Saúde da Família "
+            "e do Centro de Especialidades Odontológicas Periperi",
+            "Periperi",
+        ),
+        ("Restauração no Merdado Modele, Salvador/BA", "Comércio"),
+        ("Execução de obras de Implantação Centro Diagnóstico Municipal da Mulher - CDMM", "Federação"),
+        ("Construção do Pronto Atendimento de llha de Maré, na comunidade de Praia Grande", "Ilha de Maré"),
+        ("Manutenção do Jardim Botânico do Município do Salvador", "São Marcos"),
+        ("Implantação do Parque Natural Municipal Marinho da Ba", "Barra"),
+        (
+            "EXECUÇÃO DAS OBRAS DE CONSTRUÇÃO DA CASA DA MULHER BRASILEIRA na Av. Tancredo Neves, "
+            "S/N, Stiep - Salvador/BA, ao lado do Hospital Rede Sarah",
+            "STIEP",
+        ),
+        ("Escola Municipal de São Gonçalo do Retiro", "São Gonçalo"),
+    ],
+)
+def test_estagio_1a_normaliza_prefixos_abreviacoes_e_variantes_tipograficas(
+    sample_cache,
+    ds_objeto: str,
+    bairro_esperado: str,
+) -> None:
+    """Seam 1A: normalizador de equipamentos resolve abreviações e variantes tipográficas para Pontual."""
+    resultado = _classificar_offline(sample_cache, ds_objeto, "EQ-NORM", 91000)
+
+    assert resultado["nivel"] == "Pontual"
+    assert resultado["bairro"] == bairro_esperado
+    assert resultado["estagio"] == "Stage 1 (Equipamento Oficial)"
+    assert resultado["latitude"] is not None
+    assert resultado["longitude"] is not None
+
+
+@pytest.mark.parametrize(
+    "ds_objeto,niveis_permitidos",
+    [
+        (
+            "Reforma e adequação da UPA Brotas, UPA Vale do Matatu e USF Curralinho",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Reforma do Mercado Modelo e do CRAS Boca do Rio",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Construção da USF Pituba e reforma do CMEI Pituba",
+            {"Bairro"},
+        ),
+        (
+            "Obras estruturais na Casa do Benin, Espaço Cultural da Barroquinha e Teatro Gregório de Mattos",
+            {"Regional (Prefeitura-Bairro)", "Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Obra em Prof. Alberto Silva",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Reforma da Sede da SEMIT",
+            {"Bairro"},
+        ),
+        (
+            "Reforma da Sede da COGEL",
+            {"Bairro"},
+        ),
+        (
+            "Elaboração de projeto e execução da obra de construção e reconstrução da EM VISCONDE DE CAYRU - LOTE 11",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Elaboração de projeto e execução da obra de construção e reconstrução da EM SOL NASCENTE - LOTE 08",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Relocação da Passarela Shopping Bela Vista / Estação Acesso Norte do Metrô",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Recuperação estrutural da Passarela de Pedestres na Av. Prof. Magalhães Neto - Salvador/BA",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Fornecimento e montagem de passarela metálica padrão DESAL em diversos logradouros",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Manutenção de extintores nas unidades escolares e administrativas da Secretaria Municipal da Educação - SMED",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Execução de obras do equipamento Urbano Mercado Popular. CT 004-2023.",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Serviços de engenharia para reforma da sede",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Serviços de reforma base SAMU",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Centro de Referência Especializado de Assistência Social (CREAS): em Brotas, Paripe e Parque São Cristóvão",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Restauração da Rua Chile, nº 10",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+        (
+            "Recuperação de trecho na Avenida Sete de Setembro, s/n",
+            {"Escopo Cidade (Não-Localizado)"},
+        ),
+    ],
+)
+def test_estagio_1a_abstem_em_multiplos_equipamentos_homonimos_e_mencoes_genericas(
+    sample_cache,
+    ds_objeto: str,
+    niveis_permitidos: set[str],
+) -> None:
+    """Seam 1A: múltiplos equipamentos, homônimos, vias transversais e menções genéricas nunca caem em Pontual."""
+    resultado = _classificar_offline(sample_cache, ds_objeto, "EQ-ABST", 92000)
+
+    assert resultado["nivel"] != "Pontual"
+    assert resultado["nivel"] in niveis_permitidos
+
+
+@pytest.mark.parametrize(
+    "ds_objeto,bairro_esperado",
+    [
+        ("Projeto Executivo da Rua Odilon Dórea e trecho da Rua Teixeira Barros", "Brotas"),
+        ("Requalificação Urbana da Rua Odilon D6rea e Avenida Dom João VI", "Brotas"),
+        ("Implantação de subestação elétrica na Rua Portugal", "Comércio"),
+        ("Requalificação da Av. Adhemar de Barros", "Ondina"),
+        ("Substituição de conjunto motor-bomba instalado na Sede da DESAL", "Porto Seco Pirajá"),
+        ("Reformulação do layout do 3º andar do Edif. Sede da SEFAZ", "Centro Histórico"),
+        ("Reforma da Sede da SEMIT", "Comércio"),
+        ("Reforma da Sede da COGEL", "Ondina"),
+    ],
+)
+def test_sublocalidades_expandidas_recuperam_logradouros_de_bairro_unico(
+    sample_cache,
+    ds_objeto: str,
+    bairro_esperado: str,
+) -> None:
+    """Seam 1A/1C: logradouros e sedes administrativas de bairro único promovem ao Bairro Oficial via Stage 1C."""
+    resultado = _classificar_offline(sample_cache, ds_objeto, "SUB-EXP", 93000)
+
+    assert resultado["nivel"] == "Bairro"
+    assert resultado["bairro"] == bairro_esperado
+    assert resultado["estagio"] == "Stage 1 (Bairro / Sublocalidade)"
+
 
 

@@ -5,6 +5,7 @@ Responsável por classificar cada contrato público de Salvador em seu nível te
 coordenadas geográficas exatas ou centroides de bairro e persistir resultados em cache de disco.
 """
 
+from dataclasses import dataclass
 from functools import lru_cache
 import hashlib
 import json
@@ -373,65 +374,235 @@ def calcular_centroides_bairros(bairros_geojson: dict[str, Any]) -> dict[str, tu
 
 
 def _extrair_equipamentos_oficiais() -> list[dict[str, Any]]:
-    """Combina os catálogos oficiais de Escolas e Unidades de Saúde.
+    """Combina os catálogos oficiais de Educação, Saúde e Equipamentos Urbanos/Sociais.
 
     Sumário:
-        Carrega as bases de referência de 368 Escolas e 118 Unidades de Saúde municipais.
+        Carrega as bases de referência municipais de Escolas/CMEIs, Unidades de Saúde e Equipamentos Urbanos/Sociais.
 
     Descrição Estendida:
-        Lê os arquivos de referência 'equipamentos_educacao.json' e 'equipamentos_saude.json',
-        concatenando as duas listas para busca uniforme no Estágio 1.
+        Lê os arquivos 'equipamentos_educacao.json', 'equipamentos_saude.json' e
+        'equipamentos_urbanos_sociais.json', concatenando os registros para busca uniforme no Estágio 1A.
 
     Argumentos:
         Nenhum.
 
     Retornos:
-        Lista de dicionários contendo equipamentos com nome, tipo, bairro e coordenadas.
+        Lista de dicionários contendo equipamentos com nome, tipo, bairro, prefeitura_bairro e coordenadas.
 
     Erros:
         Não lança exceções.
     """
     escolas = _carregar_json_referencia("equipamentos_educacao.json") or []
     saude = _carregar_json_referencia("equipamentos_saude.json") or []
-    return escolas + saude
+    urbanos_sociais = _carregar_json_referencia("equipamentos_urbanos_sociais.json") or []
+    return [*escolas, *saude, *urbanos_sociais]
 
 
-def _buscar_equipamento_no_objeto(
-    objeto_norm: str,
-    equipamentos: list[dict[str, Any]],
-) -> Optional[dict[str, Any]]:
-    """Identifica se o objeto cita um equipamento público escolar ou de saúde.
+_SUBSTITUICOES_PREFIXO_EQUIPAMENTO: tuple[tuple[re.Pattern[str], str], ...] = (
+    (re.compile(r"\bE\s*\.\s*M\s*\.?(?=\s|[A-Z0-9]|$)"), " ESCOLA MUNICIPAL "),
+    (re.compile(r"\bESC\s*\.?\s*MUN\s*\.?(?=\s|[A-Z0-9]|$)"), " ESCOLA MUNICIPAL "),
+    (re.compile(r"\bC\s*\.\s*M\s*\.\s*E\s*\.\s*I\s*\.?(?=\s|[A-Z0-9]|$)"), " CMEI "),
+    (re.compile(r"\bU\s*\.\s*S\s*\.\s*F\s*\.?(?=\s|[A-Z0-9]|$)"), " USF "),
+    (re.compile(r"\bU\s*\.\s*B\s*\.\s*S\s*\.?(?=\s|[A-Z0-9]|$)"), " UBS "),
+    (re.compile(r"\bU\s*\.\s*P\s*\.\s*A\s*\.?(?=\s|[A-Z0-9]|$)"), " UPA "),
+    (re.compile(r"\bC\s*\.\s*S\s*\.?(?=\s|[A-Z0-9]|$)"), " CS "),
+)
+
+_SUBSTITUICOES_TERMO_EQUIPAMENTO: tuple[tuple[re.Pattern[str], str], ...] = (
+    (re.compile(r"\bESCOMA\b"), "ESCOLA"),
+    (re.compile(r"\bESCOLAR\s+MUNICIPAL\b"), "ESCOLA MUNICIPAL"),
+    (re.compile(r"\bESCOLA\s+MUNICIAL\b"), "ESCOLA MUNICIPAL"),
+    (re.compile(r"\bPROF(?:A|ESSOR|ESSORA)?\b"), "PROF"),
+    (re.compile(r"\bCENTRO\s+MUNICIPAL\s+DE\s+EDUCACAO\s+INFANTIL\b"), "CMEI"),
+    (
+        re.compile(r"\bUNIDADE\s+BASICA\s+DE\s+SAUDE\s+COM\s+ESTRATEGIA\s+DE\s+SAUDE\s+DA\s+FAMILIA\b"),
+        "USF",
+    ),
+    (re.compile(r"\bUNIDADE\s+DE\s+SAUDE\s+DA\s+FAMILIA\b"), "USF"),
+    (re.compile(r"\bUNIDADE\s+BASICA\s+DE\s+SAUDE\b"), "UBS"),
+    (re.compile(r"\bUNIDADE\s+DE\s+PRONTO\s+ATENDIMENTO\b"), "UPA"),
+    (re.compile(r"\bCENTRO\s+DE\s+ATENCAO\s+PSICOSSOCIAL\b"), "CAPS"),
+    (re.compile(r"\bCENTRO\s+DE\s+REFERENCIA\s+(?:DE|DA)\s+ASSISTENCIA\s+SOCIAL\b"), "CRAS"),
+    (
+        re.compile(r"\bCENTRO\s+DE\s+REFERENCIA\s+ESPECIALIZADO\s+(?:DE|DA)?\s*ASSISTENCIA\s+SOCIAL\b"),
+        "CREAS",
+    ),
+    (re.compile(r"\b(CAPS)\s+(III|II|I|IV|IA|AD)\s+\1\b"), r"\1 \2"),
+    (re.compile(r"\b(USF|UBS|UPA|CMEI|CRAS|CREAS|CAPS|ESCOLA MUNICIPAL)(?:\s+\1)+\b"), r"\1"),
+)
+
+_PREFIXOS_PADRAO_CURTO_EQUIPAMENTO: dict[str, str] = {
+    "ESCOLA": "ESCOLA MUNICIPAL",
+    "CMEI": "CMEI",
+    "USF": "USF",
+    "UBS": "UBS",
+    "UPA": "UPA",
+    "CRAS": "CRAS",
+    "CREAS": "CREAS",
+}
+
+
+def _normalizar_texto_equipamento(texto: str) -> str:
+    """Normaliza abreviações e variantes morfológicas de nomes de equipamentos.
 
     Sumário:
-        Verifica menção a unidades escolares ou de saúde no texto normalizado.
+        Unifica pontuações, abreviações pontuadas e expressões institucionais por extenso.
 
     Descrição Estendida:
-        Compara o nome completo do equipamento contra o texto do objeto, além de padrões
-        abreviados frequentes como 'USF + BAIRRO' ou 'CMEI + BAIRRO'.
+        Expande siglas com pontos (``E.M.``, ``U.S.F.`` etc.), remove pontuação residual
+        e aplica substituições morfológicas gerais para alinhar títulos contratuais às chaves
+        normalizadas do catálogo oficial de equipamentos.
 
     Argumentos:
-        objeto_norm: String com o texto do objeto normalizado em caixa alta sem acentos.
-        equipamentos: Lista de equipamentos públicos oficiais de referência.
+        texto: Texto bruto do objeto contratual ou do nome/alias de equipamento.
 
     Retornos:
-        Dicionário do equipamento correspondente, ou None se não houver casamento.
+        Texto em caixa alta sem acentos nem pontuação, com espaços simples.
+
+    Erros:
+        Não lança exceções; strings vazias retornam ``""``.
+    """
+    if not texto:
+        return ""
+    normalizado = normalizar_nome(texto)
+    for padrao, substituto in _SUBSTITUICOES_PREFIXO_EQUIPAMENTO:
+        normalizado = padrao.sub(substituto, normalizado)
+    normalizado = re.sub(r"[^A-Z0-9]+", " ", normalizado)
+    normalizado = " ".join(normalizado.split())
+    for padrao, substituto in _SUBSTITUICOES_TERMO_EQUIPAMENTO:
+        normalizado = padrao.sub(substituto, normalizado)
+    return " ".join(normalizado.split())
+
+
+def _contar_buckets_curtos_equipamento(
+    equipamentos: list[dict[str, Any]],
+) -> dict[tuple[str, str], int]:
+    """Conta quantos equipamentos por ``(prefixo_curto, bairro)`` existem no catálogo.
+
+    Sumário:
+        Computa a multiplicidade de equipamentos de mesmo tipo em cada Bairro Oficial.
+
+    Descrição Estendida:
+        Permite sintetizar padrões curtos do tipo ``USF BAIRRO`` apenas quando há
+        exatamente um equipamento daquela tipologia catalogado no bairro, prevenindo
+        captura indevida de referências homônimas ou genéricas.
+
+    Argumentos:
+        equipamentos: Lista consolidada de registros dos catálogos de equipamentos.
+
+    Retornos:
+        Dicionário mapeando ``(prefixo_curto, bairro_normalizado)`` para a contagem.
 
     Erros:
         Não lança exceções.
     """
+    contagem_curta: dict[tuple[str, str], int] = {}
     for eq in equipamentos:
-        nome_eq = normalizar_nome(eq.get("nome", ""))
-        if nome_eq and nome_eq in objeto_norm:
-            return eq
+        tipo = normalizar_nome(eq.get("tipo", ""))
+        bairro = normalizar_nome(eq.get("bairro", ""))
+        prefixo_curto = _PREFIXOS_PADRAO_CURTO_EQUIPAMENTO.get(tipo)
+        if prefixo_curto and bairro:
+            chave_curta = (prefixo_curto, bairro)
+            contagem_curta[chave_curta] = contagem_curta.get(chave_curta, 0) + 1
+    return contagem_curta
+
+
+def _coletar_padroes_equipamento(equipamentos: list[dict[str, Any]]) -> list[tuple[str, dict[str, Any]]]:
+    """Extrai padrões normalizados de busca ordenados por especificidade decrescente.
+
+    Sumário:
+        Constrói pares ``(padrao_normalizado, equipamento)`` deduplicados para o Estágio 1A.
+
+    Descrição Estendida:
+        Combina nome principal, aliases explícitos e padrão curto ``TIPO BAIRRO``
+        (somente para buckets únicos no bairro), ordenando do padrão mais longo ao
+        mais curto para evitar sombreamento de nomes específicos por prefixos curtos.
+
+    Argumentos:
+        equipamentos: Lista consolidada de registros dos catálogos de equipamentos.
+
+    Retornos:
+        Lista ordenada por ``len(padrao)`` decrescente de tuplas ``(padrao, equipamento)``.
+
+    Erros:
+        Não lança exceções.
+    """
+    contagem_curta = _contar_buckets_curtos_equipamento(equipamentos)
+    candidatos: list[tuple[str, dict[str, Any]]] = []
+    vistos: set[tuple[str, Any]] = set()
+
+    def _adicionar(padrao_bruto: str, eq: dict[str, Any]) -> None:
+        padrao_norm = _normalizar_texto_equipamento(padrao_bruto)
+        eq_id = eq.get("id") or eq.get("nome")
+        if padrao_norm and (padrao_norm, eq_id) not in vistos:
+            vistos.add((padrao_norm, eq_id))
+            candidatos.append((padrao_norm, eq))
+
+    for eq in equipamentos:
+        _adicionar(str(eq.get("nome") or ""), eq)
+        for alias in eq.get("aliases") or []:
+            _adicionar(str(alias), eq)
 
         tipo = normalizar_nome(eq.get("tipo", ""))
         bairro = normalizar_nome(eq.get("bairro", ""))
-        if tipo and bairro:
-            padrao_curto = f"{tipo} {bairro}"
-            if padrao_curto in objeto_norm:
-                return eq
+        prefixo_curto = _PREFIXOS_PADRAO_CURTO_EQUIPAMENTO.get(tipo)
+        # Apenas sintetiza 'TIPO BAIRRO' quando houver uma única unidade catalogada naquele bairro.
+        if prefixo_curto and bairro and contagem_curta.get((prefixo_curto, bairro)) == 1:
+            _adicionar(f"{prefixo_curto} {bairro}", eq)
 
-    return None
+    candidatos.sort(key=lambda item: len(item[0]), reverse=True)
+    return candidatos
+
+
+def _buscar_equipamentos_no_objeto(
+    objeto_norm: str,
+    equipamentos: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Identifica todos os equipamentos públicos distintos citados no objeto do contrato.
+
+    Sumário:
+        Varre ``objeto_norm`` mascarando ocorrências já casadas da maior para a menor chave.
+
+    Descrição Estendida:
+        Normaliza o texto do objeto com ``_normalizar_texto_equipamento`` e consome
+        os padrões compilados em ordem decrescente de comprimento via mascaramento sintático,
+        retornando todos os equipamentos únicos para permitir alocação Pontual (1 match)
+        ou abstenção determinística (> 1 match).
+
+    Argumentos:
+        objeto_norm: Descrição do contrato pré-normalizada via ``normalizar_nome``.
+        equipamentos: Lista consolidada de registros dos catálogos de equipamentos.
+
+    Retornos:
+        Lista de registros de equipamento distintos encontrados em ordem de detecção.
+
+    Erros:
+        Não lança exceções; objetos vazios retornam ``[]``.
+    """
+    texto_trabalho = _normalizar_texto_equipamento(objeto_norm)
+    if not texto_trabalho:
+        return []
+
+    encontrados: list[dict[str, Any]] = []
+    ids_vistos: set[Any] = set()
+
+    for padrao_norm, eq in _coletar_padroes_equipamento(equipamentos):
+        padrao = _compilar_padrao_toponimo(padrao_norm)
+        casou = False
+        while True:
+            match = padrao.search(texto_trabalho)
+            if not match:
+                break
+            texto_trabalho = _mascarar_trecho(texto_trabalho, match.start(), match.end())
+            casou = True
+
+        if casou:
+            eq_id = eq.get("id") or _normalizar_texto_equipamento(str(eq.get("nome") or ""))
+            if eq_id not in ids_vistos:
+                ids_vistos.add(eq_id)
+                encontrados.append(eq)
+
+    return encontrados
 
 
 _ROMANO_PARA_PB: dict[str, str] = {
@@ -1124,134 +1295,378 @@ def resolver_frentes_medicao(
     return frentes_resolvidas
 
 
-def _classificar_estagio_1c_toponimos(
-    *,
-    objeto_norm: str,
-    bairros_nomes: list[str],
-    dicionario_sublocalidades: dict[str, str],
-    sublocalidades_norm: dict[str, str],
-    bairros_centroides: dict[str, tuple[float, float]],
-    bairros_centroides_norm: dict[str, tuple[float, float]],
-    bairro_para_pb: dict[str, str],
-    bairro_para_pb_norm: dict[str, str],
-) -> Optional[dict[str, Any]]:
-    """Executa o Estágio 1C considerando multi-bairro sem curadoria, macro-regiões e blindagem sintática."""
-    bairros_detectados = _buscar_toponimos_blindados(
-        objeto_norm,
-        bairros_nomes,
-        dicionario_sublocalidades,
-    )
-    macros_detectadas = _detectar_macro_regioes_no_objeto(objeto_norm)
+@dataclass(frozen=True)
+class _ContextoTerritorialStage1:
+    """Agrupa dicionários e índices de bairros oficiais compartilhados pelo Estágio 1."""
 
+    bairros_nomes: list[str]
+    dicionario_lotes: dict[str, str]
+    dicionario_sublocalidades: dict[str, str]
+    sublocalidades_norm: dict[str, str]
+    bairros_centroides: dict[str, tuple[float, float]]
+    bairros_centroides_norm: dict[str, tuple[float, float]]
+    bairro_para_pb: dict[str, str]
+    bairro_para_pb_norm: dict[str, str]
+
+
+def _resolver_pb_bairro(bairro: str, ctx: _ContextoTerritorialStage1) -> Optional[str]:
+    """Resolve a Prefeitura-Bairro oficial normalizada correspondente a um Bairro Oficial.
+
+    Sumário:
+        Consulta os índices exato e normalizado do contexto territorial para o bairro dado.
+
+    Descrição Estendida:
+        Permite uniformizar a obtenção e normalização da Prefeitura-Bairro tanto no
+        Estágio 1A/1C quanto na reconciliação de múltiplos equipamentos.
+
+    Argumentos:
+        bairro: Nome do Bairro Oficial ou candidato reconciliado.
+        ctx: Contexto territorial consolidado do Estágio 1.
+
+    Retornos:
+        Nome canônico da Prefeitura-Bairro ou ``None`` caso o bairro não esteja mapeado.
+
+    Erros:
+        Não lança exceções.
+    """
+    pb = ctx.bairro_para_pb.get(bairro) or ctx.bairro_para_pb_norm.get(normalizar_nome(bairro))
+    return normalizar_nome_prefeitura_bairro(pb) if pb else None
+
+
+def _deduplicar_bairros_canonicos(
+    bairros_brutos: list[str],
+    ctx: _ContextoTerritorialStage1,
+) -> list[str]:
+    """Reconcilia e deduplica nomes de bairros preservando a ordem de ocorrência.
+
+    Sumário:
+        Converte candidatos brutos aos 171 Bairros Oficiais removendo duplicatas normalizadas.
+
+    Descrição Estendida:
+        Compartilhado por ``_classificar_estagio_1c_toponimos`` e pela reconciliação
+        de múltiplos equipamentos para evitar duplicação da lógica de deduplicação.
+
+    Argumentos:
+        bairros_brutos: Lista de nomes de bairros ou sublocalidades extraídos do objeto.
+        ctx: Contexto territorial consolidado do Estágio 1.
+
+    Retornos:
+        Lista ordenada e sem duplicatas de Bairros Oficiais canônicos.
+
+    Erros:
+        Não lança exceções.
+    """
     bairros_unicos: list[str] = []
     vistos: set[str] = set()
-    for b_det in bairros_detectados:
-        b_canonico = reconciliar_bairro_canonico(b_det, bairros_nomes, sublocalidades_norm)
-        b_final = b_canonico or b_det
-        b_chave = normalizar_nome(b_final)
+    for b_bruto in bairros_brutos:
+        b_canonico = reconciliar_bairro_canonico(b_bruto, ctx.bairros_nomes, ctx.sublocalidades_norm) or b_bruto
+        b_chave = normalizar_nome(b_canonico)
         if b_chave and b_chave not in vistos:
             vistos.add(b_chave)
-            bairros_unicos.append(b_final)
+            bairros_unicos.append(b_canonico)
+    return bairros_unicos
 
-    if not bairros_unicos:
-        if len(macros_detectadas) == 1:
-            return {
-                "nivel": "Regional (Prefeitura-Bairro)",
-                "bairro": None,
-                "prefeitura_bairro": macros_detectadas[0],
-                "latitude": None,
-                "longitude": None,
-                "estagio": "Stage 1 (Macro-Região Prefeitura-Bairro)",
-            }
-        if len(macros_detectadas) > 1:
-            return {
-                "nivel": "Escopo Cidade (Não-Localizado)",
-                "bairro": None,
-                "prefeitura_bairro": None,
-                "latitude": None,
-                "longitude": None,
-                "estagio": "Múltiplas Prefeituras-Bairro",
-            }
-        return None
 
-    if len(bairros_unicos) == 1:
-        bairro_final = bairros_unicos[0]
-        pb_bairro = (
-            bairro_para_pb.get(bairro_final)
-            or bairro_para_pb_norm.get(normalizar_nome(bairro_final))
-        )
-        if pb_bairro:
-            pb_bairro = normalizar_nome_prefeitura_bairro(pb_bairro)
-        pbs_envolvidas = {pb for pb in [pb_bairro, *macros_detectadas] if pb}
-        if macros_detectadas and len(pbs_envolvidas) > 1:
-            return {
-                "nivel": "Escopo Cidade (Não-Localizado)",
-                "bairro": None,
-                "prefeitura_bairro": None,
-                "latitude": None,
-                "longitude": None,
-                "estagio": "Múltiplas Prefeituras-Bairro",
-            }
-        centroide = (
-            bairros_centroides.get(bairro_final)
-            or bairros_centroides_norm.get(normalizar_nome(bairro_final))
-        )
-        return {
-            "nivel": "Bairro",
-            "bairro": bairro_final,
-            "prefeitura_bairro": pb_bairro,
-            "latitude": centroide[0] if centroide else None,
-            "longitude": centroide[1] if centroide else None,
-            "estagio": "Stage 1 (Bairro / Sublocalidade)",
-        }
+def _resultado_escopo_cidade(estagio: str) -> dict[str, Any]:
+    """Constrói resultado padronizado para abstenção em Escopo Cidade (Não-Localizado).
 
-    pbs_bairros = []
-    for b_nome in bairros_unicos:
-        pb = bairro_para_pb.get(b_nome) or bairro_para_pb_norm.get(normalizar_nome(b_nome))
-        pbs_bairros.append(normalizar_nome_prefeitura_bairro(pb) if pb else "")
+    Sumário:
+        Retorna dicionário territorial com nível ``Escopo Cidade (Não-Localizado)``.
 
-    pbs_todas = {pb for pb in [*pbs_bairros, *macros_detectadas] if pb}
-    if all(pbs_bairros) and len(pbs_todas) == 1:
-        return {
-            "nivel": "Regional (Prefeitura-Bairro)",
-            "bairro": None,
-            "prefeitura_bairro": next(iter(pbs_todas)),
-            "latitude": None,
-            "longitude": None,
-            "estagio": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)",
-        }
+    Descrição Estendida:
+        Centraliza a estrutura de abstenção territorial quando múltiplos territórios
+        ou equipamentos de macro-regiões distintas impedem alocação mais granular.
 
+    Argumentos:
+        estagio: Rótulo descritivo da regra ou estágio de classificação.
+
+    Retornos:
+        Dicionário de alocação territorial com campos espaciais preenchidos com ``None``.
+
+    Erros:
+        Não lança exceções.
+    """
     return {
         "nivel": "Escopo Cidade (Não-Localizado)",
         "bairro": None,
         "prefeitura_bairro": None,
         "latitude": None,
         "longitude": None,
-        "estagio": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
+        "estagio": estagio,
     }
+
+
+def _resultado_regional(prefeitura_bairro: str, estagio: str) -> dict[str, Any]:
+    """Constrói resultado padronizado para alocação Regional (Prefeitura-Bairro).
+
+    Sumário:
+        Retorna dicionário territorial com nível ``Regional (Prefeitura-Bairro)``.
+
+    Descrição Estendida:
+        Centraliza a estrutura regional quando os alvos convergem para uma única
+        Prefeitura-Bairro oficial sem ponto único exclusivo.
+
+    Argumentos:
+        prefeitura_bairro: Nome canônico da Prefeitura-Bairro alvo.
+        estagio: Rótulo descritivo da regra ou estágio de classificação.
+
+    Retornos:
+        Dicionário de alocação territorial com ``prefeitura_bairro`` normalizado.
+
+    Erros:
+        Não lança exceções.
+    """
+    return {
+        "nivel": "Regional (Prefeitura-Bairro)",
+        "bairro": None,
+        "prefeitura_bairro": normalizar_nome_prefeitura_bairro(prefeitura_bairro),
+        "latitude": None,
+        "longitude": None,
+        "estagio": estagio,
+    }
+
+
+def _resultado_bairro(
+    bairro_final: str,
+    pb_final: Optional[str],
+    ctx: _ContextoTerritorialStage1,
+    estagio: str,
+) -> dict[str, Any]:
+    """Constrói resultado padronizado para alocação em nível Bairro com centróide.
+
+    Sumário:
+        Retorna dicionário territorial de nível ``Bairro`` hidratado com coordenadas oficiais.
+
+    Descrição Estendida:
+        Resolve o centróide do Bairro Oficial a partir do contexto territorial e
+        padroniza o retorno tanto para topônimo único quanto para múltiplos equipamentos
+        no mesmo bairro.
+
+    Argumentos:
+        bairro_final: Nome canônico do Bairro Oficial.
+        pb_final: Nome da Prefeitura-Bairro associada ou ``None``.
+        ctx: Contexto territorial consolidado do Estágio 1.
+        estagio: Rótulo descritivo da regra ou estágio de classificação.
+
+    Retornos:
+        Dicionário de alocação territorial completo de nível ``Bairro``.
+
+    Erros:
+        Não lança exceções.
+    """
+    centroide = (
+        ctx.bairros_centroides.get(bairro_final)
+        or ctx.bairros_centroides_norm.get(normalizar_nome(bairro_final))
+    )
+    return {
+        "nivel": "Bairro",
+        "bairro": bairro_final,
+        "prefeitura_bairro": normalizar_nome_prefeitura_bairro(pb_final) if pb_final else None,
+        "latitude": centroide[0] if centroide else None,
+        "longitude": centroide[1] if centroide else None,
+        "estagio": estagio,
+    }
+
+
+def _classificar_estagio_1c_toponimos(
+    *,
+    objeto_norm: str,
+    ctx: _ContextoTerritorialStage1,
+) -> Optional[dict[str, Any]]:
+    """Executa o Estágio 1C considerando multi-bairro, macro-regiões e blindagem sintática.
+
+    Sumário:
+        Classifica contratos pelos topônimos de Bairro, sublocalidades e macro-regiões.
+
+    Descrição Estendida:
+        Extrai Bairros e sublocalidades blindados e macro-regiões do texto do contrato,
+        resolvendo para ``Bairro`` único, ``Regional (Prefeitura-Bairro)`` quando
+        convergem na mesma Prefeitura-Bairro ou ``Escopo Cidade (Não-Localizado)`` em
+        caso de dispersão entre múltiplas Prefeituras-Bairro.
+
+    Argumentos:
+        objeto_norm: Descrição do contrato pré-normalizada via ``normalizar_nome``.
+        ctx: Contexto territorial consolidado do Estágio 1.
+
+    Retornos:
+        Dicionário de alocação territorial ou ``None`` quando nenhum topônimo casa.
+
+    Erros:
+        Não lança exceções.
+    """
+    bairros_detectados = _buscar_toponimos_blindados(
+        objeto_norm,
+        ctx.bairros_nomes,
+        ctx.dicionario_sublocalidades,
+    )
+    macros_detectadas = _detectar_macro_regioes_no_objeto(objeto_norm)
+    bairros_unicos = _deduplicar_bairros_canonicos(bairros_detectados, ctx)
+
+    if not bairros_unicos:
+        if len(macros_detectadas) == 1:
+            return _resultado_regional(macros_detectadas[0], "Stage 1 (Macro-Região Prefeitura-Bairro)")
+        if len(macros_detectadas) > 1:
+            return _resultado_escopo_cidade("Múltiplas Prefeituras-Bairro")
+        return None
+
+    if len(bairros_unicos) == 1:
+        bairro_final = bairros_unicos[0]
+        pb_bairro = _resolver_pb_bairro(bairro_final, ctx)
+        pbs_envolvidas = {pb for pb in [pb_bairro, *macros_detectadas] if pb}
+        if macros_detectadas and len(pbs_envolvidas) > 1:
+            return _resultado_escopo_cidade("Múltiplas Prefeituras-Bairro")
+        return _resultado_bairro(bairro_final, pb_bairro, ctx, "Stage 1 (Bairro / Sublocalidade)")
+
+    pbs_bairros = [_resolver_pb_bairro(b_nome, ctx) or "" for b_nome in bairros_unicos]
+    pbs_todas = {pb for pb in [*pbs_bairros, *macros_detectadas] if pb}
+    if all(pbs_bairros) and len(pbs_todas) == 1:
+        return _resultado_regional(next(iter(pbs_todas)), "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)")
+
+    return _resultado_escopo_cidade("Multi-Bairro (Prefeituras-Bairro Múltiplas)")
+
+
+def _coletar_pbs_equipamentos(
+    objeto_norm: str,
+    eq_encontrados: list[dict[str, Any]],
+    bairros_unicos: list[str],
+    ctx: _ContextoTerritorialStage1,
+) -> set[str]:
+    """Reúne o conjunto de Prefeituras-Bairro canônicas envolvidas em múltiplos equipamentos.
+
+    Sumário:
+        Consolida Prefeituras-Bairro provenientes dos equipamentos, bairros e menções explícitas.
+
+    Descrição Estendida:
+        Combina as Prefeituras-Bairro dos bairros reconciliados, dos próprios registros
+        do catálogo e de eventuais lotes regionais ou macro-regiões citadas no texto.
+
+    Argumentos:
+        objeto_norm: Descrição do contrato pré-normalizada via ``normalizar_nome``.
+        eq_encontrados: Lista de equipamentos oficiais detectados no objeto.
+        bairros_unicos: Lista deduplicada de bairros canônicos envolvidos.
+        ctx: Contexto territorial consolidado do Estágio 1.
+
+    Retornos:
+        Conjunto de nomes canônicos de Prefeitura-Bairro envolvidos no contrato.
+
+    Erros:
+        Não lança exceções.
+    """
+    pbs_envolvidas: set[str] = set()
+    for b_nome in bairros_unicos:
+        pb = _resolver_pb_bairro(b_nome, ctx)
+        if pb:
+            pbs_envolvidas.add(pb)
+    for eq in eq_encontrados:
+        if eq.get("prefeitura_bairro"):
+            pbs_envolvidas.add(normalizar_nome_prefeitura_bairro(str(eq["prefeitura_bairro"])))
+    for pb in _detectar_prefeituras_bairro_no_objeto(objeto_norm, ctx.dicionario_lotes):
+        pbs_envolvidas.add(normalizar_nome_prefeitura_bairro(pb))
+    for pb in _detectar_macro_regioes_no_objeto(objeto_norm):
+        pbs_envolvidas.add(normalizar_nome_prefeitura_bairro(pb))
+    return pbs_envolvidas
+
+
+def _reconciliar_multiplos_equipamentos(
+    *,
+    eq_encontrados: list[dict[str, Any]],
+    objeto_norm: str,
+    ctx: _ContextoTerritorialStage1,
+) -> dict[str, Any]:
+    """Abstém de alocação Pontual quando múltiplos equipamentos aparecem e agrega seu escopo territorial.
+
+    Sumário:
+        Agrega múltiplos equipamentos para ``Bairro``, ``Regional`` ou ``Escopo Cidade``.
+
+    Descrição Estendida:
+        Quando mais de um equipamento público oficial é identificado no objeto, nunca
+        aloca em ``Pontual``: agrega para o ``Bairro`` comum, para a ``Regional`` comum
+        ou abstém em ``Escopo Cidade (Não-Localizado)`` diante de dispersão territorial.
+
+    Argumentos:
+        eq_encontrados: Lista com dois ou mais equipamentos detectados no Estágio 1A.
+        objeto_norm: Descrição do contrato pré-normalizada via ``normalizar_nome``.
+        ctx: Contexto territorial consolidado do Estágio 1.
+
+    Retornos:
+        Dicionário de alocação territorial não-pontual correspondente ao escopo agregado.
+
+    Erros:
+        Não lança exceções.
+    """
+    bairros_detectados_texto = _buscar_toponimos_blindados(
+        objeto_norm,
+        ctx.bairros_nomes,
+        ctx.dicionario_sublocalidades,
+    )
+    bairros_candidatos = [
+        *[str(eq.get("bairro") or "") for eq in eq_encontrados if eq.get("bairro")],
+        *bairros_detectados_texto,
+    ]
+    bairros_unicos = _deduplicar_bairros_canonicos(bairros_candidatos, ctx)
+    pbs_envolvidas = _coletar_pbs_equipamentos(objeto_norm, eq_encontrados, bairros_unicos, ctx)
+
+    if len(pbs_envolvidas) > 1:
+        return _resultado_escopo_cidade("Múltiplos Equipamentos (Prefeituras-Bairro Múltiplas)")
+
+    if len(bairros_unicos) == 1:
+        bairro_final = bairros_unicos[0]
+        pb_final = (
+            next(iter(pbs_envolvidas))
+            if pbs_envolvidas
+            else _resolver_pb_bairro(bairro_final, ctx)
+        )
+        return _resultado_bairro(
+            bairro_final,
+            pb_final,
+            ctx,
+            "Stage 1 (Múltiplos Equipamentos Mesmo Bairro)",
+        )
+
+    if len(pbs_envolvidas) == 1:
+        return _resultado_regional(
+            next(iter(pbs_envolvidas)),
+            "Stage 1 (Múltiplos Equipamentos Mesma Prefeitura-Bairro)",
+        )
+
+    return _resultado_escopo_cidade("Múltiplos Equipamentos (Escopo Cidade)")
 
 
 def _executar_estagio_1_deterministico(
     *,
     objeto_norm: str,
     equipamentos: list[dict[str, Any]],
-    dicionario_lotes: dict[str, str],
-    bairros_nomes: list[str],
-    dicionario_sublocalidades: dict[str, str],
-    sublocalidades_norm: dict[str, str],
-    bairros_centroides: dict[str, tuple[float, float]],
-    bairros_centroides_norm: dict[str, tuple[float, float]],
-    bairro_para_pb: dict[str, str],
-    bairro_para_pb_norm: dict[str, str],
+    ctx: _ContextoTerritorialStage1,
 ) -> Optional[dict[str, Any]]:
-    """Executa o funil determinístico local (1A Pontual -> 1B Regional -> 1C Bairro/Multi-Bairro)."""
-    eq_encontrado = _buscar_equipamento_no_objeto(objeto_norm, equipamentos)
-    if eq_encontrado:
+    """Executa o funil determinístico local (1A Pontual -> 1B Regional -> 1C Bairro/Multi-Bairro).
+
+    Sumário:
+        Aplica em cascata catálogo de equipamentos, lotes regionais e topônimos locais.
+
+    Descrição Estendida:
+        Aloca ``Pontual`` somente quando exatamente um equipamento oficial único é
+        identificado no Estágio 1A. Em múltiplos equipamentos, delega à agregação não-pontual;
+        caso contrário, avalia lotes de Prefeitura-Bairro (1B) e topônimos (1C).
+
+    Argumentos:
+        objeto_norm: Descrição do contrato pré-normalizada via ``normalizar_nome``.
+        equipamentos: Lista consolidada de equipamentos dos três catálogos oficiais.
+        ctx: Contexto territorial consolidado do Estágio 1.
+
+    Retornos:
+        Dicionário de alocação territorial do Estágio 1 ou ``None`` se não houver match local.
+
+    Erros:
+        Não lança exceções.
+    """
+    eq_encontrados = _buscar_equipamentos_no_objeto(objeto_norm, equipamentos)
+    if len(eq_encontrados) == 1:
+        eq_encontrado = eq_encontrados[0]
         eq_bairro = eq_encontrado.get("bairro")
         eq_pb = eq_encontrado.get("prefeitura_bairro")
         if not eq_pb and eq_bairro:
-            eq_pb = bairro_para_pb.get(eq_bairro) or bairro_para_pb_norm.get(normalizar_nome(eq_bairro))
-        if eq_pb:
+            eq_pb = _resolver_pb_bairro(eq_bairro, ctx)
+        elif eq_pb:
             eq_pb = normalizar_nome_prefeitura_bairro(eq_pb)
         return {
             "nivel": "Pontual",
@@ -1261,36 +1676,22 @@ def _executar_estagio_1_deterministico(
             "longitude": eq_encontrado.get("longitude"),
             "estagio": "Stage 1 (Equipamento Oficial)",
         }
+    if len(eq_encontrados) > 1:
+        return _reconciliar_multiplos_equipamentos(
+            eq_encontrados=eq_encontrados,
+            objeto_norm=objeto_norm,
+            ctx=ctx,
+        )
 
-    pbs_detectadas = _detectar_prefeituras_bairro_no_objeto(objeto_norm, dicionario_lotes)
+    pbs_detectadas = _detectar_prefeituras_bairro_no_objeto(objeto_norm, ctx.dicionario_lotes)
     if len(pbs_detectadas) == 1:
-        return {
-            "nivel": "Regional (Prefeitura-Bairro)",
-            "bairro": None,
-            "prefeitura_bairro": normalizar_nome_prefeitura_bairro(pbs_detectadas[0]),
-            "latitude": None,
-            "longitude": None,
-            "estagio": "Stage 1 (Lote Regional)",
-        }
+        return _resultado_regional(pbs_detectadas[0], "Stage 1 (Lote Regional)")
     if len(pbs_detectadas) > 1:
-        return {
-            "nivel": "Escopo Cidade (Não-Localizado)",
-            "bairro": None,
-            "prefeitura_bairro": None,
-            "latitude": None,
-            "longitude": None,
-            "estagio": "Múltiplas Prefeituras-Bairro",
-        }
+        return _resultado_escopo_cidade("Múltiplas Prefeituras-Bairro")
 
     return _classificar_estagio_1c_toponimos(
         objeto_norm=objeto_norm,
-        bairros_nomes=bairros_nomes,
-        dicionario_sublocalidades=dicionario_sublocalidades,
-        sublocalidades_norm=sublocalidades_norm,
-        bairros_centroides=bairros_centroides,
-        bairros_centroides_norm=bairros_centroides_norm,
-        bairro_para_pb=bairro_para_pb,
-        bairro_para_pb_norm=bairro_para_pb_norm,
+        ctx=ctx,
     )
 
 
@@ -1347,7 +1748,9 @@ def classificar_alocacao_territorial(
            Reconcilia Bairros Oficiais, hidrata centróide/Prefeitura-Bairro e reavalia entradas
            antigas de ``Escopo Cidade (Não-Localizado)`` contra as regras determinísticas locais.
         3. Estágio 1 (Determinístico Local):
-           a) Mapeamento contra catálogo oficial de Escolas e Unidades de Saúde -> ``Pontual``.
+           a) Mapeamento contra catálogos oficiais de equipamentos públicos municipais
+              (Educação, Saúde, Assistência Social, Mercados e Parques) -> ``Pontual``,
+              com abstenção automática quando múltiplos equipamentos distintos aparecem.
            b) Menção explícita a Prefeitura-Bairro (I..X, prefixo ``PB``/``Pref. Bairro``,
               pares compostos) -> ``Regional (Prefeitura-Bairro)`` se única, ou
               ``Escopo Cidade (Não-Localizado)`` se múltiplas Prefeituras-Bairro.
@@ -1410,6 +1813,16 @@ def classificar_alocacao_territorial(
     bairros_nomes = list(bairro_para_pb.keys())
     bairro_para_pb_norm = {normalizar_nome(k): v for k, v in bairro_para_pb.items()}
     bairros_centroides_norm = {normalizar_nome(k): v for k, v in bairros_centroides.items()}
+    ctx_stage_1 = _ContextoTerritorialStage1(
+        bairros_nomes=bairros_nomes,
+        dicionario_lotes=dicionario_lotes,
+        dicionario_sublocalidades=dicionario_sublocalidades,
+        sublocalidades_norm=sublocalidades_norm,
+        bairros_centroides=bairros_centroides,
+        bairros_centroides_norm=bairros_centroides_norm,
+        bairro_para_pb=bairro_para_pb,
+        bairro_para_pb_norm=bairro_para_pb_norm,
+    )
 
     # 1b. Curadoria Territorial Auditável (precedência determinística offline)
     catalogo_curadoria = curadoria if curadoria is not None else _carregar_curadoria_territorial()
@@ -1498,14 +1911,7 @@ def classificar_alocacao_territorial(
                 res_rec = _executar_estagio_1_deterministico(
                     objeto_norm=objeto_norm,
                     equipamentos=equipamentos,
-                    dicionario_lotes=dicionario_lotes,
-                    bairros_nomes=bairros_nomes,
-                    dicionario_sublocalidades=dicionario_sublocalidades,
-                    sublocalidades_norm=sublocalidades_norm,
-                    bairros_centroides=bairros_centroides,
-                    bairros_centroides_norm=bairros_centroides_norm,
-                    bairro_para_pb=bairro_para_pb,
-                    bairro_para_pb_norm=bairro_para_pb_norm,
+                    ctx=ctx_stage_1,
                 )
                 if res_rec and res_rec.get("nivel") != "Escopo Cidade (Não-Localizado)":
                     resultado_cached = res_rec
@@ -1521,14 +1927,7 @@ def classificar_alocacao_territorial(
     res_estagio_1 = _executar_estagio_1_deterministico(
         objeto_norm=objeto_norm,
         equipamentos=equipamentos,
-        dicionario_lotes=dicionario_lotes,
-        bairros_nomes=bairros_nomes,
-        dicionario_sublocalidades=dicionario_sublocalidades,
-        sublocalidades_norm=sublocalidades_norm,
-        bairros_centroides=bairros_centroides,
-        bairros_centroides_norm=bairros_centroides_norm,
-        bairro_para_pb=bairro_para_pb,
-        bairro_para_pb_norm=bairro_para_pb_norm,
+        ctx=ctx_stage_1,
     )
     if res_estagio_1 is not None:
         if cache:
