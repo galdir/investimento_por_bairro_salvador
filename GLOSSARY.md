@@ -11,8 +11,12 @@ Unidade territorial básica de Salvador delimitada pela malha vigente do municí
 _Avoid_: Distrito, subdistrito, zona, setor censitário
 
 **Zona Especial Não-Residencial**:
-Bairro Oficial cuja ocupação é predominantemente institucional, aeroportuária ou logística e que possui população residente nula ou residual no Censo 2022 (`Aeroporto`, `Porto Seco Pirajá` e `Centro Administrativo da Bahia - CAB`), sendo excluído do ranking de Investimento por Habitante para evitar distorções per capita.
+Bairro Oficial cuja ocupação é predominantemente institucional, aeroportuária ou logística e que possui população residente nula ou residual no Censo 2022 (`Aeroporto`, `Porto Seco Pirajá` e `Centro Administrativo da Bahia - CAB`), sendo isento do cálculo de Investimento por Habitante e de vulnerabilidade para evitar distorções estatísticas per capita, mas contabilizado normalmente em montante absoluto e quantidade de obras.
 _Avoid_: Bairro sem dados, bairro inválido, bairro deserto
+
+**Centralidade Metropolitana de Baixa População Residente**:
+Bairro Oficial continental de vocação portuária, financeira, institucional e cultural metropolitana (`ZUE-3` / `ZCMe` na LOUOS) com população residente inferior a 1.000 habitantes e densidade demográfica inferior a 1.000 hab/km² no Censo 2022 (`Comércio`), que preserva seu Índice de Vulnerabilidade do Bairro mas é isento do cálculo e ranking de Investimento por Habitante no nível de bairro para evitar distorções estatísticas per capita.
+_Avoid_: Bairro comercial, zona mista, bairro semi-isento
 
 **Prefeitura-Bairro**:
 Macrorregião administrativa descentralizada da Prefeitura de Salvador que agrupa um conjunto de Bairros Oficiais para gestão e manutenção urbana.
@@ -43,6 +47,10 @@ _Avoid_: Ano civil isolado, ano de assinatura, exercício contábil
 **Tema da Obra**:
 Categoria funcional atribuída a uma Obra Pública a partir da combinação de sua Unidade Gestora e das palavras-chave de seu objeto (`Encostas e Contenção`, `Educação e Escolas`, `Saúde`, `Praças, Esporte e Lazer`, `Mobilidade, Pavimentação e Drenagem` ou `Manutenção Urbana e Outros`).
 _Avoid_: Tipo de licitação, natureza de despesa, rubrica
+
+**Vocação da Obra**:
+Classificação da abrangência de atendimento urbano de uma Obra Pública em três categorias selecionáveis pelo cidadão: `Vizinhança e Comunidade` (escolas básicas, USFs, contenção de encostas, praças, pavimentação/drenagem local e urbanização integrada de comunidades), `Mobilidade Estrutural e Orlas` (viadutos, túneis, BRT, grandes eixos viários e requalificação de orlas marítimas) ou `Equipamentos e Marcos da Cidade` (hospitais municipais, arenas multiuso, mercados históricos, teatros, museus, centros culturais e sedes administrativas de escopo municipal).
+_Avoid_: Porte da obra, tamanho do contrato, relevância da obra
 
 **Nível de Alocação Territorial**:
 Grau de precisão geográfica com que uma Obra Pública é vinculada ao território de Salvador:
