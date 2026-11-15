@@ -23,7 +23,7 @@ Macrorregião administrativa descentralizada da Prefeitura de Salvador que agrup
 _Avoid_: Regional, subprefeitura, macrozona
 
 **Equipamento Público**:
-Unidade física municipal de atendimento direto ao cidadão com coordenada e bairro conhecidos no cadastro oficial (como Escola Municipal, CMEI, UBS, USF ou UPA).
+Unidade física municipal de atendimento direto ao cidadão com coordenada, Bairro Oficial e Prefeitura-Bairro conhecidos no catálogo oficial versionado do projeto (como Escola Municipal, CMEI, UBS, USF, UPA, Hospital Municipal, CRAS, CREAS, Mercado Municipal ou Parque Urbano).
 _Avoid_: Prédio público, repartição, instalação
 
 ### Classificação e Alocação de Obras
@@ -105,6 +105,10 @@ _Avoid_: Relatório contábil, extrato SIGEF
 Parcela de uma Obra Pública guarda-chuva vinculada a um Bairro Oficial ou Prefeitura-Bairro específico mediante lastro documental em nota de liquidação, ordem de serviço ou curadoria semântica auditável, contabilizada estritamente nos valores liquidados e pagos comprovados sem rateio artificial do saldo contratual global.
 _Avoid_: Rateio de contrato, estimativa por bairro, subcontrato informal
 
+**Cota-Parte de Lista Fechada Contratual**:
+Fração proporcional ($n_b / M$) de uma Obra Pública cujo objeto ou aditivo especifica nominalmente uma lista finita e fechada de $M$ intervenções ou Equipamentos Públicos localizáveis ($2 \le M \le 8$) sem medição separada nas notas de liquidação, alocando a cota-parte correspondente tanto no Valor Contratual Vigente quanto nos valores liquidados/pagos e na presença de obras de cada Bairro Oficial contemplado, sem duplicar os KPIs globais da cidade nem a contagem de obras na mesma Prefeitura-Bairro.
+_Avoid_: Rateio de guarda-chuva genérico, vencedor leva tudo, duplicação de contrato
+
 **Curadoria Territorial Auditável**:
-Julgamento semântico explícito e versionado sobre textos livres de contratos, aditivos e liquidações, registrando a decisão e o trecho documental comprobatório para vincular uma Obra Pública ou Frente de Medição ao território sem heurísticas cegas por palavras-chave.
+Julgamento semântico explícito e versionado sobre textos livres de contratos, aditivos e liquidações, registrando a decisão (`promovido`, `lista_fechada`, `multi_frente` ou `ambiguo`) e o trecho documental comprobatório para vincular uma Obra Pública, Cota-Parte de Lista Fechada Contratual ou Frente de Medição ao território sem heurísticas cegas por palavras-chave.
 _Avoid_: Regex de bairro, geocodificação automática por palavra-chave

@@ -6,7 +6,7 @@ Para reduzir a opacidade territorial dos contratos em **Escopo Cidade (Não-Loca
 
 - **Manter cada Obra Pública estritamente indivisível em um único território**: Rejeitado para contratos guarda-chuva multi-bairro (`SMED`, `SEINFRA`, `SEMAN`), pois obrigaria a escolher arbitrariamente um único bairro ou manter bilhões de reais inteiramente opacos mesmo quando as notas de liquidação identificam escolas, ruas ou lotes específicos.
 - **Extração automática por palavras-chave/regex sobre `descObsLiquidacao` e `dsObjetoAditivo`**: Rejeitado pelo alto risco de falsos positivos em textos livres (nomes curtos de bairros como *Paz*, *Liberdade* ou *Centro*, ou endereços administrativos da sede da empreiteira).
-- **Rateio igualitário ou proporcional do `Valor Contratual Vigente` entre bairros**: Rejeitado por violar o princípio de conservadorismo contábil; apenas parcelas efetivamente liquidadas/pagas com lastro documental na medição podem ser atribuídas ao território.
+- **Rateio igualitário ou proporcional do `Valor Contratual Vigente` em contratos guarda-chuva genéricos**: Rejeitado para contratos guarda-chuva abertos por violar o princípio de conservadorismo contábil; apenas parcelas efetivamente liquidadas/pagas com lastro documental na medição podem ser atribuídas ao território via **Frente de Medição** (já contratos com lista finita e fechada de locais determinados em contrato seguem a **Cota-Parte de Lista Fechada Contratual** definida no [ADR-0006](0006-cota-parte-lista-fechada-e-catalogo-equipamentos.md)).
 
 ## Consequências
 
