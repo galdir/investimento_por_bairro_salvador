@@ -578,6 +578,7 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                 const lastroDocOrigem = fontesOficiais?.lastroTerritorial.documentoOrigem || null;
                 const lastroTrecho = fontesOficiais?.lastroTerritorial.trechoComprobatorio || null;
                 const lastroJustificativa = fontesOficiais?.lastroTerritorial.justificativa || null;
+                const frentesMedicao = obra.frentesMedicao || [];
 
                 const renderBotaoCopiar = (valor: string, campo: "contrato" | "processo", label: string, testId: string) => (
                   <button
@@ -716,6 +717,61 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                         )}
                       </div>
                     </div>
+
+                    {frentesMedicao.length > 0 && (
+                      <div
+                        data-testid="fontes-frentes-medicao"
+                        className="bg-white p-3 rounded-lg border border-indigo-200 space-y-2 text-xs"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-700">
+                            Frentes de Medição por Território
+                          </span>
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200">
+                            {frentesMedicao.length} {frentesMedicao.length === 1 ? "frente" : "frentes"}
+                          </span>
+                        </div>
+
+                        <div className="space-y-2">
+                          {frentesMedicao.map((frente, idx) => {
+                            const territorioDestino =
+                              frente.bairro && frente.prefeituraBairro
+                                ? `${frente.bairro} (${frente.prefeituraBairro})`
+                                : frente.bairro || frente.prefeituraBairro || frente.nivel;
+
+                            return (
+                              <div
+                                key={`${frente.notaLiquidacao}-${idx}`}
+                                data-testid={`fontes-frente-item-${idx}`}
+                                className="bg-slate-50 border border-slate-200 rounded-lg p-2.5 space-y-1"
+                              >
+                                <div className="flex flex-wrap items-center justify-between gap-2">
+                                  <span className="font-semibold text-slate-800">
+                                    {territorioDestino}
+                                  </span>
+                                  <span className="font-mono text-[11px] font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                                    {frente.notaLiquidacao}
+                                  </span>
+                                </div>
+                                <div className="flex flex-wrap items-center gap-4 text-[11px] text-slate-600">
+                                  <span>
+                                    Liquidado: <strong className="text-slate-800">{formatCurrency(frente.valorLiquidado)}</strong>
+                                  </span>
+                                  <span>
+                                    Pago: <strong className="text-emerald-700">{formatCurrency(frente.valorPago)}</strong>
+                                  </span>
+                                </div>
+                                {frente.trechoComprobatorio && (
+                                  <blockquote className="text-[11px] text-slate-600 border-l-2 border-indigo-300 pl-2 italic">
+                                    “{frente.trechoComprobatorio}”
+                                  </blockquote>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })()}

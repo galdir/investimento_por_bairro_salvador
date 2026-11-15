@@ -237,5 +237,57 @@ describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () 
     expect(screen.getByTestId("fontes-lastro-justificativa")).toHaveTextContent(
       "Aditivo contratual identifica univocamente a USF Fazenda Coutos II."
     );
+    expect(screen.queryByTestId("fontes-frentes-medicao")).not.toBeInTheDocument();
+  });
+
+  it("renderiza a lista auditável de Frentes de Medição no bloco Fontes Oficiais & Lastro Territorial quando frentesMedicao não está vazio", () => {
+    const obraMultiFrente: FichaLimpaObra = {
+      ...OBRA_SEM_DOM_SEM_PROCESSO,
+      id: 9200,
+      unidadeGestora: "SEINFRA",
+      numeroContrato: "2024CT007170",
+      objeto: "Manutenção de Quadras e Campos - Lote 01",
+      estagioAlocacao: "Curadoria Territorial Auditável (Multi-Frente)",
+      frentesMedicao: [
+        {
+          notaLiquidacao: "2025NL018688",
+          nivel: "Bairro",
+          bairro: "Boca do Rio",
+          prefeituraBairro: "Itapuã/Ipitanga",
+          valorLiquidado: 250000,
+          valorPago: 200000,
+          trechoComprobatorio: "REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO",
+        },
+        {
+          notaLiquidacao: "2025NL019999",
+          nivel: "Regional (Prefeitura-Bairro)",
+          bairro: null,
+          prefeituraBairro: "Subúrbio/Ilhas",
+          valorLiquidado: 180000,
+          valorPago: 150000,
+          trechoComprobatorio: "RECUPERAÇÃO DE EQUIPAMENTOS ESPORTIVOS NO SUBÚRBIO",
+        },
+      ],
+    };
+
+    render(<FichaLimpaModal obra={obraMultiFrente} onClose={vi.fn()} />);
+
+    const secaoFontes = screen.getByTestId("secao-fontes-oficiais");
+    const listaFrentes = screen.getByTestId("fontes-frentes-medicao");
+    expect(secaoFontes).toContainElement(listaFrentes);
+
+    const frente0 = screen.getByTestId("fontes-frente-item-0");
+    expect(frente0).toHaveTextContent("2025NL018688");
+    expect(frente0).toHaveTextContent("Boca do Rio");
+    expect(frente0).toHaveTextContent("250.000");
+    expect(frente0).toHaveTextContent("200.000");
+    expect(frente0).toHaveTextContent("REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO");
+
+    const frente1 = screen.getByTestId("fontes-frente-item-1");
+    expect(frente1).toHaveTextContent("2025NL019999");
+    expect(frente1).toHaveTextContent("Subúrbio/Ilhas");
+    expect(frente1).toHaveTextContent("180.000");
+    expect(frente1).toHaveTextContent("150.000");
+    expect(frente1).toHaveTextContent("RECUPERAÇÃO DE EQUIPAMENTOS ESPORTIVOS NO SUBÚRBIO");
   });
 });
