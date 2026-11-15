@@ -290,4 +290,17 @@ describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () 
     expect(frente1).toHaveTextContent("150.000");
     expect(frente1).toHaveTextContent("RECUPERAÇÃO DE EQUIPAMENTOS ESPORTIVOS NO SUBÚRBIO");
   });
+
+  it("exibe o selo de Vocação da Obra explícito e com fallback conservador quando ausente", () => {
+    const obraMobilidade: FichaLimpaObra = {
+      ...OBRA_COMPLETA,
+      vocacao: "Mobilidade Estrutural e Orlas",
+    };
+
+    const { rerender } = render(<FichaLimpaModal obra={obraMobilidade} onClose={vi.fn()} />);
+    expect(screen.getByTestId("ficha-limpa-vocacao")).toHaveTextContent("Mobilidade Estrutural e Orlas");
+
+    rerender(<FichaLimpaModal obra={OBRA_COMPLETA} onClose={vi.fn()} />);
+    expect(screen.getByTestId("ficha-limpa-vocacao")).toHaveTextContent("Vizinhança e Comunidade");
+  });
 });

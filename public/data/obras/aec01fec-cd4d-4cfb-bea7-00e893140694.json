@@ -53,6 +53,7 @@
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Vizinhança e Comunidade",
   "semaforo": {
     "status": "VERMELHO",
     "rotulo": "Vermelho (Crítica)",

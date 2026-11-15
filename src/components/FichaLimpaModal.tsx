@@ -107,12 +107,12 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   {obra.tema}
                 </span>
               )}
-              {obra?.vocacao && (
+              {obra && (
                 <span
                   data-testid="ficha-limpa-vocacao"
                   className="bg-sky-950/60 text-sky-200 text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-sky-600/40"
                 >
-                  {obra.vocacao}
+                  {obra.vocacao || "Vizinhança e Comunidade"}
                 </span>
               )}
               {obra?.semaforo && (

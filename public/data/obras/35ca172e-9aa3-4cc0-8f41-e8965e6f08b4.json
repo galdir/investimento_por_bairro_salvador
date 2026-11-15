@@ -48,6 +48,7 @@
   "liquidacoes": [],
   "pagamentos": [],
   "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Equipamentos e Marcos da Cidade",
   "semaforo": {
     "status": "VERDE",
     "rotulo": "Verde (No Prazo)",

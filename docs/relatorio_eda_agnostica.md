@@ -36,9 +36,9 @@
 | Contrato (Obra) | `valorOriginal` | 633 | 0 | 0 | 100,00% | 0,00% |
 | Contrato (Obra) | `valorAditivos` | 633 | 0 | 237 | 100,00% | 37,44% |
 | Contrato (Obra) | `percentualExecutado` | 633 | 0 | 65 | 100,00% | 10,27% |
-| Contrato (Obra) | `bairro` | 234 | 399 | 0 | 36,97% | 0,00% |
-| Contrato (Obra) | `prefeituraBairro` | 280 | 353 | 0 | 44,23% | 0,00% |
-| Contrato (Obra) | `latitude` | 234 | 399 | 0 | 36,97% | 0,00% |
+| Contrato (Obra) | `bairro` | 241 | 392 | 0 | 38,07% | 0,00% |
+| Contrato (Obra) | `prefeituraBairro` | 287 | 346 | 0 | 45,34% | 0,00% |
+| Contrato (Obra) | `latitude` | 241 | 392 | 0 | 38,07% | 0,00% |
 | Transação (Empenho) | `dataEmpenho` | 4344 | 0 | 0 | 100,00% | 0,00% |
 | Transação (Empenho) | `valEmpenhado` | 4344 | 0 | 36 | 100,00% | 0,83% |
 | Transação (Empenho) | `fonteRecurso` | 4344 | 0 | 0 | 100,00% | 0,00% |
@@ -231,22 +231,22 @@
 | `pct_esgoto_inadequado` | `pct_agua_inadequada` | 168 | 0,999 | 1,000 |
 | `pct_esgoto_inadequado` | `pct_analfabetismo_15mais` | 168 | 0,994 | 1,000 |
 | `pct_agua_inadequada` | `pct_analfabetismo_15mais` | 168 | 0,986 | 1,000 |
-| `totalObras` | `valorTotal` | 168 | 0,750 | 0,958 |
-| `valorTotal` | `valorPago` | 168 | 0,647 | 0,949 |
-| `totalObras` | `valorPago` | 168 | 0,786 | 0,946 |
-| `populacao` | `valorPago` | 168 | 0,441 | 0,333 |
-| `populacao` | `totalObras` | 168 | 0,377 | 0,353 |
-| `populacao` | `valorTotal` | 168 | 0,267 | 0,343 |
+| `totalObras` | `valorTotal` | 168 | 0,789 | 0,956 |
+| `valorTotal` | `valorPago` | 168 | 0,623 | 0,949 |
+| `totalObras` | `valorPago` | 168 | 0,781 | 0,945 |
+| `populacao` | `valorPago` | 168 | 0,443 | 0,332 |
+| `populacao` | `totalObras` | 168 | 0,364 | 0,354 |
+| `populacao` | `valorTotal` | 168 | 0,295 | 0,343 |
 
 #### Bairros Oficiais — Ausências de Correlação (|r| e |ρ| < 0,10): 6 pares
 | Variável 1 | Variável 2 | N | Pearson (r) | Spearman (ρ) |
 |---|---|---:|---:|---:|
-| `pct_esgoto_inadequado` | `totalObras` | 168 | -0,015 | 0,023 |
-| `pct_agua_inadequada` | `totalObras` | 168 | -0,011 | 0,023 |
-| `pct_analfabetismo_15mais` | `totalObras` | 168 | -0,021 | 0,023 |
-| `pct_analfabetismo_15mais` | `valorTotal` | 168 | -0,009 | -0,004 |
-| `pct_esgoto_inadequado` | `valorTotal` | 168 | -0,004 | -0,004 |
-| `pct_agua_inadequada` | `valorTotal` | 168 | 0,000 | -0,004 |
+| `pct_esgoto_inadequado` | `totalObras` | 168 | -0,013 | 0,029 |
+| `pct_agua_inadequada` | `totalObras` | 168 | -0,009 | 0,029 |
+| `pct_analfabetismo_15mais` | `totalObras` | 168 | -0,017 | 0,029 |
+| `pct_agua_inadequada` | `valorTotal` | 168 | 0,005 | -0,002 |
+| `pct_esgoto_inadequado` | `valorTotal` | 168 | 0,003 | -0,002 |
+| `pct_analfabetismo_15mais` | `valorTotal` | 168 | 0,001 | -0,002 |
 
 ### 3.2 Correlações Todos-contra-Todos — Nível Obra Pública
 
@@ -315,27 +315,27 @@
 ### 4.1 Detecção Matemática de Outliers (|Z| > 3σ e > Q3 + 1,5×IQR)
 
 #### Bairros Oficiais (Valor Total Alocado)
-- Outliers `|Z| > 3σ`: **4** (limiar: R$ 139.287.702,77)
-- Outliers `> Q3 + 1,5×IQR`: **27** (limiar: R$ 20.551.461,99)
+- Outliers `|Z| > 3σ`: **4** (limiar: R$ 173.147.847,49)
+- Outliers `> Q3 + 1,5×IQR`: **24** (limiar: R$ 21.561.447,80)
 
 **Top Outliers `|Z| > 3σ`:**
 
 | Entidade | Valor | Z-score |
 |---|---:|---:|
-| Rio Sena | R$ 349.831.643,15 | 8,07 |
-| Itapuã | R$ 210.893.463,71 | 4,72 |
-| Comércio | R$ 210.692.811,22 | 4,72 |
-| Pituaçu | R$ 164.943.875,51 | 3,62 |
+| Boca do Rio | R$ 421.047.191,46 | 7,76 |
+| Rio Sena | R$ 349.831.643,15 | 6,39 |
+| Itapuã | R$ 210.893.463,71 | 3,72 |
+| Comércio | R$ 210.692.811,22 | 3,72 |
 
 **Top Outliers `> Q3 + 1,5×IQR`:**
 
 | Entidade | Valor | Z-score |
 |---|---:|---:|
-| Rio Sena | R$ 349.831.643,15 | 8,07 |
-| Itapuã | R$ 210.893.463,71 | 4,72 |
-| Comércio | R$ 210.692.811,22 | 4,72 |
-| Pituaçu | R$ 164.943.875,51 | 3,62 |
-| Caminho das Árvores | R$ 115.132.502,57 | 2,42 |
+| Boca do Rio | R$ 421.047.191,46 | 7,76 |
+| Rio Sena | R$ 349.831.643,15 | 6,39 |
+| Itapuã | R$ 210.893.463,71 | 3,72 |
+| Comércio | R$ 210.692.811,22 | 3,72 |
+| Pituaçu | R$ 164.943.875,51 | 2,84 |
 
 #### Obras Públicas (Valor Contratual Vigente)
 - Outliers `|Z| > 3σ`: **15** (limiar: R$ 133.173.761,68)
@@ -438,10 +438,10 @@
 
 | Cluster | N | % | Média `populacao` | Média `pct_esgoto_inadequado` | Média `pct_analfabetismo_15mais` | Média `valorTotal` |
 |---|---:|---:|---:|---:|---:|---:|
-| Cluster 4 | 91 | 54,17% | 10.143,53 | 21,94 | 4,57 | 5.951.400,60 |
-| Cluster 1 | 47 | 27,98% | 17.710,83 | 37,43 | 6,73 | 4.112.645,34 |
+| Cluster 4 | 91 | 54,17% | 10.143,53 | 21,94 | 4,57 | 6.209.398,46 |
+| Cluster 1 | 50 | 29,76% | 19.397,30 | 37,33 | 6,72 | 7.317.670,35 |
 | Cluster 2 | 21 | 12,50% | 17.122,29 | 6,59 | 1,87 | 20.923.998,54 |
-| Cluster 3 | 9 | 5,36% | 33.602,11 | 29,54 | 5,63 | 143.811.651,69 |
+| Cluster 3 | 6 | 3,57% | 27.493,83 | 26,41 | 5,19 | 245.388.987,72 |
 
 #### Perfis Naturais de Obras Públicas (k=4, N=633)
 
@@ -933,8 +933,8 @@
 
 | Recorte | Qtd. | Média Valor Vigente | Mediana Valor Vigente | Com Notas de Empenho |
 |---|---:|---:|---:|---:|
-| Localizadas (`Pontual` / `Bairro` / `Regional (Prefeitura-Bairro)`) | 280 | R$ 13.369.363,61 | R$ 4.190.259,42 | 99 |
-| Escopo Cidade (Não-Localizado) | 353 | R$ 17.671.048,01 | R$ 3.044.532,20 | 181 |
+| Localizadas (`Pontual` / `Bairro` / `Regional (Prefeitura-Bairro)`) | 287 | R$ 14.346.752,13 | R$ 4.151.329,73 | 105 |
+| Escopo Cidade (Não-Localizado) | 346 | R$ 16.947.352,30 | R$ 3.111.138,00 | 175 |
 
 ### 5.3 Distribuição por Tema da Obra e Nível de Alocação Territorial
 
@@ -949,26 +949,26 @@
 
 | Nível de Alocação Territorial | Contratos | Valor Vigente Total |
 |---|---:|---:|
-| Escopo Cidade (Não-Localizado) | 353 | R$ 6.237.879.946,75 |
-| Bairro | 234 | R$ 2.468.580.620,08 |
+| Escopo Cidade (Não-Localizado) | 346 | R$ 5.863.783.894,33 |
+| Bairro | 241 | R$ 2.842.676.672,50 |
 | Regional (Prefeitura-Bairro) | 46 | R$ 1.274.841.190,04 |
 
 ### 5.4 Índice de Vulnerabilidade do Bairro vs. Investimento por Habitante (Zonas Especiais Excluídas)
 
 - Bairros Oficiais residenciais analisados: **N = 168** (Zonas Especiais Não-Residenciais excluídas do cálculo per capita).
-- Correlação entre `indice_vulnerabilidade` e `investimentoPorHabitante`: Pearson `r = -0,038`, Spearman `ρ = -0,035`.
+- Correlação entre `indice_vulnerabilidade` e `investimentoPorHabitante`: Pearson `r = -0,016`, Spearman `ρ = -0,018`.
 
 | Prefeitura-Bairro | População | Índice Vulnerabilidade | Obras | Valor Total | Invest./Hab |
 |---|---:|---:|---:|---:|---:|
-| Subúrbio/Ilhas | 261024 | 0,89 | 52 | R$ 769.365.462,06 | R$ 2.947,49 |
+| Subúrbio/Ilhas | 261024 | 0,89 | 53 | R$ 769.636.608,05 | R$ 2.948,53 |
 | Cajazeiras | 192680 | 0,74 | 21 | R$ 348.435.301,47 | R$ 1.808,36 |
 | Valéria | 75740 | 0,73 | 3 | R$ 11.078.901,47 | R$ 146,28 |
 | Liberdade/São Caetano | 297441 | 0,72 | 13 | R$ 329.484.409,23 | R$ 1.107,73 |
 | Cabula/Tancredo Neves | 317923 | 0,71 | 33 | R$ 222.340.514,27 | R$ 699,35 |
 | Pau da Lima | 173172 | 0,63 | 4 | R$ 20.271.359,76 | R$ 117,06 |
 | Cidade Baixa | 148253 | 0,60 | 15 | R$ 135.463.338,81 | R$ 913,73 |
-| Itapuã/Ipitanga | 388097 | 0,55 | 42 | R$ 824.059.278,06 | R$ 2.123,33 |
-| Centro/Brotas | 239424 | 0,44 | 55 | R$ 478.226.869,16 | R$ 1.997,41 |
+| Itapuã/Ipitanga | 388097 | 0,55 | 44 | R$ 1.174.406.379,44 | R$ 3.026,06 |
+| Centro/Brotas | 239424 | 0,44 | 59 | R$ 501.704.674,21 | R$ 2.095,47 |
 | Barra/Pituba | 323924 | 0,30 | 42 | R$ 604.696.375,83 | R$ 1.866,78 |
 
 #### Cruzamento Prefeitura-Bairro × Bairros Oficiais Residenciais
@@ -978,19 +978,10 @@
 | Barra/Pituba | 23 | 12 | R$ 0,00 | R$ 8.458,16 | 0,24 |
 | Cabula/Tancredo Neves | 21 | 9 | R$ 23,20 | R$ 3.516,96 | 0,62 |
 | Cajazeiras | 17 | 10 | R$ 0,00 | R$ 6.803,69 | 0,83 |
-| Centro/Brotas | 23 | 11 | R$ 47,80 | R$ 216.985,39 | 0,48 |
+| Centro/Brotas | 22 | 11 | R$ 23,90 | R$ 14.420,19 | 0,49 |
 | Cidade Baixa | 14 | 6 | R$ 202,82 | R$ 8.742,10 | 0,53 |
-| Itapuã/Ipitanga | 16 | 6 | R$ 340,94 | R$ 8.711,06 | 0,53 |
+| Itapuã/Ipitanga | 16 | 6 | R$ 340,94 | R$ 10.850,61 | 0,53 |
 | Liberdade/São Caetano | 19 | 12 | R$ 0,00 | R$ 701,48 | 0,78 |
 | Pau da Lima | 12 | 10 | R$ 0,00 | R$ 750,04 | 0,53 |
-| Subúrbio/Ilhas | 19 | 9 | R$ 13,19 | R$ 24.038,46 | 0,92 |
+| Subúrbio/Ilhas | 19 | 9 | R$ 26,53 | R$ 24.038,46 | 0,92 |
 | Valéria | 4 | 2 | R$ 35,24 | R$ 319,54 | 0,73 |
-
----
-
-## Nota de Hipóteses para Redução da Opacidade Territorial (Exploração Futura — Fase 2)
-
-> Registrado em alinhamento ao **ADR-0004**: após a **Fase 1 (offline)** — baseada em **Curadoria Territorial Auditável** sobre `liquidacoes.descObsLiquidacao` (`177` contratos não-localizados), `aditivos.dsObjetoAditivo` (`128` contratos) e normalização de lotes regionais — permanecem como hipóteses de **Fase 2** (fora do escopo de implementação imediato) os seguintes conectores externos para detalhamento físico de contratos em **Escopo Cidade (Não-Localizado)**:
->
-> 1. **DOM + Portal de Licitações de Salvador**: cruzar `dom.nuDom` (`150` contratos não-localizados já possuem edição do DOM) e `nuProcesso` para obter editais, Termos de Referência e Ordens de Serviço com a delimitação geográfica de cada Lote (`SEINFRA`, `SEMAN`, `SMED`).
-> 2. **TCM-BA (SIGA / Portal de Obras) e Transferegov / Obrasgov.br**: cruzar por número de contrato ou processo administrativo para recuperar boletins de medição georreferenciados, coordenadas e metas físicas em convênios federais e obras de engenharia.

@@ -55,6 +55,25 @@ describe("Seam 1: Modal Nota Metodológica — Índice de Vulnerabilidade", () =
     expect(screen.getAllByText(/Ilha de Maré/i).length).toBeGreaterThanOrEqual(1);
   });
 
+  it("documenta Centralidade Metropolitana de Baixa População Residente (Comércio), as 3 categorias de Vocação da Obra e a referência ao ADR-0005", () => {
+    render(<NotaMetodologicaModal isOpen={true} onClose={vi.fn()} />);
+
+    expect(screen.getAllByText(/Zona Especial Não-Residencial/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Centralidade Metropolitana de Baixa População Residente/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Comércio/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/ZUE-3/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/ZCMe/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/1\.000 hab\./i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/1\.000 hab\/km²/i).length).toBeGreaterThanOrEqual(1);
+
+    expect(screen.getAllByText(/Vocação da Obra/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/Vizinhança e Comunidade/i)).toBeInTheDocument();
+    expect(screen.getByText(/Mobilidade Estrutural e Orlas/i)).toBeInTheDocument();
+    expect(screen.getByText(/Equipamentos e Marcos da Cidade/i)).toBeInTheDocument();
+
+    expect(screen.getByText(/ADR-0005/i)).toBeInTheDocument();
+  });
+
   it("fecha o modal ao clicar no botão fechar", () => {
     const onCloseMock = vi.fn();
     render(<NotaMetodologicaModal isOpen={true} onClose={onCloseMock} />);

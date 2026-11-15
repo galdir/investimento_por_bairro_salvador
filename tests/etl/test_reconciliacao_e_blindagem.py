@@ -1205,6 +1205,174 @@ def test_reconciliar_acervo_local_promove_curadoria_territorio_unico_e_propaga_l
     assert res["kpis_globais"]["valorPagoNaoLocalizado"] == 300000.0
 
 
+def test_reconciliar_acervo_local_propaga_vocacao_e_centralidade_metropolitana(
+    tmp_path: Path,
+) -> None:
+    """Garante que a reconciliação local preenche vocacao em 100% das obras/fichas e aplica isenção per capita no Comércio."""
+    geo_dir = tmp_path / "geo"
+    geo_dir.mkdir(parents=True, exist_ok=True)
+
+    bairros_geo = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "id": 1,
+                    "nome": "Comércio",
+                    "prefeitura_bairro": "Centro/Brotas",
+                    "populacao": 971,
+                    "indice_vulnerabilidade": 0.48,
+                    "is_zona_especial_nao_residencial": False,
+                    "is_centralidade_metropolitana": True,
+                },
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [-38.520, -12.980],
+                            [-38.510, -12.980],
+                            [-38.510, -12.970],
+                            [-38.520, -12.970],
+                            [-38.520, -12.980],
+                        ]
+                    ],
+                },
+            }
+        ],
+    }
+    pb_geo = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {"OBJECTID": 2, "PREFEITURA_BAIRRO": "Centro/Brotas"},
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [-38.530, -12.990],
+                            [-38.500, -12.990],
+                            [-38.500, -12.960],
+                            [-38.530, -12.960],
+                            [-38.530, -12.990],
+                        ]
+                    ],
+                },
+            }
+        ],
+    }
+    (geo_dir / "bairros.geojson").write_text(
+        json.dumps(bairros_geo, ensure_ascii=False), encoding="utf-8"
+    )
+    (geo_dir / "prefeituras_bairro.geojson").write_text(
+        json.dumps(pb_geo, ensure_ascii=False), encoding="utf-8"
+    )
+
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+
+    obra_mercado = {
+        "id": "obra-comercio-mercado",
+        "cdUnidadeGestora": "616002",
+        "unidadeGestora": "SEINFRA",
+        "numeroContrato": "010/2025",
+        "objeto": "Requalificação do Mercado Modelo no Comércio",
+        "valorOriginal": 10000000.0,
+        "valorContratualVigente": 10000000.0,
+        "valorEmpenhado": 10000000.0,
+        "valorLiquidado": 5000000.0,
+        "valorPago": 5000000.0,
+        "percentualExecutado": 50.0,
+        "situacao": "Em Execução",
+        "credor": "CONSTRUTORA TESTE LTDA",
+        "cnpj": "11.111.111/0001-11",
+        "nivel": "Bairro",
+        "bairro": "Comércio",
+        "prefeitura_bairro": "Centro/Brotas",
+        "prefeituraBairro": "Centro/Brotas",
+        "mandatos": ["2025-2028"],
+    }
+    obra_viaduto = {
+        "id": "obra-viaduto-brt",
+        "cdUnidadeGestora": "2401",
+        "unidadeGestora": "SUCOP",
+        "numeroContrato": "011/2025",
+        "objeto": "Construção de viaduto de integração do corredor BRT",
+        "valorOriginal": 20000000.0,
+        "valorContratualVigente": 20000000.0,
+        "valorEmpenhado": 20000000.0,
+        "valorLiquidado": 4000000.0,
+        "valorPago": 4000000.0,
+        "percentualExecutado": 20.0,
+        "situacao": "Em Execução",
+        "credor": "CONSTRUTORA TESTE LTDA",
+        "cnpj": "11.111.111/0001-11",
+        "nivel": "Escopo Cidade (Não-Localizado)",
+        "bairro": None,
+        "prefeitura_bairro": None,
+        "prefeituraBairro": None,
+        "mandatos": ["2025-2028"],
+    }
+
+    for obra in (obra_mercado, obra_viaduto):
+        (obras_dir / f"{obra['id']}.json").write_text(
+            json.dumps(obra, ensure_ascii=False), encoding="utf-8"
+        )
+
+    indice_inicial = {
+        "ano": 2025,
+        "kpis": {},
+        "bairros": [bairros_geo["features"][0]["properties"]],
+        "prefeituras_bairro": [
+            {
+                "id": 2,
+                "nome": "Centro/Brotas",
+                "populacao_total": 971,
+                "indice_vulnerabilidade": 0.48,
+            }
+        ],
+        "obras": [obra_mercado, obra_viaduto],
+    }
+    (tmp_path / "index_2025.json").write_text(
+        json.dumps(indice_inicial, ensure_ascii=False), encoding="utf-8"
+    )
+    (tmp_path / "index.json").write_text(
+        json.dumps(indice_inicial, ensure_ascii=False), encoding="utf-8"
+    )
+
+    from etl.reconcile import reconciliar_acervo_local
+
+    reconciliar_acervo_local(output_dir=tmp_path, year=2025)
+
+    idx_final = json.loads((tmp_path / "index.json").read_text(encoding="utf-8"))
+    obras_final = {o["id"]: o for o in idx_final["obras"]}
+    assert obras_final["obra-comercio-mercado"]["vocacao"] == "Equipamentos e Marcos da Cidade"
+    assert obras_final["obra-viaduto-brt"]["vocacao"] == "Mobilidade Estrutural e Orlas"
+
+    for oid, esperado in (
+        ("obra-comercio-mercado", "Equipamentos e Marcos da Cidade"),
+        ("obra-viaduto-brt", "Mobilidade Estrutural e Orlas"),
+    ):
+        ficha = json.loads((obras_dir / f"{oid}.json").read_text(encoding="utf-8"))
+        assert ficha["vocacao"] == esperado
+
+    comercio = idx_final["bairros"][0]
+    assert comercio["nome"] == "Comércio"
+    assert comercio["is_centralidade_metropolitana"] is True
+    assert comercio["is_zona_especial_nao_residencial"] is False
+    assert comercio["indice_vulnerabilidade"] == 0.48
+    assert comercio["investimentoPorHabitante"] == 0.0
+    assert comercio["investimentoPorHabitantePago"] == 0.0
+    assert comercio["valorTotal"] == 10000000.0
+
+    bairros_geo_final = json.loads((geo_dir / "bairros.geojson").read_text(encoding="utf-8"))
+    comercio_geo = bairros_geo_final["features"][0]["properties"]
+    assert comercio_geo["is_centralidade_metropolitana"] is True
+    assert comercio_geo["investimentoPorHabitante"] == 0.0
+
+
+
 
 
 

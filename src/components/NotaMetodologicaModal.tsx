@@ -266,14 +266,31 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
               <div className="p-3.5 bg-amber-50/70 border border-amber-200 rounded-xl">
                 <h4 className="font-bold text-amber-950 mb-1 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                  Zonas Especiais Não-Residenciais (Isenção Estatística)
+                  Zona Especial Não-Residencial (Isenção Estatística Integral)
                 </h4>
                 <p className="text-amber-900 leading-relaxed text-xs">
                   Os bairros <strong>Aeroporto</strong>, <strong>Porto Seco Pirajá</strong> e{" "}
                   <strong>Centro Administrativo da Bahia - CAB</strong> possuem ocupação predominantemente aeroportuária, logística e
                   institucional governamental, com população residente nula ou residual no Censo 2022. Por essa razão, são{" "}
-                  <strong>isentos</strong> da normalização min-max e do cálculo de vulnerabilidade (exibindo o status <code>Isento</code> no
-                  painel e no ranking), preservando a escala real dos bairros onde a população de Salvador efetivamente reside.
+                  <strong>isentos</strong> da normalização min-max, do cálculo de vulnerabilidade e do ranking de{" "}
+                  <strong>Investimento por Habitante</strong> (exibindo o status <code>Isento</code> no painel), preservando a escala real
+                  dos bairros onde a população de Salvador efetivamente reside.
+                </p>
+              </div>
+
+              <div className="p-3.5 bg-violet-50/70 border border-violet-200 rounded-xl">
+                <h4 className="font-bold text-violet-950 mb-1 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-violet-500"></span>
+                  Centralidade Metropolitana de Baixa População Residente (Isenção Per Capita)
+                </h4>
+                <p className="text-violet-900 leading-relaxed text-xs">
+                  O bairro <strong>Comércio</strong> combina faixa portuária (<code>ZUE-3</code>) e centralidade metropolitana de uso misto (
+                  <code>ZCMe</code> na LOUOS), com população residente inferior a <code>1.000 hab.</code> e densidade inferior a{" "}
+                  <code>1.000 hab/km²</code> no Censo 2022. Diferente de uma <strong>Zona Especial Não-Residencial</strong>, o Comércio{" "}
+                  <strong>preserva seu Índice de Vulnerabilidade do Bairro</strong> (<code>0,48</code>) e participa normalmente das visões
+                  de <strong>Vulnerabilidade</strong>, <strong>Valor Total</strong> e <strong>Nº de Obras</strong> (bem como da média
+                  ponderada populacional da Prefeitura-Bairro), mas fica <strong>isento do cálculo e ranking de Investimento por Habitante</strong>{" "}
+                  (<code>R$/Hab</code>) no nível de bairro para evitar distorções estatísticas per capita.
                 </p>
               </div>
 
@@ -305,12 +322,55 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
               </div>
             </div>
           </section>
+
+          {/* Seção 6: Classificação por Vocação da Obra (ADR-0005) */}
+          <section className="space-y-3">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs font-bold shrink-0">
+                6
+              </span>
+              <h3>Classificação por Vocação da Obra (Filtro Multi-Seleção)</h3>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Para distinguir obras de atendimento direto ao morador de grandes intervenções viárias e marcos metropolitanos sem ocultar
+              contratos nem perder o lastro territorial, toda <strong>Obra Pública</strong> recebe uma <strong>Vocação da Obra</strong> por
+              curadoria explícita (Chave Canônica) ou regra determinística auditável, exibida na Tabela de Obras e na Ficha Limpa da Obra:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="bg-emerald-50/60 border border-emerald-200 rounded-xl p-3.5">
+                <h4 className="font-bold text-emerald-950 text-xs sm:text-sm mb-1">
+                  Vizinhança e Comunidade
+                </h4>
+                <p className="text-[11px] text-emerald-900 leading-relaxed">
+                  Escolas básicas, creches/CMEIs, unidades de saúde locais (USFs/UBSs), contenção de encostas, praças, pavimentação/drenagem
+                  local e urbanização integrada de comunidades.
+                </p>
+              </div>
+              <div className="bg-sky-50/60 border border-sky-200 rounded-xl p-3.5">
+                <h4 className="font-bold text-sky-950 text-xs sm:text-sm mb-1">
+                  Mobilidade Estrutural e Orlas
+                </h4>
+                <p className="text-[11px] text-sky-900 leading-relaxed">
+                  Viadutos, túneis, corredores de BRT, grandes eixos viários metropolitanos e obras de requalificação de orlas marítimas.
+                </p>
+              </div>
+              <div className="bg-amber-50/60 border border-amber-200 rounded-xl p-3.5">
+                <h4 className="font-bold text-amber-950 text-xs sm:text-sm mb-1">
+                  Equipamentos e Marcos da Cidade
+                </h4>
+                <p className="text-[11px] text-amber-900 leading-relaxed">
+                  Hospitais municipais, arenas multiuso, mercados históricos, teatros, museus, centros culturais e sedes administrativas de
+                  escopo municipal.
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
 
         {/* Rodapé do Modal com Botão de Concluir */}
         <div className="bg-slate-50 px-5 py-3.5 border-t border-slate-200 flex items-center justify-between shrink-0">
           <span className="text-xs text-slate-500">
-            Auditabilidade cidadã garantida conforme <strong>ADR-0003</strong>.
+            Auditabilidade cidadã garantida conforme <strong>ADR-0003</strong> e <strong>ADR-0005</strong>.
           </span>
           <button
             type="button"
