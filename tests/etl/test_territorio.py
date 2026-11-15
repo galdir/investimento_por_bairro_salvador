@@ -2,7 +2,9 @@
 
 import pytest
 from etl.domain.territorio import (
+    calcular_indice_vulnerabilidade_bairros,
     calcular_rollup_territorial,
+    is_centralidade_metropolitana,
     is_zona_especial_nao_residencial,
     normalizar_nome,
 )
@@ -524,3 +526,104 @@ def test_rollup_frentes_de_medicao_conservadorismo_contabil() -> None:
     assert opacidade["totalNaoLocalizado"] == 1
     assert opacidade["valorNaoLocalizado"] == 1000000.0
     assert opacidade["valorPagoNaoLocalizado"] == 190000.0
+
+
+def test_centralidade_metropolitana_comercio_isencao_per_capita_preserva_vulnerabilidade() -> None:
+    """Comércio é classificado como Centralidade Metropolitana: isento per capita, mas preserva vulnerabilidade e soma na PB."""
+    assert is_centralidade_metropolitana("Comércio") is True
+    assert is_centralidade_metropolitana("COMERCIO") is True
+    assert is_centralidade_metropolitana("Pituba") is False
+    assert is_centralidade_metropolitana("Aeroporto") is False
+    assert is_zona_especial_nao_residencial("Comércio") is False
+
+    demografia = {
+        "Pituba": {
+            "populacao": 65000,
+            "pct_esgoto_inadequado": 1.0,
+            "pct_agua_inadequada": 0.5,
+            "pct_analfabetismo_15mais": 1.0,
+        },
+        "Comércio": {
+            "populacao": 971,
+            "pct_esgoto_inadequado": 18.0,
+            "pct_agua_inadequada": 5.0,
+            "pct_analfabetismo_15mais": 4.5,
+        },
+        "Brotas": {
+            "populacao": 59029,
+            "pct_esgoto_inadequado": 10.0,
+            "pct_agua_inadequada": 2.0,
+            "pct_analfabetismo_15mais": 3.0,
+        },
+        "Aeroporto": {
+            "populacao": 0,
+            "pct_esgoto_inadequado": 99.0,
+            "pct_agua_inadequada": 99.0,
+            "pct_analfabetismo_15mais": 99.0,
+        },
+    }
+
+    vuln_calc = calcular_indice_vulnerabilidade_bairros(demografia)
+    comercio_demo = vuln_calc["Comércio"]
+    assert comercio_demo["is_centralidade_metropolitana"] is True
+    assert comercio_demo["isCentralidadeMetropolitana"] is True
+    assert comercio_demo["is_zona_especial_nao_residencial"] is False
+    assert comercio_demo["indice_vulnerabilidade"] > 0.0
+    assert comercio_demo["pct_esgoto_inadequado"] == 18.0
+    assert comercio_demo["pct_agua_inadequada"] == 5.0
+    assert comercio_demo["pct_analfabetismo_15mais"] == 4.5
+
+    bairros = [
+        {"id": 1, "nome": "Comércio", "prefeitura_bairro": "Centro/Brotas", **comercio_demo},
+        {"id": 2, "nome": "Brotas", "prefeitura_bairro": "Centro/Brotas", **vuln_calc["Brotas"]},
+    ]
+    prefeituras = [
+        {"id": 10, "nome": "Centro/Brotas", "populacao_total": 60000},
+    ]
+    obras = [
+        {
+            "id": 901,
+            "vlAtualizado": 9710000.0,
+            "vlPago": 971000.0,
+            "nivel": "Pontual",
+            "bairro": "Comércio",
+            "prefeitura_bairro": "Centro/Brotas",
+            "semaforo": {"status": "VERDE"},
+        },
+        {
+            "id": 902,
+            "vlAtualizado": 290000.0,
+            "vlPago": 29000.0,
+            "nivel": "Bairro",
+            "bairro": "Brotas",
+            "prefeitura_bairro": "Centro/Brotas",
+            "semaforo": {"status": "VERDE"},
+        },
+    ]
+
+    b_proc, pb_proc, _ = calcular_rollup_territorial(
+        bairros_resumo=bairros,
+        prefeituras_resumo=prefeituras,
+        obras_alocadas=obras,
+    )
+
+    comercio = next(b for b in b_proc if b["nome"] == "Comércio")
+    assert comercio["is_centralidade_metropolitana"] is True
+    assert comercio["isCentralidadeMetropolitana"] is True
+    assert comercio["is_zona_especial_nao_residencial"] is False
+    assert comercio["valorTotal"] == 9710000.0
+    assert comercio["valorPago"] == 971000.0
+    assert comercio["totalObras"] == 1
+    assert comercio["investimentoPorHabitante"] == 0.0
+    assert comercio["investimentoPorHabitantePago"] == 0.0
+    assert comercio["indice_vulnerabilidade"] == comercio_demo["indice_vulnerabilidade"]
+
+    pb_centro = next(p for p in pb_proc if p["nome"] == "Centro/Brotas")
+    assert pb_centro["valorTotal"] == 10000000.0
+    assert pb_centro["totalObras"] == 2
+    assert pb_centro["investimentoPorHabitante"] == round(10000000.0 / 60000, 2)
+    vuln_esperada_pb = round(
+        (971 * comercio_demo["indice_vulnerabilidade"] + 59029 * vuln_calc["Brotas"]["indice_vulnerabilidade"]) / 60000,
+        2,
+    )
+    assert pb_centro["indice_vulnerabilidade"] == vuln_esperada_pb

@@ -34,6 +34,7 @@ from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
 from etl.domain.territorio import (
     calcular_rollup_territorial,
+    is_centralidade_metropolitana,
     is_zona_especial_nao_residencial,
     normalizar_e_vincular_malhas_geosalvador,
     normalizar_nome,
@@ -285,7 +286,8 @@ def run_pipeline(
 
         nome_norm = normalizar_nome(nome)
         demo = demografia_norm.get(nome_norm, {"populacao": 0, "indice_vulnerabilidade": 0.0})
-        eh_ze = is_zona_especial_nao_residencial(nome)
+        eh_zona_especial = is_zona_especial_nao_residencial(nome)
+        eh_centralidade = not eh_zona_especial and is_centralidade_metropolitana(nome)
 
         bairros_base.append({
             "id": b_id,
@@ -293,8 +295,10 @@ def run_pipeline(
             "prefeitura_bairro": pb,
             "populacao": int(demo.get("populacao", 0)),
             "indice_vulnerabilidade": parse_float(demo.get("indice_vulnerabilidade", 0.0)),
-            "is_zona_especial_nao_residencial": eh_ze,
-            "isZonaEspecialNaoResidencial": eh_ze,
+            "is_zona_especial_nao_residencial": eh_zona_especial,
+            "isZonaEspecialNaoResidencial": eh_zona_especial,
+            "is_centralidade_metropolitana": eh_centralidade,
+            "isCentralidadeMetropolitana": eh_centralidade,
             "pct_esgoto_inadequado": parse_float(demo.get("pct_esgoto_inadequado", 0.0)),
             "pct_agua_inadequada": parse_float(demo.get("pct_agua_inadequada", 0.0)),
             "pct_analfabetismo_15mais": parse_float(demo.get("pct_analfabetismo_15mais", 0.0)),

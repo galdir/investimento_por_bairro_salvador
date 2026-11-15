@@ -1076,7 +1076,11 @@ def _construir_secao_5(
     for nv, cnt in nivel_cnt.most_common():
         linhas_nivel.append(f"| {nv} | {cnt} | {_fmt_brl(nivel_val[nv])} |")
 
-    # 5.4 Índice de Vulnerabilidade do Bairro vs Investimento por Habitante (excluindo Zonas Especiais)
+    # 5.4 Índice de Vulnerabilidade do Bairro vs Investimento por Habitante (excluindo Zonas Especiais e Centralidades Metropolitanas)
+    bairros_per_capita = [
+        b for b in bairros_res
+        if not (b.get("is_centralidade_metropolitana") or b.get("isCentralidadeMetropolitana"))
+    ]
     df_vuln = pd.DataFrame(
         [
             {
@@ -1084,7 +1088,7 @@ def _construir_secao_5(
                 "inv_hab": parse_float(b.get("investimentoPorHabitante")),
                 "inv_hab_pago": parse_float(b.get("investimentoPorHabitantePago")),
             }
-            for b in bairros_res
+            for b in bairros_per_capita
         ]
     )
     r_ivs = rho_ivs = None
@@ -1103,9 +1107,9 @@ def _construir_secao_5(
             f"{_fmt_brl(parse_float(pb.get('valorTotal')))} | {_fmt_brl(parse_float(pb.get('investimentoPorHabitante')))} |"
         )
 
-    # Cruzamento Prefeitura-Bairro vs. Bairro Oficial (bairros residenciais agrupados por PB)
+    # Cruzamento Prefeitura-Bairro vs. Bairro Oficial (bairros elegíveis ao per capita agrupados por PB)
     bairros_por_pb: defaultdict[str, list[dict[str, Any]]] = defaultdict(list)
-    for b in bairros_res:
+    for b in bairros_per_capita:
         bairros_por_pb[str(b.get("prefeitura_bairro") or "N/I")].append(b)
 
     linhas_cruzamento = [

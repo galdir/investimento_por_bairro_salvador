@@ -32,3 +32,11 @@ ZONAS_ESPECIAIS_NAO_RESIDENCIAIS: Final[set[str]] = {
     "CENTRO ADMINISTRATIVO DA BAHIA",
     "CAB",
 }
+
+# Centralidades Metropolitanas de Baixa População Residente (ADR-0005)
+# Bairros Oficiais continentais com zoneamento portuário/centralidade metropolitana (ZUE-3/ZCMe),
+# população residente < 1.000 hab. e densidade demográfica < 1.000 hab/km² no Censo 2022
+CENTRALIDADES_METROPOLITANAS: Final[set[str]] = {
+    "COMERCIO",
+    "COMÉRCIO",
+}

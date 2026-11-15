@@ -18,7 +18,12 @@ from etl.domain.mandato import (
 )
 from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
-from etl.domain.territorio import is_zona_especial_nao_residencial, normalizar_nome, parse_float
+from etl.domain.territorio import (
+    is_centralidade_metropolitana,
+    is_zona_especial_nao_residencial,
+    normalizar_nome,
+    parse_float,
+)
 
 
 def generate_bairros_geojson(
@@ -64,7 +69,16 @@ def generate_bairros_geojson(
         nome_norm = normalizar_nome(nome)
         dados_rollup = bairros_map.get(nome_norm, {})
 
-        eh_zona_especial = is_zona_especial_nao_residencial(nome) or dados_rollup.get("isZonaEspecialNaoResidencial", False)
+        eh_zona_especial = is_zona_especial_nao_residencial(nome) or bool(
+            dados_rollup.get("is_zona_especial_nao_residencial") or dados_rollup.get("isZonaEspecialNaoResidencial")
+        )
+        eh_centralidade = (
+            not eh_zona_especial
+            and (
+                is_centralidade_metropolitana(nome)
+                or bool(dados_rollup.get("is_centralidade_metropolitana") or dados_rollup.get("isCentralidadeMetropolitana"))
+            )
+        )
 
         propriedades_finais = {
             "id": bairro_id,
@@ -74,6 +88,8 @@ def generate_bairros_geojson(
             "indice_vulnerabilidade": parse_float(dados_rollup.get("indice_vulnerabilidade", 0.0)),
             "is_zona_especial_nao_residencial": eh_zona_especial,
             "isZonaEspecialNaoResidencial": eh_zona_especial,
+            "is_centralidade_metropolitana": eh_centralidade,
+            "isCentralidadeMetropolitana": eh_centralidade,
             "pct_esgoto_inadequado": parse_float(dados_rollup.get("pct_esgoto_inadequado", 0.0)),
             "pct_agua_inadequada": parse_float(dados_rollup.get("pct_agua_inadequada", 0.0)),
             "pct_analfabetismo_15mais": parse_float(dados_rollup.get("pct_analfabetismo_15mais", 0.0)),

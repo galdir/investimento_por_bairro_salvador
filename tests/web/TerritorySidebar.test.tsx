@@ -265,4 +265,38 @@ describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Ce
 
     expect(screen.queryByTestId("aviso-metrica-vigente-frentes")).not.toBeInTheDocument();
   });
+
+  it("exibe alerta explicativo próprio, 'Isento' em R$ / Habitante e vulnerabilidade completa (0,48) para Centralidade Metropolitana (Comércio)", () => {
+    const comercio: TerritorySelection = {
+      tipo: "bairro",
+      id: 102,
+      nome: "Comércio",
+      prefeitura_bairro: "Centro/Brotas",
+      populacao: 971,
+      indice_vulnerabilidade: 0.48,
+      pct_esgoto_inadequado: 18.0,
+      pct_agua_inadequada: 5.0,
+      pct_analfabetismo_15mais: 4.5,
+      is_zona_especial_nao_residencial: false,
+      is_centralidade_metropolitana: true,
+      valorTotal: 210690000,
+      totalObras: 18,
+      investimentoPorHabitante: 0,
+      investimentoPorHabitantePago: 0,
+    };
+
+    render(<TerritorySidebar territorio={comercio} onClear={onClearMock} />);
+
+    expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Comércio");
+    expect(screen.queryByTestId("badge-zona-especial")).not.toBeInTheDocument();
+    const badgeCentralidade = screen.getByTestId("badge-centralidade-metropolitana");
+    expect(badgeCentralidade).toBeInTheDocument();
+    expect(badgeCentralidade).toHaveTextContent("Centralidade Metropolitana de Baixa População Residente");
+
+    expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Isento");
+    expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("0,48");
+    expect(screen.getByTestId("raio-x-esgoto")).toHaveTextContent("18,00%");
+    expect(screen.getByTestId("raio-x-agua")).toHaveTextContent("5,00%");
+    expect(screen.getByTestId("raio-x-analfabetismo")).toHaveTextContent("4,50%");
+  });
 });

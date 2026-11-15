@@ -13,6 +13,7 @@ import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters
 import {
   createBairroSelection,
   createPrefeituraSelection,
+  isCentralidadeMetropolitana,
   isZonaEspecial,
   normalizeName,
 } from "../utils/territory";
@@ -269,10 +270,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           "is_zona_especial_nao_residencial" in item
             ? !!(item.is_zona_especial_nao_residencial || item.isZonaEspecialNaoResidencial)
             : false;
+        const isCentralidade =
+          activeLayer === "bairros" && !isZonaEsp && isCentralidadeMetropolitana(item as BairroResumo);
         const valor = isExecutado
           ? (item.investimentoPorHabitantePago ?? item.investimentoPorHabitante ?? 0)
           : (item.investimentoPorHabitante ?? 0);
-        return !isZonaEsp && valor > 0;
+        return !isZonaEsp && !isCentralidade && valor > 0;
       })
       .map((item) =>
         isExecutado
@@ -319,10 +322,22 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           const isZonaEspecial = dynamicBairro
             ? !!(dynamicBairro.is_zona_especial_nao_residencial || dynamicBairro.isZonaEspecialNaoResidencial)
             : !!(props.is_zona_especial_nao_residencial || props.isZonaEspecialNaoResidencial);
+          const isCentralidade =
+            activeLayer === "bairros" &&
+            !isZonaEspecial &&
+            (dynamicBairro
+              ? isCentralidadeMetropolitana(dynamicBairro)
+              : isCentralidadeMetropolitana({
+                  nome: rawNome,
+                  is_centralidade_metropolitana: props.is_centralidade_metropolitana,
+                  isCentralidadeMetropolitana: props.isCentralidadeMetropolitana,
+                }));
+          const isExemptInCurrentLayer =
+            isZonaEspecial || (choroplethMetric === "investimentoPorHabitante" && isCentralidade);
 
           let fillColor = "#cbd5e1";
 
-          if (isZonaEspecial) {
+          if (isExemptInCurrentLayer) {
             fillColor = "#fef3c7";
           } else if (choroplethMetric === "investimentoPorHabitante") {
             const isExec = metricType === "executado";
@@ -345,7 +360,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             fillColor: isSelected ? "#10B981" : fillColor,
             weight: isSelected ? 3 : 1.2,
             opacity: 1,
-            color: isSelected ? "#065f46" : isZonaEspecial ? "#d97706" : "#ffffff",
+            color: isSelected ? "#065f46" : isExemptInCurrentLayer ? "#d97706" : "#ffffff",
             fillOpacity: isSelected ? 0.75 : 0.6,
           };
         },
@@ -358,6 +373,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           const isZonaEspecial = dynamicBairro
             ? !!(dynamicBairro.is_zona_especial_nao_residencial || dynamicBairro.isZonaEspecialNaoResidencial)
             : !!(props.is_zona_especial_nao_residencial || props.isZonaEspecialNaoResidencial);
+          const isCentralidade =
+            activeLayer === "bairros" &&
+            !isZonaEspecial &&
+            (dynamicBairro
+              ? isCentralidadeMetropolitana(dynamicBairro)
+              : isCentralidadeMetropolitana({
+                  nome: rawNome,
+                  is_centralidade_metropolitana: props.is_centralidade_metropolitana,
+                  isCentralidadeMetropolitana: props.isCentralidadeMetropolitana,
+                }));
 
           layerItem.on({
             click: () => {
@@ -369,6 +394,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   populacao: props.populacao || 0,
                   indice_vulnerabilidade: props.indice_vulnerabilidade || 0.5,
                   is_zona_especial_nao_residencial: isZonaEspecial,
+                  is_centralidade_metropolitana: isCentralidade,
                   valorTotal: props.valorTotal,
                   valorPago: props.valorPago,
                   totalObras: props.totalObras,
@@ -538,8 +564,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   // Ordenação e filtragem dos botões do seletor rápido inferior de acordo com a métrica coroplética ativa
   const filteredBairrosButtons = useMemo(() => {
     const isExec = metricType === "executado";
-    const residenciais = bairros.filter((b) => !isZonaEspecial(b));
-    const especiais = bairros.filter((b) => isZonaEspecial(b));
+    const isExemptInCurrentLayer = (b: BairroResumo) =>
+      isZonaEspecial(b) ||
+      (choroplethMetric === "investimentoPorHabitante" && isCentralidadeMetropolitana(b));
+    const residenciais = bairros.filter((b) => !isExemptInCurrentLayer(b));
+    const especiais = bairros.filter((b) => isExemptInCurrentLayer(b));
 
     const sortedResidenciais = sortTerritoriesByChoropleth(residenciais, choroplethMetric, metricType);
     const sortedEspeciais = [...especiais].sort((a, b) => {
@@ -756,8 +785,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 ? filteredBairrosButtons.map((b) => {
                   const isSelected = selectedTerritory?.id === b.id && selectedTerritory?.tipo === "bairro";
                   const isNonResidentialZone = isZonaEspecial(b);
+                  const isCentralidade = !isNonResidentialZone && isCentralidadeMetropolitana(b);
+                  const isExemptChip =
+                    isNonResidentialZone ||
+                    (choroplethMetric === "investimentoPorHabitante" && isCentralidade);
                   const testId = `territory-selector-${normalizeTestId(b.nome)}`;
-                  const chipMetricText = formatChipMetric(b, choroplethMetric, metricType, isNonResidentialZone);
+                  const chipMetricText = formatChipMetric(b, choroplethMetric, metricType, isExemptChip);
 
                   return (
                     <button
@@ -766,14 +799,17 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       onClick={() => onSelectTerritory(createBairroSelection(b))}
                       className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${isSelected
                           ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
-                          : isNonResidentialZone
+                          : isExemptChip
                             ? "bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100"
                             : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                         }`}
                     >
                       <span>{b.nome}</span>
-                      {isNonResidentialZone && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" title="Zona Especial Não-Residencial"></span>
+                      {isExemptChip && (
+                        <span
+                          className="w-1.5 h-1.5 rounded-full bg-amber-500"
+                          title={isCentralidade ? "Centralidade Metropolitana" : "Zona Especial Não-Residencial"}
+                        ></span>
                       )}
                       <span className="text-[10px] opacity-75">
                         ({formatNumber(b.populacao)} hab • {chipMetricText})

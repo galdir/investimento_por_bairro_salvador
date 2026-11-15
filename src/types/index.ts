@@ -55,6 +55,8 @@ export interface BairroResumo {
   indice_vulnerabilidade: number;
   is_zona_especial_nao_residencial: boolean;
   isZonaEspecialNaoResidencial?: boolean;
+  is_centralidade_metropolitana?: boolean;
+  isCentralidadeMetropolitana?: boolean;
   pct_esgoto_inadequado?: number;
   pct_agua_inadequada?: number;
   pct_analfabetismo_15mais?: number;
@@ -288,6 +290,8 @@ export interface TerritorySelection {
   indice_vulnerabilidade?: number;
   is_zona_especial_nao_residencial?: boolean;
   isZonaEspecialNaoResidencial?: boolean;
+  is_centralidade_metropolitana?: boolean;
+  isCentralidadeMetropolitana?: boolean;
   pct_esgoto_inadequado?: number;
   pct_agua_inadequada?: number;
   pct_analfabetismo_15mais?: number;

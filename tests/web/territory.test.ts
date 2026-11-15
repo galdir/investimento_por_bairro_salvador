@@ -3,6 +3,7 @@ import {
   calculateTerritorialRollup,
   createBairroSelection,
   createPrefeituraSelection,
+  isCentralidadeMetropolitana,
 } from "../../src/utils/territory";
 import { BairroResumo, ObraCompacta, PrefeituraBairroResumo } from "../../src/types";
 
@@ -444,6 +445,89 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
     expect(aeroporto?.totalFrentesMedicao).toBe(1);
     expect(aeroporto?.investimentoPorHabitante).toBe(0);
     expect(aeroporto?.investimentoPorHabitantePago).toBe(0);
+  });
+
+  it("zera investimentoPorHabitante do Comércio como Centralidade Metropolitana e preserva sua vulnerabilidade e ponderação na Prefeitura-Bairro", () => {
+    const bairrosComercio: BairroResumo[] = [
+      {
+        id: 201,
+        nome: "Comércio",
+        prefeitura_bairro: "Centro/Brotas",
+        populacao: 971,
+        indice_vulnerabilidade: 0.48,
+        pct_esgoto_inadequado: 18.0,
+        pct_agua_inadequada: 5.0,
+        pct_analfabetismo_15mais: 4.5,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 202,
+        nome: "Brotas",
+        prefeitura_bairro: "Centro/Brotas",
+        populacao: 59029,
+        indice_vulnerabilidade: 0.2,
+        pct_esgoto_inadequado: 4.0,
+        pct_agua_inadequada: 1.0,
+        pct_analfabetismo_15mais: 2.0,
+        is_zona_especial_nao_residencial: false,
+      },
+    ];
+    const pbs: PrefeituraBairroResumo[] = [
+      { id: 10, nome: "Centro/Brotas", populacao_total: 60000 },
+    ];
+    const obrasComercio: ObraCompacta[] = [
+      {
+        id: 5001,
+        unidadeGestora: "SUCOP",
+        numeroContrato: "010/2024",
+        objeto: "Requalificação do Mercado Modelo",
+        valorContratualVigente: 9710000,
+        valorPago: 971000,
+        percentualExecutado: 10,
+        situacao: "Em Execução",
+        credor: "CONSTRUTORA X",
+        nivel: "Pontual",
+        bairro: "Comércio",
+        prefeituraBairro: "Centro/Brotas",
+      },
+      {
+        id: 5002,
+        unidadeGestora: "SUCOP",
+        numeroContrato: "011/2024",
+        objeto: "Pavimentação em Brotas",
+        valorContratualVigente: 290000,
+        valorPago: 29000,
+        percentualExecutado: 10,
+        situacao: "Em Execução",
+        credor: "CONSTRUTORA Y",
+        nivel: "Bairro",
+        bairro: "Brotas",
+        prefeituraBairro: "Centro/Brotas",
+      },
+    ];
+
+    const { bairros, prefeituras } = calculateTerritorialRollup(bairrosComercio, pbs, obrasComercio);
+    const comercio = bairros.find((b) => b.nome === "Comércio")!;
+    const centroBrotas = prefeituras.find((p) => p.nome === "Centro/Brotas")!;
+
+    expect(isCentralidadeMetropolitana(comercio)).toBe(true);
+    expect(comercio.is_centralidade_metropolitana).toBe(true);
+    expect(comercio.isCentralidadeMetropolitana).toBe(true);
+    expect(comercio.is_zona_especial_nao_residencial).toBe(false);
+    expect(comercio.investimentoPorHabitante).toBe(0);
+    expect(comercio.investimentoPorHabitantePago).toBe(0);
+    expect(comercio.valorTotal).toBe(9710000);
+    expect(comercio.indice_vulnerabilidade).toBe(0.48);
+
+    const selection = createBairroSelection(comercio);
+    expect(selection.is_centralidade_metropolitana).toBe(true);
+    expect(selection.isCentralidadeMetropolitana).toBe(true);
+
+    expect(centroBrotas.valorTotal).toBe(10000000);
+    expect(centroBrotas.totalObras).toBe(2);
+    expect(centroBrotas.investimentoPorHabitante).toBe(166.67);
+    const expectedVuln = Math.round(((971 * 0.48 + 59029 * 0.2) / 60000 + Number.EPSILON) * 100) / 100;
+    expect(centroBrotas.indice_vulnerabilidade).toBe(expectedVuln);
   });
 });
 

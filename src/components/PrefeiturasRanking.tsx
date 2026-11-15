@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { BairroResumo, MetricType, ObraCompacta, PrefeituraBairroResumo } from "../types";
 import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
-import { isZonaEspecial, normalizeName } from "../utils/territory";
+import { isCentralidadeMetropolitana, isZonaEspecial, normalizeName } from "../utils/territory";
 
 export type RankingLevel = "prefeituras" | "bairros";
 export type RankingCriteria = "investimento" | "valorTotal" | "totalObras" | "vulnerabilidade";
@@ -79,7 +79,8 @@ const formatCardPrimaryValue = (
   item: PrefeituraBairroResumo | BairroResumo,
   criterion: RankingCriteria,
   metric: MetricType,
-  isSpecial: boolean = false
+  isSpecial: boolean = false,
+  isCentralidade: boolean = false
 ): { text: string; unit?: string } => {
   switch (criterion) {
     case "vulnerabilidade":
@@ -93,7 +94,7 @@ const formatCardPrimaryValue = (
       return { text: `${obras} ${obras === 1 ? "obra" : "obras"}` };
     }
     case "investimento": {
-      if (isSpecial) {
+      if (isSpecial || isCentralidade) {
         return { text: "Isento per capita" };
       }
       const val =
@@ -197,21 +198,26 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
 
   // 2. Separação condicional ou unificação de bairros para ranking
   const { bairrosParaOrdenar, zonasEspeciaisParaExibir } = useMemo(() => {
+    const isExemptInCurrentCriterion = (b: BairroResumo) => {
+      if (isZonaEspecial(b)) return true;
+      return rankingCriteria === "investimento" && isCentralidadeMetropolitana(b);
+    };
+
     if (ehCriterioPerCapitaOuVuln) {
-      const residenciais = bairrosFiltradosPorPrefeitura.filter((b) => !isZonaEspecial(b));
-      const especiais = bairrosFiltradosPorPrefeitura.filter((b) => isZonaEspecial(b));
+      const elegiveis = bairrosFiltradosPorPrefeitura.filter((b) => !isExemptInCurrentCriterion(b));
+      const isentos = bairrosFiltradosPorPrefeitura.filter((b) => isExemptInCurrentCriterion(b));
       return {
-        bairrosParaOrdenar: residenciais,
-        zonasEspeciaisParaExibir: especiais,
+        bairrosParaOrdenar: elegiveis,
+        zonasEspeciaisParaExibir: isentos,
       };
     } else {
-      // Em valorTotal ou totalObras, zonas especiais participam diretamente do ranking numerado
+      // Em valorTotal ou totalObras, zonas especiais e centralidades participam diretamente do ranking numerado
       return {
         bairrosParaOrdenar: bairrosFiltradosPorPrefeitura,
         zonasEspeciaisParaExibir: [],
       };
     }
-  }, [bairrosFiltradosPorPrefeitura, ehCriterioPerCapitaOuVuln]);
+  }, [bairrosFiltradosPorPrefeitura, ehCriterioPerCapitaOuVuln, rankingCriteria]);
 
   // 3. Ordenação dos bairros e indexação de posição no ranking da visão
   const bairrosOrdenadosComPosicao = useMemo(() => {
@@ -588,6 +594,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
           ) : (
             finalBairros.map((b, index) => {
               const isSpecial = isZonaEspecial(b);
+              const isCentralidade = !isSpecial && isCentralidadeMetropolitana(b);
               const perCapita =
                 metricType === "vigente"
                   ? (b.investimentoPorHabitante ?? 0)
@@ -598,7 +605,13 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                   : (b.valorPago ?? 0);
               const vuln = b.indice_vulnerabilidade ?? 0;
               const primaryVal = getTerritoryMetric(b, rankingCriteria, metricType);
-              const primaryFormatted = formatCardPrimaryValue(b, rankingCriteria, metricType, isSpecial);
+              const primaryFormatted = formatCardPrimaryValue(
+                b,
+                rankingCriteria,
+                metricType,
+                isSpecial,
+                isCentralidade
+              );
               const percentualBarra =
                 rankingCriteria === "vulnerabilidade"
                   ? Math.min(100, Math.max(5, vuln * 100))
@@ -627,6 +640,11 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                       {isSpecial && (
                         <span className="text-[10px] bg-amber-100 text-amber-800 font-semibold px-1.5 py-0.2 rounded">
                           Zona Especial Não-Residencial
+                        </span>
+                      )}
+                      {isCentralidade && (
+                        <span className="text-[10px] bg-amber-100 text-amber-800 font-semibold px-1.5 py-0.2 rounded">
+                          Centralidade Metropolitana
                         </span>
                       )}
                       <span className="text-[10px] text-slate-400">({b.prefeitura_bairro})</span>
@@ -666,7 +684,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                       {formatNumber(b.populacao)} habitantes • Total: {formatCurrency(valorTotalExibido)} • {b.totalObras ?? 0} {(b.totalObras ?? 0) === 1 ? "obra" : "obras"}
                     </span>
                     <span>
-                      {isSpecial ? "Isento per capita" : `${formatCurrency(perCapita)} / hab`} • Vulnerabilidade: {isSpecial ? "Isento" : formatDecimal(vuln)}
+                      {isSpecial || isCentralidade ? "Isento per capita" : `${formatCurrency(perCapita)} / hab`} • Vulnerabilidade: {isSpecial ? "Isento" : formatDecimal(vuln)}
                     </span>
                   </div>
                 </div>
@@ -680,7 +698,9 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-1">
                 <h4 className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                  Zonas Especiais Não-Residenciais — isentas do cálculo per capita
+                  {finalZonasEspeciais.some((z) => !isZonaEspecial(z) && isCentralidadeMetropolitana(z))
+                    ? "Zonas Especiais Não-Residenciais e Centralidades Metropolitanas — isentas do cálculo per capita"
+                    : "Zonas Especiais Não-Residenciais — isentas do cálculo per capita"}
                 </h4>
                 <span className="text-[10px] text-slate-400">
                   Áreas institucionais/logísticas com população residencial nula ou residual
@@ -688,6 +708,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
               </div>
               <div className="space-y-2">
                 {finalZonasEspeciais.map((zona, idx) => {
+                  const isCentralidade = !isZonaEspecial(zona) && isCentralidadeMetropolitana(zona);
                   const valorTotalExibido =
                     metricType === "vigente" ? (zona.valorTotal ?? 0) : (zona.valorPago ?? 0);
                   const isSelected = selectedNome === zona.nome;
@@ -708,7 +729,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                             {zona.nome}
                           </span>
                           <span className="text-[10px] bg-amber-100 text-amber-800 font-semibold px-1.5 py-0.2 rounded">
-                            Zona Especial Não-Residencial
+                            {isCentralidade ? "Centralidade Metropolitana" : "Zona Especial Não-Residencial"}
                           </span>
                           <span className="text-[10px] text-slate-400">({zona.prefeitura_bairro})</span>
                         </div>
@@ -723,7 +744,10 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                           Total: {formatCurrency(valorTotalExibido)} • {zona.totalObras ?? 0}{" "}
                           {(zona.totalObras ?? 0) === 1 ? "obra" : "obras"}
                         </span>
-                        <span>Isento per capita • Vulnerabilidade: Isento</span>
+                        <span>
+                          Isento per capita • Vulnerabilidade:{" "}
+                          {isCentralidade ? formatDecimal(zona.indice_vulnerabilidade ?? 0) : "Isento"}
+                        </span>
                       </div>
                     </div>
                   );

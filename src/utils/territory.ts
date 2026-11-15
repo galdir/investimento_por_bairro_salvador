@@ -37,6 +37,20 @@ export function isZonaEspecial(bairro: BairroResumo): boolean {
   );
 }
 
+/**
+ * Verifica se um Bairro Oficial é uma Centralidade Metropolitana de Baixa População Residente.
+ *
+ * @summary Identifica o bairro do Comércio (ZUE-3/ZCMe com < 1.000 hab. e < 1.000 hab/km²), isento per capita mas com vulnerabilidade preservada.
+ */
+export function isCentralidadeMetropolitana(
+  bairro: Pick<BairroResumo, "nome" | "is_centralidade_metropolitana" | "isCentralidadeMetropolitana">
+): boolean {
+  if (bairro.is_centralidade_metropolitana || bairro.isCentralidadeMetropolitana) {
+    return true;
+  }
+  return normalizeName(bairro.nome) === "COMERCIO";
+}
+
 interface ObrasAggregatedMetrics {
   valorTotal: number;
   valorPago: number;
@@ -121,6 +135,11 @@ export function createBairroSelection(bairro: BairroResumo): TerritorySelection 
     indice_vulnerabilidade: bairro.indice_vulnerabilidade,
     is_zona_especial_nao_residencial: bairro.is_zona_especial_nao_residencial,
     isZonaEspecialNaoResidencial: bairro.isZonaEspecialNaoResidencial ?? bairro.is_zona_especial_nao_residencial,
+    is_centralidade_metropolitana: bairro.is_centralidade_metropolitana ?? isCentralidadeMetropolitana(bairro),
+    isCentralidadeMetropolitana:
+      bairro.isCentralidadeMetropolitana ??
+      bairro.is_centralidade_metropolitana ??
+      isCentralidadeMetropolitana(bairro),
     pct_esgoto_inadequado: bairro.pct_esgoto_inadequado,
     pct_agua_inadequada: bairro.pct_agua_inadequada,
     pct_analfabetismo_15mais: bairro.pct_analfabetismo_15mais,
@@ -265,11 +284,12 @@ export function calculateTerritorialRollup(
     const valorPagoTotal = valorPagoDireto + valorPagoFrentes;
 
     const ehZonaEsp = isZonaEspecial(bairro);
+    const ehCentralidade = !ehZonaEsp && isCentralidadeMetropolitana(bairro);
     const populacao = bairro.populacao || 0;
 
     let investimentoPorHabitante = 0.0;
     let investimentoPorHabitantePago = 0.0;
-    if (!ehZonaEsp && populacao > 0) {
+    if (!ehZonaEsp && !ehCentralidade && populacao > 0) {
       investimentoPorHabitante = Math.round(((metrics.valorTotal / populacao) + Number.EPSILON) * 100) / 100;
       investimentoPorHabitantePago = Math.round(((valorPagoTotal / populacao) + Number.EPSILON) * 100) / 100;
     }
@@ -290,6 +310,8 @@ export function calculateTerritorialRollup(
       investimentoPorHabitantePago,
       is_zona_especial_nao_residencial: ehZonaEsp,
       isZonaEspecialNaoResidencial: ehZonaEsp,
+      is_centralidade_metropolitana: ehCentralidade,
+      isCentralidadeMetropolitana: ehCentralidade,
     };
   });
 

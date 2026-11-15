@@ -9,7 +9,7 @@ import re
 from typing import Any, Final
 import unicodedata
 
-from etl.config import ZONAS_ESPECIAIS_NAO_RESIDENCIAIS
+from etl.config import CENTRALIDADES_METROPOLITANAS, ZONAS_ESPECIAIS_NAO_RESIDENCIAIS
 
 # Mapeamento de contiguidade espacial e ponderação populacional para os 3 Bairros Oficiais
 # residenciais do Decreto 32.791/2020 ausentes no nível N102 do Censo 2022 (IBGE/SIDRA).
@@ -257,6 +257,21 @@ def is_zona_especial_nao_residencial(nome_bairro: str) -> bool:
     return False
 
 
+def is_centralidade_metropolitana(nome_bairro: str) -> bool:
+    """Verifica se um Bairro Oficial é uma Centralidade Metropolitana de Baixa População Residente.
+
+    Sumário:
+        Identifica estritamente o bairro do Comércio (ZUE-3/ZCMe com população < 1.000 hab.
+        e densidade < 1.000 hab/km² no Censo 2022), isento per capita mas com vulnerabilidade preservada.
+    """
+    nome_norm = normalizar_nome(nome_bairro)
+    if not nome_norm:
+        return False
+
+    nomes_exatos = {normalizar_nome(c) for c in CENTRALIDADES_METROPOLITANAS}
+    return nome_norm in nomes_exatos
+
+
 def calcular_indice_vulnerabilidade_bairros(
     demografia: dict[str, dict[str, Any]],
 ) -> dict[str, dict[str, Any]]:
@@ -297,8 +312,9 @@ def calcular_indice_vulnerabilidade_bairros(
                 if working_map[norm].get(field) is None:
                     working_map[norm][field] = val
 
-    # 1. Tratamento preliminar: identificar Zonas Especiais e inicializar flags
+    # 1. Tratamento preliminar: identificar Zonas Especiais e Centralidades Metropolitanas
     for norm, entry in working_map.items():
+        eh_centralidade = is_centralidade_metropolitana(norm)
         if is_zona_especial_nao_residencial(norm):
             entry["indice_vulnerabilidade"] = 0.0
             entry["pct_esgoto_inadequado"] = 0.0
@@ -307,9 +323,13 @@ def calcular_indice_vulnerabilidade_bairros(
             entry["vulnerabilidade_estimada_contiguidade"] = False
             entry["is_zona_especial_nao_residencial"] = True
             entry["isZonaEspecialNaoResidencial"] = True
+            entry["is_centralidade_metropolitana"] = False
+            entry["isCentralidadeMetropolitana"] = False
         else:
             entry["is_zona_especial_nao_residencial"] = False
             entry["isZonaEspecialNaoResidencial"] = False
+            entry["is_centralidade_metropolitana"] = eh_centralidade
+            entry["isCentralidadeMetropolitana"] = eh_centralidade
             entry.setdefault("vulnerabilidade_estimada_contiguidade", False)
 
     # 2. Imputação por contiguidade para os 3 bairros residenciais ausentes no N102
@@ -505,12 +525,21 @@ def calcular_rollup_territorial(
         vermelho_count = sum(1 for o in obras_do_bairro if (o.get("semaforo") or {}).get("status") == "VERMELHO")
 
         populacao = int(b.get("populacao", 0))
-        eh_zona_especial = is_zona_especial_nao_residencial(nome_bairro) or b.get("is_zona_especial_nao_residencial", False)
+        eh_zona_especial = is_zona_especial_nao_residencial(nome_bairro) or bool(
+            b.get("is_zona_especial_nao_residencial") or b.get("isZonaEspecialNaoResidencial")
+        )
+        eh_centralidade = (
+            not eh_zona_especial
+            and (
+                is_centralidade_metropolitana(nome_bairro)
+                or bool(b.get("is_centralidade_metropolitana") or b.get("isCentralidadeMetropolitana"))
+            )
+        )
 
-        # Regra: Zonas Especiais Não-Residenciais têm per capita zerado para evitar distorção
+        # Regra: Zonas Especiais Não-Residenciais e Centralidades Metropolitanas têm per capita zerado
         inv_per_capita = 0.0
         inv_per_capita_pago = 0.0
-        if not eh_zona_especial and populacao > 0:
+        if not eh_zona_especial and not eh_centralidade and populacao > 0:
             inv_per_capita = round(vl_total_bairro / populacao, 2)
             inv_per_capita_pago = round(vl_pago_bairro / populacao, 2)
 
@@ -537,6 +566,8 @@ def calcular_rollup_territorial(
             "investimentoPorHabitantePago": inv_per_capita_pago,
             "is_zona_especial_nao_residencial": eh_zona_especial,
             "isZonaEspecialNaoResidencial": eh_zona_especial,
+            "is_centralidade_metropolitana": eh_centralidade,
+            "isCentralidadeMetropolitana": eh_centralidade,
             "pct_esgoto_inadequado": pct_esgoto,
             "pct_agua_inadequada": pct_agua,
             "pct_analfabetismo_15mais": pct_analf,
