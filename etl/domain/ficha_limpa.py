@@ -12,7 +12,9 @@ from etl.domain.semaforo import classificar_semaforo
 from etl.domain.tema import classificar_tema
 from etl.domain.territorio import parse_float
 
-_DOM_INVALIDOS = {"", "nao informado", "não informado", "none", "null"}
+_DOM_INVALIDOS = {"", "nao informado", "não informado", "nao informada", "não informada", "none", "null"}
+PORTAL_TRANSPARENCIA_URL = "https://www.transparencia.salvador.ba.gov.br/"
+PORTAL_DOM_URL = "https://dom.salvador.ba.gov.br/"
 
 
 def _texto_limpo(val: Any) -> str:
@@ -26,6 +28,89 @@ def _texto_limpo(val: Any) -> str:
 def eh_dom_valido(val: Any) -> bool:
     """Indica se a edição do DOM informada é válida e não genérica."""
     return _texto_limpo(val).lower() not in _DOM_INVALIDOS
+
+
+def _descrever_origem_alocacao(
+    nivel: Any,
+    estagio_alocacao: Any,
+    bairro: Any,
+    prefeitura_bairro: Any,
+) -> str:
+    """Descreve de forma legível a origem do lastro territorial da obra."""
+    nivel_txt = _texto_limpo(nivel)
+    estagio_txt = _texto_limpo(estagio_alocacao)
+    bairro_txt = _texto_limpo(bairro)
+    pb_txt = _texto_limpo(prefeitura_bairro)
+
+    if nivel_txt == "Escopo Cidade (Não-Localizado)" or (not bairro_txt and not pb_txt):
+        if estagio_txt:
+            return f"Contrato sem localização territorial específica ({estagio_txt})"
+        return "Contrato sem localização territorial específica identificada nas fontes oficiais"
+
+    destino = bairro_txt or pb_txt
+    if estagio_txt:
+        return f"Alocação em {destino} via {estagio_txt}"
+    return f"Alocação territorial registrada em {destino}"
+
+
+def _construir_fontes_oficiais(
+    *,
+    cd_ug: Any,
+    unidade_gestora: str | None,
+    nu_contrato_sigef: str | None,
+    nu_processo: str | None,
+    nu_dom: str | None,
+    aditivos: list[dict[str, Any]],
+    nivel: Any,
+    bairro: Any,
+    prefeitura_bairro: Any,
+    estagio_alocacao: Any,
+) -> dict[str, Any]:
+    """Constrói o bloco estruturado de Fontes Oficiais & Lastro Territorial da Ficha Limpa."""
+    cd_ug_txt = _texto_limpo(cd_ug)
+    ug_txt = _texto_limpo(unidade_gestora)
+    nu_sigef_txt = _texto_limpo(nu_contrato_sigef)
+    nu_proc_txt = _texto_limpo(nu_processo)
+    nu_dom_txt = _texto_limpo(nu_dom)
+
+    dom_contrato = (
+        {"nuDom": nu_dom_txt, "url": PORTAL_DOM_URL}
+        if eh_dom_valido(nu_dom_txt)
+        else {"nuDom": None, "url": None}
+    )
+
+    dom_aditivos = [
+        {
+            "nuAditivo": ad.get("nuAditivo"),
+            "nuDom": _texto_limpo(ad.get("nuDom")),
+            "dtPublicacao": ad.get("dtPublicacao"),
+            "url": PORTAL_DOM_URL,
+        }
+        for ad in aditivos
+        if eh_dom_valido(ad.get("nuDom"))
+    ]
+
+    return {
+        "portalTransparencia": {
+            "nome": "Portal da Transparência de Salvador",
+            "url": PORTAL_TRANSPARENCIA_URL,
+        },
+        "chaveCanonica": {
+            "cdUnidadeGestora": cd_ug_txt or None,
+            "unidadeGestora": ug_txt or None,
+            "nuContratoSigef": nu_sigef_txt or None,
+        },
+        "nuProcesso": nu_proc_txt or None,
+        "domContrato": dom_contrato,
+        "domAditivos": dom_aditivos,
+        "lastroTerritorial": {
+            "nivel": _texto_limpo(nivel) or None,
+            "estagioAlocacao": _texto_limpo(estagio_alocacao) or None,
+            "bairro": _texto_limpo(bairro) or None,
+            "prefeituraBairro": _texto_limpo(prefeitura_bairro) or None,
+            "origem": _descrever_origem_alocacao(nivel, estagio_alocacao, bairro, prefeitura_bairro),
+        },
+    }
 
 
 def _somar_listas_contabeis(
@@ -129,6 +214,18 @@ def _montar_ficha_base(
         "latitude": latitude,
         "longitude": longitude,
         "estagioAlocacao": estagio_alocacao,
+        "fontesOficiais": _construir_fontes_oficiais(
+            cd_ug=cd_ug,
+            unidade_gestora=unidade_gestora,
+            nu_contrato_sigef=numero_contrato,
+            nu_processo=nu_processo,
+            nu_dom=nu_dom,
+            aditivos=aditivos,
+            nivel=nivel,
+            bairro=bairro,
+            prefeitura_bairro=prefeitura_bairro,
+            estagio_alocacao=estagio_alocacao,
+        ),
     }
     if cd_ug is not None:
         ficha["cdUnidadeGestora"] = cd_ug

@@ -177,8 +177,39 @@ export interface DomInfo {
   dataPublicacao?: string;
 }
 
+export interface FontesOficiaisInfo {
+  portalTransparencia: {
+    nome: string;
+    url: string;
+  };
+  chaveCanonica: {
+    cdUnidadeGestora: string | null;
+    unidadeGestora: string | null;
+    nuContratoSigef: string | null;
+  };
+  nuProcesso: string | null;
+  domContrato: {
+    nuDom: string | null;
+    url: string | null;
+  };
+  domAditivos: Array<{
+    nuAditivo?: string;
+    nuDom: string;
+    dtPublicacao?: string | null;
+    url: string;
+  }>;
+  lastroTerritorial: {
+    nivel: string | null;
+    estagioAlocacao: string | null;
+    bairro: string | null;
+    prefeituraBairro: string | null;
+    origem: string;
+  };
+}
+
 export interface FichaLimpaObra {
   id: number | string;
+  cdUnidadeGestora?: string | number | null;
   unidadeGestora: string;
   numeroContrato: string;
   numeroContratoOriginal?: string;
@@ -202,6 +233,7 @@ export interface FichaLimpaObra {
   latitude?: number | null;
   longitude?: number | null;
   estagioAlocacao?: string | null;
+  fontesOficiais?: FontesOficiaisInfo;
 }
 
 export interface IndexData {

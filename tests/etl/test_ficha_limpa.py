@@ -110,3 +110,91 @@ def test_pipeline_generates_individual_obras_json_with_ficha_limpa(tmp_path: Pat
     # Cada obra compacta no index também deve ter referência ao CNPJ da empreiteira
     for o in index_data["obras"]:
         assert "cnpj" in o or "cnpjCredor" in o
+
+
+def test_pipeline_generates_fontes_oficiais_and_lastro_territorial(tmp_path: Path) -> None:
+    """Valida a geração do bloco estruturado `fontesOficiais` com e sem `nuDom`/`nuProcesso`."""
+    from etl.runner import run_pipeline
+
+    grid_com_sem_dom = list(SAMPLE_TRANSPARENCIA_GRID) + [
+        {
+            "id": 1099,
+            "cdUnidadeGestora": 616002,
+            "dsUnidadeGestora": "SECRETARIA MUNICIPAL DE INFRAESTRUTURA E OBRAS PUBLICAS",
+            "sgOrgao": "SEINFRA",
+            "nuContratoSigef": "2020CT005461",
+            "nuContratoOriginal": "2020CT005461",
+            "nuProcesso": None,
+            "dsObjeto": "Manutenção viária sem localização específica",
+            "vlOriginal": 1000000.00,
+            "vlAtualizado": 1000000.00,
+            "dtInicioVigencia": "2024-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2025-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2025-12-31T00:00:00.000Z",
+            "dtAssinatura": "2024-01-05T00:00:00.000Z",
+            "percentualExecutado": 50.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EG CONSTRUCOES LTDA",
+            "nuDocumentoCredor": "15.198.195/0001-01",
+            "nuDom": None,
+        }
+    ]
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value=SAMPLE_TRANSPARENCIA_TOTALIZADOR),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=grid_com_sem_dom),
+    ):
+        result = run_pipeline(output_dir=tmp_path, year=2025)
+
+    assert result["success"] is True
+
+    # Obra 1001: com nuDom e nuProcesso
+    with open(tmp_path / "obras" / "1001.json", "r", encoding="utf-8") as f:
+        ficha_1001 = json.load(f)
+
+    fontes_1001 = ficha_1001["fontesOficiais"]
+    assert fontes_1001["portalTransparencia"]["url"] == "https://www.transparencia.salvador.ba.gov.br/"
+    assert fontes_1001["chaveCanonica"] == {
+        "cdUnidadeGestora": "2401",
+        "unidadeGestora": "SUCOP",
+        "nuContratoSigef": "001/2024",
+    }
+    assert fontes_1001["nuProcesso"] == "1234/2023"
+    assert fontes_1001["domContrato"] == {
+        "nuDom": "8.750",
+        "url": "https://dom.salvador.ba.gov.br/",
+    }
+    assert isinstance(fontes_1001["domAditivos"], list)
+    lastro_1001 = fontes_1001["lastroTerritorial"]
+    assert lastro_1001["nivel"] == ficha_1001["nivel"]
+    assert lastro_1001["estagioAlocacao"] == ficha_1001["estagioAlocacao"]
+    assert lastro_1001["origem"]
+
+    # Obra 1002: com aditivos e nuDom nos aditivos
+    with open(tmp_path / "obras" / "1002.json", "r", encoding="utf-8") as f:
+        ficha_1002 = json.load(f)
+
+    dom_aditivos_1002 = ficha_1002["fontesOficiais"]["domAditivos"]
+    assert len(dom_aditivos_1002) >= 1
+    assert dom_aditivos_1002[0]["nuDom"]
+    assert dom_aditivos_1002[0]["url"] == "https://dom.salvador.ba.gov.br/"
+
+    # Obra 1099: sem nuDom e sem nuProcesso (degradação limpa)
+    with open(tmp_path / "obras" / "1099.json", "r", encoding="utf-8") as f:
+        ficha_1099 = json.load(f)
+
+    fontes_1099 = ficha_1099["fontesOficiais"]
+    assert fontes_1099["portalTransparencia"]["url"] == "https://www.transparencia.salvador.ba.gov.br/"
+    assert fontes_1099["chaveCanonica"] == {
+        "cdUnidadeGestora": "616002",
+        "unidadeGestora": "SEINFRA",
+        "nuContratoSigef": "2020CT005461",
+    }
+    assert fontes_1099["nuProcesso"] is None
+    assert fontes_1099["domContrato"] == {"nuDom": None, "url": None}
+    assert fontes_1099["domAditivos"] == []
+    assert fontes_1099["lastroTerritorial"]["nivel"] == "Escopo Cidade (Não-Localizado)"
+    assert fontes_1099["lastroTerritorial"]["origem"]

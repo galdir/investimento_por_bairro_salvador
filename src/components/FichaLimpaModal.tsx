@@ -1,6 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FichaLimpaObra } from "../types";
 import { formatCurrency } from "../utils/formatters";
+
+const PORTAL_TRANSPARENCIA_URL = "https://www.transparencia.salvador.ba.gov.br/";
+const PORTAL_DOM_URL = "https://dom.salvador.ba.gov.br/";
+const DOM_INVALIDOS = new Set(["", "nao informado", "não informado", "nao informada", "não informada", "none", "null"]);
+
+function isDomValido(val?: string | null): boolean {
+  if (!val) return false;
+  return !DOM_INVALIDOS.has(val.trim().toLowerCase());
+}
 
 interface FichaLimpaModalProps {
   /**
@@ -43,6 +52,18 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
   onClose,
   onFilterByEmpreiteira,
 }) => {
+  const [copiadoCampo, setCopiadoCampo] = useState<"contrato" | "processo" | null>(null);
+
+  const handleCopiar = async (valor: string, campo: "contrato" | "processo") => {
+    try {
+      await navigator.clipboard?.writeText(valor);
+      setCopiadoCampo(campo);
+      setTimeout(() => setCopiadoCampo((prev) => (prev === campo ? null : prev)), 2000);
+    } catch {
+      // Ignora erro de clipboard em ambientes sem permissão
+    }
+  };
+
   // Fecha modal com a tecla ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -527,6 +548,158 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   )}
                 </div>
               </div>
+
+              {/* 6. Fontes Oficiais & Lastro Territorial */}
+              {(() => {
+                const fontesOficiais = obra.fontesOficiais;
+                const portalUrl = fontesOficiais?.portalTransparencia.url || PORTAL_TRANSPARENCIA_URL;
+                const cdUg =
+                  fontesOficiais?.chaveCanonica.cdUnidadeGestora ??
+                  (obra.cdUnidadeGestora != null ? String(obra.cdUnidadeGestora) : null);
+                const nuContratoSigef = fontesOficiais?.chaveCanonica.nuContratoSigef || obra.numeroContrato;
+                const nuProcesso = fontesOficiais?.nuProcesso ?? obra.nuProcesso ?? null;
+                const domContratoNu =
+                  fontesOficiais?.domContrato.nuDom ?? (isDomValido(obra.dom?.nuDom) ? obra.dom?.nuDom : null);
+                const domContratoUrl =
+                  fontesOficiais?.domContrato.url || (domContratoNu ? PORTAL_DOM_URL : null);
+                const domAditivos =
+                  fontesOficiais?.domAditivos ??
+                  (obra.aditivos || [])
+                    .filter((ad) => isDomValido(ad.nuDom))
+                    .map((ad) => ({
+                      nuAditivo: ad.nuAditivo,
+                      nuDom: ad.nuDom as string,
+                      dtPublicacao: ad.dtPublicacao,
+                      url: PORTAL_DOM_URL,
+                    }));
+                const origemLastro =
+                  fontesOficiais?.lastroTerritorial.origem ||
+                  (obra.estagioAlocacao
+                    ? `Alocação territorial via ${obra.estagioAlocacao}`
+                    : obra.nivel || "Origem territorial não informada");
+
+                const renderBotaoCopiar = (valor: string, campo: "contrato" | "processo", label: string, testId: string) => (
+                  <button
+                    type="button"
+                    data-testid={testId}
+                    onClick={() => handleCopiar(valor, campo)}
+                    className="px-2 py-1 text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded border border-slate-300 transition-colors shrink-0"
+                  >
+                    {copiadoCampo === campo ? "Copiado!" : label}
+                  </button>
+                );
+
+                return (
+                  <div
+                    data-testid="secao-fontes-oficiais"
+                    className="bg-slate-50 rounded-xl border border-slate-200 p-4 space-y-3"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <h4 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                        <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Fontes Oficiais &amp; Lastro Territorial
+                      </h4>
+
+                      <a
+                        data-testid="link-portal-transparencia"
+                        href={portalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-700 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-3 py-1.5 rounded-lg transition-colors"
+                      >
+                        Consultar no Portal da Transparência de Salvador
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                      <div className="bg-white p-3 rounded-lg border border-slate-200">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                          Chave Canônica da Obra
+                        </span>
+                        <div className="flex items-center justify-between gap-2">
+                          <div data-testid="fontes-chave-canonica" className="font-mono text-slate-800">
+                            <span>UG {cdUg || "—"}</span>
+                            <span className="mx-1.5 text-slate-400">•</span>
+                            <strong>{nuContratoSigef || "—"}</strong>
+                          </div>
+                          {nuContratoSigef &&
+                            renderBotaoCopiar(nuContratoSigef, "contrato", "Copiar contrato", "btn-copiar-contrato")}
+                        </div>
+                      </div>
+
+                      <div className="bg-white p-3 rounded-lg border border-slate-200">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                          Processo Administrativo
+                        </span>
+                        <div className="flex items-center justify-between gap-2">
+                          <span data-testid="fontes-nu-processo" className="font-mono text-slate-800 font-semibold">
+                            {nuProcesso || "Não informado"}
+                          </span>
+                          {nuProcesso &&
+                            renderBotaoCopiar(nuProcesso, "processo", "Copiar processo", "btn-copiar-processo")}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                      <div className="bg-white p-3 rounded-lg border border-slate-200">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                          Publicações no Diário Oficial (DOM)
+                        </span>
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-slate-500">Contrato:</span>
+                            {domContratoNu && domContratoUrl ? (
+                              <a
+                                data-testid="link-dom-contrato"
+                                href={domContratoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-semibold text-indigo-700 hover:underline"
+                              >
+                                Edição nº {domContratoNu}
+                              </a>
+                            ) : (
+                              <span className="text-slate-500">Não informado</span>
+                            )}
+                          </div>
+                          {domAditivos.length > 0 && (
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <span className="text-slate-500">Aditivos:</span>
+                              {domAditivos.map((ad, idx) => (
+                                <a
+                                  key={`${ad.nuDom}-${idx}`}
+                                  data-testid={`link-dom-aditivo-${idx}`}
+                                  href={ad.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="font-semibold text-indigo-700 hover:underline bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200"
+                                >
+                                  {ad.nuAditivo ? `${ad.nuAditivo}: ` : ""}Ed. {ad.nuDom}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="bg-white p-3 rounded-lg border border-slate-200">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                          Lastro Territorial
+                        </span>
+                        <p data-testid="fontes-lastro-territorial" className="text-slate-700 font-medium">
+                          {origemLastro}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
             </>
           ) : null}
         </div>
