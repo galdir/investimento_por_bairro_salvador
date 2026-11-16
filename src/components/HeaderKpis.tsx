@@ -103,7 +103,9 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
               data-testid="header-valores-acumulados"
               className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-medium text-emerald-300"
             >
-              Valores acumulados no acervo
+              {mandato && mandato !== "todos"
+                ? "Valores acumulados dos contratos (não exclusivos do mandato)"
+                : "Valores acumulados no acervo"}
             </span>
             {dataAtualizacao && (
               <span
@@ -173,7 +175,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
             className="bg-slate-800/90 rounded-lg px-3 py-2 border border-purple-500/30 flex flex-col justify-between"
           >
             <span className="text-[11px] font-medium text-purple-300">
-              Recursos sem localização (Escopo Cidade)
+              Sem localização • {metricLabel} (Escopo Cidade)
             </span>
             <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
               {valorNaoLocalizado !== undefined ? (
@@ -219,7 +221,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                   Pagamento indisponível
                 </span>
               )}
-              <span className="text-[11px] text-slate-400">Escopo municipal</span>
+              <span className="text-[11px] text-slate-400">{metricLabel} • Escopo municipal</span>
             </div>
           </div>
         </div>

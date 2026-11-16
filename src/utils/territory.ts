@@ -203,6 +203,47 @@ export function hasNumericPayment(val: number | null | undefined): val is number
 }
 
 /**
+ * Verifica se a vigência de uma obra pública se sobrepõe ao Mandato Municipal selecionado.
+ *
+ * @summary Prioriza a lista explícita `mandatos` e usa sobreposição de datas (`dtInicioVigencia`/`dtTerminoVigenciaAtualizado`) como fallback.
+ */
+export function obraOverlapsMandato(
+  obra: Pick<ObraCompacta, "mandatos" | "dtInicioVigencia" | "dtTerminoVigenciaAtualizado" | "ano">,
+  mandato: string | undefined | null
+): boolean {
+  if (!mandato || mandato === "todos") return true;
+  const target = mandato.replace("–", "-").trim();
+  const mandatosObra = (obra.mandatos || []).map((m) => m.replace("–", "-").trim());
+  if (mandatosObra.length > 0) {
+    return mandatosObra.includes(target);
+  }
+
+  const match = /^(\d{4})-(\d{4})$/.exec(target);
+  if (!match) return true;
+  const startYear = Number(match[1]);
+  const endYear = Number(match[2]);
+  const mandateStartMs = Date.UTC(startYear, 0, 1, 0, 0, 0, 0);
+  const mandateEndMs = Date.UTC(endYear, 11, 31, 23, 59, 59, 999);
+
+  const startMs = obra.dtInicioVigencia ? Date.parse(obra.dtInicioVigencia) : Number.NaN;
+  const endMs = obra.dtTerminoVigenciaAtualizado ? Date.parse(obra.dtTerminoVigenciaAtualizado) : Number.NaN;
+  const hasStart = !Number.isNaN(startMs);
+  const hasEnd = !Number.isNaN(endMs);
+
+  if (hasStart || hasEnd) {
+    const fallbackYearStart =
+      obra.ano !== undefined ? Date.UTC(obra.ano, 0, 1, 0, 0, 0, 0) : undefined;
+    const fallbackYearEnd =
+      obra.ano !== undefined ? Date.UTC(obra.ano, 11, 31, 23, 59, 59, 999) : undefined;
+    const effectiveStart = hasStart ? startMs : (fallbackYearStart ?? endMs);
+    const effectiveEnd = hasEnd ? endMs : (fallbackYearEnd ?? Number.POSITIVE_INFINITY);
+    return effectiveStart <= mandateEndMs && effectiveEnd >= mandateStartMs;
+  }
+
+  return obra.ano !== undefined && obra.ano >= startYear && obra.ano <= endYear;
+}
+
+/**
  * Retorna a chave canônica do contrato (UG + contrato SIGEF) com fallback para id.
  */
 function getObraCanonicalKey(obra: ObraCompacta): string {
@@ -212,6 +253,20 @@ function getObraCanonicalKey(obra: ObraCompacta): string {
     return `canon:${ug.trim()}::${contrato.trim()}`;
   }
   return `id:${String(obra.id)}`;
+}
+
+/**
+ * Deduplica uma lista de obras pela Chave Canônica da Obra (UG + contrato SIGEF).
+ */
+export function deduplicateObrasByCanonicalKey(obras: ObraCompacta[]): ObraCompacta[] {
+  const unicas = new Map<string, ObraCompacta>();
+  for (const obra of obras) {
+    const key = getObraCanonicalKey(obra);
+    if (!unicas.has(key)) {
+      unicas.set(key, obra);
+    }
+  }
+  return Array.from(unicas.values());
 }
 
 /**
@@ -225,13 +280,7 @@ function countUniqueObrasSemaforos(obras: ObraCompacta[]): {
   obrasComValorPago: number;
   obrasSemValorPago: number;
 } {
-  const unicas = new Map<string, ObraCompacta>();
-  for (const obra of obras) {
-    const key = getObraCanonicalKey(obra);
-    if (!unicas.has(key)) {
-      unicas.set(key, obra);
-    }
-  }
+  const unicas = deduplicateObrasByCanonicalKey(obras);
 
   let obrasVerde = 0;
   let obrasAmarelo = 0;
@@ -239,7 +288,7 @@ function countUniqueObrasSemaforos(obras: ObraCompacta[]): {
   let obrasComValorPago = 0;
   let obrasSemValorPago = 0;
 
-  for (const obra of unicas.values()) {
+  for (const obra of unicas) {
     const status = obra.semaforo?.status;
     if (status === "VERDE") obrasVerde++;
     else if (status === "AMARELO") obrasAmarelo++;
@@ -253,7 +302,7 @@ function countUniqueObrasSemaforos(obras: ObraCompacta[]): {
   }
 
   return {
-    totalObras: unicas.size,
+    totalObras: unicas.length,
     obrasVerde,
     obrasAmarelo,
     obrasVermelho,

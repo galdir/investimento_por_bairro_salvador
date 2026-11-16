@@ -15,6 +15,7 @@ import {
   createPrefeituraSelection,
   getObraTerritoryShare,
   getTerritoryInvestmentState,
+  hasNumericPayment,
   isCentralidadeMetropolitana,
   isZonaEspecial,
   normalizeName,
@@ -636,10 +637,17 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             fillOpacity: 0.9,
           });
 
+          const valorPinText =
+            metricType === "executado"
+              ? hasNumericPayment(obra.valorPago)
+                ? `Valor Pago: ${formatCurrency(obra.valorPago)}`
+                : "Valor Pago: Sem registro pago"
+              : `Valor Contratual Vigente: ${formatCurrency(obra.valorContratualVigente)}`;
+
           const tooltipContent = `
             <div style="font-size: 11px; max-width: 220px;">
               <strong style="color: #0f172a;">${obra.objeto}</strong><br/>
-              <span style="color: #64748b;">${obra.unidadeGestora} • ${formatCurrency(obra.valorContratualVigente)}</span><br/>
+              <span style="color: #64748b;">${obra.unidadeGestora} • ${valorPinText}</span><br/>
               <span style="font-weight: 600; color: ${corPino};">Semáforo: ${obra.semaforo?.rotulo || status}</span>
               ${entry.fracao ? `<br/><span style="color: #0f766e; font-size: 10px; font-weight: 600;">Cota-Parte (${entry.fracao})${entry.bairroLabel ? ` • ${entry.bairroLabel}` : ""}</span>` : ""}
               ${obra.nivel ? `<br/><span style="color: #475569; font-size: 10px;">Nível: ${obra.nivel}</span>` : ""}
@@ -658,7 +666,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       markersGroup.addTo(map);
       markersLayerRef.current = markersGroup;
     } catch { }
-  }, [mapPinEntries, showPins, onSelectObra]);
+  }, [mapPinEntries, showPins, onSelectObra, metricType]);
 
   const handleRecenter = () => {
     recenterMap(leafletMapRef.current);

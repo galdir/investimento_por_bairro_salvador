@@ -33,13 +33,15 @@ function getDisplayedTerritoryTotal(
 function renderTotalSummary(
   totalTerritorial: number | undefined,
   testSlug: string,
+  metricType: MetricType,
   obrasSemValorPago: number = 0
 ) {
+  const totalPrefix = metricType === "executado" ? "Total pago:" : "Total contratual:";
   return (
     <div className="flex items-center gap-2">
       {totalTerritorial !== undefined ? (
         <span className="tabular-nums">
-          Total:{" "}
+          {totalPrefix}{" "}
           <MonetaryValue
             value={totalTerritorial}
             compact
@@ -377,6 +379,7 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
                   {renderTotalSummary(
                     totalTerritorial,
                     testSlug,
+                    metricType,
                     invState.kind === "value" ? invState.obrasSemValorPago : 0
                   )}
                 </div>
@@ -445,7 +448,12 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
                       <span>
                         {b.totalObras ?? 0} {(b.totalObras ?? 0) === 1 ? "obra" : "obras"}
                       </span>
-                      {renderTotalSummary(totalTerritorial, testSlug)}
+                      {renderTotalSummary(
+                        totalTerritorial,
+                        testSlug,
+                        metricType,
+                        metricType === "executado" ? (b.obrasSemValorPago ?? 0) : 0
+                      )}
                     </div>
                   </li>
                 );

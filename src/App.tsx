@@ -25,10 +25,12 @@ import {
   calculateTerritorialRollup,
   createBairroSelection,
   createPrefeituraSelection,
+  deduplicateObrasByCanonicalKey,
   hasNumericPayment,
   isTerritoryCompatibleWithLayer,
   normalizeName,
   obraMatchesTerritory,
+  obraOverlapsMandato,
 } from "./utils/territory";
 
 const TEMAS_PADRAO: TemaObra[] = [
@@ -176,24 +178,9 @@ export const App: React.FC = () => {
     if (!indexData) return [];
 
     return indexData.obras.filter((obra) => {
-      // Filtro por Mandato Municipal
-      if (filters.mandato && filters.mandato !== "todos") {
-        const target = filters.mandato.replace("–", "-").trim();
-        const mandatosObra = (obra.mandatos || []).map((m) => m.replace("–", "-").trim());
-        if (mandatosObra.length > 0) {
-          if (!mandatosObra.includes(target)) {
-            return false;
-          }
-        } else {
-          // Fallback se a obra não possuir lista explícita de mandatos
-          const ano = obra.ano;
-          if (target === "2021-2024" && (ano === undefined || ano < 2021 || ano > 2024)) {
-            return false;
-          }
-          if (target === "2025-2028" && (ano === undefined || ano < 2025 || ano > 2028)) {
-            return false;
-          }
-        }
+      // Filtro por Mandato Municipal (sobreposição de vigência)
+      if (!obraOverlapsMandato(obra, filters.mandato)) {
+        return false;
       }
 
       // Filtro por Ano (compatibilidade)
@@ -438,7 +425,9 @@ export const App: React.FC = () => {
     const deltasPercentuais: number[] = [];
     const situacoesInativas = new Set(["CONCLUÍDA", "CONCLUIDA", "CANCELADA", "RESCINDIDA"]);
 
-    for (const o of topFilteredObras) {
+    const uniqueFilteredObras = deduplicateObrasByCanonicalKey(topFilteredObras);
+
+    for (const o of uniqueFilteredObras) {
       const vlBase = isVigente
         ? (o.valorContratualVigente ?? 0)
         : hasNumericPayment(o.valorPago)
@@ -474,7 +463,7 @@ export const App: React.FC = () => {
       }
     }
 
-    const totalObrasRecalc = topFilteredObras.length;
+    const totalObrasRecalc = uniqueFilteredObras.length;
     const totalObrasAlocadas = totalObrasRecalc - naoLocalizadoRecalc;
     const valorNaoLocalizadoAtivo = isVigente
       ? valorNaoLocalizadoVigente

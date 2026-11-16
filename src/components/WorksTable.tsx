@@ -8,7 +8,7 @@ import {
   VocacaoObra,
 } from "../types";
 import { formatCurrency, formatNumber, formatDate } from "../utils/formatters";
-import { getObraTerritoryShare } from "../utils/territory";
+import { getObraTerritoryShare, hasNumericPayment } from "../utils/territory";
 
 interface WorksTableProps {
   /**
@@ -40,6 +40,13 @@ type SortField =
   | "semaforo";
 
 type SortDirection = "asc" | "desc";
+
+function getMetricSortValue(obra: ObraCompacta, peso: number, metricType: MetricType): number {
+  if (metricType === "vigente") {
+    return (obra.valorContratualVigente ?? 0) * peso;
+  }
+  return hasNumericPayment(obra.valorPago) ? obra.valorPago * peso : -1;
+}
 
 /**
  * Renderiza o badge estilizado e acessível do Semáforo da Obra.
@@ -157,8 +164,8 @@ export const WorksTable: React.FC<WorksTableProps> = ({
           valB = (b.valorOriginal || 0) * pesoB;
           break;
         case "valorContratualVigente":
-          valA = (metricType === "vigente" ? a.valorContratualVigente : (a.valorPago || 0)) * pesoA;
-          valB = (metricType === "vigente" ? b.valorContratualVigente : (b.valorPago || 0)) * pesoB;
+          valA = getMetricSortValue(a, pesoA, metricType);
+          valB = getMetricSortValue(b, pesoB, metricType);
           break;
         case "percentualExecutado":
           valA = a.percentualExecutado || 0;
@@ -363,9 +370,11 @@ export const WorksTable: React.FC<WorksTableProps> = ({
               const valorBase =
                 metricType === "vigente"
                   ? o.valorContratualVigente
-                  : (o.valorPago ?? o.valorContratualVigente);
+                  : hasNumericPayment(o.valorPago)
+                    ? o.valorPago
+                    : undefined;
               const valorOriginalExibido = (o.valorOriginal || o.valorContratualVigente) * share.peso;
-              const valorPrincipalExibido = valorBase * share.peso;
+              const valorPrincipalExibido = valorBase !== undefined ? valorBase * share.peso : undefined;
 
               return (
                 <tr
@@ -495,10 +504,18 @@ export const WorksTable: React.FC<WorksTableProps> = ({
 
                   {/* Valor Vigente com Delta de Aditivo */}
                   <td className="py-3 px-3 text-right whitespace-nowrap font-bold text-slate-900">
-                    <div>{formatCurrency(valorPrincipalExibido)}</div>
-                    {isCotaFiltrada && (
-                      <div className="text-[10px] font-normal text-slate-500">
-                        Total: {formatCurrency(valorBase)}
+                    {valorPrincipalExibido !== undefined ? (
+                      <>
+                        <div>{formatCurrency(valorPrincipalExibido)}</div>
+                        {isCotaFiltrada && valorBase !== undefined && (
+                          <div className="text-[10px] font-normal text-slate-500">
+                            Total: {formatCurrency(valorBase)}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <div className="text-xs font-semibold text-amber-800">
+                        Pagamento indisponível
                       </div>
                     )}
                     {hasAditivo && (

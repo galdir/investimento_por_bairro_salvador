@@ -163,37 +163,41 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
               )}
             </div>
 
-            {/* Toggle de Métrica Financeira (Vigente vs Executado/Pago) */}
+            {/* Toggle de Métrica Financeira (Valor Pago vs Valor Contratual Vigente) */}
             <div className="flex items-center gap-2 self-start md:self-auto">
               <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:inline">
                 Métrica Financeira:
               </span>
               <div
                 data-testid="toggle-metrica-financeira"
+                role="group"
+                aria-label="Métrica financeira"
                 className="inline-flex rounded-lg p-0.5 bg-slate-100 border border-slate-200"
               >
-                <button
-                  type="button"
-                  data-testid="btn-metrica-vigente"
-                  onClick={() => onFilterChange({ metricType: "vigente" })}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${filters.metricType === "vigente"
-                      ? "bg-emerald-600 text-white shadow-sm"
-                      : "text-slate-600 hover:text-slate-900"
-                    }`}
-                >
-                  Valor Contratual Vigente
-                </button>
-                <button
-                  type="button"
-                  data-testid="btn-metrica-executado"
-                  onClick={() => onFilterChange({ metricType: "executado" })}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${filters.metricType === "executado"
-                      ? "bg-emerald-600 text-white shadow-sm"
-                      : "text-slate-600 hover:text-slate-900"
-                    }`}
-                >
-                  Valor Pago
-                </button>
+                {(
+                  [
+                    { value: "executado", label: "Valor Pago", testId: "btn-metrica-executado" },
+                    { value: "vigente", label: "Valor Contratual Vigente", testId: "btn-metrica-vigente" },
+                  ] as const
+                ).map((option) => {
+                  const isActive = filters.metricType === option.value;
+                  return (
+                    <button
+                      key={option.value}
+                      type="button"
+                      data-testid={option.testId}
+                      aria-pressed={isActive}
+                      onClick={() => onFilterChange({ metricType: option.value })}
+                      className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
+                        isActive
+                          ? "bg-emerald-600 text-white shadow-sm"
+                          : "text-slate-600 hover:text-slate-900"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -344,6 +348,16 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
               <span className="text-slate-600">{totalObrasGeral}</span> obras
             </div>
           </div>
+
+          {/* Nota temporal explícita sobre Mandato Municipal */}
+          <p
+            data-testid="explicacao-mandato"
+            className="text-[11px] text-slate-600 leading-snug"
+          >
+            <strong className="font-semibold text-slate-700">Mandato Municipal:</strong>{" "}
+            seleciona contratos cuja vigência se sobrepõe ao período; os valores exibidos são{" "}
+            <strong className="font-semibold text-slate-700">acumulados do contrato</strong>, não pagamentos exclusivos daquela administração.
+          </p>
         </div>
     </section>
   );
