@@ -109,9 +109,9 @@ export function getObraTerritoryShare(
     territorio.tipo === "bairro"
       ? Boolean(obra.bairro && normalizeName(obra.bairro) === targetKey)
       : Boolean(
-          (obra.prefeituraBairro || obra.prefeitura_bairro) &&
-            normalizeName(obra.prefeituraBairro || obra.prefeitura_bairro) === targetKey
-        );
+        (obra.prefeituraBairro || obra.prefeitura_bairro) &&
+        normalizeName(obra.prefeituraBairro || obra.prefeitura_bairro) === targetKey
+      );
 
   return {
     isCotaParte: false,
@@ -194,6 +194,12 @@ interface ObrasAggregatedMetrics {
   obrasVerde: number;
   obrasAmarelo: number;
   obrasVermelho: number;
+  obrasComValorPago: number;
+  obrasSemValorPago: number;
+}
+
+export function hasNumericPayment(val: number | null | undefined): val is number {
+  return typeof val === "number" && !Number.isNaN(val);
 }
 
 /**
@@ -216,6 +222,8 @@ function countUniqueObrasSemaforos(obras: ObraCompacta[]): {
   obrasVerde: number;
   obrasAmarelo: number;
   obrasVermelho: number;
+  obrasComValorPago: number;
+  obrasSemValorPago: number;
 } {
   const unicas = new Map<string, ObraCompacta>();
   for (const obra of obras) {
@@ -228,15 +236,30 @@ function countUniqueObrasSemaforos(obras: ObraCompacta[]): {
   let obrasVerde = 0;
   let obrasAmarelo = 0;
   let obrasVermelho = 0;
+  let obrasComValorPago = 0;
+  let obrasSemValorPago = 0;
 
   for (const obra of unicas.values()) {
     const status = obra.semaforo?.status;
     if (status === "VERDE") obrasVerde++;
     else if (status === "AMARELO") obrasAmarelo++;
     else if (status === "VERMELHO") obrasVermelho++;
+
+    if (hasNumericPayment(obra.valorPago)) {
+      obrasComValorPago++;
+    } else {
+      obrasSemValorPago++;
+    }
   }
 
-  return { totalObras: unicas.size, obrasVerde, obrasAmarelo, obrasVermelho };
+  return {
+    totalObras: unicas.size,
+    obrasVerde,
+    obrasAmarelo,
+    obrasVermelho,
+    obrasComValorPago,
+    obrasSemValorPago,
+  };
 }
 
 /**
@@ -248,7 +271,9 @@ function aggregateWeightedObras(entries: WeightedObra[]): ObrasAggregatedMetrics
 
   for (const { obra, peso } of entries) {
     valorTotal += (obra.valorContratualVigente ?? 0) * peso;
-    valorPago += (obra.valorPago ?? 0) * peso;
+    if (hasNumericPayment(obra.valorPago)) {
+      valorPago += obra.valorPago * peso;
+    }
   }
 
   const contagem = countUniqueObrasSemaforos(entries.map((entry) => entry.obra));
@@ -339,6 +364,8 @@ export function createBairroSelection(bairro: BairroResumo): TerritorySelection 
     obrasVermelho: bairro.obrasVermelho,
     investimentoPorHabitante: bairro.investimentoPorHabitante,
     investimentoPorHabitantePago: bairro.investimentoPorHabitantePago,
+    valorPagoDisponivel: bairro.valorPagoDisponivel,
+    obrasSemValorPago: bairro.obrasSemValorPago,
   };
 }
 
@@ -359,6 +386,8 @@ export function createPrefeituraSelection(prefeitura: PrefeituraBairroResumo): T
     pct_esgoto_inadequado: prefeitura.pct_esgoto_inadequado,
     pct_agua_inadequada: prefeitura.pct_agua_inadequada,
     pct_analfabetismo_15mais: prefeitura.pct_analfabetismo_15mais,
+    vulnerabilidade_estimada_contiguidade: prefeitura.vulnerabilidade_estimada_contiguidade,
+    bairros_vulnerabilidade_estimada: prefeitura.bairros_vulnerabilidade_estimada,
     valorTotal: prefeitura.valorTotal,
     valorLiquidado: prefeitura.valorLiquidado,
     valorPago: prefeitura.valorPago,
@@ -373,6 +402,8 @@ export function createPrefeituraSelection(prefeitura: PrefeituraBairroResumo): T
     obrasVermelho: prefeitura.obrasVermelho,
     investimentoPorHabitante: prefeitura.investimentoPorHabitante,
     investimentoPorHabitantePago: prefeitura.investimentoPorHabitantePago,
+    valorPagoDisponivel: prefeitura.valorPagoDisponivel,
+    obrasSemValorPago: prefeitura.obrasSemValorPago,
   };
 }
 
@@ -468,26 +499,37 @@ export function calculateTerritorialRollup(
 
     const { valorLiquidado: valorLiquidadoFrentes, valorPago: valorPagoFrentes } =
       sumFrentesMetrics(frentesDoBairro);
+    const frentesComValorPago = frentesDoBairro.filter((f) => hasNumericPayment(f.valorPago)).length;
 
     const valorPagoDireto = metrics.valorPago;
     const valorPagoTotal = valorPagoDireto + valorPagoFrentes;
+    const valorPagoDisponivel =
+      (metrics.totalObras === 0 && frentesDoBairro.length === 0) ||
+      metrics.obrasComValorPago > 0 ||
+      frentesComValorPago > 0;
 
     const ehZonaEsp = isZonaEspecial(bairro);
     const ehCentralidade = !ehZonaEsp && isCentralidadeMetropolitana(bairro);
     const populacao = bairro.populacao || 0;
 
     let investimentoPorHabitante = 0.0;
-    let investimentoPorHabitantePago = 0.0;
+    let investimentoPorHabitantePago: number | undefined = valorPagoDisponivel ? 0.0 : undefined;
     if (!ehZonaEsp && !ehCentralidade && populacao > 0) {
       investimentoPorHabitante = Math.round(((metrics.valorTotal / populacao) + Number.EPSILON) * 100) / 100;
-      investimentoPorHabitantePago = Math.round(((valorPagoTotal / populacao) + Number.EPSILON) * 100) / 100;
+      if (valorPagoDisponivel) {
+        investimentoPorHabitantePago = Math.round(((valorPagoTotal / populacao) + Number.EPSILON) * 100) / 100;
+      }
     }
 
     return {
       ...bairro,
       valorTotal: Math.round((metrics.valorTotal + Number.EPSILON) * 100) / 100,
-      valorPago: Math.round((valorPagoTotal + Number.EPSILON) * 100) / 100,
-      valorPagoDireto: Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100,
+      valorPago: valorPagoDisponivel
+        ? Math.round((valorPagoTotal + Number.EPSILON) * 100) / 100
+        : undefined,
+      valorPagoDireto: valorPagoDisponivel
+        ? Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100
+        : undefined,
       valorLiquidadoFrentes: Math.round((valorLiquidadoFrentes + Number.EPSILON) * 100) / 100,
       valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
       totalFrentesMedicao: frentesDoBairro.length,
@@ -497,6 +539,8 @@ export function calculateTerritorialRollup(
       obrasVermelho: metrics.obrasVermelho,
       investimentoPorHabitante,
       investimentoPorHabitantePago,
+      valorPagoDisponivel,
+      obrasSemValorPago: metrics.obrasSemValorPago,
       is_zona_especial_nao_residencial: ehZonaEsp,
       isZonaEspecialNaoResidencial: ehZonaEsp,
       is_centralidade_metropolitana: ehCentralidade,
@@ -527,13 +571,18 @@ export function calculateTerritorialRollup(
     let valorLiquidadoFrentesBairros = 0;
     let valorPagoFrentesBairros = 0;
     let totalFrentesBairros = 0;
+    let frentesPagasBairros = 0;
 
     for (const bairro of bairrosFilhos) {
       valorTotalBairros += bairro.valorTotal ?? 0;
-      valorPagoDiretoBairros += bairro.valorPagoDireto ?? bairro.valorPago ?? 0;
+      valorPagoDiretoBairros += bairro.valorPagoDireto ?? (hasNumericPayment(bairro.valorPago) ? bairro.valorPago : 0);
       valorLiquidadoFrentesBairros += bairro.valorLiquidadoFrentes ?? 0;
       valorPagoFrentesBairros += bairro.valorPagoFrentes ?? 0;
       totalFrentesBairros += bairro.totalFrentesMedicao ?? 0;
+      const fBairroCount = (frentesPorBairro.get(normalizeName(bairro.nome)) || []).filter((f) =>
+        hasNumericPayment(f.valorPago)
+      ).length;
+      frentesPagasBairros += fBairroCount;
     }
 
     const obrasUnicasPrefeitura: ObraCompacta[] = [...obrasRegionais];
@@ -547,6 +596,7 @@ export function calculateTerritorialRollup(
     const regionalMetrics = aggregateObrasMetrics(obrasRegionais);
     const { valorLiquidado: valorLiquidadoFrentesReg, valorPago: valorPagoFrentesReg } =
       sumFrentesMetrics(frentesRegionais);
+    const frentesPagasReg = frentesRegionais.filter((f) => hasNumericPayment(f.valorPago)).length;
 
     const valorTotal = valorTotalBairros + regionalMetrics.valorTotal;
     const valorPagoDireto = valorPagoDiretoBairros + regionalMetrics.valorPago;
@@ -554,18 +604,33 @@ export function calculateTerritorialRollup(
     const valorPagoFrentes = valorPagoFrentesBairros + valorPagoFrentesReg;
     const valorPago = valorPagoDireto + valorPagoFrentes;
     const totalFrentesMedicao = totalFrentesBairros + frentesRegionais.length;
+    const totalFrentesPagas = frentesPagasBairros + frentesPagasReg;
     const totalObras = contagemUnica.totalObras;
     const populacaoTotal = prefeitura.populacao_total || 0;
 
+    const valorPagoDisponivel =
+      (totalObras === 0 && totalFrentesMedicao === 0) ||
+      contagemUnica.obrasComValorPago > 0 ||
+      totalFrentesPagas > 0;
+
     const investimentoPorHabitante =
       populacaoTotal > 0 ? Math.round(((valorTotal / populacaoTotal) + Number.EPSILON) * 100) / 100 : 0.0;
-    const investimentoPorHabitantePago =
-      populacaoTotal > 0 ? Math.round(((valorPago / populacaoTotal) + Number.EPSILON) * 100) / 100 : 0.0;
+    const investimentoPorHabitantePago = valorPagoDisponivel
+      ? populacaoTotal > 0
+        ? Math.round(((valorPago / populacaoTotal) + Number.EPSILON) * 100) / 100
+        : 0.0
+      : undefined;
 
     // Índice de vulnerabilidade e subindicadores da Prefeitura-Bairro: média ponderada pela população dos bairros residenciais
     const bairrosResidenciais = bairrosFilhos.filter(
       (b) => !(b.is_zona_especial_nao_residencial || b.isZonaEspecialNaoResidencial)
     );
+    const bairrosEstimados = bairrosResidenciais
+      .filter((b) => Boolean(b.vulnerabilidade_estimada_contiguidade))
+      .map((b) => b.nome)
+      .sort((a, b) => a.localeCompare(b, "pt-BR"));
+    const temEstimativaContiguidade =
+      bairrosEstimados.length > 0 || Boolean(prefeitura.vulnerabilidade_estimada_contiguidade);
     let popResidencial = 0;
     let somaVulnPonderada = 0;
     let somaEsgotoPonderada = 0;
@@ -607,9 +672,15 @@ export function calculateTerritorialRollup(
       pct_esgoto_inadequado: pctEsgoto,
       pct_agua_inadequada: pctAgua,
       pct_analfabetismo_15mais: pctAnalf,
+      vulnerabilidade_estimada_contiguidade: temEstimativaContiguidade,
+      bairros_vulnerabilidade_estimada: bairrosEstimados,
       valorTotal: Math.round((valorTotal + Number.EPSILON) * 100) / 100,
-      valorPago: Math.round((valorPago + Number.EPSILON) * 100) / 100,
-      valorPagoDireto: Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100,
+      valorPago: valorPagoDisponivel
+        ? Math.round((valorPago + Number.EPSILON) * 100) / 100
+        : undefined,
+      valorPagoDireto: valorPagoDisponivel
+        ? Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100
+        : undefined,
       valorLiquidadoFrentes: Math.round((valorLiquidadoFrentes + Number.EPSILON) * 100) / 100,
       valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
       totalFrentesMedicao,
@@ -619,11 +690,67 @@ export function calculateTerritorialRollup(
       obrasVermelho: contagemUnica.obrasVermelho,
       investimentoPorHabitante,
       investimentoPorHabitantePago,
+      valorPagoDisponivel,
+      obrasSemValorPago: contagemUnica.obrasSemValorPago,
     };
   });
 
   return {
     bairros: recalculatedBairros,
     prefeituras: recalculatedPrefeituras,
+  };
+}
+
+export type TerritoryInvestmentState =
+  | { kind: "exempt"; reason: "zona_especial" | "centralidade" }
+  | { kind: "unavailable" }
+  | { kind: "value"; perCapita: number; total: number; obrasSemValorPago: number };
+
+/**
+ * Resolve o estado explícito do indicador financeiro de um território sem substituir pagamento ausente por contratado.
+ */
+export function getTerritoryInvestmentState(
+  item: BairroResumo | PrefeituraBairroResumo | TerritorySelection,
+  metricType: "vigente" | "executado",
+  tipo?: "bairro" | "prefeitura_bairro"
+): TerritoryInvestmentState {
+  const isBairro =
+    tipo === "bairro" ||
+    ("prefeitura_bairro" in item && !("populacao_total" in item)) ||
+    ("tipo" in item && item.tipo === "bairro");
+
+  if (isBairro) {
+    const b = item as BairroResumo;
+    if (isZonaEspecial(b)) {
+      return { kind: "exempt", reason: "zona_especial" };
+    }
+    if (isCentralidadeMetropolitana(b)) {
+      return { kind: "exempt", reason: "centralidade" };
+    }
+  }
+
+  if (metricType === "executado") {
+    const pagoDisponivel = item.valorPagoDisponivel;
+    const perCapitaPago = item.investimentoPorHabitantePago;
+    const valorPago = item.valorPago;
+    if (pagoDisponivel === false || (!hasNumericPayment(perCapitaPago) && !hasNumericPayment(valorPago))) {
+      if ((item.totalObras ?? 0) === 0 && (item.totalFrentesMedicao ?? 0) === 0) {
+        return { kind: "value", perCapita: 0, total: 0, obrasSemValorPago: 0 };
+      }
+      return { kind: "unavailable" };
+    }
+    return {
+      kind: "value",
+      perCapita: hasNumericPayment(perCapitaPago) ? perCapitaPago : 0,
+      total: hasNumericPayment(valorPago) ? valorPago : 0,
+      obrasSemValorPago: item.obrasSemValorPago ?? 0,
+    };
+  }
+
+  return {
+    kind: "value",
+    perCapita: item.investimentoPorHabitante ?? 0,
+    total: item.valorTotal ?? 0,
+    obrasSemValorPago: 0,
   };
 }

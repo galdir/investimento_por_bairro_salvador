@@ -4,8 +4,11 @@ import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters
 import {
   filterFrentesByTerritory,
   getObraTerritoryShare,
+  getTerritoryInvestmentState,
+  hasNumericPayment,
   isCentralidadeMetropolitana,
 } from "../utils/territory";
+import { MonetaryValue } from "./MonetaryValue";
 
 interface TerritorySidebarProps {
   /**
@@ -67,30 +70,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   onSwitchToExecutado,
 }) => {
   if (!territorio) {
-    return (
-      <aside className="w-full md:w-96 bg-white border-l border-slate-200 p-6 flex flex-col justify-center items-center text-center shadow-sm">
-        <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mb-4">
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-        </div>
-        <h3 className="text-base font-semibold text-slate-700">Nenhum território selecionado</h3>
-        <p className="text-sm text-slate-500 mt-2 max-w-xs">
-          Clique em qualquer Bairro Oficial ou Prefeitura-Bairro no mapa ou no ranking para inspecionar o perfil socioeconômico, investimentos e obras locais.
-        </p>
-      </aside>
-    );
+    return null;
   }
 
   const ehZonaEspecial = !!(
@@ -101,12 +81,16 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
     ehBairro && !ehZonaEspecial && isCentralidadeMetropolitana(territorio);
 
   const isExecutado = metricType === "executado";
-  const totalInvestido = isExecutado
-    ? (territorio.valorPago ?? 0)
-    : (territorio.valorTotal ?? 0);
-  const investimentoPorHabitante = isExecutado
-    ? (territorio.investimentoPorHabitantePago ?? 0)
-    : (territorio.investimentoPorHabitante ?? 0);
+  const invState = getTerritoryInvestmentState(territorio, metricType, territorio.tipo);
+  const totalInvestido =
+    invState.kind === "value"
+      ? invState.total
+      : isExecutado
+        ? hasNumericPayment(territorio.valorPago)
+          ? territorio.valorPago
+          : undefined
+        : (territorio.valorTotal ?? 0);
+  const totalInvestidoDisponivel = totalInvestido !== undefined;
   const totalObras = territorio.totalObras ?? 0;
   const obrasVerde = territorio.obrasVerde ?? 0;
   const obrasAmarelo = territorio.obrasAmarelo ?? 0;
@@ -118,28 +102,36 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
       const share = getObraTerritoryShare(obra, territorio);
       if (!share.isCotaParte || !share.matched) return null;
       const valorBase = isExecutado
-        ? (obra.valorPago ?? obra.valorContratualVigente ?? 0)
+        ? hasNumericPayment(obra.valorPago)
+          ? obra.valorPago
+          : undefined
         : (obra.valorContratualVigente ?? 0);
       return {
         obra,
         share,
-        valorProporcional: valorBase * share.peso,
+        valorProporcional: valorBase !== undefined ? valorBase * share.peso : undefined,
         valorIntegral: valorBase,
       };
     })
     .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const totalFrentes = territorio.totalFrentesMedicao ?? frentesNoTerritorio.length;
-  const valorPagoDireto = territorio.valorPagoDireto ?? territorio.valorPago ?? 0;
+  const valorPagoDireto = hasNumericPayment(territorio.valorPagoDireto)
+    ? territorio.valorPagoDireto
+    : hasNumericPayment(territorio.valorPago)
+      ? territorio.valorPago
+      : 0;
   const valorPagoFrentes = territorio.valorPagoFrentes ?? 0;
   const valorLiquidadoFrentes = territorio.valorLiquidadoFrentes ?? 0;
   const temFrentes =
     totalFrentes > 0 || valorPagoFrentes > 0 || valorLiquidadoFrentes > 0 || frentesNoTerritorio.length > 0;
+  const bairrosEstimados = territorio.bairros_vulnerabilidade_estimada || [];
 
   return (
     <aside
       data-testid="raio-x-container"
-      className="w-full md:w-96 bg-white border-l border-slate-200 p-6 flex flex-col shadow-lg overflow-y-auto"
+      aria-label={`Resumo territorial de ${territorio.nome}`}
+      className="w-full bg-white rounded-xl border border-slate-200 p-4 sm:p-5 flex flex-col shadow-sm"
     >
       {/* Cabeçalho do Raio-X */}
       <div className="flex items-start justify-between pb-4 border-b border-slate-100">
@@ -215,19 +207,25 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
         </div>
       )}
 
-      {/* Métricas Principais: Investimento Total e Per Capita */}
-      <div className="mt-4 grid grid-cols-2 gap-2">
+      {/* Métricas Principais: Investimento Total, Per Capita, População e Vulnerabilidade */}
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
         <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
           <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
-            Total Investido
+            {isExecutado ? "Total Pago Alocado" : "Total Contratual Alocado"}
           </span>
-          <span
-            data-testid="raio-x-total-investido"
-            className="text-base sm:text-lg font-bold text-slate-900 mt-0.5 block"
-          >
-            {formatCurrency(totalInvestido)}
-          </span>
-          <span className="text-[10px] text-slate-400">{totalObras} contratos</span>
+          <div className="text-base font-bold text-slate-900 mt-0.5 block">
+            {totalInvestidoDisponivel ? (
+              <MonetaryValue value={totalInvestido!} compact testId="raio-x-total-investido" />
+            ) : (
+              <span
+                data-testid="raio-x-total-investido"
+                className="text-xs font-semibold text-amber-800"
+              >
+                Pagamento indisponível
+              </span>
+            )}
+          </div>
+          <span className="text-[10px] text-slate-500">{totalObras} contratos</span>
         </div>
 
         <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
@@ -236,16 +234,58 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           </span>
           <span
             data-testid="raio-x-investimento-per-capita"
-            className="text-base sm:text-lg font-bold text-emerald-600 mt-0.5 block"
+            className="text-base font-bold text-emerald-700 mt-0.5 block tabular-nums"
           >
-            {ehZonaEspecial || ehCentralidade ? "Isento" : formatCurrency(investimentoPorHabitante)}
+            {invState.kind === "exempt"
+              ? "Isento"
+              : invState.kind === "unavailable"
+                ? "Pagamento indisponível"
+                : formatCurrency(invState.perCapita)}
           </span>
-          <span className="text-[10px] text-slate-400">
+          <span className="text-[10px] text-slate-500">
             {ehZonaEspecial
               ? "Zona Especial"
               : ehCentralidade
-              ? "Centralidade Metropolitana"
-              : "por morador"}
+                ? "Centralidade Metropolitana"
+                : invState.kind === "unavailable"
+                  ? "Sem registro de pagamento"
+                  : "por morador"}
+          </span>
+        </div>
+
+        <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
+            População (Censo 2022)
+          </span>
+          <span
+            data-testid="raio-x-populacao"
+            className="text-base font-bold text-slate-900 mt-0.5 block tabular-nums"
+          >
+            {formatNumber(territorio.populacao)}
+          </span>
+          <span className="text-[10px] text-slate-500">habitantes</span>
+        </div>
+
+        <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
+            Vulnerabilidade
+          </span>
+          <span
+            data-testid="raio-x-vulnerabilidade"
+            className={`text-base font-bold mt-0.5 block tabular-nums ${ehZonaEspecial ? "text-slate-500" : "text-indigo-800"}`}
+          >
+            {ehZonaEspecial
+              ? "Isento"
+              : territorio.indice_vulnerabilidade !== undefined
+                ? formatDecimal(territorio.indice_vulnerabilidade)
+                : "Indisponível"}
+          </span>
+          <span className="text-[10px] text-slate-500">
+            {ehZonaEspecial
+              ? "Sem domicílios"
+              : territorio.vulnerabilidade_estimada_contiguidade
+                ? "Inclui estimativa"
+                : "Índice Censo 2022"}
           </span>
         </div>
       </div>
@@ -387,10 +427,19 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                 <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-600">
                   <span>
                     Cota territorial:{" "}
-                    <strong className="text-slate-900">{formatCurrency(valorProporcional)}</strong>
+                    <strong className="text-slate-900">
+                      {valorProporcional !== undefined
+                        ? formatCurrency(valorProporcional)
+                        : "Pagamento indisponível"}
+                    </strong>
                   </span>
                   <span className="text-[10px] text-slate-500">
-                    Total contrato: <strong className="text-slate-700">{formatCurrency(valorIntegral)}</strong>
+                    Total contrato:{" "}
+                    <strong className="text-slate-700">
+                      {valorIntegral !== undefined
+                        ? formatCurrency(valorIntegral)
+                        : "Pagamento indisponível"}
+                    </strong>
                   </span>
                 </div>
 
@@ -403,7 +452,10 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                       <div className="flex items-center justify-between gap-2">
                         <span className="font-semibold text-slate-800">{cota.bairro}</span>
                         <span className="font-medium text-amber-900">
-                          {cota.fracao} · {formatCurrency(valorIntegral * cota.peso)}
+                          {cota.fracao} ·{" "}
+                          {valorIntegral !== undefined
+                            ? formatCurrency(valorIntegral * cota.peso)
+                            : "Pagamento indisponível"}
                         </span>
                       </div>
                       {cota.descricaoUnidades && (
@@ -460,30 +512,13 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
         </div>
       </div>
 
-      {/* Métricas Demográficas */}
+      {/* Composição social e estimativas por contiguidade */}
       <div className="mt-4 space-y-3">
-        {/* População Residente */}
-        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-          <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
-            População Residente (Censo 2022)
-          </span>
-          <div className="mt-0.5 flex items-baseline gap-2">
-            <span
-              data-testid="raio-x-populacao"
-              className="text-xl font-bold text-slate-900"
-            >
-              {formatNumber(territorio.populacao)}
-            </span>
-            <span className="text-xs text-slate-500">habitantes</span>
-          </div>
-        </div>
-
-        {/* Índice de Vulnerabilidade do Território (Bairro Oficial ou Prefeitura-Bairro) */}
         {(ehZonaEspecial || territorio.indice_vulnerabilidade !== undefined) && (
           <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
-                Índice de Vulnerabilidade
+                Índice de Vulnerabilidade e Composição (Censo 2022)
               </span>
               <div className="flex items-center gap-2">
                 {onOpenNotaMetodologica && (
@@ -498,10 +533,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                     <span>Como é calculado?</span>
                   </button>
                 )}
-                <span
-                  data-testid="raio-x-vulnerabilidade"
-                  className={`text-xs font-bold ${ehZonaEspecial ? "text-slate-500" : "text-slate-900"}`}
-                >
+                <span className={`text-xs font-bold ${ehZonaEspecial ? "text-slate-500" : "text-slate-900"}`}>
                   {ehZonaEspecial ? "Isento" : formatDecimal(territorio.indice_vulnerabilidade ?? 0)}
                 </span>
               </div>
@@ -524,7 +556,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                 </div>
 
                 {/* Badge de Contiguidade Territorial para Bairros ausentes na malha SIDRA */}
-                {territorio.vulnerabilidade_estimada_contiguidade && (
+                {ehBairro && territorio.vulnerabilidade_estimada_contiguidade && (
                   <div
                     data-testid="badge-contiguidade-territorial"
                     className="mt-2.5 flex items-center gap-1.5 px-2 py-1 bg-amber-50 border border-amber-200 rounded text-amber-800 text-[11px]"
@@ -537,6 +569,26 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                       />
                     </svg>
                     <span>Estimativa por contiguidade territorial (bairro sem linha individual na malha N102 do IBGE)</span>
+                  </div>
+                )}
+
+                {/* Badge de Contiguidade na Composição Regional (Prefeitura-Bairro) */}
+                {!ehBairro && territorio.vulnerabilidade_estimada_contiguidade && (
+                  <div
+                    data-testid="badge-contiguidade-regional"
+                    className="mt-2.5 flex items-center gap-1.5 px-2 py-1.5 bg-amber-50 border border-amber-200 rounded text-amber-900 text-[11px]"
+                  >
+                    <svg className="w-3.5 h-3.5 shrink-0 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>
+                      Composição da Prefeitura-Bairro inclui vulnerabilidade estimada por contiguidade
+                      {bairrosEstimados.length > 0 ? `: ${bairrosEstimados.join(", ")}` : "."}
+                    </span>
                   </div>
                 )}
 

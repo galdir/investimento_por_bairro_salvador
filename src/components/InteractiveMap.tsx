@@ -9,11 +9,12 @@ import {
   PrefeituraBairroResumo,
   TerritorySelection,
 } from "../types";
-import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
+import { formatCompactCurrency, formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
 import {
   createBairroSelection,
   createPrefeituraSelection,
   getObraTerritoryShare,
+  getTerritoryInvestmentState,
   isCentralidadeMetropolitana,
   isZonaEspecial,
   normalizeName,
@@ -139,39 +140,30 @@ function getVulnerabilidadeColor(vuln: number): string {
 }
 
 /**
- * Retorna o valor de Investimento por Habitante (vigente ou executado) para um território.
- */
-function getInvestimentoPorHabitante(
-  item: BairroResumo | PrefeituraBairroResumo,
-  metricType: MetricType
-): number {
-  return metricType === "executado"
-    ? (item.investimentoPorHabitantePago ?? item.investimentoPorHabitante ?? 0)
-    : (item.investimentoPorHabitante ?? 0);
-}
-
-/**
  * Ordena territórios (Bairros ou Prefeituras) de acordo com a métrica coroplética ativa no mapa.
  */
 function sortTerritoriesByChoropleth<T extends BairroResumo | PrefeituraBairroResumo>(
   items: T[],
   choroplethMetric: ChoroplethMetric,
-  metricType: MetricType
+  metricType: MetricType,
+  tipo: "bairro" | "prefeitura_bairro"
 ): T[] {
   return [...items].sort((a, b) => {
-    const invA = getInvestimentoPorHabitante(a, metricType);
-    const invB = getInvestimentoPorHabitante(b, metricType);
+    const stateA = getTerritoryInvestmentState(a, metricType, tipo);
+    const stateB = getTerritoryInvestmentState(b, metricType, tipo);
+    const invA = stateA.kind === "value" ? stateA.perCapita : -1;
+    const invB = stateB.kind === "value" ? stateB.perCapita : -1;
     const vulnA = a.indice_vulnerabilidade ?? 0;
     const vulnB = b.indice_vulnerabilidade ?? 0;
 
     if (choroplethMetric === "investimentoPorHabitante") {
       if (invB !== invA) return invB - invA;
       if (vulnB !== vulnA) return vulnB - vulnA;
-      return a.nome.localeCompare(b.nome);
+      return a.nome.localeCompare(b.nome, "pt-BR");
     } else {
       if (vulnB !== vulnA) return vulnB - vulnA;
       if (invB !== invA) return invB - invA;
-      return a.nome.localeCompare(b.nome);
+      return a.nome.localeCompare(b.nome, "pt-BR");
     }
   });
 }
@@ -183,12 +175,15 @@ function formatChipMetric(
   item: BairroResumo | PrefeituraBairroResumo,
   choroplethMetric: ChoroplethMetric,
   metricType: MetricType,
+  tipo: "bairro" | "prefeitura_bairro",
   isSpecial: boolean = false
 ): string {
   if (isSpecial) return "Isento";
   if (choroplethMetric === "investimentoPorHabitante") {
-    const inv = getInvestimentoPorHabitante(item, metricType);
-    return `${formatCurrency(inv)}/hab`;
+    const state = getTerritoryInvestmentState(item, metricType, tipo);
+    if (state.kind === "exempt") return "Isento";
+    if (state.kind === "unavailable") return "Sem pgto";
+    return `${formatCurrency(state.perCapita)}/hab`;
   }
   return `Vuln: ${formatDecimal(item.indice_vulnerabilidade ?? 0)}`;
 }
@@ -225,9 +220,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
   const selectedTerritoryRef = useRef<TerritorySelection | null>(selectedTerritory);
   selectedTerritoryRef.current = selectedTerritory;
+  const prevLayerRef = useRef<"bairros" | "prefeituras" | null>(null);
+  const prevSelectedRef = useRef<TerritorySelection | null>(null);
 
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
-  const [showPins, setShowPins] = useState<boolean>(true);
+  const [showPins, setShowPins] = useState<boolean>(false);
   const [territorySearch, setTerritorySearch] = useState<string>("");
 
   const mapPinEntries = useMemo(
@@ -320,33 +317,31 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [prefeituras]);
 
   // Calcula os limites de quantis para a escala coroplética de Investimento por Habitante (vigente ou executado)
-  const breaksInvestimento = useMemo(() => {
+  const { breaksInvestimento, hasUnavailablePayment } = useMemo(() => {
     const list = activeLayer === "bairros" ? bairros : prefeituras;
-    const isExecutado = metricType === "executado";
-    const valores = list
-      .filter((item: BairroResumo | PrefeituraBairroResumo) => {
-        const isZonaEsp =
-          "is_zona_especial_nao_residencial" in item
-            ? !!(item.is_zona_especial_nao_residencial || item.isZonaEspecialNaoResidencial)
-            : false;
-        const isCentralidade =
-          activeLayer === "bairros" && !isZonaEsp && isCentralidadeMetropolitana(item as BairroResumo);
-        const valor = isExecutado
-          ? (item.investimentoPorHabitantePago ?? item.investimentoPorHabitante ?? 0)
-          : (item.investimentoPorHabitante ?? 0);
-        return !isZonaEsp && !isCentralidade && valor > 0;
-      })
-      .map((item) =>
-        isExecutado
-          ? (item.investimentoPorHabitantePago ?? item.investimentoPorHabitante ?? 0)
-          : (item.investimentoPorHabitante ?? 0)
-      )
-      .sort((a, b) => a - b);
+    const tipo = activeLayer === "bairros" ? "bairro" : "prefeitura_bairro";
+    let unavailable = false;
+    const valores: number[] = [];
 
-    if (valores.length === 0) return [20, 50, 100, 200];
+    for (const item of list) {
+      const state = getTerritoryInvestmentState(item, metricType, tipo);
+      if (state.kind === "unavailable") {
+        unavailable = true;
+      } else if (state.kind === "value" && state.perCapita > 0) {
+        valores.push(state.perCapita);
+      }
+    }
+
+    valores.sort((a, b) => a - b);
+    if (valores.length === 0) {
+      return { breaksInvestimento: [20, 50, 100, 200], hasUnavailablePayment: unavailable };
+    }
 
     const q = (p: number) => valores[Math.floor((valores.length - 1) * p)];
-    return [q(0.2), q(0.4), q(0.6), q(0.8)];
+    return {
+      breaksInvestimento: [q(0.2), q(0.4), q(0.6), q(0.8)],
+      hasUnavailablePayment: unavailable,
+    };
   }, [activeLayer, bairros, prefeituras, metricType]);
 
   // Atualização dos polígonos GeoJSON no Leaflet
@@ -364,6 +359,18 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     const geoData = activeLayer === "bairros" ? bairrosGeoJson : prefeiturasGeoJson;
     if (!geoData || !geoData.features) return;
 
+    const layerChanged = prevLayerRef.current !== activeLayer;
+    const currentSelectedKey = selectedTerritory
+      ? `${selectedTerritory.tipo}:${normalizeName(selectedTerritory.nome)}`
+      : null;
+    const prevSelectedKey = prevSelectedRef.current
+      ? `${prevSelectedRef.current.tipo}:${normalizeName(prevSelectedRef.current.nome)}`
+      : null;
+    const selectionChanged = currentSelectedKey !== prevSelectedKey;
+    const selectionCleared = prevSelectedRef.current !== null && selectedTerritory === null;
+    prevLayerRef.current = activeLayer;
+    prevSelectedRef.current = selectedTerritory;
+
     try {
       const layer = L.geoJSON(geoData, {
         style: (feature) => {
@@ -374,9 +381,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           const dynamicPrefeitura = activeLayer === "prefeituras" ? currentPrefeituraMap.get(lookupKey) : undefined;
 
           const isSelected =
-            selectedTerritory?.nome === rawNome ||
-            (dynamicBairro && selectedTerritory?.nome === dynamicBairro.nome) ||
-            (dynamicPrefeitura && selectedTerritory?.nome === dynamicPrefeitura.nome);
+            selectedTerritory !== null &&
+            (normalizeName(selectedTerritory.nome) === lookupKey ||
+              (dynamicBairro && normalizeName(selectedTerritory.nome) === normalizeName(dynamicBairro.nome)) ||
+              (dynamicPrefeitura && normalizeName(selectedTerritory.nome) === normalizeName(dynamicPrefeitura.nome)));
 
           const isZonaEspecial = dynamicBairro
             ? !!(dynamicBairro.is_zona_especial_nao_residencial || dynamicBairro.isZonaEspecialNaoResidencial)
@@ -395,32 +403,64 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             isZonaEspecial || (choroplethMetric === "investimentoPorHabitante" && isCentralidade);
 
           let fillColor = "#cbd5e1";
+          let isUnavailable = false;
 
           if (isExemptInCurrentLayer) {
             fillColor = "#fef3c7";
           } else if (choroplethMetric === "investimentoPorHabitante") {
-            const isExec = metricType === "executado";
-            const inv = dynamicBairro
-              ? (isExec ? (dynamicBairro.investimentoPorHabitantePago ?? dynamicBairro.investimentoPorHabitante ?? 0) : (dynamicBairro.investimentoPorHabitante ?? 0))
-              : dynamicPrefeitura
-                ? (isExec ? (dynamicPrefeitura.investimentoPorHabitantePago ?? dynamicPrefeitura.investimentoPorHabitante ?? 0) : (dynamicPrefeitura.investimentoPorHabitante ?? 0))
-                : (props.investimentoPorHabitante ?? 0);
-            fillColor = getInvestimentoColor(inv, breaksInvestimento);
+            const targetItem = activeLayer === "bairros" ? dynamicBairro : dynamicPrefeitura;
+            if (targetItem) {
+              const state = getTerritoryInvestmentState(
+                targetItem,
+                metricType,
+                activeLayer === "bairros" ? "bairro" : "prefeitura_bairro"
+              );
+              if (state.kind === "unavailable") {
+                fillColor = "#e2e8f0";
+                isUnavailable = true;
+              } else if (state.kind === "exempt") {
+                fillColor = "#fef3c7";
+              } else {
+                fillColor = getInvestimentoColor(state.perCapita, breaksInvestimento);
+              }
+            } else {
+              const fallbackProp =
+                metricType === "executado"
+                  ? props.investimentoPorHabitantePago
+                  : props.investimentoPorHabitante;
+              if (typeof fallbackProp === "number") {
+                fillColor = getInvestimentoColor(fallbackProp, breaksInvestimento);
+              } else {
+                fillColor = "#e2e8f0";
+                isUnavailable = true;
+              }
+            }
           } else {
             const vuln =
               dynamicBairro?.indice_vulnerabilidade ??
               dynamicPrefeitura?.indice_vulnerabilidade ??
-              props.indice_vulnerabilidade ??
-              0.5;
-            fillColor = getVulnerabilidadeColor(vuln);
+              props.indice_vulnerabilidade;
+            if (typeof vuln === "number" && !Number.isNaN(vuln)) {
+              fillColor = getVulnerabilidadeColor(vuln);
+            } else {
+              fillColor = "#e2e8f0";
+              isUnavailable = true;
+            }
           }
 
           return {
             fillColor: isSelected ? "#10B981" : fillColor,
-            weight: isSelected ? 3 : 1.2,
+            weight: isSelected ? 3.5 : 1.2,
             opacity: 1,
-            color: isSelected ? "#065f46" : isExemptInCurrentLayer ? "#d97706" : "#ffffff",
-            fillOpacity: isSelected ? 0.75 : 0.6,
+            color: isSelected
+              ? "#064e3b"
+              : isExemptInCurrentLayer
+                ? "#d97706"
+                : isUnavailable
+                  ? "#64748b"
+                  : "#ffffff",
+            dashArray: !isSelected && isUnavailable ? "4 3" : undefined,
+            fillOpacity: isSelected ? 0.78 : 0.65,
           };
         },
         onEachFeature: (feature, layerItem) => {
@@ -486,36 +526,46 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         },
       });
 
-      layer.addTo(map);
+      try {
+        layer.addTo(map);
+      } catch { }
       geoJsonLayerRef.current = layer;
 
       if (selectedTerritory) {
+        const selectedKey = normalizeName(selectedTerritory.nome);
         let foundBounds: L.LatLngBounds | null = null;
         layer.eachLayer((l: any) => {
           const p = l.feature?.properties || {};
-          const itemNome = p.nome || p.NM_BAIRRO || p.NM_PREFEITURA_BAIRRO;
-          if (itemNome === selectedTerritory.nome && typeof l.getBounds === "function") {
+          const itemNome = p.nome || p.NM_BAIRRO || p.NM_PREFEITURA_BAIRRO || "";
+          if (normalizeName(itemNome) === selectedKey) {
             try {
-              const b = l.getBounds();
-              if (b && (b as L.LatLngBounds).isValid()) {
-                if (!foundBounds) {
-                  foundBounds = b;
-                } else {
-                  foundBounds.extend(b);
-                }
-              }
+              l.bringToFront?.();
             } catch { }
+            if ((selectionChanged || layerChanged) && typeof l.getBounds === "function") {
+              try {
+                const b = l.getBounds();
+                if (b && (b as L.LatLngBounds).isValid()) {
+                  if (!foundBounds) {
+                    foundBounds = b;
+                  } else {
+                    foundBounds.extend(b);
+                  }
+                }
+              } catch { }
+            }
           }
         });
 
-        if (foundBounds && (foundBounds as L.LatLngBounds).isValid()) {
-          try {
-            map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
-          } catch { }
-        } else {
-          recenterMap(map);
+        if (selectionChanged || layerChanged) {
+          if (foundBounds && (foundBounds as L.LatLngBounds).isValid()) {
+            try {
+              map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
+            } catch { }
+          } else {
+            recenterMap(map);
+          }
         }
-      } else {
+      } else if (layerChanged || selectionCleared) {
         recenterMap(map);
       }
     } catch { }
@@ -525,6 +575,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     prefeiturasGeoJson,
     selectedTerritory,
     choroplethMetric,
+    metricType,
     breaksInvestimento,
     bairros,
     prefeituras,
@@ -629,12 +680,17 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     const residenciais = bairros.filter((b) => !isExemptInCurrentLayer(b));
     const especiais = bairros.filter((b) => isExemptInCurrentLayer(b));
 
-    const sortedResidenciais = sortTerritoriesByChoropleth(residenciais, choroplethMetric, metricType);
+    const sortedResidenciais = sortTerritoriesByChoropleth(
+      residenciais,
+      choroplethMetric,
+      metricType,
+      "bairro"
+    );
     const sortedEspeciais = [...especiais].sort((a, b) => {
       const valA = isExec ? (a.valorPago ?? 0) : (a.valorTotal ?? 0);
       const valB = isExec ? (b.valorPago ?? 0) : (b.valorTotal ?? 0);
       if (valB !== valA) return valB - valA;
-      return a.nome.localeCompare(b.nome);
+      return a.nome.localeCompare(b.nome, "pt-BR");
     });
 
     const baseList = [...sortedResidenciais, ...sortedEspeciais];
@@ -644,16 +700,30 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [bairros, choroplethMetric, metricType, territorySearch]);
 
   const filteredPrefeiturasButtons = useMemo(() => {
-    const sortedPrefeituras = sortTerritoriesByChoropleth(prefeituras, choroplethMetric, metricType);
+    const sortedPrefeituras = sortTerritoriesByChoropleth(
+      prefeituras,
+      choroplethMetric,
+      metricType,
+      "prefeitura_bairro"
+    );
     if (!territorySearch.trim()) return sortedPrefeituras;
     const q = territorySearch.toLowerCase();
     return sortedPrefeituras.filter((pb) => pb.nome.toLowerCase().includes(q));
   }, [prefeituras, choroplethMetric, metricType, territorySearch]);
 
+  const [b0, b1, b2, b3] = breaksInvestimento;
+  const formatLegendaBreak = (v: number) =>
+    v >= 1000 ? formatCompactCurrency(Math.round(v)) : `R$ ${Math.round(v)}`;
+  const metricSubtitle =
+    metricType === "executado" ? "Valor Pago (R$/hab)" : "Valor Contratual Vigente (R$/hab)";
+
   return (
       <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
+        {/* Área do Mapa com controles e legenda flutuantes sem sobrepor a barra inferior */}
+        <div className="relative flex-1 min-w-0 overflow-hidden min-h-[390px] w-full">
         {/* Controles Superiores do Mapa */}
-        <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-sm p-2 rounded-xl shadow-md border border-slate-200/80 flex flex-wrap items-center gap-2 max-w-full">
+        <div className="absolute top-2.5 left-2.5 right-2.5 z-[400] pointer-events-none flex flex-wrap items-center gap-1.5">
+        <div className="pointer-events-auto bg-white/95 backdrop-blur-sm p-1.5 rounded-xl shadow-md border border-slate-200/80 flex flex-wrap items-center gap-1.5 max-w-full">
           {/* Divisão Territorial */}
           <div className="flex bg-slate-100 p-1 rounded-lg">
             <button
@@ -727,6 +797,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           <button
             type="button"
             data-testid="btn-toggle-pinos-obras"
+            aria-pressed={showPins}
             onClick={() => setShowPins((prev) => !prev)}
             className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 ${showPins
                 ? "bg-slate-900 text-white border-slate-900"
@@ -752,51 +823,92 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             Centralizar
           </button>
         </div>
+        </div>
 
-        {/* Legenda Coroplética Flutuante */}
+        {/* Legenda Coroplética Flutuante com intervalos quantitativos e unidade */}
         <div
           data-testid="legenda-coropletica"
-          className="absolute bottom-20 left-4 z-10 bg-white/95 backdrop-blur-sm p-2.5 rounded-xl shadow-md border border-slate-200 text-xs"
+          className="absolute bottom-2.5 left-2.5 z-[400] bg-white/95 backdrop-blur-sm p-2 rounded-xl shadow-md border border-slate-200 text-xs max-w-[270px]"
         >
-          <span className="font-bold text-slate-700 block mb-1">
+          <span className="font-bold text-slate-800 block mb-1.5 text-[11px] leading-tight">
             {choroplethMetric === "investimentoPorHabitante"
-              ? "Investimento por Habitante (R$):"
-              : "Índice de Vulnerabilidade:"}
+              ? `Investimento por Habitante — ${metricSubtitle}`
+              : "Índice de Vulnerabilidade (0,00 a 1,00)"}
           </span>
-          <div className="flex items-center gap-1 text-[10px] text-slate-600">
-            <span>Menor</span>
-            <div className="flex gap-0.5">
-              {choroplethMetric === "investimentoPorHabitante" ? (
-                <>
-                  <span className="w-4 h-3 rounded-sm bg-[#d1fae5]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#6ee7b7]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#10b981]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#059669]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#064e3b]"></span>
-                </>
-              ) : (
-                <>
-                  <span className="w-4 h-3 rounded-sm bg-[#ede9fe]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#c4b5fd]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#8b5cf6]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#6d28d9]"></span>
-                  <span className="w-4 h-3 rounded-sm bg-[#4c1d95]"></span>
-                </>
+          {choroplethMetric === "investimentoPorHabitante" ? (
+            <div className="grid grid-cols-2 gap-x-2.5 gap-y-1 text-[10px] text-slate-700 tabular-nums">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#f1f5f9] border border-slate-300 shrink-0" />
+                <span>R$ 0 / hab</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#d1fae5] border border-emerald-200 shrink-0" />
+                <span>&lt; {formatLegendaBreak(b0)}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#6ee7b7] shrink-0" />
+                <span>{formatLegendaBreak(b0)}–{formatLegendaBreak(b1)}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#10b981] shrink-0" />
+                <span>{formatLegendaBreak(b1)}–{formatLegendaBreak(b2)}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#059669] shrink-0" />
+                <span>{formatLegendaBreak(b2)}–{formatLegendaBreak(b3)}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#064e3b] shrink-0" />
+                <span>≥ {formatLegendaBreak(b3)}</span>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-x-2.5 gap-y-1 text-[10px] text-slate-700 tabular-nums">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#ede9fe] border border-violet-200 shrink-0" />
+                <span>0,00–0,19</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#c4b5fd] shrink-0" />
+                <span>0,20–0,39</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#8b5cf6] shrink-0" />
+                <span>0,40–0,59</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#6d28d9] shrink-0" />
+                <span>0,60–0,79</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#4c1d95] shrink-0" />
+                <span>0,80–1,00</span>
+              </div>
+            </div>
+          )}
+          {(activeLayer === "bairros" || (choroplethMetric === "investimentoPorHabitante" && hasUnavailablePayment)) && (
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 pt-1 border-t border-slate-100 text-[10px]">
+              {activeLayer === "bairros" && (
+                <div className="flex items-center gap-1 text-amber-800">
+                  <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400 shrink-0" />
+                  <span>Isento</span>
+                </div>
+              )}
+              {choroplethMetric === "investimentoPorHabitante" && hasUnavailablePayment && (
+                <div className="flex items-center gap-1 text-slate-700">
+                  <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
+                  <span>Sem pagamento</span>
+                </div>
               )}
             </div>
-            <span>Maior</span>
-          </div>
-          <div className="flex items-center gap-1.5 mt-1 pt-1 border-t border-slate-100 text-[10px] text-amber-800">
-            <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400"></span>
-            <span>Zona Especial (Isenta)</span>
-          </div>
+          )}
         </div>
 
         {/* Container Leaflet do Mapa */}
         <div
           ref={mapContainerRef}
           data-testid="leaflet-map-container"
-          className="w-full flex-1 min-h-[420px] z-0 relative"
+          className="w-full h-full min-h-[390px] z-0 relative"
         >
           {/* Atalhos acessíveis dos pinos de obras no mapa */}
           {showPins && (
@@ -819,9 +931,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             </div>
           )}
         </div>
+        </div>
 
         {/* Seletor Rápido de Territórios com Busca Textual para o Raio-X */}
-          <div className="w-full min-w-0 overflow-hidden bg-white border-t border-slate-200 p-3 z-10">
+          <div className="w-full min-w-0 overflow-hidden bg-white border-t border-slate-200 px-3 py-2 z-10 shrink-0">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
@@ -852,7 +965,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                     isNonResidentialZone ||
                     (choroplethMetric === "investimentoPorHabitante" && isCentralidade);
                   const testId = `territory-selector-${normalizeTestId(b.nome)}`;
-                  const chipMetricText = formatChipMetric(b, choroplethMetric, metricType, isExemptChip);
+                  const chipMetricText = formatChipMetric(b, choroplethMetric, metricType, "bairro", isExemptChip);
 
                   return (
                     <button
@@ -882,7 +995,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 : filteredPrefeiturasButtons.map((pb) => {
                   const isSelected = selectedTerritory?.id === pb.id && selectedTerritory?.tipo === "prefeitura_bairro";
                   const testId = `territory-selector-${normalizeTestId(pb.nome)}`;
-                  const chipMetricText = formatChipMetric(pb, choroplethMetric, metricType, false);
+                  const chipMetricText = formatChipMetric(pb, choroplethMetric, metricType, "prefeitura_bairro", false);
 
                   return (
                     <button

@@ -529,5 +529,117 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
     const expectedVuln = Math.round(((971 * 0.48 + 59029 * 0.2) / 60000 + Number.EPSILON) * 100) / 100;
     expect(centroBrotas.indice_vulnerabilidade).toBe(expectedVuln);
   });
+
+  it("distingue pagamento ausente de zero observado sem substituir pelo valor contratado e sinaliza estimativa por contiguidade na composição regional", () => {
+    const bairrosTeste: BairroResumo[] = [
+      {
+        id: 1,
+        nome: "Ilha de Maré",
+        prefeitura_bairro: "Subúrbio/Ilhas",
+        populacao: 4000,
+        indice_vulnerabilidade: 0.67,
+        vulnerabilidade_estimada_contiguidade: true,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 2,
+        nome: "Paripe",
+        prefeitura_bairro: "Subúrbio/Ilhas",
+        populacao: 56000,
+        indice_vulnerabilidade: 0.89,
+        vulnerabilidade_estimada_contiguidade: false,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 3,
+        nome: "Pituba",
+        prefeitura_bairro: "Barra/Pituba",
+        populacao: 65000,
+        indice_vulnerabilidade: 0.13,
+        vulnerabilidade_estimada_contiguidade: false,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 4,
+        nome: "Brotas",
+        prefeitura_bairro: "Centro/Brotas",
+        populacao: 50000,
+        indice_vulnerabilidade: 0.35,
+        vulnerabilidade_estimada_contiguidade: false,
+        is_zona_especial_nao_residencial: false,
+      },
+    ];
+
+    const pbsTeste: PrefeituraBairroResumo[] = [
+      { id: 1, nome: "Subúrbio/Ilhas", populacao_total: 60000 },
+      { id: 2, nome: "Barra/Pituba", populacao_total: 65000 },
+      { id: 3, nome: "Centro/Brotas", populacao_total: 50000 },
+    ];
+
+    const obrasTeste: ObraCompacta[] = [
+      // Obra com pagamento AUSENTE (undefined) em Subúrbio/Ilhas
+      {
+        id: 9001,
+        unidadeGestora: "SUCOP",
+        numeroContrato: "100/2025",
+        objeto: "Obra sem registro de pagamento",
+        valorContratualVigente: 6000000,
+        valorPago: undefined,
+        percentualExecutado: 0,
+        situacao: "Em Execução",
+        credor: "CONSTRUTORA X",
+        nivel: "Bairro",
+        bairro: "Paripe",
+        prefeituraBairro: "Subúrbio/Ilhas",
+      },
+      // Obra com pagamento ZERO observado em Barra/Pituba
+      {
+        id: 9002,
+        unidadeGestora: "SUCOP",
+        numeroContrato: "101/2025",
+        objeto: "Obra com pagamento zero observado",
+        valorContratualVigente: 1300000,
+        valorPago: 0,
+        percentualExecutado: 0,
+        situacao: "Em Execução",
+        credor: "CONSTRUTORA Y",
+        nivel: "Bairro",
+        bairro: "Pituba",
+        prefeituraBairro: "Barra/Pituba",
+      },
+    ];
+
+    const { bairros, prefeituras } = calculateTerritorialRollup(bairrosTeste, pbsTeste, obrasTeste);
+
+    // Subúrbio/Ilhas: obra presente mas pagamento ausente -> não substitui por 6.000.000 e não vira 0 observado
+    const pbSuburbio = prefeituras.find((p) => p.nome === "Subúrbio/Ilhas")!;
+    expect(pbSuburbio.valorTotal).toBe(6000000);
+    expect(pbSuburbio.valorPagoDisponivel).toBe(false);
+    expect(pbSuburbio.valorPago).toBeUndefined();
+    expect(pbSuburbio.investimentoPorHabitantePago).toBeUndefined();
+    expect(pbSuburbio.obrasSemValorPago).toBe(1);
+    // Composição regional inclui estimativa por contiguidade de Ilha de Maré
+    expect(pbSuburbio.vulnerabilidade_estimada_contiguidade).toBe(true);
+    expect(pbSuburbio.bairros_vulnerabilidade_estimada).toEqual(["Ilha de Maré"]);
+
+    // Barra/Pituba: pagamento 0 observado -> valorPago = 0 e disponível = true
+    const pbBarra = prefeituras.find((p) => p.nome === "Barra/Pituba")!;
+    expect(pbBarra.valorPagoDisponivel).toBe(true);
+    expect(pbBarra.valorPago).toBe(0);
+    expect(pbBarra.investimentoPorHabitantePago).toBe(0);
+    expect(pbBarra.vulnerabilidade_estimada_contiguidade).toBe(false);
+    expect(pbBarra.bairros_vulnerabilidade_estimada).toEqual([]);
+
+    // Centro/Brotas: 0 obras -> zero observado disponível
+    const pbCentro = prefeituras.find((p) => p.nome === "Centro/Brotas")!;
+    expect(pbCentro.valorPagoDisponivel).toBe(true);
+    expect(pbCentro.valorPago).toBe(0);
+    expect(pbCentro.investimentoPorHabitantePago).toBe(0);
+
+    // Bairro Paripe também preserva pagamento ausente sem substituição
+    const paripe = bairros.find((b) => b.nome === "Paripe")!;
+    expect(paripe.valorPagoDisponivel).toBe(false);
+    expect(paripe.valorPago).toBeUndefined();
+  });
 });
 

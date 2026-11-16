@@ -60,8 +60,10 @@ export interface GlobalKpis {
   investimentoPorHabitanteCidade: number;
   totalNaoLocalizado?: number;
   valorNaoLocalizado?: number;
-  valorPagoNaoLocalizado?: number;
+  valorPagoNaoLocalizado?: number | null;
   percentualNaoLocalizado?: number;
+  valorPagoDisponivel?: boolean;
+  obrasSemValorPago?: number;
 }
 
 export interface BairroResumo {
@@ -80,9 +82,9 @@ export interface BairroResumo {
   vulnerabilidade_estimada_contiguidade?: boolean;
   valorTotal?: number;
   valorLiquidado?: number;
-  valorPago?: number;
+  valorPago?: number | null;
   valorLiquidadoDireto?: number;
-  valorPagoDireto?: number;
+  valorPagoDireto?: number | null;
   valorLiquidadoFrentes?: number;
   valorPagoFrentes?: number;
   totalFrentesMedicao?: number;
@@ -91,7 +93,9 @@ export interface BairroResumo {
   obrasAmarelo?: number;
   obrasVermelho?: number;
   investimentoPorHabitante?: number;
-  investimentoPorHabitantePago?: number;
+  investimentoPorHabitantePago?: number | null;
+  valorPagoDisponivel?: boolean;
+  obrasSemValorPago?: number;
 }
 
 export interface PrefeituraBairroResumo {
@@ -102,11 +106,13 @@ export interface PrefeituraBairroResumo {
   pct_esgoto_inadequado?: number;
   pct_agua_inadequada?: number;
   pct_analfabetismo_15mais?: number;
+  vulnerabilidade_estimada_contiguidade?: boolean;
+  bairros_vulnerabilidade_estimada?: string[];
   valorTotal?: number;
   valorLiquidado?: number;
-  valorPago?: number;
+  valorPago?: number | null;
   valorLiquidadoDireto?: number;
-  valorPagoDireto?: number;
+  valorPagoDireto?: number | null;
   valorLiquidadoFrentes?: number;
   valorPagoFrentes?: number;
   totalFrentesMedicao?: number;
@@ -115,7 +121,9 @@ export interface PrefeituraBairroResumo {
   obrasAmarelo?: number;
   obrasVermelho?: number;
   investimentoPorHabitante?: number;
-  investimentoPorHabitantePago?: number;
+  investimentoPorHabitantePago?: number | null;
+  valorPagoDisponivel?: boolean;
+  obrasSemValorPago?: number;
 }
 
 export interface FrenteMedicao {
@@ -152,7 +160,7 @@ export interface ObraCompacta {
   valorContratualVigente: number;
   valorAditivos?: number;
   deltaPercentualValor?: number;
-  valorPago?: number;
+  valorPago?: number | null;
   percentualExecutado: number;
   situacao: string;
   credor: string;
@@ -330,11 +338,12 @@ export interface TerritorySelection {
   pct_agua_inadequada?: number;
   pct_analfabetismo_15mais?: number;
   vulnerabilidade_estimada_contiguidade?: boolean;
+  bairros_vulnerabilidade_estimada?: string[];
   valorTotal?: number;
   valorLiquidado?: number;
-  valorPago?: number;
+  valorPago?: number | null;
   valorLiquidadoDireto?: number;
-  valorPagoDireto?: number;
+  valorPagoDireto?: number | null;
   valorLiquidadoFrentes?: number;
   valorPagoFrentes?: number;
   totalFrentesMedicao?: number;
@@ -343,7 +352,9 @@ export interface TerritorySelection {
   obrasAmarelo?: number;
   obrasVermelho?: number;
   investimentoPorHabitante?: number;
-  investimentoPorHabitantePago?: number;
+  investimentoPorHabitantePago?: number | null;
+  valorPagoDisponivel?: boolean;
+  obrasSemValorPago?: number;
 }
 
 export interface FilterState {

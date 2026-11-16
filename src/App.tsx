@@ -3,18 +3,19 @@ import { FichaLimpaModal } from "./components/FichaLimpaModal";
 import { HeaderKpis } from "./components/HeaderKpis";
 import { InteractiveMap } from "./components/InteractiveMap";
 import { NotaMetodologicaModal } from "./components/NotaMetodologicaModal";
-import { PrefeiturasRanking } from "./components/PrefeiturasRanking";
+import {
+  TerritoryComparisonList,
+  VulnerabilitySortDirection,
+} from "./components/TerritoryComparisonList";
 import { TerritorySidebar } from "./components/TerritorySidebar";
 import { TopFilters } from "./components/TopFilters";
 import { WorksTable } from "./components/WorksTable";
 import {
-  BairroResumo,
   FichaLimpaObra,
   FilterState,
   GlobalKpis,
   IndexData,
   ObraCompacta,
-  PrefeituraBairroResumo,
   TemaObra,
   TerritorySelection,
   VOCACOES_PADRAO,
@@ -24,8 +25,9 @@ import {
   calculateTerritorialRollup,
   createBairroSelection,
   createPrefeituraSelection,
-  getObraTerritoryShare,
+  hasNumericPayment,
   isTerritoryCompatibleWithLayer,
+  normalizeName,
   obraMatchesTerritory,
 } from "./utils/territory";
 
@@ -46,7 +48,7 @@ const INITIAL_FILTERS: FilterState = {
   vocacoes: VOCACOES_PADRAO,
   semaforo: "todos",
   busca: "",
-  metricType: "vigente",
+  metricType: "executado",
 };
 
 /**
@@ -88,12 +90,13 @@ export const App: React.FC = () => {
   const [indexData, setIndexData] = useState<IndexData | null>(null);
   const [bairrosGeo, setBairrosGeo] = useState<any>(null);
   const [prefeiturasGeo, setPrefeiturasGeo] = useState<any>(null);
-  const [activeLayer, setActiveLayer] = useState<"bairros" | "prefeituras">("bairros");
+  const [activeLayer, setActiveLayer] = useState<"bairros" | "prefeituras">("prefeituras");
   const [selectedTerritory, setSelectedTerritory] = useState<TerritorySelection | null>(null);
   const [selectedObraFicha, setSelectedObraFicha] = useState<FichaLimpaObra | null>(null);
   const [loadingFicha, setLoadingFicha] = useState<boolean>(false);
   const [showNotaMetodologica, setShowNotaMetodologica] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<"mapa" | "ranking" | "tabela">("mapa");
+  const [activeTab, setActiveTab] = useState<"comparacao" | "tabela">("comparacao");
+  const [sortDirection, setSortDirection] = useState<VulnerabilitySortDirection>("asc");
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -229,15 +232,20 @@ export const App: React.FC = () => {
   }, [indexData, filters]);
 
   // 2. Recálculo dinâmico da Camada A (Bairros e Prefeituras-Bairro) a partir de topFilteredObras
-  const isTopFiltered =
+  const isContractFiltered =
     (filters.mandato && filters.mandato !== "todos") ||
     (filters.ano && filters.ano !== "todos") ||
     filters.orgao !== "todos" ||
     filters.tema !== "todos" ||
     filters.vocacoes.length < VOCACOES_PADRAO.length ||
     filters.semaforo !== "todos" ||
-    filters.busca.trim() !== "" ||
-    filters.metricType === "executado";
+    filters.busca.trim() !== "";
+
+  const usesPrecomputedSummary = Boolean(
+    indexData &&
+      !isContractFiltered &&
+      (indexData.kpis_globais?.totalObras ?? 0) > indexData.obras.length
+  );
 
   const { bairros: recalculatedBairros, prefeituras: recalculatedPrefeituras } = useMemo(() => {
     if (!indexData) {
@@ -248,25 +256,62 @@ export const App: React.FC = () => {
       indexData.prefeituras_bairro,
       topFilteredObras
     );
-    // Preservação de Fallback quando nenhum filtro superior está ativo (Pitfall 4),
-    // garantindo o enriquecimento de indice_vulnerabilidade nas Prefeituras-Bairro
-    if (!isTopFiltered) {
-      const vulnByPb = new Map<string, number>();
-      rollup.prefeituras.forEach((pb) => {
-        if (pb.indice_vulnerabilidade !== undefined) {
-          vulnByPb.set(pb.nome, pb.indice_vulnerabilidade);
-        }
-      });
+
+    if (usesPrecomputedSummary) {
+      const rollupPbByName = new Map(
+        rollup.prefeituras.map((pb) => [normalizeName(pb.nome), pb])
+      );
+      const rollupBairroByName = new Map(
+        rollup.bairros.map((b) => [normalizeName(b.nome), b])
+      );
+      const resolvePrecomputedPaymentDisponivel = (
+        valorPago: number | null | undefined,
+        totalObras: number | undefined,
+        rollupEntry?: { valorPagoDisponivel?: boolean; totalObras?: number }
+      ) => {
+        if (valorPago === null) return false;
+        if (hasNumericPayment(valorPago)) return true;
+        if ((totalObras ?? 0) === 0) return true;
+        return (rollupEntry?.totalObras ?? 0) > 0 ? rollupEntry?.valorPagoDisponivel : false;
+      };
       return {
-        bairros: indexData.bairros,
-        prefeituras: indexData.prefeituras_bairro.map((pb) => ({
-          ...pb,
-          indice_vulnerabilidade: pb.indice_vulnerabilidade ?? vulnByPb.get(pb.nome) ?? 0.5,
-        })),
+        bairros: indexData.bairros.map((b) => {
+          const rb = rollupBairroByName.get(normalizeName(b.nome));
+          return {
+            ...b,
+            valorPagoDisponivel: resolvePrecomputedPaymentDisponivel(
+              b.valorPago,
+              b.totalObras,
+              rb
+            ),
+          };
+        }),
+        prefeituras: indexData.prefeituras_bairro.map((pb) => {
+          const rpb = rollupPbByName.get(normalizeName(pb.nome));
+          return {
+            ...pb,
+            indice_vulnerabilidade:
+              pb.indice_vulnerabilidade ?? rpb?.indice_vulnerabilidade ?? 0.5,
+            vulnerabilidade_estimada_contiguidade:
+              pb.vulnerabilidade_estimada_contiguidade ??
+              rpb?.vulnerabilidade_estimada_contiguidade ??
+              false,
+            bairros_vulnerabilidade_estimada:
+              pb.bairros_vulnerabilidade_estimada ??
+              rpb?.bairros_vulnerabilidade_estimada ??
+              [],
+            valorPagoDisponivel: resolvePrecomputedPaymentDisponivel(
+              pb.valorPago,
+              pb.totalObras,
+              rpb
+            ),
+          };
+        }),
       };
     }
+
     return rollup;
-  }, [indexData, topFilteredObras, isTopFiltered]);
+  }, [indexData, topFilteredObras, usesPrecomputedSummary]);
 
   // 3. Sincronização reativa do território selecionado com o rollup recalculado sob os filtros ativos
   const activeSelectedTerritory = useMemo<TerritorySelection | null>(() => {
@@ -298,79 +343,118 @@ export const App: React.FC = () => {
     );
   }, [topFilteredObras, activeSelectedTerritory]);
 
-  // Recálculo dinâmico dos KPIs superiores sob filtros e métrica ativa
-  const dynamicKpis: GlobalKpis = useMemo(() => {
+  // 5. Indicadores comparativos municipais do cabeçalho (NUNCA restringidos pelo território selecionado)
+  const headerComparisonSummary = useMemo(() => {
     if (!indexData) {
       return {
-        totalObras: 0,
-        valorTotal: 0,
-        totalAtivas: 0,
-        totalCriticas: 0,
-        percentualCriticas: 0,
-        totalAditivosValor: 0,
-        percentualMedioAditivos: 0,
-        totalEmpenhado: 0,
-        totalLiquidado: 0,
-        totalPago: 0,
-        investimentoPorHabitanteCidade: 0,
-        totalNaoLocalizado: 0,
-        valorNaoLocalizado: 0,
-        percentualNaoLocalizado: 0,
+        kpis: {
+          totalObras: 0,
+          valorTotal: 0,
+          totalAtivas: 0,
+          totalCriticas: 0,
+          percentualCriticas: 0,
+          totalAditivosValor: 0,
+          percentualMedioAditivos: 0,
+          totalEmpenhado: 0,
+          totalLiquidado: 0,
+          totalPago: 0,
+          investimentoPorHabitanteCidade: 0,
+          totalNaoLocalizado: 0,
+          valorNaoLocalizado: 0,
+          valorPagoNaoLocalizado: 0,
+          percentualNaoLocalizado: 0,
+        } as GlobalKpis,
+        territorioCount: 0,
+        valorAlocadoTerritorial: 0,
+        valorAlocadoDisponivel: true,
+        totalObrasAlocadas: 0,
       };
     }
 
-    const isFiltered =
-      (filters.mandato && filters.mandato !== "todos") ||
-      (filters.ano && filters.ano !== "todos") ||
-      filters.orgao !== "todos" ||
-      filters.tema !== "todos" ||
-      filters.vocacoes.length < VOCACOES_PADRAO.length ||
-      filters.semaforo !== "todos" ||
-      filters.busca.trim() !== "" ||
-      filters.metricType === "executado" ||
-      activeSelectedTerritory !== null;
+    const isVigente = filters.metricType === "vigente";
+    const territoriesScope =
+      activeLayer === "prefeituras" ? recalculatedPrefeituras : recalculatedBairros;
+    const territorioCount = territoriesScope.length;
 
-    // População de referência para per capita
-    let populacaoReferencia = indexData.bairros.reduce((acc, b) => acc + (b.populacao || 0), 0);
-    if (activeSelectedTerritory) {
-      populacaoReferencia = activeSelectedTerritory.populacao || 1;
+    let valorAlocadoTerritorial = 0;
+    let territoriesWithPaymentData = 0;
+    let territoriesWithWorks = 0;
+
+    for (const t of territoriesScope) {
+      const hasWorks = (t.totalObras ?? 0) > 0 || (t.totalFrentesMedicao ?? 0) > 0;
+      if (hasWorks) territoriesWithWorks++;
+      if (isVigente) {
+        valorAlocadoTerritorial += t.valorTotal ?? 0;
+      } else if (t.valorPagoDisponivel !== false && hasNumericPayment(t.valorPago)) {
+        valorAlocadoTerritorial += t.valorPago;
+        if (hasWorks) territoriesWithPaymentData++;
+      }
     }
 
-    // Se nenhum filtro estiver ativo e a métrica for a padrão contratual, usa os KPIs originais
-    if (!isFiltered) {
-      return indexData.kpis_globais;
+    const valorAlocadoDisponivel =
+      isVigente || territoriesWithWorks === 0 || territoriesWithPaymentData > 0;
+
+    const populacaoCidade =
+      recalculatedBairros.reduce((acc, b) => acc + (b.populacao || 0), 0) ||
+      recalculatedPrefeituras.reduce((acc, pb) => acc + (pb.populacao_total || 0), 0);
+
+    if (usesPrecomputedSummary) {
+      const k = indexData.kpis_globais;
+      const totalNaoLoc = k.totalNaoLocalizado ?? 0;
+      const totalAlocadas = Math.max(0, (k.totalObras ?? 0) - totalNaoLoc);
+      const naoLocalizadoAtivo = isVigente
+        ? (k.valorNaoLocalizado ?? 0)
+        : hasNumericPayment(k.valorPagoNaoLocalizado)
+          ? k.valorPagoNaoLocalizado
+          : 0;
+      const basePercentual = valorAlocadoTerritorial + naoLocalizadoAtivo;
+      const percNaoLoc = isVigente
+        ? k.percentualNaoLocalizado
+        : basePercentual > 0
+          ? (naoLocalizadoAtivo / basePercentual) * 100.0
+          : 0.0;
+      return {
+        kpis: {
+          ...k,
+          percentualNaoLocalizado: percNaoLoc,
+          investimentoPorHabitanteCidade:
+            populacaoCidade > 0 ? valorAlocadoTerritorial / populacaoCidade : 0,
+        },
+        territorioCount,
+        valorAlocadoTerritorial,
+        valorAlocadoDisponivel,
+        totalObrasAlocadas: totalAlocadas,
+      };
     }
 
-    let valorTotalRecalc = 0;
+    let valorTotalCarteira = 0;
     let ativasRecalc = 0;
     let criticasRecalc = 0;
     let aditivosValorRecalc = 0;
     let naoLocalizadoRecalc = 0;
-    let valorNaoLocalizadoRecalc = 0;
+    let valorNaoLocalizadoVigente = 0;
+    let valorNaoLocalizadoPago = 0;
+    let naoLocalizadoComPago = 0;
     const deltasPercentuais: number[] = [];
-
     const situacoesInativas = new Set(["CONCLUÍDA", "CONCLUIDA", "CANCELADA", "RESCINDIDA"]);
 
-    for (const o of filteredObras) {
-      const share = getObraTerritoryShare(o, activeSelectedTerritory);
-      const vlBase =
-        filters.metricType === "vigente"
-          ? o.valorContratualVigente
-          : (o.valorPago ?? o.valorContratualVigente);
-      const vl = vlBase * share.peso;
-      valorTotalRecalc += vl;
+    for (const o of topFilteredObras) {
+      const vlBase = isVigente
+        ? (o.valorContratualVigente ?? 0)
+        : hasNumericPayment(o.valorPago)
+          ? o.valorPago
+          : 0;
+      valorTotalCarteira += vlBase;
 
       const sit = (o.situacao || "").toUpperCase();
       if (!situacoesInativas.has(sit)) {
         ativasRecalc++;
       }
-
       if (o.semaforo?.status === "VERMELHO") {
         criticasRecalc++;
       }
-
       if (o.valorAditivos && o.valorAditivos > 0) {
-        aditivosValorRecalc += o.valorAditivos * share.peso;
+        aditivosValorRecalc += o.valorAditivos;
       }
       if (o.deltaPercentualValor !== undefined) {
         deltasPercentuais.push(o.deltaPercentualValor);
@@ -378,37 +462,69 @@ export const App: React.FC = () => {
 
       if (o.nivel === "Escopo Cidade (Não-Localizado)") {
         naoLocalizadoRecalc++;
-        valorNaoLocalizadoRecalc += vl;
+        valorNaoLocalizadoVigente += o.valorContratualVigente ?? 0;
+        if (hasNumericPayment(o.valorPago)) {
+          naoLocalizadoComPago++;
+          const pagoFrentes = (o.frentesMedicao || []).reduce(
+            (acc, f) => acc + (hasNumericPayment(f.valorPago) ? f.valorPago : 0),
+            0
+          );
+          valorNaoLocalizadoPago += Math.max(0, o.valorPago - pagoFrentes);
+        }
       }
     }
 
-    const totalObrasRecalc = filteredObras.length;
-    const percCriticas = totalObrasRecalc > 0 ? (criticasRecalc / totalObrasRecalc) * 100.0 : 0.0;
-    const percMedioAditivos =
-      deltasPercentuais.length > 0
-        ? deltasPercentuais.reduce((a, b) => a + b, 0) / deltasPercentuais.length
-        : 0.0;
-    const invPorHab = populacaoReferencia > 0 ? valorTotalRecalc / populacaoReferencia : 0.0;
+    const totalObrasRecalc = topFilteredObras.length;
+    const totalObrasAlocadas = totalObrasRecalc - naoLocalizadoRecalc;
+    const valorNaoLocalizadoAtivo = isVigente
+      ? valorNaoLocalizadoVigente
+      : valorNaoLocalizadoPago;
+    const basePercentualNaoLocalizado = valorAlocadoTerritorial + valorNaoLocalizadoAtivo;
     const percNaoLocalizado =
-      valorTotalRecalc > 0 ? (valorNaoLocalizadoRecalc / valorTotalRecalc) * 100.0 : 0.0;
+      basePercentualNaoLocalizado > 0
+        ? (valorNaoLocalizadoAtivo / basePercentualNaoLocalizado) * 100.0
+        : 0.0;
 
     return {
-      totalObras: totalObrasRecalc,
-      valorTotal: valorTotalRecalc,
-      totalAtivas: ativasRecalc,
-      totalCriticas: criticasRecalc,
-      percentualCriticas: percCriticas,
-      totalAditivosValor: aditivosValorRecalc,
-      percentualMedioAditivos: percMedioAditivos,
-      totalEmpenhado: indexData.kpis_globais.totalEmpenhado,
-      totalLiquidado: indexData.kpis_globais.totalLiquidado,
-      totalPago: indexData.kpis_globais.totalPago,
-      investimentoPorHabitanteCidade: invPorHab,
-      totalNaoLocalizado: naoLocalizadoRecalc,
-      valorNaoLocalizado: valorNaoLocalizadoRecalc,
-      percentualNaoLocalizado: percNaoLocalizado,
+      kpis: {
+        totalObras: totalObrasRecalc,
+        valorTotal: valorTotalCarteira,
+        totalAtivas: ativasRecalc,
+        totalCriticas: criticasRecalc,
+        percentualCriticas:
+          totalObrasRecalc > 0 ? (criticasRecalc / totalObrasRecalc) * 100.0 : 0.0,
+        totalAditivosValor: aditivosValorRecalc,
+        percentualMedioAditivos:
+          deltasPercentuais.length > 0
+            ? deltasPercentuais.reduce((a, b) => a + b, 0) / deltasPercentuais.length
+            : 0.0,
+        totalEmpenhado: indexData.kpis_globais.totalEmpenhado,
+        totalLiquidado: indexData.kpis_globais.totalLiquidado,
+        totalPago: indexData.kpis_globais.totalPago,
+        investimentoPorHabitanteCidade:
+          populacaoCidade > 0 ? valorAlocadoTerritorial / populacaoCidade : 0.0,
+        totalNaoLocalizado: naoLocalizadoRecalc,
+        valorNaoLocalizado: valorNaoLocalizadoVigente,
+        valorPagoNaoLocalizado:
+          naoLocalizadoRecalc === 0 || naoLocalizadoComPago > 0
+            ? valorNaoLocalizadoPago
+            : undefined,
+        percentualNaoLocalizado: percNaoLocalizado,
+      } as GlobalKpis,
+      territorioCount,
+      valorAlocadoTerritorial,
+      valorAlocadoDisponivel,
+      totalObrasAlocadas,
     };
-  }, [indexData, filteredObras, filters, activeSelectedTerritory]);
+  }, [
+    indexData,
+    topFilteredObras,
+    recalculatedBairros,
+    recalculatedPrefeituras,
+    activeLayer,
+    filters.metricType,
+    usesPrecomputedSummary,
+  ]);
 
   const handleFilterChange = (updated: Partial<FilterState>) => {
     setFilters((prev) => ({ ...prev, ...updated }));
@@ -428,11 +544,6 @@ export const App: React.FC = () => {
         setSelectedTerritory(null);
       }
     }
-  };
-
-  const handleSelectPrefeituraFromRanking = (pb: PrefeituraBairroResumo) => {
-    setSelectedTerritory(createPrefeituraSelection(pb));
-    setActiveLayer("prefeituras");
   };
 
   const handleSelectObra = async (obra: ObraCompacta) => {
@@ -488,11 +599,16 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col h-screen w-screen overflow-hidden bg-slate-50 font-sans">
-      {/* 1. Cabeçalho com KPIs Superiores e Transparência Opaca */}
+    <div className="flex flex-col min-h-screen w-full bg-slate-50 font-sans">
+      {/* 1. Cabeçalho compacto com escopo comparativo municipal */}
       <HeaderKpis
-        kpis={dynamicKpis}
-        ano={indexData.metadata.anoReferencia}
+        kpis={headerComparisonSummary.kpis}
+        activeLayer={activeLayer}
+        territorioCount={headerComparisonSummary.territorioCount}
+        valorAlocadoTerritorial={headerComparisonSummary.valorAlocadoTerritorial}
+        valorAlocadoDisponivel={headerComparisonSummary.valorAlocadoDisponivel}
+        totalObrasAlocadas={headerComparisonSummary.totalObrasAlocadas}
+        generatedAt={indexData.metadata.generatedAt}
         metricType={filters.metricType}
         mandato={filters.mandato}
       />
@@ -509,64 +625,49 @@ export const App: React.FC = () => {
         totalObrasGeral={indexData.obras.length}
       />
 
-      {/* Indicador de Filtro Territorial Ativo */}
+      {/* Indicador de Seleção Territorial Ativa para Consulta de Obras */}
       {activeSelectedTerritory && (
         <div
           data-testid="banner-territorio-filtrado"
-          className="bg-emerald-50 border-b border-emerald-200 px-4 sm:px-6 py-2 flex items-center justify-between text-xs text-emerald-900"
+          className="bg-emerald-50 border-b border-emerald-200 px-4 sm:px-6 py-1.5 flex flex-wrap items-center justify-between gap-2 text-xs text-emerald-900"
         >
           <div className="flex items-center gap-2">
             <span className="font-bold uppercase tracking-wider text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded">
-              Filtro Territorial Ativo
+              Território selecionado
             </span>
             <span>
-              Exibindo apenas obras de: <strong>{activeSelectedTerritory.nome}</strong> (
+              <strong>{activeSelectedTerritory.nome}</strong> (
               {activeSelectedTerritory.tipo === "bairro" ? "Bairro Oficial" : "Prefeitura-Bairro"})
+              {activeTab === "comparacao"
+                ? " — comparação municipal preservada; resumo abaixo do mapa"
+                : " — exibindo apenas obras deste território"}
             </span>
           </div>
           <button
             type="button"
             data-testid="btn-limpar-filtro-territorial"
             onClick={() => setSelectedTerritory(null)}
-            className="text-xs font-semibold text-emerald-700 hover:text-emerald-950 underline"
+            className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 underline"
           >
-            Limpar filtro territorial (mostrar toda a cidade)
+            Limpar seleção
           </button>
         </div>
       )}
 
-      {/* 3. Seletor de Visão Principal: Mapa vs Ranking vs Tabela */}
-      <div className="bg-slate-100 border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
+      {/* 3. Seletor de Visão: Comparação Territorial vs Tabela de Obras */}
+      <div className="bg-slate-100 border-b border-slate-200 px-4 sm:px-6 py-2 flex items-center justify-between">
         <div className="flex items-center gap-1 bg-white p-1 rounded-lg border border-slate-200 shadow-sm">
           <button
             type="button"
-            data-testid="tab-mapa"
-            onClick={() => setActiveTab("mapa")}
+            data-testid="tab-comparacao"
+            onClick={() => setActiveTab("comparacao")}
             className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 ${
-              activeTab === "mapa"
+              activeTab === "comparacao"
                 ? "bg-slate-900 text-white shadow-sm"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
-            Mapa Territorial (Camada A)
-          </button>
-          <button
-            type="button"
-            data-testid="tab-ranking"
-            onClick={() => setActiveTab("ranking")}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 ${
-              activeTab === "ranking"
-                ? "bg-slate-900 text-white shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            Ranking Territorial
+            Comparação Territorial
           </button>
           <button
             type="button"
@@ -578,10 +679,7 @@ export const App: React.FC = () => {
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            Tabela Detalhada de Obras
+            Tabela de Obras
             <span
               className={`text-[10px] px-1.5 py-0.2 rounded-full ${
                 activeTab === "tabela" ? "bg-slate-700 text-white" : "bg-slate-200 text-slate-700"
@@ -594,82 +692,79 @@ export const App: React.FC = () => {
       </div>
 
       {/* 4. Área Central de Visualização */}
-      <main className="flex-1 overflow-hidden relative">
-        {activeTab === "mapa" && (
-          <div className="h-full flex flex-col md:flex-row overflow-hidden relative">
-            <InteractiveMap
-              activeLayer={activeLayer}
-              onToggleLayer={handleToggleLayer}
-              bairros={recalculatedBairros}
-              prefeituras={recalculatedPrefeituras}
-              bairrosGeoJson={bairrosGeo}
-              prefeiturasGeoJson={prefeiturasGeo}
-              obras={filteredObras}
-              selectedTerritory={activeSelectedTerritory}
-              onSelectTerritory={setSelectedTerritory}
-              onSelectObra={handleSelectObra}
-              metricType={filters.metricType}
-              onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
-            />
+      <main className="flex-1">
+        {activeTab === "comparacao" && (
+          <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row items-start gap-4">
+            {/* Esquerda (~45%): Lista de Comparação Territorial ordenada por vulnerabilidade */}
+            <div className="w-full md:w-[45%] min-w-0 md:h-[calc(100vh-14rem)] md:min-h-[480px] md:max-h-[760px]">
+              <TerritoryComparisonList
+                activeLayer={activeLayer}
+                prefeituras={recalculatedPrefeituras}
+                bairros={recalculatedBairros}
+                metricType={filters.metricType}
+                sortDirection={sortDirection}
+                onToggleSortDirection={() =>
+                  setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"))
+                }
+                selectedTerritory={activeSelectedTerritory}
+                onSelectTerritory={setSelectedTerritory}
+                onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+              />
+            </div>
 
-            <TerritorySidebar
-              territorio={activeSelectedTerritory}
-              onClear={() => setSelectedTerritory(null)}
-              onViewWorksInTable={() => setActiveTab("tabela")}
-              metricType={filters.metricType}
-              onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
-              obras={topFilteredObras}
-              onSelectObra={handleSelectObra}
-              onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
-            />
-          </div>
-        )}
-
-        {activeTab === "ranking" && (
-          <div className="h-full flex flex-col md:flex-row overflow-hidden relative">
-            <div className="flex-1 p-4 sm:p-6 overflow-y-auto">
-              <div className="max-w-4xl mx-auto">
-                <PrefeiturasRanking
-                  prefeituras={recalculatedPrefeituras}
+            {/* Direita (~55%): Mapa ao lado e Resumo do selecionado abaixo do mapa */}
+            <div className="w-full md:w-[55%] min-w-0 flex flex-col gap-3">
+              <div className="h-[440px] sm:h-[480px] lg:h-[520px] min-w-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm flex flex-col">
+                <InteractiveMap
+                  activeLayer={activeLayer}
+                  onToggleLayer={handleToggleLayer}
                   bairros={recalculatedBairros}
-                  obras={topFilteredObras}
+                  prefeituras={recalculatedPrefeituras}
+                  bairrosGeoJson={bairrosGeo}
+                  prefeiturasGeoJson={prefeiturasGeo}
+                  obras={filteredObras}
+                  selectedTerritory={activeSelectedTerritory}
+                  onSelectTerritory={setSelectedTerritory}
+                  onSelectObra={handleSelectObra}
                   metricType={filters.metricType}
-                  selectedNome={activeSelectedTerritory?.nome}
-                  activeLevel={activeLayer}
-                  onLevelChange={handleToggleLayer}
-                  onSelectPrefeitura={handleSelectPrefeituraFromRanking}
-                  onSelectBairro={(b: BairroResumo) => {
-                    setSelectedTerritory(createBairroSelection(b));
-                    setActiveLayer("bairros");
-                  }}
                   onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
                 />
               </div>
-            </div>
 
-            <TerritorySidebar
-              territorio={activeSelectedTerritory}
-              onClear={() => setSelectedTerritory(null)}
-              onViewWorksInTable={() => setActiveTab("tabela")}
-              metricType={filters.metricType}
-              onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
-              obras={topFilteredObras}
-              onSelectObra={handleSelectObra}
-              onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
-            />
+              {activeSelectedTerritory && (
+                <TerritorySidebar
+                  territorio={activeSelectedTerritory}
+                  onClear={() => setSelectedTerritory(null)}
+                  onViewWorksInTable={() => setActiveTab("tabela")}
+                  metricType={filters.metricType}
+                  onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+                  obras={topFilteredObras}
+                  onSelectObra={handleSelectObra}
+                  onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
+                />
+              )}
+            </div>
           </div>
         )}
 
         {activeTab === "tabela" && (
-          <div className="h-full p-4 sm:p-6 overflow-y-auto">
-            <div className="max-w-7xl mx-auto">
-              <WorksTable
-                obras={filteredObras}
-                metricType={filters.metricType}
-                selectedTerritory={activeSelectedTerritory}
-                onSelectObra={handleSelectObra}
-              />
+          <div className="max-w-[1440px] mx-auto p-4 sm:p-6">
+            <div className="mb-3">
+              <button
+                type="button"
+                data-testid="btn-voltar-comparacao"
+                onClick={() => setActiveTab("comparacao")}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 transition-colors"
+              >
+                ← Voltar à Comparação Territorial
+              </button>
             </div>
+            <WorksTable
+              obras={filteredObras}
+              metricType={filters.metricType}
+              selectedTerritory={activeSelectedTerritory}
+              onSelectObra={handleSelectObra}
+            />
           </div>
         )}
       </main>

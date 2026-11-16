@@ -22,6 +22,38 @@ export function formatCurrency(valor: number): string {
 }
 
 /**
+ * Formata um valor monetário em Reais de forma compacta (mil, mi, bi) mantendo legibilidade.
+ * Valores abaixo de R$ 100.000 são exibidos integralmente via formatCurrency.
+ */
+export function formatCompactCurrency(valor: number): string {
+  if (isNaN(valor)) return "R$ 0,00";
+  const abs = Math.abs(valor);
+  const sign = valor < 0 ? "-" : "";
+  const formatScaled = (scaled: number, suffix: string) => {
+    const rounded = Math.round(scaled * 100) / 100;
+    const isWhole = Math.abs(rounded - Math.round(rounded)) < 1e-9;
+    const formatted = isWhole
+      ? String(Math.round(rounded))
+      : rounded.toFixed(2).replace(".", ",");
+    return `${sign}R$ ${formatted} ${suffix}`;
+  };
+
+  if (abs >= 1_000_000_000) {
+    return formatScaled(abs / 1_000_000_000, "bi");
+  }
+  if (abs >= 1_000_000) {
+    return formatScaled(abs / 1_000_000, "mi");
+  }
+  if (abs >= 100_000) {
+    const scaled = Math.round((abs / 1_000) * 10) / 10;
+    const isWhole = Math.abs(scaled - Math.round(scaled)) < 1e-9;
+    const formatted = isWhole ? String(Math.round(scaled)) : scaled.toFixed(1).replace(".", ",");
+    return `${sign}R$ ${formatted} mil`;
+  }
+  return formatCurrency(valor);
+}
+
+/**
  * Formata um número inteiro com separadores de milhar (ponto no Brasil).
  *
  * @summary Formata contagem de pessoas ou itens em formato legível.

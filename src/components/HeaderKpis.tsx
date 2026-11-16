@@ -1,18 +1,40 @@
 import React from "react";
 import { GlobalKpis, MetricType } from "../types";
-import { formatCurrency, formatNumber } from "../utils/formatters";
+import { formatCurrency, formatDate, formatNumber } from "../utils/formatters";
+import { hasNumericPayment } from "../utils/territory";
+import { MonetaryValue } from "./MonetaryValue";
 
 interface HeaderKpisProps {
   /**
-   * Indicadores financeiros e quantitativos consolidados de Salvador.
+   * Indicadores financeiros e quantitativos da comparação municipal (invariantes à seleção territorial).
    */
   kpis: GlobalKpis;
   /**
-   * Ano de referência dos dados exibidos (opcional).
+   * Camada territorial ativa na comparação ('prefeituras' ou 'bairros').
    */
-  ano?: number;
+  activeLayer?: "bairros" | "prefeituras";
   /**
-   * Métrica financeira ativa: 'vigente' (Valor Contratual Vigente) ou 'executado' (Valor Executado/Pago).
+   * Quantidade de territórios na comparação ativa.
+   */
+  territorioCount?: number;
+  /**
+   * Valor territorialmente alocado na comparação ativa segundo a métrica selecionada.
+   */
+  valorAlocadoTerritorial?: number;
+  /**
+   * Indica se há dados disponíveis de pagamento para o valor alocado (false se todos ausentes).
+   */
+  valorAlocadoDisponivel?: boolean;
+  /**
+   * Quantidade de obras alocadas aos territórios comparados.
+   */
+  totalObrasAlocadas?: number;
+  /**
+   * Data ISO de atualização do acervo (metadata.generatedAt).
+   */
+  generatedAt?: string;
+  /**
+   * Métrica financeira ativa: 'vigente' (Valor Contratual Vigente) ou 'executado' (Valor Pago).
    */
   metricType?: MetricType;
   /**
@@ -22,176 +44,182 @@ interface HeaderKpisProps {
 }
 
 /**
- * Componente de cabeçalho com os KPIs Superiores e o Indicador de Transparência Opaca de Salvador.
- *
- * @summary Exibe os cartões superiores dinâmicos de auditoria social e execução orçamentária.
- * @description Apresenta em blocos responsivos as métricas fundamentais de controle:
- * 1. Total Investido (recalculado conforme a métrica financeira ativa);
- * 2. Obras Ativas em relação ao total de contratos;
- * 3. Obras Críticas e Atrasadas (classificadas no Semáforo Vermelho);
- * 4. Aditivos de Preço (total financeiro em R$ e variação percentual média);
- * 5. Investimento Médio por Habitante de Salvador (base populacional Censo 2022);
- * 6. Indicador de Transparência Opaca: volume financeiro e percentual de contratos com Escopo Cidade (Não-Localizado).
- *
- * @param props - Propriedades contendo o objeto de KPIs, o ano de referência e a métrica ativa.
- * @returns Elemento JSX com a grade de cartões de indicadores.
- * @throws Não lança exceções.
+ * Cabeçalho compacto da comparação municipal de Salvador.
+ * Mantém escopo municipal constante mesmo quando um território específico está selecionado.
  */
-export const HeaderKpis: React.FC<HeaderKpisProps> = ({ kpis, metricType = "vigente", mandato }) => {
+export const HeaderKpis: React.FC<HeaderKpisProps> = ({
+  kpis,
+  activeLayer = "prefeituras",
+  territorioCount = 0,
+  valorAlocadoTerritorial,
+  valorAlocadoDisponivel = true,
+  totalObrasAlocadas,
+  generatedAt,
+  metricType = "executado",
+  mandato,
+}) => {
   const isVigente = metricType === "vigente";
-  const totalCriticas = kpis.totalCriticas ?? 0;
-  const percentualCriticas = kpis.percentualCriticas ?? 0;
-  const totalAditivos = kpis.totalAditivosValor ?? 0;
-  const percentualMedioAditivos = kpis.percentualMedioAditivos ?? 0;
+  const metricLabel = isVigente ? "Valor Contratual Vigente" : "Valor Pago";
   const totalNaoLocalizado = kpis.totalNaoLocalizado ?? 0;
-  const valorNaoLocalizado =
-    metricType === "vigente"
-      ? (kpis.valorNaoLocalizado ?? 0)
-      : (kpis.valorPagoNaoLocalizado ?? kpis.valorNaoLocalizado ?? 0);
+  const valorNaoLocalizado = isVigente
+    ? (kpis.valorNaoLocalizado ?? 0)
+    : hasNumericPayment(kpis.valorPagoNaoLocalizado)
+      ? kpis.valorPagoNaoLocalizado
+      : undefined;
   const percentualNaoLocalizado = kpis.percentualNaoLocalizado ?? 0;
 
-  const subtituloMandato =
+  const valorAlocadoExibido =
+    valorAlocadoTerritorial !== undefined ? valorAlocadoTerritorial : kpis.valorTotal;
+
+  const mandatoLabel =
     mandato && mandato !== "todos"
-      ? `Controle social da execução orçamentária no território de Salvador • Mandato Municipal ${mandato.replace("-", "–")}`
-      : `Controle social da execução orçamentária no território de Salvador • Todos os Mandatos Municipais (2021–2028)`;
+      ? `Mandato ${mandato.replace("-", "–")}`
+      : "Todos os mandatos (2021–2028)";
+
+  const dataAtualizacao = generatedAt ? formatDate(generatedAt) : null;
 
   return (
-    <header className="bg-slate-900 text-white shadow-md border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        {/* Título e Subtítulo Institucional */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between pb-3 border-b border-slate-800">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-              <span className="inline-block w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+    <header
+      data-testid="header-comparativo"
+      className="bg-slate-900 text-white shadow-sm border-b border-slate-800 shrink-0"
+    >
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-2.5">
+        {/* Linha 1: Título, indicação de acumulados, data de atualização e fontes */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1.5 pb-2 border-b border-slate-800">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+            <h1 className="text-base sm:text-lg font-bold tracking-tight text-white">
               Mapa das Obras e do Dinheiro por Bairro
             </h1>
-            <p data-testid="header-subtitulo" className="text-sm text-slate-400 mt-0.5">
-              {subtituloMandato}
-            </p>
+            <span
+              data-testid="header-subtitulo"
+              className="text-xs text-slate-300"
+            >
+              Salvador • {mandatoLabel}
+            </span>
           </div>
-          <div className="mt-3 md:mt-0 flex items-center gap-2 text-xs text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
-            <span>Fontes: Portal da Transparência • GeoSalvador • IBGE Censo 2022</span>
+
+          <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-300">
+            <span
+              data-testid="header-valores-acumulados"
+              className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-medium text-emerald-300"
+            >
+              Valores acumulados no acervo
+            </span>
+            {dataAtualizacao && (
+              <span
+                data-testid="header-atualizacao"
+                className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700"
+              >
+                Atualizado em {dataAtualizacao}
+              </span>
+            )}
+            <span className="hidden xl:inline text-slate-400">
+              Fontes: Portal da Transparência • GeoSalvador • IBGE Censo 2022
+            </span>
           </div>
         </div>
 
-        {/* Grade com os KPIs Superiores do Painel */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 mt-4">
-          {/* Card 1: Total Investido em Obras */}
-          <div className="bg-slate-800/90 rounded-xl p-3.5 border border-slate-700/80 shadow-sm flex flex-col justify-between">
-            <span className="text-[11px] font-medium uppercase tracking-wider text-slate-400">
-              Total Investido em Obras
+        {/* Linha 2: Resumo comparativo municipal compacto (invariante à seleção de território) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-2">
+          {/* 1. Quantidade de territórios comparados */}
+          <div className="bg-slate-800/90 rounded-lg px-3 py-2 border border-slate-700/80 flex flex-col justify-between">
+            <span className="text-[11px] font-medium text-slate-400">
+              Territórios na comparação
             </span>
-            <div className="mt-1.5">
+            <div className="mt-0.5 flex items-baseline gap-1.5">
               <span
-                data-testid="kpi-total-investido"
-                className="text-lg sm:text-xl font-extrabold text-white tracking-tight"
+                data-testid="kpi-territorios-comparados"
+                className="text-sm sm:text-base font-bold text-white tabular-nums"
               >
-                {formatCurrency(kpis.valorTotal)}
+                {formatNumber(territorioCount)}{" "}
+                {activeLayer === "prefeituras" ? "Prefeituras-Bairro" : "Bairros Oficiais"}
               </span>
-              <p className="text-[10px] text-emerald-400 mt-0.5">
-                {isVigente ? "Valor Contratual Vigente" : "Valor Executado / Pago"}
-              </p>
             </div>
           </div>
 
-          {/* Card 2: Obras Ativas / Totais */}
-          <div className="bg-slate-800/90 rounded-xl p-3.5 border border-slate-700/80 shadow-sm flex flex-col justify-between">
-            <span className="text-[11px] font-medium uppercase tracking-wider text-slate-400">
-              Obras Ativas / Totais
+          {/* 2. Valor territorialmente alocado da métrica ativa */}
+          <div className="bg-slate-800/90 rounded-lg px-3 py-2 border border-slate-700/80 flex flex-col justify-between">
+            <span className="text-[11px] font-medium text-slate-400">
+              {metricLabel} alocado nos territórios
             </span>
-            <div className="mt-1.5">
-              <span
-                data-testid="kpi-obras-ativas"
-                className="text-lg sm:text-xl font-extrabold text-sky-400 tracking-tight"
-              >
-                {formatNumber(kpis.totalAtivas)} / {formatNumber(kpis.totalObras)}
-              </span>
-              <p className="text-[10px] text-slate-400 mt-0.5">Contratos vigentes no exercício</p>
-            </div>
-          </div>
-
-          {/* Card 3: Obras Críticas / Atrasadas */}
-          <div className="bg-slate-800/90 rounded-xl p-3.5 border border-slate-700/80 shadow-sm flex flex-col justify-between">
-            <span className="text-[11px] font-medium uppercase tracking-wider text-rose-400 flex items-center justify-between">
-              <span>Obras Críticas</span>
-              <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-            </span>
-            <div className="mt-1.5">
-              <div className="flex items-baseline gap-1.5">
+            <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
+              {valorAlocadoDisponivel ? (
+                <MonetaryValue
+                  value={valorAlocadoExibido}
+                  compact
+                  tone="dark"
+                  testId="kpi-valor-alocado"
+                  className="text-sm sm:text-base font-extrabold text-emerald-400"
+                />
+              ) : (
                 <span
-                  data-testid="kpi-obras-criticas"
-                  className="text-lg sm:text-xl font-extrabold text-rose-400 tracking-tight"
+                  data-testid="kpi-valor-alocado"
+                  className="text-xs font-semibold text-amber-300"
                 >
-                  {formatNumber(totalCriticas)}
+                  Pagamento indisponível
                 </span>
-                <span className="text-xs font-semibold text-rose-300">
-                  ({percentualCriticas.toFixed(1).replace(".", ",")}%)
+              )}
+              {totalObrasAlocadas !== undefined && (
+                <span className="text-[11px] text-slate-400">
+                  ({formatNumber(totalObrasAlocadas)} obras localizadas)
                 </span>
-              </div>
-              <p className="text-[10px] text-slate-400 mt-0.5">Semáforo Vermelho (Risco)</p>
+              )}
             </div>
           </div>
 
-          {/* Card 4: Aditivos de Preço */}
-          <div className="bg-slate-800/90 rounded-xl p-3.5 border border-slate-700/80 shadow-sm flex flex-col justify-between">
-            <span className="text-[11px] font-medium uppercase tracking-wider text-amber-400">
-              Aditivos de Preço
-            </span>
-            <div className="mt-1.5">
-              <span
-                data-testid="kpi-aditivos-preco"
-                className="text-lg sm:text-xl font-extrabold text-amber-300 tracking-tight"
-              >
-                {formatCurrency(totalAditivos)}
-              </span>
-              <p className="text-[10px] text-slate-400 mt-0.5">
-                Acréscimo de {percentualMedioAditivos.toFixed(1).replace(".", ",")}%
-              </p>
-            </div>
-          </div>
-
-          {/* Card 5: Investimento Médio por Habitante */}
-          <div className="bg-slate-800/90 rounded-xl p-3.5 border border-slate-700/80 shadow-sm flex flex-col justify-between">
-            <span className="text-[11px] font-medium uppercase tracking-wider text-slate-400">
-              Investimento por Habitante
-            </span>
-            <div className="mt-1.5">
-              <span
-                data-testid="kpi-investimento-per-capita"
-                className="text-lg sm:text-xl font-extrabold text-emerald-400 tracking-tight"
-              >
-                {formatCurrency(kpis.investimentoPorHabitanteCidade)}
-              </span>
-              <p className="text-[10px] text-slate-400 mt-0.5">Média da cidade (Censo 2022)</p>
-            </div>
-          </div>
-
-          {/* Card 6: Transparência Opaca (Escopo Cidade / Não-Localizado) */}
+          {/* 3. Aviso sobre recursos sem localização (Escopo Cidade) */}
           <div
             data-testid="kpi-transparencia-opaca"
-            className="bg-slate-800/90 rounded-xl p-3.5 border border-purple-500/30 shadow-sm flex flex-col justify-between"
+            className="bg-slate-800/90 rounded-lg px-3 py-2 border border-purple-500/30 flex flex-col justify-between"
           >
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-medium uppercase tracking-wider text-purple-300">
-                Transparência Opaca
-              </span>
-              <span
-                className="w-2 h-2 rounded-full bg-purple-400"
-                title="Contratos em Escopo Cidade sem localização identificada"
-              ></span>
-            </div>
-            <div className="mt-1.5">
-              <div className="flex items-baseline gap-1.5">
+            <span className="text-[11px] font-medium text-purple-300">
+              Recursos sem localização (Escopo Cidade)
+            </span>
+            <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
+              {valorNaoLocalizado !== undefined ? (
+                <MonetaryValue
+                  value={valorNaoLocalizado}
+                  compact
+                  tone="dark"
+                  testId="kpi-valor-nao-localizado"
+                  className="text-sm sm:text-base font-extrabold text-purple-300"
+                />
+              ) : (
                 <span
                   data-testid="kpi-valor-nao-localizado"
-                  className="text-lg sm:text-xl font-extrabold text-purple-300 tracking-tight"
+                  className="text-xs font-semibold text-amber-300"
                 >
-                  {formatCurrency(valorNaoLocalizado)}
+                  Pagamento indisponível
                 </span>
-              </div>
-              <p className="text-[10px] text-purple-200 mt-0.5">
-                {percentualNaoLocalizado.toFixed(1).replace(".", ",")}% do total ({totalNaoLocalizado} contratos sem local)
-              </p>
+              )}
+              <span className="text-[11px] text-purple-200/90">
+                {formatNumber(totalNaoLocalizado)} contratos ({percentualNaoLocalizado.toFixed(1).replace(".", ",")}%)
+              </span>
+            </div>
+          </div>
+
+          {/* 4. Referência municipal por habitante (escopo toda a cidade) */}
+          <div className="bg-slate-800/90 rounded-lg px-3 py-2 border border-slate-700/80 flex flex-col justify-between">
+            <span className="text-[11px] font-medium text-slate-400">
+              Média alocada na cidade (Censo 2022)
+            </span>
+            <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
+              {valorAlocadoDisponivel ? (
+                <span
+                  data-testid="kpi-investimento-per-capita"
+                  className="text-sm sm:text-base font-bold text-sky-300 tabular-nums"
+                >
+                  {formatCurrency(kpis.investimentoPorHabitanteCidade)} / hab
+                </span>
+              ) : (
+                <span
+                  data-testid="kpi-investimento-per-capita"
+                  className="text-xs font-semibold text-amber-300"
+                >
+                  Pagamento indisponível
+                </span>
+              )}
+              <span className="text-[11px] text-slate-400">Escopo municipal</span>
             </div>
           </div>
         </div>

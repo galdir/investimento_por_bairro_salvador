@@ -239,66 +239,74 @@ describe("Filtro Multi-Seleção de Vocação da Obra", () => {
     expect(screen.queryByTestId("btn-limpar-filtros")).not.toBeInTheDocument();
 
     expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 3 de 3 obras");
-    expect(screen.getByTestId("kpi-obras-ativas")).toHaveTextContent("3 / 3");
-    expect(screen.getByTestId("kpi-total-investido")).toHaveTextContent("R$ 35.000.000");
+    expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("2 Prefeituras-Bairro");
+    expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute(
+      "aria-label",
+      expect.stringContaining("15.000.000")
+    );
   });
 
-  it("recalcula KPIs, Ranking Territorial, Raio-X e Tabela em tempo real ao desmarcar vocações e impede desmarcar a última ativa", async () => {
-    render(<App />);
+    it("recalcula KPIs, Lista Comparativa, Raio-X e Tabela em tempo real ao desmarcar vocações e impede desmarcar a última ativa", async () => {
+      render(<App />);
 
-    const chipViz = await screen.findByTestId("chip-vocacao-vizinhanca");
-    const chipMob = screen.getByTestId("chip-vocacao-mobilidade");
-    const chipEq = screen.getByTestId("chip-vocacao-equipamentos");
+      const chipViz = await screen.findByTestId("chip-vocacao-vizinhanca");
+      const chipMob = screen.getByTestId("chip-vocacao-mobilidade");
+      const chipEq = screen.getByTestId("chip-vocacao-equipamentos");
 
-    // Desmarca Equipamentos e Marcos da Cidade (fica Vizinhança + Mobilidade = R$ 15M, 2 obras)
-    fireEvent.click(chipEq);
-    expect(chipEq).toHaveAttribute("aria-pressed", "false");
-    expect(screen.getByTestId("btn-limpar-filtros")).toBeInTheDocument();
-    expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 2 de 3 obras");
-    expect(screen.getByTestId("kpi-obras-ativas")).toHaveTextContent("2 / 2");
-    expect(screen.getByTestId("kpi-total-investido")).toHaveTextContent("R$ 15.000.000");
+      // Desmarca Equipamentos e Marcos da Cidade (fica Vizinhança + Mobilidade = R$ 7M pagos, 2 obras)
+      fireEvent.click(chipEq);
+      expect(chipEq).toHaveAttribute("aria-pressed", "false");
+      expect(screen.getByTestId("btn-limpar-filtros")).toBeInTheDocument();
+      expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 2 de 3 obras");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute(
+        "aria-label",
+        expect.stringContaining("7.000.000")
+      );
 
-    // Desmarca Mobilidade Estrutural e Orlas (fica apenas Vizinhança = R$ 5M, 1 obra)
-    fireEvent.click(chipMob);
-    expect(chipMob).toHaveAttribute("aria-pressed", "false");
-    expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 1 de 3 obras");
-    expect(screen.getByTestId("kpi-total-investido")).toHaveTextContent("R$ 5.000.000");
+      // Desmarca Mobilidade Estrutural e Orlas (fica apenas Vizinhança = R$ 3M pagos, 1 obra)
+      fireEvent.click(chipMob);
+      expect(chipMob).toHaveAttribute("aria-pressed", "false");
+      expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 1 de 3 obras");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute(
+        "aria-label",
+        expect.stringContaining("3.000.000")
+      );
 
-    // Tenta desmarcar a última categoria ativa (Vizinhança) -> deve permanecer ativa
-    fireEvent.click(chipViz);
-    expect(chipViz).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 1 de 3 obras");
+      // Tenta desmarcar a última categoria ativa (Vizinhança) -> deve permanecer ativa
+      fireEvent.click(chipViz);
+      expect(chipViz).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 1 de 3 obras");
 
-    // Verifica Ranking Territorial recalculado (Pituba cai para R$ 0,00 porque só tinha Mobilidade e Equipamentos)
-    fireEvent.click(screen.getByTestId("tab-ranking"));
-    const pitubaItem = (await screen.findByText("Pituba")).closest("[data-testid^='ranking-bairro-']") as HTMLElement;
-    expect(pitubaItem).toHaveTextContent("0 obras");
+      // Alterna para Bairros Oficiais e verifica lista recalculada (Pituba cai para R$ 0 porque só tinha Mobilidade e Equipamentos)
+      fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+      const pitubaRow = await screen.findByTestId("comparison-row-pituba");
+      expect(pitubaRow).toHaveTextContent("0 obras");
 
-    // Seleciona Pituba para verificar Raio-X recalculado e depois restaura via Limpar Filtros
-    fireEvent.click(pitubaItem);
-    expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
-    expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 0");
+      // Seleciona Pituba para verificar Raio-X recalculado e depois restaura via Limpar Filtros
+      fireEvent.click(screen.getByTestId("comparison-select-pituba"));
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+      expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 0");
 
-    // Clica em Limpar Filtros -> restaura as 3 vocações
-    fireEvent.click(screen.getByTestId("btn-limpar-filtros"));
-    expect(chipViz).toHaveAttribute("aria-pressed", "true");
-    expect(chipMob).toHaveAttribute("aria-pressed", "true");
-    expect(chipEq).toHaveAttribute("aria-pressed", "true");
-    expect(screen.queryByTestId("btn-limpar-filtros")).not.toBeInTheDocument();
-  });
+      // Clica em Limpar Filtros -> restaura as 3 vocações
+      fireEvent.click(screen.getByTestId("btn-limpar-filtros"));
+      expect(chipViz).toHaveAttribute("aria-pressed", "true");
+      expect(chipMob).toHaveAttribute("aria-pressed", "true");
+      expect(chipEq).toHaveAttribute("aria-pressed", "true");
+      expect(screen.queryByTestId("btn-limpar-filtros")).not.toBeInTheDocument();
+    });
 
-  it("exibe selo de Vocação na Tabela de Obras e na Ficha Limpa da Obra", async () => {
-    render(<App />);
+    it("exibe selo de Vocação na Tabela de Obras e na Ficha Limpa da Obra", async () => {
+      render(<App />);
 
-    await screen.findByTestId("chip-vocacao-vizinhanca");
-    fireEvent.click(screen.getByTestId("tab-tabela"));
+      await screen.findByTestId("chip-vocacao-vizinhanca");
+      fireEvent.click(screen.getByTestId("tab-tabela"));
 
-    const row103 = await screen.findByTestId("linha-obra-103");
-    expect(row103).toHaveTextContent("Equipamentos e Marcos da Cidade");
+      const row103 = await screen.findByTestId("linha-obra-103");
+      expect(row103).toHaveTextContent("Equipamentos e Marcos da Cidade");
 
-    fireEvent.click(row103);
-    await waitFor(() => {
-      expect(screen.getByTestId("ficha-limpa-vocacao")).toHaveTextContent("Equipamentos e Marcos da Cidade");
+      fireEvent.click(row103);
+      await waitFor(() => {
+        expect(screen.getByTestId("ficha-limpa-vocacao")).toHaveTextContent("Equipamentos e Marcos da Cidade");
+      });
     });
   });
-});
