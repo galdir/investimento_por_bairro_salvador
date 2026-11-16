@@ -86,6 +86,10 @@ _Avoid_: Gasto médio por pessoa, renda per capita, cota por morador
 Métrica composta multidimensional (`0,00` a `1,00`) de carência de infraestrutura urbana e capital humano de cada Bairro Oficial residencial (e consolidada por média ponderada populacional para cada Prefeitura-Bairro), fundamentada no Índice de Desenvolvimento Social (IDS/IPP) e no Índice de Vulnerabilidade Social (IVS/IPEA) a partir dos agregados do Universo do Censo 2022 do IBGE (déficit de esgotamento sanitário adequado, déficit de abastecimento de água por rede geral e taxa de analfabetismo de 15 anos ou mais).
 _Avoid_: Índice de pobreza, nota social, estimativa manual
 
+**Comparação Territorial**:
+Leitura conjunta do Investimento por Habitante e do Índice de Vulnerabilidade do Bairro entre Bairros Oficiais ou entre Prefeituras-Bairro, para investigar a distribuição territorial dos recursos municipais. A associação observada não estabelece, por si só, a população beneficiada nem a suficiência dos investimentos.
+_Avoid_: Prova de abandono, índice de favorecimento
+
 **Ranking Territorial**:
 Ordenação comparativa de Bairros Oficiais ou de Prefeituras-Bairro segundo critérios de justiça distributiva e execução (Investimento por Habitante, Valor Total Alocado, Quantidade de Obras ou Índice de Vulnerabilidade), permitindo identificar tanto os territórios com maior concentração de recursos quanto os mais vulneráveis e desassistidos.
 _Avoid_: Top bairros, placar de obras, lista de prefeituras
