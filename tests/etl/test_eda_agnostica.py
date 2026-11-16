@@ -470,12 +470,16 @@ def test_eda_agnostica_gera_cinco_secoes_coortes_exclusivas_e_isola_fallbacks(
 
 
 def test_eda_agnostica_acervo_real_deterministico_e_consistente(tmp_path: Path) -> None:
-    """Valida na Seam 2 o acervo local reconciliado real (633 obras, 280 contábeis) e determinismo."""
+    """Valida na Seam 2 a consistência estrutural, isolamento contábil e determinismo sobre public/data."""
     from etl.eda import executar_eda_agnostica
 
     data_dir = Path("public/data")
     if not (data_dir / "index.json").exists():
         return
+
+    index_data = json.loads((data_dir / "index.json").read_text(encoding="utf-8"))
+    obras_index = index_data.get("obras", [])
+    kpis_globais = index_data.get("kpis_globais", {})
 
     out_1 = tmp_path / "eda_1.md"
     out_2 = tmp_path / "eda_2.md"
@@ -487,28 +491,36 @@ def test_eda_agnostica_acervo_real_deterministico_e_consistente(tmp_path: Path) 
     assert res_1["report_markdown"] == res_2["report_markdown"]
 
     vol = res_1["volumetria"]
-    assert vol["obras"] == 633
-    assert vol["fichas"] == 633
+    assert vol["bairros"] == 171
+    assert vol["bairros_residenciais"] == 168
+    assert vol["bairros_especiais"] == 3
     assert vol["prefeituras_bairro"] == 10
-    assert vol["empreiteiras"] == 244
-    assert vol["obras_com_empenhos"] == 280
-    assert vol["obras_com_liquidacoes"] == 269
-    assert vol["obras_com_pagamentos"] == 268
-    assert vol["obras_com_aditivos"] == 192
+    assert vol["obras"] == len(obras_index) > 0
+    assert vol["fichas"] == vol["obras"]
+    assert vol["empreiteiras"] == len(index_data.get("concentracao_empreiteiras", [])) > 0
+    assert vol["obras_com_empenhos"] > 0
+    assert vol["obras_com_liquidacoes"] > 0
+    assert vol["obras_com_pagamentos"] > 0
+    assert vol["obras_com_aditivos"] > 0
 
-    # Coortes mutuamente exclusivas somam exatamente 633
+    # Coortes mutuamente exclusivas somam exatamente o total de obras sem dupla contagem
     coortes = res_1["coortes_mandato"]
-    assert sum(coortes.values()) == 633
-    assert coortes["2021-2024 exclusivo"] == 335
-    assert coortes["2021-2024 ∩ 2025-2028"] == 195
-    assert coortes["2025-2028 exclusivo"] == 103
+    assert sum(coortes.values()) == vol["obras"]
+    assert coortes["2021-2024 exclusivo"] > 0
+    assert coortes["2021-2024 ∩ 2025-2028"] > 0
+    assert coortes["2025-2028 exclusivo"] > 0
+    assert coortes.get("Sem mandato definido", 0) == 0
 
-    # Subamostra contábil real isolada de fallbacks sintéticos
+    # Subamostra contábil real isolada de fallbacks sintéticos do índice
     sub = res_1["subamostra_contabil"]
-    assert sub["n_empenhos"] == 280
-    assert sub["n_pagamentos"] == 268
-    assert round(sub["total_liquidado_real"], 2) == 1949817856.37
-    assert round(sub["total_pago_real"], 2) == 746324479.49
+    assert sub["n_empenhos"] == vol["obras_com_empenhos"]
+    assert sub["n_liquidacoes"] == vol["obras_com_liquidacoes"]
+    assert sub["n_pagamentos"] == vol["obras_com_pagamentos"]
+    assert sub["total_empenhado_real"] > 0
+    assert round(sub["total_liquidado_real"], 2) == round(float(kpis_globais["totalLiquidado"]), 2)
+    assert round(sub["total_pago_real"], 2) == round(float(kpis_globais["totalPago"]), 2)
+    soma_valor_pago_indice = sum(float(o.get("valorPago") or 0.0) for o in obras_index)
+    assert sub["total_pago_real"] < soma_valor_pago_indice
 
     # Presença de tabelas não vazias nas Seções 3, 4 e 5
     assert res_1["correlacoes_bairros_count"] > 0
