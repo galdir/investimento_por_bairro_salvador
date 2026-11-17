@@ -103,7 +103,7 @@ export const MonetaryValue: React.FC<MonetaryValueProps> = ({
           role="status"
           data-testid={testId ? `${testId}-exato` : "valor-exato-popover"}
           onClick={(e) => e.stopPropagation()}
-          className={`absolute ${align === "right" ? "right-0" : "left-0"} top-full mt-1 z-30 whitespace-nowrap rounded-lg bg-slate-900 text-white border border-slate-700 px-2.5 py-1.5 text-xs font-semibold shadow-lg tabular-nums`}
+          className={`absolute ${align === "right" ? "right-0" : "left-0"} top-full mt-1 z-30 max-w-[min(22rem,calc(100vw-2rem))] whitespace-normal sm:whitespace-nowrap break-words rounded-lg bg-slate-900 text-white border border-slate-700 px-2.5 py-1.5 text-xs font-semibold shadow-lg tabular-nums`}
         >
           Valor exato: {exactText}
           {suffix}

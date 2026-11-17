@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, waitFor, act } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import L from "leaflet";
 import App, { buildDataUrl } from "../../src/App";
 import { SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM } from "../../src/components/InteractiveMap";
@@ -3370,6 +3370,386 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       });
 
       mapSpy.mockRestore();
+    });
+  });
+
+  describe("Ticket 05: Comparar territórios no celular", () => {
+    const originalInnerWidth = window.innerWidth;
+    const originalMatchMedia = window.matchMedia;
+
+    function mockMobileViewport(width: number = 360) {
+      Object.defineProperty(window, "innerWidth", {
+        configurable: true,
+        writable: true,
+        value: width,
+      });
+      Object.defineProperty(window, "matchMedia", {
+        configurable: true,
+        writable: true,
+        value: vi.fn((query: string) => ({
+          matches: query.includes("max-width: 767px") ? width < 768 : false,
+          media: query,
+          onchange: null,
+          addListener: vi.fn(),
+          removeListener: vi.fn(),
+          addEventListener: vi.fn(),
+          removeEventListener: vi.fn(),
+          dispatchEvent: vi.fn(),
+        })),
+      });
+    }
+
+    const mockMobileIndex = {
+      metadata: {
+        generatedAt: "2026-11-06T20:00:00Z",
+        anoReferencia: 2025,
+        mandatosDisponiveis: ["2025-2028", "2021-2024"],
+      },
+      kpis_globais: {
+        totalObras: 3,
+        valorTotal: 19000000.0,
+        totalAtivas: 3,
+        totalCriticas: 1,
+        percentualCriticas: 33.3,
+        totalAditivosValor: 0,
+        percentualMedioAditivos: 0,
+        totalEmpenhado: 15000000.0,
+        totalLiquidado: 10000000.0,
+        totalPago: 8000000.0,
+        investimentoPorHabitanteCidade: 40.0,
+        totalNaoLocalizado: 0,
+        valorNaoLocalizado: 0,
+        valorPagoNaoLocalizado: 0,
+        percentualNaoLocalizado: 0,
+      },
+      prefeituras_bairro: [
+        {
+          id: 1,
+          nome: "Barra/Pituba",
+          populacao_total: 50000,
+          indice_vulnerabilidade: 0.15,
+          valorTotal: 10000000,
+          valorPago: 6000000,
+          investimentoPorHabitante: 200,
+          investimentoPorHabitantePago: 120,
+          totalObras: 1,
+          obrasVerde: 1,
+          obrasAmarelo: 0,
+          obrasVermelho: 0,
+        },
+        {
+          id: 2,
+          nome: "Cabula/Tancredo Neves",
+          populacao_total: 50000,
+          indice_vulnerabilidade: 0.55,
+          valorTotal: 4000000,
+          valorPago: 0,
+          investimentoPorHabitante: 80,
+          investimentoPorHabitantePago: 0,
+          totalObras: 1,
+          obrasVerde: 0,
+          obrasAmarelo: 1,
+          obrasVermelho: 0,
+        },
+        {
+          id: 3,
+          nome: "Subúrbio/Ilhas",
+          populacao_total: 100000,
+          indice_vulnerabilidade: 0.85,
+          valorTotal: 5000000,
+          valorPago: 2000000,
+          investimentoPorHabitante: 50,
+          investimentoPorHabitantePago: 20,
+          totalObras: 1,
+          obrasVerde: 0,
+          obrasAmarelo: 0,
+          obrasVermelho: 1,
+        },
+      ],
+      bairros: [
+        {
+          id: 101,
+          nome: "Pituba",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.15,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 102,
+          nome: "Cabula",
+          prefeitura_bairro: "Cabula/Tancredo Neves",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.55,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 103,
+          nome: "Paripe",
+          prefeitura_bairro: "Subúrbio/Ilhas",
+          populacao: 100000,
+          indice_vulnerabilidade: 0.85,
+          is_zona_especial_nao_residencial: false,
+        },
+      ],
+      obras: [
+        {
+          id: 5001,
+          unidadeGestora: "SEINFRA",
+          numeroContrato: "501/2025",
+          objeto: "Requalificação da Orla da Pituba",
+          valorContratualVigente: 10000000,
+          valorPago: 6000000,
+          percentualExecutado: 60,
+          situacao: "Em Execução",
+          credor: "CONSÓRCIO ORLA",
+          tema: "Mobilidade, Pavimentação e Drenagem",
+          vocacao: "Mobilidade Estrutural e Orlas",
+          semaforo: { status: "VERDE", rotulo: "Verde (No Prazo)", motivos: [] },
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+        },
+        {
+          id: 5002,
+          unidadeGestora: "SMED",
+          numeroContrato: "502/2024",
+          objeto: "Reforma de Escola no Cabula",
+          valorContratualVigente: 4000000,
+          valorPago: null,
+          percentualExecutado: 15,
+          situacao: "Em Execução",
+          credor: "EDUCAÇÃO LTDA",
+          tema: "Educação e Escolas",
+          vocacao: "Vizinhança e Comunidade",
+          semaforo: { status: "AMARELO", rotulo: "Amarelo (Atenção)", motivos: [] },
+          mandatos: ["2021-2024", "2025-2028"],
+          nivel: "Bairro",
+          bairro: "Cabula",
+          prefeituraBairro: "Cabula/Tancredo Neves",
+        },
+        {
+          id: 5003,
+          unidadeGestora: "FME",
+          numeroContrato: "503/2025",
+          objeto: "Drenagem em Paripe",
+          valorContratualVigente: 5000000,
+          valorPago: 2000000,
+          percentualExecutado: 40,
+          situacao: "Paralisada",
+          credor: "SUBÚRBIO OBRAS",
+          tema: "Mobilidade, Pavimentação e Drenagem",
+          vocacao: "Vizinhança e Comunidade",
+          semaforo: { status: "VERMELHO", rotulo: "Vermelho (Crítica)", motivos: [] },
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Paripe",
+          prefeituraBairro: "Subúrbio/Ilhas",
+        },
+      ],
+    };
+
+    const mockMobileBairrosGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 101, nome: "Pituba", prefeitura_bairro: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.46, -13.0], [-38.45, -13.0], [-38.45, -12.99], [-38.46, -13.0]]] } },
+        { type: "Feature", properties: { id: 102, nome: "Cabula", prefeitura_bairro: "Cabula/Tancredo Neves" }, geometry: { type: "Polygon", coordinates: [[[-38.46, -12.96], [-38.45, -12.96], [-38.45, -12.95], [-38.46, -12.96]]] } },
+        { type: "Feature", properties: { id: 103, nome: "Paripe", prefeitura_bairro: "Subúrbio/Ilhas" }, geometry: { type: "Polygon", coordinates: [[[-38.48, -12.83], [-38.47, -12.83], [-38.47, -12.82], [-38.48, -12.83]]] } },
+      ],
+    };
+
+    const mockMobilePbGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 1, nome: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.52, -13.01], [-38.45, -13.01], [-38.45, -12.96], [-38.52, -13.01]]] } },
+        { type: "Feature", properties: { id: 2, nome: "Cabula/Tancredo Neves" }, geometry: { type: "Polygon", coordinates: [[[-38.47, -12.97], [-38.44, -12.97], [-38.44, -12.94], [-38.47, -12.97]]] } },
+        { type: "Feature", properties: { id: 3, nome: "Subúrbio/Ilhas" }, geometry: { type: "Polygon", coordinates: [[[-38.49, -12.85], [-38.46, -12.85], [-38.46, -12.82], [-38.49, -12.85]]] } },
+      ],
+    };
+
+    beforeEach(() => {
+      mockMobileViewport(360);
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((url: string) => {
+          if (url.includes("index_")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockMobileIndex) });
+          }
+          if (url.includes("bairros.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockMobileBairrosGeo) });
+          }
+          if (url.includes("prefeituras_bairro.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockMobilePbGeo) });
+          }
+          return Promise.reject(new Error("URL desconhecida: " + url));
+        })
+      );
+    });
+
+    afterEach(() => {
+      Object.defineProperty(window, "innerWidth", {
+        configurable: true,
+        writable: true,
+        value: originalInnerWidth,
+      });
+      Object.defineProperty(window, "matchMedia", {
+        configurable: true,
+        writable: true,
+        value: originalMatchMedia,
+      });
+    });
+
+    it("inicia em Lista no celular com alternância evidente Lista/Mapa e sem áreas ocultas focáveis ou nova consulta", async () => {
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      const fetchCountAfterLoad = (fetch as ReturnType<typeof vi.fn>).mock.calls.length;
+
+      // Alternância Lista/Mapa visível e acessível no celular, iniciando em Lista
+      const mobileToggle = screen.getByTestId("mobile-view-toggle");
+      expect(mobileToggle).toBeVisible();
+
+      const btnLista = screen.getByTestId("btn-mobile-visao-lista");
+      const btnMapa = screen.getByTestId("btn-mobile-visao-mapa");
+      expect(btnLista).toHaveAccessibleName(/Lista/i);
+      expect(btnMapa).toHaveAccessibleName(/Mapa/i);
+      expect(btnLista).toHaveAttribute("aria-pressed", "true");
+      expect(btnMapa).toHaveAttribute("aria-pressed", "false");
+
+      // Lista visível; painel do mapa escondido (não focável) na abertura móvel
+      expect(screen.getByTestId("comparison-list-container")).toBeVisible();
+      expect(screen.getByTestId("mobile-mapa-panel")).not.toBeVisible();
+      expect(screen.getByTestId("mobile-mapa-panel")).toHaveAttribute("hidden");
+
+      // Alterna para Mapa sem refazer consultas
+      fireEvent.click(btnMapa);
+      expect(btnLista).toHaveAttribute("aria-pressed", "false");
+      expect(btnMapa).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("mobile-mapa-panel")).toBeVisible();
+      expect(screen.getByTestId("mobile-lista-panel")).not.toBeVisible();
+      expect(screen.getByTestId("mobile-lista-panel")).toHaveAttribute("hidden");
+      expect((fetch as ReturnType<typeof vi.fn>).mock.calls.length).toBe(fetchCountAfterLoad);
+    });
+
+    it("preserva ordenação, filtros, busca, seleção sincronizada e posição de leitura na troca Lista ↔ Mapa, e expõe valor exato por toque e teclado", async () => {
+      const invalidateSizeSpy = vi.spyOn(L.Map.prototype, "invalidateSize");
+      const fitBoundsSpy = vi.spyOn(L.Map.prototype, "fitBounds");
+      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+      let currentScrollY = 0;
+      Object.defineProperty(window, "scrollY", {
+        configurable: true,
+        get: () => currentScrollY,
+      });
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      const fetchCountAfterLoad = (fetch as ReturnType<typeof vi.fn>).mock.calls.length;
+
+      // 1. Altera controles na Lista no celular: inversão, métrica vigente, mandato 2025-2028 e busca territorial
+      fireEvent.click(screen.getByTestId("btn-inverter-ordenacao"));
+      expect(screen.getByTestId("btn-inverter-ordenacao")).toHaveAttribute("aria-pressed", "true");
+
+      fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+      expect(screen.getByTestId("btn-metrica-vigente")).toHaveAttribute("aria-pressed", "true");
+
+      fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2025-2028" } });
+
+      fireEvent.change(screen.getByTestId("busca-territorio"), { target: { value: "suburbio" } });
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toBeInTheDocument();
+      expect(screen.queryByTestId("comparison-row-barra-pituba")).not.toBeInTheDocument();
+
+      // Seleciona Subúrbio/Ilhas na Lista e verifica resumo adaptado sem terceira coluna + atalho de resumo + valor exato acessível
+      fireEvent.click(screen.getByTestId("comparison-select-suburbio-ilhas"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Subúrbio/Ilhas");
+      });
+      expect(screen.getByTestId("btn-ir-resumo-territorio")).toBeVisible();
+      expect(screen.getByTestId("raio-x-total-investido")).toHaveAccessibleName(/5\.000\.000/);
+
+      // Toque/teclado no valor compacto exibe valor exato e Escape fecha
+      const kpiValorAlocado = screen.getByTestId("kpi-valor-alocado");
+      kpiValorAlocado.focus();
+      expect(kpiValorAlocado).toHaveFocus();
+      fireEvent.click(kpiValorAlocado);
+      expect(screen.getByTestId("kpi-valor-alocado-exato")).toBeVisible();
+      expect(screen.getByTestId("kpi-valor-alocado-exato")).toHaveTextContent("19.000.000");
+      fireEvent.keyDown(window, { key: "Escape" });
+      expect(screen.queryByTestId("kpi-valor-alocado-exato")).not.toBeInTheDocument();
+
+      // Simula posição de leitura rolada na Lista antes de alternar para o Mapa por teclado/clique
+      currentScrollY = 420;
+      invalidateSizeSpy.mockClear();
+      fitBoundsSpy.mockClear();
+      scrollToSpy.mockClear();
+
+      // 2. Alterna Lista -> Mapa: preserva controles, busca, seleção e reenquadra o mapa recém-visível
+      const btnMapa = screen.getByTestId("btn-mobile-visao-mapa");
+      btnMapa.focus();
+      expect(btnMapa).toHaveFocus();
+      fireEvent.click(btnMapa);
+
+      expect(screen.getByTestId("mobile-mapa-panel")).toBeVisible();
+      expect(screen.getByTestId("mobile-lista-panel")).not.toBeVisible();
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Subúrbio/Ilhas");
+      expect(screen.getByTestId("mapa-destaque-busca")).toHaveTextContent(/Subúrbio\/Ilhas/i);
+      expect(screen.getByTestId("territory-selector-suburbio-ilhas")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Valor Contratual Vigente (R$/hab)");
+      expect(invalidateSizeSpy).toHaveBeenCalled();
+      expect(fitBoundsSpy).toHaveBeenCalled();
+      expect((fetch as ReturnType<typeof vi.fn>).mock.calls.length).toBe(fetchCountAfterLoad);
+
+      // 3. Retorna Mapa -> Lista sem mudar seleção: restaura posição de leitura, busca e estado integral
+      currentScrollY = 0;
+      scrollToSpy.mockClear();
+      fireEvent.click(screen.getByTestId("btn-mobile-visao-lista"));
+
+      expect(screen.getByTestId("mobile-lista-panel")).toBeVisible();
+      expect(screen.getByTestId("btn-inverter-ordenacao")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("btn-metrica-vigente")).toHaveAttribute("aria-pressed", "true");
+      expect((screen.getByTestId("filtro-mandato") as HTMLSelectElement).value).toBe("2025-2028");
+      expect((screen.getByTestId("busca-territorio") as HTMLInputElement).value).toBe("suburbio");
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveAttribute("data-selected", "true");
+      expect(screen.getByTestId("comparison-valor-suburbio-ilhas")).toHaveTextContent("R$ 50 / hab");
+      expect(scrollToSpy).toHaveBeenCalledWith(expect.objectContaining({ top: 420 }));
+      expect((fetch as ReturnType<typeof vi.fn>).mock.calls.length).toBe(fetchCountAfterLoad);
+
+      // Voltar ao Mapa sem alterar seleção/camada não re-executa fitBounds (preserva pan/zoom manual)
+      fitBoundsSpy.mockClear();
+      fireEvent.click(screen.getByTestId("btn-mobile-visao-mapa"));
+      expect(fitBoundsSpy).not.toHaveBeenCalled();
+
+      // Limpa busca para restaurar os chips e seleciona Barra/Pituba no Mapa -> sincroniza com Lista
+      fireEvent.click(screen.getByTestId("btn-mobile-visao-lista"));
+      fireEvent.click(screen.getByTestId("btn-limpar-busca-territorio"));
+      expect(screen.getByTestId("comparison-row-barra-pituba")).toBeInTheDocument();
+
+      // 4. Seleção feita no Mapa sincroniza com Lista e resumo
+      fireEvent.click(screen.getByTestId("btn-mobile-visao-mapa"));
+      fireEvent.click(screen.getByTestId("territory-selector-barra-pituba"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      });
+
+      const scrollIntoViewMock = vi.fn();
+      const barraRow = screen.getByTestId("comparison-row-barra-pituba");
+      barraRow.scrollIntoView = scrollIntoViewMock;
+
+      fireEvent.click(screen.getByTestId("btn-mobile-visao-lista"));
+      expect(barraRow).toHaveAttribute("data-selected", "true");
+      expect(screen.getByTestId("comparison-selected-badge-barra-pituba")).toBeVisible();
+      expect(scrollIntoViewMock).toHaveBeenCalled();
+
+      invalidateSizeSpy.mockRestore();
+      fitBoundsSpy.mockRestore();
+      scrollToSpy.mockRestore();
     });
   });
 });

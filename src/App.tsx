@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { FichaLimpaModal } from "./components/FichaLimpaModal";
 import { HeaderKpis } from "./components/HeaderKpis";
 import { InteractiveMap } from "./components/InteractiveMap";
@@ -89,6 +89,24 @@ export function buildDataUrl(
  * @returns Elemento JSX com a estrutura completa da aplicação.
  * @throws Não lança exceções; captura falhas de rede de forma amigável.
  */
+const MOBILE_MEDIA_QUERY = "(max-width: 767px)";
+
+function getMobileMediaQueryList(): MediaQueryList | null {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return null;
+  }
+  return window.matchMedia(MOBILE_MEDIA_QUERY);
+}
+
+function checkIsMobileViewport(): boolean {
+  if (typeof window === "undefined") return false;
+  const mql = getMobileMediaQueryList();
+  if (mql && typeof mql.matches === "boolean") {
+    return mql.matches;
+  }
+  return window.innerWidth < 768;
+}
+
 export const App: React.FC = () => {
   const [indexData, setIndexData] = useState<IndexData | null>(null);
   const [bairrosGeo, setBairrosGeo] = useState<any>(null);
@@ -99,11 +117,76 @@ export const App: React.FC = () => {
   const [loadingFicha, setLoadingFicha] = useState<boolean>(false);
   const [showNotaMetodologica, setShowNotaMetodologica] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"comparacao" | "tabela">("comparacao");
+  const [isMobileViewport, setIsMobileViewport] = useState<boolean>(() => checkIsMobileViewport());
+  const [mobileView, setMobileView] = useState<"lista" | "mapa">("lista");
+  const mobileToggleRef = useRef<HTMLDivElement>(null);
+  const mobileListaScrollYRef = useRef<number>(0);
+  const mobileSelectionChangedInMapRef = useRef<boolean>(false);
+  const pendingRestoreMobileScrollRef = useRef<boolean>(false);
+  const pendingFocusMobileMapRef = useRef<boolean>(false);
   const [sortDirection, setSortDirection] = useState<VulnerabilitySortDirection>("asc");
   const [territorySearch, setTerritorySearch] = useState<string>("");
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const updateViewport = () => setIsMobileViewport(checkIsMobileViewport());
+    updateViewport();
+
+    const mql = getMobileMediaQueryList();
+    if (mql && typeof mql.addEventListener === "function") {
+      mql.addEventListener("change", updateViewport);
+    }
+    window.addEventListener("resize", updateViewport);
+
+    return () => {
+      if (mql && typeof mql.removeEventListener === "function") {
+        mql.removeEventListener("change", updateViewport);
+      }
+      window.removeEventListener("resize", updateViewport);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileViewport) return;
+
+    if (mobileView === "lista" && pendingRestoreMobileScrollRef.current) {
+      pendingRestoreMobileScrollRef.current = false;
+      if (!mobileSelectionChangedInMapRef.current) {
+        window.scrollTo({ top: mobileListaScrollYRef.current, behavior: "auto" });
+      }
+      mobileSelectionChangedInMapRef.current = false;
+    } else if (mobileView === "mapa" && pendingFocusMobileMapRef.current) {
+      pendingFocusMobileMapRef.current = false;
+      const toggleEl = mobileToggleRef.current;
+      if (toggleEl && typeof toggleEl.getBoundingClientRect === "function") {
+        const rect = toggleEl.getBoundingClientRect();
+        if (rect.top < 0 && typeof toggleEl.scrollIntoView === "function") {
+          toggleEl.scrollIntoView({ block: "start", behavior: "auto" });
+        }
+      }
+    }
+  }, [isMobileViewport, mobileView]);
+
+  const handleMobileViewChange = (nextView: "lista" | "mapa") => {
+    if (nextView === mobileView) return;
+    if (mobileView === "lista" && nextView === "mapa") {
+      mobileListaScrollYRef.current = window.scrollY || 0;
+      mobileSelectionChangedInMapRef.current = false;
+      pendingFocusMobileMapRef.current = true;
+    } else if (mobileView === "mapa" && nextView === "lista") {
+      pendingRestoreMobileScrollRef.current = true;
+    }
+    setMobileView(nextView);
+  };
+
+  const handleSelectTerritoryFromMap = (territorio: TerritorySelection) => {
+    if (isMobileViewport && mobileView === "mapa") {
+      mobileSelectionChangedInMapRef.current = true;
+    }
+    setSelectedTerritory(territorio);
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -658,29 +741,48 @@ export const App: React.FC = () => {
               <strong>{activeSelectedTerritory.nome}</strong> (
               {activeSelectedTerritory.tipo === "bairro" ? "Bairro Oficial" : "Prefeitura-Bairro"})
               {activeTab === "comparacao"
-                ? " — comparação municipal preservada; resumo abaixo do mapa"
+                ? isMobileViewport && mobileView === "lista"
+                  ? " — comparação municipal preservada; resumo abaixo da lista"
+                  : " — comparação municipal preservada; resumo abaixo do mapa"
                 : " — exibindo apenas obras deste território"}
             </span>
           </div>
-          <button
-            type="button"
-            data-testid="btn-limpar-filtro-territorial"
-            onClick={() => setSelectedTerritory(null)}
-            className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 underline"
-          >
-            Limpar seleção
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            {activeTab === "comparacao" && isMobileViewport && mobileView === "lista" && (
+              <button
+                type="button"
+                data-testid="btn-ir-resumo-territorio"
+                onClick={() => {
+                  const el = document.querySelector('[data-testid="raio-x-container"]');
+                  if (el && typeof el.scrollIntoView === "function") {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }}
+                className="text-xs font-semibold text-emerald-900 hover:text-emerald-950 underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+              >
+                Ver resumo
+              </button>
+            )}
+            <button
+              type="button"
+              data-testid="btn-limpar-filtro-territorial"
+              onClick={() => setSelectedTerritory(null)}
+              className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            >
+              Limpar seleção
+            </button>
+          </div>
         </div>
       )}
 
       {/* 3. Seletor de Visão: Comparação Territorial vs Tabela de Obras */}
-      <div className="bg-slate-100 border-b border-slate-200 px-4 sm:px-6 py-2 flex items-center justify-between">
+      <div className="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between">
         <div className="flex items-center gap-1 bg-white p-1 rounded-lg border border-slate-200 shadow-sm">
           <button
             type="button"
             data-testid="tab-comparacao"
             onClick={() => setActiveTab("comparacao")}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
               activeTab === "comparacao"
                 ? "bg-slate-900 text-white shadow-sm"
                 : "text-slate-600 hover:text-slate-900"
@@ -692,7 +794,7 @@ export const App: React.FC = () => {
             type="button"
             data-testid="tab-tabela"
             onClick={() => setActiveTab("tabela")}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
               activeTab === "tabela"
                 ? "bg-slate-900 text-white shadow-sm"
                 : "text-slate-600 hover:text-slate-900"
@@ -713,60 +815,116 @@ export const App: React.FC = () => {
       {/* 4. Área Central de Visualização */}
       <main className="flex-1">
         {activeTab === "comparacao" && (
-          <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row items-start gap-4">
-            {/* Esquerda (~45%): Lista de Comparação Territorial ordenada por vulnerabilidade */}
-            <div className="w-full md:w-[45%] min-w-0 md:h-[calc(100vh-14rem)] md:min-h-[480px] md:max-h-[760px]">
-              <TerritoryComparisonList
-                activeLayer={activeLayer}
-                prefeituras={recalculatedPrefeituras}
-                bairros={recalculatedBairros}
-                metricType={filters.metricType}
-                sortDirection={sortDirection}
-                onToggleSortDirection={() =>
-                  setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"))
-                }
-                territorySearch={territorySearch}
-                onTerritorySearchChange={setTerritorySearch}
-                hasEmptyContractFilter={isContractFiltered && topFilteredObras.length === 0}
-                onClearContractFilters={handleClearContractFilters}
-                selectedTerritory={activeSelectedTerritory}
-                onSelectTerritory={setSelectedTerritory}
-                onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
-              />
-            </div>
+          <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 py-3 md:py-4 flex flex-col gap-3 md:gap-4">
+            {/* Alternância evidente Lista/Mapa no celular */}
+            {isMobileViewport && (
+              <div
+                ref={mobileToggleRef}
+                data-testid="mobile-view-toggle"
+                role="group"
+                aria-label="Alternar visualização entre Lista e Mapa no celular"
+                className="md:hidden grid grid-cols-2 gap-1.5 bg-slate-200/80 p-1 rounded-xl border border-slate-300 shadow-sm"
+              >
+                <button
+                  type="button"
+                  data-testid="btn-mobile-visao-lista"
+                  aria-pressed={mobileView === "lista"}
+                  onClick={() => handleMobileViewChange("lista")}
+                  className={`min-h-[40px] px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
+                    mobileView === "lista"
+                      ? "bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
+                      : "bg-white/70 text-slate-700 hover:bg-white"
+                  }`}
+                >
+                  <span aria-hidden="true">{mobileView === "lista" ? "✓" : "☰"}</span>
+                  <span>Lista</span>
+                </button>
+                <button
+                  type="button"
+                  data-testid="btn-mobile-visao-mapa"
+                  aria-pressed={mobileView === "mapa"}
+                  onClick={() => handleMobileViewChange("mapa")}
+                  className={`min-h-[40px] px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
+                    mobileView === "mapa"
+                      ? "bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
+                      : "bg-white/70 text-slate-700 hover:bg-white"
+                  }`}
+                >
+                  <span aria-hidden="true">{mobileView === "mapa" ? "✓" : "🗺"}</span>
+                  <span>Mapa</span>
+                </button>
+              </div>
+            )}
 
-            {/* Direita (~55%): Mapa ao lado e Resumo do selecionado abaixo do mapa */}
-            <div className="w-full md:w-[55%] min-w-0 flex flex-col gap-3">
-              <div className="h-[440px] sm:h-[480px] lg:h-[520px] min-w-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm flex flex-col">
-                <InteractiveMap
+            <div className="flex flex-col md:flex-row items-start gap-4">
+              {/* Esquerda (~45%): Lista de Comparação Territorial ordenada por vulnerabilidade */}
+              <div
+                data-testid="mobile-lista-panel"
+                hidden={isMobileViewport && mobileView !== "lista"}
+                className={`w-full md:w-[45%] min-w-0 md:h-[calc(100vh-14rem)] md:min-h-[480px] md:max-h-[760px] ${
+                  isMobileViewport && mobileView !== "lista" ? "hidden md:block" : ""
+                }`}
+              >
+                <TerritoryComparisonList
                   activeLayer={activeLayer}
-                  onToggleLayer={handleToggleLayer}
-                  bairros={recalculatedBairros}
                   prefeituras={recalculatedPrefeituras}
-                  bairrosGeoJson={bairrosGeo}
-                  prefeiturasGeoJson={prefeiturasGeo}
-                  obras={filteredObras}
+                  bairros={recalculatedBairros}
+                  metricType={filters.metricType}
+                  sortDirection={sortDirection}
+                  onToggleSortDirection={() =>
+                    setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"))
+                  }
+                  territorySearch={territorySearch}
+                  onTerritorySearchChange={setTerritorySearch}
+                  hasEmptyContractFilter={isContractFiltered && topFilteredObras.length === 0}
+                  onClearContractFilters={handleClearContractFilters}
                   selectedTerritory={activeSelectedTerritory}
                   onSelectTerritory={setSelectedTerritory}
-                  onSelectObra={handleSelectObra}
-                  metricType={filters.metricType}
-                  territorySearch={territorySearch}
                   onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+                  isVisible={!isMobileViewport || mobileView === "lista"}
                 />
               </div>
 
-              {activeSelectedTerritory && (
-                <TerritorySidebar
-                  territorio={activeSelectedTerritory}
-                  onClear={() => setSelectedTerritory(null)}
-                  onViewWorksInTable={() => setActiveTab("tabela")}
-                  metricType={filters.metricType}
-                  onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
-                  obras={topFilteredObras}
-                  onSelectObra={handleSelectObra}
-                  onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
-                />
-              )}
+              {/* Direita (~55%): Mapa ao lado e Resumo do selecionado abaixo do mapa */}
+              <div className="w-full md:w-[55%] min-w-0 flex flex-col gap-3">
+                <div
+                  data-testid="mobile-mapa-panel"
+                  hidden={isMobileViewport && mobileView !== "mapa"}
+                  className={`sm:h-[480px] lg:h-[520px] min-w-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm flex flex-col ${
+                    isMobileViewport && mobileView !== "mapa" ? "hidden md:flex" : ""
+                  }`}
+                >
+                  <InteractiveMap
+                    activeLayer={activeLayer}
+                    onToggleLayer={handleToggleLayer}
+                    bairros={recalculatedBairros}
+                    prefeituras={recalculatedPrefeituras}
+                    bairrosGeoJson={bairrosGeo}
+                    prefeiturasGeoJson={prefeiturasGeo}
+                    obras={filteredObras}
+                    selectedTerritory={activeSelectedTerritory}
+                    onSelectTerritory={handleSelectTerritoryFromMap}
+                    onSelectObra={handleSelectObra}
+                    metricType={filters.metricType}
+                    territorySearch={territorySearch}
+                    onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+                    isVisible={!isMobileViewport || mobileView === "mapa"}
+                  />
+                </div>
+
+                {activeSelectedTerritory && (
+                  <TerritorySidebar
+                    territorio={activeSelectedTerritory}
+                    onClear={() => setSelectedTerritory(null)}
+                    onViewWorksInTable={() => setActiveTab("tabela")}
+                    metricType={filters.metricType}
+                    onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+                    obras={topFilteredObras}
+                    onSelectObra={handleSelectObra}
+                    onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
+                  />
+                )}
+              </div>
             </div>
           </div>
         )}

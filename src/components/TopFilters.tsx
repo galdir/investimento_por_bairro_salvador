@@ -61,7 +61,7 @@ function SegmentedToggle<T extends string>({
         data-testid={groupTestId}
         role="group"
         aria-label={groupAriaLabel}
-        className="inline-flex rounded-lg p-0.5 bg-slate-100 border border-slate-200"
+        className="inline-flex flex-wrap max-w-full rounded-lg p-0.5 bg-slate-100 border border-slate-200"
       >
         {options.map((option) => {
           const isActive = value === option.value;
@@ -72,7 +72,7 @@ function SegmentedToggle<T extends string>({
               data-testid={option.testId}
               aria-pressed={isActive}
               onClick={() => onChange(option.value)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
+              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
                 isActive ? activeClass : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -252,12 +252,12 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
   return (
     <section
       aria-label="Filtros superiores de auditoria de obras"
-      className="bg-white border-b border-slate-200 px-4 sm:px-6 py-2.5 shadow-sm shrink-0"
+      className="bg-white border-b border-slate-200 px-3 sm:px-6 py-2 sm:py-2.5 shadow-sm shrink-0"
     >
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-2">
+        <div className="max-w-[1440px] mx-auto flex flex-col gap-1.5 sm:gap-2">
           {/* Linha 1 (sempre visível): Recorte, Métrica Financeira, Mandato Municipal e Mais filtros */}
-          <div className="flex flex-wrap items-center justify-between gap-2.5">
-            <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-2.5">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               {activeLayer && onToggleLayer && (
                 <SegmentedToggle
                   label="Recorte"

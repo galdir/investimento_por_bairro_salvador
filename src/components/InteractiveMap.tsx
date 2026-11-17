@@ -106,6 +106,58 @@ interface InteractiveMapProps {
   metricType?: MetricType;
   territorySearch?: string;
   onOpenNotaMetodologica?: () => void;
+  isVisible?: boolean;
+}
+
+function focusSelectedLayerAndGetBounds(
+  geoLayer: L.GeoJSON | null,
+  selectedTerritory: TerritorySelection | null
+): L.LatLngBounds | null {
+  if (!geoLayer || !selectedTerritory) return null;
+  const selectedKey = normalizeName(selectedTerritory.nome);
+  let foundBounds: L.LatLngBounds | null = null;
+
+  geoLayer.eachLayer((featureLayer: any) => {
+    const featureProps = featureLayer.feature?.properties || {};
+    const itemNome =
+      featureProps.nome || featureProps.NM_BAIRRO || featureProps.NM_PREFEITURA_BAIRRO || "";
+    if (normalizeName(itemNome) === selectedKey) {
+      try {
+        featureLayer.bringToFront?.();
+      } catch { }
+      if (typeof featureLayer.getBounds === "function") {
+        try {
+          const bounds = featureLayer.getBounds();
+          if (bounds && (bounds as L.LatLngBounds).isValid()) {
+            if (!foundBounds) {
+              foundBounds = bounds;
+            } else {
+              foundBounds.extend(bounds);
+            }
+          }
+        } catch { }
+      }
+    }
+  });
+
+  return foundBounds;
+}
+
+function frameMapViewport(
+  map: L.Map,
+  geoLayer: L.GeoJSON | null,
+  selectedTerritory: TerritorySelection | null
+): void {
+  if (selectedTerritory) {
+    const foundBounds = focusSelectedLayerAndGetBounds(geoLayer, selectedTerritory);
+    if (foundBounds && foundBounds.isValid()) {
+      try {
+        map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
+        return;
+      } catch { }
+    }
+  }
+  recenterMap(map);
 }
 
 export function normalizeTestId(nome: string): string {
@@ -222,6 +274,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   metricType = "vigente",
   territorySearch = "",
   onOpenNotaMetodologica,
+  isVisible = true,
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
@@ -231,6 +284,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   selectedTerritoryRef.current = selectedTerritory;
   const prevLayerRef = useRef<"bairros" | "prefeituras" | null>(null);
   const prevSelectedRef = useRef<TerritorySelection | null>(null);
+  const prevVisibleRef = useRef<boolean>(isVisible);
+  const isVisibleRef = useRef<boolean>(isVisible);
+  isVisibleRef.current = isVisible;
+  const needsViewportSyncWhenVisibleRef = useRef<boolean>(!isVisible);
 
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
   const [showPins, setShowPins] = useState<boolean>(false);
@@ -308,6 +365,25 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       ro.disconnect();
     };
   }, []);
+
+  // Ao tornar o mapa visível (ex: alternância Lista -> Mapa no celular), recalcula tamanho
+  // e só reenquadra se a seleção/camada ainda não tiver sido enquadrada visivelmente (preservando pan/zoom manual)
+  useEffect(() => {
+    const becameVisible = isVisible && !prevVisibleRef.current;
+    prevVisibleRef.current = isVisible;
+    if (!becameVisible) return;
+
+    const map = leafletMapRef.current;
+    if (!map) return;
+
+    try {
+      map.invalidateSize({ pan: false });
+      if (needsViewportSyncWhenVisibleRef.current) {
+        needsViewportSyncWhenVisibleRef.current = false;
+        frameMapViewport(map, geoJsonLayerRef.current, selectedTerritoryRef.current);
+      }
+    } catch { }
+  }, [isVisible]);
 
   // Mapas indexados por nome normalizado para lookup dinâmico do recálculo territorial
   const currentBairroMap = useMemo(() => {
@@ -580,53 +656,42 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       geoJsonLayerRef.current = layer;
 
       if (hasSearch || selectedTerritory) {
-        const selectedKey = selectedTerritory ? normalizeName(selectedTerritory.nome) : null;
-        let foundBounds: L.LatLngBounds | null = null;
-        layer.eachLayer((featureLayer: any) => {
-          const featureProps = featureLayer.feature?.properties || {};
-          const itemNome =
-            featureProps.nome || featureProps.NM_BAIRRO || featureProps.NM_PREFEITURA_BAIRRO || "";
-          const lookupKey = normalizeName(itemNome);
-          const dynamicBairro = activeLayer === "bairros" ? currentBairroMap.get(lookupKey) : undefined;
-          const dynamicPrefeitura =
-            activeLayer === "prefeituras" ? currentPrefeituraMap.get(lookupKey) : undefined;
+        if (hasSearch) {
+          layer.eachLayer((featureLayer: any) => {
+            const featureProps = featureLayer.feature?.properties || {};
+            const itemNome =
+              featureProps.nome || featureProps.NM_BAIRRO || featureProps.NM_PREFEITURA_BAIRRO || "";
+            const lookupKey = normalizeName(itemNome);
+            const dynamicBairro = activeLayer === "bairros" ? currentBairroMap.get(lookupKey) : undefined;
+            const dynamicPrefeitura =
+              activeLayer === "prefeituras" ? currentPrefeituraMap.get(lookupKey) : undefined;
 
-          if (isFeatureSearchMatch(lookupKey, dynamicBairro, dynamicPrefeitura)) {
-            try {
-              featureLayer.bringToFront?.();
-            } catch { }
-          }
-
-          if (selectedKey && lookupKey === selectedKey) {
-            try {
-              featureLayer.bringToFront?.();
-            } catch { }
-            if ((selectionChanged || layerChanged) && typeof featureLayer.getBounds === "function") {
+            if (isFeatureSearchMatch(lookupKey, dynamicBairro, dynamicPrefeitura)) {
               try {
-                const bounds = featureLayer.getBounds();
-                if (bounds && (bounds as L.LatLngBounds).isValid()) {
-                  if (!foundBounds) {
-                    foundBounds = bounds;
-                  } else {
-                    foundBounds.extend(bounds);
-                  }
-                }
+                featureLayer.bringToFront?.();
               } catch { }
             }
-          }
-        });
+          });
+        }
 
-        if (selectedTerritory && (selectionChanged || layerChanged)) {
-          if (foundBounds && (foundBounds as L.LatLngBounds).isValid()) {
-            try {
-              map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
-            } catch { }
+        if (selectedTerritory) {
+          if (selectionChanged || layerChanged) {
+            if (!isVisibleRef.current) {
+              focusSelectedLayerAndGetBounds(layer, selectedTerritory);
+              needsViewportSyncWhenVisibleRef.current = true;
+            } else {
+              frameMapViewport(map, layer, selectedTerritory);
+            }
           } else {
-            recenterMap(map);
+            focusSelectedLayerAndGetBounds(layer, selectedTerritory);
           }
         }
       } else if (layerChanged || selectionCleared) {
-        recenterMap(map);
+        if (!isVisibleRef.current) {
+          needsViewportSyncWhenVisibleRef.current = true;
+        } else {
+          recenterMap(map);
+        }
       }
     } catch { }
   }, [
@@ -786,13 +851,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
   return (
       <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
-        {/* Área do Mapa com controles e legenda flutuantes sem sobrepor a barra inferior */}
-        <div className="relative flex-1 min-w-0 overflow-hidden min-h-[390px] w-full">
+        {/* Área do Mapa: no celular (<sm), controles acima e legenda abaixo evitam cobrir o mapa e os botões de zoom */}
+        <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col sm:block sm:min-h-[390px] w-full">
         {/* Controles Superiores do Mapa */}
-        <div className="absolute top-2.5 left-2.5 right-2.5 z-[400] pointer-events-none flex flex-wrap items-center gap-1.5">
-        <div className="pointer-events-auto bg-white/95 backdrop-blur-sm p-1.5 rounded-xl shadow-md border border-slate-200/80 flex flex-wrap items-center gap-1.5 max-w-full">
+        <div className="p-2 bg-slate-50 border-b border-slate-200 sm:p-0 sm:bg-transparent sm:border-b-0 sm:absolute sm:top-2.5 sm:left-2.5 sm:right-2.5 z-[400] sm:pointer-events-none flex flex-wrap items-center gap-1.5">
+        <div className="pointer-events-auto sm:bg-white/95 sm:backdrop-blur-sm sm:p-1.5 sm:rounded-xl sm:shadow-md sm:border sm:border-slate-200/80 flex flex-wrap items-center gap-1.5 max-w-full">
           {/* Divisão Territorial */}
-          <div className="flex bg-slate-100 p-1 rounded-lg" role="group" aria-label="Camada territorial do mapa">
+          <div className="flex flex-wrap bg-slate-100 p-1 rounded-lg max-w-full" role="group" aria-label="Camada territorial do mapa">
             <button
               type="button"
               data-testid="btn-camada-bairros"
@@ -822,13 +887,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           {/* Alternância de Métrica Coroplética */}
           <div
             data-testid="toggle-camada-metrica"
-            className="flex bg-slate-100 p-1 rounded-lg border border-slate-200"
+            role="group"
+            aria-label="Métrica coroplética do mapa"
+            className="flex flex-wrap bg-slate-100 p-1 rounded-lg border border-slate-200 max-w-full"
           >
             <button
               type="button"
               data-testid="btn-camada-per-capita"
+              aria-pressed={choroplethMetric === "investimentoPorHabitante"}
               onClick={() => setChoroplethMetric("investimentoPorHabitante")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${choroplethMetric === "investimentoPorHabitante"
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${choroplethMetric === "investimentoPorHabitante"
                   ? "bg-emerald-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -838,8 +906,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             <button
               type="button"
               data-testid="btn-camada-vulnerabilidade"
+              aria-pressed={choroplethMetric === "vulnerabilidade"}
               onClick={() => setChoroplethMetric("vulnerabilidade")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${choroplethMetric === "vulnerabilidade"
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${choroplethMetric === "vulnerabilidade"
                   ? "bg-indigo-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -855,7 +924,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               data-testid="btn-como-calculado-mapa"
               onClick={onOpenNotaMetodologica}
               title="Como é calculado o Índice de Vulnerabilidade?"
-              className="px-2.5 py-1 text-xs font-medium bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-400"
+              className="px-2.5 py-1 text-xs font-medium bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
             >
               <span className="font-bold">ⓘ</span>
               <span>Como é calculado?</span>
@@ -868,7 +937,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             data-testid="btn-toggle-pinos-obras"
             aria-pressed={showPins}
             onClick={() => setShowPins((prev) => !prev)}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 ${showPins
+            className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${showPins
                 ? "bg-slate-900 text-white border-slate-900"
                 : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
               }`}
@@ -883,7 +952,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             data-testid="btn-centralizar-salvador"
             onClick={handleRecenter}
             title="Recentralizar visualização em Salvador"
-            className="px-2.5 py-1 text-xs font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-700 transition-colors flex items-center gap-1 shadow-sm"
+            className="px-2.5 py-1 text-xs font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-700 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           >
             <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -894,10 +963,38 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         </div>
         </div>
 
-        {/* Legenda Coroplética Flutuante com intervalos quantitativos e unidade */}
+        {/* Container Leaflet do Mapa */}
+        <div
+          ref={mapContainerRef}
+          data-testid="leaflet-map-container"
+          className="w-full h-[300px] sm:h-full min-h-[280px] sm:min-h-[390px] z-0 relative"
+        >
+          {/* Atalhos acessíveis dos pinos de obras no mapa */}
+          {showPins && (
+            <div className="sr-only" aria-label="Obras georreferenciadas no mapa">
+              {mapPinEntries.map((entry) => (
+                <button
+                  key={entry.key}
+                  type="button"
+                  data-testid={
+                    entry.isPrimaryPin
+                      ? `map-pin-obra-${entry.obra.id}`
+                      : `map-pin-obra-${entry.obra.id}-extra-${entry.key}`
+                  }
+                  onClick={() => onSelectObra && onSelectObra(entry.obra)}
+                >
+                  Abrir Ficha Limpa da Obra: {entry.obra.objeto}
+                  {entry.fracao ? ` (Cota-Parte ${entry.fracao}${entry.bairroLabel ? ` - ${entry.bairroLabel}` : ""})` : ""}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Legenda Coroplética com intervalos quantitativos e unidade */}
         <div
           data-testid="legenda-coropletica"
-          className="absolute bottom-2.5 left-2.5 z-[400] bg-white/95 backdrop-blur-sm p-2 rounded-xl shadow-md border border-slate-200 text-xs max-w-[270px]"
+          className="sm:absolute sm:bottom-2.5 sm:left-2.5 z-[400] bg-white/95 backdrop-blur-sm p-2 sm:rounded-xl sm:shadow-md border-t sm:border border-slate-200 text-xs sm:max-w-[270px]"
         >
           <span className="font-bold text-slate-800 block mb-1.5 text-[11px] leading-tight">
             {choroplethMetric === "investimentoPorHabitante"
@@ -982,34 +1079,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             </div>
           )}
         </div>
-
-        {/* Container Leaflet do Mapa */}
-        <div
-          ref={mapContainerRef}
-          data-testid="leaflet-map-container"
-          className="w-full h-full min-h-[390px] z-0 relative"
-        >
-          {/* Atalhos acessíveis dos pinos de obras no mapa */}
-          {showPins && (
-            <div className="sr-only" aria-label="Obras georreferenciadas no mapa">
-              {mapPinEntries.map((entry) => (
-                <button
-                  key={entry.key}
-                  type="button"
-                  data-testid={
-                    entry.isPrimaryPin
-                      ? `map-pin-obra-${entry.obra.id}`
-                      : `map-pin-obra-${entry.obra.id}-extra-${entry.key}`
-                  }
-                  onClick={() => onSelectObra && onSelectObra(entry.obra)}
-                >
-                  Abrir Ficha Limpa da Obra: {entry.obra.objeto}
-                  {entry.fracao ? ` (Cota-Parte ${entry.fracao}${entry.bairroLabel ? ` - ${entry.bairroLabel}` : ""})` : ""}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
         </div>
 
         {/* Seletor Rápido de Territórios sincronizado com a busca territorial */}
@@ -1072,7 +1141,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                             : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                         }`}
                     >
-                      <span>{b.nome}</span>
+                      <span>{isSelected ? `✓ ${b.nome}` : b.nome}</span>
                       {isExemptChip && (
                         <span
                           className="w-1.5 h-1.5 rounded-full bg-amber-500"
@@ -1102,7 +1171,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                           : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                         }`}
                     >
-                      <span>{pb.nome}</span>
+                      <span>{isSelected ? `✓ ${pb.nome}` : pb.nome}</span>
                       <span className="text-[10px] opacity-75">
                         ({formatNumber(pb.populacao_total)} hab • {chipMetricText})
                       </span>

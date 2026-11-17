@@ -28,7 +28,7 @@ function renderTotalSummary(
 ) {
   const totalPrefix = metricType === "executado" ? "Total pago:" : "Total contratual:";
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-center justify-end gap-x-2 gap-y-1 ml-auto">
       {totalTerritorial !== undefined ? (
         <span className="tabular-nums">
           {totalPrefix}{" "}
@@ -68,6 +68,7 @@ interface TerritoryComparisonListProps {
   selectedTerritory: TerritorySelection | null;
   onSelectTerritory: (territorio: TerritorySelection) => void;
   onOpenNotaMetodologica?: () => void;
+  isVisible?: boolean;
 }
 
 function sortByVulnerabilityAndName<
@@ -161,7 +162,7 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
           : "bg-slate-50/70 border-slate-200 hover:bg-slate-100/80 hover:border-slate-300"
       }`}
     >
-      <div className="flex items-start justify-between gap-2">
+      <div className="flex flex-wrap items-start justify-between gap-2">
         <button
           type="button"
           data-testid={`comparison-select-${testSlug}`}
@@ -296,8 +297,14 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
   selectedTerritory,
   onSelectTerritory,
   onOpenNotaMetodologica,
+  isVisible = true,
 }) => {
   const rowRefs = useRef<Map<string, HTMLLIElement>>(new Map());
+  const pendingSelectionScrollRef = useRef<boolean>(false);
+  const prevSelectedKeyRef = useRef<string | null>(
+    selectedTerritory ? `${selectedTerritory.tipo}:${normalizeName(selectedTerritory.nome)}` : null
+  );
+  const prevVisibleRef = useRef<boolean>(isVisible);
   const setRowRef = (nome: string) => (el: HTMLLIElement | null) => {
     const normKey = normalizeName(nome);
     if (el) rowRefs.current.set(normKey, el);
@@ -374,14 +381,38 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
     filteredOrderedItems.length + filteredMissingVulnItems.length + filteredExemptItems.length;
 
   // Localiza automaticamente a linha correspondente quando o território é selecionado no mapa
+  // Se a lista estiver oculta no celular, adia o scroll até retornar para Lista (preservando posição quando não houve nova seleção no mapa)
   useEffect(() => {
-    if (!selectedTerritory) return;
-    const key = normalizeName(selectedTerritory.nome);
-    const el = rowRefs.current.get(key);
-    if (el && typeof el.scrollIntoView === "function") {
-      el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    const currentKey = selectedTerritory
+      ? `${selectedTerritory.tipo}:${normalizeName(selectedTerritory.nome)}`
+      : null;
+    const selectionChanged = currentKey !== prevSelectedKeyRef.current;
+    prevSelectedKeyRef.current = currentKey;
+
+    const becameVisible = isVisible && !prevVisibleRef.current;
+    prevVisibleRef.current = isVisible;
+
+    if (!selectedTerritory) {
+      pendingSelectionScrollRef.current = false;
+      return;
     }
-  }, [selectedTerritory, orderedItems]);
+
+    if (!isVisible) {
+      if (selectionChanged) {
+        pendingSelectionScrollRef.current = true;
+      }
+      return;
+    }
+
+    if (selectionChanged || (becameVisible && pendingSelectionScrollRef.current)) {
+      pendingSelectionScrollRef.current = false;
+      const key = normalizeName(selectedTerritory.nome);
+      const el = rowRefs.current.get(key);
+      if (el && typeof el.scrollIntoView === "function") {
+        el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      }
+    }
+  }, [selectedTerritory, orderedItems, isVisible]);
 
   const metricLabel =
     metricType === "executado" ? "Valor Pago por habitante" : "Valor Contratual Vigente por habitante";
@@ -390,10 +421,10 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
     <section
       data-testid="comparison-list-container"
       aria-label="Comparação Territorial por Vulnerabilidade e Investimento por Habitante"
-      className="bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col h-full min-h-0 overflow-hidden"
+      className="bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col h-full min-h-0 md:overflow-hidden"
     >
       {/* Cabeçalho da Lista de Comparação */}
-      <div className="px-4 py-3 border-b border-slate-200 bg-slate-50/80 flex flex-col gap-2 shrink-0">
+      <div className="px-4 py-3 border-b border-slate-200 bg-slate-50/80 rounded-t-xl flex flex-col gap-2 shrink-0">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div>
             <h2 className="text-sm font-bold text-slate-900">

@@ -148,9 +148,10 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           )}
         </div>
         <button
+          type="button"
           onClick={onClear}
           aria-label="Fechar painel lateral"
-          className="text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-100 transition-colors"
+          className="text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -517,7 +518,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
       <div className="mt-4 space-y-3">
         {(ehZonaEspecial || territorio.indice_vulnerabilidade !== undefined) && (
           <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">
                 Índice de Vulnerabilidade e Composição (Censo 2022)
               </span>
@@ -528,7 +529,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                     data-testid="btn-como-calculado-raiox"
                     onClick={onOpenNotaMetodologica}
                     title="Como é calculado o Índice de Vulnerabilidade?"
-                    className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200/60 transition-colors"
+                    className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                   >
                     <span className="font-bold">ⓘ</span>
                     <span>Como é calculado?</span>
@@ -658,7 +659,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
             type="button"
             data-testid="btn-ver-obras-tabela"
             onClick={onViewWorksInTable}
-            className="w-full py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+            className="w-full py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -675,7 +676,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           type="button"
           data-testid="btn-limpar-selecao-territorio"
           onClick={onClear}
-          className="w-full py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors"
+          className="w-full py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
         >
           Limpar Seleção do Mapa
         </button>

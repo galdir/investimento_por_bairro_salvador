@@ -93,22 +93,22 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
       data-testid="header-comparativo"
       className="bg-slate-900 text-white shadow-sm border-b border-slate-800 shrink-0"
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-2.5">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-2 sm:py-2.5">
         {/* Linha 1: Título, indicação de acumulados, data de atualização e fontes */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1.5 pb-2 border-b border-slate-800">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 pb-1.5 sm:pb-2 border-b border-slate-800">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-            <h1 className="text-base sm:text-lg font-bold tracking-tight text-white">
+            <h1 className="text-sm sm:text-lg font-bold tracking-tight text-white">
               Mapa das Obras e do Dinheiro por Bairro
             </h1>
             <span
               data-testid="header-subtitulo"
-              className="text-xs text-slate-300"
+              className="text-[11px] sm:text-xs text-slate-300"
             >
               Salvador • {mandatoLabel}
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-300">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-slate-300">
             <span
               data-testid="header-valores-acumulados"
               className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-medium text-emerald-300"
@@ -132,16 +132,16 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
         </div>
 
         {/* Linha 2: Resumo comparativo municipal compacto (invariante à seleção de território) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-2">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-2 pt-1.5 sm:pt-2">
           {/* 1. Quantidade de territórios comparados */}
-          <div className="bg-slate-800/90 rounded-lg px-3 py-2 border border-slate-700/80 flex flex-col justify-between">
-            <span className="text-[11px] font-medium text-slate-400">
+          <div className="bg-slate-800/90 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-700/80 flex flex-col justify-between min-w-0">
+            <span className="text-[10px] sm:text-[11px] font-medium text-slate-400 leading-tight">
               Territórios na comparação
             </span>
             <div className="mt-0.5 flex items-baseline gap-1.5">
               <span
                 data-testid="kpi-territorios-comparados"
-                className="text-sm sm:text-base font-bold text-white tabular-nums"
+                className="text-xs sm:text-base font-bold text-white tabular-nums"
               >
                 {formatNumber(territorioCount)}{" "}
                 {activeLayer === "prefeituras" ? "Prefeituras-Bairro" : "Bairros Oficiais"}
@@ -150,8 +150,8 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
           </div>
 
           {/* 2. Valor territorialmente alocado da métrica ativa */}
-          <div className="bg-slate-800/90 rounded-lg px-3 py-2 border border-slate-700/80 flex flex-col justify-between">
-            <span className="text-[11px] font-medium text-slate-400">
+          <div className="bg-slate-800/90 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-700/80 flex flex-col justify-between min-w-0">
+            <span className="text-[10px] sm:text-[11px] font-medium text-slate-400 leading-tight">
               {metricLabel} alocado nos territórios
             </span>
             <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
@@ -160,8 +160,9 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                   value={valorAlocadoExibido}
                   compact
                   tone="dark"
+                  align="right"
                   testId="kpi-valor-alocado"
-                  className="text-sm sm:text-base font-extrabold text-emerald-400"
+                  className="text-xs sm:text-base font-extrabold text-emerald-400"
                 />
               ) : (
                 <span
@@ -172,7 +173,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                 </span>
               )}
               {totalObrasAlocadas !== undefined && (
-                <span className="text-[11px] text-slate-400">
+                <span className="text-[10px] sm:text-[11px] text-slate-400 leading-tight">
                   {activeLayer === "bairros" && isExactLayerWorkCount
                     ? `(${formatNumber(totalObrasAlocadas)} obras em bairros${
                         contratosPrefeituraBairroSemRateioCount > 0
@@ -188,9 +189,9 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
           {/* 3. Aviso sobre recursos sem localização (Escopo Cidade) */}
           <div
             data-testid="kpi-transparencia-opaca"
-            className="bg-slate-800/90 rounded-lg px-3 py-2 border border-purple-500/30 flex flex-col justify-between"
+            className="bg-slate-800/90 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 border border-purple-500/30 flex flex-col justify-between min-w-0"
           >
-            <span className="text-[11px] font-medium text-purple-300">
+            <span className="text-[10px] sm:text-[11px] font-medium text-purple-300 leading-tight">
               Sem localização • {metricLabel} (Escopo Cidade)
             </span>
             <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
@@ -200,7 +201,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                   compact
                   tone="dark"
                   testId="kpi-valor-nao-localizado"
-                  className="text-sm sm:text-base font-extrabold text-purple-300"
+                  className="text-xs sm:text-base font-extrabold text-purple-300"
                 />
               ) : (
                 <span
@@ -210,22 +211,22 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                   Pagamento indisponível
                 </span>
               )}
-              <span className="text-[11px] text-purple-200/90">
+              <span className="text-[10px] sm:text-[11px] text-purple-200/90 leading-tight">
                 {formatNumber(totalNaoLocalizado)} contratos ({percentualNaoLocalizado.toFixed(1).replace(".", ",")}%)
               </span>
             </div>
           </div>
 
           {/* 4. Referência municipal por habitante (escopo toda a cidade) */}
-          <div className="bg-slate-800/90 rounded-lg px-3 py-2 border border-slate-700/80 flex flex-col justify-between">
-            <span className="text-[11px] font-medium text-slate-400">
+          <div className="bg-slate-800/90 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-700/80 flex flex-col justify-between min-w-0">
+            <span className="text-[10px] sm:text-[11px] font-medium text-slate-400 leading-tight">
               Média alocada na cidade (Censo 2022)
             </span>
             <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
               {valorAlocadoDisponivel ? (
                 <span
                   data-testid="kpi-investimento-per-capita"
-                  className="text-sm sm:text-base font-bold text-sky-300 tabular-nums"
+                  className="text-xs sm:text-base font-bold text-sky-300 tabular-nums"
                 >
                   {formatCurrency(kpis.investimentoPorHabitanteCidade)} / hab
                 </span>
@@ -237,7 +238,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                   Pagamento indisponível
                 </span>
               )}
-              <span className="text-[11px] text-slate-400">{metricLabel} • Escopo municipal</span>
+              <span className="text-[10px] sm:text-[11px] text-slate-400 leading-tight">{metricLabel} • Escopo municipal</span>
             </div>
           </div>
         </div>
