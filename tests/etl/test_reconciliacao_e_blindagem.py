@@ -351,7 +351,7 @@ def test_reconciliar_acervo_local_resgata_versoes_unifica_empreiteiras_e_remove_
     assert ficha_b_final["empreiteira"]["totalObras"] == 2
     assert ficha_b_final["empreiteira"]["valorTotalContratado"] == 3000000.0
 
-    # Índice atualizado: ranking unificado, valorPago real onde existe e fallback na obra B, KPIs reais
+    # Índice atualizado: pagamento real onde há registro e indisponível na obra B.
     idx_final = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
     assert len(idx_final["concentracao_empreiteiras"]) == 1
     assert idx_final["concentracao_empreiteiras"][0]["cnpj"] == "12.345.678/0001-90"
@@ -361,7 +361,7 @@ def test_reconciliar_acervo_local_resgata_versoes_unifica_empreiteiras_e_remove_
     assert obras_idx[id_a_ativo]["cnpj"] == "12.345.678/0001-90"
     assert obras_idx[id_b_ativo]["cnpj"] == "12.345.678/0001-90"
     assert obras_idx[id_a_ativo]["valorPago"] == 500000.0
-    assert obras_idx[id_b_ativo]["valorPago"] == 750000.0
+    assert obras_idx[id_b_ativo]["valorPago"] is None
 
     # KPIs globais com somas reais do Funil Financeiro (1.2M + 1.5M = 2.7M empenhado, 800k liq, 500k pago)
     kpis = idx_final["kpis_globais"]
@@ -369,11 +369,11 @@ def test_reconciliar_acervo_local_resgata_versoes_unifica_empreiteiras_e_remove_
     assert kpis["totalLiquidado"] == 800000.0
     assert kpis["totalPago"] == 500000.0
 
-    # Rollup territorial atualizado com valorPago = 500k + 750k = 1.25M
+    # Rollup soma apenas o pagamento conhecido; não estima a obra sem registro.
     pituba = next(b for b in idx_final["bairros"] if b["nome"] == "Pituba")
-    assert pituba["valorPago"] == 1250000.0
+    assert pituba["valorPago"] == 500000.0
     pb = next(p for p in idx_final["prefeituras_bairro"] if p["nome"] == "Barra/Pituba")
-    assert pb["valorPago"] == 1250000.0
+    assert pb["valorPago"] == 500000.0
 
 
 def test_run_pipeline_estabiliza_uuid_volatil_preserva_historico_e_expurga_orfaos(
@@ -572,7 +572,7 @@ def test_run_pipeline_estabiliza_uuid_volatil_preserva_historico_e_expurga_orfao
     obras_map = {o["numeroContrato"]: o for o in idx_final["obras"]}
     assert obras_map["001/2024"]["id"] == id_persistido
     assert obras_map["001/2024"]["valorPago"] == 500000.0
-    assert obras_map["002/2025"]["valorPago"] == 1000000.0
+    assert obras_map["002/2025"]["valorPago"] is None
     assert obras_map["002/2025"]["cnpj"] == "22.333.444/0001-55"
 
     kpis = idx_final["kpis_globais"]
@@ -1363,7 +1363,7 @@ def test_reconciliar_acervo_local_propaga_vocacao_e_centralidade_metropolitana(
     assert comercio["is_zona_especial_nao_residencial"] is False
     assert comercio["indice_vulnerabilidade"] == 0.48
     assert comercio["investimentoPorHabitante"] == 0.0
-    assert comercio["investimentoPorHabitantePago"] == 0.0
+    assert comercio["investimentoPorHabitantePago"] is None
     assert comercio["valorTotal"] == 10000000.0
 
     bairros_geo_final = json.loads((geo_dir / "bairros.geojson").read_text(encoding="utf-8"))

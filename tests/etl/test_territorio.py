@@ -10,6 +10,29 @@ from etl.domain.territorio import (
 )
 
 
+def test_rollup_distingue_pagamento_ausente_zero_e_soma_parcial() -> None:
+    bairros = [
+        {"id": 1, "nome": "Pituba", "prefeitura_bairro": "Barra/Pituba", "populacao": 100},
+        {"id": 2, "nome": "Graça", "prefeitura_bairro": "Barra/Pituba", "populacao": 100},
+    ]
+    prefeituras = [{"id": 1, "nome": "Barra/Pituba", "populacao_total": 200}]
+    obras = [
+        {"id": "ausente", "nivel": "Bairro", "bairro": "Pituba", "valorPago": None},
+        {"id": "zero", "nivel": "Bairro", "bairro": "Graça", "valorPago": 0},
+    ]
+    bairros_rollup, pbs, _ = calcular_rollup_territorial(bairros, prefeituras, obras)
+    pituba, graca = bairros_rollup
+    assert pituba["valorPago"] is None
+    assert pituba["investimentoPorHabitantePago"] is None
+    assert pituba["valorPagoDisponivel"] is False
+    assert pituba["obrasSemValorPago"] == 1
+    assert graca["valorPago"] == 0
+    assert graca["valorPagoDisponivel"] is True
+    assert pbs[0]["valorPago"] == 0
+    assert pbs[0]["valorPagoDisponivel"] is True
+    assert pbs[0]["obrasSemValorPago"] == 1
+
+
 @pytest.mark.parametrize(
     "nome_bairro,esperado",
     [

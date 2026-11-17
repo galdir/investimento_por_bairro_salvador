@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import L from "leaflet";
 import App, { buildDataUrl } from "../../src/App";
 import { SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM } from "../../src/components/InteractiveMap";
+import type { FichaLimpaObra } from "../../src/types";
 
 const mockIndexData = {
   metadata: {
@@ -345,7 +346,7 @@ const mockPbGeo = {
   ],
 };
 
-const mockObra1001Detalhe = {
+const mockObra1001Detalhe: FichaLimpaObra = {
   id: 1001,
   unidadeGestora: "SUCOP",
   numeroContrato: "001/2024",
@@ -472,8 +473,11 @@ const mockObra1002Detalhe = {
   prefeituraBairro: "Liberdade/São Caetano",
 };
 
+let mockFichaObra1001Response: FichaLimpaObra = mockObra1001Detalhe;
+
 describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)", () => {
   beforeEach(() => {
+    mockFichaObra1001Response = mockObra1001Detalhe;
     vi.stubGlobal(
       "fetch",
       vi.fn((url: string) => {
@@ -498,7 +502,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
         if (url.includes("obras/1001.json")) {
           return Promise.resolve({
             ok: true,
-            json: () => Promise.resolve(mockObra1001Detalhe),
+            json: () => Promise.resolve(mockFichaObra1001Response),
           });
         }
         if (url.includes("obras/1002.json")) {
@@ -733,6 +737,240 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     fireEvent.click(screen.getByTestId("tab-tabela"));
     expect(screen.getByTestId("linha-obra-1001")).toBeInTheDocument();
     expect(screen.queryByTestId("linha-obra-1002")).not.toBeInTheDocument();
+  });
+
+  it("identifica a intervenção após o texto de contratação e mantém o objeto completo acessível", async () => {
+    const objeto = "Contratação de empresa capacitada para execução da obra de Construção do Centro Comunitário Pela Vida - CONVIVE, Rua do Paquistão, Bairro: Granjas Rurais Presidente Vargas, Salvador/BA";
+    mockFichaObra1001Response = { ...mockObra1001Detalhe, objeto };
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
+    const titulo = await screen.findByTestId("ficha-limpa-titulo-resumido");
+    expect(titulo).toHaveTextContent("Construção do Centro Comunitário Pela Vida");
+    fireEvent.click(screen.getByText("Ver objeto original completo"));
+    expect(screen.getByTestId("ficha-limpa-objeto-original")).toHaveTextContent(objeto);
+  });
+
+  it("resume a fórmula de contratação de serviços preservando a intervenção e o objeto integral", async () => {
+    const objeto = "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS COMUM DE ENGENHARIA PARA O FORNECIMENTO E MONTAGEM DE CERCA DE PROTEÇÃO EM EUCALIPTO TRATADO";
+    mockFichaObra1001Response = { ...mockObra1001Detalhe, objeto };
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
+    const titulo = await screen.findByTestId("ficha-limpa-titulo-resumido");
+    expect(titulo).toHaveTextContent("FORNECIMENTO E MONTAGEM DE CERCA DE PROTEÇÃO");
+    expect(titulo.textContent!.length).toBeLessThan(objeto.length);
+    fireEvent.click(screen.getByText("Ver objeto original completo"));
+    expect(screen.getByTestId("ficha-limpa-objeto-original")).toHaveTextContent(objeto);
+  });
+
+  it("identifica a fabricação de equipamentos após a fórmula de contratação de engenharia", async () => {
+    const objeto = "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS DE ENGENHARIA PARA FABRICAÇÃO DE EQUIPAMENTOS PARQUE INFANTIL, EM ESTRUTURA METÁLICA E MADEIRA PARA DIVERSOS LOGRADOUROS DO MUNICÍPIO DE SALVADOR.";
+    mockFichaObra1001Response = { ...mockObra1001Detalhe, objeto };
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
+    expect(await screen.findByTestId("ficha-limpa-titulo-resumido")).toHaveTextContent("FABRICAÇÃO DE EQUIPAMENTOS PARQUE INFANTIL");
+    fireEvent.click(screen.getByText("Ver objeto original completo"));
+    expect(screen.getByTestId("ficha-limpa-objeto-original")).toHaveTextContent(objeto);
+  });
+
+  it("identifica intervenções após fórmulas comuns sem perder o objeto original", async () => {
+    const objeto = "Contratação de empresa especializada para execução dos serviços de revitalização do Memorial das Baianas, situado numa edificação na Rua da Misericórdia, próximo ao Monumento da Cruz Caída, na Praça da Sé, Centro Histórico, Salvador/BA.";
+    mockFichaObra1001Response = { ...mockObra1001Detalhe, objeto };
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
+    await waitFor(() => expect(screen.getByTestId("ficha-limpa-titulo-resumido")).toHaveTextContent(/^revitalização do Memorial das Baianas/i));
+    fireEvent.click(screen.getByText("Ver objeto original completo"));
+    expect(screen.getByTestId("ficha-limpa-objeto-original")).toHaveTextContent(objeto);
+  });
+
+  it.each([
+    ["Contratação de empresa especializada em serviço de Arquitetura para Elaboração dos Projetos de Infra Estrutura do Réveillon 2024/2025 - Layout para aproveitamento de espaço para alocação dos ambientes: área", "Elaboração dos Projetos de Infra Estrutura do Réveillon"],
+    ["Contratação de empresa de engenharia civil especializada em manutenção predial para prestação de serviços continuados de manutenção das edificações onde funcionam os equipamentos de transporte público de Salvador", "prestação de serviços continuados de manutenção das edificações"],
+    ["Contratação de empresa especializada para prestação de serviços de assessoria técnica à fiscalização de obras de infraestrutura urbana, no município de Salvador", "prestação de serviços de assessoria técnica à fiscalização"],
+    ["Contratação de empresa de engenharia para execução de serviços de proteção de encostas, na Cidade do Salvador", "execução de serviços de proteção de encostas"],
+  ])("resume o objeto contratual preservando o texto original: %s", async (objeto, resumo) => {
+    mockFichaObra1001Response = { ...mockObra1001Detalhe, objeto };
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
+    await waitFor(() => expect(screen.getByTestId("ficha-limpa-titulo-resumido")).toHaveTextContent(resumo));
+    fireEvent.click(screen.getByText("Ver objeto original completo"));
+    expect(screen.getByTestId("ficha-limpa-objeto-original")).toHaveTextContent(objeto);
+  });
+
+  it("mantém a consulta fechada quando o detalhe chega depois de fechar durante o carregamento", async () => {
+    const fetchOriginal = vi.mocked(fetch);
+    let concluirDetalhe!: (response: { ok: boolean; json: () => Promise<FichaLimpaObra> }) => void;
+    vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("obras/1001.json")
+      ? new Promise((resolve) => { concluirDetalhe = resolve; })
+      : fetchOriginal(url)));
+
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    const trigger = await screen.findByTestId("btn-ver-detalhes-1001");
+    trigger.focus();
+    fireEvent.click(trigger);
+    expect(screen.getByText(/Carregando histórico e prontuário/)).toBeVisible();
+    fireEvent.click(screen.getByTestId("btn-fechar-ficha-limpa"));
+    await act(async () => {
+      concluirDetalhe({ ok: true, json: () => Promise.resolve(mockObra1001Detalhe) });
+    });
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    expect(trigger).toHaveFocus();
+  });
+
+  it("informa quando o pagamento não está disponível sem confundi-lo com execução física", async () => {
+    mockFichaObra1001Response = {
+      ...mockObra1001Detalhe,
+      funilFinanceiro: { ...mockObra1001Detalhe.funilFinanceiro, valorPago: null },
+      pagamentos: [],
+      cotasListaFechada: [{ bairro: "Pituba", prefeituraBairro: "Barra/Pituba", unidades: 1, totalUnidades: 2, peso: 0.5, fracao: "1/2" }],
+    };
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
+    await waitFor(() => expect(screen.getByTestId("funil-valor-pago")).toHaveTextContent("Indisponível"));
+    expect(screen.getByTestId("funil-percentual-pago-vigente")).toHaveTextContent("Indisponível");
+    expect(screen.getByTestId("funil-percentual-executado")).toHaveTextContent("65,5%");
+    expect(screen.queryByRole("progressbar", { name: /execução financeira/i })).not.toBeInTheDocument();
+    expect(screen.getByTestId("fontes-cotas-lista-fechada")).toHaveTextContent(/indisponível pago/i);
+    expect(screen.getByTestId("fontes-cota-item-0")).toHaveTextContent(/Pago:\s*Indisponível/i);
+  });
+
+  it("avisa que os totais pagos são parciais quando há obras sem dados de pagamento", async () => {
+    const fetchOriginal = vi.mocked(fetch);
+    vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
+      ? Promise.resolve({ ok: true, json: () => Promise.resolve({
+          ...mockIndexData,
+          obras: mockIndexData.obras.map((obra, index) => index === 0 ? { ...obra, valorPago: null } : obra),
+        }) })
+      : fetchOriginal(url)));
+    render(<App />);
+    expect(await screen.findByText(/valores pagos são parciais/i)).toHaveTextContent(/pagamento indisponível/i);
+    fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+    expect(screen.queryByText(/valores pagos são parciais/i)).not.toBeInTheDocument();
+  });
+
+  it("respeita a indisponibilidade em resumo territorial pré-calculado", async () => {
+    const fetchOriginal = vi.mocked(fetch);
+    vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
+      ? Promise.resolve({ ok: true, json: () => Promise.resolve({
+          ...mockIndexData,
+          prefeituras_bairro: mockIndexData.prefeituras_bairro.map((pb, index) => index === 0
+            ? { ...pb, valorPago: 0, investimentoPorHabitantePago: 0, valorPagoDisponivel: false, obrasSemValorPago: 1 }
+            : pb),
+        }) })
+      : fetchOriginal(url)));
+    render(<App />);
+    expect(await screen.findByTestId("comparison-valor-barra-pituba")).toHaveTextContent("Pagamento indisponível");
+  });
+
+  it("avisa sobre pagamentos ausentes fora da amostra em índice parcial", async () => {
+    const fetchOriginal = vi.mocked(fetch);
+    vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
+      ? Promise.resolve({ ok: true, json: () => Promise.resolve({
+          ...mockIndexData,
+          kpis_globais: { ...mockIndexData.kpis_globais, obrasSemValorPago: 3 },
+        }) })
+      : fetchOriginal(url)));
+    render(<App />);
+    expect(await screen.findByText(/valores pagos são parciais/i)).toHaveTextContent(/3 contrato/);
+  });
+
+  it("apresenta o objeto completo, motivos do semáforo e percentuais sem confundir execução física com pagamento", async () => {
+    const objetoOriginal =
+      "Requalificação da Orla da Pituba com drenagem e nova ciclovia, incluindo recuperação de passeios e iluminação pública ao longo do trecho contratual.";
+    mockFichaObra1001Response = {
+      ...mockObra1001Detalhe,
+      objeto: objetoOriginal,
+      funilFinanceiro: {
+        ...mockObra1001Detalhe.funilFinanceiro,
+        percentualExecutado: 125,
+      },
+      semaforo: {
+        ...mockObra1001Detalhe.semaforo,
+        status: "AMARELO",
+        rotulo: "Amarelo (Atenção)",
+        motivos: ["Prazo prorrogado"],
+      },
+      cotasListaFechada: [
+        {
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          unidades: 2,
+          totalUnidades: 3,
+          peso: 2 / 3,
+          fracao: "2/3",
+        },
+        {
+          bairro: "Graça",
+          prefeituraBairro: "Barra/Pituba",
+          unidades: 1,
+          totalUnidades: 3,
+          peso: 1 / 3,
+          fracao: "1/3",
+        },
+      ],
+    };
+
+    render(<App />);
+    await waitFor(() => expect(screen.getByTestId("tab-tabela")).toBeInTheDocument());
+    fireEvent.click(screen.getByTestId("tab-tabela"));
+    await waitFor(() => expect(screen.getByTestId("btn-ver-detalhes-1001")).toBeInTheDocument());
+
+    const trigger = screen.getByTestId("btn-ver-detalhes-1001");
+    trigger.focus();
+    fireEvent.click(trigger);
+
+    await waitFor(() => expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument());
+    expect(screen.getByRole("dialog")).toHaveFocus();
+    expect(screen.getByTestId("ficha-limpa-titulo-resumido")).toHaveTextContent(
+      "Requalificação da Orla da Pituba"
+    );
+    expect(screen.getByTestId("ficha-limpa-titulo-resumido").textContent).not.toContain("iluminação pública");
+
+    fireEvent.click(screen.getByText("Ver objeto original completo"));
+    expect(screen.getByTestId("ficha-limpa-objeto-original")).toHaveTextContent(objetoOriginal);
+
+    const motivosRisco = screen.getByTestId("ficha-limpa-motivos-risco");
+    expect(motivosRisco).toHaveTextContent("Prazo prorrogado");
+    expect(motivosRisco).toHaveTextContent(/classificação.*não.*irregularidade/i);
+
+    expect(screen.getByTestId("funil-valor-original")).toHaveTextContent("R$ 12.000.000");
+    expect(screen.getByTestId("funil-valor-vigente")).toHaveTextContent("R$ 12.000.000");
+    expect(screen.getByTestId("funil-valor-empenhado")).toHaveTextContent("R$ 12.000.000");
+    expect(screen.getByTestId("funil-valor-liquidado")).toHaveTextContent("R$ 7.860.000");
+    expect(screen.getByTestId("funil-valor-pago")).toHaveTextContent("R$ 7.860.000");
+    expect(screen.getByTestId("funil-percentual-executado")).toHaveTextContent("125,0%");
+    expect(screen.getByTestId("ficha-execucao-fisica-acima-100")).toHaveTextContent(/valor de origem/i);
+    expect(screen.getByTestId("funil-percentual-pago-vigente")).toHaveTextContent("65,5%");
+
+    expect(screen.getByTestId("ficha-badge-cota-parte")).toHaveTextContent("Cota-Parte territorial");
+    expect(screen.getByTestId("ficha-badge-cota-parte")).not.toHaveTextContent("3/3");
+    expect(screen.getByTestId("fontes-cotas-lista-fechada")).toHaveTextContent("Total integral do contrato: R$ 12.000.000");
+    expect(screen.getByTestId("fontes-cota-badge-0")).toHaveTextContent("Cota-Parte (2/3)");
+    expect(screen.getByTestId("fontes-cota-badge-1")).toHaveTextContent("Cota-Parte (1/3)");
+
+    const objectSummary = screen.getByTestId("ficha-limpa-toggle-objeto-original");
+    objectSummary.focus();
+    fireEvent.keyDown(objectSummary, { key: "Tab", shiftKey: true });
+    expect(screen.getByText("Fechar Ficha Limpa")).toHaveFocus();
+    fireEvent.keyDown(screen.getByText("Fechar Ficha Limpa"), { key: "Tab" });
+    expect(objectSummary).toHaveFocus();
+
+    fireEvent.keyDown(window, { key: "Escape" });
+    await waitFor(() => expect(screen.queryByTestId("ficha-limpa-modal")).not.toBeInTheDocument());
+    expect(trigger).toHaveFocus();
   });
 
   it("exibe a lista de Aditivos Contratuais detalhados na Ficha Limpa da Obra 1002", async () => {

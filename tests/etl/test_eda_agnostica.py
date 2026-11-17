@@ -511,7 +511,7 @@ def test_eda_agnostica_acervo_real_deterministico_e_consistente(tmp_path: Path) 
     assert coortes["2025-2028 exclusivo"] > 0
     assert coortes.get("Sem mandato definido", 0) == 0
 
-    # Subamostra contábil real isolada de fallbacks sintéticos do índice
+    # O índice e a subamostra contábil somam apenas pagamentos registrados.
     sub = res_1["subamostra_contabil"]
     assert sub["n_empenhos"] == vol["obras_com_empenhos"]
     assert sub["n_liquidacoes"] == vol["obras_com_liquidacoes"]
@@ -520,7 +520,7 @@ def test_eda_agnostica_acervo_real_deterministico_e_consistente(tmp_path: Path) 
     assert round(sub["total_liquidado_real"], 2) == round(float(kpis_globais["totalLiquidado"]), 2)
     assert round(sub["total_pago_real"], 2) == round(float(kpis_globais["totalPago"]), 2)
     soma_valor_pago_indice = sum(float(o.get("valorPago") or 0.0) for o in obras_index)
-    assert sub["total_pago_real"] < soma_valor_pago_indice
+    assert round(sub["total_pago_real"], 2) == round(soma_valor_pago_indice, 2)
 
     # Presença de tabelas não vazias nas Seções 3, 4 e 5
     assert res_1["correlacoes_bairros_count"] > 0

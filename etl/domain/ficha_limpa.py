@@ -390,8 +390,6 @@ def construir_ficha_obra(
         vl_liq = parse_float(obra.get("vlLiquidado"))
     if vl_pago == 0.0 and obra.get("vlPagoReal") is not None:
         vl_pago = parse_float(obra.get("vlPagoReal"))
-    elif vl_pago == 0.0 and obra.get("vlPago") is not None:
-        vl_pago = parse_float(obra.get("vlPago"))
 
     delta_aditivos, delta_perc_aditivos = _calcular_deltas_aditivos(vl_orig, vl_atua)
 
@@ -857,30 +855,19 @@ def sincronizar_obra_com_ficha(obra: dict[str, Any], ficha: dict[str, Any]) -> N
         obra["nuDom"] = nu_dom
 
     funil = ficha.get("funilFinanceiro") or {}
-    vl_atua = parse_float(
-        obra.get("vlAtualizado")
-        or obra.get("valorContratualVigente")
-        or funil.get("valorContratualVigente")
-        or obra.get("vlOriginal")
-        or 0.0
-    )
-    perc_exec = parse_float(
-        obra.get("percentualExecutado")
-        if obra.get("percentualExecutado") is not None
-        else (funil.get("percentualExecutado") or 0.0)
-    )
     vl_emp = parse_float(funil.get("valorEmpenhado") or 0.0)
     vl_liq = parse_float(funil.get("valorLiquidado") or 0.0)
-    vl_pago_real = parse_float(funil.get("valorPago") or 0.0)
-    valor_pago_indice = (
-        round(vl_pago_real, 2)
-        if vl_pago_real > 0.0
-        else round(vl_atua * (perc_exec / 100.0), 2)
+    vl_pago_real = funil.get("valorPago")
+    pagamento_indisponivel = vl_pago_real is None or (
+        parse_float(vl_pago_real) == 0.0 and ficha.get("pagamentos") == []
     )
+    valor_pago_indice = None if pagamento_indisponivel else round(parse_float(vl_pago_real), 2)
+    if pagamento_indisponivel:
+        funil["valorPago"] = None
 
     obra["vlEmpenhado"] = round(vl_emp, 2)
     obra["vlLiquidado"] = round(vl_liq, 2)
-    obra["vlPagoReal"] = round(vl_pago_real, 2)
+    obra["vlPagoReal"] = valor_pago_indice
     obra["valorPago"] = valor_pago_indice
     obra["vlPago"] = valor_pago_indice
     if ficha.get("frentesMedicao"):

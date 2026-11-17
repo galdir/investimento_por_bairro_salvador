@@ -205,6 +205,10 @@ def calcular_kpis_globais(
         "totalEmpenhado": total_empenhado,
         "totalLiquidado": total_liquidado,
         "totalPago": total_pago,
+        "obrasSemValorPago": sum(
+            1 for obra in obras_detalhadas
+            if (obra.get("vlPagoReal") if "vlPagoReal" in obra else obra.get("vlPago", obra.get("valorPago"))) is None
+        ),
         "investimentoPorHabitanteCidade": investimento_por_hab,
         "totalNaoLocalizado": total_nao_localizado,
         "valorNaoLocalizado": valor_nao_localizado,

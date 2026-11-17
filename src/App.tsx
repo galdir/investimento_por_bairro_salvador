@@ -130,6 +130,7 @@ export const App: React.FC = () => {
   const comparacaoScrollYRef = useRef<number>(0);
   const pendingRestoreComparacaoScrollRef = useRef<boolean>(false);
   const lastFichaTriggerRef = useRef<HTMLElement | null>(null);
+  const fichaRequestRef = useRef(0);
   const [isMobileViewport, setIsMobileViewport] = useState<boolean>(() => checkIsMobileViewport());
   const [mobileView, setMobileView] = useState<"lista" | "mapa">("lista");
   const mobileToggleRef = useRef<HTMLDivElement>(null);
@@ -363,8 +364,10 @@ export const App: React.FC = () => {
       const resolvePrecomputedPaymentDisponivel = (
         valorPago: number | null | undefined,
         totalObras: number | undefined,
+        disponibilidadeInformada: boolean | undefined,
         rollupEntry?: { valorPagoDisponivel?: boolean; totalObras?: number }
       ) => {
+        if (disponibilidadeInformada !== undefined) return disponibilidadeInformada;
         if (valorPago === null) return false;
         if (hasNumericPayment(valorPago)) return true;
         if ((totalObras ?? 0) === 0) return true;
@@ -378,8 +381,10 @@ export const App: React.FC = () => {
             valorPagoDisponivel: resolvePrecomputedPaymentDisponivel(
               b.valorPago,
               b.totalObras,
+              b.valorPagoDisponivel,
               rb
             ),
+            obrasSemValorPago: b.obrasSemValorPago ?? rb?.obrasSemValorPago,
           };
         }),
         prefeituras: indexData.prefeituras_bairro.map((pb) => {
@@ -398,8 +403,10 @@ export const App: React.FC = () => {
             valorPagoDisponivel: resolvePrecomputedPaymentDisponivel(
               pb.valorPago,
               pb.totalObras,
+              pb.valorPagoDisponivel,
               rpb
             ),
+            obrasSemValorPago: pb.obrasSemValorPago ?? rpb?.obrasSemValorPago,
           };
         }),
       };
@@ -693,8 +700,12 @@ export const App: React.FC = () => {
   };
 
   const handleSelectObra = async (obra: ObraCompacta) => {
+    const requestId = ++fichaRequestRef.current;
     if (typeof document !== "undefined" && document.activeElement instanceof HTMLElement) {
-      lastFichaTriggerRef.current = document.activeElement;
+      const fichaAberta = document.querySelector('[role="dialog"][aria-modal="true"]');
+      if (!fichaAberta?.contains(document.activeElement)) {
+        lastFichaTriggerRef.current = document.activeElement;
+      }
     }
     setLastRequestedObra(obra);
     setFichaError(null);
@@ -704,21 +715,23 @@ export const App: React.FC = () => {
       const res = await fetch(buildDataUrl(`data/obras/${obra.id}.json`));
       if (res.ok) {
         const data: FichaLimpaObra = await res.json();
-        setSelectedObraFicha(data);
+        if (requestId === fichaRequestRef.current) setSelectedObraFicha(data);
       } else {
         throw new Error(`Falha ao carregar obra ${obra.id} (status ${res.status})`);
       }
     } catch (err: any) {
+      if (requestId !== fichaRequestRef.current) return;
       console.error("Erro ao carregar Ficha Limpa da Obra sob demanda:", err);
       setFichaError(
         err?.message || "Não foi possível carregar os detalhes completos desta obra."
       );
     } finally {
-      setLoadingFicha(false);
+      if (requestId === fichaRequestRef.current) setLoadingFicha(false);
     }
   };
 
   const handleCloseFicha = () => {
+    fichaRequestRef.current++;
     setSelectedObraFicha(null);
     setFichaError(null);
     setLoadingFicha(false);
@@ -740,6 +753,7 @@ export const App: React.FC = () => {
   };
 
   const handleFilterByEmpreiteira = (credorOuCnpj: string) => {
+    fichaRequestRef.current++;
     setFilters((prev) => ({
       ...prev,
       busca: credorOuCnpj,
@@ -785,6 +799,11 @@ export const App: React.FC = () => {
         territorioCount={headerComparisonSummary.territorioCount}
         valorAlocadoTerritorial={headerComparisonSummary.valorAlocadoTerritorial}
         valorAlocadoDisponivel={headerComparisonSummary.valorAlocadoDisponivel}
+        obrasSemPagamento={Math.max(
+          deduplicateObrasByCanonicalKey(topFilteredObras).filter((obra) => !hasNumericPayment(obra.valorPago)).length,
+          usesPrecomputedSummary ? (indexData.kpis_globais.obrasSemValorPago ?? 0) : 0,
+          usesPrecomputedSummary ? Math.max(0, ...recalculatedPrefeituras.map((pb) => pb.obrasSemValorPago ?? 0)) : 0
+        )}
         totalObrasAlocadas={headerComparisonSummary.totalObrasAlocadas}
         contratosPrefeituraBairroSemRateioCount={
           headerComparisonSummary.contratosPrefeituraBairroSemRateioCount

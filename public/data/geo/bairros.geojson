@@ -36,7 +36,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -823,7 +825,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -2027,18 +2031,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 2483916.86,
         "valorLiquidado": 289667.4,
-        "valorPago": 2433813.56,
+        "valorPago": 111351.3,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 2322462.26,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 289667.4,
         "valorPagoFrentes": 111351.3,
         "totalFrentesMedicao": 2,
         "totalObras": 1,
         "investimentoPorHabitante": 608.06,
-        "investimentoPorHabitantePago": 595.79,
+        "investimentoPorHabitantePago": 27.26,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -2770,18 +2776,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 2811099.63,
         "valorLiquidado": 197938.52,
-        "valorPago": 2710374.88,
+        "valorPago": 205864.3,
         "valorLiquidadoDireto": 197938.52,
-        "valorPagoDireto": 2710374.88,
+        "valorPagoDireto": 205864.3,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 311.72,
-        "investimentoPorHabitantePago": 300.55,
+        "investimentoPorHabitantePago": 22.83,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -5744,7 +5752,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -7288,18 +7298,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 20867519.03,
         "valorLiquidado": 17589755.75,
-        "valorPago": 6168510.68,
+        "valorPago": 5739485.56,
         "valorLiquidadoDireto": 17589755.75,
-        "valorPagoDireto": 6168510.68,
+        "valorPagoDireto": 5739485.56,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 3,
         "investimentoPorHabitante": 4804.86,
-        "investimentoPorHabitantePago": 1420.33,
+        "investimentoPorHabitantePago": 1321.55,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -8238,7 +8250,9 @@
         "investimentoPorHabitantePago": 156.98,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -9561,7 +9575,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -10325,18 +10341,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 1409729.7,
         "valorLiquidado": 0.0,
-        "valorPago": 1504463.54,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 1504463.54,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 195.93,
-        "investimentoPorHabitantePago": 209.1,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -12063,7 +12081,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -13494,7 +13514,9 @@
         "investimentoPorHabitantePago": 154.04,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -14661,7 +14683,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -15860,7 +15884,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -16379,7 +16405,9 @@
         "investimentoPorHabitantePago": 229.3,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -16954,7 +16982,9 @@
         "investimentoPorHabitantePago": 794.58,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -17558,18 +17588,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 8731778.06,
         "valorLiquidado": 576664.15,
-        "valorPago": 4980101.88,
+        "valorPago": 0.0,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 4980101.88,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 576664.15,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 1,
         "totalObras": 3,
         "investimentoPorHabitante": 294.36,
-        "investimentoPorHabitantePago": 167.88,
+        "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -18337,18 +18369,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 1324364.14,
         "valorLiquidado": 0.0,
-        "valorPago": 595007.0,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 595007.0,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 3,
         "investimentoPorHabitante": 40.18,
-        "investimentoPorHabitantePago": 18.05,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -20268,18 +20302,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 126318736.36,
         "valorLiquidado": 25408639.62,
-        "valorPago": 56396324.77,
+        "valorPago": 650627.43,
         "valorLiquidadoDireto": 25408639.62,
-        "valorPagoDireto": 56396324.77,
+        "valorPagoDireto": 650627.43,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 7,
         "investimentoPorHabitante": 9279.95,
-        "investimentoPorHabitantePago": 4143.13,
+        "investimentoPorHabitantePago": 47.8,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 7
+        "obrasVermelho": 7,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 5
       },
       "geometry": {
         "type": "Polygon",
@@ -21051,18 +21087,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 14841181.64,
         "valorLiquidado": 0.0,
-        "valorPago": 14805562.8,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 14805562.8,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 1117.81,
-        "investimentoPorHabitantePago": 1115.13,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -21749,7 +21787,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -22156,7 +22196,9 @@
         "investimentoPorHabitantePago": 391.45,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -23140,18 +23182,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 426582.94,
         "valorLiquidado": 0.0,
-        "valorPago": 433772.68,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 433772.68,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 69.6,
-        "investimentoPorHabitantePago": 70.77,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -23998,7 +24042,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -24994,18 +25040,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 13090027.17,
         "valorLiquidado": 0.0,
-        "valorPago": 11503901.7,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 11503901.7,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 609.01,
-        "investimentoPorHabitantePago": 535.21,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -25928,7 +25976,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -26735,7 +26785,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -28319,18 +28371,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 347661.77,
         "valorLiquidado": 0.0,
-        "valorPago": 322873.49,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 322873.49,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 23.2,
-        "investimentoPorHabitantePago": 21.55,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -29969,7 +30023,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -31644,7 +31700,9 @@
         "investimentoPorHabitantePago": 162.47,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -33571,7 +33629,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -34807,18 +34867,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 6010000.43,
         "valorLiquidado": 0.0,
-        "valorPago": 5630769.4,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 5630769.4,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 994.05,
-        "investimentoPorHabitantePago": 931.32,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -35626,18 +35688,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 16638062.22,
         "valorLiquidado": 0.0,
-        "valorPago": 15347646.48,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 15347646.48,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 641.26,
-        "investimentoPorHabitantePago": 591.52,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -40881,18 +40945,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 23813698.15,
         "valorLiquidado": 7935865.86,
-        "valorPago": 13400704.67,
+        "valorPago": 596052.62,
         "valorLiquidadoDireto": 7682090.78,
-        "valorPagoDireto": 13316324.43,
+        "valorPagoDireto": 511672.38,
         "valorLiquidadoFrentes": 253775.08,
         "valorPagoFrentes": 84380.24,
         "totalFrentesMedicao": 5,
         "totalObras": 2,
         "investimentoPorHabitante": 1460.25,
-        "investimentoPorHabitantePago": 821.73,
+        "investimentoPorHabitantePago": 36.55,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -41847,7 +41913,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -44534,7 +44602,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -45894,18 +45964,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 29534732.83,
         "valorLiquidado": 8385942.82,
-        "valorPago": 20328054.59,
+        "valorPago": 487758.96,
         "valorLiquidadoDireto": 8385942.82,
-        "valorPagoDireto": 20328054.59,
+        "valorPagoDireto": 487758.96,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 4,
         "investimentoPorHabitante": 3674.85,
-        "investimentoPorHabitantePago": 2529.31,
+        "investimentoPorHabitantePago": 60.69,
         "obrasVerde": 2,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -46852,7 +46924,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -48003,7 +48077,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -49051,18 +49127,20 @@
         "vulnerabilidade_estimada_contiguidade": true,
         "valorTotal": 12503008.08,
         "valorLiquidado": 783415.85,
-        "valorPago": 11904157.03,
+        "valorPago": 348705.05,
         "valorLiquidadoDireto": 356150.48,
-        "valorPagoDireto": 11817783.78,
+        "valorPagoDireto": 262331.8,
         "valorLiquidadoFrentes": 427265.37,
         "valorPagoFrentes": 86373.25,
         "totalFrentesMedicao": 4,
         "totalObras": 4,
         "investimentoPorHabitante": 3097.87,
-        "investimentoPorHabitantePago": 2949.49,
+        "investimentoPorHabitantePago": 86.4,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 4
+        "obrasVermelho": 4,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -51313,7 +51391,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -54826,7 +54906,9 @@
         "investimentoPorHabitantePago": 594.58,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -55764,18 +55846,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 25954777.89,
         "valorLiquidado": 16868132.8,
-        "valorPago": 7839620.97,
+        "valorPago": 687010.43,
         "valorLiquidadoDireto": 16868132.8,
-        "valorPagoDireto": 7839620.97,
+        "valorPagoDireto": 687010.43,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 4,
         "investimentoPorHabitante": 2644.4,
-        "investimentoPorHabitantePago": 798.74,
+        "investimentoPorHabitantePago": 70.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 4
+        "obrasVermelho": 4,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -56227,18 +56311,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 3294842.14,
         "valorLiquidado": 0.0,
-        "valorPago": 2918120.68,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 2918120.68,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 128.24,
-        "investimentoPorHabitantePago": 113.58,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -57621,7 +57707,9 @@
         "investimentoPorHabitantePago": 556.62,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -58440,7 +58528,9 @@
         "investimentoPorHabitantePago": 800.42,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -59867,7 +59957,9 @@
         "investimentoPorHabitantePago": 31.61,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -61967,18 +62059,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 71370620.68,
         "valorLiquidado": 33310391.45,
-        "valorPago": 37094905.76,
+        "valorPago": 6246966.49,
         "valorLiquidadoDireto": 27500474.58,
-        "valorPagoDireto": 37094905.76,
+        "valorPagoDireto": 6246966.49,
         "valorLiquidadoFrentes": 5809916.87,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 5,
         "totalObras": 9,
         "investimentoPorHabitante": 2811.53,
-        "investimentoPorHabitantePago": 1461.29,
+        "investimentoPorHabitantePago": 246.09,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 9
+        "obrasVermelho": 9,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 7
       },
       "geometry": {
         "type": "Polygon",
@@ -67077,7 +67171,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -69464,7 +69560,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -73147,7 +73245,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -76243,9 +76343,9 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 2839887.74,
         "valorLiquidado": 2338981.53,
-        "valorPago": 2790666.94,
+        "valorPago": 2467636.49,
         "valorLiquidadoDireto": 2338981.53,
-        "valorPagoDireto": 2790666.94,
+        "valorPagoDireto": 2467636.49,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
@@ -76254,7 +76354,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 2,
         "obrasAmarelo": 1,
-        "obrasVermelho": 13
+        "obrasVermelho": 13,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -76733,7 +76835,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -77721,18 +77825,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 1864689.52,
         "valorLiquidado": 0.0,
-        "valorPago": 1631416.86,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 1631416.86,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 140.29,
-        "investimentoPorHabitantePago": 122.74,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -78532,18 +78638,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 5071074.86,
         "valorLiquidado": 0.0,
-        "valorPago": 4597436.47,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 4597436.47,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 321.1,
-        "investimentoPorHabitantePago": 291.11,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -79447,18 +79555,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 8266932.91,
         "valorLiquidado": 3429847.45,
-        "valorPago": 5016101.52,
+        "valorPago": 2540531.97,
         "valorLiquidadoDireto": 3429847.45,
-        "valorPagoDireto": 5016101.52,
+        "valorPagoDireto": 2540531.97,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 414.57,
-        "investimentoPorHabitantePago": 251.55,
+        "investimentoPorHabitantePago": 127.4,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -80674,18 +80784,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 21117023.57,
         "valorLiquidado": 78671.14,
-        "valorPago": 5834633.61,
+        "valorPago": 0.0,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 5834633.61,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 78671.14,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 3,
         "totalObras": 1,
         "investimentoPorHabitante": 1044.1,
-        "investimentoPorHabitantePago": 288.49,
+        "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -81980,7 +82092,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -82983,7 +83097,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -83911,18 +84027,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 30287821.69,
         "valorLiquidado": 14548703.96,
-        "valorPago": 10426592.46,
+        "valorPago": 8868885.34,
         "valorLiquidadoDireto": 14548703.96,
-        "valorPagoDireto": 10426592.46,
+        "valorPagoDireto": 8868885.34,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 3,
         "investimentoPorHabitante": 1088.24,
-        "investimentoPorHabitantePago": 374.63,
+        "investimentoPorHabitantePago": 318.66,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -84601,7 +84719,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -85536,7 +85656,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -86223,7 +86345,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -86815,18 +86939,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 14165840.4,
         "valorLiquidado": 12645847.2,
-        "valorPago": 5991092.17,
+        "valorPago": 5451946.82,
         "valorLiquidadoDireto": 12645847.2,
-        "valorPagoDireto": 5991092.17,
+        "valorPagoDireto": 5451946.82,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 1260.53,
-        "investimentoPorHabitantePago": 533.11,
+        "investimentoPorHabitantePago": 485.13,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -87561,7 +87687,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -89225,18 +89353,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 7179983.65,
         "valorLiquidado": 10897.56,
-        "valorPago": 5372510.03,
+        "valorPago": 11399.12,
         "valorLiquidadoDireto": 10897.56,
-        "valorPagoDireto": 5372510.03,
+        "valorPagoDireto": 11399.12,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 3,
         "investimentoPorHabitante": 178.15,
-        "investimentoPorHabitantePago": 133.3,
+        "investimentoPorHabitantePago": 0.28,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -90955,7 +91085,9 @@
         "investimentoPorHabitantePago": 158.94,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -92538,7 +92670,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -93809,7 +93943,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -95812,7 +95948,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -96679,7 +96817,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -98255,18 +98395,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 2324663.07,
         "valorLiquidado": 0.0,
-        "valorPago": 2172915.9,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 2172915.9,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 156.89,
-        "investimentoPorHabitantePago": 146.65,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -99953,7 +100095,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -101052,7 +101196,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -101892,18 +102038,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 263144.0,
         "valorLiquidado": 0.0,
-        "valorPago": 0.0,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 0.0,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 15.7,
-        "investimentoPorHabitantePago": 0.0,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -103738,7 +103886,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -104633,7 +104783,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -105104,7 +105256,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -106391,7 +106545,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -107306,7 +107462,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -108273,7 +108431,9 @@
         "investimentoPorHabitantePago": 23.94,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -109664,7 +109824,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -110288,18 +110450,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 1294701.82,
         "valorLiquidado": 0.0,
-        "valorPago": 1219421.44,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 1219421.44,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 59.32,
-        "investimentoPorHabitantePago": 55.87,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -113051,18 +113215,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 15755749.85,
         "valorLiquidado": 0.0,
-        "valorPago": 2816075.94,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 2816075.94,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 299.74,
-        "investimentoPorHabitantePago": 53.57,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -115195,7 +115361,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -115503,18 +115671,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 19408722.85,
         "valorLiquidado": 17325068.41,
-        "valorPago": 6866757.35,
+        "valorPago": 5223457.59,
         "valorLiquidadoDireto": 17325068.41,
-        "valorPagoDireto": 6866757.35,
+        "valorPagoDireto": 5223457.59,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 657.17,
-        "investimentoPorHabitantePago": 232.5,
+        "investimentoPorHabitantePago": 176.86,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -116657,7 +116827,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -117624,7 +117796,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -118364,18 +118538,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 5559485.89,
         "valorLiquidado": 432807.33,
-        "valorPago": 5332967.78,
+        "valorPago": 418402.93,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 4914564.85,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 432807.33,
         "valorPagoFrentes": 418402.93,
         "totalFrentesMedicao": 1,
         "totalObras": 2,
         "investimentoPorHabitante": 269.03,
-        "investimentoPorHabitantePago": 258.07,
+        "investimentoPorHabitantePago": 20.25,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -119975,18 +120151,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 5128075.28,
         "valorLiquidado": 0.0,
-        "valorPago": 4887568.55,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 4887568.55,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 298.87,
-        "investimentoPorHabitantePago": 284.86,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -122346,18 +122524,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 35653354.8,
         "valorLiquidado": 1056410.31,
-        "valorPago": 33397299.06,
+        "valorPago": 1083405.5,
         "valorLiquidadoDireto": 1056410.31,
-        "valorPagoDireto": 33397299.06,
+        "valorPagoDireto": 1083405.5,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 5,
         "investimentoPorHabitante": 1552.71,
-        "investimentoPorHabitantePago": 1454.46,
+        "investimentoPorHabitantePago": 47.18,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 5
+        "obrasVermelho": 5,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -123416,7 +123596,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -124899,7 +125081,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -125758,7 +125942,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -126970,18 +127156,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 303682.4,
         "valorLiquidado": 0.0,
-        "valorPago": 277170.93,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 277170.93,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 8.81,
-        "investimentoPorHabitantePago": 8.05,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -128504,7 +128692,9 @@
         "investimentoPorHabitantePago": 71.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -129456,18 +129646,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 18242830.1,
         "valorLiquidado": 4562798.98,
-        "valorPago": 7294588.85,
+        "valorPago": 3950635.02,
         "valorLiquidadoDireto": 4536553.21,
-        "valorPagoDireto": 7294588.85,
+        "valorPagoDireto": 3950635.02,
         "valorLiquidadoFrentes": 26245.77,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 1,
         "totalObras": 5,
         "investimentoPorHabitante": 299.22,
-        "investimentoPorHabitantePago": 119.65,
+        "investimentoPorHabitantePago": 64.8,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 5
+        "obrasVermelho": 5,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -131750,7 +131942,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -132654,18 +132848,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 16701423.74,
         "valorLiquidado": 0.0,
-        "valorPago": 15426731.4,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 15426731.4,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 4,
         "investimentoPorHabitante": 357.95,
-        "investimentoPorHabitantePago": 330.63,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 4
+        "obrasVermelho": 4,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -134001,18 +134197,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 6645698.92,
         "valorLiquidado": 350558.91,
-        "valorPago": 6313339.96,
+        "valorPago": 77680.67,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 6235659.29,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 350558.91,
         "valorPagoFrentes": 77680.67,
         "totalFrentesMedicao": 5,
         "totalObras": 2,
         "investimentoPorHabitante": 651.28,
-        "investimentoPorHabitantePago": 618.71,
+        "investimentoPorHabitantePago": 7.61,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -135368,18 +135566,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 12769870.58,
         "valorLiquidado": 2445973.83,
-        "valorPago": 11886195.54,
+        "valorPago": 0.0,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 11886195.54,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 2445973.83,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 3,
         "totalObras": 1,
         "investimentoPorHabitante": 618.79,
-        "investimentoPorHabitantePago": 575.97,
+        "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -138910,7 +139110,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -140777,7 +140979,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -143509,18 +143713,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 8832053.75,
         "valorLiquidado": 0.0,
-        "valorPago": 4011881.56,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 4011881.56,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 513.16,
-        "investimentoPorHabitantePago": 233.1,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -145379,7 +145585,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -146366,7 +146574,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -146645,7 +146855,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -147721,18 +147933,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 124457053.62,
         "valorLiquidado": 109433742.47,
-        "valorPago": 76571060.97,
+        "valorPago": 76464354.16,
         "valorLiquidadoDireto": 108638039.68,
-        "valorPagoDireto": 75810115.86,
+        "valorPagoDireto": 75703409.05,
         "valorLiquidadoFrentes": 795702.79,
         "valorPagoFrentes": 760945.11,
         "totalFrentesMedicao": 4,
         "totalObras": 5,
         "investimentoPorHabitante": 4049.75,
-        "investimentoPorHabitantePago": 2491.57,
+        "investimentoPorHabitantePago": 2488.1,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 4
+        "obrasVermelho": 4,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -150136,18 +150350,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 6640644.67,
         "valorLiquidado": 0.0,
-        "valorPago": 6020893.08,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 6020893.08,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 334.34,
-        "investimentoPorHabitantePago": 303.14,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -150711,18 +150927,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 169722.66,
         "valorLiquidado": 0.0,
-        "valorPago": 155194.4,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 155194.4,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 15.2,
-        "investimentoPorHabitantePago": 13.9,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -152233,7 +152451,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -152788,7 +153008,9 @@
         "investimentoPorHabitantePago": 55.81,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -153900,18 +154122,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 416269.54,
         "valorLiquidado": 0.0,
-        "valorPago": 0.0,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 0.0,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 27.76,
-        "investimentoPorHabitantePago": 0.0,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -155911,18 +156135,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 4887162.53,
         "valorLiquidado": 2167864.9,
-        "valorPago": 3303078.77,
+        "valorPago": 1030236.59,
         "valorLiquidadoDireto": 2167864.9,
-        "valorPagoDireto": 3303078.77,
+        "valorPagoDireto": 1030236.59,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 403.2,
-        "investimentoPorHabitantePago": 272.51,
+        "investimentoPorHabitantePago": 85.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -157506,18 +157732,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 1023283.33,
         "valorLiquidado": 344092.87,
-        "valorPago": 445392.98,
+        "valorPago": 319463.16,
         "valorLiquidadoDireto": 344092.87,
-        "valorPagoDireto": 445392.98,
+        "valorPagoDireto": 319463.16,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 5,
         "investimentoPorHabitante": 50.34,
-        "investimentoPorHabitantePago": 21.91,
+        "investimentoPorHabitantePago": 15.72,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 4
+        "obrasVermelho": 4,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -158820,7 +159048,9 @@
         "investimentoPorHabitantePago": 331.35,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -159203,7 +159433,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -159863,18 +160095,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 5263590.23,
         "valorLiquidado": 0.0,
-        "valorPago": 4830854.34,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 4830854.34,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 342.88,
-        "investimentoPorHabitantePago": 314.69,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -160261,7 +160495,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -160981,18 +161217,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 2455781.46,
         "valorLiquidado": 0.0,
-        "valorPago": 2353585.68,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 2353585.68,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 3,
         "investimentoPorHabitante": 140.12,
-        "investimentoPorHabitantePago": 134.29,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -163671,7 +163909,9 @@
         "investimentoPorHabitantePago": 141.96,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -178574,7 +178814,9 @@
         "investimentoPorHabitantePago": 216.98,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -179421,7 +179663,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -180196,7 +180440,9 @@
         "investimentoPorHabitantePago": 21.94,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -181983,7 +182229,9 @@
         "investimentoPorHabitantePago": 63.64,
         "obrasVerde": 2,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -183742,7 +183990,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -184830,18 +185080,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 9161470.95,
         "valorLiquidado": 0.0,
-        "valorPago": 8662248.86,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 8662248.86,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 1047.14,
-        "investimentoPorHabitantePago": 990.08,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -185753,18 +186005,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 626131.12,
         "valorLiquidado": 0.0,
-        "valorPago": 468905.99,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 468905.99,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 71.47,
-        "investimentoPorHabitantePago": 53.52,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -186564,18 +186818,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 473152.93,
         "valorLiquidado": 0.0,
-        "valorPago": 440931.22,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 440931.22,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 23.89,
-        "investimentoPorHabitantePago": 22.26,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -189735,18 +189991,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 65186592.31,
         "valorLiquidado": 56633461.97,
-        "valorPago": 24201906.88,
+        "valorPago": 22550129.68,
         "valorLiquidadoDireto": 56633461.97,
-        "valorPagoDireto": 24201906.88,
+        "valorPagoDireto": 22550129.68,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 8,
         "investimentoPorHabitante": 1242.38,
-        "investimentoPorHabitantePago": 461.26,
+        "investimentoPorHabitantePago": 429.78,
         "obrasVerde": 2,
         "obrasAmarelo": 0,
-        "obrasVermelho": 6
+        "obrasVermelho": 6,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -192582,18 +192840,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 15868498.84,
         "valorLiquidado": 2328557.99,
-        "valorPago": 13522759.97,
+        "valorPago": 894387.05,
         "valorLiquidadoDireto": 1982210.5,
-        "valorPagoDireto": 13522759.97,
+        "valorPagoDireto": 894387.05,
         "valorLiquidadoFrentes": 346347.49,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 1,
         "totalObras": 3,
         "investimentoPorHabitante": 514.93,
-        "investimentoPorHabitantePago": 438.81,
+        "investimentoPorHabitantePago": 29.02,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -196777,18 +197037,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 13448753.52,
         "valorLiquidado": 139398.75,
-        "valorPago": 7312652.59,
+        "valorPago": 0.0,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 7312652.59,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 139398.75,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 3,
         "totalObras": 4,
         "investimentoPorHabitante": 3395.29,
-        "investimentoPorHabitantePago": 1846.16,
+        "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -198879,7 +199141,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -199194,7 +199458,9 @@
         "investimentoPorHabitantePago": 140.6,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -199690,18 +199956,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 7602770.23,
         "valorLiquidado": 0.0,
-        "valorPago": 7554112.5,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 7554112.5,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 4895.54,
-        "investimentoPorHabitantePago": 4864.21,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -200265,18 +200533,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 22467411.63,
         "valorLiquidado": 811957.94,
-        "valorPago": 20613849.33,
+        "valorPago": 695495.35,
         "valorLiquidadoDireto": 601157.11,
-        "valorPagoDireto": 20543582.38,
+        "valorPagoDireto": 625228.4,
         "valorLiquidadoFrentes": 210800.83,
         "valorPagoFrentes": 70266.95,
         "totalFrentesMedicao": 4,
         "totalObras": 3,
         "investimentoPorHabitante": 849.3,
-        "investimentoPorHabitantePago": 779.23,
+        "investimentoPorHabitantePago": 26.29,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -202315,7 +202585,9 @@
         "investimentoPorHabitantePago": 923.03,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -203010,7 +203282,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -203974,18 +204248,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 14252645.65,
         "valorLiquidado": 0.0,
-        "valorPago": 13206501.46,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 13206501.46,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 2597.06,
-        "investimentoPorHabitantePago": 2406.43,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -205000,7 +205276,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -207439,7 +207717,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -211127,18 +211407,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 26584019.37,
         "valorLiquidado": 24001317.95,
-        "valorPago": 18324718.4,
+        "valorPago": 17607652.28,
         "valorLiquidadoDireto": 24001317.95,
-        "valorPagoDireto": 18324718.4,
+        "valorPagoDireto": 17607652.28,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 3,
         "investimentoPorHabitante": 1623.35,
-        "investimentoPorHabitantePago": 1119.0,
+        "investimentoPorHabitantePago": 1075.21,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -212809,7 +213091,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -213473,18 +213757,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 38797566.76,
         "valorLiquidado": 0.0,
-        "valorPago": 33929909.79,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 33929909.79,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 5,
         "investimentoPorHabitante": 2796.42,
-        "investimentoPorHabitantePago": 2445.58,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 5
+        "obrasVermelho": 5,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 5
       },
       "geometry": {
         "type": "Polygon",
@@ -216008,18 +216294,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 6514413.8,
         "valorLiquidado": 151129.23,
-        "valorPago": 6138936.69,
+        "valorPago": 58060.28,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 6080876.41,
+        "valorPagoDireto": 0.0,
         "valorLiquidadoFrentes": 151129.23,
         "valorPagoFrentes": 58060.28,
         "totalFrentesMedicao": 6,
         "totalObras": 3,
         "investimentoPorHabitante": 252.97,
-        "investimentoPorHabitantePago": 238.39,
+        "investimentoPorHabitantePago": 2.25,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 3
+        "obrasVermelho": 3,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -217823,18 +218111,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 8906588.81,
         "valorLiquidado": 0.0,
-        "valorPago": 3810920.69,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 3810920.69,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 319.54,
-        "investimentoPorHabitantePago": 136.72,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -220362,18 +220652,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 341615087.49,
         "valorLiquidado": 36347748.13,
-        "valorPago": 23564038.47,
+        "valorPago": 5277428.73,
         "valorLiquidadoDireto": 36347748.13,
-        "valorPagoDireto": 23564038.47,
+        "valorPagoDireto": 5277428.73,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 8,
         "investimentoPorHabitante": 23473.86,
-        "investimentoPorHabitantePago": 1619.19,
+        "investimentoPorHabitantePago": 362.64,
         "obrasVerde": 1,
         "obrasAmarelo": 1,
-        "obrasVermelho": 6
+        "obrasVermelho": 6,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -221708,7 +222000,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -222208,18 +222502,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 40079147.37,
         "valorLiquidado": 356150.48,
-        "valorPago": 37933071.53,
+        "valorPago": 262331.8,
         "valorLiquidadoDireto": 356150.48,
-        "valorPagoDireto": 37933071.53,
+        "valorPagoDireto": 262331.8,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 6,
         "investimentoPorHabitante": 1057.86,
-        "investimentoPorHabitantePago": 1001.22,
+        "investimentoPorHabitantePago": 6.92,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 6
+        "obrasVermelho": 6,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 5
       },
       "geometry": {
         "type": "Polygon",
@@ -225081,18 +225377,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 987311.92,
         "valorLiquidado": 0.0,
-        "valorPago": 1064120.55,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 1064120.55,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 275.55,
-        "investimentoPorHabitantePago": 296.99,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 1,
         "obrasAmarelo": 1,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -225567,7 +225865,9 @@
         "investimentoPorHabitantePago": 126.9,
         "obrasVerde": 0,
         "obrasAmarelo": 1,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -227110,7 +227410,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -227225,7 +227527,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -227921,18 +228225,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 18554659.57,
         "valorLiquidado": 0.0,
-        "valorPago": 18001947.72,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 18001947.72,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 1229.27,
-        "investimentoPorHabitantePago": 1192.66,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -230844,18 +231150,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 22400740.94,
         "valorLiquidado": 395877.04,
-        "valorPago": 20702078.58,
+        "valorPago": 411728.59,
         "valorLiquidadoDireto": 395877.04,
-        "valorPagoDireto": 20702078.58,
+        "valorPagoDireto": 411728.59,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 8,
         "investimentoPorHabitante": 436.7,
-        "investimentoPorHabitantePago": 403.58,
+        "investimentoPorHabitantePago": 8.03,
         "obrasVerde": 2,
         "obrasAmarelo": 0,
-        "obrasVermelho": 6
+        "obrasVermelho": 6,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 7
       },
       "geometry": {
         "type": "Polygon",
@@ -233910,7 +234218,9 @@
         "investimentoPorHabitantePago": 64.02,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -233998,18 +234308,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 69408600.15,
         "valorLiquidado": 0.0,
-        "valorPago": 59498136.71,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 59498136.71,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 6,
         "investimentoPorHabitante": 3656.74,
-        "investimentoPorHabitantePago": 3134.62,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 1,
         "obrasAmarelo": 0,
-        "obrasVermelho": 5
+        "obrasVermelho": 5,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 6
       },
       "geometry": {
         "type": "Polygon",
@@ -235532,7 +235844,9 @@
         "investimentoPorHabitantePago": 54.49,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -236256,18 +236570,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 434841200.69,
         "valorLiquidado": 71756627.92,
-        "valorPago": 45808837.03,
+        "valorPago": 10786443.9,
         "valorLiquidadoDireto": 70258589.15,
-        "valorPagoDireto": 44809961.17,
+        "valorPagoDireto": 9787568.04,
         "valorLiquidadoFrentes": 1498038.77,
         "valorPagoFrentes": 998875.86,
         "totalFrentesMedicao": 7,
         "totalObras": 17,
         "investimentoPorHabitante": 11206.09,
-        "investimentoPorHabitantePago": 1180.52,
+        "investimentoPorHabitantePago": 277.97,
         "obrasVerde": 4,
         "obrasAmarelo": 3,
-        "obrasVermelho": 10
+        "obrasVermelho": 10,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 13
       },
       "geometry": {
         "type": "Polygon",
@@ -237422,7 +237738,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -238077,7 +238395,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -239048,7 +239368,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -239811,7 +240133,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -240378,7 +240702,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -241118,18 +241444,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 101274841.73,
         "valorLiquidado": 32147496.0,
-        "valorPago": 38671930.03,
+        "valorPago": 22693860.31,
         "valorLiquidadoDireto": 31668234.81,
-        "valorPagoDireto": 38661930.03,
+        "valorPagoDireto": 22683860.31,
         "valorLiquidadoFrentes": 479261.19,
         "valorPagoFrentes": 10000.0,
         "totalFrentesMedicao": 2,
         "totalObras": 9,
         "investimentoPorHabitante": 12593.24,
-        "investimentoPorHabitantePago": 4808.75,
+        "investimentoPorHabitantePago": 2821.92,
         "obrasVerde": 1,
         "obrasAmarelo": 1,
-        "obrasVermelho": 7
+        "obrasVermelho": 7,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 5
       },
       "geometry": {
         "type": "Polygon",
@@ -242665,18 +242993,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 10874498.24,
         "valorLiquidado": 2263717.97,
-        "valorPago": 8277041.08,
+        "valorPago": 2345154.42,
         "valorLiquidadoDireto": 2263717.97,
-        "valorPagoDireto": 8277041.08,
+        "valorPagoDireto": 2345154.42,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 14,
         "investimentoPorHabitante": 6427.01,
-        "investimentoPorHabitantePago": 4891.87,
+        "investimentoPorHabitantePago": 1386.03,
         "obrasVerde": 3,
         "obrasAmarelo": 1,
-        "obrasVermelho": 10
+        "obrasVermelho": 10,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 8
       },
       "geometry": {
         "type": "Polygon",
@@ -244468,9 +244798,9 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 206830843.34,
         "valorLiquidado": 27310197.74,
-        "valorPago": 44258339.33,
+        "valorPago": 9455831.83,
         "valorLiquidadoDireto": 26800219.15,
-        "valorPagoDireto": 44061997.58,
+        "valorPagoDireto": 9259490.08,
         "valorLiquidadoFrentes": 509978.59,
         "valorPagoFrentes": 196341.75,
         "totalFrentesMedicao": 4,
@@ -244479,7 +244809,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 2,
         "obrasAmarelo": 0,
-        "obrasVermelho": 15
+        "obrasVermelho": 15,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 14
       },
       "geometry": {
         "type": "Polygon",
@@ -248419,18 +248751,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 17590606.34,
         "valorLiquidado": 15402318.04,
-        "valorPago": 5896415.57,
+        "valorPago": 5795730.37,
         "valorLiquidadoDireto": 15402318.04,
-        "valorPagoDireto": 5896415.57,
+        "valorPagoDireto": 5795730.37,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 2,
         "investimentoPorHabitante": 1013.11,
-        "investimentoPorHabitantePago": 339.6,
+        "investimentoPorHabitantePago": 333.8,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 2
+        "obrasVermelho": 2,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -249526,18 +249860,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 4995777.75,
         "valorLiquidado": 0.0,
-        "valorPago": 4339332.55,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 4339332.55,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 960.54,
-        "investimentoPorHabitantePago": 834.33,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -250792,7 +251128,9 @@
         "investimentoPorHabitantePago": 82.14,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -253147,7 +253485,9 @@
         "investimentoPorHabitantePago": 0.0,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 0
+        "obrasVermelho": 0,
+        "valorPagoDisponivel": true,
+        "obrasSemValorPago": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -253651,18 +253991,20 @@
         "vulnerabilidade_estimada_contiguidade": false,
         "valorTotal": 7287278.67,
         "valorLiquidado": 0.0,
-        "valorPago": 6012004.9,
+        "valorPago": null,
         "valorLiquidadoDireto": 0.0,
-        "valorPagoDireto": 6012004.9,
+        "valorPagoDireto": null,
         "valorLiquidadoFrentes": 0.0,
         "valorPagoFrentes": 0.0,
         "totalFrentesMedicao": 0,
         "totalObras": 1,
         "investimentoPorHabitante": 125.87,
-        "investimentoPorHabitantePago": 103.85,
+        "investimentoPorHabitantePago": null,
         "obrasVerde": 0,
         "obrasAmarelo": 0,
-        "obrasVermelho": 1
+        "obrasVermelho": 1,
+        "valorPagoDisponivel": false,
+        "obrasSemValorPago": 1
       },
       "geometry": {
         "type": "Polygon",

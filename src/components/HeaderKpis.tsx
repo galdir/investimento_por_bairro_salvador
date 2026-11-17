@@ -25,6 +25,7 @@ interface HeaderKpisProps {
    * Indica se há dados disponíveis de pagamento para o valor alocado (false se todos ausentes).
    */
   valorAlocadoDisponivel?: boolean;
+  obrasSemPagamento?: number;
   /**
    * Quantidade de obras alocadas aos territórios comparados.
    */
@@ -61,6 +62,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
   territorioCount = 0,
   valorAlocadoTerritorial,
   valorAlocadoDisponivel = true,
+  obrasSemPagamento = 0,
   totalObrasAlocadas,
   contratosPrefeituraBairroSemRateioCount = 0,
   isExactLayerWorkCount = true,
@@ -242,6 +244,11 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
             </div>
           </div>
         </div>
+        {!isVigente && obrasSemPagamento > 0 && (
+          <p className="mt-2 text-xs text-amber-200" role="status">
+            Valores pagos são parciais: pelo menos {formatNumber(obrasSemPagamento)} contrato(s) com pagamento indisponível no acervo selecionado.
+          </p>
+        )}
       </div>
     </header>
   );

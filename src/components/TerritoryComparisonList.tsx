@@ -45,7 +45,7 @@ function renderTotalSummary(
       )}
       {obrasSemValorPago > 0 && (
         <span className="text-[10px] text-amber-800 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">
-          {obrasSemValorPago} sem pgto
+          {obrasSemValorPago} sem dado de pagamento
         </span>
       )}
     </div>

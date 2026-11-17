@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FichaLimpaObra, ObraCompacta } from "../types";
 import { formatCurrency } from "../utils/formatters";
 import { getObraCotasListaFechada } from "../utils/territory";
@@ -6,6 +6,50 @@ import { getObraCotasListaFechada } from "../utils/territory";
 const PORTAL_TRANSPARENCIA_URL = "https://www.transparencia.salvador.ba.gov.br/";
 const PORTAL_DOM_URL = "https://dom.salvador.ba.gov.br/";
 const DOM_INVALIDOS = new Set(["", "nao informado", "não informado", "nao informada", "não informada", "none", "null"]);
+const MAX_OBJECT_TITLE_WORDS = 8;
+const MAX_OBJECT_TITLE_LENGTH = 72;
+const TRAILING_TITLE_CONNECTORS = new Set([
+  "de", "da", "do", "das", "dos", "e", "com", "para", "por", "em", "a", "o", "as", "os", "no", "na", "nos", "nas", "ao", "aos", "à", "às",
+]);
+
+function normalizeObjectText(value: string): string {
+  return value.trim().replace(/\s+/g, " ");
+}
+
+function summarizeObject(value: string): string {
+  const normalized = normalizeObjectText(value);
+  const subject = normalized
+    .replace(/^contrata[çc][ãa]o de empresa para (?:execu[çc][ãa]o de )?servi[çc]os? comu(?:m|ns) de engenharia para (?:o |a )?/i, "")
+    .replace(/^contrata[çc][ãa]o de empresa para execu[çc][ãa]o de servi[çc]os de engenharia para\s+/i, "")
+    .replace(/^contrata[çc][ãa]o de empresas? (?:capacitada|especializada)s? para execu[çc][ãa]o d(?:as obras|a obra|os servi[çc]os|e servi[çc]os|e obras) de\s+/i, "")
+    .replace(/^contrata[çc][ãa]o de empresa para execu[çc][ãa]o d(?:as obras|a obra|os servi[çc]os|e servi[çc]os|e obras) de\s+/i, "")
+    .replace(/^contrata[çc][ãa]o de empresa especializada em servi[çc]o de arquitetura para (?=elabora[çc][ãa]o\b)/i, "")
+    .replace(/^contrata[çc][ãa]o de empresa de engenharia civil especializada em manuten[çc][ãa]o predial para (?=presta[çc][ãa]o de servi[çc]os\b)/i, "")
+    .replace(/^contrata[çc][ãa]o de empresas?(?: (?:especializadas?|capacitadas?|de engenharia(?: civil)?))? para (?=\S)/i, "")
+    .replace(/^contrata[çc][ãa]o de empresa especializada na (?=presta[çc][ãa]o\b)/i, "");
+  if (subject === normalized && /^contrata[çc][ãa]o de empresas?\b/i.test(normalized)) {
+    return normalized;
+  }
+  const words = subject.split(" ");
+  const exceedsWordLimit = words.length > MAX_OBJECT_TITLE_WORDS;
+  const limitedWords = words.slice(0, MAX_OBJECT_TITLE_WORDS);
+  if (exceedsWordLimit) {
+    while (limitedWords.length > 1 && TRAILING_TITLE_CONNECTORS.has(limitedWords[limitedWords.length - 1].toLowerCase())) {
+      limitedWords.pop();
+    }
+  }
+  const wordLimited = limitedWords.join(" ");
+  if (wordLimited.length <= MAX_OBJECT_TITLE_LENGTH) {
+    return exceedsWordLimit ? `${wordLimited}…` : wordLimited;
+  }
+
+  const characters = Array.from(wordLimited).slice(0, MAX_OBJECT_TITLE_LENGTH).join("");
+  const wordBoundary = characters.lastIndexOf(" ");
+  const shortened = wordBoundary > MAX_OBJECT_TITLE_LENGTH / 2
+    ? characters.slice(0, wordBoundary)
+    : characters;
+  return `${shortened.trimEnd()}…`;
+}
 
 function isDomValido(val?: string | null): boolean {
   if (!val) return false;
@@ -70,6 +114,20 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
 }) => {
   const [copiadoCampo, setCopiadoCampo] = useState<"contrato" | "processo" | null>(null);
   const isOpen = Boolean(obra || loading || error);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+  const objetoOriginal = obra?.objeto || requestedObra?.objeto || "";
+  const tituloResumo = objetoOriginal ? summarizeObject(objetoOriginal) : "";
+  const objetoOriginalNormalizado = normalizeObjectText(objetoOriginal);
+  const exibeObjetoOriginal = Boolean(objetoOriginal && tituloResumo !== objetoOriginalNormalizado);
+  const percentualExecucaoFisica = obra?.funilFinanceiro?.percentualExecutado ?? 0;
+  const valorContratualVigente = obra?.funilFinanceiro?.valorContratualVigente ?? 0;
+  const valorPago = obra?.funilFinanceiro?.valorPago;
+  const percentualPagoSobreVigente =
+    valorPago != null && valorContratualVigente > 0
+      ? (valorPago / valorContratualVigente) * 100
+      : null;
 
   const handleCopiar = async (valor: string, campo: "contrato" | "processo") => {
     try {
@@ -81,17 +139,47 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
     }
   };
 
-  // Fecha modal com a tecla ESC somente quando estiver aberto
+  // Mantém o foco dentro da ficha e fecha com ESC.
   useEffect(() => {
     if (!isOpen) return;
+    dialogRef.current?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        onClose();
+        onCloseRef.current();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])'
+      );
+      const focusable = Array.from(focusableElements || []).filter(
+        (element) => element.getAttribute("aria-hidden") !== "true"
+      );
+      if (focusable.length === 0) {
+        e.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (active === dialogRef.current) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+      } else if (e.shiftKey && (active === first || !dialogRef.current?.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (active === last || !dialogRef.current?.contains(active))) {
+        e.preventDefault();
+        first.focus();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen) {
     return null;
@@ -101,11 +189,15 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
   const totalCotasUnidades =
     cotasListaFechada[0]?.totalUnidades ||
     cotasListaFechada.reduce((acc, c) => acc + (c.unidades || 0), 0);
+  const percentualExecucaoFisicaFormatado = percentualExecucaoFisica.toFixed(1).replace(".", ",");
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
+      aria-labelledby="ficha-limpa-titulo"
+      tabIndex={-1}
       className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 md:p-6 animate-fadeIn"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -113,11 +205,11 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
     >
       <div
         data-testid="ficha-limpa-modal"
-        className="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden text-slate-800"
+        className="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-4xl max-h-[92vh] overflow-y-auto text-slate-800"
       >
         {/* Cabeçalho do Modal */}
         <div className="bg-slate-900 text-white px-5 py-4 flex items-start justify-between gap-4 border-b border-slate-800 shrink-0">
-          <div>
+          <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2 mb-1.5">
               <span
                 data-testid="ficha-limpa-orgao"
@@ -170,19 +262,37 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   data-testid="ficha-badge-cota-parte"
                   className="bg-amber-950/80 text-amber-200 text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-amber-400/40"
                 >
-                  Cota-Parte ({totalCotasUnidades}/{totalCotasUnidades})
+                  Cota-Parte territorial
                 </span>
               )}
             </div>
 
             <h2
+              id="ficha-limpa-titulo"
               data-testid="ficha-limpa-objeto"
-              className="text-base sm:text-lg font-extrabold text-white leading-snug"
+              className="text-base sm:text-lg font-extrabold text-white leading-snug break-words"
             >
-              {obra?.objeto ||
-                requestedObra?.objeto ||
-                (error ? "Não foi possível carregar os detalhes da obra" : "Carregando Ficha Limpa da Obra...")}
+              <span data-testid="ficha-limpa-titulo-resumido">
+                {tituloResumo ||
+                  (error ? "Não foi possível carregar os detalhes da obra" : "Carregando Ficha Limpa da Obra...")}
+              </span>
             </h2>
+            {exibeObjetoOriginal && (
+              <details className="mt-2 max-w-3xl text-xs text-slate-200">
+                <summary
+                  data-testid="ficha-limpa-toggle-objeto-original"
+                  className="w-fit cursor-pointer font-semibold underline underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded"
+                >
+                  Ver objeto original completo
+                </summary>
+                <p
+                  data-testid="ficha-limpa-objeto-original"
+                  className="mt-2 text-slate-300 leading-relaxed break-words"
+                >
+                  {objetoOriginal}
+                </p>
+              </details>
+            )}
 
             <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-slate-400">
               <span>
@@ -221,7 +331,7 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
         </div>
 
         {/* Conteúdo com Rolagem */}
-        <div className="p-5 sm:p-6 overflow-y-auto space-y-6">
+        <div className="p-5 sm:p-6 space-y-6">
           {loading && !obra ? (
             <div className="py-16 text-center">
               <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
@@ -273,6 +383,28 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
             </div>
           ) : obra ? (
             <>
+              {obra.semaforo && (
+                <section
+                  data-testid="ficha-limpa-motivos-risco"
+                  aria-label="Motivos da classificação do Semáforo da Obra"
+                  className="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-2"
+                >
+                  <h3 className="text-sm font-bold text-slate-900">Por que esta classificação?</h3>
+                  {obra.semaforo.motivos.length > 0 ? (
+                    <ul className="list-disc pl-5 text-xs text-slate-700 space-y-1">
+                      {obra.semaforo.motivos.map((motivo, index) => (
+                        <li key={`${motivo}-${index}`} className="break-words">{motivo}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-xs text-slate-700">A origem não detalha os motivos desta classificação.</p>
+                  )}
+                  <p className="text-xs text-slate-600">
+                    O Semáforo resume critérios de risco e andamento; esta classificação, por si só, não comprova irregularidade.
+                  </p>
+                </section>
+              )}
+
               {/* 1. Card da Empreiteira e Concentração em Salvador */}
               <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -385,21 +517,21 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                       data-testid="funil-percentual-executado"
                       className="px-2.5 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300"
                     >
-                      {(obra.funilFinanceiro?.percentualExecutado || 0).toFixed(1).replace(".", ",")}%
+                      {percentualExecucaoFisicaFormatado}%
                     </span>
                   </div>
                 </div>
 
                 {/* Blocos de Estágios do Funil */}
-                <div className="grid grid-cols-1 sm:grid-cols-5 gap-2.5 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 mb-4">
                   {/* Estágio 1: Valor Original */}
                   <div className="bg-white p-3 rounded-lg border border-slate-200">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      1. Original
+                      1. Valor Original
                     </span>
                     <div
                       data-testid="funil-valor-original"
-                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1"
+                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1 break-words"
                     >
                       {formatCurrency(obra.funilFinanceiro?.valorOriginal || 0)}
                     </div>
@@ -409,11 +541,11 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   {/* Estágio 2: Valor Vigente */}
                   <div className="bg-white p-3 rounded-lg border border-slate-200">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      2. Vigente (+Aditivo)
+                      2. Valor Contratual Vigente
                     </span>
                     <div
                       data-testid="funil-valor-vigente"
-                      className="text-xs sm:text-sm font-bold text-slate-900 mt-1"
+                      className="text-xs sm:text-sm font-bold text-slate-900 mt-1 break-words"
                     >
                       {formatCurrency(obra.funilFinanceiro?.valorContratualVigente || 0)}
                     </div>
@@ -429,11 +561,11 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   {/* Estágio 3: Valor Empenhado */}
                   <div className="bg-white p-3 rounded-lg border border-slate-200">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      3. Empenhado
+                      3. Valor Empenhado
                     </span>
                     <div
                       data-testid="funil-valor-empenhado"
-                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1"
+                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1 break-words"
                     >
                       {formatCurrency(obra.funilFinanceiro?.valorEmpenhado || 0)}
                     </div>
@@ -443,11 +575,11 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   {/* Estágio 4: Valor Liquidado */}
                   <div className="bg-white p-3 rounded-lg border border-slate-200">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      4. Liquidado
+                      4. Valor Liquidado
                     </span>
                     <div
                       data-testid="funil-valor-liquidado"
-                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1"
+                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1 break-words"
                     >
                       {formatCurrency(obra.funilFinanceiro?.valorLiquidado || 0)}
                     </div>
@@ -457,13 +589,13 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   {/* Estágio 5: Valor Pago */}
                   <div className="bg-white p-3 rounded-lg border border-slate-200">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      5. Pago
+                      5. Valor Pago
                     </span>
                     <div
                       data-testid="funil-valor-pago"
-                      className="text-xs sm:text-sm font-bold text-emerald-700 mt-1"
+                      className="text-xs sm:text-sm font-bold text-emerald-700 mt-1 break-words"
                     >
-                      {formatCurrency(obra.funilFinanceiro?.valorPago || 0)}
+                      {valorPago == null ? "Indisponível" : formatCurrency(valorPago)}
                     </div>
                     <span className="text-[10px] text-slate-500">Repasse à empresa</span>
                   </div>
@@ -474,42 +606,52 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   <div>
                     <div className="flex justify-between text-slate-600 mb-1">
                       <span>Execução Financeira (Pago / Vigente):</span>
-                      <strong className="text-slate-800">
-                        {obra.funilFinanceiro?.valorContratualVigente > 0
-                          ? `${((obra.funilFinanceiro.valorPago / obra.funilFinanceiro.valorContratualVigente) * 100).toFixed(1).replace(".", ",")}%`
-                          : "0%"}
+                      <strong data-testid="funil-percentual-pago-vigente" className="text-slate-800">
+                        {percentualPagoSobreVigente == null ? "Indisponível" : `${percentualPagoSobreVigente.toFixed(1).replace(".", ",")}%`}
                       </strong>
                     </div>
-                    <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                    {percentualPagoSobreVigente != null && <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                       <div
+                        role="progressbar"
+                        aria-label="Execução financeira, valor pago sobre valor vigente"
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-valuenow={Math.max(0, Math.min(100, percentualPagoSobreVigente))}
+                        aria-valuetext={`${percentualPagoSobreVigente.toFixed(1).replace(".", ",")}% do valor vigente pago`}
                         className="bg-indigo-600 h-2 rounded-full"
                         style={{
-                          width: `${Math.min(
-                            100,
-                            obra.funilFinanceiro?.valorContratualVigente > 0
-                              ? (obra.funilFinanceiro.valorPago / obra.funilFinanceiro.valorContratualVigente) * 100
-                              : 0
-                          )}%`,
+                          width: `${Math.max(0, Math.min(100, percentualPagoSobreVigente))}%`,
                         }}
                       ></div>
-                    </div>
+                    </div>}
                   </div>
 
                   <div>
                     <div className="flex justify-between text-slate-600 mb-1">
                       <span>Execução Física Medida (percentualExecutado):</span>
                       <strong className="text-emerald-700">
-                        {(obra.funilFinanceiro?.percentualExecutado || 0).toFixed(1).replace(".", ",")}%
+                        {percentualExecucaoFisicaFormatado}%
                       </strong>
                     </div>
                     <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                       <div
+                        role="progressbar"
+                        aria-label="Execução física informada pela fonte"
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-valuenow={Math.max(0, Math.min(100, percentualExecucaoFisica))}
+                        aria-valuetext={`${percentualExecucaoFisicaFormatado}% informado pela fonte${percentualExecucaoFisica > 100 ? "; barra visual limitada a 100%" : ""}`}
                         className="bg-emerald-500 h-2 rounded-full"
                         style={{
-                          width: `${Math.min(100, obra.funilFinanceiro?.percentualExecutado || 0)}%`,
+                          width: `${Math.max(0, Math.min(100, percentualExecucaoFisica))}%`,
                         }}
                       ></div>
                     </div>
+                    {percentualExecucaoFisica > 100 && (
+                      <p data-testid="ficha-execucao-fisica-acima-100" className="text-[11px] text-amber-800">
+                        Valor de origem mantido em {percentualExecucaoFisicaFormatado}%. A barra visual é limitada a 100% por escala e não representa pagamentos.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -664,7 +806,7 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                 const lastroTrecho = fontesOficiais?.lastroTerritorial?.trechoComprobatorio || null;
                 const lastroJustificativa = fontesOficiais?.lastroTerritorial?.justificativa || null;
                 const baseVigente = obra.funilFinanceiro?.valorContratualVigente || 0;
-                const basePago = obra.funilFinanceiro?.valorPago || 0;
+                const basePago = obra.funilFinanceiro?.valorPago;
                 const frentesMedicao = obra.frentesMedicao || [];
 
                 const renderBotaoCopiar = (valor: string, campo: "contrato" | "processo", label: string, testId: string) => (
@@ -822,7 +964,7 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                           Total integral do contrato:{" "}
                           <strong className="text-slate-800">{formatCurrency(baseVigente)}</strong>{" "}
                           vigente ·{" "}
-                          <strong className="text-emerald-700">{formatCurrency(basePago)}</strong>{" "}
+                          <strong className="text-emerald-700">{basePago == null ? "Indisponível" : formatCurrency(basePago)}</strong>{" "}
                           pago
                         </p>
 
@@ -865,7 +1007,7 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                                   <span>
                                     Pago:{" "}
                                     <strong className="text-emerald-700">
-                                      {formatCurrency(basePago * cota.peso)}
+                                      {basePago == null ? "Indisponível" : formatCurrency(basePago * cota.peso)}
                                     </strong>
                                   </span>
                                 </div>

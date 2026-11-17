@@ -198,7 +198,7 @@ export interface FunilFinanceiro {
   valorContratualVigente: number;
   valorEmpenhado: number;
   valorLiquidado: number;
-  valorPago: number;
+  valorPago: number | null;
   percentualExecutado: number;
   valorAditivos?: number;
   deltaPercentualAditivos?: number;

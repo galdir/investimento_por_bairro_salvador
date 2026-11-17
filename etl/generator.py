@@ -97,15 +97,17 @@ def generate_bairros_geojson(
             "vulnerabilidade_estimada_contiguidade": bool(dados_rollup.get("vulnerabilidade_estimada_contiguidade", False)),
             "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
             "valorLiquidado": parse_float(dados_rollup.get("valorLiquidado", 0.0)),
-            "valorPago": parse_float(dados_rollup.get("valorPago", 0.0)),
+            "valorPago": None if dados_rollup.get("valorPago") is None else parse_float(dados_rollup["valorPago"]),
             "valorLiquidadoDireto": parse_float(dados_rollup.get("valorLiquidadoDireto", 0.0)),
-            "valorPagoDireto": parse_float(dados_rollup.get("valorPagoDireto", 0.0)),
+            "valorPagoDireto": None if dados_rollup.get("valorPagoDireto") is None else parse_float(dados_rollup["valorPagoDireto"]),
             "valorLiquidadoFrentes": parse_float(dados_rollup.get("valorLiquidadoFrentes", 0.0)),
             "valorPagoFrentes": parse_float(dados_rollup.get("valorPagoFrentes", 0.0)),
             "totalFrentesMedicao": int(dados_rollup.get("totalFrentesMedicao", 0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
             "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
-            "investimentoPorHabitantePago": parse_float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
+            "investimentoPorHabitantePago": None if dados_rollup.get("investimentoPorHabitantePago") is None else parse_float(dados_rollup["investimentoPorHabitantePago"]),
+            "valorPagoDisponivel": dados_rollup.get("valorPagoDisponivel", False),
+            "obrasSemValorPago": dados_rollup.get("obrasSemValorPago", 0),
             "obrasVerde": int(dados_rollup.get("obrasVerde", 0)),
             "obrasAmarelo": int(dados_rollup.get("obrasAmarelo", 0)),
             "obrasVermelho": int(dados_rollup.get("obrasVermelho", 0)),
@@ -175,15 +177,17 @@ def generate_prefeituras_geojson(
             "pct_analfabetismo_15mais": parse_float(dados_rollup.get("pct_analfabetismo_15mais", 0.0)),
             "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
             "valorLiquidado": parse_float(dados_rollup.get("valorLiquidado", 0.0)),
-            "valorPago": parse_float(dados_rollup.get("valorPago", 0.0)),
+            "valorPago": None if dados_rollup.get("valorPago") is None else parse_float(dados_rollup["valorPago"]),
             "valorLiquidadoDireto": parse_float(dados_rollup.get("valorLiquidadoDireto", 0.0)),
-            "valorPagoDireto": parse_float(dados_rollup.get("valorPagoDireto", 0.0)),
+            "valorPagoDireto": None if dados_rollup.get("valorPagoDireto") is None else parse_float(dados_rollup["valorPagoDireto"]),
             "valorLiquidadoFrentes": parse_float(dados_rollup.get("valorLiquidadoFrentes", 0.0)),
             "valorPagoFrentes": parse_float(dados_rollup.get("valorPagoFrentes", 0.0)),
             "totalFrentesMedicao": int(dados_rollup.get("totalFrentesMedicao", 0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
             "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
-            "investimentoPorHabitantePago": parse_float(dados_rollup.get("investimentoPorHabitantePago", 0.0)),
+            "investimentoPorHabitantePago": None if dados_rollup.get("investimentoPorHabitantePago") is None else parse_float(dados_rollup["investimentoPorHabitantePago"]),
+            "valorPagoDisponivel": dados_rollup.get("valorPagoDisponivel", False),
+            "obrasSemValorPago": dados_rollup.get("obrasSemValorPago", 0),
             "obrasVerde": int(dados_rollup.get("obrasVerde", 0)),
             "obrasAmarelo": int(dados_rollup.get("obrasAmarelo", 0)),
             "obrasVermelho": int(dados_rollup.get("obrasVermelho", 0)),
@@ -250,15 +254,10 @@ def generate_index_json(
         valor_aditivos = round(max(0.0, vl_atua - vl_orig), 2)
         delta_percentual = round(((vl_atua - vl_orig) / vl_orig) * 100.0, 2) if vl_orig > 0 else 0.0
 
-        # Percentual executado e valor pago (real das ordens bancárias quando existente; senão estimativa)
+        # Percentual físico e pagamento são medidas independentes.
         perc_exec = parse_float(o.get("percentualExecutado") or 0.0)
-        vl_pago_real = parse_float(o.get("vlPagoReal") or 0.0)
-        if vl_pago_real > 0.0:
-            vl_pago = round(vl_pago_real, 2)
-        else:
-            vl_pago = parse_float(
-                o.get("vlPago") or o.get("valorPago") or round(vl_atua * (perc_exec / 100.0), 2)
-            )
+        pagamento = o.get("vlPagoReal") if "vlPagoReal" in o else o.get("vlPago", o.get("valorPago"))
+        vl_pago = round(parse_float(pagamento), 2) if pagamento is not None else None
 
         # Classificações determinísticas de Tema, Vocação e Semáforo da Obra
         tema = o.get("tema") or classificar_tema(o)

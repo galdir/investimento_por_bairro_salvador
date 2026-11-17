@@ -345,7 +345,8 @@ describe("Seam 2: Cota-Parte de Lista Fechada no Rollup Dinâmico e Helpers Terr
     const secaoFontes = screen.getByTestId("secao-fontes-oficiais");
     const secaoCotas = screen.getByTestId("fontes-cotas-lista-fechada");
     expect(secaoFontes).toContainElement(secaoCotas);
-    expect(screen.getByTestId("ficha-badge-cota-parte")).toHaveTextContent("Cota-Parte (3/3)");
+    expect(screen.getByTestId("ficha-badge-cota-parte")).toHaveTextContent("Cota-Parte territorial");
+    expect(screen.getByTestId("ficha-badge-cota-parte")).not.toHaveTextContent("3/3");
     expect(secaoCotas).toHaveTextContent(/900\.000/);
 
     expect(screen.getByTestId("fontes-cota-badge-0")).toHaveTextContent("Cota-Parte (1/3)");

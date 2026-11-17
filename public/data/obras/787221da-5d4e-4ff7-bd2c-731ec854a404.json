@@ -31,7 +31,7 @@
     "valorContratualVigente": 700399.99,
     "valorEmpenhado": 700399.99,
     "valorLiquidado": 0,
-    "valorPago": 0,
+    "valorPago": null,
     "percentualExecutado": 99.45,
     "valorAditivos": 0.0,
     "deltaPercentualAditivos": 0.0

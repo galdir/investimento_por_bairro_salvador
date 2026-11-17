@@ -14,6 +14,35 @@ from tests.etl.fixtures.sample_data import (
 )
 
 
+def test_indice_nao_transforma_execucao_fisica_em_pagamento(tmp_path: Path) -> None:
+    """A ausência de registros de pagamento não autoriza estimar um pagamento."""
+    from etl.domain.ficha_limpa import sincronizar_obra_com_ficha
+    from etl.domain.kpis import calcular_kpis_globais
+    from etl.generator import generate_index_json
+
+    obra = {
+        "id": "brt", "cdUnidadeGestora": "616002", "nuContratoSigef": "2018CT001246",
+        "valorContratualVigente": 268942700.51, "percentualExecutado": 97.55,
+    }
+    ficha = {"funilFinanceiro": {"valorPago": 0}, "pagamentos": []}
+    sincronizar_obra_com_ficha(obra, ficha)
+    caminho = tmp_path / "index.json"
+    generate_index_json({}, [], [], [obra], 2025, caminho)
+    indice = json.loads(caminho.read_text(encoding="utf-8"))
+    assert indice["obras"][0]["valorPago"] is None
+    assert calcular_kpis_globais({}, [obra], 100)["obrasSemValorPago"] == 1
+
+
+def test_ficha_nao_reaproveita_estimativa_antiga_como_pagamento() -> None:
+    from etl.domain.ficha_limpa import construir_ficha_obra, sincronizar_obra_com_ficha
+
+    obra = {"id": "brt", "vlAtualizado": 1000, "percentualExecutado": 50, "vlPago": 500}
+    ficha = construir_ficha_obra(obra, {}, [], [], [], [], [])
+    sincronizar_obra_com_ficha(obra, ficha)
+    assert ficha["funilFinanceiro"]["valorPago"] is None
+    assert obra["valorPago"] is None
+
+
 def test_pipeline_generates_individual_obras_json_with_ficha_limpa(tmp_path: Path) -> None:
     """Valida a geração dos arquivos estáticos individuais em `obras/<id>.json` e o resumo de empreiteiras.
 
