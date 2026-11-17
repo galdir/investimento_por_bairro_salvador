@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FichaLimpaObra } from "../types";
+import { FichaLimpaObra, ObraCompacta } from "../types";
 import { formatCurrency } from "../utils/formatters";
 import { getObraCotasListaFechada } from "../utils/territory";
 
@@ -21,6 +21,18 @@ interface FichaLimpaModalProps {
    * Indicador se a requisição sob demanda está em andamento.
    */
   loading?: boolean;
+  /**
+   * Mensagem de erro ao tentar carregar os detalhes da obra.
+   */
+  error?: string | null;
+  /**
+   * Obra compacta solicitada (para identificar contrato/objeto em carregamento ou erro).
+   */
+  requestedObra?: ObraCompacta | null;
+  /**
+   * Callback para tentar novamente o carregamento da Ficha Limpa.
+   */
+  onRetry?: () => void;
   /**
    * Callback para fechar a ficha detalhada.
    */
@@ -50,10 +62,14 @@ interface FichaLimpaModalProps {
 export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
   obra,
   loading = false,
+  error = null,
+  requestedObra = null,
+  onRetry,
   onClose,
   onFilterByEmpreiteira,
 }) => {
   const [copiadoCampo, setCopiadoCampo] = useState<"contrato" | "processo" | null>(null);
+  const isOpen = Boolean(obra || loading || error);
 
   const handleCopiar = async (valor: string, campo: "contrato" | "processo") => {
     try {
@@ -65,8 +81,9 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
     }
   };
 
-  // Fecha modal com a tecla ESC
+  // Fecha modal com a tecla ESC somente quando estiver aberto
   useEffect(() => {
+    if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         onClose();
@@ -74,9 +91,9 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
+  }, [isOpen, onClose]);
 
-  if (!obra && !loading) {
+  if (!isOpen) {
     return null;
   }
 
@@ -106,7 +123,7 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                 data-testid="ficha-limpa-orgao"
                 className="bg-slate-800 text-emerald-400 font-bold text-[11px] px-2.5 py-0.5 rounded-full border border-emerald-500/30"
               >
-                {obra?.unidadeGestora || "Carregando..."}
+                {obra?.unidadeGestora || requestedObra?.unidadeGestora || (error ? "Detalhe indisponível" : "Carregando...")}
               </span>
               {obra?.tema && (
                 <span className="bg-slate-800 text-slate-300 text-[11px] px-2.5 py-0.5 rounded-full border border-slate-700">
@@ -162,14 +179,16 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
               data-testid="ficha-limpa-objeto"
               className="text-base sm:text-lg font-extrabold text-white leading-snug"
             >
-              {obra?.objeto || "Carregando Ficha Limpa da Obra..."}
+              {obra?.objeto ||
+                requestedObra?.objeto ||
+                (error ? "Não foi possível carregar os detalhes da obra" : "Carregando Ficha Limpa da Obra...")}
             </h2>
 
             <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-slate-400">
               <span>
                 Contrato SIGEF:{" "}
                 <strong data-testid="ficha-limpa-contrato" className="text-white">
-                  {obra?.numeroContrato || "—"}
+                  {obra?.numeroContrato || requestedObra?.numeroContrato || "—"}
                 </strong>
               </span>
               {obra?.nuProcesso && (
@@ -191,7 +210,8 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
             type="button"
             data-testid="btn-fechar-ficha-limpa"
             onClick={onClose}
-            className="text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 p-2 rounded-xl transition-colors focus:outline-none shrink-0"
+            aria-label="Fechar Ficha Limpa da Obra"
+            className="text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 p-2 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 shrink-0"
             title="Fechar Ficha Limpa (ESC)"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,6 +228,48 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
               <p className="text-sm text-slate-500 font-medium">
                 Carregando histórico e prontuário completo da obra...
               </p>
+            </div>
+          ) : error && !obra ? (
+            <div
+              data-testid="ficha-limpa-erro"
+              role="alert"
+              className="py-8 px-4 bg-rose-50 border border-rose-200 rounded-xl text-center space-y-3"
+            >
+              <div className="w-11 h-11 rounded-full bg-rose-100 text-rose-700 mx-auto flex items-center justify-center">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <h3 className="text-sm font-bold text-rose-950">
+                Não foi possível carregar os detalhes desta obra
+              </h3>
+              <p className="text-xs text-rose-900 max-w-md mx-auto leading-relaxed">
+                {error}
+                {requestedObra?.numeroContrato
+                  ? ` (Contrato ${requestedObra.numeroContrato}).`
+                  : "."}{" "}
+                Seus filtros, seleção territorial e consulta continuam preservados.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                {onRetry && (
+                  <button
+                    type="button"
+                    data-testid="btn-tentar-novamente-ficha"
+                    onClick={onRetry}
+                    className="px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                  >
+                    Tentar novamente
+                  </button>
+                )}
+                <button
+                  type="button"
+                  data-testid="btn-fechar-ficha-erro"
+                  onClick={onClose}
+                  className="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-800 hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                >
+                  Voltar à consulta
+                </button>
+              </div>
             </div>
           ) : obra ? (
             <>

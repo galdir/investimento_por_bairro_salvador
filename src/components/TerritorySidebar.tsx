@@ -669,7 +669,11 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                 d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            Ver obras deste território na tabela ({totalObras})
+            Ver obras deste território na tabela (
+            {totalFrentes > 0
+              ? `${totalObras} ${totalObras === 1 ? "contrato" : "contratos"} · ${totalFrentes} ${totalFrentes === 1 ? "frente" : "frentes"}`
+              : totalObras}
+            )
           </button>
         )}
         <button

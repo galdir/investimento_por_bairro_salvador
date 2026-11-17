@@ -3,8 +3,10 @@ import {
   calculateTerritorialRollup,
   createBairroSelection,
   createPrefeituraSelection,
+  getObraTerritoryShare,
   getTerritoryInvestmentState,
   isCentralidadeMetropolitana,
+  obraMatchesTerritory,
 } from "../../src/utils/territory";
 import { BairroResumo, ObraCompacta, PrefeituraBairroResumo } from "../../src/types";
 
@@ -696,6 +698,57 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
       kind: "unavailable",
       reason: "population",
     });
+  });
+
+  it("identifica pertença e parcela de Frentes de Medição em getObraTerritoryShare e obraMatchesTerritory sem ratear valor contratual", () => {
+    const obraGuardaChuva: ObraCompacta = {
+      id: 9501,
+      unidadeGestora: "SEINFRA",
+      numeroContrato: "500/2025",
+      objeto: "Manutenção de encostas em lotes da cidade",
+      valorContratualVigente: 10000000,
+      valorPago: 4000000,
+      percentualExecutado: 40,
+      situacao: "Em Execução",
+      credor: "EMP GUARDA-CHUVA",
+      nivel: "Escopo Cidade (Não-Localizado)",
+      bairro: null,
+      prefeituraBairro: null,
+      frentesMedicao: [
+        {
+          notaLiquidacao: "2025NL001",
+          nivel: "Bairro",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          valorLiquidado: 300000,
+          valorPago: 250000,
+          trechoComprobatorio: "Contenção na Pituba",
+        },
+        {
+          notaLiquidacao: "2025NL002",
+          nivel: "Regional (Prefeitura-Bairro)",
+          bairro: null,
+          prefeituraBairro: "Subúrbio/Ilhas",
+          valorLiquidado: 500000,
+          valorPago: 400000,
+          trechoComprobatorio: "Lote regional Subúrbio/Ilhas",
+        },
+      ],
+    };
+
+    expect(obraMatchesTerritory(obraGuardaChuva, { tipo: "bairro", nome: "Pituba" })).toBe(true);
+    expect(obraMatchesTerritory(obraGuardaChuva, { tipo: "prefeitura_bairro", nome: "Barra/Pituba" })).toBe(true);
+    expect(obraMatchesTerritory(obraGuardaChuva, { tipo: "prefeitura_bairro", nome: "Subúrbio/Ilhas" })).toBe(true);
+    expect(obraMatchesTerritory(obraGuardaChuva, { tipo: "bairro", nome: "Liberdade" })).toBe(false);
+
+    const sharePituba = getObraTerritoryShare(obraGuardaChuva, { tipo: "bairro", nome: "Pituba" });
+    expect(sharePituba.matched).toBe(true);
+    expect(sharePituba.isFrenteMedicao).toBe(true);
+    expect(sharePituba.isDirectOrRegionalMatch).toBe(false);
+    expect(sharePituba.peso).toBe(0);
+    expect(sharePituba.frentes).toHaveLength(1);
+    expect(sharePituba.frentesValorLiquidado).toBe(300000);
+    expect(sharePituba.frentesValorPago).toBe(250000);
   });
 });
 

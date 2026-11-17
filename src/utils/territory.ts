@@ -9,12 +9,17 @@ import {
 
 export interface ObraTerritoryShare {
   isCotaParte: boolean;
+  isFrenteMedicao: boolean;
+  isDirectOrRegionalMatch: boolean;
   matched: boolean;
   peso: number;
   unidades?: number;
   totalUnidades?: number;
   fracao?: string;
   cotas: CotaListaFechada[];
+  frentes: FrenteMedicao[];
+  frentesValorLiquidado: number;
+  frentesValorPago: number;
 }
 
 /**
@@ -40,28 +45,48 @@ export function getObraCotasListaFechada(obra: {
   );
 }
 
+function createTerritoryShare(
+  overrides: Partial<ObraTerritoryShare> = {}
+): ObraTerritoryShare {
+  return {
+    isCotaParte: false,
+    isFrenteMedicao: false,
+    isDirectOrRegionalMatch: false,
+    matched: false,
+    peso: 0,
+    cotas: [],
+    frentes: [],
+    frentesValorLiquidado: 0,
+    frentesValorPago: 0,
+    ...overrides,
+  };
+}
+
 /**
- * Extrai a participação (peso, fração n/M e cotas) de um contrato no território selecionado.
+ * Extrai a participação (peso, fração n/M, frentes e cotas) de um contrato no território selecionado.
  */
 export function getObraTerritoryShare(
   obra: ObraCompacta,
-  territorio: Pick<TerritorySelection, "tipo" | "nome"> | null | undefined
+  territorio: Pick<TerritorySelection, "tipo" | "nome"> | null | undefined,
+  childBairroKeys?: ReadonlySet<string>
 ): ObraTerritoryShare {
   const cotas = getObraCotasListaFechada(obra);
+  const allFrentes = obra.frentesMedicao || [];
 
   if (cotas.length > 0) {
     const totalUnidades =
       cotas[0].totalUnidades || cotas.reduce((acc, c) => acc + (c.unidades || 0), 0);
 
     if (!territorio) {
-      return {
+      return createTerritoryShare({
         isCotaParte: true,
+        isDirectOrRegionalMatch: true,
         matched: true,
         peso: 1,
         unidades: totalUnidades,
         totalUnidades,
         cotas,
-      };
+      });
     }
 
     const targetKey = normalizeName(territorio.nome);
@@ -69,17 +94,17 @@ export function getObraTerritoryShare(
       if (territorio.tipo === "bairro") {
         return normalizeName(c.bairro) === targetKey;
       }
-      return normalizeName(c.prefeituraBairro) === targetKey;
+      return (
+        normalizeName(c.prefeituraBairro) === targetKey ||
+        (Boolean(c.bairro) && Boolean(childBairroKeys?.has(normalizeName(c.bairro))))
+      );
     });
 
     if (matching.length === 0) {
-      return {
+      return createTerritoryShare({
         isCotaParte: true,
-        matched: false,
-        peso: 0,
         totalUnidades,
-        cotas: [],
-      };
+      });
     }
 
     const peso = matching.reduce((acc, c) => acc + Number(c.peso ?? 0), 0);
@@ -89,7 +114,7 @@ export function getObraTerritoryShare(
         ? matching[0].fracao
         : `${unidades}/${totalUnidades}`;
 
-    return {
+    return createTerritoryShare({
       isCotaParte: true,
       matched: true,
       peso,
@@ -97,38 +122,64 @@ export function getObraTerritoryShare(
       totalUnidades,
       fracao,
       cotas: matching,
-    };
+    });
   }
 
   if (!territorio) {
-    return { isCotaParte: false, matched: true, peso: 1, cotas: [] };
+    const frentesSums = sumFrentesMetrics(allFrentes);
+    return createTerritoryShare({
+      isFrenteMedicao: allFrentes.length > 0,
+      isDirectOrRegionalMatch: true,
+      matched: true,
+      peso: 1,
+      frentes: allFrentes,
+      frentesValorLiquidado: frentesSums.valorLiquidado,
+      frentesValorPago: frentesSums.valorPago,
+    });
   }
 
   const targetKey = normalizeName(territorio.nome);
-  const matched =
+  const isDirectOrRegionalMatch =
     territorio.tipo === "bairro"
       ? Boolean(obra.bairro && normalizeName(obra.bairro) === targetKey)
       : Boolean(
-        (obra.prefeituraBairro || obra.prefeitura_bairro) &&
-        normalizeName(obra.prefeituraBairro || obra.prefeitura_bairro) === targetKey
-      );
+          ((obra.prefeituraBairro || obra.prefeitura_bairro) &&
+            normalizeName(obra.prefeituraBairro || obra.prefeitura_bairro) === targetKey) ||
+            (Boolean(obra.bairro) && Boolean(childBairroKeys?.has(normalizeName(obra.bairro))))
+        );
 
-  return {
-    isCotaParte: false,
-    matched,
-    peso: matched ? 1 : 0,
-    cotas: [],
-  };
+  const matchingFrentes = allFrentes.filter((frente) => {
+    if (territorio.tipo === "bairro") {
+      return normalizeName(frente.bairro) === targetKey;
+    }
+    if (frente.prefeituraBairro) {
+      return normalizeName(frente.prefeituraBairro) === targetKey;
+    }
+    return Boolean(frente.bairro) && Boolean(childBairroKeys?.has(normalizeName(frente.bairro)));
+  });
+  const isFrenteMedicao = matchingFrentes.length > 0;
+  const frentesSums = sumFrentesMetrics(matchingFrentes);
+
+  return createTerritoryShare({
+    isFrenteMedicao,
+    isDirectOrRegionalMatch,
+    matched: isDirectOrRegionalMatch || isFrenteMedicao,
+    peso: isDirectOrRegionalMatch ? 1 : 0,
+    frentes: matchingFrentes,
+    frentesValorLiquidado: frentesSums.valorLiquidado,
+    frentesValorPago: frentesSums.valorPago,
+  });
 }
 
 /**
- * Verifica se um contrato pertence ao território selecionado (direto ou via Cota-Parte).
+ * Verifica se um contrato pertence ao território selecionado (direto, regional, Cota-Parte ou Frente de Medição).
  */
 export function obraMatchesTerritory(
   obra: ObraCompacta,
-  territorio: Pick<TerritorySelection, "tipo" | "nome"> | null | undefined
+  territorio: Pick<TerritorySelection, "tipo" | "nome"> | null | undefined,
+  childBairroKeys?: ReadonlySet<string>
 ): boolean {
-  return getObraTerritoryShare(obra, territorio).matched;
+  return getObraTerritoryShare(obra, territorio, childBairroKeys).matched;
 }
 
 /**

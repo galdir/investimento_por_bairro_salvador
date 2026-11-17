@@ -3752,4 +3752,593 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       scrollToSpy.mockRestore();
     });
   });
+
+  describe("Ticket 06: Investigar as obras do território e retornar à comparação", () => {
+    const mockTicket06Index = {
+      metadata: {
+        generatedAt: "2026-11-16T21:00:00Z",
+        anoReferencia: 2025,
+        mandatosDisponiveis: ["2025-2028", "2021-2024"],
+      },
+      kpis_globais: {
+        totalObras: 5,
+        valorTotal: 25000000.0,
+        totalAtivas: 5,
+        totalCriticas: 1,
+        percentualCriticas: 20.0,
+        totalAditivosValor: 500000.0,
+        percentualMedioAditivos: 5.0,
+        totalEmpenhado: 20000000.0,
+        totalLiquidado: 15000000.0,
+        totalPago: 12000000.0,
+        investimentoPorHabitanteCidade: 60.0,
+        totalNaoLocalizado: 1,
+        valorNaoLocalizado: 5000000.0,
+        valorPagoNaoLocalizado: 3000000.0,
+        percentualNaoLocalizado: 25.0,
+      },
+      prefeituras_bairro: [
+        {
+          id: 1,
+          nome: "Barra/Pituba",
+          populacao_total: 100000,
+          indice_vulnerabilidade: 0.2,
+        },
+        {
+          id: 2,
+          nome: "Cabula/Tancredo Neves",
+          populacao_total: 50000,
+          indice_vulnerabilidade: 0.55,
+        },
+      ],
+      bairros: [
+        {
+          id: 101,
+          nome: "Pituba",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 60000,
+          indice_vulnerabilidade: 0.15,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 102,
+          nome: "Amaralina",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 40000,
+          indice_vulnerabilidade: 0.28,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 103,
+          nome: "Cabula",
+          prefeitura_bairro: "Cabula/Tancredo Neves",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.55,
+          is_zona_especial_nao_residencial: false,
+        },
+      ],
+      obras: [
+        // 1) Obra pontual na Pituba (mesma coordenada aproximada da obra 6002 para testar sobreposição)
+        {
+          id: 6001,
+          unidadeGestora: "SUCOP",
+          numeroContrato: "601/2025",
+          objeto: "Drenagem pluvial na Orla da Pituba",
+          valorOriginal: 2000000,
+          valorContratualVigente: 2000000,
+          valorPago: 1500000,
+          percentualExecutado: 75,
+          situacao: "Em Execução",
+          credor: "CONSTRUTORA ORLA SUL LTDA",
+          cnpj: "11.111.111/0001-11",
+          tema: "Mobilidade, Pavimentação e Drenagem",
+          vocacao: "Vizinhança e Comunidade",
+          semaforo: { status: "VERDE", rotulo: "Verde (No Prazo)", motivos: ["No prazo"] },
+          mandatos: ["2025-2028"],
+          nivel: "Pontual",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          latitude: -12.9965,
+          longitude: -38.4552,
+        },
+        // 2) Obra de nível Bairro (local aproximado) na mesma coordenada (sobreposta!)
+        {
+          id: 6002,
+          unidadeGestora: "DESAL",
+          numeroContrato: "602/2025",
+          objeto: "Reforma de praça comunitária na Pituba",
+          valorOriginal: 1000000,
+          valorContratualVigente: 1000000,
+          valorPago: 500000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "PRACA VIVA ENGENHARIA",
+          cnpj: "22.222.222/0001-22",
+          tema: "Praças, Esporte e Lazer",
+          vocacao: "Vizinhança e Comunidade",
+          semaforo: { status: "AMARELO", rotulo: "Amarelo (Atenção)", motivos: ["Prazo prorrogado"] },
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          latitude: -12.9965,
+          longitude: -38.4552,
+        },
+        // 3) Contrato Regional (Barra/Pituba) - pertence à Prefeitura-Bairro, NÃO a um bairro isolado
+        {
+          id: 6003,
+          unidadeGestora: "SEINFRA",
+          numeroContrato: "603/2025",
+          objeto: "Manutenção viária regional em Barra/Pituba",
+          valorOriginal: 4000000,
+          valorContratualVigente: 4000000,
+          valorPago: 2000000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "VIAS BARRA LTDA",
+          cnpj: "33.333.333/0001-33",
+          tema: "Mobilidade, Pavimentação e Drenagem",
+          vocacao: "Mobilidade Estrutural e Orlas",
+          semaforo: { status: "VERDE", rotulo: "Verde (No Prazo)", motivos: ["No prazo"] },
+          mandatos: ["2025-2028"],
+          nivel: "Regional (Prefeitura-Bairro)",
+          bairro: null,
+          prefeituraBairro: "Barra/Pituba",
+        },
+        // 4) Cota-Parte (Lista Fechada): 1/3 Pituba + 1/3 Amaralina (2/3 Barra/Pituba) + 1/3 Cabula (total 9M vigente, 3M pago)
+        {
+          id: 6004,
+          unidadeGestora: "SMED",
+          numeroContrato: "604/2025",
+          objeto: "Reforma de 3 escolas municipais (Pituba, Amaralina e Cabula)",
+          valorOriginal: 9000000,
+          valorContratualVigente: 9000000,
+          valorPago: 3000000,
+          percentualExecutado: 33.3,
+          situacao: "Em Execução",
+          credor: "ESCOLAS DA BAHIA S/A",
+          cnpj: "44.444.444/0001-44",
+          tema: "Educação e Escolas",
+          vocacao: "Vizinhança e Comunidade",
+          semaforo: { status: "VERDE", rotulo: "Verde (No Prazo)", motivos: ["No prazo"] },
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          cotasListaFechada: [
+            {
+              bairro: "Pituba",
+              prefeituraBairro: "Barra/Pituba",
+              unidades: 1,
+              totalUnidades: 3,
+              peso: 1 / 3,
+              fracao: "1/3",
+              descricaoUnidades: "Escola Municipal da Pituba",
+            },
+            {
+              bairro: "Amaralina",
+              prefeituraBairro: "Barra/Pituba",
+              unidades: 1,
+              totalUnidades: 3,
+              peso: 1 / 3,
+              fracao: "1/3",
+              descricaoUnidades: "Escola Municipal de Amaralina",
+            },
+            {
+              bairro: "Cabula",
+              prefeituraBairro: "Cabula/Tancredo Neves",
+              unidades: 1,
+              totalUnidades: 3,
+              peso: 1 / 3,
+              fracao: "1/3",
+              descricaoUnidades: "Escola Municipal do Cabula",
+            },
+          ],
+        },
+        // 5) Escopo Cidade com Frente de Medição comprovada na Pituba (R$ 400k pago de R$ 3M pago global)
+        {
+          id: 6005,
+          unidadeGestora: "CODESAL",
+          numeroContrato: "605/2025",
+          objeto: "Lote cidade de contenção de encostas com frente na Pituba",
+          valorOriginal: 5000000,
+          valorContratualVigente: 5000000,
+          valorPago: 3000000,
+          percentualExecutado: 60,
+          situacao: "Paralisada",
+          credor: "ENCOSTA SEGURA LTDA",
+          cnpj: "55.555.555/0001-55",
+          tema: "Encostas e Contenção",
+          vocacao: "Vizinhança e Comunidade",
+          semaforo: { status: "VERMELHO", rotulo: "Vermelho (Crítica)", motivos: ["Paralisada"] },
+          mandatos: ["2025-2028"],
+          nivel: "Escopo Cidade (Não-Localizado)",
+          bairro: null,
+          prefeituraBairro: null,
+          frentesMedicao: [
+            {
+              notaLiquidacao: "2025NL605",
+              nivel: "Bairro",
+              bairro: "Pituba",
+              prefeituraBairro: "Barra/Pituba",
+              valorLiquidado: 450000,
+              valorPago: 400000,
+              trechoComprobatorio: "Contenção emergencial na Rua das Rosas, Pituba",
+            },
+          ],
+        },
+      ],
+    };
+
+    const mockTicket06BairrosGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 101, nome: "Pituba", prefeitura_bairro: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.46, -13.0], [-38.45, -13.0], [-38.45, -12.99], [-38.46, -13.0]]] } },
+        { type: "Feature", properties: { id: 102, nome: "Amaralina", prefeitura_bairro: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.48, -13.01], [-38.47, -13.01], [-38.47, -13.0], [-38.48, -13.01]]] } },
+        { type: "Feature", properties: { id: 103, nome: "Cabula", prefeitura_bairro: "Cabula/Tancredo Neves" }, geometry: { type: "Polygon", coordinates: [[[-38.46, -12.96], [-38.45, -12.96], [-38.45, -12.95], [-38.46, -12.96]]] } },
+      ],
+    };
+
+    const mockTicket06PbGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 1, nome: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.52, -13.01], [-38.45, -13.01], [-38.45, -12.98], [-38.52, -13.01]]] } },
+        { type: "Feature", properties: { id: 2, nome: "Cabula/Tancredo Neves" }, geometry: { type: "Polygon", coordinates: [[[-38.47, -12.97], [-38.44, -12.97], [-38.44, -12.94], [-38.47, -12.97]]] } },
+      ],
+    };
+
+    const mockObra6004Detalhe = {
+      id: 6004,
+      unidadeGestora: "SMED",
+      numeroContrato: "604/2025",
+      numeroContratoOriginal: "604/2025",
+      nuProcesso: "0604/2025",
+      objeto: "Reforma de 3 escolas municipais (Pituba, Amaralina e Cabula)",
+      situacao: "Em Execução",
+      empreiteira: {
+        razaoSocial: "ESCOLAS DA BAHIA S/A",
+        cnpj: "44.444.444/0001-44",
+        totalObras: 1,
+        totalObrasAtivas: 1,
+        valorTotalContratado: 9000000,
+      },
+      vigencia: {
+        dataInicio: "2025-02-01T00:00:00.000Z",
+        dataTerminoAtualizado: "2027-12-31T00:00:00.000Z",
+      },
+      dom: { nuDom: "9.200" },
+      funilFinanceiro: {
+        valorOriginal: 9000000,
+        valorContratualVigente: 9000000,
+        valorEmpenhado: 9000000,
+        valorLiquidado: 4500000,
+        valorPago: 3000000,
+        percentualExecutado: 33.3,
+      },
+      aditivos: [],
+      dotacao: [{ fonteRecurso: "FUNDEB" }],
+      nivel: "Bairro",
+      bairro: "Pituba",
+      prefeituraBairro: "Barra/Pituba",
+      cotasListaFechada: mockTicket06Index.obras[3].cotasListaFechada,
+    };
+
+    beforeEach(() => {
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((url: string) => {
+          if (url.includes("index_")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket06Index) });
+          }
+          if (url.includes("bairros.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket06BairrosGeo) });
+          }
+          if (url.includes("prefeituras_bairro.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket06PbGeo) });
+          }
+          if (url.includes("obras/6004.json")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockObra6004Detalhe) });
+          }
+          if (url.includes("obras/6002.json")) {
+            return Promise.resolve({
+              ok: true,
+              json: () =>
+                Promise.resolve({
+                  ...mockObra6004Detalhe,
+                  id: 6002,
+                  unidadeGestora: "DESAL",
+                  numeroContrato: "602/2025",
+                  objeto: "Reforma de praça comunitária na Pituba",
+                  nivel: "Bairro",
+                  bairro: "Pituba",
+                  prefeituraBairro: "Barra/Pituba",
+                  cotasListaFechada: undefined,
+                }),
+            });
+          }
+          return Promise.reject(new Error("URL desconhecida: " + url));
+        })
+      );
+    });
+
+    it("abre consulta territorial de obras com colunas prioritárias, colunas opcionais sob demanda, pertença de diretas/regionais/cotas/frentes e busca própria sem alterar comparação", async () => {
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      // 1. Seleciona Barra/Pituba (Prefeitura-Bairro) -> 4 contratos (6001, 6002, 6003 Regional, 6004 Cota 2/3) + 1 Frente de Medição (6005)
+      // Total Pago Barra/Pituba = 1.5M + 0.5M + 2.0M + 2.0M (2/3 de 3M) + 0.4M (frente) = R$ 6.400.000
+      fireEvent.click(screen.getByTestId("comparison-select-barra-pituba"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      });
+
+      fireEvent.click(screen.getByTestId("btn-ver-obras-tabela"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("tabela-obras")).toBeInTheDocument();
+      });
+
+      // Contexto territorial explícito com métrica ativa e justificativa coerente
+      const contexto = screen.getByTestId("consulta-territorial-contexto");
+      expect(contexto).toBeVisible();
+      expect(contexto).toHaveTextContent("Barra/Pituba");
+      expect(contexto).toHaveTextContent(/Valor Pago/i);
+      expect(contexto).toHaveTextContent(/4 contrato/i);
+      expect(contexto).toHaveTextContent(/1 frente/i);
+
+      // Colunas prioritárias presentes; colunas secundárias opcionais inicialmente ocultas e ativáveis
+      expect(screen.getByTestId("sort-objeto")).toBeVisible();
+      expect(screen.getByTestId("col-territorio")).toBeVisible();
+      expect(screen.getByTestId("sort-valor")).toBeVisible();
+      expect(screen.getByTestId("sort-percentual")).toBeVisible();
+      expect(screen.getByTestId("sort-semaforo")).toBeVisible();
+      expect(screen.getByTestId("col-acoes")).toBeVisible();
+      expect(screen.queryByTestId("sort-orgao")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("sort-credor")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("sort-tema")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("sort-valor-original")).not.toBeInTheDocument();
+
+      const btnColunasOpcionais = screen.getByTestId("btn-colunas-opcionais");
+      expect(btnColunasOpcionais).toHaveAttribute("aria-expanded", "false");
+      fireEvent.click(btnColunasOpcionais);
+      expect(btnColunasOpcionais).toHaveAttribute("aria-expanded", "true");
+      expect(screen.getByTestId("sort-orgao")).toBeVisible();
+      expect(screen.getByTestId("sort-credor")).toBeVisible();
+      expect(screen.getByTestId("sort-tema")).toBeVisible();
+      expect(screen.getByTestId("sort-valor-original")).toBeVisible();
+
+      // Direta (6001), Bairro (6002), Regional (6003), Cota-Parte 2/3 (6004) e Frente de Medição (6005) aparecem
+      expect(screen.getByTestId("linha-obra-6001")).toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-6002")).toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-6003")).toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-6004")).toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-6005")).toBeInTheDocument();
+
+      // Ação Ver detalhes evidente em cada obra
+      expect(screen.getByTestId("btn-ver-detalhes-6004")).toHaveTextContent(/Ver detalhes/i);
+
+      // Parcelas distinguíveis do contrato integral: Cota-Parte 2/3 (2M vs 3M) e Frente de Medição (400k vs 3M)
+      expect(screen.getByTestId("linha-obra-6004")).toHaveTextContent("Cota-Parte (2/3)");
+      expect(screen.getByTestId("linha-obra-6004")).toHaveTextContent(/2\.000\.000/);
+      expect(screen.getByTestId("linha-obra-6004")).toHaveTextContent(/3\.000\.000/);
+
+      expect(screen.getByTestId("linha-obra-6005")).toHaveTextContent(/Frente de Medição/i);
+      expect(screen.getByTestId("linha-obra-6005")).toHaveTextContent(/400\.000/);
+      expect(screen.getByTestId("linha-obra-6005")).toHaveTextContent(/3\.000\.000/);
+
+      // 2. Busca por Empreiteira na consulta de obras NÃO destrói comparação nem vira busca territorial
+      fireEvent.change(screen.getByTestId("filtro-busca"), { target: { value: "ESCOLAS DA BAHIA" } });
+      expect(screen.getByTestId("linha-obra-6004")).toBeInTheDocument();
+      expect(screen.queryByTestId("linha-obra-6001")).not.toBeInTheDocument();
+
+      // Ao voltar à comparação, ambas as Prefeituras-Bairro seguem visíveis com seus valores integrais (não filtradas por "ESCOLAS DA BAHIA")
+      fireEvent.click(screen.getByTestId("btn-voltar-comparacao"));
+      expect(screen.getByTestId("comparison-row-barra-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-cabula-tancredo-neves")).toBeInTheDocument();
+      expect((screen.getByTestId("busca-territorio") as HTMLInputElement).value).toBe("");
+      expect(screen.getByTestId("comparison-valor-barra-pituba")).toHaveTextContent("R$ 64 / hab");
+
+      // 3. Troca para Bairros Oficiais e abre Pituba: Regional (6003) NÃO aparece no bairro; Cota-Parte vira 1/3 (1M vs 3M)
+      fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-select-pituba")).toBeInTheDocument();
+      });
+      fireEvent.click(screen.getByTestId("comparison-select-pituba"));
+      fireEvent.click(screen.getByTestId("btn-ver-obras-tabela"));
+
+      // Limpa busca anterior de obras para ver todas as obras aplicáveis a Pituba
+      fireEvent.click(screen.getByTestId("btn-limpar-busca-obras"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("linha-obra-6001")).toBeInTheDocument();
+      });
+      expect(screen.getByTestId("linha-obra-6002")).toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-6004")).toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-6005")).toBeInTheDocument();
+      expect(screen.queryByTestId("linha-obra-6003")).not.toBeInTheDocument();
+      expect(screen.getByTestId("linha-obra-6004")).toHaveTextContent("Cota-Parte (1/3)");
+      expect(screen.getByTestId("linha-obra-6004")).toHaveTextContent(/1\.000\.000/);
+      expect(screen.getByTestId("linha-obra-6004")).toHaveTextContent(/3\.000\.000/);
+    });
+
+    it("recupera de erro ao carregar detalhes sem perder contexto, fecha ficha voltando à tabela e retorna à comparação preservando filtros, direção, seleção e posição de leitura", async () => {
+      let failDetailOnce = true;
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((url: string) => {
+          if (url.includes("index_")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket06Index) });
+          }
+          if (url.includes("bairros.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket06BairrosGeo) });
+          }
+          if (url.includes("prefeituras_bairro.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket06PbGeo) });
+          }
+          if (url.includes("obras/6004.json")) {
+            if (failDetailOnce) {
+              failDetailOnce = false;
+              return Promise.resolve({ ok: false, status: 500, json: () => Promise.resolve({}) });
+            }
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockObra6004Detalhe) });
+          }
+          return Promise.reject(new Error("URL desconhecida: " + url));
+        })
+      );
+
+      let currentScrollY = 0;
+      Object.defineProperty(window, "scrollY", {
+        configurable: true,
+        get: () => currentScrollY,
+      });
+      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      // Configura contexto na comparação: Valor Contratual Vigente, Mandato 2025-2028, ordenação invertida, seleção Barra/Pituba e posição de leitura 360px
+      fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+      fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2025-2028" } });
+      fireEvent.click(screen.getByTestId("btn-inverter-ordenacao"));
+      fireEvent.click(screen.getByTestId("comparison-select-barra-pituba"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      });
+
+      currentScrollY = 360;
+      scrollToSpy.mockClear();
+      fireEvent.click(screen.getByTestId("btn-ver-obras-tabela"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("tabela-obras")).toBeInTheDocument();
+      });
+
+      // Abre detalhes da obra 6004 via botão evidente (focado por teclado) -> 1a tentativa falha com estado de erro e recuperação
+      const btnDetalhes = screen.getByTestId("btn-ver-detalhes-6004");
+      btnDetalhes.focus();
+      expect(btnDetalhes).toHaveFocus();
+      fireEvent.click(btnDetalhes);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("ficha-limpa-erro")).toBeVisible();
+      });
+      expect(screen.getByTestId("ficha-limpa-erro")).toHaveTextContent(/604\/2025|carregar/i);
+      expect(screen.getByTestId("tabela-obras")).toBeInTheDocument();
+
+      // Tenta novamente e carrega a Ficha Limpa existente
+      fireEvent.click(screen.getByTestId("btn-tentar-novamente-ficha"));
+      await waitFor(() => {
+        expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument();
+        expect(screen.getByTestId("ficha-limpa-contrato")).toHaveTextContent("604/2025");
+      });
+
+      // Fecha a Ficha Limpa -> retorna à tabela e restaura foco ao gatilho
+      fireEvent.click(screen.getByTestId("btn-fechar-ficha-limpa"));
+      await waitFor(() => {
+        expect(screen.queryByTestId("ficha-limpa-modal")).not.toBeInTheDocument();
+      });
+      expect(screen.getByTestId("tabela-obras")).toBeVisible();
+      expect(screen.getByTestId("consulta-territorial-contexto")).toHaveTextContent("Barra/Pituba");
+      await waitFor(() => {
+        expect(screen.getByTestId("btn-ver-detalhes-6004")).toHaveFocus();
+      });
+
+      // Volta à comparação -> preserva métrica, mandato, direção, seleção, ambas as regiões e posição de leitura
+      currentScrollY = 0;
+      scrollToSpy.mockClear();
+      fireEvent.click(screen.getByTestId("btn-voltar-comparacao"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeVisible();
+      });
+      expect(screen.getByTestId("btn-metrica-vigente")).toHaveAttribute("aria-pressed", "true");
+      expect((screen.getByTestId("filtro-mandato") as HTMLSelectElement).value).toBe("2025-2028");
+      expect(screen.getByTestId("btn-inverter-ordenacao")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      expect(screen.getByTestId("comparison-row-barra-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-cabula-tancredo-neves")).toBeInTheDocument();
+      expect(scrollToSpy).toHaveBeenCalledWith(expect.objectContaining({ top: 360 }));
+
+      // Estado vazio em obra por filtro sem contratos oferece recuperação mantendo seleção/comparação
+      fireEvent.click(screen.getByTestId("btn-ver-obras-tabela"));
+      fireEvent.click(screen.getByTestId("btn-mais-filtros"));
+      fireEvent.change(screen.getByTestId("filtro-semaforo"), { target: { value: "VERMELHO" } });
+      fireEvent.change(screen.getByTestId("filtro-tema"), { target: { value: "Saúde" } });
+
+      await waitFor(() => {
+        expect(screen.getByTestId("tabela-obras-vazia")).toBeVisible();
+      });
+      expect(screen.getByTestId("btn-vazio-voltar-comparacao")).toBeVisible();
+      expect(screen.getByTestId("btn-recuperar-filtros-tabela-vazia")).toBeVisible();
+      fireEvent.click(screen.getByTestId("btn-recuperar-filtros-tabela-vazia"));
+      await waitFor(() => {
+        expect(screen.getByTestId("linha-obra-6001")).toBeInTheDocument();
+      });
+
+      scrollToSpy.mockRestore();
+    });
+
+    it("mantém pinos desligados inicialmente, torna obras sobrepostas acessíveis ao ativar e distingue locais aproximados de endereços exatos", async () => {
+      const bindTooltipSpy = vi.spyOn(L.CircleMarker.prototype, "bindTooltip");
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      const btnPinos = screen.getByTestId("btn-toggle-pinos-obras");
+      expect(btnPinos).toHaveAttribute("aria-pressed", "false");
+      expect(screen.queryByTestId("painel-pinos-obras")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("map-pin-obra-6001")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("map-pin-obra-6002")).not.toBeInTheDocument();
+
+      // Ativa pinos por teclado/clique
+      btnPinos.focus();
+      expect(btnPinos).toHaveFocus();
+      fireEvent.click(btnPinos);
+
+      expect(btnPinos).toHaveAttribute("aria-pressed", "true");
+      const painelPinos = await screen.findByTestId("painel-pinos-obras");
+      expect(painelPinos).toBeVisible();
+
+      // Aviso explícito de que locais aproximados não são endereços exatos e sobreposições estão acessíveis
+      const avisoPrecisao = screen.getByTestId("aviso-precisao-pinos");
+      expect(avisoPrecisao).toBeVisible();
+      expect(avisoPrecisao).toHaveTextContent(/não é endereço exato|não são endereços exatos/i);
+
+      // Ambas as obras na mesma coordenada (-12.9965, -38.4552) estão acessíveis e visíveis
+      const pin6001 = screen.getByTestId("map-pin-obra-6001");
+      const pin6002 = screen.getByTestId("map-pin-obra-6002");
+      expect(pin6001).toBeVisible();
+      expect(pin6002).toBeVisible();
+      expect(pin6001).toHaveTextContent(/Pontual|Ponto identificado/i);
+      expect(pin6002).toHaveTextContent(/Local aproximado/i);
+      expect(pin6002).toHaveTextContent(/não é endereço exato/i);
+      expect(painelPinos).toHaveTextContent(/mesmo ponto|sobreposiç/i);
+
+      // Tooltip do marcador Leaflet também distingue local aproximado e ponto compartilhado
+      const tooltipTexts = bindTooltipSpy.mock.calls.map((c) => String(c[0]));
+      expect(tooltipTexts.some((t) => /Local aproximado.*não é endereço exato/i.test(t))).toBe(true);
+      expect(tooltipTexts.some((t) => /mesmo ponto|compartilhado/i.test(t))).toBe(true);
+
+      // Abre a ficha da obra sobreposta 6002 pelo painel acessível de pinos
+      pin6002.focus();
+      expect(pin6002).toHaveFocus();
+      fireEvent.click(pin6002);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument();
+        expect(screen.getByTestId("ficha-limpa-contrato")).toHaveTextContent("602/2025");
+      });
+
+      bindTooltipSpy.mockRestore();
+    });
+  });
 });

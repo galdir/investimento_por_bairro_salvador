@@ -27,18 +27,29 @@ interface MapPinEntry {
   latitude: number;
   longitude: number;
   isPrimaryPin: boolean;
+  isApproximate: boolean;
+  overlapCount: number;
   fracao?: string;
   bairroLabel?: string | null;
 }
 
+function isApproximatePinLocation(obra: ObraCompacta, isCotaPin: boolean): boolean {
+  if (obra.nivel === "Pontual") return false;
+  if (isCotaPin && (obra.estagioAlocacao || "").toLowerCase().includes("equipamento")) {
+    return false;
+  }
+  return true;
+}
+
 /**
- * Converte contratos (incluindo múltiplas cotas de Lista Fechada) em entradas de pinos para o mapa.
+ * Converte contratos (incluindo múltiplas cotas de Lista Fechada) em entradas de pinos para o mapa,
+ * identificando precisão aproximada e grupos sobrepostos na mesma coordenada.
  */
 function buildMapPinEntries(
   obras: ObraCompacta[],
   selectedTerritory: TerritorySelection | null
 ): MapPinEntry[] {
-  const entries: MapPinEntry[] = [];
+  const rawEntries: Array<Omit<MapPinEntry, "overlapCount">> = [];
   for (const obra of obras) {
     const share = getObraTerritoryShare(obra, selectedTerritory);
     if (share.isCotaParte && share.cotas.length > 0) {
@@ -47,12 +58,13 @@ function buildMapPinEntries(
       );
       if (cotasComCoord.length > 0) {
         cotasComCoord.forEach((cota, idx) => {
-          entries.push({
+          rawEntries.push({
             key: `${obra.id}-cota-${idx}`,
             obra,
             latitude: cota.latitude!,
             longitude: cota.longitude!,
             isPrimaryPin: idx === 0,
+            isApproximate: isApproximatePinLocation(obra, true),
             fracao: cota.fracao,
             bairroLabel: cota.bairro,
           });
@@ -61,17 +73,45 @@ function buildMapPinEntries(
       }
     }
     if (obra.latitude && obra.longitude) {
-      entries.push({
+      rawEntries.push({
         key: String(obra.id),
         obra,
         latitude: obra.latitude,
         longitude: obra.longitude,
         isPrimaryPin: true,
+        isApproximate: isApproximatePinLocation(obra, false),
         bairroLabel: obra.bairro,
       });
     }
   }
-  return entries;
+
+  const countsByCoord = new Map<string, number>();
+  for (const entry of rawEntries) {
+    const coordKey = getPinCoordKey(entry.latitude, entry.longitude);
+    countsByCoord.set(coordKey, (countsByCoord.get(coordKey) || 0) + 1);
+  }
+
+  return rawEntries.map((entry) => {
+    const coordKey = getPinCoordKey(entry.latitude, entry.longitude);
+    return {
+      ...entry,
+      overlapCount: countsByCoord.get(coordKey) || 1,
+    };
+  });
+}
+
+function getPinCoordKey(latitude: number, longitude: number): string {
+  return `${latitude.toFixed(4)}_${longitude.toFixed(4)}`;
+}
+
+function formatPinMetricLabel(obra: ObraCompacta, metricType: MetricType, isCotaPin: boolean): string {
+  const prefix = isCotaPin ? "Total contrato — " : "";
+  if (metricType === "executado") {
+    return hasNumericValue(obra.valorPago)
+      ? `${prefix}Pago: ${formatCurrency(obra.valorPago)}`
+      : `${prefix}Pagamento indisponível`;
+  }
+  return `${prefix}Contratual: ${formatCurrency(obra.valorContratualVigente)}`;
 }
 
 export const SALVADOR_CENTER: L.LatLngTuple = [-12.88, -38.48];
@@ -731,7 +771,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       // Agrupa pinos com coordenadas idênticas para aplicar dispersão radial
       const entriesPorCoord: Record<string, MapPinEntry[]> = {};
       for (const entry of mapPinEntries) {
-        const coordKey = `${entry.latitude.toFixed(4)}_${entry.longitude.toFixed(4)}`;
+        const coordKey = getPinCoordKey(entry.latitude, entry.longitude);
         if (!entriesPorCoord[coordKey]) entriesPorCoord[coordKey] = [];
         entriesPorCoord[coordKey].push(entry);
       }
@@ -757,26 +797,32 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           const marker = L.circleMarker([lat, lon], {
             radius: 6,
             fillColor: corPino,
-            color: "#ffffff",
+            color: entry.isApproximate ? "#0f172a" : "#ffffff",
             weight: 1.5,
+            dashArray: entry.isApproximate ? "3 2" : undefined,
             opacity: 1,
-            fillOpacity: 0.9,
+            fillOpacity: entry.isApproximate ? 0.8 : 0.92,
           });
 
-          const valorPinText =
-            metricType === "executado"
-              ? hasNumericValue(obra.valorPago)
-                ? `Valor Pago: ${formatCurrency(obra.valorPago)}`
-                : "Valor Pago: Sem registro pago"
-              : `Valor Contratual Vigente: ${formatCurrency(obra.valorContratualVigente)}`;
+          const valorPinText = formatPinMetricLabel(obra, metricType, Boolean(entry.fracao));
+
+          const precisionText = entry.isApproximate
+            ? "Local aproximado (centróide do bairro — não é endereço exato)"
+            : "Ponto identificado (localização pontual/equipamento)";
+
+          const overlapText =
+            total > 1
+              ? `<br/><span style="color: #0369a1; font-size: 10px; font-weight: 600;">Ponto compartilhado com outras ${total - 1} obra(s) — acesse todas na lista de pinos</span>`
+              : "";
 
           const tooltipContent = `
-            <div style="font-size: 11px; max-width: 220px;">
+            <div style="font-size: 11px; max-width: 240px;">
               <strong style="color: #0f172a;">${obra.objeto}</strong><br/>
               <span style="color: #64748b;">${obra.unidadeGestora} • ${valorPinText}</span><br/>
               <span style="font-weight: 600; color: ${corPino};">Semáforo: ${obra.semaforo?.rotulo || status}</span>
               ${entry.fracao ? `<br/><span style="color: #0f766e; font-size: 10px; font-weight: 600;">Cota-Parte (${entry.fracao})${entry.bairroLabel ? ` • ${entry.bairroLabel}` : ""}</span>` : ""}
-              ${obra.nivel ? `<br/><span style="color: #475569; font-size: 10px;">Nível: ${obra.nivel}</span>` : ""}
+              <br/><span style="color: ${entry.isApproximate ? "#b45309" : "#047857"}; font-size: 10px; font-weight: 600;">${precisionText}</span>
+              ${overlapText}
             </div>
           `;
           marker.bindTooltip(tooltipContent, { direction: "top", offset: [0, -5] });
@@ -967,29 +1013,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         <div
           ref={mapContainerRef}
           data-testid="leaflet-map-container"
-          className="w-full h-[300px] sm:h-full min-h-[280px] sm:min-h-[390px] z-0 relative"
-        >
-          {/* Atalhos acessíveis dos pinos de obras no mapa */}
-          {showPins && (
-            <div className="sr-only" aria-label="Obras georreferenciadas no mapa">
-              {mapPinEntries.map((entry) => (
-                <button
-                  key={entry.key}
-                  type="button"
-                  data-testid={
-                    entry.isPrimaryPin
-                      ? `map-pin-obra-${entry.obra.id}`
-                      : `map-pin-obra-${entry.obra.id}-extra-${entry.key}`
-                  }
-                  onClick={() => onSelectObra && onSelectObra(entry.obra)}
-                >
-                  Abrir Ficha Limpa da Obra: {entry.obra.objeto}
-                  {entry.fracao ? ` (Cota-Parte ${entry.fracao}${entry.bairroLabel ? ` - ${entry.bairroLabel}` : ""})` : ""}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+          className="w-full h-[300px] sm:h-[405px] lg:h-[435px] min-h-[280px] sm:min-h-[380px] z-0 relative"
+        />
 
         {/* Legenda Coroplética com intervalos quantitativos e unidade */}
         <div
@@ -1080,6 +1105,95 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           )}
         </div>
         </div>
+
+        {/* Painel acessível de pinos ativos: expõe obras sobrepostas e distingue locais aproximados */}
+        {showPins && (
+          <div
+            data-testid="painel-pinos-obras"
+            aria-label="Lista acessível de obras com pinos no mapa"
+            className="w-full min-w-0 bg-slate-50 border-t border-slate-200 px-3 py-2.5 space-y-2 shrink-0"
+          >
+            <div
+              data-testid="aviso-precisao-pinos"
+              className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-700"
+            >
+              <span>
+                <strong>Pinos ativos ({mapPinEntries.length}):</strong>{" "}
+                <span className="text-amber-900 font-medium">
+                  locais aproximados (nível Bairro/Prefeitura-Bairro) indicam o centróide do território e não são endereços exatos.
+                </span>
+                {mapPinEntries.some((entry) => entry.overlapCount > 1) && (
+                  <span className="text-sky-900 font-medium">
+                    {" "}
+                    Obras sobrepostas no mesmo ponto estão listadas abaixo para acesso individual.
+                  </span>
+                )}
+              </span>
+            </div>
+
+            {mapPinEntries.length === 0 ? (
+              <p className="text-xs text-slate-500">
+                Nenhuma obra deste recorte possui coordenada georreferenciada para exibir pino no mapa.
+              </p>
+            ) : (
+              <div className="max-h-36 overflow-y-auto space-y-1.5 pr-0.5">
+                {mapPinEntries.map((entry) => {
+                  const valorText = formatPinMetricLabel(entry.obra, metricType, Boolean(entry.fracao));
+
+                  return (
+                    <button
+                      key={entry.key}
+                      type="button"
+                      data-testid={
+                        entry.isPrimaryPin
+                          ? `map-pin-obra-${entry.obra.id}`
+                          : `map-pin-obra-${entry.obra.id}-extra-${entry.key}`
+                      }
+                      onClick={() => onSelectObra && onSelectObra(entry.obra)}
+                      className="w-full text-left bg-white hover:bg-emerald-50/70 border border-slate-200 hover:border-emerald-300 rounded-lg px-2.5 py-1.5 text-xs transition-colors flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                    >
+                      <div className="min-w-0">
+                        <div className="font-semibold text-slate-900 truncate">
+                          {entry.obra.objeto}
+                        </div>
+                        <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10px]">
+                          <span
+                            className={`px-1.5 py-0.5 rounded border font-semibold ${
+                              entry.isApproximate
+                                ? "bg-amber-50 text-amber-900 border-amber-200"
+                                : "bg-emerald-50 text-emerald-800 border-emerald-200"
+                            }`}
+                          >
+                            {entry.isApproximate
+                              ? "Local aproximado (não é endereço exato)"
+                              : "Ponto identificado (Pontual)"}
+                          </span>
+                          {entry.overlapCount > 1 && (
+                            <span className="px-1.5 py-0.5 rounded border bg-sky-50 text-sky-900 border-sky-200 font-semibold">
+                              Sobreposição: {entry.overlapCount} obras no mesmo ponto
+                            </span>
+                          )}
+                          {entry.fracao && (
+                            <span className="px-1.5 py-0.5 rounded border bg-amber-50 text-amber-900 border-amber-200 font-semibold">
+                              Cota-Parte ({entry.fracao}){entry.bairroLabel ? ` • ${entry.bairroLabel}` : ""}
+                            </span>
+                          )}
+                          {!entry.fracao && entry.bairroLabel && (
+                            <span className="text-slate-600">{entry.bairroLabel}</span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="shrink-0 flex items-center gap-2 text-[11px]">
+                        <span className="font-semibold text-slate-800 tabular-nums">{valorText}</span>
+                        <span className="text-emerald-700 font-semibold underline">Ver detalhes</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Seletor Rápido de Territórios sincronizado com a busca territorial */}
           <div className="w-full min-w-0 overflow-hidden bg-white border-t border-slate-200 px-3 py-2 z-10 shrink-0">

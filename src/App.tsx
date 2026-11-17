@@ -107,6 +107,14 @@ function checkIsMobileViewport(): boolean {
   return window.innerWidth < 768;
 }
 
+function safeWindowScrollTo(top: number): void {
+  if (typeof window !== "undefined" && typeof window.scrollTo === "function") {
+    try {
+      window.scrollTo({ top, behavior: "auto" });
+    } catch { }
+  }
+}
+
 export const App: React.FC = () => {
   const [indexData, setIndexData] = useState<IndexData | null>(null);
   const [bairrosGeo, setBairrosGeo] = useState<any>(null);
@@ -115,8 +123,13 @@ export const App: React.FC = () => {
   const [selectedTerritory, setSelectedTerritory] = useState<TerritorySelection | null>(null);
   const [selectedObraFicha, setSelectedObraFicha] = useState<FichaLimpaObra | null>(null);
   const [loadingFicha, setLoadingFicha] = useState<boolean>(false);
+  const [fichaError, setFichaError] = useState<string | null>(null);
+  const [lastRequestedObra, setLastRequestedObra] = useState<ObraCompacta | null>(null);
   const [showNotaMetodologica, setShowNotaMetodologica] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"comparacao" | "tabela">("comparacao");
+  const comparacaoScrollYRef = useRef<number>(0);
+  const pendingRestoreComparacaoScrollRef = useRef<boolean>(false);
+  const lastFichaTriggerRef = useRef<HTMLElement | null>(null);
   const [isMobileViewport, setIsMobileViewport] = useState<boolean>(() => checkIsMobileViewport());
   const [mobileView, setMobileView] = useState<"lista" | "mapa">("lista");
   const mobileToggleRef = useRef<HTMLDivElement>(null);
@@ -154,7 +167,7 @@ export const App: React.FC = () => {
     if (mobileView === "lista" && pendingRestoreMobileScrollRef.current) {
       pendingRestoreMobileScrollRef.current = false;
       if (!mobileSelectionChangedInMapRef.current) {
-        window.scrollTo({ top: mobileListaScrollYRef.current, behavior: "auto" });
+        safeWindowScrollTo(mobileListaScrollYRef.current);
       }
       mobileSelectionChangedInMapRef.current = false;
     } else if (mobileView === "mapa" && pendingFocusMobileMapRef.current) {
@@ -168,6 +181,26 @@ export const App: React.FC = () => {
       }
     }
   }, [isMobileViewport, mobileView]);
+
+  useEffect(() => {
+    if (activeTab === "comparacao" && pendingRestoreComparacaoScrollRef.current) {
+      pendingRestoreComparacaoScrollRef.current = false;
+      safeWindowScrollTo(comparacaoScrollYRef.current);
+    }
+  }, [activeTab]);
+
+  const handleOpenTabela = () => {
+    if (activeTab === "tabela") return;
+    comparacaoScrollYRef.current = window.scrollY || 0;
+    setActiveTab("tabela");
+    safeWindowScrollTo(0);
+  };
+
+  const handleBackToComparacao = () => {
+    if (activeTab === "comparacao") return;
+    pendingRestoreComparacaoScrollRef.current = true;
+    setActiveTab("comparacao");
+  };
 
   const handleMobileViewChange = (nextView: "lista" | "mapa") => {
     if (nextView === mobileView) return;
@@ -291,14 +324,6 @@ export const App: React.FC = () => {
       if (filters.semaforo !== "todos" && obra.semaforo?.status !== filters.semaforo) {
         return false;
       }
-      // Busca textual no Objeto, Razão Social da Construtora ou CNPJ
-      if (filters.busca.trim()) {
-        const query = filters.busca.toLowerCase();
-        const objMatch = (obra.objeto || "").toLowerCase().includes(query);
-        const credorMatch = (obra.credor || "").toLowerCase().includes(query);
-        const cnpjMatch = (obra.cnpj || "").toLowerCase().includes(query);
-        if (!objMatch && !credorMatch && !cnpjMatch) return false;
-      }
       return true;
     });
   }, [indexData, filters]);
@@ -310,8 +335,7 @@ export const App: React.FC = () => {
     filters.orgao !== "todos" ||
     filters.tema !== "todos" ||
     filters.vocacoes.length < VOCACOES_PADRAO.length ||
-    filters.semaforo !== "todos" ||
-    filters.busca.trim() !== "";
+    filters.semaforo !== "todos";
 
   const usesPrecomputedSummary = Boolean(
     indexData &&
@@ -406,13 +430,39 @@ export const App: React.FC = () => {
   }, [selectedTerritory, recalculatedBairros, recalculatedPrefeituras]);
 
   // 4. Filtragem combinada para pinos no mapa e linhas da tabela (aplicando filtro de território selecionado)
+  const selectedChildBairroKeys = useMemo(() => {
+    if (!indexData || !activeSelectedTerritory || activeSelectedTerritory.tipo !== "prefeitura_bairro") {
+      return undefined;
+    }
+    const targetKey = normalizeName(activeSelectedTerritory.nome);
+    const keys = new Set<string>();
+    for (const b of indexData.bairros) {
+      if (b.prefeitura_bairro && normalizeName(b.prefeitura_bairro) === targetKey) {
+        keys.add(normalizeName(b.nome));
+      }
+    }
+    return keys;
+  }, [indexData, activeSelectedTerritory]);
+
   const filteredObras = useMemo(() => {
     if (!activeSelectedTerritory) return topFilteredObras;
 
     return topFilteredObras.filter((obra) =>
-      obraMatchesTerritory(obra, activeSelectedTerritory)
+      obraMatchesTerritory(obra, activeSelectedTerritory, selectedChildBairroKeys)
     );
-  }, [topFilteredObras, activeSelectedTerritory]);
+  }, [topFilteredObras, activeSelectedTerritory, selectedChildBairroKeys]);
+
+  // 4b. Busca textual por objeto, Empreiteira ou CNPJ pertence exclusivamente à consulta de obras
+  const tableObras = useMemo(() => {
+    const rawQuery = filters.busca.trim().toLowerCase();
+    if (!rawQuery) return filteredObras;
+    return filteredObras.filter((obra) => {
+      const objMatch = (obra.objeto || "").toLowerCase().includes(rawQuery);
+      const credorMatch = (obra.credor || "").toLowerCase().includes(rawQuery);
+      const cnpjMatch = (obra.cnpj || obra.cnpjCredor || "").toLowerCase().includes(rawQuery);
+      return objMatch || credorMatch || cnpjMatch;
+    });
+  }, [filteredObras, filters.busca]);
 
   // 5. Indicadores comparativos municipais do cabeçalho (NUNCA restringidos pelo território selecionado)
   const headerComparisonSummary = useMemo(() => {
@@ -643,6 +693,12 @@ export const App: React.FC = () => {
   };
 
   const handleSelectObra = async (obra: ObraCompacta) => {
+    if (typeof document !== "undefined" && document.activeElement instanceof HTMLElement) {
+      lastFichaTriggerRef.current = document.activeElement;
+    }
+    setLastRequestedObra(obra);
+    setFichaError(null);
+    setSelectedObraFicha(null);
     try {
       setLoadingFicha(true);
       const res = await fetch(buildDataUrl(`data/obras/${obra.id}.json`));
@@ -652,10 +708,34 @@ export const App: React.FC = () => {
       } else {
         throw new Error(`Falha ao carregar obra ${obra.id} (status ${res.status})`);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error("Erro ao carregar Ficha Limpa da Obra sob demanda:", err);
+      setFichaError(
+        err?.message || "Não foi possível carregar os detalhes completos desta obra."
+      );
     } finally {
       setLoadingFicha(false);
+    }
+  };
+
+  const handleCloseFicha = () => {
+    setSelectedObraFicha(null);
+    setFichaError(null);
+    setLoadingFicha(false);
+    const trigger = lastFichaTriggerRef.current;
+    lastFichaTriggerRef.current = null;
+    if (trigger && trigger.isConnected && typeof trigger.focus === "function") {
+      Promise.resolve().then(() => {
+        try {
+          trigger.focus();
+        } catch { }
+      });
+    }
+  };
+
+  const handleRetryFicha = () => {
+    if (lastRequestedObra) {
+      void handleSelectObra(lastRequestedObra);
     }
   };
 
@@ -665,6 +745,8 @@ export const App: React.FC = () => {
       busca: credorOuCnpj,
     }));
     setSelectedObraFicha(null);
+    setFichaError(null);
+    setLoadingFicha(false);
   };
 
   if (loading) {
@@ -721,7 +803,7 @@ export const App: React.FC = () => {
         availableMandatos={availableMandatos}
         availableOrgaos={availableOrgaos}
         availableTemas={TEMAS_PADRAO}
-        totalObrasFiltradas={filteredObras.length}
+        totalObrasFiltradas={activeTab === "tabela" ? tableObras.length : filteredObras.length}
         totalObrasGeral={indexData.obras.length}
         activeLayer={activeLayer}
         onToggleLayer={handleToggleLayer}
@@ -781,7 +863,7 @@ export const App: React.FC = () => {
           <button
             type="button"
             data-testid="tab-comparacao"
-            onClick={() => setActiveTab("comparacao")}
+            onClick={handleBackToComparacao}
             className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
               activeTab === "comparacao"
                 ? "bg-slate-900 text-white shadow-sm"
@@ -793,7 +875,7 @@ export const App: React.FC = () => {
           <button
             type="button"
             data-testid="tab-tabela"
-            onClick={() => setActiveTab("tabela")}
+            onClick={handleOpenTabela}
             className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
               activeTab === "tabela"
                 ? "bg-slate-900 text-white shadow-sm"
@@ -806,7 +888,7 @@ export const App: React.FC = () => {
                 activeTab === "tabela" ? "bg-slate-700 text-white" : "bg-slate-200 text-slate-700"
               }`}
             >
-              {filteredObras.length}
+              {tableObras.length}
             </span>
           </button>
         </div>
@@ -890,7 +972,7 @@ export const App: React.FC = () => {
                 <div
                   data-testid="mobile-mapa-panel"
                   hidden={isMobileViewport && mobileView !== "mapa"}
-                  className={`sm:h-[480px] lg:h-[520px] min-w-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm flex flex-col ${
+                  className={`sm:min-h-[480px] lg:min-h-[520px] min-w-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm flex flex-col ${
                     isMobileViewport && mobileView !== "mapa" ? "hidden md:flex" : ""
                   }`}
                 >
@@ -916,7 +998,7 @@ export const App: React.FC = () => {
                   <TerritorySidebar
                     territorio={activeSelectedTerritory}
                     onClear={() => setSelectedTerritory(null)}
-                    onViewWorksInTable={() => setActiveTab("tabela")}
+                    onViewWorksInTable={handleOpenTabela}
                     metricType={filters.metricType}
                     onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
                     obras={topFilteredObras}
@@ -935,21 +1017,25 @@ export const App: React.FC = () => {
               <button
                 type="button"
                 data-testid="btn-voltar-comparacao"
-                onClick={() => setActiveTab("comparacao")}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 transition-colors"
+                onClick={handleBackToComparacao}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
               >
                 ← Voltar à Comparação Territorial
               </button>
             </div>
             <WorksTable
-              obras={filteredObras}
+              obras={tableObras}
               metricType={filters.metricType}
               selectedTerritory={activeSelectedTerritory}
+              childBairroKeys={selectedChildBairroKeys}
+              totalTerritoryObrasCount={filteredObras.length}
               onSelectObra={handleSelectObra}
               busca={filters.busca}
               onBuscaChange={(busca) => handleFilterChange({ busca })}
               hasActiveContractFilters={isContractFiltered}
               onClearContractFilters={handleClearContractFilters}
+              onBackToComparison={handleBackToComparacao}
+              onClearTerritory={() => setSelectedTerritory(null)}
             />
           </div>
         )}
@@ -959,7 +1045,10 @@ export const App: React.FC = () => {
       <FichaLimpaModal
         obra={selectedObraFicha}
         loading={loadingFicha}
-        onClose={() => setSelectedObraFicha(null)}
+        error={fichaError}
+        requestedObra={lastRequestedObra}
+        onRetry={handleRetryFicha}
+        onClose={handleCloseFicha}
         onFilterByEmpreiteira={handleFilterByEmpreiteira}
       />
 

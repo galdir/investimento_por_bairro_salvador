@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   MetricType,
   ObraCompacta,
@@ -8,7 +8,12 @@ import {
   VocacaoObra,
 } from "../types";
 import { formatCurrency, formatNumber, formatDate } from "../utils/formatters";
-import { getObraTerritoryShare, hasNumericPayment } from "../utils/territory";
+import {
+  getObraTerritoryShare,
+  getTerritoryAbsoluteTotal,
+  hasNumericPayment,
+  ObraTerritoryShare,
+} from "../utils/territory";
 import { SearchInput } from "./SearchInput";
 
 interface WorksTableProps {
@@ -24,6 +29,14 @@ interface WorksTableProps {
    * Território selecionado para exibição proporcional de contratos em Cota-Parte.
    */
   selectedTerritory?: TerritorySelection | null;
+  /**
+   * Bairros pertencentes à Prefeitura-Bairro selecionada (quando aplicável).
+   */
+  childBairroKeys?: ReadonlySet<string>;
+  /**
+   * Quantidade total de contratos/frentes do território antes da busca textual na tabela.
+   */
+  totalTerritoryObrasCount?: number;
   /**
    * Callback opcional ao clicar em uma obra para inspecionar detalhes.
    */
@@ -44,6 +57,14 @@ interface WorksTableProps {
    * Callback para limpar os filtros de contrato mantendo nível e métrica.
    */
   onClearContractFilters?: () => void;
+  /**
+   * Callback opcional para retornar à Comparação Territorial preservando contexto.
+   */
+  onBackToComparison?: () => void;
+  /**
+   * Callback opcional para limpar a seleção territorial e ver todas as obras da cidade.
+   */
+  onClearTerritory?: () => void;
 }
 
 type SortField =
@@ -58,11 +79,19 @@ type SortField =
 
 type SortDirection = "asc" | "desc";
 
-function getMetricSortValue(obra: ObraCompacta, peso: number, metricType: MetricType): number {
-  if (metricType === "vigente") {
-    return (obra.valorContratualVigente ?? 0) * peso;
+function getMetricSortValue(
+  obra: ObraCompacta,
+  share: ObraTerritoryShare,
+  selectedTerritory: TerritorySelection | null | undefined,
+  metricType: MetricType
+): number {
+  if (selectedTerritory && share.isFrenteMedicao && !share.isDirectOrRegionalMatch) {
+    return metricType === "executado" ? share.frentesValorPago : 0;
   }
-  return hasNumericPayment(obra.valorPago) ? obra.valorPago * peso : -1;
+  if (metricType === "vigente") {
+    return (obra.valorContratualVigente ?? 0) * share.peso;
+  }
+  return hasNumericPayment(obra.valorPago) ? obra.valorPago * share.peso : -1;
 }
 
 /**
@@ -129,20 +158,66 @@ function renderSemaforoBadge(status: SemaforoStatus, rotulo?: string) {
  * @returns Elemento JSX da tabela ou estado vazio quando nenhum resultado for encontrado.
  * @throws Não lança exceções.
  */
+function renderVocacaoBadge(obra: ObraCompacta, compact: boolean = false) {
+  const vocacao = (obra.vocacao as VocacaoObra) || "Vizinhança e Comunidade";
+  return (
+    <span
+      data-testid={`badge-vocacao-${obra.id}`}
+      className={`${compact ? "px-1.5" : "px-2"} py-0.5 rounded-full text-[10px] font-semibold ${
+        VOCACAO_BADGE_CLASS[vocacao] || VOCACAO_BADGE_CLASS["Vizinhança e Comunidade"]
+      }`}
+    >
+      {vocacao}
+    </span>
+  );
+}
+
 export const WorksTable: React.FC<WorksTableProps> = ({
   obras,
   metricType,
   selectedTerritory = null,
+  childBairroKeys,
+  totalTerritoryObrasCount,
   onSelectObra,
   busca = "",
   onBuscaChange,
   hasActiveContractFilters = false,
   onClearContractFilters,
+  onBackToComparison,
+  onClearTerritory,
 }) => {
   const [sortField, setSortField] = useState<SortField>("valorContratualVigente");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
+  const [showOptionalColumns, setShowOptionalColumns] = useState<boolean>(false);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedTerritory?.tipo, selectedTerritory?.id, selectedTerritory?.nome]);
+
+  const territoryBreakdown = useMemo(() => {
+    if (!selectedTerritory) return null;
+    let allocatedFromRows = 0;
+    let frentesFromRows = 0;
+
+    for (const o of obras) {
+      const share = getObraTerritoryShare(o, selectedTerritory, childBairroKeys);
+      if (share.isCotaParte || share.isDirectOrRegionalMatch) {
+        allocatedFromRows++;
+      }
+      if (share.isFrenteMedicao) {
+        frentesFromRows += share.frentes.length;
+      }
+    }
+
+    const totalTerritorial = getTerritoryAbsoluteTotal(selectedTerritory, metricType);
+    return {
+      allocatedContracts: selectedTerritory.totalObras ?? allocatedFromRows,
+      frentesNotes: selectedTerritory.totalFrentesMedicao ?? frentesFromRows,
+      totalTerritorial,
+    };
+  }, [obras, selectedTerritory, childBairroKeys, metricType]);
 
   // Manipulador de ordenação por cabeçalho clicável
   const handleSort = (field: SortField) => {
@@ -160,8 +235,10 @@ export const WorksTable: React.FC<WorksTableProps> = ({
     return [...obras].sort((a, b) => {
       let valA: any = "";
       let valB: any = "";
-      const pesoA = getObraTerritoryShare(a, selectedTerritory).peso;
-      const pesoB = getObraTerritoryShare(b, selectedTerritory).peso;
+      const shareA = getObraTerritoryShare(a, selectedTerritory, childBairroKeys);
+      const shareB = getObraTerritoryShare(b, selectedTerritory, childBairroKeys);
+      const pesoA = shareA.peso;
+      const pesoB = shareB.peso;
 
       switch (sortField) {
         case "objeto":
@@ -185,8 +262,8 @@ export const WorksTable: React.FC<WorksTableProps> = ({
           valB = (b.valorOriginal || 0) * pesoB;
           break;
         case "valorContratualVigente":
-          valA = getMetricSortValue(a, pesoA, metricType);
-          valB = getMetricSortValue(b, pesoB, metricType);
+          valA = getMetricSortValue(a, shareA, selectedTerritory, metricType);
+          valB = getMetricSortValue(b, shareB, selectedTerritory, metricType);
           break;
         case "percentualExecutado":
           valA = a.percentualExecutado || 0;
@@ -254,6 +331,9 @@ export const WorksTable: React.FC<WorksTableProps> = ({
     ) : null;
 
   if (obras.length === 0) {
+    const isEmptyTerritoryWithoutFilter =
+      Boolean(selectedTerritory) && busca.trim().length === 0 && !hasActiveContractFilters;
+
     return (
       <div
         data-testid="tabela-obras-vazia"
@@ -267,9 +347,17 @@ export const WorksTable: React.FC<WorksTableProps> = ({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         </div>
-        <h4 className="text-sm font-bold text-slate-800">Nenhuma obra encontrada</h4>
-        <p className="text-xs text-slate-500 max-w-sm mx-auto">
-          Nenhum contrato corresponde aos critérios e filtros selecionados. Tente alterar o órgão, tema, semáforo ou termo de busca.
+        <h4 className="text-sm font-bold text-slate-800">
+          {selectedTerritory
+            ? `Nenhuma obra encontrada em ${selectedTerritory.nome}`
+            : "Nenhuma obra encontrada"}
+        </h4>
+        <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+          {isEmptyTerritoryWithoutFilter && selectedTerritory
+            ? selectedTerritory.tipo === "bairro"
+              ? `O Bairro Oficial ${selectedTerritory.nome} não possui obras alocadas diretamente ou por Frentes de Medição neste recorte. Contratos de escopo regional ou de cidade inteira não são divididos artificialmente entre bairros.`
+              : `A Prefeitura-Bairro ${selectedTerritory.nome} não possui obras alocadas neste recorte.`
+            : "Nenhum contrato corresponde aos critérios e filtros selecionados. Tente alterar a busca de obras ou os filtros de contratos."}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2">
           {onBuscaChange && busca.trim().length > 0 && (
@@ -298,18 +386,90 @@ export const WorksTable: React.FC<WorksTableProps> = ({
               Limpar filtros de contratos
             </button>
           )}
+          {onBackToComparison && (
+            <button
+              type="button"
+              data-testid="btn-vazio-voltar-comparacao"
+              onClick={onBackToComparison}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition-colors"
+            >
+              Voltar à Comparação Territorial
+            </button>
+          )}
+          {selectedTerritory && onClearTerritory && (
+            <button
+              type="button"
+              data-testid="btn-vazio-limpar-territorio"
+              onClick={onClearTerritory}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 transition-colors"
+            >
+              Ver todas as obras da cidade
+            </button>
+          )}
         </div>
       </div>
     );
   }
 
+  const activeMetricLabel = metricType === "vigente" ? "Valor Contratual Vigente" : "Valor Pago";
+
   return (
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+      {/* Contexto Explícito da Consulta Territorial de Obras */}
+      {selectedTerritory && territoryBreakdown && (
+        <div
+          data-testid="consulta-territorial-contexto"
+          className="px-4 py-3 bg-emerald-50/70 border-b border-emerald-200 flex flex-col gap-1.5 text-xs text-emerald-950"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-bold uppercase tracking-wider text-[10px] bg-emerald-200/80 text-emerald-950 px-2 py-0.5 rounded">
+                Consulta Territorial • {selectedTerritory.tipo === "bairro" ? "Bairro Oficial" : "Prefeitura-Bairro"}
+              </span>
+              <strong className="text-sm text-slate-900">{selectedTerritory.nome}</strong>
+              <span className="text-slate-600">
+                Métrica ativa: <strong className="text-slate-900">{activeMetricLabel}</strong>
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="bg-white border border-emerald-200 px-2 py-0.5 rounded font-medium text-slate-800">
+                {territoryBreakdown.allocatedContracts}{" "}
+                {territoryBreakdown.allocatedContracts === 1 ? "contrato alocado" : "contratos alocados"}
+                {territoryBreakdown.frentesNotes > 0 && (
+                  <>
+                    {" "}
+                    + {territoryBreakdown.frentesNotes}{" "}
+                    {territoryBreakdown.frentesNotes === 1 ? "frente de medição" : "frentes de medição"}
+                  </>
+                )}
+              </span>
+              <span className="bg-white border border-emerald-200 px-2 py-0.5 rounded font-bold text-emerald-900">
+                Total territorial:{" "}
+                {territoryBreakdown.totalTerritorial !== undefined
+                  ? formatCurrency(territoryBreakdown.totalTerritorial)
+                  : "Pagamento indisponível"}
+              </span>
+              {busca.trim().length > 0 && totalTerritoryObrasCount !== undefined && (
+                <span className="bg-amber-50 border border-amber-200 px-2 py-0.5 rounded font-medium text-amber-900">
+                  Exibindo {formatNumber(obras.length)} de {formatNumber(totalTerritoryObrasCount)} na busca
+                </span>
+              )}
+            </div>
+          </div>
+          <p className="text-[11px] text-emerald-900/90 leading-relaxed">
+            Os valores de <strong>Cota-Parte</strong> e <strong>Frente de Medição</strong> mostram a parcela atribuída a este território separadamente do total integral do contrato.
+            {selectedTerritory.tipo === "bairro" && selectedTerritory.prefeitura_bairro
+              ? ` Contratos regionais (${selectedTerritory.prefeitura_bairro}) e de Escopo Cidade sem frente comprovada não são divididos entre bairros.`
+              : ""}
+          </p>
+        </div>
+      )}
+
       {/* Cabeçalho de Controle da Tabela */}
       <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2.5">
         <div className="flex flex-wrap items-center gap-2">
           <h3 className="text-sm font-bold text-slate-800">
-            Tabela Detalhada de Obras Públicas
+            {selectedTerritory ? `Obras de ${selectedTerritory.nome}` : "Tabela Detalhada de Obras Públicas"}
           </h3>
           <span className="text-xs text-slate-500 bg-slate-200/80 px-2 py-0.5 rounded-full font-medium">
             {formatNumber(obras.length)} {obras.length === 1 ? "obra" : "obras"}
@@ -318,6 +478,21 @@ export const WorksTable: React.FC<WorksTableProps> = ({
 
         <div className="flex flex-wrap items-center gap-2.5">
           {renderBuscaObrasControl()}
+
+          {/* Toggle de Colunas Opcionais */}
+          <button
+            type="button"
+            data-testid="btn-colunas-opcionais"
+            aria-expanded={showOptionalColumns}
+            onClick={() => setShowOptionalColumns((prev) => !prev)}
+            className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
+              showOptionalColumns
+                ? "bg-slate-900 text-white border-slate-900"
+                : "bg-white text-slate-700 border-slate-300 hover:bg-slate-100"
+            }`}
+          >
+            {showOptionalColumns ? "Ocultar colunas adicionais" : "Colunas adicionais"}
+          </button>
 
           {/* Seletor de Itens por Página */}
           <div className="flex items-center gap-2 text-xs text-slate-600">
@@ -352,64 +527,71 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                   type="button"
                   data-testid="sort-objeto"
                   onClick={() => handleSort("objeto")}
-                  className="flex items-center hover:text-slate-900 focus:outline-none"
+                  className="flex items-center hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
                 >
-                  Objeto da Obra
+                  Identificação da Obra
                   {renderSortIndicator("objeto")}
                 </button>
               </th>
-              <th className="py-3 px-3 whitespace-nowrap">
-                <button
-                  type="button"
-                  data-testid="sort-orgao"
-                  onClick={() => handleSort("unidadeGestora")}
-                  className="flex items-center hover:text-slate-900 focus:outline-none"
-                >
-                  Órgão
-                  {renderSortIndicator("unidadeGestora")}
-                </button>
+              <th data-testid="col-territorio" className="py-3 px-3 whitespace-nowrap">
+                Bairro / Território
               </th>
-              <th className="py-3 px-3 whitespace-nowrap">
-                <button
-                  type="button"
-                  data-testid="sort-credor"
-                  onClick={() => handleSort("credor")}
-                  className="flex items-center hover:text-slate-900 focus:outline-none"
-                >
-                  Construtora (Credor)
-                  {renderSortIndicator("credor")}
-                </button>
-              </th>
-              <th className="py-3 px-3 whitespace-nowrap">
-                <button
-                  type="button"
-                  data-testid="sort-tema"
-                  onClick={() => handleSort("tema")}
-                  className="flex items-center hover:text-slate-900 focus:outline-none"
-                >
-                  Tema da Obra
-                  {renderSortIndicator("tema")}
-                </button>
-              </th>
-              <th className="py-3 px-3 text-right whitespace-nowrap">
-                <button
-                  type="button"
-                  data-testid="sort-valor-original"
-                  onClick={() => handleSort("valorOriginal")}
-                  className="flex items-center justify-end w-full hover:text-slate-900 focus:outline-none"
-                >
-                  Valor Original
-                  {renderSortIndicator("valorOriginal")}
-                </button>
-              </th>
+              {showOptionalColumns && (
+                <>
+                  <th className="py-3 px-3 whitespace-nowrap">
+                    <button
+                      type="button"
+                      data-testid="sort-orgao"
+                      onClick={() => handleSort("unidadeGestora")}
+                      className="flex items-center hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
+                    >
+                      Órgão
+                      {renderSortIndicator("unidadeGestora")}
+                    </button>
+                  </th>
+                  <th className="py-3 px-3 whitespace-nowrap">
+                    <button
+                      type="button"
+                      data-testid="sort-credor"
+                      onClick={() => handleSort("credor")}
+                      className="flex items-center hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
+                    >
+                      Empreiteira
+                      {renderSortIndicator("credor")}
+                    </button>
+                  </th>
+                  <th className="py-3 px-3 whitespace-nowrap">
+                    <button
+                      type="button"
+                      data-testid="sort-tema"
+                      onClick={() => handleSort("tema")}
+                      className="flex items-center hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
+                    >
+                      Tema da Obra
+                      {renderSortIndicator("tema")}
+                    </button>
+                  </th>
+                  <th className="py-3 px-3 text-right whitespace-nowrap">
+                    <button
+                      type="button"
+                      data-testid="sort-valor-original"
+                      onClick={() => handleSort("valorOriginal")}
+                      className="flex items-center justify-end w-full hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
+                    >
+                      Valor Original
+                      {renderSortIndicator("valorOriginal")}
+                    </button>
+                  </th>
+                </>
+              )}
               <th className="py-3 px-3 text-right whitespace-nowrap">
                 <button
                   type="button"
                   data-testid="sort-valor"
                   onClick={() => handleSort("valorContratualVigente")}
-                  className="flex items-center justify-end w-full hover:text-slate-900 focus:outline-none"
+                  className="flex items-center justify-end w-full hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
                 >
-                  {metricType === "vigente" ? "Valor Vigente (+Aditivo)" : "Valor Pago / Executado"}
+                  {metricType === "vigente" ? "Valor Contratual Vigente" : "Valor Pago"}
                   {renderSortIndicator("valorContratualVigente")}
                 </button>
               </th>
@@ -418,9 +600,9 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                   type="button"
                   data-testid="sort-percentual"
                   onClick={() => handleSort("percentualExecutado")}
-                  className="flex items-center justify-center w-full hover:text-slate-900 focus:outline-none"
+                  className="flex items-center justify-center w-full hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
                 >
-                  % Executado
+                  Execução Física
                   {renderSortIndicator("percentualExecutado")}
                 </button>
               </th>
@@ -429,11 +611,14 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                   type="button"
                   data-testid="sort-semaforo"
                   onClick={() => handleSort("semaforo")}
-                  className="flex items-center justify-center w-full hover:text-slate-900 focus:outline-none"
+                  className="flex items-center justify-center w-full hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded"
                 >
-                  Semáforo
+                  Risco (Semáforo)
                   {renderSortIndicator("semaforo")}
                 </button>
+              </th>
+              <th data-testid="col-acoes" className="py-3 px-3 text-right whitespace-nowrap">
+                Detalhes
               </th>
             </tr>
           </thead>
@@ -443,8 +628,11 @@ export const WorksTable: React.FC<WorksTableProps> = ({
               const hasAditivo = deltaPerc > 0;
               const semaforoStatus = o.semaforo?.status || "VERDE";
               const semaforoRotulo = o.semaforo?.rotulo;
-              const share = getObraTerritoryShare(o, selectedTerritory);
+              const share = getObraTerritoryShare(o, selectedTerritory, childBairroKeys);
               const isCotaFiltrada = Boolean(selectedTerritory && share.isCotaParte && share.matched);
+              const isFrenteFiltrada = Boolean(
+                selectedTerritory && share.isFrenteMedicao && !share.isDirectOrRegionalMatch
+              );
               const valorBase =
                 metricType === "vigente"
                   ? o.valorContratualVigente
@@ -453,6 +641,12 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     : undefined;
               const valorOriginalExibido = (o.valorOriginal || o.valorContratualVigente) * share.peso;
               const valorPrincipalExibido = valorBase !== undefined ? valorBase * share.peso : undefined;
+              const territorioPrincipalLabel = isCotaFiltrada
+                ? share.cotas.map((c) => c.bairro).join(", ")
+                : isFrenteFiltrada
+                  ? share.frentes.map((f) => f.bairro || f.prefeituraBairro).filter(Boolean).join(", ")
+                  : o.bairro ||
+                    (o.prefeituraBairro ? `Prefeitura-Bairro: ${o.prefeituraBairro}` : "Escopo Cidade (Não-Localizado)");
 
               return (
                 <tr
@@ -463,9 +657,9 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     onSelectObra ? "cursor-pointer" : ""
                   }`}
                 >
-                  {/* Objeto e Contrato */}
+                  {/* Identificação da Obra */}
                   <td className="py-3 px-3 max-w-md">
-                    <p className="font-semibold text-slate-800 line-clamp-2" title={o.objeto}>
+                    <p className="font-semibold text-slate-800 leading-snug" title={o.objeto}>
                       {o.objeto}
                     </p>
                     <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-slate-500">
@@ -480,9 +674,28 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                       )}
                       <span>•</span>
                       <span>Situação: {o.situacao || "Não informada"}</span>
-                      {o.nivel && (
+                      {!showOptionalColumns && (
                         <>
                           <span>•</span>
+                          {renderVocacaoBadge(o, true)}
+                        </>
+                      )}
+                    </div>
+                  </td>
+
+                  {/* Bairro / Território e Pertença */}
+                  <td className="py-3 px-3 max-w-xs">
+                    <div className="flex flex-col items-start gap-1">
+                      <span className="font-semibold text-slate-800 text-xs">
+                        {territorioPrincipalLabel}
+                      </span>
+                      {o.prefeituraBairro && o.bairro && (
+                        <span className="text-[10px] text-slate-500">
+                          {o.prefeituraBairro}
+                        </span>
+                      )}
+                      <div className="flex flex-wrap items-center gap-1 text-[10px]">
+                        {o.nivel && (
                           <span
                             data-testid={`badge-nivel-${o.id}`}
                             className={`font-medium px-1.5 py-0.5 rounded border ${
@@ -499,95 +712,149 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                               ? o.nivel
                               : `${o.nivel}${o.bairro ? `: ${o.bairro}` : o.prefeituraBairro ? `: ${o.prefeituraBairro}` : ""}`}
                           </span>
-                        </>
-                      )}
-                      {share.isCotaParte && (
-                        <span
-                          data-testid={`badge-cota-parte-${o.id}`}
-                          className="font-semibold px-1.5 py-0.5 rounded border text-amber-800 bg-amber-50 border-amber-200"
+                        )}
+                        {share.isCotaParte && (
+                          <span
+                            data-testid={`badge-cota-parte-${o.id}`}
+                            className="font-semibold px-1.5 py-0.5 rounded border text-amber-800 bg-amber-50 border-amber-200"
+                          >
+                            {isCotaFiltrada
+                              ? `Cota-Parte (${share.fracao})`
+                              : `Cota-Parte (${share.totalUnidades}/${share.totalUnidades})`}
+                          </span>
+                        )}
+                        {isFrenteFiltrada && (
+                          <span
+                            data-testid={`badge-frente-medicao-${o.id}`}
+                            className="font-semibold px-1.5 py-0.5 rounded border text-indigo-800 bg-indigo-50 border-indigo-200"
+                          >
+                            Frente de Medição ({share.frentes.length})
+                          </span>
+                        )}
+                      </div>
+                      {share.isCotaParte && o.cotasListaFechada && o.cotasListaFechada.length > 0 && (
+                        <div
+                          data-testid={`cota-breakdown-${o.id}`}
+                          className="flex flex-wrap items-center gap-1 mt-0.5 text-[10px]"
                         >
-                          {isCotaFiltrada
-                            ? `Cota-Parte (${share.fracao})`
-                            : `Cota-Parte (${share.totalUnidades}/${share.totalUnidades})`}
-                        </span>
+                          {o.cotasListaFechada.map((cota) => {
+                            const isMatchedQuota =
+                              Boolean(selectedTerritory) &&
+                              share.cotas.some((mc) => mc.bairro === cota.bairro);
+                            return (
+                              <span
+                                key={cota.bairro}
+                                className={`px-1.5 py-0.5 rounded border ${
+                                  isMatchedQuota
+                                    ? "bg-amber-100 text-amber-900 border-amber-300 font-semibold"
+                                    : "bg-slate-50 text-slate-600 border-slate-200"
+                                }`}
+                              >
+                                {cota.bairro} ({cota.fracao})
+                              </span>
+                            );
+                          })}
+                        </div>
+                      )}
+                      {isFrenteFiltrada && share.frentes.length > 0 && (
+                        <div
+                          data-testid={`frente-breakdown-${o.id}`}
+                          className="flex flex-wrap items-center gap-1 mt-0.5 text-[10px]"
+                        >
+                          {share.frentes.map((frente) => (
+                            <span
+                              key={frente.notaLiquidacao}
+                              className="px-1.5 py-0.5 rounded border bg-indigo-50 text-indigo-900 border-indigo-200 font-medium"
+                            >
+                              {frente.notaLiquidacao}
+                              {frente.bairro ? ` (${frente.bairro})` : ""}
+                            </span>
+                          ))}
+                        </div>
                       )}
                     </div>
-                    {share.isCotaParte && o.cotasListaFechada && o.cotasListaFechada.length > 0 && (
-                      <div
-                        data-testid={`cota-breakdown-${o.id}`}
-                        className="flex flex-wrap items-center gap-1 mt-1.5 text-[10px]"
-                      >
-                        {o.cotasListaFechada.map((cota) => {
-                          const isMatchedQuota =
-                            Boolean(selectedTerritory) &&
-                            share.cotas.some((mc) => mc.bairro === cota.bairro);
-                          return (
-                            <span
-                              key={cota.bairro}
-                              className={`px-1.5 py-0.5 rounded border ${
-                                isMatchedQuota
-                                  ? "bg-amber-100 text-amber-900 border-amber-300 font-semibold"
-                                  : "bg-slate-50 text-slate-600 border-slate-200"
-                              }`}
-                            >
-                              {cota.bairro} ({cota.fracao})
-                            </span>
-                          );
-                        })}
-                      </div>
-                    )}
                   </td>
 
-                  {/* Órgão */}
-                  <td className="py-3 px-3 whitespace-nowrap">
-                    <span className="inline-block bg-slate-100 text-slate-700 font-medium px-2 py-0.5 rounded text-[11px]">
-                      {o.unidadeGestora}
-                    </span>
-                  </td>
+                  {/* Colunas Secundárias Opcionais */}
+                  {showOptionalColumns && (
+                    <>
+                      <td className="py-3 px-3 whitespace-nowrap">
+                        <span className="inline-block bg-slate-100 text-slate-700 font-medium px-2 py-0.5 rounded text-[11px]">
+                          {o.unidadeGestora}
+                        </span>
+                      </td>
 
-                  {/* Construtora */}
-                  <td className="py-3 px-3 max-w-xs">
-                    <p className="text-slate-700 font-medium truncate" title={o.credor}>
-                      {o.credor || "Não informado"}
-                    </p>
-                  </td>
+                      <td className="py-3 px-3 max-w-xs">
+                        <p className="text-slate-700 font-medium truncate" title={o.credor}>
+                          {o.credor || "Não informado"}
+                        </p>
+                      </td>
 
-                  {/* Tema e Vocação da Obra */}
-                  <td className="py-3 px-3 whitespace-nowrap">
-                    <div className="flex flex-col items-start gap-1">
-                      <span className="text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full text-[11px] font-medium">
-                        {o.tema || "Manutenção Urbana e Outros"}
-                      </span>
-                      <span
-                        data-testid={`badge-vocacao-${o.id}`}
-                        className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
-                          VOCACAO_BADGE_CLASS[(o.vocacao as VocacaoObra) || "Vizinhança e Comunidade"] ||
-                          VOCACAO_BADGE_CLASS["Vizinhança e Comunidade"]
-                        }`}
-                      >
-                        {o.vocacao || "Vizinhança e Comunidade"}
-                      </span>
-                    </div>
-                  </td>
+                      <td className="py-3 px-3 whitespace-nowrap">
+                        <div className="flex flex-col items-start gap-1">
+                          <span className="text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full text-[11px] font-medium">
+                            {o.tema || "Manutenção Urbana e Outros"}
+                          </span>
+                          {renderVocacaoBadge(o, false)}
+                        </div>
+                      </td>
 
-                  {/* Valor Original */}
-                  <td className="py-3 px-3 text-right whitespace-nowrap text-slate-500 font-medium">
-                    <div>{formatCurrency(valorOriginalExibido)}</div>
-                    {isCotaFiltrada && (
-                      <div className="text-[10px] font-normal text-slate-400">
-                        Total: {formatCurrency(o.valorOriginal || o.valorContratualVigente)}
-                      </div>
-                    )}
-                  </td>
+                      <td className="py-3 px-3 text-right whitespace-nowrap text-slate-500 font-medium">
+                        {isFrenteFiltrada ? (
+                          <div>
+                            <span className="text-[11px] text-slate-500">Sem rateio</span>
+                            <div className="text-[10px] font-normal text-slate-400">
+                              Total: {formatCurrency(o.valorOriginal || o.valorContratualVigente)}
+                            </div>
+                          </div>
+                        ) : (
+                          <>
+                            <div>{formatCurrency(valorOriginalExibido)}</div>
+                            {isCotaFiltrada && (
+                              <div className="text-[10px] font-normal text-slate-400">
+                                Total: {formatCurrency(o.valorOriginal || o.valorContratualVigente)}
+                              </div>
+                            )}
+                          </>
+                        )}
+                      </td>
+                    </>
+                  )}
 
-                  {/* Valor Vigente com Delta de Aditivo */}
+                  {/* Valor da Métrica Ativa (com distinção entre parcela territorial e contrato integral) */}
                   <td className="py-3 px-3 text-right whitespace-nowrap font-bold text-slate-900">
-                    {valorPrincipalExibido !== undefined ? (
+                    {isFrenteFiltrada ? (
+                      metricType === "executado" ? (
+                        <>
+                          <div className="text-indigo-900">{formatCurrency(share.frentesValorPago)}</div>
+                          <div className="text-[10px] font-medium text-indigo-700">
+                            Parcela (Frentes • liq. {formatCurrency(share.frentesValorLiquidado)})
+                          </div>
+                          {valorBase !== undefined && (
+                            <div className="text-[10px] font-normal text-slate-500">
+                              Total contrato: {formatCurrency(valorBase)}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          <div className="text-xs font-semibold text-indigo-800">
+                            Sem rateio contratual
+                          </div>
+                          <div className="text-[10px] font-normal text-slate-500">
+                            Soma apenas em Valor Pago
+                          </div>
+                          <div className="text-[10px] font-normal text-slate-500">
+                            Total contrato: {formatCurrency(o.valorContratualVigente)}
+                          </div>
+                        </>
+                      )
+                    ) : valorPrincipalExibido !== undefined ? (
                       <>
                         <div>{formatCurrency(valorPrincipalExibido)}</div>
                         {isCotaFiltrada && valorBase !== undefined && (
                           <div className="text-[10px] font-normal text-slate-500">
-                            Total: {formatCurrency(valorBase)}
+                            Total contrato: {formatCurrency(valorBase)}
                           </div>
                         )}
                       </>
@@ -596,7 +863,7 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                         Pagamento indisponível
                       </div>
                     )}
-                    {hasAditivo && (
+                    {hasAditivo && !isFrenteFiltrada && (
                       <span
                         className={`text-[10px] font-semibold ${
                           deltaPerc > 25
@@ -612,7 +879,7 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     )}
                   </td>
 
-                  {/* % Executado com Barra de Progresso */}
+                  {/* Execução Física com Barra de Progresso */}
                   <td className="py-3 px-3 text-center whitespace-nowrap">
                     <div className="flex flex-col items-center gap-1">
                       <span className="font-semibold text-slate-700 text-xs">
@@ -629,9 +896,25 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     </div>
                   </td>
 
-                  {/* Badge do Semáforo */}
+                  {/* Risco (Semáforo) */}
                   <td className="py-3 px-3 text-center whitespace-nowrap">
                     {renderSemaforoBadge(semaforoStatus, semaforoRotulo)}
+                  </td>
+
+                  {/* Ação evidente: Ver detalhes */}
+                  <td className="py-3 px-3 text-right whitespace-nowrap">
+                    <button
+                      type="button"
+                      data-testid={`btn-ver-detalhes-${o.id}`}
+                      aria-label={`Ver detalhes da obra ${o.objeto}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectObra?.(o);
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                    >
+                      Ver detalhes
+                    </button>
                   </td>
                 </tr>
               );
