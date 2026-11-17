@@ -15,7 +15,7 @@ import {
   createPrefeituraSelection,
   getObraTerritoryShare,
   getTerritoryInvestmentState,
-  hasNumericPayment,
+  hasNumericValue,
   isCentralidadeMetropolitana,
   isZonaEspecial,
   normalizeName,
@@ -154,14 +154,18 @@ function sortTerritoriesByChoropleth<T extends BairroResumo | PrefeituraBairroRe
     const stateB = getTerritoryInvestmentState(b, metricType, tipo);
     const invA = stateA.kind === "value" ? stateA.perCapita : -1;
     const invB = stateB.kind === "value" ? stateB.perCapita : -1;
-    const vulnA = a.indice_vulnerabilidade ?? 0;
-    const vulnB = b.indice_vulnerabilidade ?? 0;
+    const hasVulnA = hasNumericValue(a.indice_vulnerabilidade);
+    const hasVulnB = hasNumericValue(b.indice_vulnerabilidade);
+    const vulnA = hasVulnA ? a.indice_vulnerabilidade! : -1;
+    const vulnB = hasVulnB ? b.indice_vulnerabilidade! : -1;
 
     if (choroplethMetric === "investimentoPorHabitante") {
       if (invB !== invA) return invB - invA;
+      if (hasVulnA !== hasVulnB) return hasVulnA ? -1 : 1;
       if (vulnB !== vulnA) return vulnB - vulnA;
       return a.nome.localeCompare(b.nome, "pt-BR");
     } else {
+      if (hasVulnA !== hasVulnB) return hasVulnA ? -1 : 1;
       if (vulnB !== vulnA) return vulnB - vulnA;
       if (invB !== invA) return invB - invA;
       return a.nome.localeCompare(b.nome, "pt-BR");
@@ -183,10 +187,12 @@ function formatChipMetric(
   if (choroplethMetric === "investimentoPorHabitante") {
     const state = getTerritoryInvestmentState(item, metricType, tipo);
     if (state.kind === "exempt") return "Isento";
-    if (state.kind === "unavailable") return "Sem pgto";
+    if (state.kind === "unavailable") return state.reason === "population" ? "Indisponível" : "Sem pgto";
     return `${formatCurrency(state.perCapita)}/hab`;
   }
-  return `Vuln: ${formatDecimal(item.indice_vulnerabilidade ?? 0)}`;
+  return hasNumericValue(item.indice_vulnerabilidade)
+    ? `Vuln: ${formatDecimal(item.indice_vulnerabilidade)}`
+    : "Vuln: Indisponível";
 }
 
 /**
@@ -318,30 +324,50 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [prefeituras]);
 
   // Calcula os limites de quantis para a escala coroplética de Investimento por Habitante (vigente ou executado)
-  const { breaksInvestimento, hasUnavailablePayment } = useMemo(() => {
+  const {
+    breaksInvestimento,
+    hasUnavailablePayment,
+    hasUnavailablePopulation,
+    hasUnavailableVulnerability,
+  } = useMemo(() => {
     const list = activeLayer === "bairros" ? bairros : prefeituras;
     const tipo = activeLayer === "bairros" ? "bairro" : "prefeitura_bairro";
-    let unavailable = false;
+    let unavailablePayment = false;
+    let unavailablePopulation = false;
+    let unavailableVuln = false;
     const valores: number[] = [];
 
     for (const item of list) {
       const state = getTerritoryInvestmentState(item, metricType, tipo);
       if (state.kind === "unavailable") {
-        unavailable = true;
+        if (state.reason === "population") unavailablePopulation = true;
+        else unavailablePayment = true;
       } else if (state.kind === "value" && state.perCapita > 0) {
         valores.push(state.perCapita);
+      }
+
+      const isExemptVuln = activeLayer === "bairros" && isZonaEspecial(item as BairroResumo);
+      if (!isExemptVuln && !hasNumericValue(item.indice_vulnerabilidade)) {
+        unavailableVuln = true;
       }
     }
 
     valores.sort((a, b) => a - b);
     if (valores.length === 0) {
-      return { breaksInvestimento: [20, 50, 100, 200], hasUnavailablePayment: unavailable };
+      return {
+        breaksInvestimento: [20, 50, 100, 200],
+        hasUnavailablePayment: unavailablePayment,
+        hasUnavailablePopulation: unavailablePopulation,
+        hasUnavailableVulnerability: unavailableVuln,
+      };
     }
 
     const q = (p: number) => valores[Math.floor((valores.length - 1) * p)];
     return {
       breaksInvestimento: [q(0.2), q(0.4), q(0.6), q(0.8)],
-      hasUnavailablePayment: unavailable,
+      hasUnavailablePayment: unavailablePayment,
+      hasUnavailablePopulation: unavailablePopulation,
+      hasUnavailableVulnerability: unavailableVuln,
     };
   }, [activeLayer, bairros, prefeituras, metricType]);
 
@@ -492,7 +518,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   nome: rawNome,
                   prefeitura_bairro: props.prefeitura_bairro || "",
                   populacao: props.populacao || 0,
-                  indice_vulnerabilidade: props.indice_vulnerabilidade || 0.5,
+                  indice_vulnerabilidade: props.indice_vulnerabilidade,
                   is_zona_especial_nao_residencial: isZonaEspecial,
                   is_centralidade_metropolitana: isCentralidade,
                   valorTotal: props.valorTotal,
@@ -510,7 +536,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   id: props.id || 0,
                   nome: rawNome,
                   populacao_total: props.populacao_total || 0,
-                  indice_vulnerabilidade: props.indice_vulnerabilidade ?? 0.5,
+                  indice_vulnerabilidade: props.indice_vulnerabilidade,
                   valorTotal: props.valorTotal,
                   valorPago: props.valorPago,
                   totalObras: props.totalObras,
@@ -639,7 +665,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           const valorPinText =
             metricType === "executado"
-              ? hasNumericPayment(obra.valorPago)
+              ? hasNumericValue(obra.valorPago)
                 ? `Valor Pago: ${formatCurrency(obra.valorPago)}`
                 : "Valor Pago: Sem registro pago"
               : `Valor Contratual Vigente: ${formatCurrency(obra.valorContratualVigente)}`;
@@ -733,12 +759,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         <div className="absolute top-2.5 left-2.5 right-2.5 z-[400] pointer-events-none flex flex-wrap items-center gap-1.5">
         <div className="pointer-events-auto bg-white/95 backdrop-blur-sm p-1.5 rounded-xl shadow-md border border-slate-200/80 flex flex-wrap items-center gap-1.5 max-w-full">
           {/* Divisão Territorial */}
-          <div className="flex bg-slate-100 p-1 rounded-lg">
+          <div className="flex bg-slate-100 p-1 rounded-lg" role="group" aria-label="Camada territorial do mapa">
             <button
               type="button"
               data-testid="btn-camada-bairros"
+              aria-pressed={activeLayer === "bairros"}
               onClick={() => handleLayerToggle("bairros")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${activeLayer === "bairros"
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${activeLayer === "bairros"
                   ? "bg-white text-slate-900 shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -748,8 +775,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             <button
               type="button"
               data-testid="btn-camada-prefeituras"
+              aria-pressed={activeLayer === "prefeituras"}
               onClick={() => handleLayerToggle("prefeituras")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${activeLayer === "prefeituras"
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${activeLayer === "prefeituras"
                   ? "bg-white text-slate-900 shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -894,7 +922,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               </div>
             </div>
           )}
-          {(activeLayer === "bairros" || (choroplethMetric === "investimentoPorHabitante" && hasUnavailablePayment)) && (
+          {(activeLayer === "bairros" ||
+            (choroplethMetric === "investimentoPorHabitante" &&
+              (hasUnavailablePayment || hasUnavailablePopulation)) ||
+            (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 pt-1 border-t border-slate-100 text-[10px]">
               {activeLayer === "bairros" && (
                 <div className="flex items-center gap-1 text-amber-800">
@@ -906,6 +937,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 <div className="flex items-center gap-1 text-slate-700">
                   <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
                   <span>Sem pagamento</span>
+                </div>
+              )}
+              {((choroplethMetric === "investimentoPorHabitante" && hasUnavailablePopulation) ||
+                (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
+                <div className="flex items-center gap-1 text-slate-700">
+                  <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
+                  <span>Dado indisponível</span>
                 </div>
               )}
             </div>
@@ -978,9 +1016,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   return (
                     <button
                       key={b.id}
+                      type="button"
                       data-testid={testId}
+                      aria-pressed={isSelected}
                       onClick={() => onSelectTerritory(createBairroSelection(b))}
-                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${isSelected
+                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${isSelected
                           ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
                           : isExemptChip
                             ? "bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100"
@@ -1008,9 +1048,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   return (
                     <button
                       key={pb.id}
+                      type="button"
                       data-testid={testId}
+                      aria-pressed={isSelected}
                       onClick={() => onSelectTerritory(createPrefeituraSelection(pb))}
-                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 ${isSelected
+                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${isSelected
                           ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
                           : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                         }`}

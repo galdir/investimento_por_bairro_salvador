@@ -2454,4 +2454,515 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       geoJsonSpy.mockRestore();
     });
   });
-                        });
+
+  describe("Ticket 03: Comparar Bairros Oficiais e interpretar exceções", () => {
+    const mockTicket03Index = {
+      metadata: {
+        generatedAt: "2026-11-16T18:00:00Z",
+        anoReferencia: 2025,
+        mandatosDisponiveis: ["2025-2028", "2021-2024"],
+      },
+      kpis_globais: {
+        totalObras: 6,
+        valorTotal: 25000000.0,
+        totalAtivas: 6,
+        totalEmpenhado: 20000000.0,
+        totalLiquidado: 15000000.0,
+        totalPago: 10000000.0,
+        investimentoPorHabitanteCidade: 50.0,
+        totalNaoLocalizado: 1,
+        valorNaoLocalizado: 3000000.0,
+        valorPagoNaoLocalizado: 1500000.0,
+        percentualNaoLocalizado: 12.0,
+      },
+      prefeituras_bairro: [
+        { id: 1, nome: "Barra/Pituba", populacao_total: 100000 },
+        { id: 2, nome: "Centro/Brotas", populacao_total: 10000 },
+        { id: 3, nome: "Cabula/Tancredo Neves", populacao_total: 50000 },
+        { id: 4, nome: "Liberdade/São Caetano", populacao_total: 40000 },
+        { id: 5, nome: "Subúrbio/Ilhas", populacao_total: 100000 },
+      ],
+      bairros: [
+        {
+          id: 101,
+          nome: "Pituba",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.12,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: false,
+        },
+        {
+          id: 102,
+          nome: "Chame-Chame",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 2000,
+          indice_vulnerabilidade: 0.12,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: true,
+        },
+        {
+          id: 103,
+          nome: "Graça",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 48000,
+          indice_vulnerabilidade: 0.15,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: false,
+        },
+        {
+          id: 104,
+          nome: "Comércio",
+          prefeitura_bairro: "Centro/Brotas",
+          populacao: 971,
+          indice_vulnerabilidade: 0.48,
+          is_zona_especial_nao_residencial: false,
+          is_centralidade_metropolitana: true,
+          pct_esgoto_inadequado: 19.95,
+          pct_agua_inadequada: 2.54,
+          pct_analfabetismo_15mais: 4.27,
+        },
+        {
+          id: 105,
+          nome: "Cabula",
+          prefeitura_bairro: "Cabula/Tancredo Neves",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.55,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 106,
+          nome: "São Caetano",
+          prefeitura_bairro: "Liberdade/São Caetano",
+          populacao: 40000,
+          indice_vulnerabilidade: 0.72,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 107,
+          nome: "Ilha de Maré",
+          prefeitura_bairro: "Subúrbio/Ilhas",
+          populacao: 5000,
+          indice_vulnerabilidade: 0.67,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: true,
+        },
+        {
+          id: 108,
+          nome: "Paripe",
+          prefeitura_bairro: "Subúrbio/Ilhas",
+          populacao: 95000,
+          indice_vulnerabilidade: 0.90,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 109,
+          nome: "Bairro Sem Índice",
+          prefeitura_bairro: "Centro/Brotas",
+          populacao: 9029,
+          indice_vulnerabilidade: null,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 110,
+          nome: "Aeroporto",
+          prefeitura_bairro: "Itapuã/Ipitanga",
+          populacao: 0,
+          indice_vulnerabilidade: 0.0,
+          is_zona_especial_nao_residencial: true,
+        },
+        {
+          id: 111,
+          nome: "Porto Seco Pirajá",
+          prefeitura_bairro: "Pau da Lima",
+          populacao: 48,
+          indice_vulnerabilidade: 0.0,
+          is_zona_especial_nao_residencial: true,
+        },
+      ],
+      obras: [
+        // 1) Cota-Parte Lista Fechada (2025-2028): 1/3 Pituba + 1/3 Graça (ambos Barra/Pituba) + 1/3 São Caetano
+        //    Contratual 6M (2M por bairro; 4M Barra/Pituba com 1 obra deduplicada!)
+        //    Pago 3M (1M por bairro; 2M Barra/Pituba)
+        {
+          id: 3001,
+          unidadeGestora: "SEINFRA",
+          numeroContrato: "301/2025",
+          objeto: "Reforma de 3 CRAS (Pituba, Graça e São Caetano)",
+          valorContratualVigente: 6000000,
+          valorPago: 3000000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "EMP COTA",
+          vocacao: "Vizinhança e Comunidade",
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          cotasListaFechada: [
+            { bairro: "Pituba", prefeituraBairro: "Barra/Pituba", unidades: 1, totalUnidades: 3, peso: 1 / 3, fracao: "1/3" },
+            { bairro: "Graça", prefeituraBairro: "Barra/Pituba", unidades: 1, totalUnidades: 3, peso: 1 / 3, fracao: "1/3" },
+            { bairro: "São Caetano", prefeituraBairro: "Liberdade/São Caetano", unidades: 1, totalUnidades: 3, peso: 1 / 3, fracao: "1/3" },
+          ],
+        },
+        // 2) Comércio (Centralidade Metropolitana, 2025-2028): 5M contratual, 2M pago
+        {
+          id: 3002,
+          unidadeGestora: "SUCOP",
+          numeroContrato: "302/2025",
+          objeto: "Restauro de praça no Comércio",
+          valorContratualVigente: 5000000,
+          valorPago: 2000000,
+          percentualExecutado: 40,
+          situacao: "Em Execução",
+          credor: "EMP COMERCIO",
+          vocacao: "Equipamentos e Marcos da Cidade",
+          mandatos: ["2025-2028"],
+          nivel: "Pontual",
+          bairro: "Comércio",
+          prefeituraBairro: "Centro/Brotas",
+        },
+        // 3) Paripe (Subúrbio/Ilhas, 2025-2028): 4M contratual, pagamento AUSENTE (null)
+        {
+          id: 3003,
+          unidadeGestora: "FME",
+          numeroContrato: "303/2025",
+          objeto: "Creche em Paripe sem pagamento registrado",
+          valorContratualVigente: 4000000,
+          valorPago: null,
+          percentualExecutado: 0,
+          situacao: "Em Execução",
+          credor: "EMP PARIPE",
+          vocacao: "Vizinhança e Comunidade",
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Paripe",
+          prefeituraBairro: "Subúrbio/Ilhas",
+        },
+        // 4) Regional Subúrbio/Ilhas (2025-2028): 6M contratual, 3M pago — NÃO pode ser dividido entre Ilha de Maré e Paripe!
+        {
+          id: 3004,
+          unidadeGestora: "DESAL",
+          numeroContrato: "304/2025",
+          objeto: "Manutenção de drenagem regional Subúrbio/Ilhas",
+          valorContratualVigente: 6000000,
+          valorPago: 3000000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "EMP REGIONAL",
+          vocacao: "Vizinhança e Comunidade",
+          mandatos: ["2025-2028"],
+          nivel: "Regional (Prefeitura-Bairro)",
+          bairro: null,
+          prefeituraBairro: "Subúrbio/Ilhas",
+        },
+        // 5) Porto Seco Pirajá (Zona Especial Não-Residencial, 2025-2028): 1M contratual, 500k pago
+        {
+          id: 3005,
+          unidadeGestora: "SEINFRA",
+          numeroContrato: "305/2025",
+          objeto: "Pavimentação logística no Porto Seco Pirajá",
+          valorContratualVigente: 1000000,
+          valorPago: 500000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "EMP LOGISTICA",
+          vocacao: "Mobilidade Estrutural e Orlas",
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Porto Seco Pirajá",
+          prefeituraBairro: "Pau da Lima",
+        },
+        // 6) Escopo Cidade (2025-2028) com Frente de Medição em Cabula (500k pago)
+        {
+          id: 3006,
+          unidadeGestora: "SUCOP",
+          numeroContrato: "306/2025",
+          objeto: "Lote cidade com frente medida no Cabula",
+          valorContratualVigente: 3000000,
+          valorPago: 1500000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "EMP FRENTE",
+          vocacao: "Vizinhança e Comunidade",
+          mandatos: ["2025-2028"],
+          nivel: "Escopo Cidade (Não-Localizado)",
+          bairro: null,
+          prefeituraBairro: null,
+          frentesMedicao: [
+            {
+              notaLiquidacao: "2025NL099",
+              nivel: "Bairro",
+              bairro: "Cabula",
+              prefeituraBairro: "Cabula/Tancredo Neves",
+              valorLiquidado: 600000,
+              valorPago: 500000,
+            },
+          ],
+        },
+      ],
+    };
+
+    const mockTicket03BairrosGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 101, nome: "Pituba", prefeitura_bairro: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.46, -13.0], [-38.45, -13.0], [-38.45, -12.99], [-38.46, -13.0]]] } },
+        { type: "Feature", properties: { id: 102, nome: "Chame-Chame", prefeitura_bairro: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.52, -13.0], [-38.51, -13.0], [-38.51, -12.99], [-38.52, -13.0]]] } },
+        { type: "Feature", properties: { id: 104, nome: "Comércio", prefeitura_bairro: "Centro/Brotas" }, geometry: { type: "Polygon", coordinates: [[[-38.52, -12.97], [-38.51, -12.97], [-38.51, -12.96], [-38.52, -12.97]]] } },
+        { type: "Feature", properties: { id: 108, nome: "Paripe", prefeitura_bairro: "Subúrbio/Ilhas" }, geometry: { type: "Polygon", coordinates: [[[-38.48, -12.83], [-38.47, -12.83], [-38.47, -12.82], [-38.48, -12.83]]] } },
+        { type: "Feature", properties: { id: 109, nome: "Bairro Sem Índice", prefeitura_bairro: "Centro/Brotas" }, geometry: { type: "Polygon", coordinates: [[[-38.5, -12.97], [-38.49, -12.97], [-38.49, -12.96], [-38.5, -12.97]]] } },
+        { type: "Feature", properties: { id: 110, nome: "Aeroporto", prefeitura_bairro: "Itapuã/Ipitanga", is_zona_especial_nao_residencial: true }, geometry: { type: "Polygon", coordinates: [[[-38.33, -12.91], [-38.32, -12.91], [-38.32, -12.9], [-38.33, -12.91]]] } },
+      ],
+    };
+
+    const mockTicket03PbGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 1, nome: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.52, -13.01], [-38.45, -13.01], [-38.45, -12.98], [-38.52, -13.01]]] } },
+        { type: "Feature", properties: { id: 5, nome: "Subúrbio/Ilhas" }, geometry: { type: "Polygon", coordinates: [[[-38.49, -12.85], [-38.46, -12.85], [-38.46, -12.82], [-38.49, -12.85]]] } },
+      ],
+    };
+
+    beforeEach(() => {
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((url: string) => {
+          if (url.includes("index_")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket03Index) });
+          }
+          if (url.includes("bairros.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket03BairrosGeo) });
+          }
+          if (url.includes("prefeituras_bairro.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket03PbGeo) });
+          }
+          return Promise.reject(new Error("URL desconhecida: " + url));
+        })
+      );
+    });
+
+    it("troca ida/volta entre Prefeituras-Bairro e Bairros Oficiais sem filtro implícito, limpa seleção incompatível, reenquadra Salvador, preserva ordenação/filtros e respeita contratos compartilhados, frentes e valores regionais", async () => {
+      const setViewSpy = vi.spyOn(L.Map.prototype, "setView");
+      const fitBoundsSpy = vi.spyOn(L.Map.prototype, "fitBounds");
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      // Controle de recorte sempre visível nos filtros superiores
+      const btnRecortePref = screen.getByTestId("btn-recorte-prefeituras");
+      const btnRecorteBairros = screen.getByTestId("btn-recorte-bairros");
+      expect(btnRecortePref).toBeVisible();
+      expect(btnRecorteBairros).toBeVisible();
+      expect(btnRecortePref).toHaveAttribute("aria-pressed", "true");
+      expect(btnRecorteBairros).toHaveAttribute("aria-pressed", "false");
+
+      // Em Prefeituras-Bairro: Cota-Parte 2/3 em Barra/Pituba com 1 obra deduplicada (não 2!), Frente 500k em Cabula, Regional 3M em Subúrbio/Ilhas
+      expect(screen.getByTestId("comparison-row-barra-pituba")).toHaveTextContent("1 obra");
+      expect(screen.getByTestId("comparison-valor-barra-pituba")).toHaveTextContent("R$ 20 / hab"); // 2M / 100k
+      expect(screen.getByTestId("comparison-valor-cabula-tancredo-neves")).toHaveTextContent("R$ 10 / hab"); // 500k / 50k
+      expect(screen.getByTestId("comparison-valor-suburbio-ilhas")).toHaveTextContent("R$ 30 / hab"); // Regional 3M / 100k
+
+      // Aplica filtro de Mandato + métrica Contratual Vigente + inverte ordenação (desc) + seleciona Barra/Pituba
+      fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2025-2028" } });
+      fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+      fireEvent.click(screen.getByTestId("btn-inverter-ordenacao"));
+      fireEvent.click(screen.getByTestId("comparison-select-barra-pituba"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      });
+      expect(fitBoundsSpy).toHaveBeenCalled();
+
+      // Troca para Bairros Oficiais via controle de recorte
+      setViewSpy.mockClear();
+      fireEvent.click(btnRecorteBairros);
+
+      await waitFor(() => {
+        expect(btnRecorteBairros).toHaveAttribute("aria-pressed", "true");
+      });
+
+      // Seleção incompatível (Barra/Pituba) foi limpa
+      expect(screen.queryByTestId("raio-x-container")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("banner-territorio-filtrado")).not.toBeInTheDocument();
+
+      // Direção da ordenação (desc) e filtros (2025-2028 + Valor Contratual Vigente) foram preservados
+      expect(screen.getByTestId("btn-inverter-ordenacao")).toHaveAttribute("aria-pressed", "true");
+      expect((screen.getByTestId("filtro-mandato") as HTMLSelectElement).value).toBe("2025-2028");
+      expect(screen.getByTestId("btn-metrica-vigente")).toHaveAttribute("aria-pressed", "true");
+
+      // Reenquadrou Salvador no mapa
+      expect(setViewSpy).toHaveBeenCalledWith(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
+
+      // Quantidade dinâmica (11 Bairros Oficiais neste cenário, sem assumir 170) e SEM restrição implícita a Barra/Pituba
+      expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("11 Bairros Oficiais");
+      expect(screen.getByTestId("comparison-row-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-sao-caetano")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-paripe")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-cabula")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-comercio")).toBeInTheDocument();
+
+      // Cota-Parte em Bairros Oficiais: 1/3 de 6M = 2M em Pituba (R$ 40/hab), Graça (R$ 41,67/hab) e São Caetano (R$ 50/hab)
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent("R$ 40 / hab");
+      expect(screen.getByTestId("comparison-valor-sao-caetano")).toHaveTextContent("R$ 50 / hab");
+
+      // Contrato regional (6M em Subúrbio/Ilhas) NÃO foi rateado entre Ilha de Maré e Paripe:
+      // Ilha de Maré permanece com zero observado; Paripe fica apenas com sua obra direta de 4M (R$ 42,11/hab)
+      expect(screen.getByTestId("comparison-valor-ilha-de-mare")).toHaveTextContent(/R\$\s*0/);
+      expect(screen.getByTestId("comparison-row-ilha-de-mare")).toHaveTextContent("0 obras");
+      expect(screen.getByTestId("comparison-valor-paripe")).toHaveTextContent("R$ 42,11 / hab");
+
+      // Seleciona um bairro (Pituba) e volta para Prefeituras-Bairro -> limpa seleção de bairro e restaura todas as PBs
+      fireEvent.click(screen.getByTestId("comparison-select-pituba"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+      });
+
+      setViewSpy.mockClear();
+      fireEvent.click(btnRecortePref);
+
+      await waitFor(() => {
+        expect(btnRecortePref).toHaveAttribute("aria-pressed", "true");
+      });
+      expect(screen.queryByTestId("raio-x-container")).not.toBeInTheDocument();
+      expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("5 Prefeituras-Bairro");
+      expect(screen.getByTestId("btn-inverter-ordenacao")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("btn-metrica-vigente")).toHaveAttribute("aria-pressed", "true");
+      expect(setViewSpy).toHaveBeenCalledWith(SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM);
+
+      setViewSpy.mockRestore();
+      fitBoundsSpy.mockRestore();
+    });
+
+    it("distingue zero observado, pagamento ausente, vulnerabilidade indisponível, Comércio, Zonas Especiais, desempate alfabético e estimativas por contiguidade em Bairros Oficiais e Prefeituras-Bairro", async () => {
+      const geoJsonSpy = vi.spyOn(L, "geoJSON");
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      // 1. Em Prefeituras-Bairro, estimativas por contiguidade na composição regional ficam acessíveis
+      expect(screen.getByTestId("comparison-estimativa-barra-pituba")).toHaveTextContent("Chame-Chame");
+      expect(screen.getByTestId("comparison-estimativa-suburbio-ilhas")).toHaveTextContent("Ilha de Maré");
+
+      // 2. Troca para Bairros Oficiais
+      fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("11 Bairros Oficiais");
+      });
+
+      // Contagem dinâmica na lista reflete total de bairros sem hardcode
+      expect(screen.getByTestId("comparison-list-count")).toHaveTextContent("11 Bairros Oficiais");
+
+      // Ordenação crescente por vulnerabilidade com desempate alfabético (Chame-Chame 0,12 antes de Pituba 0,12)
+      // e Comércio (0,48) incluído na lista por vulnerabilidade; Bairro Sem Índice e Zonas Especiais ficam fora do ranking numérico!
+      const rankedIds = Array.from(
+        screen.getByTestId("comparison-list-items").querySelectorAll("li")
+      ).map((li) => li.getAttribute("data-testid"));
+      expect(rankedIds).toEqual([
+        "comparison-row-chame-chame",
+        "comparison-row-pituba",
+        "comparison-row-graca",
+        "comparison-row-comercio",
+        "comparison-row-cabula",
+        "comparison-row-ilha-de-mare",
+        "comparison-row-sao-caetano",
+        "comparison-row-paripe",
+      ]);
+
+      // Zero observado (Chame-Chame): visível, R$ 0 / hab e barra em 0%, além de sinalizar estimativa por contiguidade
+      expect(screen.getByTestId("comparison-valor-chame-chame")).toHaveTextContent(/R\$\s*0\s*\/\s*hab/);
+      expect(screen.getByTestId("comparison-bar-chame-chame")).toHaveStyle({ width: "0%" });
+      expect(screen.getByTestId("comparison-estimativa-chame-chame")).toHaveTextContent(/Estimativa por contiguidade/i);
+      expect(screen.getByTestId("comparison-estimativa-ilha-de-mare")).toHaveTextContent(/Estimativa por contiguidade/i);
+
+      // Pagamento ausente (Paripe em Valor Pago): estado distinto de zero, sem barra, sem substituir por contratado
+      expect(screen.getByTestId("comparison-valor-paripe")).toHaveTextContent("Pagamento indisponível");
+      expect(screen.queryByTestId("comparison-bar-paripe")).not.toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-paripe")).toHaveTextContent("Sem registro pago");
+      expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Sem pagamento");
+
+      // Vulnerabilidade indisponível (Bairro Sem Índice): fora do ranking numérico, sem receber 0,00 nem Isento
+      const missingSection = screen.getByTestId("comparison-missing-vuln-section");
+      expect(missingSection).toContainElement(screen.getByTestId("comparison-row-bairro-sem-indice"));
+      expect(screen.getByTestId("comparison-vuln-bairro-sem-indice")).toHaveTextContent(/Indisponível/i);
+      expect(screen.getByTestId("comparison-vuln-bairro-sem-indice")).not.toHaveTextContent("0,00");
+      expect(screen.getByTestId("comparison-row-bairro-sem-indice")).not.toHaveTextContent("#");
+
+      // Comércio (Centralidade Metropolitana): mantém vulnerabilidade 0,48, isento per capita (sem barra) e valor pago absoluto (R$ 2 mi)
+      expect(screen.getByTestId("comparison-row-comercio")).toHaveTextContent("Centralidade Metropolitana");
+      expect(screen.getByTestId("comparison-vuln-comercio")).toHaveTextContent("0,48");
+      expect(screen.getByTestId("comparison-valor-comercio")).toHaveTextContent("Isento per capita");
+      expect(screen.queryByTestId("comparison-bar-comercio")).not.toBeInTheDocument();
+      expect(screen.getByTestId("comparison-total-comercio")).toHaveAttribute("aria-label", expect.stringContaining("2.000.000"));
+
+      // Zonas Especiais Não-Residenciais (Aeroporto, Porto Seco Pirajá): seção própria, Isento para vulnerabilidade e per capita, valor absoluto preservado
+      const exemptSection = screen.getByTestId("comparison-exempt-section");
+      expect(exemptSection).toContainElement(screen.getByTestId("comparison-row-aeroporto"));
+      expect(exemptSection).toContainElement(screen.getByTestId("comparison-row-porto-seco-piraja"));
+      expect(screen.getByTestId("comparison-vuln-aeroporto")).toHaveTextContent("Vulnerabilidade: Isento");
+      expect(screen.getByTestId("comparison-valor-aeroporto")).toHaveTextContent("Isento per capita");
+      expect(screen.getByTestId("comparison-row-porto-seco-piraja")).toHaveTextContent("1 obra");
+      expect(screen.getByTestId("comparison-total-porto-seco-piraja")).toHaveAttribute(
+        "aria-label",
+        expect.stringContaining("500.000")
+      );
+
+      // 3. Mapa em R$/Habitante vs Vulnerabilidade Social: cores, chips e legenda para Isento vs Dado indisponível
+      const getStyleFill = (bairroNome: string) => {
+        const lastCall = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1];
+        const styleFn = (lastCall[1] as L.GeoJSONOptions).style as (feature: any) => L.PathOptions;
+        const feat = mockTicket03BairrosGeo.features.find((f) => f.properties.nome === bairroNome);
+        return styleFn(feat).fillColor;
+      };
+
+      expect(getStyleFill("Chame-Chame")).toBe("#f1f5f9"); // zero observado
+      expect(getStyleFill("Paripe")).toBe("#e2e8f0"); // pagamento ausente
+      expect(getStyleFill("Comércio")).toBe("#fef3c7"); // isento per capita
+      expect(getStyleFill("Aeroporto")).toBe("#fef3c7"); // isento zona especial
+
+      // Alterna coroplético para Vulnerabilidade Social
+      fireEvent.click(screen.getByTestId("btn-camada-vulnerabilidade"));
+      await waitFor(() => {
+        expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent(/Índice de Vulnerabilidade/i);
+      });
+      expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Isento");
+      expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Dado indisponível");
+      expect(screen.getByTestId("territory-selector-bairro-sem-indice")).toHaveTextContent("Vuln: Indisponível");
+      expect(screen.getByTestId("territory-selector-comercio")).toHaveTextContent("Vuln: 0,48");
+      expect(getStyleFill("Bairro Sem Índice")).toBe("#e2e8f0");
+      expect(getStyleFill("Comércio")).not.toBe("#fef3c7");
+      expect(getStyleFill("Aeroporto")).toBe("#fef3c7");
+
+      // 4. Resumo selecionado (Raio-X) para Comércio, Zona Especial e Bairro Sem Índice
+      fireEvent.click(screen.getByTestId("comparison-select-comercio"));
+      expect(screen.getByTestId("badge-centralidade-metropolitana")).toBeInTheDocument();
+      expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Isento");
+      expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("0,48");
+
+      fireEvent.click(screen.getByTestId("comparison-select-porto-seco-piraja"));
+      expect(screen.getByTestId("badge-zona-especial")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-selected-badge-porto-seco-piraja")).toHaveTextContent("Selecionado");
+      expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Isento");
+      expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("Isento");
+
+      fireEvent.click(screen.getByTestId("comparison-select-bairro-sem-indice"));
+      expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("Indisponível");
+
+      // 5. Trocar para Valor Contratual Vigente revela o valor contratado de Paripe (R$ 42,11/hab) sem afetar isenções ou índice ausente
+      fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-valor-paripe")).toHaveTextContent("R$ 42,11 / hab");
+      });
+      expect(screen.getByTestId("comparison-bar-paripe")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-valor-comercio")).toHaveTextContent("Isento per capita");
+
+      geoJsonSpy.mockRestore();
+    });
+  });
+});

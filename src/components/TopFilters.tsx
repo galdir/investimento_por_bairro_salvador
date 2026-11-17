@@ -27,6 +27,64 @@ const VOCACOES_CONFIG: Array<{
     },
   ];
 
+interface SegmentedToggleOption<T extends string> {
+  value: T;
+  label: string;
+  testId: string;
+}
+
+interface SegmentedToggleProps<T extends string> {
+  label: string;
+  groupTestId: string;
+  groupAriaLabel: string;
+  value: T;
+  options: readonly SegmentedToggleOption<T>[];
+  activeClass: string;
+  onChange: (value: T) => void;
+}
+
+function SegmentedToggle<T extends string>({
+  label,
+  groupTestId,
+  groupAriaLabel,
+  value,
+  options,
+  activeClass,
+  onChange,
+}: SegmentedToggleProps<T>) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:inline">
+        {label}:
+      </span>
+      <div
+        data-testid={groupTestId}
+        role="group"
+        aria-label={groupAriaLabel}
+        className="inline-flex rounded-lg p-0.5 bg-slate-100 border border-slate-200"
+      >
+        {options.map((option) => {
+          const isActive = value === option.value;
+          return (
+            <button
+              key={option.value}
+              type="button"
+              data-testid={option.testId}
+              aria-pressed={isActive}
+              onClick={() => onChange(option.value)}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
+                isActive ? activeClass : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              {option.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 interface TopFiltersProps {
   /**
    * Estado atual dos filtros aplicados.
@@ -60,6 +118,14 @@ interface TopFiltersProps {
    * Quantidade total de obras registradas na base.
    */
   totalObrasGeral: number;
+  /**
+   * Recorte territorial ativo ("prefeituras" ou "bairros").
+   */
+  activeLayer?: "bairros" | "prefeituras";
+  /**
+   * Callback para alternar o recorte territorial entre Prefeituras-Bairro e Bairros Oficiais.
+   */
+  onToggleLayer?: (layer: "bairros" | "prefeituras") => void;
 }
 
 /**
@@ -84,6 +150,8 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
   availableTemas,
   totalObrasFiltradas,
   totalObrasGeral,
+  activeLayer,
+  onToggleLayer,
 }) => {
   const mandatosList =
     availableMandatos && availableMandatos.length > 0
@@ -163,42 +231,35 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
               )}
             </div>
 
-            {/* Toggle de Métrica Financeira (Valor Pago vs Valor Contratual Vigente) */}
-            <div className="flex items-center gap-2 self-start md:self-auto">
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:inline">
-                Métrica Financeira:
-              </span>
-              <div
-                data-testid="toggle-metrica-financeira"
-                role="group"
-                aria-label="Métrica financeira"
-                className="inline-flex rounded-lg p-0.5 bg-slate-100 border border-slate-200"
-              >
-                {(
-                  [
-                    { value: "executado", label: "Valor Pago", testId: "btn-metrica-executado" },
-                    { value: "vigente", label: "Valor Contratual Vigente", testId: "btn-metrica-vigente" },
-                  ] as const
-                ).map((option) => {
-                  const isActive = filters.metricType === option.value;
-                  return (
-                    <button
-                      key={option.value}
-                      type="button"
-                      data-testid={option.testId}
-                      aria-pressed={isActive}
-                      onClick={() => onFilterChange({ metricType: option.value })}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
-                        isActive
-                          ? "bg-emerald-600 text-white shadow-sm"
-                          : "text-slate-600 hover:text-slate-900"
-                      }`}
-                    >
-                      {option.label}
-                    </button>
-                  );
-                })}
-              </div>
+            {/* Toggle de Recorte Territorial + Métrica Financeira */}
+            <div className="flex flex-wrap items-center gap-3 self-start md:self-auto">
+              {activeLayer && onToggleLayer && (
+                <SegmentedToggle
+                  label="Recorte"
+                  groupTestId="controle-recorte-territorial"
+                  groupAriaLabel="Recorte territorial"
+                  value={activeLayer}
+                  options={[
+                    { value: "prefeituras", label: "Prefeituras-Bairro", testId: "btn-recorte-prefeituras" },
+                    { value: "bairros", label: "Bairros Oficiais", testId: "btn-recorte-bairros" },
+                  ]}
+                  activeClass="bg-slate-900 text-white shadow-sm"
+                  onChange={onToggleLayer}
+                />
+              )}
+
+              <SegmentedToggle
+                label="Métrica Financeira"
+                groupTestId="toggle-metrica-financeira"
+                groupAriaLabel="Métrica financeira"
+                value={filters.metricType}
+                options={[
+                  { value: "executado", label: "Valor Pago", testId: "btn-metrica-executado" },
+                  { value: "vigente", label: "Valor Contratual Vigente", testId: "btn-metrica-vigente" },
+                ]}
+                activeClass="bg-emerald-600 text-white shadow-sm"
+                onChange={(metricType) => onFilterChange({ metricType })}
+              />
             </div>
           </div>
 

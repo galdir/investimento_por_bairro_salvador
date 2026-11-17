@@ -198,9 +198,11 @@ interface ObrasAggregatedMetrics {
   obrasSemValorPago: number;
 }
 
-export function hasNumericPayment(val: number | null | undefined): val is number {
+export function hasNumericValue(val: number | null | undefined): val is number {
   return typeof val === "number" && !Number.isNaN(val);
 }
+
+export const hasNumericPayment = hasNumericValue;
 
 /**
  * Verifica se a vigência de uma obra pública se sobrepõe ao Mandato Municipal selecionado.
@@ -474,6 +476,34 @@ export function isTerritoryCompatibleWithLayer(
   return false;
 }
 
+function computeWeightedOrMeanMetric(
+  items: BairroResumo[],
+  getter: (b: BairroResumo) => number | null | undefined,
+  fallback?: number | null
+): number | undefined {
+  const validItems = items.filter((b) => hasNumericValue(getter(b)));
+  if (validItems.length === 0) {
+    return hasNumericValue(fallback) ? fallback : undefined;
+  }
+
+  let popSum = 0;
+  let weightedSum = 0;
+  for (const b of validItems) {
+    const pop = b.populacao || 0;
+    const val = getter(b)!;
+    if (pop > 0) {
+      popSum += pop;
+      weightedSum += pop * val;
+    }
+  }
+
+  if (popSum > 0) {
+    return Math.round(((weightedSum / popSum) + Number.EPSILON) * 100) / 100;
+  }
+  const simpleSum = validItems.reduce((acc, b) => acc + getter(b)!, 0);
+  return Math.round(((simpleSum / validItems.length) + Number.EPSILON) * 100) / 100;
+}
+
 /**
  * Recalcula o rollup financeiro, quantitativo e de semáforo dos Bairros Oficiais e Prefeituras-Bairro
  * a partir de um conjunto filtrado de Obras Públicas.
@@ -561,8 +591,10 @@ export function calculateTerritorialRollup(
     const ehCentralidade = !ehZonaEsp && isCentralidadeMetropolitana(bairro);
     const populacao = bairro.populacao || 0;
 
-    let investimentoPorHabitante = 0.0;
-    let investimentoPorHabitantePago: number | undefined = valorPagoDisponivel ? 0.0 : undefined;
+    let investimentoPorHabitante: number | undefined =
+      ehZonaEsp || ehCentralidade ? 0.0 : undefined;
+    let investimentoPorHabitantePago: number | undefined =
+      ehZonaEsp || ehCentralidade ? (valorPagoDisponivel ? 0.0 : undefined) : undefined;
     if (!ehZonaEsp && !ehCentralidade && populacao > 0) {
       investimentoPorHabitante = Math.round(((metrics.valorTotal / populacao) + Number.EPSILON) * 100) / 100;
       if (valorPagoDisponivel) {
@@ -663,14 +695,13 @@ export function calculateTerritorialRollup(
       totalFrentesPagas > 0;
 
     const investimentoPorHabitante =
-      populacaoTotal > 0 ? Math.round(((valorTotal / populacaoTotal) + Number.EPSILON) * 100) / 100 : 0.0;
-    const investimentoPorHabitantePago = valorPagoDisponivel
-      ? populacaoTotal > 0
+      populacaoTotal > 0 ? Math.round(((valorTotal / populacaoTotal) + Number.EPSILON) * 100) / 100 : undefined;
+    const investimentoPorHabitantePago =
+      valorPagoDisponivel && populacaoTotal > 0
         ? Math.round(((valorPago / populacaoTotal) + Number.EPSILON) * 100) / 100
-        : 0.0
-      : undefined;
+        : undefined;
 
-    // Índice de vulnerabilidade e subindicadores da Prefeitura-Bairro: média ponderada pela população dos bairros residenciais
+    // Índice de vulnerabilidade e subindicadores da Prefeitura-Bairro: média ponderada pela população dos bairros residenciais com índice disponível
     const bairrosResidenciais = bairrosFilhos.filter(
       (b) => !(b.is_zona_especial_nao_residencial || b.isZonaEspecialNaoResidencial)
     );
@@ -680,40 +711,27 @@ export function calculateTerritorialRollup(
       .sort((a, b) => a.localeCompare(b, "pt-BR"));
     const temEstimativaContiguidade =
       bairrosEstimados.length > 0 || Boolean(prefeitura.vulnerabilidade_estimada_contiguidade);
-    let popResidencial = 0;
-    let somaVulnPonderada = 0;
-    let somaEsgotoPonderada = 0;
-    let somaAguaPonderada = 0;
-    let somaAnalfPonderada = 0;
 
-    for (const b of bairrosResidenciais) {
-      const pop = b.populacao || 0;
-      if (pop > 0) {
-        popResidencial += pop;
-        somaVulnPonderada += pop * (b.indice_vulnerabilidade ?? 0.0);
-        somaEsgotoPonderada += pop * (b.pct_esgoto_inadequado ?? 0);
-        somaAguaPonderada += pop * (b.pct_agua_inadequada ?? 0);
-        somaAnalfPonderada += pop * (b.pct_analfabetismo_15mais ?? 0);
-      }
-    }
-
-    let indiceVulnerabilidade = prefeitura.indice_vulnerabilidade ?? 0.0;
-    let pctEsgoto = prefeitura.pct_esgoto_inadequado ?? 0.0;
-    let pctAgua = prefeitura.pct_agua_inadequada ?? 0.0;
-    let pctAnalf = prefeitura.pct_analfabetismo_15mais ?? 0.0;
-
-    if (popResidencial > 0) {
-      indiceVulnerabilidade = Math.round(((somaVulnPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
-      pctEsgoto = Math.round(((somaEsgotoPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
-      pctAgua = Math.round(((somaAguaPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
-      pctAnalf = Math.round(((somaAnalfPonderada / popResidencial) + Number.EPSILON) * 100) / 100;
-    } else if (bairrosResidenciais.length > 0) {
-      const somaSimples = bairrosResidenciais.reduce((acc, b) => acc + (b.indice_vulnerabilidade ?? 0.0), 0);
-      indiceVulnerabilidade = Math.round(((somaSimples / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
-      pctEsgoto = Math.round(((bairrosResidenciais.reduce((acc, b) => acc + (b.pct_esgoto_inadequado ?? 0), 0) / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
-      pctAgua = Math.round(((bairrosResidenciais.reduce((acc, b) => acc + (b.pct_agua_inadequada ?? 0), 0) / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
-      pctAnalf = Math.round(((bairrosResidenciais.reduce((acc, b) => acc + (b.pct_analfabetismo_15mais ?? 0), 0) / bairrosResidenciais.length) + Number.EPSILON) * 100) / 100;
-    }
+    const indiceVulnerabilidade = computeWeightedOrMeanMetric(
+      bairrosResidenciais,
+      (b) => b.indice_vulnerabilidade,
+      prefeitura.indice_vulnerabilidade
+    );
+    const pctEsgoto = computeWeightedOrMeanMetric(
+      bairrosResidenciais,
+      (b) => b.pct_esgoto_inadequado,
+      prefeitura.pct_esgoto_inadequado
+    );
+    const pctAgua = computeWeightedOrMeanMetric(
+      bairrosResidenciais,
+      (b) => b.pct_agua_inadequada,
+      prefeitura.pct_agua_inadequada
+    );
+    const pctAnalf = computeWeightedOrMeanMetric(
+      bairrosResidenciais,
+      (b) => b.pct_analfabetismo_15mais,
+      prefeitura.pct_analfabetismo_15mais
+    );
 
     return {
       ...prefeitura,
@@ -752,7 +770,7 @@ export function calculateTerritorialRollup(
 
 export type TerritoryInvestmentState =
   | { kind: "exempt"; reason: "zona_especial" | "centralidade" }
-  | { kind: "unavailable" }
+  | { kind: "unavailable"; reason?: "payment" | "population" }
   | { kind: "value"; perCapita: number; total: number; obrasSemValorPago: number };
 
 /**
@@ -778,6 +796,14 @@ export function getTerritoryInvestmentState(
     }
   }
 
+  const populacao =
+    "populacao_total" in item
+      ? (item as PrefeituraBairroResumo).populacao_total
+      : (item as BairroResumo | TerritorySelection).populacao;
+  if ((populacao ?? 0) <= 0) {
+    return { kind: "unavailable", reason: "population" };
+  }
+
   if (metricType === "executado") {
     const pagoDisponivel = item.valorPagoDisponivel;
     const perCapitaPago = item.investimentoPorHabitantePago;
@@ -786,7 +812,7 @@ export function getTerritoryInvestmentState(
       if ((item.totalObras ?? 0) === 0 && (item.totalFrentesMedicao ?? 0) === 0) {
         return { kind: "value", perCapita: 0, total: 0, obrasSemValorPago: 0 };
       }
-      return { kind: "unavailable" };
+      return { kind: "unavailable", reason: "payment" };
     }
     return {
       kind: "value",
@@ -802,4 +828,20 @@ export function getTerritoryInvestmentState(
     total: item.valorTotal ?? 0,
     obrasSemValorPago: 0,
   };
+}
+
+/**
+ * Retorna o montante absoluto (total pago ou contratual vigente) disponível para um território,
+ * retornando `undefined` quando o pagamento é ausente sem substituir por contratado ou zero fictício.
+ */
+export function getTerritoryAbsoluteTotal(
+  item: Pick<BairroResumo | PrefeituraBairroResumo | TerritorySelection, "valorTotal" | "valorPago" | "valorPagoDisponivel" | "totalObras" | "totalFrentesMedicao">,
+  metricType: "vigente" | "executado"
+): number | undefined {
+  if (metricType === "executado") {
+    if (item.valorPagoDisponivel === false) return undefined;
+    if (hasNumericValue(item.valorPago)) return item.valorPago;
+    return (item.totalObras ?? 0) === 0 && (item.totalFrentesMedicao ?? 0) === 0 ? 0 : undefined;
+  }
+  return item.valorTotal ?? 0;
 }

@@ -71,7 +71,7 @@ export interface BairroResumo {
   nome: string;
   prefeitura_bairro: string;
   populacao: number;
-  indice_vulnerabilidade: number;
+  indice_vulnerabilidade?: number | null;
   is_zona_especial_nao_residencial: boolean;
   isZonaEspecialNaoResidencial?: boolean;
   is_centralidade_metropolitana?: boolean;
@@ -92,7 +92,7 @@ export interface BairroResumo {
   obrasVerde?: number;
   obrasAmarelo?: number;
   obrasVermelho?: number;
-  investimentoPorHabitante?: number;
+  investimentoPorHabitante?: number | null;
   investimentoPorHabitantePago?: number | null;
   valorPagoDisponivel?: boolean;
   obrasSemValorPago?: number;
@@ -102,7 +102,7 @@ export interface PrefeituraBairroResumo {
   id: number | string;
   nome: string;
   populacao_total: number;
-  indice_vulnerabilidade?: number;
+  indice_vulnerabilidade?: number | null;
   pct_esgoto_inadequado?: number;
   pct_agua_inadequada?: number;
   pct_analfabetismo_15mais?: number;
@@ -120,7 +120,7 @@ export interface PrefeituraBairroResumo {
   obrasVerde?: number;
   obrasAmarelo?: number;
   obrasVermelho?: number;
-  investimentoPorHabitante?: number;
+  investimentoPorHabitante?: number | null;
   investimentoPorHabitantePago?: number | null;
   valorPagoDisponivel?: boolean;
   obrasSemValorPago?: number;
@@ -329,7 +329,7 @@ export interface TerritorySelection {
   nome: string;
   prefeitura_bairro?: string;
   populacao: number;
-  indice_vulnerabilidade?: number;
+  indice_vulnerabilidade?: number | null;
   is_zona_especial_nao_residencial?: boolean;
   isZonaEspecialNaoResidencial?: boolean;
   is_centralidade_metropolitana?: boolean;
@@ -351,7 +351,7 @@ export interface TerritorySelection {
   obrasVerde?: number;
   obrasAmarelo?: number;
   obrasVermelho?: number;
-  investimentoPorHabitante?: number;
+  investimentoPorHabitante?: number | null;
   investimentoPorHabitantePago?: number | null;
   valorPagoDisponivel?: boolean;
   obrasSemValorPago?: number;

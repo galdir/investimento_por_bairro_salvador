@@ -3,6 +3,7 @@ import {
   calculateTerritorialRollup,
   createBairroSelection,
   createPrefeituraSelection,
+  getTerritoryInvestmentState,
   isCentralidadeMetropolitana,
 } from "../../src/utils/territory";
 import { BairroResumo, ObraCompacta, PrefeituraBairroResumo } from "../../src/types";
@@ -640,6 +641,61 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
     const paripe = bairros.find((b) => b.nome === "Paripe")!;
     expect(paripe.valorPagoDisponivel).toBe(false);
     expect(paripe.valorPago).toBeUndefined();
+  });
+
+  it("preserva índice de vulnerabilidade ausente sem inventar 0,00 nem poluir média ponderada da Prefeitura-Bairro, e sinaliza população indisponível fora de isenções", () => {
+    const bairrosAusentes: BairroResumo[] = [
+      {
+        id: 501,
+        nome: "Bairro Sem Índice",
+        prefeitura_bairro: "Centro/Brotas",
+        populacao: 20000,
+        indice_vulnerabilidade: null,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 502,
+        nome: "Brotas",
+        prefeitura_bairro: "Centro/Brotas",
+        populacao: 20000,
+        indice_vulnerabilidade: 0.4,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 503,
+        nome: "Bairro Sem População Censitária",
+        prefeitura_bairro: "Subúrbio/Ilhas",
+        populacao: 0,
+        indice_vulnerabilidade: undefined,
+        is_zona_especial_nao_residencial: false,
+      },
+    ];
+
+    const pbsAusentes: PrefeituraBairroResumo[] = [
+      { id: 1, nome: "Centro/Brotas", populacao_total: 40000 },
+      { id: 2, nome: "Subúrbio/Ilhas", populacao_total: 0 },
+    ];
+
+    const { bairros, prefeituras } = calculateTerritorialRollup(bairrosAusentes, pbsAusentes, []);
+
+    const semIndice = bairros.find((b) => b.nome === "Bairro Sem Índice")!;
+    expect(semIndice.indice_vulnerabilidade).toBeNull();
+
+    // Média ponderada de Centro/Brotas deve considerar apenas Brotas (0,40), sem tratar null como 0,00 (que daria 0,20)
+    const centroBrotas = prefeituras.find((p) => p.nome === "Centro/Brotas")!;
+    expect(centroBrotas.indice_vulnerabilidade).toBe(0.4);
+
+    // Subúrbio/Ilhas sem nenhum bairro com índice permanece undefined (sem índice 0,00 artificial)
+    const suburbio = prefeituras.find((p) => p.nome === "Subúrbio/Ilhas")!;
+    expect(suburbio.indice_vulnerabilidade).toBeUndefined();
+
+    // Território não-isento com população <= 0 tem estado per capita indisponível (não zero fictício)
+    const semPopulacao = bairros.find((b) => b.nome === "Bairro Sem População Censitária")!;
+    expect(semPopulacao.investimentoPorHabitante).toBeUndefined();
+    expect(getTerritoryInvestmentState(semPopulacao, "vigente", "bairro")).toEqual({
+      kind: "unavailable",
+      reason: "population",
+    });
   });
 });
 

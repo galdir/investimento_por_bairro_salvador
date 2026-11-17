@@ -9,26 +9,15 @@ import { formatDecimal, formatNumber } from "../utils/formatters";
 import {
   createBairroSelection,
   createPrefeituraSelection,
+  getTerritoryAbsoluteTotal,
   getTerritoryInvestmentState,
-  hasNumericPayment,
+  hasNumericValue,
   isCentralidadeMetropolitana,
   isZonaEspecial,
   normalizeName,
 } from "../utils/territory";
 import { normalizeTestId } from "./InteractiveMap";
 import { MonetaryValue } from "./MonetaryValue";
-
-function getDisplayedTerritoryTotal(
-  item: BairroResumo | PrefeituraBairroResumo,
-  metricType: MetricType
-): number | undefined {
-  if (metricType === "executado") {
-    if (item.valorPagoDisponivel === false) return undefined;
-    if (hasNumericPayment(item.valorPago)) return item.valorPago;
-    return (item.totalObras ?? 0) === 0 && (item.totalFrentesMedicao ?? 0) === 0 ? 0 : undefined;
-  }
-  return item.valorTotal ?? 0;
-}
 
 function renderTotalSummary(
   totalTerritorial: number | undefined,
@@ -76,15 +65,17 @@ interface TerritoryComparisonListProps {
   onOpenNotaMetodologica?: () => void;
 }
 
-function sortByVulnerabilityAndName<T extends { nome: string; indice_vulnerabilidade?: number }>(
+function sortByVulnerabilityAndName<
+  T extends { nome: string; indice_vulnerabilidade?: number | null }
+>(
   items: T[],
   direction: VulnerabilitySortDirection
 ): T[] {
   return [...items].sort((a, b) => {
     const vulnA = a.indice_vulnerabilidade;
     const vulnB = b.indice_vulnerabilidade;
-    const hasA = typeof vulnA === "number" && !Number.isNaN(vulnA);
-    const hasB = typeof vulnB === "number" && !Number.isNaN(vulnB);
+    const hasA = hasNumericValue(vulnA);
+    const hasB = hasNumericValue(vulnB);
 
     if (hasA && hasB && vulnA !== vulnB) {
       return direction === "asc" ? vulnA - vulnB : vulnB - vulnA;
@@ -95,6 +86,192 @@ function sortByVulnerabilityAndName<T extends { nome: string; indice_vulnerabili
     return a.nome.localeCompare(b.nome, "pt-BR");
   });
 }
+
+interface ComparisonTerritoryRowProps {
+  item: BairroResumo | PrefeituraBairroResumo;
+  isPrefeitura: boolean;
+  rankNumber?: number;
+  metricType: MetricType;
+  maxPerCapita: number;
+  selectedTerritory: TerritorySelection | null;
+  onSelectTerritory: (territorio: TerritorySelection) => void;
+  rowRef?: (el: HTMLLIElement | null) => void;
+}
+
+const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
+  item,
+  isPrefeitura,
+  rankNumber,
+  metricType,
+  maxPerCapita,
+  selectedTerritory,
+  onSelectTerritory,
+  rowRef,
+}) => {
+  const tipo = isPrefeitura ? "prefeitura_bairro" : "bairro";
+  const normKey = normalizeName(item.nome);
+  const isSelected =
+    selectedTerritory !== null &&
+    selectedTerritory.tipo === tipo &&
+    normalizeName(selectedTerritory.nome) === normKey;
+
+  const testSlug = normalizeTestId(item.nome);
+  const invState = getTerritoryInvestmentState(item, metricType, tipo);
+  const vuln = item.indice_vulnerabilidade;
+  const hasVuln = hasNumericValue(vuln);
+  const isContiguidade = Boolean(item.vulnerabilidade_estimada_contiguidade);
+  const bairrosEstimados = isPrefeitura
+    ? (item as PrefeituraBairroResumo).bairros_vulnerabilidade_estimada || []
+    : [];
+  const isCentralidade = !isPrefeitura && isCentralidadeMetropolitana(item as BairroResumo);
+
+  const barWidthPct =
+    invState.kind === "value" && invState.perCapita > 0
+      ? Math.max(2, Math.min(100, (invState.perCapita / maxPerCapita) * 100))
+      : 0;
+
+  const populacao = isPrefeitura
+    ? (item as PrefeituraBairroResumo).populacao_total
+    : (item as BairroResumo).populacao;
+
+  const totalTerritorial = getTerritoryAbsoluteTotal(item, metricType);
+
+  const handleSelect = () => {
+    if (isPrefeitura) {
+      onSelectTerritory(createPrefeituraSelection(item as PrefeituraBairroResumo));
+    } else {
+      onSelectTerritory(createBairroSelection(item as BairroResumo));
+    }
+  };
+
+  return (
+    <li
+      ref={rowRef}
+      data-testid={`comparison-row-${testSlug}`}
+      data-index={rankNumber !== undefined ? rankNumber - 1 : undefined}
+      data-selected={isSelected ? "true" : "false"}
+      className={`rounded-xl border transition-all p-3 ${
+        isSelected
+          ? "bg-emerald-50/80 border-emerald-600 ring-2 ring-emerald-500/30 shadow-sm"
+          : "bg-slate-50/70 border-slate-200 hover:bg-slate-100/80 hover:border-slate-300"
+      }`}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <button
+          type="button"
+          data-testid={`comparison-select-${testSlug}`}
+          onClick={handleSelect}
+          aria-pressed={isSelected}
+          className="flex-1 min-w-0 text-left rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+        >
+          <div className="flex flex-wrap items-center gap-1.5">
+            {rankNumber !== undefined && (
+              <span className="text-xs font-bold text-slate-400 tabular-nums">
+                #{rankNumber}
+              </span>
+            )}
+            <span className="text-sm font-bold text-slate-900 break-words">
+              {item.nome}
+            </span>
+            {isSelected && (
+              <span
+                data-testid={`comparison-selected-badge-${testSlug}`}
+                className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-700 text-white"
+              >
+                Selecionado
+              </span>
+            )}
+            {isCentralidade && (
+              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                Centralidade Metropolitana
+              </span>
+            )}
+          </div>
+
+          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
+            <span
+              data-testid={`comparison-vuln-${testSlug}`}
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border font-semibold tabular-nums ${
+                hasVuln
+                  ? "bg-indigo-50 text-indigo-900 border-indigo-200"
+                  : "bg-slate-100 text-slate-700 border-slate-300"
+              }`}
+            >
+              <span>Vulnerabilidade:</span>
+              <span>{hasVuln ? formatDecimal(vuln) : "Indisponível"}</span>
+            </span>
+
+            {isContiguidade && (
+              <span
+                data-testid={`comparison-estimativa-${testSlug}`}
+                className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200 text-[11px] font-medium"
+              >
+                {bairrosEstimados.length > 0
+                  ? `Inclui estimativa (${bairrosEstimados.join(", ")})`
+                  : "Estimativa por contiguidade"}
+              </span>
+            )}
+          </div>
+        </button>
+
+        <div className="text-right shrink-0">
+          {invState.kind === "value" && (
+            <div data-testid={`comparison-valor-${testSlug}`} className="text-sm font-extrabold text-slate-900">
+              <MonetaryValue value={invState.perCapita} compact={false} suffix=" / hab" />
+            </div>
+          )}
+          {invState.kind === "unavailable" && (
+            <div
+              data-testid={`comparison-valor-${testSlug}`}
+              className="text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded"
+            >
+              {invState.reason === "population" ? "Per capita indisponível" : "Pagamento indisponível"}
+            </div>
+          )}
+          {invState.kind === "exempt" && (
+            <div
+              data-testid={`comparison-valor-${testSlug}`}
+              className="text-xs font-semibold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded"
+            >
+              Isento per capita
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Barra comparável em escala comum */}
+      {invState.kind === "value" && (
+        <div
+          className="mt-2 w-full bg-slate-200 h-2.5 rounded-full overflow-hidden"
+          aria-hidden="true"
+        >
+          <div
+            data-testid={`comparison-bar-${testSlug}`}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
+              isSelected ? "bg-emerald-700" : "bg-emerald-600"
+            }`}
+            style={{ width: `${barWidthPct}%` }}
+          />
+        </div>
+      )}
+
+      {/* Metadados e total alocado com valor exato acessível */}
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
+        <span className="tabular-nums">
+          {formatNumber(populacao)} hab • {item.totalObras ?? 0}{" "}
+          {(item.totalObras ?? 0) === 1 ? "obra" : "obras"}
+        </span>
+
+        {renderTotalSummary(
+          totalTerritorial,
+          testSlug,
+          metricType,
+          invState.kind === "value" ? invState.obrasSemValorPago : 0
+        )}
+      </div>
+    </li>
+  );
+};
 
 /**
  * Lista principal de Comparação Territorial ordenada pelo Índice de Vulnerabilidade do Bairro,
@@ -112,22 +289,38 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
   onOpenNotaMetodologica,
 }) => {
   const rowRefs = useRef<Map<string, HTMLLIElement>>(new Map());
+  const setRowRef = (nome: string) => (el: HTMLLIElement | null) => {
+    const normKey = normalizeName(nome);
+    if (el) rowRefs.current.set(normKey, el);
+    else rowRefs.current.delete(normKey);
+  };
 
-  const { orderedItems, exemptItems } = useMemo(() => {
+  const { orderedItems, missingVulnItems, exemptItems } = useMemo(() => {
     if (activeLayer === "prefeituras") {
+      const comIndice = prefeituras.filter((pb) => hasNumericValue(pb.indice_vulnerabilidade));
+      const semIndice = prefeituras
+        .filter((pb) => !hasNumericValue(pb.indice_vulnerabilidade))
+        .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
       return {
-        orderedItems: sortByVulnerabilityAndName(prefeituras, sortDirection),
+        orderedItems: sortByVulnerabilityAndName(comIndice, sortDirection),
+        missingVulnItems: semIndice,
         exemptItems: [] as BairroResumo[],
       };
     }
 
-    const elegiveis = bairros.filter((b) => !isZonaEspecial(b));
+    const elegiveisComIndice = bairros.filter(
+      (b) => !isZonaEspecial(b) && hasNumericValue(b.indice_vulnerabilidade)
+    );
+    const semIndice = bairros
+      .filter((b) => !isZonaEspecial(b) && !hasNumericValue(b.indice_vulnerabilidade))
+      .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
     const zonasEspeciais = bairros
       .filter((b) => isZonaEspecial(b))
       .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
 
     return {
-      orderedItems: sortByVulnerabilityAndName(elegiveis, sortDirection),
+      orderedItems: sortByVulnerabilityAndName(elegiveisComIndice, sortDirection),
+      missingVulnItems: semIndice,
       exemptItems: zonasEspeciais,
     };
   }, [activeLayer, prefeituras, bairros, sortDirection]);
@@ -212,9 +405,14 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
             <span className="text-[11px] font-normal text-slate-500">(Inverter)</span>
           </button>
 
-          <span className="text-[11px] font-medium text-slate-500">
-            {orderedItems.length}{" "}
-            {activeLayer === "prefeituras" ? "Prefeituras-Bairro" : "Bairros Oficiais"}
+          <span data-testid="comparison-list-count" className="text-[11px] font-medium text-slate-500">
+            {(() => {
+              const totalCount = activeLayer === "prefeituras" ? prefeituras.length : bairros.length;
+              const label = activeLayer === "prefeituras" ? "Prefeituras-Bairro" : "Bairros Oficiais";
+              const suffix =
+                orderedItems.length < totalCount ? ` (${orderedItems.length} comparados)` : "";
+              return `${totalCount} ${label}${suffix}`;
+            })()}
           </span>
         </div>
       </div>
@@ -222,171 +420,46 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
       {/* Lista rolável dos territórios */}
       <div className="flex-1 overflow-y-auto p-3 space-y-2">
         <ul data-testid="comparison-list-items" className="space-y-2">
-          {orderedItems.map((item, idx) => {
-            const isPrefeitura = activeLayer === "prefeituras";
-            const tipo = isPrefeitura ? "prefeitura_bairro" : "bairro";
-            const normKey = normalizeName(item.nome);
-            const isSelected =
-              selectedTerritory !== null &&
-              selectedTerritory.tipo === tipo &&
-              normalizeName(selectedTerritory.nome) === normKey;
-
-            const testSlug = normalizeTestId(item.nome);
-            const invState = getTerritoryInvestmentState(item, metricType, tipo);
-            const vuln = item.indice_vulnerabilidade;
-            const hasVuln = typeof vuln === "number" && !Number.isNaN(vuln);
-            const isContiguidade = Boolean(item.vulnerabilidade_estimada_contiguidade);
-            const bairrosEstimados = isPrefeitura
-              ? (item as PrefeituraBairroResumo).bairros_vulnerabilidade_estimada || []
-              : [];
-            const isCentralidade = !isPrefeitura && isCentralidadeMetropolitana(item as BairroResumo);
-
-            const barWidthPct =
-              invState.kind === "value" && invState.perCapita > 0
-                ? Math.max(2, Math.min(100, (invState.perCapita / maxPerCapita) * 100))
-                : 0;
-
-            const populacao = isPrefeitura
-              ? (item as PrefeituraBairroResumo).populacao_total
-              : (item as BairroResumo).populacao;
-
-            const totalTerritorial = getDisplayedTerritoryTotal(item, metricType);
-
-            const handleSelect = () => {
-              if (isPrefeitura) {
-                onSelectTerritory(createPrefeituraSelection(item as PrefeituraBairroResumo));
-              } else {
-                onSelectTerritory(createBairroSelection(item as BairroResumo));
-              }
-            };
-
-            return (
-              <li
-                key={item.id ?? item.nome}
-                ref={(el) => {
-                  if (el) rowRefs.current.set(normKey, el);
-                  else rowRefs.current.delete(normKey);
-                }}
-                data-testid={`comparison-row-${testSlug}`}
-                data-index={idx}
-                data-selected={isSelected ? "true" : "false"}
-                className={`rounded-xl border transition-all p-3 ${
-                  isSelected
-                    ? "bg-emerald-50/80 border-emerald-600 ring-2 ring-emerald-500/30 shadow-sm"
-                    : "bg-slate-50/70 border-slate-200 hover:bg-slate-100/80 hover:border-slate-300"
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <button
-                    type="button"
-                    data-testid={`comparison-select-${testSlug}`}
-                    onClick={handleSelect}
-                    aria-pressed={isSelected}
-                    className="flex-1 min-w-0 text-left rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-                  >
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      <span className="text-xs font-bold text-slate-400 tabular-nums">
-                        #{idx + 1}
-                      </span>
-                      <span className="text-sm font-bold text-slate-900 break-words">
-                        {item.nome}
-                      </span>
-                      {isSelected && (
-                        <span
-                          data-testid={`comparison-selected-badge-${testSlug}`}
-                          className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-700 text-white"
-                        >
-                          Selecionado
-                        </span>
-                      )}
-                      {isCentralidade && (
-                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">
-                          Centralidade Metropolitana
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
-                      <span
-                        data-testid={`comparison-vuln-${testSlug}`}
-                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-900 border border-indigo-200 font-semibold tabular-nums"
-                      >
-                        <span>Vulnerabilidade:</span>
-                        <span>{hasVuln ? formatDecimal(vuln) : "Indisponível"}</span>
-                      </span>
-
-                      {isContiguidade && (
-                        <span
-                          data-testid={`comparison-estimativa-${testSlug}`}
-                          className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200 text-[11px] font-medium"
-                        >
-                          {bairrosEstimados.length > 0
-                            ? `Inclui estimativa (${bairrosEstimados.join(", ")})`
-                            : "Estimativa por contiguidade"}
-                        </span>
-                      )}
-                    </div>
-                  </button>
-
-                  <div className="text-right shrink-0">
-                    {invState.kind === "value" && (
-                      <div data-testid={`comparison-valor-${testSlug}`} className="text-sm font-extrabold text-slate-900">
-                        <MonetaryValue value={invState.perCapita} compact={false} suffix=" / hab" />
-                      </div>
-                    )}
-                    {invState.kind === "unavailable" && (
-                      <div
-                        data-testid={`comparison-valor-${testSlug}`}
-                        className="text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded"
-                      >
-                        Pagamento indisponível
-                      </div>
-                    )}
-                    {invState.kind === "exempt" && (
-                      <div
-                        data-testid={`comparison-valor-${testSlug}`}
-                        className="text-xs font-semibold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded"
-                      >
-                        Isento per capita
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Barra comparável em escala comum */}
-                {invState.kind === "value" && (
-                  <div
-                    className="mt-2 w-full bg-slate-200 h-2.5 rounded-full overflow-hidden"
-                    aria-hidden="true"
-                  >
-                    <div
-                      data-testid={`comparison-bar-${testSlug}`}
-                      className={`h-2.5 rounded-full transition-all duration-300 ${
-                        isSelected ? "bg-emerald-700" : "bg-emerald-600"
-                      }`}
-                      style={{ width: `${barWidthPct}%` }}
-                    />
-                  </div>
-                )}
-
-                {/* Metadados e total alocado com valor exato acessível */}
-                <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
-                  <span className="tabular-nums">
-                    {formatNumber(populacao)} hab • {item.totalObras ?? 0}{" "}
-                    {(item.totalObras ?? 0) === 1 ? "obra" : "obras"}
-                  </span>
-
-                  {renderTotalSummary(
-                    totalTerritorial,
-                    testSlug,
-                    metricType,
-                    invState.kind === "value" ? invState.obrasSemValorPago : 0
-                  )}
-                </div>
-              </li>
-            );
-          })}
+          {orderedItems.map((item, idx) => (
+            <ComparisonTerritoryRow
+              key={item.id ?? item.nome}
+              item={item}
+              isPrefeitura={activeLayer === "prefeituras"}
+              rankNumber={idx + 1}
+              metricType={metricType}
+              maxPerCapita={maxPerCapita}
+              selectedTerritory={selectedTerritory}
+              onSelectTerritory={onSelectTerritory}
+              rowRef={setRowRef(item.nome)}
+            />
+          ))}
         </ul>
+
+        {/* Territórios com Índice de Vulnerabilidade indisponível (fora do ordenamento numérico) */}
+        {missingVulnItems.length > 0 && (
+          <div
+            data-testid="comparison-missing-vuln-section"
+            className="pt-3 mt-3 border-t border-slate-200 space-y-2"
+          >
+            <h3 className="text-xs font-bold text-slate-700">
+              Dado de vulnerabilidade indisponível (fora do ordenamento numérico)
+            </h3>
+            <ul className="space-y-2">
+              {missingVulnItems.map((item) => (
+                <ComparisonTerritoryRow
+                  key={item.id ?? item.nome}
+                  item={item}
+                  isPrefeitura={activeLayer === "prefeituras"}
+                  metricType={metricType}
+                  maxPerCapita={maxPerCapita}
+                  selectedTerritory={selectedTerritory}
+                  onSelectTerritory={onSelectTerritory}
+                  rowRef={setRowRef(item.nome)}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Zonas Especiais Não-Residenciais (fora do ranking numérico de vulnerabilidade/per capita) */}
         {activeLayer === "bairros" && exemptItems.length > 0 && (
@@ -403,11 +476,12 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
                 const isSelected =
                   selectedTerritory?.tipo === "bairro" &&
                   normalizeName(selectedTerritory.nome) === normalizeName(b.nome);
-                const totalTerritorial = getDisplayedTerritoryTotal(b, metricType);
+                const totalTerritorial = getTerritoryAbsoluteTotal(b, metricType);
 
                 return (
                   <li
                     key={b.id ?? b.nome}
+                    ref={setRowRef(b.nome)}
                     data-testid={`comparison-row-${testSlug}`}
                     data-selected={isSelected ? "true" : "false"}
                     className={`rounded-xl border p-3 ${
@@ -426,6 +500,14 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
                       >
                         <div className="flex flex-wrap items-center gap-1.5">
                           <span className="text-sm font-bold text-slate-900">{b.nome}</span>
+                          {isSelected && (
+                            <span
+                              data-testid={`comparison-selected-badge-${testSlug}`}
+                              className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-800 text-white"
+                            >
+                              Selecionado
+                            </span>
+                          )}
                           <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">
                             Zona Especial Não-Residencial
                           </span>

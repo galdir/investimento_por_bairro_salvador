@@ -4,8 +4,9 @@ import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters
 import {
   filterFrentesByTerritory,
   getObraTerritoryShare,
+  getTerritoryAbsoluteTotal,
   getTerritoryInvestmentState,
-  hasNumericPayment,
+  hasNumericValue,
   isCentralidadeMetropolitana,
 } from "../utils/territory";
 import { MonetaryValue } from "./MonetaryValue";
@@ -83,13 +84,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   const isExecutado = metricType === "executado";
   const invState = getTerritoryInvestmentState(territorio, metricType, territorio.tipo);
   const totalInvestido =
-    invState.kind === "value"
-      ? invState.total
-      : isExecutado
-        ? hasNumericPayment(territorio.valorPago)
-          ? territorio.valorPago
-          : undefined
-        : (territorio.valorTotal ?? 0);
+    invState.kind === "value" ? invState.total : getTerritoryAbsoluteTotal(territorio, metricType);
   const totalInvestidoDisponivel = totalInvestido !== undefined;
   const totalObras = territorio.totalObras ?? 0;
   const obrasVerde = territorio.obrasVerde ?? 0;
@@ -102,7 +97,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
       const share = getObraTerritoryShare(obra, territorio);
       if (!share.isCotaParte || !share.matched) return null;
       const valorBase = isExecutado
-        ? hasNumericPayment(obra.valorPago)
+        ? hasNumericValue(obra.valorPago)
           ? obra.valorPago
           : undefined
         : (obra.valorContratualVigente ?? 0);
@@ -116,9 +111,9 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
     .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const totalFrentes = territorio.totalFrentesMedicao ?? frentesNoTerritorio.length;
-  const valorPagoDireto = hasNumericPayment(territorio.valorPagoDireto)
+  const valorPagoDireto = hasNumericValue(territorio.valorPagoDireto)
     ? territorio.valorPagoDireto
-    : hasNumericPayment(territorio.valorPago)
+    : hasNumericValue(territorio.valorPago)
       ? territorio.valorPago
       : 0;
   const valorPagoFrentes = territorio.valorPagoFrentes ?? 0;
@@ -239,7 +234,9 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
             {invState.kind === "exempt"
               ? "Isento"
               : invState.kind === "unavailable"
-                ? "Pagamento indisponível"
+                ? invState.reason === "population"
+                  ? "Per capita indisponível"
+                  : "Pagamento indisponível"
                 : formatCurrency(invState.perCapita)}
           </span>
           <span className="text-[10px] text-slate-500">
@@ -248,7 +245,9 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
               : ehCentralidade
                 ? "Centralidade Metropolitana"
                 : invState.kind === "unavailable"
-                  ? "Sem registro de pagamento"
+                  ? invState.reason === "population"
+                    ? "População censitária indisponível"
+                    : "Sem registro de pagamento"
                   : "por morador"}
           </span>
         </div>
@@ -276,16 +275,18 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           >
             {ehZonaEspecial
               ? "Isento"
-              : territorio.indice_vulnerabilidade !== undefined
+              : hasNumericValue(territorio.indice_vulnerabilidade)
                 ? formatDecimal(territorio.indice_vulnerabilidade)
                 : "Indisponível"}
           </span>
           <span className="text-[10px] text-slate-500">
             {ehZonaEspecial
               ? "Sem domicílios"
-              : territorio.vulnerabilidade_estimada_contiguidade
-                ? "Inclui estimativa"
-                : "Índice Censo 2022"}
+              : !hasNumericValue(territorio.indice_vulnerabilidade)
+                ? "Dado indisponível"
+                : territorio.vulnerabilidade_estimada_contiguidade
+                  ? "Inclui estimativa"
+                  : "Índice Censo 2022"}
           </span>
         </div>
       </div>
@@ -534,7 +535,11 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                   </button>
                 )}
                 <span className={`text-xs font-bold ${ehZonaEspecial ? "text-slate-500" : "text-slate-900"}`}>
-                  {ehZonaEspecial ? "Isento" : formatDecimal(territorio.indice_vulnerabilidade ?? 0)}
+                  {ehZonaEspecial
+                    ? "Isento"
+                    : hasNumericValue(territorio.indice_vulnerabilidade)
+                      ? formatDecimal(territorio.indice_vulnerabilidade)
+                      : "Indisponível"}
                 </span>
               </div>
             </div>
@@ -543,6 +548,10 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
               <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
                 Zona Especial Não-Residencial isenta de cálculo de vulnerabilidade social (sem domicílios permanentes no Censo 2022).
               </p>
+            ) : !hasNumericValue(territorio.indice_vulnerabilidade) ? (
+              <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
+                Índice de Vulnerabilidade indisponível nos dados censitários deste território.
+              </p>
             ) : (
               <>
                 {/* Barra Visual de Intensidade */}
@@ -550,7 +559,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                   <div
                     className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
                     style={{
-                      width: `${Math.min(100, Math.max(5, (territorio.indice_vulnerabilidade || 0) * 100))}%`,
+                      width: `${Math.min(100, Math.max(5, territorio.indice_vulnerabilidade * 100))}%`,
                     }}
                   ></div>
                 </div>

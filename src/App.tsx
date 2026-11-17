@@ -26,6 +26,7 @@ import {
   createBairroSelection,
   createPrefeituraSelection,
   deduplicateObrasByCanonicalKey,
+  getObraCotasListaFechada,
   hasNumericPayment,
   isTerritoryCompatibleWithLayer,
   normalizeName,
@@ -277,8 +278,7 @@ export const App: React.FC = () => {
           const rpb = rollupPbByName.get(normalizeName(pb.nome));
           return {
             ...pb,
-            indice_vulnerabilidade:
-              pb.indice_vulnerabilidade ?? rpb?.indice_vulnerabilidade ?? 0.5,
+            indice_vulnerabilidade: pb.indice_vulnerabilidade ?? rpb?.indice_vulnerabilidade,
             vulnerabilidade_estimada_contiguidade:
               pb.vulnerabilidade_estimada_contiguidade ??
               rpb?.vulnerabilidade_estimada_contiguidade ??
@@ -355,6 +355,8 @@ export const App: React.FC = () => {
         valorAlocadoTerritorial: 0,
         valorAlocadoDisponivel: true,
         totalObrasAlocadas: 0,
+        contratosPrefeituraBairroSemRateioCount: 0,
+        isExactLayerWorkCount: true,
       };
     }
 
@@ -411,6 +413,8 @@ export const App: React.FC = () => {
         valorAlocadoTerritorial,
         valorAlocadoDisponivel,
         totalObrasAlocadas: totalAlocadas,
+        contratosPrefeituraBairroSemRateioCount: 0,
+        isExactLayerWorkCount: false,
       };
     }
 
@@ -419,6 +423,7 @@ export const App: React.FC = () => {
     let criticasRecalc = 0;
     let aditivosValorRecalc = 0;
     let naoLocalizadoRecalc = 0;
+    let contratosPrefeituraBairroSemRateioCount = 0;
     let valorNaoLocalizadoVigente = 0;
     let valorNaoLocalizadoPago = 0;
     let naoLocalizadoComPago = 0;
@@ -460,11 +465,20 @@ export const App: React.FC = () => {
           );
           valorNaoLocalizadoPago += Math.max(0, o.valorPago - pagoFrentes);
         }
+      } else if (
+        getObraCotasListaFechada(o).length === 0 &&
+        o.nivel === "Regional (Prefeitura-Bairro)" &&
+        Boolean(o.prefeituraBairro || o.prefeitura_bairro)
+      ) {
+        contratosPrefeituraBairroSemRateioCount++;
       }
     }
 
     const totalObrasRecalc = uniqueFilteredObras.length;
-    const totalObrasAlocadas = totalObrasRecalc - naoLocalizadoRecalc;
+    const totalObrasAlocadas =
+      activeLayer === "bairros"
+        ? Math.max(0, totalObrasRecalc - naoLocalizadoRecalc - contratosPrefeituraBairroSemRateioCount)
+        : totalObrasRecalc - naoLocalizadoRecalc;
     const valorNaoLocalizadoAtivo = isVigente
       ? valorNaoLocalizadoVigente
       : valorNaoLocalizadoPago;
@@ -504,6 +518,8 @@ export const App: React.FC = () => {
       valorAlocadoTerritorial,
       valorAlocadoDisponivel,
       totalObrasAlocadas,
+      contratosPrefeituraBairroSemRateioCount,
+      isExactLayerWorkCount: true,
     };
   }, [
     indexData,
@@ -597,6 +613,10 @@ export const App: React.FC = () => {
         valorAlocadoTerritorial={headerComparisonSummary.valorAlocadoTerritorial}
         valorAlocadoDisponivel={headerComparisonSummary.valorAlocadoDisponivel}
         totalObrasAlocadas={headerComparisonSummary.totalObrasAlocadas}
+        contratosPrefeituraBairroSemRateioCount={
+          headerComparisonSummary.contratosPrefeituraBairroSemRateioCount
+        }
+        isExactLayerWorkCount={headerComparisonSummary.isExactLayerWorkCount}
         generatedAt={indexData.metadata.generatedAt}
         metricType={filters.metricType}
         mandato={filters.mandato}
@@ -612,6 +632,8 @@ export const App: React.FC = () => {
         availableTemas={TEMAS_PADRAO}
         totalObrasFiltradas={filteredObras.length}
         totalObrasGeral={indexData.obras.length}
+        activeLayer={activeLayer}
+        onToggleLayer={handleToggleLayer}
       />
 
       {/* Indicador de Seleção Territorial Ativa para Consulta de Obras */}

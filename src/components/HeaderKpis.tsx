@@ -30,6 +30,14 @@ interface HeaderKpisProps {
    */
   totalObrasAlocadas?: number;
   /**
+   * Quantidade de contratos exclusivos de Prefeitura-Bairro não rateados entre Bairros Oficiais.
+   */
+  contratosPrefeituraBairroSemRateioCount?: number;
+  /**
+   * Indica se a contagem de obras em Bairros Oficiais foi apurada no nível exato do recorte.
+   */
+  isExactLayerWorkCount?: boolean;
+  /**
    * Data ISO de atualização do acervo (metadata.generatedAt).
    */
   generatedAt?: string;
@@ -54,6 +62,8 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
   valorAlocadoTerritorial,
   valorAlocadoDisponivel = true,
   totalObrasAlocadas,
+  contratosPrefeituraBairroSemRateioCount = 0,
+  isExactLayerWorkCount = true,
   generatedAt,
   metricType = "executado",
   mandato,
@@ -163,7 +173,13 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
               )}
               {totalObrasAlocadas !== undefined && (
                 <span className="text-[11px] text-slate-400">
-                  ({formatNumber(totalObrasAlocadas)} obras localizadas)
+                  {activeLayer === "bairros" && isExactLayerWorkCount
+                    ? `(${formatNumber(totalObrasAlocadas)} obras em bairros${
+                        contratosPrefeituraBairroSemRateioCount > 0
+                          ? ` • ${formatNumber(contratosPrefeituraBairroSemRateioCount)} de Prefeitura-Bairro sem rateio`
+                          : ""
+                      })`
+                    : `(${formatNumber(totalObrasAlocadas)} obras localizadas)`}
                 </span>
               )}
             </div>
