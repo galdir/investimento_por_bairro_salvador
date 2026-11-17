@@ -82,8 +82,12 @@ _Avoid_: Fluxo de caixa, etapas de pagamento
 Valor dos pagamentos registrados para a Obra Pública ao longo de todo o contrato até a data de referência, inclusive antes de 2021 quando aplicável. O Mandato Municipal seleciona contratos por sua vigência e não limita esses pagamentos ao período do mandato.
 _Avoid_: Pagamento do mandato, valor estimado pela execução física
 
+**Data de Referência dos Pagamentos**:
+Limite temporal das datas dos Movimentos de Pagamento considerados na apuração do Valor Pago Acumulado do Contrato.
+_Avoid_: Data da coleta, data da publicação
+
 **Data da Última Atualização Concluída**:
-Data de referência da última atualização dos dados do dashboard concluída sem falhas que impeçam sua publicação; permanece inalterada quando uma atualização posterior falha. A conclusão da atualização não implica cobertura integral do histórico de pagamentos de todos os contratos, que é informada separadamente.
+Data de conclusão da última substituição bem-sucedida do conjunto de dados preparado e validado, mantida quando uma atualização posterior falha. É distinta da Data de Referência dos Pagamentos, do intervalo de realização das consultas e da data de deploy do site.
 _Avoid_: Data do pagamento, data da última tentativa
 
 **Movimento de Pagamento**:
@@ -91,15 +95,15 @@ Registro individual de pagamento associado a uma Obra Pública, que pode ter val
 _Avoid_: Ordem bancária como pagamento único
 
 **Conflito de Identidade de Pagamento**:
-Incerteza sobre se registros de pagamento de um mesmo contrato representam o mesmo Movimento de Pagamento ou movimentos distintos. Enquanto não resolvido, apenas um representante de cada grupo ambíguo é contabilizado provisoriamente, os demais permanecem acessíveis e a cobertura do contrato é identificada como incompleta; o conflito é reavaliado automaticamente nas próximas atualizações.
+Incerteza sobre se registros de pagamento de um mesmo contrato representam o mesmo Movimento de Pagamento ou movimentos distintos. Os registros são respeitados como fornecidos pela fonte; sua semelhança não autoriza exclusão da soma, sendo removidas apenas repetições comprovadamente introduzidas pela coleta.
 _Avoid_: Duplicata presumida
 
-**Registro de Pagamento Não Conciliável**:
-Registro informado pela fonte sem os dados necessários para identificar com segurança a que grupo de pagamentos pertence. Permanece acessível e fora da soma até que novos dados permitam sua conciliação automática.
-_Avoid_: Pagamento zerado, duplicata presumida
+**Registro de Pagamento com Identificação Incompleta**:
+Registro disponibilizado pela fonte com ausência de campos usados para identificar o Movimento de Pagamento. Permanece acessível e seu valor numérico integra a soma, sem que a identificação incompleta autorize sua exclusão.
+_Avoid_: Registro não conciliável, pagamento zerado, duplicata presumida
 
 **Cobertura dos Pagamentos do Contrato**:
-Grau em que os registros de pagamento disponíveis abrangem o histórico necessário para apurar o Valor Pago Acumulado do Contrato, considerando o período e a completude da consulta à fonte. Zero registrado representa uma consulta completa e confirmada sem registros para o período coberto, não uma prova independente de que nunca houve pagamento; quando a fonte cobre apenas parte do histórico, o zero é identificado como parcial.
+Abrangência dos registros de pagamento disponibilizados pelo Portal da Transparência para uma Obra Pública, tomando a própria fonte como referência e informando suas limitações conhecidas. Uma consulta concluída sem registros produz zero identificado como ausência de registros encontrados na fonte; uma soma de movimentos que se anulam produz saldo registrado igual a zero, sem que esses resultados constituam prova independente de ausência de pagamento.
 _Avoid_: Comprovação de que não houve pagamento
 
 **Limitação de Cobertura da Fonte**:
@@ -107,11 +111,11 @@ Lacuna no histórico necessário para apurar o Valor Pago Acumulado do Contrato 
 _Avoid_: Falha de coleta presumida como ausência de dados
 
 **Cobertura de Pagamentos Não Verificada**:
-Situação em que a consulta retorna registros, mas não há evidência suficiente para determinar qual período do histórico contratual está abrangido. Os registros permanecem acessíveis, mas não entram na escala comparativa territorial de Valor Pago por habitante até que a cobertura seja verificada.
+Situação em que não há informação suficiente para determinar a abrangência histórica dos registros disponibilizados pela fonte. Essa ausência de comprovação independente não impede o uso dos valores registrados na comparação territorial quando a coleta dos resultados disponibilizados foi concluída corretamente.
 _Avoid_: Cobertura completa presumida, limitação comprovada da fonte
 
 **Soma Parcial de Pagamentos**:
-Soma dos registros de pagamento apuráveis para uma Obra Pública ou território cuja Cobertura dos Pagamentos do Contrato não está completa. A soma territorial pode integrar a escala de Valor Pago por habitante identificada como parcial, sem incluir valores de contratos com Cobertura de Pagamentos Não Verificada; se não houver nenhum valor apurável, o território permanece visível como indisponível.
+Soma dos registros de pagamento apuráveis para uma Obra Pública ou território quando há limitação conhecida do histórico disponibilizado pela fonte. A ausência de comprovação independente do histórico, os registros sem valor informado e as semelhanças entre registros, isoladamente, não tornam essa soma parcial.
 _Avoid_: Total pago, mínimo pago
 
 **Investimento por Habitante**:
