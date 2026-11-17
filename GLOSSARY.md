@@ -78,6 +78,42 @@ _Avoid_: Reajuste informal, multa, extra
 Sequência de estágios orçamentários de uma Obra Pública: Valor Original Contratado -> Valor Contratual Vigente -> Valor Empenhado (reservado no orçamento) -> Valor Liquidado (obra efetivamente medida) -> Valor Pago (transferido à conta da empreiteira).
 _Avoid_: Fluxo de caixa, etapas de pagamento
 
+**Valor Pago Acumulado do Contrato**:
+Valor dos pagamentos registrados para a Obra Pública ao longo de todo o contrato até a data de referência, inclusive antes de 2021 quando aplicável. O Mandato Municipal seleciona contratos por sua vigência e não limita esses pagamentos ao período do mandato.
+_Avoid_: Pagamento do mandato, valor estimado pela execução física
+
+**Data da Última Atualização Concluída**:
+Data de referência da última atualização dos dados do dashboard concluída sem falhas que impeçam sua publicação; permanece inalterada quando uma atualização posterior falha. A conclusão da atualização não implica cobertura integral do histórico de pagamentos de todos os contratos, que é informada separadamente.
+_Avoid_: Data do pagamento, data da última tentativa
+
+**Movimento de Pagamento**:
+Registro individual de pagamento associado a uma Obra Pública, que pode ter valor positivo ou negativo e compartilhar uma ordem bancária com outros movimentos distintos. Registros informados pelo portal para contratos diferentes são contabilizados em seus respectivos contratos, mesmo quando semelhantes.
+_Avoid_: Ordem bancária como pagamento único
+
+**Conflito de Identidade de Pagamento**:
+Incerteza sobre se registros de pagamento de um mesmo contrato representam o mesmo Movimento de Pagamento ou movimentos distintos. Enquanto não resolvido, apenas um representante de cada grupo ambíguo é contabilizado provisoriamente, os demais permanecem acessíveis e a cobertura do contrato é identificada como incompleta; o conflito é reavaliado automaticamente nas próximas atualizações.
+_Avoid_: Duplicata presumida
+
+**Registro de Pagamento Não Conciliável**:
+Registro informado pela fonte sem os dados necessários para identificar com segurança a que grupo de pagamentos pertence. Permanece acessível e fora da soma até que novos dados permitam sua conciliação automática.
+_Avoid_: Pagamento zerado, duplicata presumida
+
+**Cobertura dos Pagamentos do Contrato**:
+Grau em que os registros de pagamento disponíveis abrangem o histórico necessário para apurar o Valor Pago Acumulado do Contrato, considerando o período e a completude da consulta à fonte. Zero registrado representa uma consulta completa e confirmada sem registros para o período coberto, não uma prova independente de que nunca houve pagamento; quando a fonte cobre apenas parte do histórico, o zero é identificado como parcial.
+_Avoid_: Comprovação de que não houve pagamento
+
+**Limitação de Cobertura da Fonte**:
+Lacuna no histórico necessário para apurar o Valor Pago Acumulado do Contrato causada por uma limitação comprovada das informações disponibilizadas pelo Portal da Transparência.
+_Avoid_: Falha de coleta presumida como ausência de dados
+
+**Cobertura de Pagamentos Não Verificada**:
+Situação em que a consulta retorna registros, mas não há evidência suficiente para determinar qual período do histórico contratual está abrangido. Os registros permanecem acessíveis, mas não entram na escala comparativa territorial de Valor Pago por habitante até que a cobertura seja verificada.
+_Avoid_: Cobertura completa presumida, limitação comprovada da fonte
+
+**Soma Parcial de Pagamentos**:
+Soma dos registros de pagamento apuráveis para uma Obra Pública ou território cuja Cobertura dos Pagamentos do Contrato não está completa. A soma territorial pode integrar a escala de Valor Pago por habitante identificada como parcial, sem incluir valores de contratos com Cobertura de Pagamentos Não Verificada; se não houver nenhum valor apurável, o território permanece visível como indisponível.
+_Avoid_: Total pago, mínimo pago
+
 **Investimento por Habitante**:
 Razão entre a soma financeira das Obras Públicas alocadas a um recorte territorial (Bairro Oficial residencial ou Prefeitura-Bairro) e a população residente daquele recorte segundo o Censo 2022 do IBGE.
 _Avoid_: Gasto médio por pessoa, renda per capita, cota por morador
