@@ -100,6 +100,7 @@ export const App: React.FC = () => {
   const [showNotaMetodologica, setShowNotaMetodologica] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"comparacao" | "tabela">("comparacao");
   const [sortDirection, setSortDirection] = useState<VulnerabilitySortDirection>("asc");
+  const [territorySearch, setTerritorySearch] = useState<string>("");
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -540,6 +541,13 @@ export const App: React.FC = () => {
     setSelectedTerritory(null);
   };
 
+  const handleClearContractFilters = () => {
+    setFilters((prev) => ({
+      ...INITIAL_FILTERS,
+      metricType: prev.metricType,
+    }));
+  };
+
   const handleToggleLayer = (layer: "bairros" | "prefeituras") => {
     if (layer !== activeLayer) {
       setActiveLayer(layer);
@@ -717,6 +725,10 @@ export const App: React.FC = () => {
                 onToggleSortDirection={() =>
                   setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"))
                 }
+                territorySearch={territorySearch}
+                onTerritorySearchChange={setTerritorySearch}
+                hasEmptyContractFilter={isContractFiltered && topFilteredObras.length === 0}
+                onClearContractFilters={handleClearContractFilters}
                 selectedTerritory={activeSelectedTerritory}
                 onSelectTerritory={setSelectedTerritory}
                 onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
@@ -738,6 +750,7 @@ export const App: React.FC = () => {
                   onSelectTerritory={setSelectedTerritory}
                   onSelectObra={handleSelectObra}
                   metricType={filters.metricType}
+                  territorySearch={territorySearch}
                   onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
                 />
               </div>
@@ -775,6 +788,10 @@ export const App: React.FC = () => {
               metricType={filters.metricType}
               selectedTerritory={activeSelectedTerritory}
               onSelectObra={handleSelectObra}
+              busca={filters.busca}
+              onBuscaChange={(busca) => handleFilterChange({ busca })}
+              hasActiveContractFilters={isContractFiltered}
+              onClearContractFilters={handleClearContractFilters}
             />
           </div>
         )}

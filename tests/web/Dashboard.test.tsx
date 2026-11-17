@@ -2965,4 +2965,411 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       geoJsonSpy.mockRestore();
     });
   });
+
+  describe("Ticket 04: Buscar territórios e investigar subconjuntos de obras", () => {
+    const mockTicket04Index = {
+      metadata: {
+        generatedAt: "2026-11-16T20:00:00Z",
+        anoReferencia: 2025,
+        mandatosDisponiveis: ["2025-2028", "2021-2024"],
+      },
+      kpis_globais: {
+        totalObras: 4,
+        valorTotal: 20000000.0,
+        totalAtivas: 4,
+        totalEmpenhado: 18000000.0,
+        totalLiquidado: 12000000.0,
+        totalPago: 8000000.0,
+        investimentoPorHabitanteCidade: 40.0,
+        totalNaoLocalizado: 0,
+        valorNaoLocalizado: 0.0,
+        valorPagoNaoLocalizado: 0.0,
+        percentualNaoLocalizado: 0.0,
+      },
+      prefeituras_bairro: [
+        { id: 1, nome: "Barra/Pituba", populacao_total: 50000 },
+        { id: 2, nome: "Cabula/Tancredo Neves", populacao_total: 50000 },
+        { id: 3, nome: "Subúrbio/Ilhas", populacao_total: 100000 },
+      ],
+      bairros: [
+        {
+          id: 101,
+          nome: "Pituba",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.15,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 102,
+          nome: "Cabula",
+          prefeitura_bairro: "Cabula/Tancredo Neves",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.55,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 103,
+          nome: "Paripe",
+          prefeitura_bairro: "Subúrbio/Ilhas",
+          populacao: 100000,
+          indice_vulnerabilidade: 0.85,
+          is_zona_especial_nao_residencial: false,
+        },
+        {
+          id: 104,
+          nome: "Comércio",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 900,
+          indice_vulnerabilidade: 0.45,
+          is_zona_especial_nao_residencial: false,
+          is_centralidade_metropolitana: true,
+        },
+        {
+          id: 105,
+          nome: "Aeroporto",
+          prefeitura_bairro: "Subúrbio/Ilhas",
+          populacao: 0,
+          indice_vulnerabilidade: 0.0,
+          is_zona_especial_nao_residencial: true,
+        },
+      ],
+      obras: [
+        {
+          id: 4001,
+          unidadeGestora: "SEINFRA",
+          numeroContrato: "401/2025",
+          objeto: "Requalificação da Orla da Pituba",
+          valorContratualVigente: 10000000,
+          valorPago: 5000000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "CONSÓRCIO ORLA SUL",
+          tema: "Mobilidade, Pavimentação e Drenagem",
+          vocacao: "Mobilidade Estrutural e Orlas",
+          semaforo: { status: "VERDE", rotulo: "Verde (No Prazo)", motivos: [] },
+          mandatos: ["2025-2028"],
+          nivel: "Pontual",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          latitude: -13.0,
+          longitude: -38.46,
+        },
+        {
+          id: 4002,
+          unidadeGestora: "SMED",
+          numeroContrato: "402/2024",
+          objeto: "Construção de Escola Municipal no Cabula",
+          valorContratualVigente: 4000000,
+          valorPago: null,
+          percentualExecutado: 10,
+          situacao: "Em Execução",
+          credor: "CONSTRUTORA EDUCAÇÃO LTDA",
+          tema: "Educação e Escolas",
+          vocacao: "Vizinhança e Comunidade",
+          semaforo: { status: "AMARELO", rotulo: "Amarelo (Atenção)", motivos: ["Prazo prorrogado"] },
+          mandatos: ["2021-2024", "2025-2028"],
+          nivel: "Bairro",
+          bairro: "Cabula",
+          prefeituraBairro: "Cabula/Tancredo Neves",
+        },
+        {
+          id: 4003,
+          unidadeGestora: "FME",
+          numeroContrato: "403/2025",
+          objeto: "Hospital Municipal de Paripe",
+          valorContratualVigente: 5000000,
+          valorPago: 2000000,
+          percentualExecutado: 40,
+          situacao: "Paralisada",
+          credor: "SAÚDE CONSTRUÇÕES S/A",
+          tema: "Saúde",
+          vocacao: "Equipamentos e Marcos da Cidade",
+          semaforo: { status: "VERMELHO", rotulo: "Vermelho (Crítica)", motivos: ["Paralisada"] },
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Paripe",
+          prefeituraBairro: "Subúrbio/Ilhas",
+        },
+        {
+          id: 4004,
+          unidadeGestora: "SUCOP",
+          numeroContrato: "404/2021",
+          objeto: "Restauro do Mercado Histórico do Comércio",
+          valorContratualVigente: 1000000,
+          valorPago: 1000000,
+          percentualExecutado: 100,
+          situacao: "Concluída",
+          credor: "RESTAURO BAHIA LTDA",
+          tema: "Praças, Esporte e Lazer",
+          vocacao: "Equipamentos e Marcos da Cidade",
+          semaforo: { status: "VERDE", rotulo: "Verde (No Prazo)", motivos: [] },
+          mandatos: ["2021-2024"],
+          nivel: "Pontual",
+          bairro: "Comércio",
+          prefeituraBairro: "Barra/Pituba",
+        },
+      ],
+    };
+
+    const mockTicket04BairrosGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 101, nome: "Pituba", prefeitura_bairro: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.46, -13.0], [-38.45, -13.0], [-38.45, -12.99], [-38.46, -13.0]]] } },
+        { type: "Feature", properties: { id: 102, nome: "Cabula", prefeitura_bairro: "Cabula/Tancredo Neves" }, geometry: { type: "Polygon", coordinates: [[[-38.46, -12.96], [-38.45, -12.96], [-38.45, -12.95], [-38.46, -12.96]]] } },
+        { type: "Feature", properties: { id: 103, nome: "Paripe", prefeitura_bairro: "Subúrbio/Ilhas" }, geometry: { type: "Polygon", coordinates: [[[-38.48, -12.83], [-38.47, -12.83], [-38.47, -12.82], [-38.48, -12.83]]] } },
+        { type: "Feature", properties: { id: 104, nome: "Comércio", prefeitura_bairro: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.52, -12.97], [-38.51, -12.97], [-38.51, -12.96], [-38.52, -12.97]]] } },
+        { type: "Feature", properties: { id: 105, nome: "Aeroporto", prefeitura_bairro: "Subúrbio/Ilhas", is_zona_especial_nao_residencial: true }, geometry: { type: "Polygon", coordinates: [[[-38.33, -12.91], [-38.32, -12.91], [-38.32, -12.9], [-38.33, -12.91]]] } },
+      ],
+    };
+
+    const mockTicket04PbGeo = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { id: 1, nome: "Barra/Pituba" }, geometry: { type: "Polygon", coordinates: [[[-38.52, -13.01], [-38.45, -13.01], [-38.45, -12.96], [-38.52, -13.01]]] } },
+        { type: "Feature", properties: { id: 2, nome: "Cabula/Tancredo Neves" }, geometry: { type: "Polygon", coordinates: [[[-38.47, -12.97], [-38.44, -12.97], [-38.44, -12.94], [-38.47, -12.97]]] } },
+        { type: "Feature", properties: { id: 3, nome: "Subúrbio/Ilhas" }, geometry: { type: "Polygon", coordinates: [[[-38.49, -12.85], [-38.46, -12.85], [-38.46, -12.82], [-38.49, -12.85]]] } },
+      ],
+    };
+
+    beforeEach(() => {
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((url: string) => {
+          if (url.includes("index_")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket04Index) });
+          }
+          if (url.includes("bairros.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket04BairrosGeo) });
+          }
+          if (url.includes("prefeituras_bairro.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockTicket04PbGeo) });
+          }
+          return Promise.reject(new Error("URL desconhecida: " + url));
+        })
+      );
+    });
+
+    it("localiza territórios pelo nome destacando correspondências no mapa sem alterar valores, cabeçalho ou escalas, distingue busca de obras e recupera busca vazia", async () => {
+      const geoJsonSpy = vi.spyOn(L, "geoJSON");
+      const fitBoundsSpy = vi.spyOn(L.Map.prototype, "fitBounds");
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      // Na comparação territorial: busca territorial visível; busca de obras (objeto/empreiteira) fica na consulta de obras
+      const buscaTerritorio = screen.getByTestId("busca-territorio");
+      expect(buscaTerritorio).toBeVisible();
+      expect(screen.queryByTestId("filtro-busca")).not.toBeInTheDocument();
+
+      // Referência inicial: Barra/Pituba = R$ 120/hab (6M / 50k -> 100%), Subúrbio/Ilhas = R$ 20/hab (2M / 100k -> ~16,67%)
+      expect(screen.getByTestId("comparison-valor-barra-pituba")).toHaveTextContent("R$ 120 / hab");
+      expect(screen.getByTestId("comparison-valor-suburbio-ilhas")).toHaveTextContent("R$ 20 / hab");
+      const initialSuburbioWidth = screen.getByTestId("comparison-bar-suburbio-ilhas").style.width;
+      expect(parseFloat(initialSuburbioWidth)).toBeCloseTo((20 / 120) * 100, 1);
+
+      expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("3 Prefeituras-Bairro");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute("aria-label", expect.stringContaining("8.000.000"));
+
+      // Busca territorial sem acento ("suburbio"): restringe lista, preserva posição #3, valor, cabeçalho e escala da barra
+      fitBoundsSpy.mockClear();
+      fireEvent.change(buscaTerritorio, { target: { value: "suburbio" } });
+
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toBeInTheDocument();
+      expect(screen.queryByTestId("comparison-row-barra-pituba")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("comparison-row-cabula-tancredo-neves")).not.toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveTextContent("#3");
+      expect(screen.getByTestId("comparison-valor-suburbio-ilhas")).toHaveTextContent("R$ 20 / hab");
+      expect(screen.getByTestId("comparison-bar-suburbio-ilhas").style.width).toBe(initialSuburbioWidth);
+
+      // Cabeçalho permanece no escopo municipal completo
+      expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("3 Prefeituras-Bairro");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute("aria-label", expect.stringContaining("8.000.000"));
+
+      // Mapa destaca a correspondência (maior peso/borda e opacidade reduzida nos demais), preservando fillColor e sem mover câmera
+      expect(screen.getByTestId("mapa-destaque-busca")).toHaveTextContent(/1.*Subúrbio\/Ilhas|1 correspondência/i);
+      expect(fitBoundsSpy).not.toHaveBeenCalled();
+
+      const lastCall = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1];
+      const styleFn = (lastCall[1] as L.GeoJSONOptions).style as (feature: any) => L.PathOptions;
+      const styleMatch = styleFn(mockTicket04PbGeo.features[2]);
+      const styleNonMatch = styleFn(mockTicket04PbGeo.features[0]);
+      expect(styleMatch.weight).toBeGreaterThan(styleNonMatch.weight!);
+      expect(styleMatch.fillOpacity!).toBeGreaterThan(styleNonMatch.fillOpacity!);
+
+      // Inverter ordenação e selecionar durante a busca preserva valor e escala
+      fireEvent.click(screen.getByTestId("btn-inverter-ordenacao"));
+      fireEvent.click(screen.getByTestId("comparison-select-suburbio-ilhas"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Subúrbio/Ilhas");
+      });
+      expect(screen.getByTestId("comparison-bar-suburbio-ilhas").style.width).toBe(initialSuburbioWidth);
+
+      // Busca por nome de empreiteira na busca territorial NÃO encontra território e oferece explicação + recuperação
+      fireEvent.change(buscaTerritorio, { target: { value: "CONSÓRCIO ORLA" } });
+      expect(screen.getByTestId("busca-territorio-vazia")).toBeVisible();
+      expect(screen.getByTestId("busca-territorio-vazia")).toHaveTextContent(/Tabela de Obras/i);
+      fireEvent.click(screen.getByTestId("btn-limpar-busca-territorio-vazia"));
+
+      expect((buscaTerritorio as HTMLInputElement).value).toBe("");
+      expect(screen.getByTestId("comparison-row-barra-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toBeInTheDocument();
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Subúrbio/Ilhas");
+
+      // Consulta de obras possui busca própria por objeto ou Empreiteira
+      fireEvent.click(screen.getByTestId("btn-limpar-filtro-territorial"));
+      fireEvent.click(screen.getByTestId("tab-tabela"));
+      const buscaObras = await screen.findByTestId("filtro-busca");
+      expect(buscaObras).toBeVisible();
+      fireEvent.change(buscaObras, { target: { value: "CONSÓRCIO ORLA" } });
+      expect(screen.getByTestId("linha-obra-4001")).toBeInTheDocument();
+      expect(screen.queryByTestId("linha-obra-4003")).not.toBeInTheDocument();
+
+      geoJsonSpy.mockRestore();
+      fitBoundsSpy.mockRestore();
+    });
+
+    it("agrupa Vocação, Tema, Órgão e Semáforo em Mais filtros recolhível com restrições aparentes, atualiza níveis/métricas/seleção preservando zeros e vulnerabilidade, ignora navegação da câmera e recupera filtro sem contratos", async () => {
+      const mapSpy = vi.spyOn(L.Map.prototype, "getCenter");
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
+
+      // 1. Mais filtros inicia recolhido, enquanto Recorte, Métrica e Mandato ficam visíveis
+      const btnMaisFiltros = screen.getByTestId("btn-mais-filtros");
+      expect(btnMaisFiltros).toHaveAttribute("aria-expanded", "false");
+      const painelMaisFiltros = screen.getByTestId("painel-mais-filtros");
+      expect(painelMaisFiltros).not.toBeVisible();
+      expect(screen.queryByTestId("restricoes-ativas-resumo")).not.toBeInTheDocument();
+
+      // Abre Mais filtros: 3 vocações ativas inicialmente, explicação de localização vs população beneficiada, Tema, Órgão, Semáforo
+      fireEvent.click(btnMaisFiltros);
+      expect(btnMaisFiltros).toHaveAttribute("aria-expanded", "true");
+      expect(painelMaisFiltros).toBeVisible();
+      expect(screen.getByTestId("chip-vocacao-vizinhanca")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("chip-vocacao-mobilidade")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("chip-vocacao-equipamentos")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("explicacao-vocacao")).toHaveTextContent(/população beneficiada/i);
+      expect(screen.getByTestId("filtro-tema")).toBeVisible();
+      expect(screen.getByTestId("filtro-orgao")).toBeVisible();
+      expect(screen.getByTestId("filtro-semaforo")).toBeVisible();
+
+      // 2. Combina filtros explícitos: desmarca Equipamentos e Marcos da Cidade + seleciona Tema Educação e Escolas?
+      //    Primeiro desmarca Equipamentos (4003 em Paripe e 4004 no Comércio saem; ficam 4001 Pituba e 4002 Cabula)
+      fireEvent.click(screen.getByTestId("chip-vocacao-equipamentos"));
+      fireEvent.change(screen.getByTestId("filtro-semaforo"), { target: { value: "AMARELO" } });
+
+      // Recolhe Mais filtros: restrições ativas continuam aparentes com limpeza acessível!
+      fireEvent.click(btnMaisFiltros);
+      expect(btnMaisFiltros).toHaveAttribute("aria-expanded", "false");
+      expect(painelMaisFiltros).not.toBeVisible();
+
+      const resumoRestricoes = screen.getByTestId("restricoes-ativas-resumo");
+      expect(resumoRestricoes).toBeVisible();
+      expect(resumoRestricoes).toHaveTextContent(/Vocação/i);
+      expect(resumoRestricoes).toHaveTextContent(/Semáforo:\s*Amarelo/i);
+      expect(screen.getByTestId("btn-limpar-filtros")).toBeVisible();
+
+      // Remove apenas Semáforo direto do chip de restrição aparente (fica apenas Vocação sem Equipamentos)
+      fireEvent.click(screen.getByTestId("btn-remover-restricao-semaforo"));
+      expect(screen.getByTestId("restricoes-ativas-resumo")).not.toHaveTextContent(/Semáforo/i);
+      expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 2 de 4 obras");
+
+      // 3. Em Prefeituras-Bairro e Bairros Oficiais, nas duas métricas:
+      //    - Barra/Pituba (R$ 100/hab pago, 100% barra), Subúrbio/Ilhas (0 obras -> R$ 0/hab, NÃO excluído!), Cabula/Tancredo Neves (Pagamento indisponível)
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-valor-suburbio-ilhas")).toHaveTextContent(/R\$\s*0\s*\/\s*hab/);
+      expect(screen.getByTestId("comparison-valor-barra-pituba")).toHaveTextContent("R$ 100 / hab");
+      expect(screen.getByTestId("comparison-valor-cabula-tancredo-neves")).toHaveTextContent("Pagamento indisponível");
+
+      // Troca para Bairros Oficiais: vulnerabilidade censitária preservada; Paripe fica com 0 obras (R$ 0/hab), Cabula Pagamento indisponível, Comércio e Aeroporto Isento
+      fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-row-paripe")).toBeInTheDocument();
+      });
+      expect(screen.getByTestId("comparison-vuln-paripe")).toHaveTextContent("0,85");
+      expect(screen.getByTestId("comparison-valor-paripe")).toHaveTextContent(/R\$\s*0\s*\/\s*hab/);
+      expect(screen.getByTestId("comparison-valor-cabula")).toHaveTextContent("Pagamento indisponível");
+      expect(screen.getByTestId("comparison-valor-comercio")).toHaveTextContent("Isento per capita");
+      expect(screen.getByTestId("comparison-valor-aeroporto")).toHaveTextContent("Isento per capita");
+
+      // Alterna para Valor Contratual Vigente: Pituba = R$ 200/hab (100%), Cabula = R$ 80/hab (40%)
+      fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-valor-cabula")).toHaveTextContent("R$ 80 / hab");
+      });
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent("R$ 200 / hab");
+      expect(parseFloat(screen.getByTestId("comparison-bar-cabula").style.width)).toBeCloseTo(40, 1);
+
+      // 4. Seleciona Cabula e aplica Mandato 2025-2028 + Órgão SEINFRA -> Cabula cai para 0 obras, MAS permanece selecionado e atualizado!
+      fireEvent.click(screen.getByTestId("comparison-select-cabula"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Cabula");
+      });
+      fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2025-2028" } });
+      fireEvent.change(screen.getByTestId("filtro-orgao"), { target: { value: "SEINFRA" } });
+
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Cabula");
+        expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 0");
+      });
+      expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("0,55");
+
+      // Combina busca territorial durante filtro ativo sem alterar escala ou valores
+      fireEvent.change(screen.getByTestId("busca-territorio"), { target: { value: "Cabula" } });
+      expect(screen.getByTestId("comparison-row-cabula")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-vuln-cabula")).toHaveTextContent("0,55");
+      fireEvent.click(screen.getByTestId("btn-limpar-busca-territorio"));
+
+      // Ao limpar seleção de Cabula, Pituba (1 obra SEINFRA) segue com R$ 200/hab e contador mostra 1 de 4
+      fireEvent.click(screen.getByTestId("btn-limpar-filtro-territorial"));
+      expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 1 de 4 obras");
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent("R$ 200 / hab");
+
+      // Navegação da câmera no mapa não acrescenta filtros nem altera valores
+      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+      const mapEl = screen.getByTestId("leaflet-map-container");
+      fireEvent.mouseDown(mapEl);
+      fireEvent.mouseMove(mapEl);
+      fireEvent.mouseUp(mapEl);
+      scrollToSpy.mockRestore();
+      expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 1 de 4 obras");
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent("R$ 200 / hab");
+
+      // 5. Filtro sem contratos (SEINFRA + Tema Educação e Escolas = 0 obras):
+      //    Exibe explicação e recuperação; todos os territórios seguem visíveis com R$ 0 (e isentos intactos)
+      fireEvent.change(screen.getByTestId("filtro-tema"), { target: { value: "Educação e Escolas" } });
+      await waitFor(() => {
+        expect(screen.getByTestId("aviso-filtros-sem-contratos")).toBeVisible();
+      });
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent(/R\$\s*0\s*\/\s*hab/);
+      expect(screen.getByTestId("comparison-valor-comercio")).toHaveTextContent("Isento per capita");
+      expect(screen.getByTestId("comparison-vuln-aeroporto")).toHaveTextContent("Vulnerabilidade: Isento");
+
+      // Recupera pelo botão do aviso de filtros sem contratos -> restaura os 4 contratos preservando Bairros Oficiais
+      fireEvent.click(screen.getByTestId("btn-recuperar-filtros-vazios"));
+      await waitFor(() => {
+        expect(screen.queryByTestId("aviso-filtros-sem-contratos")).not.toBeInTheDocument();
+      });
+      expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 4 de 4 obras");
+      expect(screen.getByTestId("btn-recorte-bairros")).toHaveAttribute("aria-pressed", "true");
+
+      // Limpar tudo via btn-limpar-filtros quando restrição ativa (ex: mandato) restaura estado padrão
+      fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2021-2024" } });
+      fireEvent.click(screen.getByTestId("btn-limpar-filtros"));
+      await waitFor(() => {
+        expect(screen.getByTestId("btn-metrica-executado")).toHaveAttribute("aria-pressed", "true");
+        expect((screen.getByTestId("filtro-mandato") as HTMLSelectElement).value).toBe("todos");
+        expect(screen.getByTestId("chip-vocacao-equipamentos")).toHaveAttribute("aria-pressed", "true");
+      });
+
+      mapSpy.mockRestore();
+    });
+  });
 });

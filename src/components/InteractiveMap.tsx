@@ -104,6 +104,7 @@ interface InteractiveMapProps {
   onSelectTerritory: (territorio: TerritorySelection) => void;
   onSelectObra?: (obra: ObraCompacta) => void;
   metricType?: MetricType;
+  territorySearch?: string;
   onOpenNotaMetodologica?: () => void;
 }
 
@@ -219,6 +220,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   onSelectTerritory,
   onSelectObra,
   metricType = "vigente",
+  territorySearch = "",
   onOpenNotaMetodologica,
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -232,7 +234,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
   const [showPins, setShowPins] = useState<boolean>(false);
-  const [territorySearch, setTerritorySearch] = useState<string>("");
+  const normalizedSearch = normalizeName(territorySearch);
+  const hasSearch = normalizedSearch.length > 0;
 
   const mapPinEntries = useMemo(
     () => buildMapPinEntries(obras, selectedTerritory),
@@ -398,6 +401,20 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     prevLayerRef.current = activeLayer;
     prevSelectedRef.current = selectedTerritory;
 
+    const isFeatureSearchMatch = (
+      lookupKey: string,
+      dynamicBairro?: BairroResumo,
+      dynamicPrefeitura?: PrefeituraBairroResumo
+    ): boolean => {
+      if (!hasSearch) return false;
+      return (
+        lookupKey.includes(normalizedSearch) ||
+        (dynamicBairro !== undefined && normalizeName(dynamicBairro.nome).includes(normalizedSearch)) ||
+        (dynamicPrefeitura !== undefined &&
+          normalizeName(dynamicPrefeitura.nome).includes(normalizedSearch))
+      );
+    };
+
     try {
       const layer = L.geoJSON(geoData, {
         style: (feature) => {
@@ -412,6 +429,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             (normalizeName(selectedTerritory.nome) === lookupKey ||
               (dynamicBairro && normalizeName(selectedTerritory.nome) === normalizeName(dynamicBairro.nome)) ||
               (dynamicPrefeitura && normalizeName(selectedTerritory.nome) === normalizeName(dynamicPrefeitura.nome)));
+
+          const isSearchMatch = isFeatureSearchMatch(lookupKey, dynamicBairro, dynamicPrefeitura);
 
           const isZonaEspecial = dynamicBairro
             ? !!(dynamicBairro.is_zona_especial_nao_residencial || dynamicBairro.isZonaEspecialNaoResidencial)
@@ -477,17 +496,19 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           return {
             fillColor: isSelected ? "#10B981" : fillColor,
-            weight: isSelected ? 3.5 : 1.2,
-            opacity: 1,
+            weight: isSelected ? 3.5 : isSearchMatch ? 3.0 : 1.2,
+            opacity: isSelected || !hasSearch || isSearchMatch ? 1 : 0.45,
             color: isSelected
               ? "#064e3b"
-              : isExemptInCurrentLayer
-                ? "#d97706"
-                : isUnavailable
-                  ? "#64748b"
-                  : "#ffffff",
+              : isSearchMatch
+                ? "#0369a1"
+                : isExemptInCurrentLayer
+                  ? "#d97706"
+                  : isUnavailable
+                    ? "#64748b"
+                    : "#ffffff",
             dashArray: !isSelected && isUnavailable ? "4 3" : undefined,
-            fillOpacity: isSelected ? 0.78 : 0.65,
+            fillOpacity: isSelected ? 0.8 : hasSearch ? (isSearchMatch ? 0.78 : 0.2) : 0.65,
           };
         },
         onEachFeature: (feature, layerItem) => {
@@ -558,24 +579,36 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       } catch { }
       geoJsonLayerRef.current = layer;
 
-      if (selectedTerritory) {
-        const selectedKey = normalizeName(selectedTerritory.nome);
+      if (hasSearch || selectedTerritory) {
+        const selectedKey = selectedTerritory ? normalizeName(selectedTerritory.nome) : null;
         let foundBounds: L.LatLngBounds | null = null;
-        layer.eachLayer((l: any) => {
-          const p = l.feature?.properties || {};
-          const itemNome = p.nome || p.NM_BAIRRO || p.NM_PREFEITURA_BAIRRO || "";
-          if (normalizeName(itemNome) === selectedKey) {
+        layer.eachLayer((featureLayer: any) => {
+          const featureProps = featureLayer.feature?.properties || {};
+          const itemNome =
+            featureProps.nome || featureProps.NM_BAIRRO || featureProps.NM_PREFEITURA_BAIRRO || "";
+          const lookupKey = normalizeName(itemNome);
+          const dynamicBairro = activeLayer === "bairros" ? currentBairroMap.get(lookupKey) : undefined;
+          const dynamicPrefeitura =
+            activeLayer === "prefeituras" ? currentPrefeituraMap.get(lookupKey) : undefined;
+
+          if (isFeatureSearchMatch(lookupKey, dynamicBairro, dynamicPrefeitura)) {
             try {
-              l.bringToFront?.();
+              featureLayer.bringToFront?.();
             } catch { }
-            if ((selectionChanged || layerChanged) && typeof l.getBounds === "function") {
+          }
+
+          if (selectedKey && lookupKey === selectedKey) {
+            try {
+              featureLayer.bringToFront?.();
+            } catch { }
+            if ((selectionChanged || layerChanged) && typeof featureLayer.getBounds === "function") {
               try {
-                const b = l.getBounds();
-                if (b && (b as L.LatLngBounds).isValid()) {
+                const bounds = featureLayer.getBounds();
+                if (bounds && (bounds as L.LatLngBounds).isValid()) {
                   if (!foundBounds) {
-                    foundBounds = b;
+                    foundBounds = bounds;
                   } else {
-                    foundBounds.extend(b);
+                    foundBounds.extend(bounds);
                   }
                 }
               } catch { }
@@ -583,7 +616,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           }
         });
 
-        if (selectionChanged || layerChanged) {
+        if (selectedTerritory && (selectionChanged || layerChanged)) {
           if (foundBounds && (foundBounds as L.LatLngBounds).isValid()) {
             try {
               map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
@@ -609,6 +642,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     onSelectTerritory,
     currentBairroMap,
     currentPrefeituraMap,
+    hasSearch,
+    normalizedSearch,
   ]);
 
   // Renderização dos Pinos de Obras Públicas com dispersão determinística anti-sobreposição
@@ -728,10 +763,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     });
 
     const baseList = [...sortedResidenciais, ...sortedEspeciais];
-    if (!territorySearch.trim()) return baseList;
-    const q = territorySearch.toLowerCase();
-    return baseList.filter((b) => b.nome.toLowerCase().includes(q));
-  }, [bairros, choroplethMetric, metricType, territorySearch]);
+    if (!hasSearch) return baseList;
+    return baseList.filter((b) => normalizeName(b.nome).includes(normalizedSearch));
+  }, [bairros, choroplethMetric, metricType, hasSearch, normalizedSearch]);
 
   const filteredPrefeiturasButtons = useMemo(() => {
     const sortedPrefeituras = sortTerritoriesByChoropleth(
@@ -740,10 +774,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       metricType,
       "prefeitura_bairro"
     );
-    if (!territorySearch.trim()) return sortedPrefeituras;
-    const q = territorySearch.toLowerCase();
-    return sortedPrefeituras.filter((pb) => pb.nome.toLowerCase().includes(q));
-  }, [prefeituras, choroplethMetric, metricType, territorySearch]);
+    if (!hasSearch) return sortedPrefeituras;
+    return sortedPrefeituras.filter((pb) => normalizeName(pb.nome).includes(normalizedSearch));
+  }, [prefeituras, choroplethMetric, metricType, hasSearch, normalizedSearch]);
 
   const [b0, b1, b2, b3] = breaksInvestimento;
   const formatLegendaBreak = (v: number) =>
@@ -979,26 +1012,38 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         </div>
         </div>
 
-        {/* Seletor Rápido de Territórios com Busca Textual para o Raio-X */}
+        {/* Seletor Rápido de Territórios sincronizado com a busca territorial */}
           <div className="w-full min-w-0 overflow-hidden bg-white border-t border-slate-200 px-3 py-2 z-10 shrink-0">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                   {activeLayer === "bairros" ? "Bairros no Mapa:" : "Prefeituras-Bairro:"}
                 </span>
-                <input
-                  type="text"
-                  data-testid="busca-bairro-mapa"
-                  value={territorySearch}
-                  onChange={(e) => setTerritorySearch(e.target.value)}
-                  placeholder="Buscar para abrir o Raio-X..."
-                  className="px-2 py-0.5 text-xs bg-slate-50 border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                />
+                {hasSearch && (
+                  <span
+                    data-testid="mapa-destaque-busca"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-sky-50 text-sky-900 border border-sky-200"
+                  >
+                    {(() => {
+                      const matches =
+                        activeLayer === "bairros"
+                          ? filteredBairrosButtons
+                          : filteredPrefeiturasButtons;
+                      if (matches.length === 0) {
+                        return `Nenhuma correspondência no mapa para "${territorySearch.trim()}"`;
+                      }
+                      if (matches.length === 1) {
+                        return `1 correspondência destacada: ${matches[0].nome}`;
+                      }
+                      return `${matches.length} correspondências destacadas no mapa`;
+                    })()}
+                  </span>
+                )}
               </div>
               <span className="text-xs text-slate-400">
                 {activeLayer === "bairros"
                   ? `${filteredBairrosButtons.length} de ${bairros.length} bairros`
-                  : `${filteredPrefeiturasButtons.length} prefeituras`}
+                  : `${filteredPrefeiturasButtons.length} de ${prefeituras.length} Prefeituras-Bairro`}
               </span>
             </div>
             <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-thin">

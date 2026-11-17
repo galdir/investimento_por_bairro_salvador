@@ -9,6 +9,7 @@ import {
 } from "../types";
 import { formatCurrency, formatNumber, formatDate } from "../utils/formatters";
 import { getObraTerritoryShare, hasNumericPayment } from "../utils/territory";
+import { SearchInput } from "./SearchInput";
 
 interface WorksTableProps {
   /**
@@ -27,6 +28,22 @@ interface WorksTableProps {
    * Callback opcional ao clicar em uma obra para inspecionar detalhes.
    */
   onSelectObra?: (obra: ObraCompacta) => void;
+  /**
+   * Termo de busca por objeto da obra, Empreiteira ou CNPJ.
+   */
+  busca?: string;
+  /**
+   * Callback para atualizar o termo de busca de obras.
+   */
+  onBuscaChange?: (busca: string) => void;
+  /**
+   * Indica se há filtros de contrato ativos além da busca, permitindo recuperação in-place quando vazio.
+   */
+  hasActiveContractFilters?: boolean;
+  /**
+   * Callback para limpar os filtros de contrato mantendo nível e métrica.
+   */
+  onClearContractFilters?: () => void;
 }
 
 type SortField =
@@ -117,6 +134,10 @@ export const WorksTable: React.FC<WorksTableProps> = ({
   metricType,
   selectedTerritory = null,
   onSelectObra,
+  busca = "",
+  onBuscaChange,
+  hasActiveContractFilters = false,
+  onClearContractFilters,
 }) => {
   const [sortField, setSortField] = useState<SortField>("valorContratualVigente");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
@@ -210,21 +231,74 @@ export const WorksTable: React.FC<WorksTableProps> = ({
     );
   };
 
+  const renderBuscaObrasControl = () =>
+    onBuscaChange ? (
+      <SearchInput
+        id="filtro-busca-obras-input"
+        label="Buscar obra por objeto, Empreiteira ou CNPJ"
+        testId="filtro-busca"
+        clearTestId="btn-limpar-busca-obras"
+        clearAriaLabel="Limpar busca de obras"
+        value={busca}
+        onChange={(val) => {
+          onBuscaChange(val);
+          setCurrentPage(1);
+        }}
+        onClear={() => {
+          onBuscaChange("");
+          setCurrentPage(1);
+        }}
+        placeholder="Buscar por objeto da obra, palavra-chave, Empreiteira ou CNPJ..."
+        className="flex-1 min-w-[220px] max-w-md"
+      />
+    ) : null;
+
   if (obras.length === 0) {
     return (
       <div
         data-testid="tabela-obras-vazia"
-        className="bg-white rounded-xl border border-slate-200 p-8 text-center my-4"
+        className="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 text-center my-4 space-y-3"
       >
-        <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-3">
+        {onBuscaChange && (
+          <div className="flex justify-center text-left">{renderBuscaObrasControl()}</div>
+        )}
+        <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         </div>
         <h4 className="text-sm font-bold text-slate-800">Nenhuma obra encontrada</h4>
-        <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+        <p className="text-xs text-slate-500 max-w-sm mx-auto">
           Nenhum contrato corresponde aos critérios e filtros selecionados. Tente alterar o órgão, tema, semáforo ou termo de busca.
         </p>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {onBuscaChange && busca.trim().length > 0 && (
+            <button
+              type="button"
+              data-testid="btn-recuperar-busca-obras-vazia"
+              onClick={() => {
+                onBuscaChange("");
+                setCurrentPage(1);
+              }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition-colors"
+            >
+              Limpar busca de obras
+            </button>
+          )}
+          {hasActiveContractFilters && onClearContractFilters && (
+            <button
+              type="button"
+              data-testid="btn-recuperar-filtros-tabela-vazia"
+              onClick={() => {
+                onClearContractFilters();
+                setCurrentPage(1);
+              }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-800 hover:bg-slate-100 transition-colors"
+            >
+              Limpar filtros de contratos
+            </button>
+          )}
+        </div>
       </div>
     );
   }
@@ -232,8 +306,8 @@ export const WorksTable: React.FC<WorksTableProps> = ({
   return (
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
       {/* Cabeçalho de Controle da Tabela */}
-      <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <div className="flex items-center gap-2">
+      <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2.5">
+        <div className="flex flex-wrap items-center gap-2">
           <h3 className="text-sm font-bold text-slate-800">
             Tabela Detalhada de Obras Públicas
           </h3>
@@ -242,22 +316,26 @@ export const WorksTable: React.FC<WorksTableProps> = ({
           </span>
         </div>
 
-        {/* Seletor de Itens por Página */}
-        <div className="flex items-center gap-2 text-xs text-slate-600">
-          <span>Exibir:</span>
-          <select
-            value={pageSize}
-            onChange={(e) => {
-              setPageSize(Number(e.target.value));
-              setCurrentPage(1);
-            }}
-            className="text-xs bg-white border border-slate-300 rounded px-2 py-1 font-medium text-slate-700 focus:outline-none"
-          >
-            <option value={5}>5 por página</option>
-            <option value={10}>10 por página</option>
-            <option value={25}>25 por página</option>
-            <option value={50}>50 por página</option>
-          </select>
+        <div className="flex flex-wrap items-center gap-2.5">
+          {renderBuscaObrasControl()}
+
+          {/* Seletor de Itens por Página */}
+          <div className="flex items-center gap-2 text-xs text-slate-600">
+            <span>Exibir:</span>
+            <select
+              value={pageSize}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value));
+                setCurrentPage(1);
+              }}
+              className="text-xs bg-white border border-slate-300 rounded px-2 py-1 font-medium text-slate-700 focus:outline-none"
+            >
+              <option value={5}>5 por página</option>
+              <option value={10}>10 por página</option>
+              <option value={25}>25 por página</option>
+              <option value={50}>50 por página</option>
+            </select>
+          </div>
         </div>
       </div>
 

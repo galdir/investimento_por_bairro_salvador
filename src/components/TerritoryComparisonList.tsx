@@ -18,6 +18,7 @@ import {
 } from "../utils/territory";
 import { normalizeTestId } from "./InteractiveMap";
 import { MonetaryValue } from "./MonetaryValue";
+import { SearchInput } from "./SearchInput";
 
 function renderTotalSummary(
   totalTerritorial: number | undefined,
@@ -60,6 +61,10 @@ interface TerritoryComparisonListProps {
   metricType: MetricType;
   sortDirection: VulnerabilitySortDirection;
   onToggleSortDirection: () => void;
+  territorySearch?: string;
+  onTerritorySearchChange?: (query: string) => void;
+  hasEmptyContractFilter?: boolean;
+  onClearContractFilters?: () => void;
   selectedTerritory: TerritorySelection | null;
   onSelectTerritory: (territorio: TerritorySelection) => void;
   onOpenNotaMetodologica?: () => void;
@@ -284,6 +289,10 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
   metricType,
   sortDirection,
   onToggleSortDirection,
+  territorySearch = "",
+  onTerritorySearchChange,
+  hasEmptyContractFilter = false,
+  onClearContractFilters,
   selectedTerritory,
   onSelectTerritory,
   onOpenNotaMetodologica,
@@ -340,6 +349,30 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
     return max > 0 ? max : 1;
   }, [activeLayer, prefeituras, bairros, metricType]);
 
+  // Busca territorial preserva ranking original, valores e escala comum das barras
+  const normalizedSearch = normalizeName(territorySearch);
+  const hasTerritorySearch = normalizedSearch.length > 0;
+
+  const { filteredOrderedItems, filteredMissingVulnItems, filteredExemptItems } = useMemo(() => {
+    const withRank = orderedItems.map((item, idx) => ({ item, rankNumber: idx + 1 }));
+    if (!hasTerritorySearch) {
+      return {
+        filteredOrderedItems: withRank,
+        filteredMissingVulnItems: missingVulnItems,
+        filteredExemptItems: exemptItems,
+      };
+    }
+    const matchesSearch = (nome: string) => normalizeName(nome).includes(normalizedSearch);
+    return {
+      filteredOrderedItems: withRank.filter(({ item }) => matchesSearch(item.nome)),
+      filteredMissingVulnItems: missingVulnItems.filter((item) => matchesSearch(item.nome)),
+      filteredExemptItems: exemptItems.filter((item) => matchesSearch(item.nome)),
+    };
+  }, [orderedItems, missingVulnItems, exemptItems, hasTerritorySearch, normalizedSearch]);
+
+  const totalMatchesCount =
+    filteredOrderedItems.length + filteredMissingVulnItems.length + filteredExemptItems.length;
+
   // Localiza automaticamente a linha correspondente quando o território é selecionado no mapa
   useEffect(() => {
     if (!selectedTerritory) return;
@@ -388,6 +421,27 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
           )}
         </div>
 
+        {/* Busca territorial pelo nome (não altera valores nem escalas) */}
+        <div className="flex flex-col gap-1">
+          <SearchInput
+            id="busca-territorio-input"
+            label="Buscar território pelo nome"
+            testId="busca-territorio"
+            clearTestId="btn-limpar-busca-territorio"
+            clearAriaLabel="Limpar busca territorial"
+            value={territorySearch}
+            onChange={(val) => onTerritorySearchChange?.(val)}
+            placeholder={
+              activeLayer === "prefeituras"
+                ? "Buscar Prefeitura-Bairro pelo nome..."
+                : "Buscar Bairro Oficial pelo nome..."
+            }
+          />
+          <p className="text-[11px] text-slate-500 leading-tight">
+            Localiza pelo nome sem alterar valores ou escalas; busca por objeto ou Empreiteira fica na Tabela de Obras.
+          </p>
+        </div>
+
         <div className="flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
@@ -409,6 +463,9 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
             {(() => {
               const totalCount = activeLayer === "prefeituras" ? prefeituras.length : bairros.length;
               const label = activeLayer === "prefeituras" ? "Prefeituras-Bairro" : "Bairros Oficiais";
+              if (hasTerritorySearch) {
+                return `${totalMatchesCount} de ${totalCount} ${label}`;
+              }
               const suffix =
                 orderedItems.length < totalCount ? ` (${orderedItems.length} comparados)` : "";
               return `${totalCount} ${label}${suffix}`;
@@ -419,37 +476,60 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
 
       {/* Lista rolável dos territórios */}
       <div className="flex-1 overflow-y-auto p-3 space-y-2">
-        <ul data-testid="comparison-list-items" className="space-y-2">
-          {orderedItems.map((item, idx) => (
-            <ComparisonTerritoryRow
-              key={item.id ?? item.nome}
-              item={item}
-              isPrefeitura={activeLayer === "prefeituras"}
-              rankNumber={idx + 1}
-              metricType={metricType}
-              maxPerCapita={maxPerCapita}
-              selectedTerritory={selectedTerritory}
-              onSelectTerritory={onSelectTerritory}
-              rowRef={setRowRef(item.nome)}
-            />
-          ))}
-        </ul>
-
-        {/* Territórios com Índice de Vulnerabilidade indisponível (fora do ordenamento numérico) */}
-        {missingVulnItems.length > 0 && (
+        {hasEmptyContractFilter && (
           <div
-            data-testid="comparison-missing-vuln-section"
-            className="pt-3 mt-3 border-t border-slate-200 space-y-2"
+            data-testid="aviso-filtros-sem-contratos"
+            className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-950 space-y-2"
           >
-            <h3 className="text-xs font-bold text-slate-700">
-              Dado de vulnerabilidade indisponível (fora do ordenamento numérico)
+            <p className="leading-relaxed">
+              <strong>Nenhum contrato corresponde aos filtros selecionados.</strong> Todos os territórios
+              permanecem visíveis com alocação observada de <strong>R$ 0</strong> (zero obras no recorte),
+              sem alterar população, vulnerabilidade censitária ou isenções.
+            </p>
+            {onClearContractFilters && (
+              <button
+                type="button"
+                data-testid="btn-recuperar-filtros-vazios"
+                onClick={onClearContractFilters}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-900 text-white hover:bg-amber-950 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
+              >
+                Limpar filtros de contratos
+              </button>
+            )}
+          </div>
+        )}
+
+        {hasTerritorySearch && totalMatchesCount === 0 ? (
+          <div
+            data-testid="busca-territorio-vazia"
+            className="rounded-xl border border-slate-200 bg-slate-50 p-5 text-center space-y-2"
+          >
+            <h3 className="text-sm font-bold text-slate-800">
+              Nenhum território encontrado para &ldquo;{territorySearch.trim()}&rdquo;
             </h3>
-            <ul className="space-y-2">
-              {missingVulnItems.map((item) => (
+            <p className="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
+              A busca territorial procura apenas nomes de{" "}
+              {activeLayer === "prefeituras" ? "Prefeituras-Bairro" : "Bairros Oficiais"}. Para pesquisar
+              por objeto do contrato ou Empreiteira, consulte a <strong>Tabela de Obras</strong>.
+            </p>
+            <button
+              type="button"
+              data-testid="btn-limpar-busca-territorio-vazia"
+              onClick={() => onTerritorySearchChange?.("")}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            >
+              Limpar busca territorial
+            </button>
+          </div>
+        ) : (
+          <>
+            <ul data-testid="comparison-list-items" className="space-y-2">
+              {filteredOrderedItems.map(({ item, rankNumber }) => (
                 <ComparisonTerritoryRow
                   key={item.id ?? item.nome}
                   item={item}
                   isPrefeitura={activeLayer === "prefeituras"}
+                  rankNumber={rankNumber}
                   metricType={metricType}
                   maxPerCapita={maxPerCapita}
                   selectedTerritory={selectedTerritory}
@@ -458,20 +538,44 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
                 />
               ))}
             </ul>
-          </div>
-        )}
 
-        {/* Zonas Especiais Não-Residenciais (fora do ranking numérico de vulnerabilidade/per capita) */}
-        {activeLayer === "bairros" && exemptItems.length > 0 && (
-          <div
-            data-testid="comparison-exempt-section"
-            className="pt-3 mt-3 border-t border-slate-200 space-y-2"
-          >
-            <h3 className="text-xs font-bold text-slate-700">
-              Zonas Especiais Não-Residenciais (isentas de índice e cálculo per capita)
-            </h3>
-            <ul className="space-y-2">
-              {exemptItems.map((b) => {
+            {/* Territórios com Índice de Vulnerabilidade indisponível (fora do ordenamento numérico) */}
+            {filteredMissingVulnItems.length > 0 && (
+              <div
+                data-testid="comparison-missing-vuln-section"
+                className="pt-3 mt-3 border-t border-slate-200 space-y-2"
+              >
+                <h3 className="text-xs font-bold text-slate-700">
+                  Dado de vulnerabilidade indisponível (fora do ordenamento numérico)
+                </h3>
+                <ul className="space-y-2">
+                  {filteredMissingVulnItems.map((item) => (
+                    <ComparisonTerritoryRow
+                      key={item.id ?? item.nome}
+                      item={item}
+                      isPrefeitura={activeLayer === "prefeituras"}
+                      metricType={metricType}
+                      maxPerCapita={maxPerCapita}
+                      selectedTerritory={selectedTerritory}
+                      onSelectTerritory={onSelectTerritory}
+                      rowRef={setRowRef(item.nome)}
+                    />
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Zonas Especiais Não-Residenciais (fora do ranking numérico de vulnerabilidade/per capita) */}
+            {activeLayer === "bairros" && filteredExemptItems.length > 0 && (
+              <div
+                data-testid="comparison-exempt-section"
+                className="pt-3 mt-3 border-t border-slate-200 space-y-2"
+              >
+                <h3 className="text-xs font-bold text-slate-700">
+                  Zonas Especiais Não-Residenciais (isentas de índice e cálculo per capita)
+                </h3>
+                <ul className="space-y-2">
+                  {filteredExemptItems.map((b) => {
                 const testSlug = normalizeTestId(b.nome);
                 const isSelected =
                   selectedTerritory?.tipo === "bairro" &&
@@ -542,6 +646,8 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
               })}
             </ul>
           </div>
+        )}
+          </>
         )}
       </div>
     </section>
