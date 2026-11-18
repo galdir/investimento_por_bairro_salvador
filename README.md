@@ -240,7 +240,7 @@ ENABLE_NOMINATIM=1 python -m etl.main --output-dir public/data --year 2025
 $env:ENABLE_NOMINATIM="1"; python -m etl.main --output-dir public/data --year 2025
 ```
 
-O pipeline preserva a versão publicada quando uma fonte consultada falha ou uma validação não passa. A coleta histórica conciliada de pagamentos ainda depende do ticket 02: enquanto ela não estiver implementada e ensaiada, a execução com obras termina sem publicar. Testes podem fornecer uma consulta simulada pelo argumento `consulta_pagamentos` de `run_pipeline`.
+O pipeline preserva a versão publicada quando uma fonte consultada falha ou uma validação não passa. A coleta de pagamentos usa a janela mais antiga em que o grid encontrou o contrato, concilia a exportação com a primeira página antes e depois e aplica a data de referência localmente. O [ADR 0007](docs/adr/0007-coleta-e-publicacao-de-pagamentos.md) descreve o critério de aceite e o risco residual. As requisições ao Portal respeitam uma pausa de dois segundos após cada resposta. Testes podem fornecer uma consulta simulada pelo argumento `consulta_pagamentos` de `run_pipeline`.
 
 ---
 

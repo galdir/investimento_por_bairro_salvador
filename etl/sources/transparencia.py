@@ -6,6 +6,8 @@ incluindo totalizadores globais e a listagem detalhada de contratos.
 
 import json
 import ssl
+import threading
+import time
 import urllib.error
 import urllib.request
 from typing import Any, Final
@@ -13,6 +15,9 @@ from typing import Any, Final
 from etl.config import TRANSPARENCIA_API_BASE
 
 PAGE_SIZE_TRANSPARENCIA: Final[int] = 10
+_INTERVALO_REQUISICOES: Final[float] = 2.0
+_lock_requisicoes = threading.Lock()
+_fim_ultima_requisicao: float | None = None
 
 
 def _validar_paginacao(paginacao: Any, pagina: int, quantidade: int, anterior: tuple[int, int, int] | None, origem: str) -> tuple[int, int, int]:
@@ -61,7 +66,7 @@ def _criar_payload_filtro_ano(year: int) -> dict[str, Any]:
     }
 
 
-def _post_transparencia(endpoint: str, payload: dict[str, Any], timeout: int = 15) -> dict[str, Any]:
+def _post_transparencia(endpoint: str, payload: dict[str, Any], timeout: int = 15, max_bytes: int | None = None) -> Any:
     """Envia uma requisição POST JSON para a API da Transparência de Salvador.
 
     Sumário:
@@ -102,9 +107,27 @@ def _post_transparencia(endpoint: str, payload: dict[str, Any], timeout: int = 1
         method="POST",
     )
 
-    with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
-        body = resp.read().decode("utf-8", errors="replace")
-        return json.loads(body) if body else {}
+    global _fim_ultima_requisicao
+    with _lock_requisicoes:
+        if _fim_ultima_requisicao is not None:
+            espera = _INTERVALO_REQUISICOES - (time.monotonic() - _fim_ultima_requisicao)
+            if espera > 0:
+                time.sleep(espera)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+                if max_bytes is None:
+                    body_bytes = resp.read()
+                else:
+                    body_bytes = resp.read(max_bytes + 1)
+                    if len(body_bytes) > max_bytes:
+                        raise ValueError("Limite de tamanho da resposta atingido")
+                    tamanho = resp.headers.get("Content-Length")
+                    if tamanho is not None and tamanho != str(len(body_bytes)):
+                        raise ValueError("Tamanho da resposta divergente")
+                body = body_bytes.decode("utf-8")
+                return json.loads(body) if body else {}
+        finally:
+            _fim_ultima_requisicao = time.monotonic()
 
 
 def fetch_totalizador(year: int = 2025) -> dict[str, Any]:

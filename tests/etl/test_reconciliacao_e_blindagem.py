@@ -546,8 +546,8 @@ def test_run_pipeline_nao_reusa_acervo_sem_versao_validada(
     idx_final = json.loads((versao / "index_2025.json").read_text(encoding="utf-8"))
     obras_map = {o["numeroContrato"]: o for o in idx_final["obras"]}
     assert obras_map["001/2024"]["id"] == "volatile-uuid-999"
-    assert obras_map["001/2024"]["valorPago"] is None
-    assert obras_map["002/2025"]["valorPago"] is None
+    assert obras_map["001/2024"]["valorPago"] == 0
+    assert obras_map["002/2025"]["valorPago"] == 0
     assert (obras_dir / f"{id_persistido}.json").exists()
 
 
@@ -672,7 +672,7 @@ def test_run_pipeline_full_refresh_ignora_acervo_nao_validado_e_sincroniza_alias
     assert len(idx_final["obras"]) == 1
     assert idx_final["obras"][0]["id"] != id_estavel
     assert set(idx_final["obras"][0]["mandatos"]) == {"2021-2024", "2025-2028"}
-    assert idx_final["obras"][0]["valorPago"] is None
+    assert idx_final["obras"][0]["valorPago"] == 0
 
 
 def test_deduplicar_e_coletar_nao_colidem_ugs_distintas_com_mesma_sigla() -> None:

@@ -65,7 +65,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/geocoding_cache.json public/data/geo/ public/data/obras/ public/data/index_*.json public/data/index.json
+          git add public/data/atual.json public/data/versoes/
           if git diff --staged --quiet; then
             echo "Nenhuma alteração detectada nos artefatos estáticos ou no cache incremental."
           else

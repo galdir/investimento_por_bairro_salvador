@@ -26,4 +26,4 @@ def portal_simulado(monkeypatch):
         return {"dados": dados, "paginacao": {"paginaAtual": 1, "paginas": 1, "total": len(dados), "totalPagina": len(dados), "tamanho": 10}}
 
     monkeypatch.setattr("etl.sources.transparencia._post_transparencia", consultar)
-    monkeypatch.setattr("etl.runner.coletar_pagamentos", lambda ug, contrato, referencia: ConsultaPagamentos([], referencia, True, True))
+    monkeypatch.setattr("etl.runner.coletar_pagamentos", lambda ug, contrato, referencia, janelas: ConsultaPagamentos([], referencia, True, True))

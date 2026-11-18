@@ -33,6 +33,7 @@ from etl.domain.mandato import (
     MANDATOS_MUNICIPAIS,
     cds_ug_compativeis,
     deduplicar_obras,
+    obter_chave_canonica_obra,
     normalizar_data_chave,
     obter_chaves_candidatas_obra,
     resolver_datas_vigencia,
@@ -155,7 +156,7 @@ def _preparar_e_publicar(
                 stage_cache = stage / "geocoding_cache.json"
 
         anterior_valida = anterior is not None
-        resultado = _executar_pipeline(stage, year, stage_cache, mandatos, full_refresh, anterior_valida, referencia, consulta_pagamentos or coletar_pagamentos)
+        resultado = _executar_pipeline(stage, year, stage_cache, mandatos, full_refresh, anterior_valida, referencia, consulta_pagamentos)
         metadados = finalizar_versao(stage, year, resultado["inicio_consultas"], resultado["fim_consultas"], referencia, resultado["limitacoes_conhecidas"], resultado["total_obras"], stage_cache)
         versao = metadados["versaoDados"]
         ponteiro = temp_path / "atual.json"
@@ -309,7 +310,9 @@ def _executar_pipeline(
                 for chave_cand in obter_chaves_candidatas_obra(o_exist):
                     persisted_refs_by_key.setdefault(chave_cand, []).append(o_exist)
 
-            if not full_refresh:
+            # Versões anteriores a esta coleta não registravam a procedência do grid.
+            # Nesse caso, reconsultar os mandatos para recuperá-la antes do reuso.
+            if not full_refresh and all(o.get("janelasGrid") for o in existing_obras):
                 for m in mandatos_lista:
                     info = MANDATOS_MUNICIPAIS.get(m)
                     if info and info["fim"] < year:
@@ -354,16 +357,25 @@ def _executar_pipeline(
                 year=year,
                 payload_customizado=payload,
             )
-            raw_grid.extend(itens_mandato)
+            janela = {"dataInicio": payload["dataInicio"], "dataFim": payload["dataFim"]}
+            raw_grid.extend({**item, "janelasGrid": [janela]} for item in itens_mandato)
         else:
             raw_grid.extend(consultar(transparencia.fetch_grid_detalhada, year=year))
 
     if not raw_grid and not closed_mandates_reused:
-        raw_grid = consultar(transparencia.fetch_grid_detalhada, year=year)
+        janela = {"dataInicio": f"{year}-01-01T03:00:00.000Z", "dataFim": f"{year}-12-31T03:00:00.000Z"}
+        raw_grid = [{**item, "janelasGrid": [janela]} for item in consultar(transparencia.fetch_grid_detalhada, year=year)]
 
     # Deduplicação canônica por (cdUnidadeGestora, nuContratoSigef) e estabilização de IDs
+    janelas_por_chave: dict[tuple[str, str], list[dict[str, str]]] = {}
+    for item in ([*existing_obras, *raw_grid] if not full_refresh else raw_grid):
+        janelas = janelas_por_chave.setdefault(obter_chave_canonica_obra(item), [])
+        for janela in item.get("janelasGrid", []):
+            if janela not in janelas:
+                janelas.append(janela)
     grid_obras = deduplicar_obras(raw_grid)
     for obra in grid_obras:
+        obra["janelasGrid"] = janelas_por_chave.get(obter_chave_canonica_obra(obra), [])
         id_estabilizado = False
         for chave_cand in obter_chaves_candidatas_obra(obra):
             for ref in persisted_refs_by_key.get(chave_cand, []):
@@ -482,7 +494,10 @@ def _executar_pipeline(
         nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
         obra_id = obra.get("id")
 
-        resultado_pagamentos = consultar(consulta_pagamentos, cd_ug, nu_sigef, referencia_pagamentos)
+        if consulta_pagamentos is None:
+            resultado_pagamentos = consultar(coletar_pagamentos, cd_ug, nu_sigef, referencia_pagamentos, obra.get("janelasGrid"))
+        else:
+            resultado_pagamentos = consultar(consulta_pagamentos, cd_ug, nu_sigef, referencia_pagamentos)
         if (not isinstance(resultado_pagamentos, ConsultaPagamentos)
                 or resultado_pagamentos.concluida is not True or resultado_pagamentos.validada is not True
                 or resultado_pagamentos.data_referencia != referencia_pagamentos
@@ -495,6 +510,7 @@ def _executar_pipeline(
             raise ValueError(f"Limitações de pagamentos inválidas: {obra_id}")
         limitacoes_conhecidas.update(resultado_pagamentos.limitacoes_conhecidas)
         pagamentos_raw = resultado_pagamentos.registros
+        obra["janelaPagamentos"] = resultado_pagamentos.janela
 
         candidatas_locais = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
         ficha_disco = fichas_por_id.get(str(obra_id)) or (candidatas_locais[0] if candidatas_locais else None)
@@ -553,11 +569,13 @@ def _executar_pipeline(
             )
 
         ficha_obra["pagamentos"] = pagamentos_raw
+        ficha_obra["janelaPagamentos"] = resultado_pagamentos.janela
+        ficha_obra["consultaPagamentosConcluida"] = True
         valores = [p.get("pago", p.get("valorPago")) for p in pagamentos_raw]
         valores = [valor for valor in valores if valor is not None and valor != ""]
         valores_decimais = []
         for valor in valores:
-            texto = str(valor).strip()
+            texto = str(valor).strip().removeprefix("R$ ").strip()
             if "," in texto:
                 texto = texto.replace(".", "").replace(",", ".")
             try:
@@ -568,7 +586,7 @@ def _executar_pipeline(
                 raise ValueError(f"Valor de pagamento inválido: {obra_id}")
             valores_decimais.append(numero)
         ficha_obra.setdefault("funilFinanceiro", {})["valorPago"] = (
-            float(sum(valores_decimais)) if valores_decimais else None
+            float(sum(valores_decimais)) if valores_decimais else (0.0 if not pagamentos_raw else None)
         )
 
         frentes = resolver_frentes_medicao(

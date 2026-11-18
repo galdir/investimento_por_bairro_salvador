@@ -40,7 +40,7 @@ def parse_float(val: Any) -> float:
         return 0.0
     if isinstance(val, (int, float)):
         return float(val)
-    s = str(val).strip()
+    s = str(val).strip().removeprefix("R$ ").strip()
     if not s:
         return 0.0
     if "," in s:

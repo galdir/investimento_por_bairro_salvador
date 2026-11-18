@@ -860,6 +860,7 @@ def sincronizar_obra_com_ficha(obra: dict[str, Any], ficha: dict[str, Any]) -> N
     vl_pago_real = funil.get("valorPago")
     pagamento_indisponivel = vl_pago_real is None or (
         parse_float(vl_pago_real) == 0.0 and ficha.get("pagamentos") == []
+        and ficha.get("consultaPagamentosConcluida") is not True
     )
     valor_pago_indice = None if pagamento_indisponivel else round(parse_float(vl_pago_real), 2)
     if pagamento_indisponivel:

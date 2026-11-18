@@ -290,6 +290,8 @@ def generate_index_json(
             "cdUnidadeGestora": o.get("cdUnidadeGestora"),
             "unidadeGestora": o.get("sgOrgao") or o.get("dsUnidadeGestora") or o.get("unidadeGestora"),
             "nuContratoSigef": o.get("nuContratoSigef") or o.get("numeroContrato"),
+            "janelasGrid": o.get("janelasGrid", []),
+            "janelaPagamentos": o.get("janelaPagamentos"),
             "numeroContrato": o.get("nuContratoSigef") or o.get("numeroContrato"),
             "objeto": o.get("dsObjeto") or o.get("objeto"),
             "valorOriginal": vl_orig,
