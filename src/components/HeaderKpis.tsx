@@ -124,7 +124,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                 data-testid="header-atualizacao"
                 className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700"
               >
-                Atualizado em {dataAtualizacao}
+                Dados gerados em {dataAtualizacao}
               </span>
             )}
             <span className="hidden xl:inline text-slate-400">

@@ -26,7 +26,7 @@ O sistema adota uma **Arquitetura Estática Particionada** (documentada em `docs
 
 1. **Subsistema de Pipeline ETL (`etl/` — Python):**
    - Extrai dados da API do Portal da Transparência de Salvador, do servidor ArcGIS REST do GeoSalvador e da API SIDRA do Censo 2022 do IBGE.
-   - Executa o **Funil de Alocação Territorial em 3 Estágios** apoiado pelo **Cache Incremental** persistido no repositório (`public/data/geocoding_cache.json`).
+   - Executa o **Funil de Alocação Territorial em 3 Estágios** apoiado pelo cache da última versão validada.
    - Classifica cada contrato pelo **Semáforo da Obra**, **Tema da Obra** e **Nível de Alocação Territorial**, calcula a concentração por construtora e emite os artefatos estáticos particionados.
 2. **Subsistema do Painel Web (`src/` — React + TypeScript + Vite + Tailwind CSS + Leaflet):**
    - Single-Page Application (SPA) 100% estática compilada com caminho base `/investimento_por_bairro_salvador/` para o GitHub Pages.
@@ -36,14 +36,16 @@ O sistema adota uma **Arquitetura Estática Particionada** (documentada em `docs
 
 ```text
 public/data/
-├── geocoding_cache.json            # Cache Incremental de geocodificação (versionado no Git)
-├── index_2025.json                 # KPIs globais, resumos territoriais e lista compacta de obras
-├── geo/
-│   ├── bairros.geojson             # Malha de Bairros Oficiais (EPSG:4326) enriquecida com R$/hab
-│   └── prefeituras_bairro.geojson  # Malha de Prefeituras-Bairro (EPSG:4326) enriquecida
-└── obras/
-    └── <id>.json                   # Ficha Limpa da Obra carregada sob demanda (Funil, Aditivos, DOM, Dotação)
+├── atual.json                      # Referência ativada por uma única troca de arquivo
+└── versoes/<versão>/               # Conjunto imutável preparado e validado
+    ├── manifesto.json              # Versão, estado e hashes dos artefatos
+    ├── index_2025.json             # KPIs globais, resumos territoriais e obras
+    ├── geocoding_cache.json
+    ├── geo/                        # Malhas de bairros e prefeituras-bairro
+    └── obras/<id>.json              # Fichas carregadas sob demanda
 ```
+
+Enquanto não houver `atual.json`, o painel continua lendo o acervo legado na raiz de `public/data/`. Versões anteriores são mantidas para que um navegador já aberto continue carregando fichas compatíveis. As tentativas são registradas em `public/.data-tentativas.jsonl`, fora do conjunto publicado.
 
 ---
 
@@ -238,7 +240,7 @@ ENABLE_NOMINATIM=1 python -m etl.main --output-dir public/data --year 2025
 $env:ENABLE_NOMINATIM="1"; python -m etl.main --output-dir public/data --year 2025
 ```
 
-> **Nota sobre Resiliência Offline:** Caso a máquina local esteja sem acesso às APIs governamentais ou algum servidor externo apresente instabilidade, o pipeline recorre automaticamente às bases de referência consolidadas em `etl/reference/`, garantindo execução determinística.
+O pipeline preserva a versão publicada quando uma fonte consultada falha ou uma validação não passa. A coleta histórica conciliada de pagamentos ainda depende do ticket 02: enquanto ela não estiver implementada e ensaiada, a execução com obras termina sem publicar. Testes podem fornecer uma consulta simulada pelo argumento `consulta_pagamentos` de `run_pipeline`.
 
 ---
 
@@ -304,4 +306,4 @@ O repositório possui dois workflows configurados em `.github/workflows/`:
    - Executa toda a suíte `pytest` (ETL) e `vitest` (Painel Web), compila o pacote estático em `dist/` com `npm run build` e publica o artefato diretamente no GitHub Pages.
 2. **Atualização de Dados do ETL (`.github/workflows/update-etl-data.yml`):**
    - Disparado por agendamento semanal (`cron: "0 6 * * 1"`, toda segunda-feira às 06:00 UTC) ou manualmente via botão **Run workflow** (`workflow_dispatch`) na aba Actions do GitHub, permitindo informar o ano de referência.
-   - Reutiliza e atualiza o arquivo `public/data/geocoding_cache.json` no repositório, regenera `public/data/geo/*.geojson`, `public/data/index_<ano>.json` e `public/data/obras/<id>.json`, executa os testes de integridade com `pytest` e realiza o commit automático caso haja novos dados.
+   - Prepara e valida uma versão de dados antes de alterar `public/data/atual.json`; o deploy do painel continua no fluxo existente.

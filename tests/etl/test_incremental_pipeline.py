@@ -1,10 +1,9 @@
 """Testes automatizados para execução incremental do ETL (--full-refresh), reuso de mandatos e catálogo completo.
 
 Valida:
-1. Fallback offline carregando o catálogo completo dos 170+ Bairros Oficiais, Prefeituras-Bairro e Censo 2022.
-2. Modo incremental (full_refresh=False) preservando mandatos encerrados (2021-2024) sem chamadas de rede.
-3. Modo incremental (full_refresh=False) reaproveitando Ficha Limpa local quando indicadores de estado não mudaram.
-4. Flag --full-refresh forçando reconsulta de todos os mandatos e atualização completa de detalhes.
+1. Modo incremental (full_refresh=False) preservando mandatos encerrados (2021-2024) sem chamadas de rede.
+2. Modo incremental (full_refresh=False) reaproveitando Ficha Limpa local quando indicadores de estado não mudaram.
+3. Flag --full-refresh forçando reconsulta de todos os mandatos e atualização completa de detalhes.
 """
 
 import json
@@ -22,46 +21,8 @@ from tests.etl.fixtures.sample_data import (
 )
 
 
-def test_offline_fallback_loads_complete_170_catalogs():
-    """Valida que o fallback offline carrega o catálogo completo de 170+ bairros, prefeituras e censo 2022."""
-    with patch("urllib.request.urlopen", side_effect=RuntimeError("Sem rede externa")):
-        bairros_geo = geosalvador.fetch_bairros_geojson()
-        pb_geo = geosalvador.fetch_prefeituras_geojson()
-        demografia = ibge_censo.fetch_demografia_censo_2022()
-
-    # 1. Bairros Oficiais (170+ bairros vigentes)
-    assert bairros_geo.get("type") == "FeatureCollection"
-    features_bairros = bairros_geo.get("features", [])
-    assert len(features_bairros) >= 170, f"Esperado ao menos 170 bairros oficiais, obtido {len(features_bairros)}"
-
-    for feat in features_bairros:
-        props = feat.get("properties", {})
-        nome = props.get("NM_BAIRRO") or props.get("NOME_BAIRR")
-        assert nome, "Todo bairro do catálogo deve ter nome identificado"
-        assert "PREFEITURA_BAIRRO" in props, f"Bairro {nome} deve ter PREFEITURA_BAIRRO atribuída"
-
-    # 2. Prefeituras-Bairro
-    assert pb_geo.get("type") == "FeatureCollection"
-    features_pb = pb_geo.get("features", [])
-    assert len(features_pb) >= 10, f"Esperado ao menos 10 prefeituras-bairro, obtido {len(features_pb)}"
-
-    # 3. Demografia Censo 2022
-    assert len(demografia) >= 170, f"Esperado ao menos 170 bairros na demografia, obtido {len(demografia)}"
-    assert "Pituba" in demografia
-    assert demografia["Pituba"]["populacao"] > 0
-    assert demografia["Pituba"]["indice_vulnerabilidade"] == 0.13
-    assert "pct_esgoto_inadequado" in demografia["Pituba"]
-    assert "pct_agua_inadequada" in demografia["Pituba"]
-    assert "pct_analfabetismo_15mais" in demografia["Pituba"]
-
-    assert "Aeroporto" in demografia
-    assert demografia["Aeroporto"]["populacao"] <= 5
-    assert demografia["Aeroporto"]["indice_vulnerabilidade"] == 0.0
-    assert demografia["Aeroporto"]["pct_esgoto_inadequado"] == 0.0
-
-
-def test_incremental_mode_reuses_closed_mandates_without_network_call(tmp_path: Path):
-    """Valida que o modo incremental preserva mandatos passados (2021-2024) sem refazer chamadas de rede."""
+def test_incremental_mode_nao_reusa_mandato_sem_versao_validada(tmp_path: Path, portal_simulado):
+    """Um índice antigo sem manifesto não autoriza pular consultas obrigatórias."""
     from etl.runner import run_pipeline
 
     # Cria um índice prévio contendo uma obra histórica consolidada do mandato 2021-2024
@@ -131,25 +92,20 @@ def test_incremental_mode_reuses_closed_mandates_without_network_call(tmp_path: 
 
     assert result["success"] is True
 
-    # Verifica que fetch_grid_detalhada foi chamada APENAS para 2025-2028, e NÃO para 2021-2024
-    assert mock_grid.call_count == 1
-    call_args, call_kwargs = mock_grid.call_args
-    payload = call_kwargs.get("payload_customizado", {})
-    assert "2025" in payload.get("dataInicio", "")
-    assert "2028" in payload.get("dataFim", "")
+    assert mock_grid.call_count == 2
 
-    # Verifica que o índice final contém tanto a obra histórica preservada quanto a nova obra vigente
-    with open(tmp_path / "index_2025.json", "r", encoding="utf-8") as f:
+    # A versão gerada contém a obra consultada, sem importar a referência antiga não validada.
+    with open(Path(result["versao_dir"]) / "index_2025.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     obras_finais = data.get("obras", [])
     ids_finais = {o["id"] for o in obras_finais}
-    assert 9999 in ids_finais, "A obra histórica 9999 de 2021-2024 deve ter sido preservada no índice"
+    assert 9999 not in ids_finais
     assert 1001 in ids_finais, "A obra vigente 1001 de 2025-2028 deve estar presente no índice"
 
 
-def test_incremental_mode_diffs_contract_state_and_skips_detail_network_calls(tmp_path: Path):
-    """Valida que o modo incremental reaproveita a Ficha Limpa local quando os indicadores de estado são idênticos."""
+def test_incremental_mode_nao_reusa_ficha_sem_versao_validada(tmp_path: Path, portal_simulado):
+    """Uma ficha sem manifesto não é tratada como referência validada."""
     from etl.runner import run_pipeline
 
     obra_base = dict(SAMPLE_TRANSPARENCIA_GRID[0])  # Obra 1001
@@ -217,15 +173,14 @@ def test_incremental_mode_diffs_contract_state_and_skips_detail_network_calls(tm
         result = run_pipeline(output_dir=tmp_path, year=2025, full_refresh=False)
 
     assert result["success"] is True
-    assert result.get("detail_cache_hits", 0) >= 1
+    assert result.get("detail_cache_hits", 0) == 0
 
-    # Como vlAtualizado, percentualExecutado, dsSituacao e dtTerminoVigenciaAtualizado foram idênticos,
-    # NENHUMA requisição aos 6 endpoints de detalhe deve ter sido disparada
-    mock_detalhes.assert_not_called()
-    mock_aditivos.assert_not_called()
-    mock_dotacao.assert_not_called()
-    mock_empenhos.assert_not_called()
-    mock_liquidacoes.assert_not_called()
+    # A ficha antiga não foi validada; os detalhes precisam ser consultados novamente.
+    mock_detalhes.assert_called_once()
+    mock_aditivos.assert_called_once()
+    mock_dotacao.assert_called_once()
+    mock_empenhos.assert_called_once()
+    mock_liquidacoes.assert_called_once()
     mock_pagamentos.assert_not_called()
 
     # Agora simula alteração em percentualExecutado (de 65.5 para 80.0)
@@ -249,11 +204,11 @@ def test_incremental_mode_diffs_contract_state_and_skips_detail_network_calls(tm
 
     assert result2["success"] is True
     # Agora sim, deve ter consultado os endpoints de detalhe porque o estado mudou
-    assert mock_detalhes.call_count == 1
-    assert mock_aditivos.call_count == 1
+    assert mock_detalhes.call_count == 2
+    assert mock_aditivos.call_count == 2
 
 
-def test_full_refresh_forces_requery_of_all_mandates_and_details(tmp_path: Path):
+def test_full_refresh_forces_requery_of_all_mandates_and_details(tmp_path: Path, portal_simulado):
     """Valida que full_refresh=True força a reconsulta de todos os mandatos e de todas as fichas."""
     from etl.runner import run_pipeline
 

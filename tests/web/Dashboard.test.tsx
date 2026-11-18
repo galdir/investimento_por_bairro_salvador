@@ -1,9 +1,19 @@
-import { render, screen, fireEvent, waitFor, act } from "@testing-library/react";
+import { render as renderApp, screen, fireEvent, waitFor, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import L from "leaflet";
 import App, { buildDataUrl } from "../../src/App";
 import { SALVADOR_CENTER, SALVADOR_DEFAULT_ZOOM } from "../../src/components/InteractiveMap";
 import type { FichaLimpaObra } from "../../src/types";
+
+// Fixtures históricas representam o acervo anterior à introdução do ponteiro.
+function render(element: React.ReactElement) {
+  const fetchFixture = globalThis.fetch;
+  globalThis.fetch = vi.fn((input: RequestInfo | URL, init?: RequestInit) =>
+    String(input).endsWith("atual.json")
+      ? Promise.resolve({ ok: false, status: 404 } as Response)
+      : init === undefined ? fetchFixture(input) : fetchFixture(input, init)) as typeof fetch;
+  return renderApp(element);
+}
 
 const mockIndexData = {
   metadata: {
@@ -516,6 +526,86 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     );
   });
 
+  it("distingue conclusão, referência dos pagamentos e intervalo das consultas", async () => {
+    const atualizacao = {
+      versaoDados: "versao-a",
+      concluidaEm: "2026-11-18T02:00:00Z",
+      dataReferenciaPagamentos: "2025-12-31",
+      inicioConsultas: "2026-11-16T02:00:00Z",
+      fimConsultas: "2026-11-18T01:00:00Z",
+      consultas: "concluidas", validacoes: "aprovadas", coberturaHistorica: "nao_verificada",
+      limitacoesConhecidas: ["A coleta atual consulta pagamentos apenas no exercício de 2025."],
+    };
+    vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(url.includes("index_")
+        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: "versao-a" }),
+    })));
+    render(<App />);
+    expect(await screen.findByText(/Última atualização concluída em/)).toHaveTextContent("17/11/2026");
+    expect(screen.getByText(/Referência dos pagamentos: 31\/12\/2025/)).toBeInTheDocument();
+    expect(screen.getByText(/Consultas realizadas entre/)).toHaveTextContent("15/11/2026");
+    expect(screen.getByText(/Consultas realizadas entre/)).toHaveTextContent("17/11/2026");
+    expect(screen.getByText(/A coleta atual consulta pagamentos apenas/)).toBeInTheDocument();
+  });
+
+  it("não combina índice e malhas de versões diferentes", async () => {
+    const atualizacao = { versaoDados: "versao-a" };
+    vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(url.includes("index_")
+        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: "versao-b" }),
+    })));
+    render(<App />);
+    expect(await screen.findByText(/versões diferentes/i)).toBeInTheDocument();
+    expect(screen.queryByTestId("header-comparativo")).not.toBeInTheDocument();
+  });
+
+  it("carrega todos os dados pela versão ativada", async () => {
+    const versao = "0123456789abcdef0123456789abcdef";
+    const atualizacao = {
+      versaoDados: versao, concluidaEm: "2026-11-18T14:00:00Z",
+      dataReferenciaPagamentos: "2025-12-31", inicioConsultas: "2026-11-16T12:00:00Z",
+      fimConsultas: "2026-11-18T13:00:00Z", consultas: "concluidas", validacoes: "aprovadas",
+      coberturaHistorica: "nao_verificada", limitacoesConhecidas: [],
+    };
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith("atual.json")) return Promise.resolve({ ok: true, json: async () => ({ versaoDados: versao, caminho: `versoes/${versao}` }) });
+      if (!url.includes(`/versoes/${versao}/`)) return Promise.reject(new Error("caminho fora da versão"));
+      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
+        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao } });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    renderApp(<App />);
+    expect(await screen.findByText(/Última atualização concluída em/)).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledWith(expect.stringContaining(`/versoes/${versao}/index_2025.json`));
+  });
+
+  it("recusa ficha de outra versão ao abrir os detalhes", async () => {
+    const versao = "0123456789abcdef0123456789abcdef";
+    const atualizacao = {
+      versaoDados: versao, concluidaEm: "2026-11-18T14:00:00Z",
+      dataReferenciaPagamentos: "2025-12-31", inicioConsultas: "2026-11-16T12:00:00Z",
+      fimConsultas: "2026-11-18T13:00:00Z", consultas: "concluidas", validacoes: "aprovadas",
+      coberturaHistorica: "nao_verificada", limitacoesConhecidas: [],
+    };
+    vi.stubGlobal("fetch", vi.fn((url: string) => {
+      if (url.endsWith("atual.json")) return Promise.resolve({ ok: true, json: async () => ({ versaoDados: versao, caminho: `versoes/${versao}` }) });
+      if (url.includes("obras/1001.json")) return Promise.resolve({ ok: true, json: async () => ({ ...mockObra1001Detalhe, versaoDados: "outra" }) });
+      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
+        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao } });
+    }));
+    renderApp(<App />);
+    fireEvent.click(await screen.findByTestId("tab-tabela"));
+    fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
+    expect(await screen.findByText(/ficha e o painel são de versões diferentes/i)).toBeVisible();
+    expect(screen.queryByTestId("funil-financeiro-container")).not.toBeInTheDocument();
+  });
+
   it("renderiza o cabeçalho comparativo compacto com territórios, valor alocado, recursos sem localização, atualização e valores acumulados", async () => {
     render(<App />);
 
@@ -538,7 +628,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect.stringContaining("1.350.000")
     );
     // 4. Atualização e valores acumulados
-    expect(screen.getByTestId("header-atualizacao")).toHaveTextContent("Atualizado em 06/11/2026");
+    expect(screen.getByTestId("header-atualizacao")).toHaveTextContent("Dados gerados em 06/11/2026");
     expect(screen.getByTestId("header-valores-acumulados")).toHaveTextContent(/Valores acumulados/i);
   });
 
@@ -2107,7 +2197,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
                                 "aria-label",
                                 expect.stringContaining("3.000.000")
                               );
-                              expect(screen.getByTestId("header-atualizacao")).toHaveTextContent("Atualizado em 15/11/2026");
+                              expect(screen.getByTestId("header-atualizacao")).toHaveTextContent("Dados gerados em 15/11/2026");
                               expect(screen.getByTestId("header-valores-acumulados")).toHaveTextContent(/Valores acumulados/i);
 
                               // Valor exato acessível por clique/teclado sem depender de hover

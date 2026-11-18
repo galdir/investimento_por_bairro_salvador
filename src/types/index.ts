@@ -279,6 +279,7 @@ export interface FontesOficiaisInfo {
 }
 
 export interface FichaLimpaObra {
+  versaoDados?: string;
   id: number | string;
   cdUnidadeGestora?: string | number | null;
   unidadeGestora: string;
@@ -315,6 +316,17 @@ export interface IndexData {
     generatedAt: string;
     anoReferencia: number;
     mandatosDisponiveis?: string[];
+    atualizacao?: {
+      versaoDados: string;
+      concluidaEm: string;
+      dataReferenciaPagamentos: string;
+      inicioConsultas: string;
+      fimConsultas: string;
+      consultas: string;
+      validacoes: string;
+      coberturaHistorica: string;
+      limitacoesConhecidas: string[];
+    };
   };
   kpis_globais: GlobalKpis;
   concentracao_empreiteiras?: EmpreiteiraResumo[];

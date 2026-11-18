@@ -119,7 +119,7 @@ class GeocodingCache:
 
         Descrição Estendida:
             Verifica a existência do arquivo no disco. Se presente e válido, decodifica
-            o JSON. Em caso de arquivo corrompido ou inacessível, reinicia com cache vazio.
+            o JSON. Arquivos corrompidos ou inacessíveis interrompem a execução.
 
         Argumentos:
             Nenhum.
@@ -128,14 +128,11 @@ class GeocodingCache:
             None.
 
         Erros:
-            Não propaga exceções de leitura de arquivo.
+            Propaga exceções de leitura e decodificação.
         """
         if self.cache_file_path.exists():
-            try:
-                with open(self.cache_file_path, "r", encoding="utf-8") as f:
-                    self._entries = json.load(f)
-            except Exception:
-                self._entries = {}
+            with open(self.cache_file_path, "r", encoding="utf-8") as f:
+                self._entries = json.load(f)
         else:
             self._entries = {}
 
@@ -211,14 +208,11 @@ class GeocodingCache:
             None.
 
         Erros:
-            Não lança exceções; falhas de disco são tratadas silenciosamente em memória.
+            Propaga falhas de gravação.
         """
         self.cache_file_path.parent.mkdir(parents=True, exist_ok=True)
-        try:
-            with open(self.cache_file_path, "w", encoding="utf-8") as f:
-                json.dump(self._entries, f, ensure_ascii=False, indent=2)
-        except Exception:
-            pass
+        with open(self.cache_file_path, "w", encoding="utf-8") as f:
+            json.dump(self._entries, f, ensure_ascii=False, indent=2)
 
     def reconciliar_entradas(
         self,
@@ -312,25 +306,20 @@ def _carregar_json_referencia(nome_arquivo: str) -> Any:
 
     Descrição Estendida:
         Localiza o arquivo a partir do caminho relativo ao diretório de referência do pacote.
-        Se o arquivo não existir ou for inválido, retorna None.
+        Arquivos ausentes ou inválidos interrompem o processamento.
 
     Argumentos:
         nome_arquivo: Nome do arquivo JSON (ex: 'lotes_regionais.json').
 
     Retornos:
-        Objeto decodificado (lista ou dicionário) ou None.
+        Objeto decodificado (lista ou dicionário).
 
     Erros:
-        Não propaga exceções de disco ou decodificação.
+        Propaga exceções de disco ou decodificação.
     """
     arquivo = REF_DIR / nome_arquivo
-    if arquivo.exists():
-        try:
-            with open(arquivo, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return None
+    with open(arquivo, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def calcular_centroides_bairros(bairros_geojson: dict[str, Any]) -> dict[str, tuple[float, float]]:
@@ -958,7 +947,7 @@ def _fallback_nominatim(
         Dicionário com latitude, longitude, bairro e prefeitura_bairro se contido em Salvador; None caso contrário.
 
     Erros:
-        Não lança exceções; captura falhas de rede de forma silenciosa e resiliente.
+        Propaga falhas de rede e de processamento da resposta.
     """
     if not logradouro_candidato:
         return None
@@ -978,34 +967,31 @@ def _fallback_nominatim(
         headers={"User-Agent": "SalvadorObrasETL/1.0 (contato@salvadorobras.ba.gov.br)"},
     )
 
-    try:
-        with urllib.request.urlopen(req, timeout=5) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            if not data or not isinstance(data, list):
-                return None
-
-            primeiro = data[0]
-            lat = float(primeiro["lat"])
-            lon = float(primeiro["lon"])
-            ponto = Point(lon, lat)
-
-            # Valida se a coordenada cai dentro do polígono de algum Bairro Oficial
-            for feat in bairros_geojson.get("features", []):
-                geom = feat.get("geometry")
-                props = feat.get("properties", {})
-                if geom:
-                    sh_geom = shape(geom)
-                    if sh_geom.contains(ponto):
-                        bairro_encontrado = props.get("NM_BAIRRO") or props.get("nome") or ""
-                        pb_encontrada = props.get("PREFEITURA_BAIRRO") or props.get("prefeitura_bairro") or ""
-                        return {
-                            "latitude": lat,
-                            "longitude": lon,
-                            "bairro": bairro_encontrado,
-                            "prefeitura_bairro": pb_encontrada,
-                        }
-    except Exception:
+    with urllib.request.urlopen(req, timeout=5) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
+    if not isinstance(data, list):
+        raise ValueError("Resposta inválida do Nominatim")
+    if not data:
         return None
+
+    primeiro = data[0]
+    lat = float(primeiro["lat"])
+    lon = float(primeiro["lon"])
+    ponto = Point(lon, lat)
+    for feat in bairros_geojson.get("features", []):
+        geom = feat.get("geometry")
+        props = feat.get("properties", {})
+        if geom:
+            sh_geom = shape(geom)
+            if sh_geom.contains(ponto):
+                bairro_encontrado = props.get("NM_BAIRRO") or props.get("nome") or ""
+                pb_encontrada = props.get("PREFEITURA_BAIRRO") or props.get("prefeitura_bairro") or ""
+                return {
+                    "latitude": lat,
+                    "longitude": lon,
+                    "bairro": bairro_encontrado,
+                    "prefeitura_bairro": pb_encontrada,
+                }
 
     return None
 
@@ -1358,7 +1344,7 @@ def resolver_frentes_medicao(
         nl_pag = str(pag.get("notaLiquidacao") or "").strip()
         if not nl_pag:
             continue
-        pagamentos_por_nl[nl_pag] = pagamentos_por_nl.get(nl_pag, 0.0) + parse_float(pag.get("pago") or 0.0)
+        pagamentos_por_nl[nl_pag] = pagamentos_por_nl.get(nl_pag, 0.0) + parse_float(pag.get("pago", pag.get("valorPago")))
 
     frentes_resolvidas: list[dict[str, Any]] = []
     for liq in liquidacoes or []:
@@ -1397,11 +1383,10 @@ def resolver_frentes_medicao(
             continue
 
         val_liq = parse_float(liq.get("valLiqLiquidacao") or 0.0)
-        val_pago = parse_float(liq.get("pago") or 0.0)
-        if val_pago == 0.0 and nl in pagamentos_por_nl:
-            val_pago = pagamentos_por_nl.pop(nl, 0.0)
+        val_pago = (pagamentos_por_nl.pop(nl, 0.0) if pagamentos is not None
+                    else parse_float(liq.get("pago") or 0.0))
 
-        if val_liq <= 0.0 and val_pago <= 0.0:
+        if val_liq == 0.0 and val_pago == 0.0:
             continue
 
         frentes_resolvidas.append({

@@ -6,9 +6,16 @@ artefatos estáticos particionados em conformidade com o ADR-0001.
 """
 
 import json
+import os
+import shutil
+import tempfile
+from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from typing import Any
 import warnings
+from uuid import uuid4
 
 from etl.domain import kpis
 from etl.domain.ficha_limpa import (
@@ -55,6 +62,8 @@ from etl.reconcile import (
     resolver_caminho_indice,
 )
 from etl.sources import geosalvador, ibge_censo, transparencia
+from etl.publicacao import finalizar_versao, versao_anterior_valida, versao_publicada
+from etl.consultas import ConsultaPagamentos, coletar_pagamentos
 
 
 def run_pipeline(
@@ -63,6 +72,124 @@ def run_pipeline(
     cache_file: Path | None = None,
     mandatos: list[str] | None = None,
     full_refresh: bool = False,
+    data_referencia_pagamentos: str | None = None,
+    consulta_pagamentos=None,
+) -> dict[str, Any]:
+    """Executa uma tentativa exclusiva e registra seu resultado fora do acervo publicado."""
+    output_path = Path(output_dir).resolve()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    lock_path = output_path.parent / f".{output_path.name}.lock"
+    try:
+        lock = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    except FileExistsError as exc:
+        raise RuntimeError("Já existe uma atualização em andamento") from exc
+    tentativa = uuid4().hex
+
+    def registrar(estado: str, erro: str | None = None) -> None:
+        registro = {"tentativa": tentativa, "instante": datetime.now(timezone.utc).isoformat(), "estado": estado}
+        if erro:
+            registro["erro"] = erro
+        try:
+            with (output_path.parent / f".{output_path.name}-tentativas.jsonl").open("a", encoding="utf-8") as arquivo:
+                arquivo.write(json.dumps(registro, ensure_ascii=False) + "\n")
+        except OSError as exc:
+            warnings.warn(f"Não foi possível registrar a tentativa: {exc}", RuntimeWarning, stacklevel=2)
+
+    try:
+        registrar("iniciada")
+        try:
+            resultado = _preparar_e_publicar(output_path, year, cache_file, mandatos, full_refresh, data_referencia_pagamentos, consulta_pagamentos)
+        except Exception as exc:
+            registrar("falhou", str(exc))
+            raise
+        registrar("concluida")
+        return resultado
+    finally:
+        os.close(lock)
+        lock_path.unlink(missing_ok=True)
+
+
+def _preparar_e_publicar(
+    output_dir: Path,
+    year: int,
+    cache_file: Path | None,
+    mandatos: list[str] | None,
+    full_refresh: bool,
+    data_referencia_pagamentos: str | None,
+    consulta_pagamentos,
+) -> dict[str, Any]:
+    """Prepara e valida uma versão imutável antes de trocar o ponteiro."""
+    output_path = Path(output_dir).resolve()
+    referencia = data_referencia_pagamentos or datetime.now(ZoneInfo("America/Sao_Paulo")).date().isoformat()
+    if datetime.strptime(referencia, "%Y-%m-%d").date().isoformat() != referencia:
+        raise ValueError("Data de referência dos pagamentos inválida")
+    if mandatos is not None and (not mandatos or any(m not in MANDATOS_MUNICIPAIS for m in mandatos)):
+        raise ValueError("Plano de consultas contém mandato inválido ou vazio")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=f".{output_path.name}-", dir=output_path.parent) as temp:
+        temp_path = Path(temp)
+        stage = temp_path / "preparado"
+        anterior = versao_publicada(output_path)
+        if anterior is not None and not versao_anterior_valida(anterior):
+            raise ValueError("A versão publicada não passou na verificação de integridade")
+        if anterior is not None:
+            shutil.copytree(anterior, stage)
+        else:
+            stage.mkdir()
+
+        external_cache = None
+        stage_cache = None
+        if cache_file is not None:
+            cache_path = Path(cache_file).resolve()
+            try:
+                relativo = cache_path.relative_to(output_path)
+                if (not relativo.parts or relativo.parts[0] in {"geo", "obras", "versoes"}
+                        or relativo.name in {"atual.json", "manifesto.json", "index.json"}
+                        or relativo.name.startswith("index_")):
+                    raise ValueError("O cache não pode substituir um artefato publicado")
+                stage_cache = stage / relativo
+            except ValueError:
+                if cache_path.is_relative_to(output_path):
+                    raise
+                external_cache = cache_path
+                stage_cache = stage / "geocoding_cache.json"
+
+        anterior_valida = anterior is not None
+        resultado = _executar_pipeline(stage, year, stage_cache, mandatos, full_refresh, anterior_valida, referencia, consulta_pagamentos or coletar_pagamentos)
+        metadados = finalizar_versao(stage, year, resultado["inicio_consultas"], resultado["fim_consultas"], referencia, resultado["limitacoes_conhecidas"], resultado["total_obras"], stage_cache)
+        versao = metadados["versaoDados"]
+        ponteiro = temp_path / "atual.json"
+        ponteiro.write_text(json.dumps({"versaoDados": versao, "caminho": f"versoes/{versao}"}), encoding="utf-8")
+        destino = output_path / "versoes" / versao
+
+        if external_cache is not None and stage_cache is not None and stage_cache.exists():
+            external_cache.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(stage_cache, external_cache)
+
+        output_path.mkdir(parents=True, exist_ok=True)
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        os.replace(stage, destino)
+        try:
+            os.replace(ponteiro, output_path / "atual.json")
+        except BaseException:
+            shutil.rmtree(destino)
+            raise
+
+        resultado["output_dir"] = str(output_path)
+        resultado["versao_dir"] = str(destino)
+        resultado["cache_file"] = str(external_cache if external_cache is not None else destino / (stage_cache.relative_to(stage) if stage_cache is not None else "geocoding_cache.json"))
+        return resultado
+
+
+def _executar_pipeline(
+    output_dir: Path,
+    year: int = 2025,
+    cache_file: Path | None = None,
+    mandatos: list[str] | None = None,
+    full_refresh: bool = False,
+    anterior_valida: bool = False,
+    referencia_pagamentos: str = "",
+    consulta_pagamentos=None,
 ) -> dict[str, Any]:
     """Executa o pipeline completo de extração, geocodificação territorial, rollup e geração de artefatos.
 
@@ -108,12 +235,24 @@ def run_pipeline(
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
+    inicio_consultas = None
+    fim_consultas = None
+
+    def consultar(funcao, *args, **kwargs):
+        nonlocal inicio_consultas, fim_consultas
+        if inicio_consultas is None:
+            inicio_consultas = datetime.now(timezone.utc).isoformat()
+        try:
+            return funcao(*args, **kwargs)
+        finally:
+            fim_consultas = datetime.now(timezone.utc).isoformat()
+
     # 1. Extração das fontes de dados externas e normalização das malhas
-    raw_bairros = geosalvador.fetch_bairros_geojson()
-    raw_prefeituras = geosalvador.fetch_prefeituras_geojson()
+    raw_bairros = consultar(geosalvador.fetch_bairros_geojson)
+    raw_prefeituras = consultar(geosalvador.fetch_prefeituras_geojson)
     raw_bairros, raw_prefeituras = normalizar_e_vincular_malhas_geosalvador(raw_bairros, raw_prefeituras)
-    demografia_map = ibge_censo.fetch_demografia_censo_2022()
-    totalizador = transparencia.fetch_totalizador(year=year)
+    demografia_map = consultar(ibge_censo.fetch_demografia_censo_2022)
+    totalizador = consultar(transparencia.fetch_totalizador, year=year)
 
     # Coleta de obras para todos os mandatos municipais especificados com suporte incremental
     mandatos_lista = mandatos or list(MANDATOS_MUNICIPAIS.keys())
@@ -122,7 +261,7 @@ def run_pipeline(
     closed_mandates_reused: set[str] = set()
 
     # Reuso incremental de mandatos encerrados (ex: 2021-2024)
-    index_candidate = resolver_caminho_indice(output_path, year)
+    index_candidate = resolver_caminho_indice(output_path, year) if anterior_valida else None
 
     def _hidratar_obra_existente(o: dict[str, Any]) -> dict[str, Any]:
         item_copy = dict(o)
@@ -153,7 +292,7 @@ def run_pipeline(
         return item_copy
 
     obras_dir = output_path / "obras"
-    fichas_por_chave, fichas_por_id = indexar_fichas_locais(obras_dir)
+    fichas_por_chave, fichas_por_id = indexar_fichas_locais(obras_dir) if anterior_valida else ({}, {})
     persisted_refs_by_key: dict[tuple[str, str], list[dict[str, Any]]] = {}
 
     existing_obras: list[dict[str, Any]] = []
@@ -203,7 +342,6 @@ def run_pipeline(
             if ficha_local.get("id") not in (None, ""):
                 persisted_refs_by_key.setdefault(chave_local, []).append(ficha_local)
 
-    sample_ids = {"1001", "1002", "1003", "1004", "1005"}
     for m in mandatos_consultar:
         info = MANDATOS_MUNICIPAIS.get(m)
         if info:
@@ -212,25 +350,16 @@ def run_pipeline(
                 "dataFim": info["data_fim"],
                 "filtros": [],
             }
-            itens_mandato = transparencia.fetch_grid_detalhada(
+            itens_mandato = consultar(transparencia.fetch_grid_detalhada,
                 year=year,
                 payload_customizado=payload,
             )
-            if not full_refresh and existing_obras:
-                ids_retornados = {str(x.get("id")) for x in itens_mandato}
-                existing_mandato = [
-                    _hidratar_obra_existente(o)
-                    for o in existing_obras
-                    if m in o.get("mandatos", []) and str(o.get("id")) not in sample_ids
-                ]
-                if ids_retornados <= sample_ids and len(existing_mandato) > len(sample_ids):
-                    itens_mandato = existing_mandato
             raw_grid.extend(itens_mandato)
         else:
-            raw_grid.extend(transparencia.fetch_grid_detalhada(year=year))
+            raw_grid.extend(consultar(transparencia.fetch_grid_detalhada, year=year))
 
     if not raw_grid and not closed_mandates_reused:
-        raw_grid = transparencia.fetch_grid_detalhada(year=year)
+        raw_grid = consultar(transparencia.fetch_grid_detalhada, year=year)
 
     # Deduplicação canônica por (cdUnidadeGestora, nuContratoSigef) e estabilização de IDs
     grid_obras = deduplicar_obras(raw_grid)
@@ -254,12 +383,14 @@ def run_pipeline(
 
     # 3. Funil de Alocação Territorial com Cache Incremental
     cache_path = Path(cache_file) if cache_file is not None else (output_path / "geocoding_cache.json")
+    if not anterior_valida and cache_path.exists():
+        cache_path.unlink()
     cache = GeocodingCache(cache_file_path=cache_path)
     cache.reconciliar_entradas(raw_bairros, bairros_centroides)
     cache_hits = 0
 
     for obra in grid_obras:
-        aloc = classificar_alocacao_territorial(
+        aloc = consultar(classificar_alocacao_territorial,
             obra=obra,
             bairros_geojson=raw_bairros,
             bairros_centroides=bairros_centroides,
@@ -344,11 +475,26 @@ def run_pipeline(
     obras_dir.mkdir(parents=True, exist_ok=True)
     detail_cache_hits = 0
     fichas_para_gravar: dict[str, dict[str, Any]] = {}
+    limitacoes_conhecidas: set[str] = set()
 
     for obra in grid_obras:
         cd_ug = obra.get("cdUnidadeGestora") or obra.get("unidadeGestora") or obra.get("sgOrgao")
         nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
         obra_id = obra.get("id")
+
+        resultado_pagamentos = consultar(consulta_pagamentos, cd_ug, nu_sigef, referencia_pagamentos)
+        if (not isinstance(resultado_pagamentos, ConsultaPagamentos)
+                or resultado_pagamentos.concluida is not True or resultado_pagamentos.validada is not True
+                or resultado_pagamentos.data_referencia != referencia_pagamentos
+                or not isinstance(resultado_pagamentos.registros, list)
+                or not all(isinstance(item, dict) for item in resultado_pagamentos.registros)):
+            raise ValueError(f"Consulta obrigatória de pagamentos incompleta: {obra_id}")
+        if not isinstance(resultado_pagamentos.limitacoes_conhecidas, list) or not all(
+            isinstance(item, str) and item for item in resultado_pagamentos.limitacoes_conhecidas
+        ):
+            raise ValueError(f"Limitações de pagamentos inválidas: {obra_id}")
+        limitacoes_conhecidas.update(resultado_pagamentos.limitacoes_conhecidas)
+        pagamentos_raw = resultado_pagamentos.registros
 
         candidatas_locais = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
         ficha_disco = fichas_por_id.get(str(obra_id)) or (candidatas_locais[0] if candidatas_locais else None)
@@ -383,12 +529,11 @@ def run_pipeline(
             detail_cache_hits += 1
             ficha_obra = mesclar_fichas_obra(obra, candidatas_locais)
         else:
-            detalhe = transparencia.fetch_detalhes_obra(cd_ug, nu_sigef, year=year, obra_base=obra)
-            aditivos_raw = transparencia.fetch_aditivos_obra(cd_ug, nu_sigef, year=year)
-            dotacoes_raw = transparencia.fetch_dotacao_obra(cd_ug, nu_sigef, year=year)
-            empenhos_raw = transparencia.fetch_empenhos_obra(cd_ug, nu_sigef, year=year)
-            liquidacoes_raw = transparencia.fetch_liquidacoes_obra(cd_ug, nu_sigef, year=year)
-            pagamentos_raw = transparencia.fetch_pagamentos_obra(cd_ug, nu_sigef, year=year)
+            detalhe = consultar(transparencia.fetch_detalhes_obra, cd_ug, nu_sigef, year=year, obra_base=obra)
+            aditivos_raw = consultar(transparencia.fetch_aditivos_obra, cd_ug, nu_sigef, year=year)
+            dotacoes_raw = consultar(transparencia.fetch_dotacao_obra, cd_ug, nu_sigef, year=year)
+            empenhos_raw = consultar(transparencia.fetch_empenhos_obra, cd_ug, nu_sigef, year=year)
+            liquidacoes_raw = consultar(transparencia.fetch_liquidacoes_obra, cd_ug, nu_sigef, year=year)
 
             ficha_nova = construir_ficha_obra(
                 obra=obra,
@@ -406,6 +551,25 @@ def run_pipeline(
                 if candidatas_locais
                 else ficha_nova
             )
+
+        ficha_obra["pagamentos"] = pagamentos_raw
+        valores = [p.get("pago", p.get("valorPago")) for p in pagamentos_raw]
+        valores = [valor for valor in valores if valor is not None and valor != ""]
+        valores_decimais = []
+        for valor in valores:
+            texto = str(valor).strip()
+            if "," in texto:
+                texto = texto.replace(".", "").replace(",", ".")
+            try:
+                numero = Decimal(texto)
+            except InvalidOperation as exc:
+                raise ValueError(f"Valor de pagamento inválido: {obra_id}") from exc
+            if not numero.is_finite():
+                raise ValueError(f"Valor de pagamento inválido: {obra_id}")
+            valores_decimais.append(numero)
+        ficha_obra.setdefault("funilFinanceiro", {})["valorPago"] = (
+            float(sum(valores_decimais)) if valores_decimais else None
+        )
 
         frentes = resolver_frentes_medicao(
             obra=obra,
@@ -481,4 +645,7 @@ def run_pipeline(
         "total_bairros": len(bairros_rollup),
         "total_prefeituras": len(prefeituras_rollup),
         "total_obras": len(grid_obras),
+        "inicio_consultas": inicio_consultas,
+        "fim_consultas": fim_consultas,
+        "limitacoes_conhecidas": sorted(limitacoes_conhecidas),
     }

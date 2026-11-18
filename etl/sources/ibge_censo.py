@@ -72,30 +72,19 @@ def normalizar_registros_censo_2022(
 
     # Carrega a base de referência de sub-indicadores do Censo 2022
     ref_indicadores_path = _REF_DIR / "censo_2022_salvador_bairros.json"
-    ref_indicadores: dict[str, dict[str, Any]] = {}
-    if ref_indicadores_path.exists():
-        try:
-            with open(ref_indicadores_path, "r", encoding="utf-8") as f:
-                raw_ref = json.load(f)
-                ref_indicadores = {normalizar_nome(k): v for k, v in raw_ref.items()}
-        except Exception:
-            ref_indicadores = {}
+    with open(ref_indicadores_path, "r", encoding="utf-8") as f:
+        raw_ref = json.load(f)
+        ref_indicadores = {normalizar_nome(k): v for k, v in raw_ref.items()}
 
     # Carrega a lista dos 171 Bairros Oficiais caso não seja fornecida
     if bairros_nomes is None:
         bairros_path = _REF_DIR / "geosalvador_bairros_real.geojson"
-        if bairros_path.exists():
-            try:
-                with open(bairros_path, "r", encoding="utf-8") as f:
-                    b_geo = json.load(f)
-                    bairros_nomes = [
-                        (feat.get("properties", {}).get("NM_BAIRRO") or feat.get("properties", {}).get("NOME_BAIRR") or "").strip()
-                        for feat in b_geo.get("features", [])
-                    ]
-            except Exception:
-                bairros_nomes = []
-        else:
-            bairros_nomes = []
+        with open(bairros_path, "r", encoding="utf-8") as f:
+            b_geo = json.load(f)
+            bairros_nomes = [
+                (feat.get("properties", {}).get("NM_BAIRRO") or feat.get("properties", {}).get("NOME_BAIRR") or "").strip()
+                for feat in b_geo.get("features", [])
+            ]
 
     demografia_preliminar: dict[str, dict[str, Any]] = {}
 
@@ -105,12 +94,12 @@ def normalizar_registros_censo_2022(
             continue
         norm = normalizar_nome(b_name)
         target_norm = CENSO_ALIASES.get(norm, norm)
-        pop = censo_pop.get(target_norm, censo_pop.get(norm, 0))
+        pop = censo_pop.get(target_norm, censo_pop.get(norm))
 
         ref_entry = ref_indicadores.get(target_norm, ref_indicadores.get(norm, {}))
 
         demografia_preliminar[b_name] = {
-            "populacao": pop if pop > 0 else int(ref_entry.get("populacao", 0)),
+            "populacao": pop if pop is not None else int(ref_entry.get("populacao", 0)),
             "pct_esgoto_inadequado": ref_entry.get("pct_esgoto_inadequado"),
             "pct_agua_inadequada": ref_entry.get("pct_agua_inadequada"),
             "pct_analfabetismo_15mais": ref_entry.get("pct_analfabetismo_15mais"),
@@ -136,8 +125,7 @@ def fetch_demografia_censo_2022() -> dict[str, dict[str, Any]]:
     Descrição Estendida:
         Consulta a API SIDRA do IBGE para obter a contagem populacional por bairro do município
         de Salvador (código IBGE 2927408) e normaliza os nomes para indexação unificada.
-        Caso a conexão externa não esteja acessível, recorre à base consolidada do Censo 2022
-        armazenada no módulo de referência de produção (`etl.reference.sample_data`).
+        Falhas da consulta impedem a atualização.
 
     Argumentos:
         Nenhum.
@@ -148,7 +136,7 @@ def fetch_demografia_censo_2022() -> dict[str, dict[str, Any]]:
         - 'indice_vulnerabilidade': Métrica de 0.00 a 1.00 de vulnerabilidade socioeconômica (float).
 
     Erros:
-        Não interrompe o fluxo caso ocorra erro de rede; retorna base de fallback de referência.
+        Propaga falhas da consulta e rejeita respostas inválidas.
     """
     req = urllib.request.Request(
         IBGE_SIDRA_POPULACAO_BAIRROS_SALVADOR,
@@ -157,17 +145,25 @@ def fetch_demografia_censo_2022() -> dict[str, dict[str, Any]]:
             "Accept": "application/json",
         },
     )
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read().decode("utf-8", errors="replace"))
-            if isinstance(data, list) and len(data) > 1:
-                normalizados = normalizar_registros_censo_2022(data)
-                if normalizados:
-                    return normalizados
-    except Exception:
-        pass
-
-    # Fallback determinístico consolidado com dados de referência em etl.reference
-    from etl.reference.sample_data import SAMPLE_IBGE_CENSO_2022
-    return SAMPLE_IBGE_CENSO_2022
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        data = json.loads(resp.read().decode("utf-8", errors="replace"))
+    if isinstance(data, list) and len(data) > 1:
+        with (_REF_DIR / "ibge_censo_salvador.json").open(encoding="utf-8") as arquivo:
+            referencia = json.load(arquivo)
+        esperados = {str(row["D1C"]) for row in referencia if str(row.get("D2C")) == "93"}
+        recebidos = set()
+        for row in data:
+            if not isinstance(row, dict) or (str(row.get("D2C")) != "93" and row.get("MN") != "Pessoas"):
+                continue
+            codigo = str(row.get("D1C") or "")
+            valor = str(row.get("V") or "")
+            if not codigo or codigo in recebidos or not row.get("D1N") or not valor.isdigit():
+                raise ValueError("Resposta inválida do Censo 2022")
+            recebidos.add(codigo)
+        if not esperados or not esperados.issubset(recebidos):
+            raise ValueError("Resposta incompleta do Censo 2022")
+        normalizados = normalizar_registros_censo_2022(data)
+        if normalizados:
+            return normalizados
+    raise ValueError("Resposta inválida do Censo 2022")
 

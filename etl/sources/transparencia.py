@@ -1,7 +1,7 @@
 """Módulo de integração com a API da Transparência da Prefeitura de Salvador.
 
 Responsável por consultar os endpoints de Obras Públicas vigentes no município,
-incluindo totalizadores globais e a listagem detalhada de contratos, com suporte a fallback offline.
+incluindo totalizadores globais e a listagem detalhada de contratos.
 """
 
 import json
@@ -13,6 +13,26 @@ from typing import Any, Final
 from etl.config import TRANSPARENCIA_API_BASE
 
 PAGE_SIZE_TRANSPARENCIA: Final[int] = 10
+
+
+def _validar_paginacao(paginacao: Any, pagina: int, quantidade: int, anterior: tuple[int, int, int] | None, origem: str) -> tuple[int, int, int]:
+    if not isinstance(paginacao, dict):
+        raise ValueError(f"Metadados de paginacao ausentes de {origem}")
+    total = paginacao.get("total", paginacao.get("totalRegistros"))
+    paginas = paginacao.get("paginas", paginacao.get("totalPaginas"))
+    atual = paginacao.get("paginaAtual")
+    tamanho = paginacao.get("tamanho", paginacao.get("tamanhoPagina", PAGE_SIZE_TRANSPARENCIA))
+    total_pagina = paginacao.get("totalPagina", quantidade)
+    if (any(type(n) is not int for n in (total, paginas, atual, tamanho, total_pagina))
+            or total < 0 or paginas < 0 or tamanho <= 0 or atual != pagina
+            or total_pagina != quantidade or quantidade > tamanho
+            or (paginas == 0 and (pagina != 1 or total != 0 or quantidade != 0))
+            or (paginas > 0 and pagina > paginas)):
+        raise ValueError(f"Metadados de paginacao inválidos de {origem}")
+    estado = (total, paginas, tamanho)
+    if anterior is not None and anterior != estado:
+        raise ValueError(f"Metadados de paginacao inconsistentes de {origem}")
+    return estado
 
 
 def _criar_payload_filtro_ano(year: int) -> dict[str, Any]:
@@ -95,8 +115,7 @@ def fetch_totalizador(year: int = 2025) -> dict[str, Any]:
 
     Descrição Estendida:
         Recupera os totais agregados de quantidade de obras, valor financeiro contratual,
-        empenhos, liquidações e pagamentos acumulados no exercício. Caso ocorra indisponibilidade
-        de rede externa, aciona a base de referência em `etl.reference`.
+        empenhos, liquidações e pagamentos acumulados no exercício.
 
     Argumentos:
         year: Ano de referência da pesquisa (ex: 2025).
@@ -105,14 +124,13 @@ def fetch_totalizador(year: int = 2025) -> dict[str, Any]:
         Dicionário com os totais de obras, empenhado, liquidado e pago.
 
     Erros:
-        Retorna fixture de referência caso a rede externa esteja inacessível.
+        Propaga falhas da consulta.
     """
     payload = _criar_payload_filtro_ano(year)
-    try:
-        return _post_transparencia("/obraspublicas/totalizador", payload)
-    except Exception:
-        from etl.reference.sample_data import SAMPLE_TRANSPARENCIA_TOTALIZADOR
-        return SAMPLE_TRANSPARENCIA_TOTALIZADOR
+    resposta = _post_transparencia("/obraspublicas/totalizador", payload)
+    if not isinstance(resposta, dict) or not resposta or "error" in resposta:
+        raise ValueError("Resposta inválida do totalizador de obras")
+    return resposta
 
 
 def fetch_grid_detalhada(
@@ -129,8 +147,7 @@ def fetch_grid_detalhada(
         Recupera a lista de contratos de engenharia com informações de número SIGEF, objeto,
         valores originais e atualizados, percentual de medição executado e razão social do credor.
         Itera pelas páginas de resultados até esgotar os dados ou atingir o total de páginas
-        informado pelo portal. Caso ocorra falha de rede na primeira página, aciona a base de
-        referência em `etl.reference`.
+        informado pelo portal. Falhas interrompem a atualização.
 
     Argumentos:
         year: Ano de referência da pesquisa (padrão: 2025).
@@ -141,50 +158,33 @@ def fetch_grid_detalhada(
         Lista de dicionários contendo os contratos de obras públicas.
 
     Erros:
-        Retorna fixture de referência caso a rede externa esteja inacessível na primeira página.
+        Propaga falhas da consulta ou erro quando a paginação não termina.
     """
     payload = payload_customizado or _criar_payload_filtro_ano(year)
     registros: list[dict[str, Any]] = []
+    estado_paginacao: tuple[int, int, int] | None = None
 
     for pagina in range(1, max_paginas + 1):
         url = f"/obraspublicas/gridDetalhada?pagina={pagina}"
-        try:
-            resp = _post_transparencia(url, payload)
-            itens: list[dict[str, Any]] = []
-            total_paginas: int | None = None
-
-            if isinstance(resp, dict):
-                if "dados" in resp and isinstance(resp["dados"], list):
-                    itens = resp["dados"]
-                elif "dados" in resp and isinstance(resp["dados"], dict):
-                    itens = [resp["dados"]]
-                paginacao = resp.get("paginacao")
-                if isinstance(paginacao, dict):
-                    total_paginas = paginacao.get("totalPaginas") or paginacao.get("paginas")
-            elif isinstance(resp, list):
-                itens = resp
-
-            if not itens:
-                break
-
-            registros.extend(itens)
-
-            tamanho_pagina = (
-                (paginacao.get("tamanhoPagina") or paginacao.get("tamanho"))
-                if isinstance(paginacao, dict)
-                else None
-            ) or PAGE_SIZE_TRANSPARENCIA
-            if total_paginas is not None and pagina >= total_paginas:
-                break
-
-            if len(itens) < tamanho_pagina:
-                break
-        except Exception:
-            if pagina == 1 and not registros:
-                from etl.reference.sample_data import SAMPLE_TRANSPARENCIA_GRID
-                return SAMPLE_TRANSPARENCIA_GRID
+        resp = _post_transparencia(url, payload)
+        if not isinstance(resp, dict) or not isinstance(resp.get("dados"), list):
+            raise ValueError("Resposta inválida do grid de obras")
+        itens = resp["dados"]
+        estado_paginacao = _validar_paginacao(resp.get("paginacao"), pagina, len(itens), estado_paginacao, "grid de obras")
+        _, total_paginas, _ = estado_paginacao
+        if not itens:
+            if pagina < total_paginas:
+                raise ValueError("Grid de obras terminou antes da última página")
             break
 
+        registros.extend(itens)
+        if pagina >= total_paginas:
+            break
+    else:
+        raise RuntimeError("Limite de páginas do grid atingido antes da conclusão")
+
+    if estado_paginacao is None or len(registros) != estado_paginacao[0]:
+        raise ValueError("Grid de obras incompleto")
     return registros
 
 
@@ -224,7 +224,7 @@ def _fetch_lista_paginada(
     cd_unidade_gestora: Any,
     nu_contrato_sigef: Any,
     year: int = 2025,
-    max_paginas: int = 3,
+    max_paginas: int = 100,
 ) -> list[dict[str, Any]]:
     """Executa requisições paginadas para endpoints de listas relacionadas a uma obra.
 
@@ -247,31 +247,30 @@ def _fetch_lista_paginada(
         Lista com todos os dicionários de registros acumulados.
 
     Erros:
-        Não propaga exceções de rede; retorna lista vazia em caso de falha.
+        Propaga falhas e rejeita respostas inválidas ou incompletas.
     """
     payload = _criar_payload_contrato(cd_unidade_gestora, nu_contrato_sigef, year)
     registros: list[dict[str, Any]] = []
+    estado_paginacao: tuple[int, int, int] | None = None
 
     for pagina in range(1, max_paginas + 1):
         url = f"{endpoint}?pagina={pagina}"
-        try:
-            resp = _post_transparencia(url, payload)
-            itens = []
-            if isinstance(resp, dict) and "dados" in resp and isinstance(resp["dados"], list):
-                itens = resp["dados"]
-            elif isinstance(resp, list):
-                itens = resp
-
-            if not itens:
-                break
-            registros.extend(itens)
-
-            # Se a página retornou menos registros que o padrão, encerra paginação
-            if len(itens) < 10:
-                break
-        except Exception:
+        resp = _post_transparencia(url, payload)
+        if not isinstance(resp, dict) or not isinstance(resp.get("dados"), list):
+            raise ValueError(f"Resposta inválida de {endpoint}")
+        itens = resp["dados"]
+        estado_paginacao = _validar_paginacao(resp.get("paginacao"), pagina, len(itens), estado_paginacao, endpoint)
+        _, total_paginas, _ = estado_paginacao
+        registros.extend(itens)
+        if not itens and pagina < total_paginas:
+            raise ValueError(f"Paginação incompleta de {endpoint}")
+        if pagina >= total_paginas:
             break
+    else:
+        raise RuntimeError(f"Limite de páginas atingido em {endpoint}")
 
+    if estado_paginacao is None or len(registros) != estado_paginacao[0]:
+        raise ValueError(f"Lista incompleta de {endpoint}")
     return registros
 
 
@@ -288,36 +287,26 @@ def fetch_detalhes_obra(
 
     Descrição Estendida:
         Recupera as informações detalhadas do contrato na API da Transparência de Salvador.
-        Caso o endpoint não responda ou a rede externa esteja inacessível, busca nos dados
-        de referência em `etl.reference` ou utiliza a `obra_base` como fallback seguro.
 
     Argumentos:
         cd_unidade_gestora: Código da unidade gestora municipal.
         nu_contrato_sigef: Número do contrato no SIGEF.
         year: Ano de referência da apuração.
-        obra_base: Dicionário preliminar da obra oriundo do grid para fallback.
+        obra_base: Dicionário preliminar da obra oriundo do grid.
 
     Retornos:
         Dicionário com os atributos detalhados do contrato.
 
     Erros:
-        Não lança exceções.
+        Propaga falhas de consulta e rejeita respostas inválidas.
     """
     payload = _criar_payload_contrato(cd_unidade_gestora, nu_contrato_sigef, year)
-    key = f"{cd_unidade_gestora}_{nu_contrato_sigef}"
-    try:
-        resp = _post_transparencia("/obraspublicas/detalhamentoObrasPublicas", payload)
-        if isinstance(resp, dict) and "dados" in resp and isinstance(resp["dados"], dict):
-            return resp["dados"]
-        if isinstance(resp, dict) and resp:
-            return resp
-    except Exception:
-        pass
-
-    from etl.reference.sample_data import SAMPLE_TRANSPARENCIA_DETALHES
-    if key in SAMPLE_TRANSPARENCIA_DETALHES:
-        return SAMPLE_TRANSPARENCIA_DETALHES[key]
-    return obra_base or {}
+    resp = _post_transparencia("/obraspublicas/detalhamentoObrasPublicas", payload)
+    if isinstance(resp, dict) and "dados" in resp and isinstance(resp["dados"], dict):
+        return resp["dados"]
+    if isinstance(resp, dict) and resp and "dados" not in resp:
+        return resp
+    raise ValueError("Resposta inválida do detalhamento de obra")
 
 
 def fetch_aditivos_obra(
@@ -331,8 +320,7 @@ def fetch_aditivos_obra(
         Consulta termos aditivos de prazo e valor vigentes para a obra informada.
 
     Descrição Estendida:
-        Extrai o histórico de alterações contratuais publicadas no DOM. Em caso de indisponibilidade
-        de rede externa, recupera os aditivos de referência em `etl.reference`.
+        Extrai o histórico de alterações contratuais publicadas no DOM.
 
     Argumentos:
         cd_unidade_gestora: Código da unidade gestora da obra.
@@ -343,15 +331,9 @@ def fetch_aditivos_obra(
         Lista de termos aditivos contendo número, tipo, objeto, datas, DOM e valor.
 
     Erros:
-        Não lança exceções.
+        Propaga falhas de consulta e rejeita respostas inválidas.
     """
-    key = f"{cd_unidade_gestora}_{nu_contrato_sigef}"
-    itens = _fetch_lista_paginada("/obraspublicas/aditivo", cd_unidade_gestora, nu_contrato_sigef, year)
-    if itens:
-        return itens
-
-    from etl.reference.sample_data import SAMPLE_TRANSPARENCIA_ADITIVOS
-    return SAMPLE_TRANSPARENCIA_ADITIVOS.get(key, [])
+    return _fetch_lista_paginada("/obraspublicas/aditivo", cd_unidade_gestora, nu_contrato_sigef, year)
 
 
 def fetch_dotacao_obra(
@@ -365,8 +347,7 @@ def fetch_dotacao_obra(
         Identifica as fontes de recursos e subações orçamentárias que financiam o contrato.
 
     Descrição Estendida:
-        Consulta os dados de dotação orçamentária na API da Transparência de Salvador. Caso ocorra
-        falha de rede, recorre à base de referência com fallback padrão para Tesouro Municipal.
+        Consulta os dados de dotação orçamentária na API da Transparência de Salvador.
 
     Argumentos:
         cd_unidade_gestora: Código da unidade gestora da obra.
@@ -377,21 +358,9 @@ def fetch_dotacao_obra(
         Lista de dicionários com subação, fonte de recurso e classificação contábil.
 
     Erros:
-        Não lança exceções.
+        Propaga falhas de consulta e rejeita respostas inválidas.
     """
-    key = f"{cd_unidade_gestora}_{nu_contrato_sigef}"
-    itens = _fetch_lista_paginada("/obraspublicas/dotacao", cd_unidade_gestora, nu_contrato_sigef, year)
-    if itens:
-        return itens
-
-    from etl.reference.sample_data import SAMPLE_TRANSPARENCIA_DOTACAO
-    return SAMPLE_TRANSPARENCIA_DOTACAO.get(key, [
-        {
-            "dsSubacao": "Infraestrutura Urbana Municipal",
-            "dsFonteRecurso": "Tesouro Municipal (Recursos Ordinários)",
-            "dsClassificacao": "4.4.90.51 - Obras e Instalações",
-        }
-    ])
+    return _fetch_lista_paginada("/obraspublicas/dotacao", cd_unidade_gestora, nu_contrato_sigef, year)
 
 
 def fetch_empenhos_obra(

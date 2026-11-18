@@ -376,8 +376,8 @@ def test_reconciliar_acervo_local_resgata_versoes_unifica_empreiteiras_e_remove_
     assert pb["valorPago"] == 500000.0
 
 
-def test_run_pipeline_estabiliza_uuid_volatil_preserva_historico_e_expurga_orfaos(
-    tmp_path: Path,
+def test_run_pipeline_nao_reusa_acervo_sem_versao_validada(
+    tmp_path: Path, portal_simulado,
 ) -> None:
     """Valida na Seam 1 a blindagem incremental contra UUID volátil, endpoints vazios e arquivos órfãos."""
     from etl.runner import run_pipeline
@@ -541,50 +541,20 @@ def test_run_pipeline_estabiliza_uuid_volatil_preserva_historico_e_expurga_orfao
 
     assert result["success"] is True
 
-    # UUID persistido preservado, arquivo órfão removido e nenhum arquivo volátil duplicado criado
-    arquivos = sorted(p.name for p in obras_dir.glob("*.json"))
-    assert arquivos == sorted([f"{id_persistido}.json", "volatile-uuid-222.json"])
-
-    # Histórico da ficha preservado mesmo com endpoints secundários retornando vazio
-    ficha_1 = json.loads((obras_dir / f"{id_persistido}.json").read_text(encoding="utf-8"))
-    assert ficha_1["funilFinanceiro"]["percentualExecutado"] == 65.0
-    assert ficha_1["funilFinanceiro"]["valorEmpenhado"] == 1200000.0
-    assert ficha_1["funilFinanceiro"]["valorLiquidado"] == 800000.0
-    assert ficha_1["funilFinanceiro"]["valorPago"] == 500000.0
-    assert len(ficha_1["empenhos"]) == 1
-    assert len(ficha_1["liquidacoes"]) == 1
-    assert len(ficha_1["pagamentos"]) == 1
-    assert len(ficha_1["aditivos"]) == 1
-    assert ficha_1["dotacao"][0]["subacao"] == "Drenagem Pluvial"
-    assert ficha_1["dom"]["nuDom"] == "8888"
-    assert ficha_1["empreiteira"]["cnpj"] == "22.333.444/0001-55"
-    assert ficha_1["empreiteira"]["totalObras"] == 2
-
-    # Unificação da empreiteira propagada para o segundo contrato
-    ficha_2 = json.loads((obras_dir / "volatile-uuid-222.json").read_text(encoding="utf-8"))
-    assert ficha_2["empreiteira"]["cnpj"] == "22.333.444/0001-55"
-    assert ficha_2["empreiteira"]["totalObras"] == 2
-
-    idx_final = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
-    assert len(idx_final["concentracao_empreiteiras"]) == 1
-    assert idx_final["concentracao_empreiteiras"][0]["totalObras"] == 2
-
+    versao = Path(result["versao_dir"])
+    assert sorted(p.name for p in (versao / "obras").glob("*.json")) == ["volatile-uuid-222.json", "volatile-uuid-999.json"]
+    idx_final = json.loads((versao / "index_2025.json").read_text(encoding="utf-8"))
     obras_map = {o["numeroContrato"]: o for o in idx_final["obras"]}
-    assert obras_map["001/2024"]["id"] == id_persistido
-    assert obras_map["001/2024"]["valorPago"] == 500000.0
+    assert obras_map["001/2024"]["id"] == "volatile-uuid-999"
+    assert obras_map["001/2024"]["valorPago"] is None
     assert obras_map["002/2025"]["valorPago"] is None
-    assert obras_map["002/2025"]["cnpj"] == "22.333.444/0001-55"
-
-    kpis = idx_final["kpis_globais"]
-    assert kpis["totalEmpenhado"] == 3200000.0
-    assert kpis["totalLiquidado"] == 800000.0
-    assert kpis["totalPago"] == 500000.0
+    assert (obras_dir / f"{id_persistido}.json").exists()
 
 
-def test_run_pipeline_full_refresh_preserva_id_canonico_e_sincroniza_aliases(
-    tmp_path: Path,
+def test_run_pipeline_full_refresh_ignora_acervo_nao_validado_e_sincroniza_aliases(
+    tmp_path: Path, portal_simulado,
 ) -> None:
-    """Em full_refresh=True, deduplica mandatos, preserva o ID estável prévio e sincroniza index.json."""
+    """Em full_refresh=True, ignora acervo não validado e sincroniza os índices."""
     obras_dir = tmp_path / "obras"
     obras_dir.mkdir(parents=True, exist_ok=True)
     id_estavel = "id-canonico-estavel"
@@ -694,23 +664,15 @@ def test_run_pipeline_full_refresh_preserva_id_canonico_e_sincroniza_aliases(
     assert mock_detalhes.call_count == 1
     assert result["total_obras"] == 1
 
-    assert [p.name for p in obras_dir.glob("*.json")] == [f"{id_estavel}.json"]
-    ficha_final = json.loads((obras_dir / f"{id_estavel}.json").read_text(encoding="utf-8"))
-    assert ficha_final["id"] == id_estavel
-    assert ficha_final["nuProcesso"] == "98765/2024"
-    assert ficha_final["dom"]["nuDom"] == "9999"
-    assert ficha_final["empreiteira"]["cnpj"] == "33.444.555/0001-66"
-    assert ficha_final["funilFinanceiro"]["valorPago"] == 600000.0
-    assert len(ficha_final["empenhos"]) == 1
-
-    assert (tmp_path / "index_2025.json").read_text(encoding="utf-8") == (
-        tmp_path / "index.json"
+    versao = Path(result["versao_dir"])
+    assert (versao / "index_2025.json").read_text(encoding="utf-8") == (
+        versao / "index.json"
     ).read_text(encoding="utf-8")
-    idx_final = json.loads((tmp_path / "index.json").read_text(encoding="utf-8"))
+    idx_final = json.loads((versao / "index.json").read_text(encoding="utf-8"))
     assert len(idx_final["obras"]) == 1
-    assert idx_final["obras"][0]["id"] == id_estavel
+    assert idx_final["obras"][0]["id"] != id_estavel
     assert set(idx_final["obras"][0]["mandatos"]) == {"2021-2024", "2025-2028"}
-    assert idx_final["obras"][0]["valorPago"] == 600000.0
+    assert idx_final["obras"][0]["valorPago"] is None
 
 
 def test_deduplicar_e_coletar_nao_colidem_ugs_distintas_com_mesma_sigla() -> None:

@@ -33,6 +33,7 @@ import {
   obraMatchesTerritory,
   obraOverlapsMandato,
 } from "./utils/territory";
+import { formatDate } from "./utils/formatters";
 
 const TEMAS_PADRAO: TemaObra[] = [
   "Encostas e Contenção",
@@ -91,6 +92,12 @@ export function buildDataUrl(
  */
 const MOBILE_MEDIA_QUERY = "(max-width: 767px)";
 
+function formatarInstanteSalvador(valor: string): string {
+  return new Intl.DateTimeFormat("pt-BR", {
+    timeZone: "America/Bahia", dateStyle: "short", timeStyle: "short",
+  }).format(new Date(valor));
+}
+
 function getMobileMediaQueryList(): MediaQueryList | null {
   if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
     return null;
@@ -117,6 +124,7 @@ function safeWindowScrollTo(top: number): void {
 
 export const App: React.FC = () => {
   const [indexData, setIndexData] = useState<IndexData | null>(null);
+  const [dataBase, setDataBase] = useState("data");
   const [bairrosGeo, setBairrosGeo] = useState<any>(null);
   const [prefeiturasGeo, setPrefeiturasGeo] = useState<any>(null);
   const [activeLayer, setActiveLayer] = useState<"bairros" | "prefeituras">("prefeituras");
@@ -229,10 +237,25 @@ export const App: React.FC = () => {
       try {
         setLoading(true);
 
+        const ponteiroResposta = await fetch(buildDataUrl("data/atual.json"), { cache: "no-store" });
+        let base = "data";
+        let versaoPublicada: string | undefined;
+        if (ponteiroResposta.ok) {
+          const ponteiro = await ponteiroResposta.json();
+          if (typeof ponteiro.versaoDados !== "string" || !/^[0-9a-f]{32}$/.test(ponteiro.versaoDados)
+              || ponteiro.caminho !== `versoes/${ponteiro.versaoDados}`) {
+            throw new Error("Referência da versão publicada inválida.");
+          }
+          versaoPublicada = ponteiro.versaoDados;
+          base = `data/${ponteiro.caminho}`;
+        } else if (ponteiroResposta.status !== 404) {
+          throw new Error(`Falha ao carregar a versão publicada (${ponteiroResposta.status})`);
+        }
+
         const [resIndex, resBairros, resPb] = await Promise.all([
-          fetch(buildDataUrl("data/index_2025.json")),
-          fetch(buildDataUrl("data/geo/bairros.geojson")),
-          fetch(buildDataUrl("data/geo/prefeituras_bairro.geojson")),
+          fetch(buildDataUrl(`${base}/index_2025.json`)),
+          fetch(buildDataUrl(`${base}/geo/bairros.geojson`)),
+          fetch(buildDataUrl(`${base}/geo/prefeituras_bairro.geojson`)),
         ]);
 
         if (!resIndex.ok) throw new Error(`Falha ao carregar index_2025.json (${resIndex.status})`);
@@ -245,8 +268,30 @@ export const App: React.FC = () => {
           resPb.json(),
         ]);
 
+        const versao = dataIndex.metadata?.atualizacao?.versaoDados;
+        if (versaoPublicada && versao !== versaoPublicada) {
+          throw new Error("A referência e os dados são de versões diferentes. Recarregue a página.");
+        }
+        if (versao ? dataBairros.versaoDados !== versao || dataPb.versaoDados !== versao
+          : dataBairros.versaoDados || dataPb.versaoDados) {
+          throw new Error("Os arquivos de dados são de versões diferentes. Recarregue a página.");
+        }
+        if (versao) {
+          const atualizacao = dataIndex.metadata.atualizacao;
+          if (atualizacao.consultas !== "concluidas" || atualizacao.validacoes !== "aprovadas"
+              || !Array.isArray(atualizacao.limitacoesConhecidas)
+              || !/^\d{4}-\d{2}-\d{2}$/.test(atualizacao.dataReferenciaPagamentos)
+              || [atualizacao.inicioConsultas, atualizacao.fimConsultas, atualizacao.concluidaEm]
+                .some((data: string) => typeof data !== "string" || Number.isNaN(Date.parse(data)))
+              || Date.parse(atualizacao.inicioConsultas) > Date.parse(atualizacao.fimConsultas)
+              || Date.parse(atualizacao.fimConsultas) > Date.parse(atualizacao.concluidaEm)) {
+            throw new Error("Metadados da atualização inválidos.");
+          }
+        }
+
         if (isMounted) {
           setIndexData(dataIndex);
+          setDataBase(base);
           setBairrosGeo(dataBairros);
           setPrefeiturasGeo(dataPb);
           setLoading(false);
@@ -712,9 +757,13 @@ export const App: React.FC = () => {
     setSelectedObraFicha(null);
     try {
       setLoadingFicha(true);
-      const res = await fetch(buildDataUrl(`data/obras/${obra.id}.json`));
+      const res = await fetch(buildDataUrl(`${dataBase}/obras/${obra.id}.json`));
       if (res.ok) {
         const data: FichaLimpaObra = await res.json();
+        const versao = indexData?.metadata.atualizacao?.versaoDados;
+        if (versao ? data.versaoDados !== versao : data.versaoDados) {
+          throw new Error("A ficha e o painel são de versões diferentes. Recarregue a página.");
+        }
         if (requestId === fichaRequestRef.current) setSelectedObraFicha(data);
       } else {
         throw new Error(`Falha ao carregar obra ${obra.id} (status ${res.status})`);
@@ -809,10 +858,23 @@ export const App: React.FC = () => {
           headerComparisonSummary.contratosPrefeituraBairroSemRateioCount
         }
         isExactLayerWorkCount={headerComparisonSummary.isExactLayerWorkCount}
-        generatedAt={indexData.metadata.generatedAt}
+        generatedAt={indexData.metadata.atualizacao ? undefined : indexData.metadata.generatedAt}
         metricType={filters.metricType}
         mandato={filters.mandato}
       />
+
+      {indexData.metadata.atualizacao && (
+        <div className="bg-slate-100 px-4 sm:px-6 py-2 text-xs text-slate-800 flex flex-wrap gap-x-5 gap-y-1">
+          <span>Última atualização concluída em {formatarInstanteSalvador(indexData.metadata.atualizacao.concluidaEm)}</span>
+          <span>Referência dos pagamentos: {formatDate(indexData.metadata.atualizacao.dataReferenciaPagamentos)}</span>
+          <span>Consultas realizadas entre {formatarInstanteSalvador(indexData.metadata.atualizacao.inicioConsultas)} e {formatarInstanteSalvador(indexData.metadata.atualizacao.fimConsultas)} (horário de Salvador)</span>
+          <span>As consultas ocorreram em momentos diferentes.</span>
+          {indexData.metadata.atualizacao.coberturaHistorica === "nao_verificada" && (
+            <span>A abrangência histórica da fonte não foi verificada de forma independente.</span>
+          )}
+          {indexData.metadata.atualizacao.limitacoesConhecidas.map((limitacao) => <span key={limitacao}>{limitacao}</span>)}
+        </div>
+      )}
 
       {/* 2. Barra de Filtros Superiores Combinados */}
       <TopFilters

@@ -210,6 +210,9 @@ describe("Filtro Multi-Seleção de Vocação da Obra", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
     globalThis.fetch = vi.fn().mockImplementation((url: string) => {
+      if (url.endsWith("atual.json")) {
+        return Promise.resolve({ ok: false, status: 404 });
+      }
       if (url.includes("index_2025.json")) {
         return Promise.resolve({ ok: true, json: () => Promise.resolve(mockIndexData) });
       }

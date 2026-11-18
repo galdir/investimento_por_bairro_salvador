@@ -43,7 +43,7 @@ def test_ficha_nao_reaproveita_estimativa_antiga_como_pagamento() -> None:
     assert obra["valorPago"] is None
 
 
-def test_pipeline_generates_individual_obras_json_with_ficha_limpa(tmp_path: Path) -> None:
+def test_pipeline_generates_individual_obras_json_with_ficha_limpa(tmp_path: Path, portal_simulado) -> None:
     """Valida a geração dos arquivos estáticos individuais em `obras/<id>.json` e o resumo de empreiteiras.
 
     Sumário:
@@ -63,6 +63,7 @@ def test_pipeline_generates_individual_obras_json_with_ficha_limpa(tmp_path: Pat
         result = run_pipeline(output_dir=tmp_path, year=2025)
 
     assert result["success"] is True
+    tmp_path = Path(result["versao_dir"])
 
     # 1. Diretório obras/ com arquivos individuais
     obras_dir = tmp_path / "obras"
@@ -141,7 +142,7 @@ def test_pipeline_generates_individual_obras_json_with_ficha_limpa(tmp_path: Pat
         assert "cnpj" in o or "cnpjCredor" in o
 
 
-def test_pipeline_generates_fontes_oficiais_and_lastro_territorial(tmp_path: Path) -> None:
+def test_pipeline_generates_fontes_oficiais_and_lastro_territorial(tmp_path: Path, portal_simulado) -> None:
     """Valida a geração do bloco estruturado `fontesOficiais` com e sem `nuDom`/`nuProcesso`."""
     from etl.runner import run_pipeline
 
@@ -179,6 +180,7 @@ def test_pipeline_generates_fontes_oficiais_and_lastro_territorial(tmp_path: Pat
         result = run_pipeline(output_dir=tmp_path, year=2025)
 
     assert result["success"] is True
+    tmp_path = Path(result["versao_dir"])
 
     # Obra 1001: com nuDom e nuProcesso
     with open(tmp_path / "obras" / "1001.json", "r", encoding="utf-8") as f:
@@ -229,7 +231,7 @@ def test_pipeline_generates_fontes_oficiais_and_lastro_territorial(tmp_path: Pat
     assert fontes_1099["lastroTerritorial"]["origem"]
 
 
-def test_pipeline_propagates_curadoria_lastro_to_ficha_limpa(tmp_path: Path) -> None:
+def test_pipeline_propagates_curadoria_lastro_to_ficha_limpa(tmp_path: Path, portal_simulado) -> None:
     """Valida que o lastro documental da Curadoria Territorial é gravado em `fontesOficiais.lastroTerritorial`."""
     from etl.runner import run_pipeline
 
@@ -280,6 +282,7 @@ def test_pipeline_propagates_curadoria_lastro_to_ficha_limpa(tmp_path: Path) -> 
         result = run_pipeline(output_dir=tmp_path, year=2025)
 
     assert result["success"] is True
+    tmp_path = Path(result["versao_dir"])
 
     with open(tmp_path / "obras" / "9100.json", "r", encoding="utf-8") as f:
         ficha = json.load(f)

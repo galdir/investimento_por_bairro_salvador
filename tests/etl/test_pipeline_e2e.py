@@ -19,7 +19,7 @@ from tests.etl.fixtures.sample_data import (
 )
 
 
-def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> None:
+def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path, portal_simulado) -> None:
     """Valida a execução completa do pipeline ETL e integridade dos artefatos estáticos gerados.
 
     Sumário:
@@ -49,6 +49,7 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
         result = run_pipeline(output_dir=tmp_path, year=2025)
 
     assert result["success"] is True, "O pipeline deve reportar sucesso ao finalizar a execução."
+    tmp_path = Path(result["versao_dir"])
 
     # 1. Validação do arquivo de cache incremental em disco
     cache_file = tmp_path / "geocoding_cache.json"
@@ -199,7 +200,7 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path) -> N
 
 
 def test_pipeline_cli_reuses_and_updates_incremental_geocoding_cache(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, portal_simulado
 ) -> None:
     """Valida que a execução via CLI reutiliza e preserva o Cache Incremental de geocodificação.
 
@@ -243,16 +244,17 @@ def test_pipeline_cli_reuses_and_updates_incremental_geocoding_cache(
         )
         main()
 
-        assert custom_cache.exists(), "O arquivo de cache incremental deve ter sido criado pelo CLI."
+        versao_inicial = tmp_path / json.loads((tmp_path / "atual.json").read_text(encoding="utf-8"))["caminho"]
+        assert (versao_inicial / "geocoding_cache.json").exists()
 
         # Segunda execução deve reutilizar todas as entradas do cache incremental
         second_run = run_pipeline(output_dir=tmp_path, year=2025, cache_file=custom_cache)
         assert second_run["cache_hits"] == len(SAMPLE_TRANSPARENCIA_GRID)
-        assert (tmp_path / "obras" / "1001.json").exists()
+        assert (Path(second_run["versao_dir"]) / "obras" / "1001.json").exists()
 
 
 def test_pipeline_normalizes_raw_online_geosalvador_and_sidra_payloads_and_computes_semaforo_rollups(
-    tmp_path: Path,
+    tmp_path: Path, portal_simulado,
 ) -> None:
     """Valida que o pipeline normaliza malhas brutas do GeoSalvador e demografia do SIDRA e calcula o semáforo nos rollups.
 
@@ -296,6 +298,8 @@ def test_pipeline_normalizes_raw_online_geosalvador_and_sidra_payloads_and_compu
         result = run_pipeline(output_dir=tmp_path, year=2025)
 
     assert result["success"] is True
+
+    tmp_path = Path(result["versao_dir"])
 
     index_file = tmp_path / "index_2025.json"
     assert index_file.exists()

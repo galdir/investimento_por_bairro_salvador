@@ -166,7 +166,7 @@ def test_fallback_conservador_para_vizinhanca_e_comunidade():
     )
 
 
-def test_pipeline_emite_vocacao_no_index_e_na_ficha_limpa(tmp_path: Path) -> None:
+def test_pipeline_emite_vocacao_no_index_e_na_ficha_limpa(tmp_path: Path, portal_simulado) -> None:
     """Garante que o pipeline ETL propaga `vocacao` no index_2025.json e em obras/<id>.json."""
     from etl.runner import run_pipeline
 
@@ -180,6 +180,7 @@ def test_pipeline_emite_vocacao_no_index_e_na_ficha_limpa(tmp_path: Path) -> Non
         result = run_pipeline(output_dir=tmp_path, year=2025)
 
     assert result["success"] is True
+    tmp_path = Path(result["versao_dir"])
 
     with open(tmp_path / "index_2025.json", "r", encoding="utf-8") as f:
         index_data = json.load(f)

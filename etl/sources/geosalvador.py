@@ -2,7 +2,6 @@
 
 Responsável por consultar o MapServer oficial da Prefeitura de Salvador e
 retornar as malhas cartográficas em formato GeoJSON e projeção EPSG:4326.
-Inclui fallback resiliente para execução local ou offline.
 """
 
 import json
@@ -10,6 +9,7 @@ import ssl
 import urllib.error
 import urllib.request
 from typing import Any
+from shapely.geometry import shape
 
 from etl.config import (
     GEOSALVADOR_MAPSERVER_BASE,
@@ -17,6 +17,16 @@ from etl.config import (
     LAYER_PREFEITURAS_BAIRRO,
 )
 from etl.domain.territorio import normalizar_nome_prefeitura_bairro
+
+
+def geometria_valida(geometria: Any) -> bool:
+    if not isinstance(geometria, dict) or geometria.get("type") not in {"Polygon", "MultiPolygon"}:
+        return False
+    try:
+        poligono = shape(geometria)
+        return not poligono.is_empty and poligono.is_valid
+    except (TypeError, ValueError, KeyError):
+        return False
 
 
 def _query_arcgis_geojson(layer_id: int, where_clause: str = "1=1", timeout: int = 15) -> dict[str, Any]:
@@ -28,8 +38,7 @@ def _query_arcgis_geojson(layer_id: int, where_clause: str = "1=1", timeout: int
     Descrição Estendida:
         Constrói a URL da consulta com os parâmetros `f=geojson`, `outSR=4326`, `outFields=*`
         e executa a chamada HTTP com tratamento de contexto SSL e timeouts configuráveis.
-        Caso o ambiente esteja offline (ex: sandbox sem rede externa), recorre aos dados
-        de referência embutidos em `etl.reference` para garantir funcionamento determinístico.
+        Falhas de consulta são propagadas para impedir a publicação de dados incompletos.
 
     Argumentos:
         layer_id: Número identificador da camada no MapServer do GeoSalvador.
@@ -62,22 +71,29 @@ def _query_arcgis_geojson(layer_id: int, where_clause: str = "1=1", timeout: int
             "Accept": "application/json, application/geo+json, */*",
         },
     )
-    try:
-        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as response:
-            content = response.read().decode("utf-8", errors="replace")
-            data = json.loads(content)
-            if "error" in data:
-                raise RuntimeError(f"Erro retornado pelo GeoSalvador Layer {layer_id}: {data['error']}")
-            return data
-    except Exception:
-        # Fallback de referência neutro em etl.reference (sem acoplar com a suite tests/)
-        from etl.reference.sample_data import (
-            SAMPLE_GEOSALVADOR_BAIRROS,
-            SAMPLE_GEOSALVADOR_PREFEITURAS,
-        )
-        if layer_id == LAYER_BAIRROS_OFICIAIS:
-            return SAMPLE_GEOSALVADOR_BAIRROS
-        return SAMPLE_GEOSALVADOR_PREFEITURAS
+    with urllib.request.urlopen(req, timeout=timeout, context=ctx) as response:
+        content = response.read().decode("utf-8", errors="replace")
+        data = json.loads(content)
+        if isinstance(data, dict) and "error" in data:
+            raise RuntimeError(f"Erro retornado pelo GeoSalvador Layer {layer_id}: {data['error']}")
+        if (
+            not isinstance(data, dict)
+            or data.get("type") != "FeatureCollection"
+            or not isinstance(data.get("features"), list)
+            or not data["features"]
+            or data.get("exceededTransferLimit") is True
+        ):
+            raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
+        nomes = ("NM_BAIRRO", "NOME_BAIRR", "nome") if layer_id == LAYER_BAIRROS_OFICIAIS else ("NM_PREFEITURA_BAIRRO", "SUBCLASSES", "NOMES", "nome")
+        for feature in data["features"]:
+            if not isinstance(feature, dict):
+                raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
+            props = feature.get("properties")
+            geometria = feature.get("geometry")
+            if (not isinstance(props, dict) or not any(str(props.get(nome) or "").strip() for nome in nomes)
+                    or not geometria_valida(geometria)):
+                raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
+        return data
 
 
 def fetch_bairros_geojson() -> dict[str, Any]:
@@ -88,7 +104,7 @@ def fetch_bairros_geojson() -> dict[str, Any]:
 
     Descrição Estendida:
         Recupera os limites geográficos oficiais de todos os bairros municipais de Salvador
-        conforme o Decreto nº 32.791/2020. Quando sem acesso à rede, utiliza a base de referência.
+        conforme o Decreto nº 32.791/2020.
 
     Argumentos:
         Nenhum.
@@ -97,7 +113,7 @@ def fetch_bairros_geojson() -> dict[str, Any]:
         Dicionário contendo GeoJSON FeatureCollection de Bairros Oficiais.
 
     Erros:
-        Não interrompe a execução caso esteja sem rede externa; utiliza fallback de referência.
+        Propaga erros de rede e respostas inválidas.
     """
     return _query_arcgis_geojson(LAYER_BAIRROS_OFICIAIS)
 
@@ -110,7 +126,6 @@ def fetch_prefeituras_geojson() -> dict[str, Any]:
 
     Descrição Estendida:
         Recupera os polígonos das divisões administrativas descentralizadas de Salvador (Prefeituras-Bairro).
-        Quando sem acesso à rede externa, aciona a malha de referência.
 
     Argumentos:
         Nenhum.
@@ -119,7 +134,7 @@ def fetch_prefeituras_geojson() -> dict[str, Any]:
         Dicionário contendo GeoJSON FeatureCollection das Prefeituras-Bairro.
 
     Erros:
-        Não interrompe a execução caso esteja sem rede externa; utiliza fallback de referência.
+        Propaga erros de rede e respostas inválidas.
     """
     data = _query_arcgis_geojson(LAYER_PREFEITURAS_BAIRRO)
     for feat in data.get("features", []):
