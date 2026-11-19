@@ -1,0 +1,158 @@
+{
+  "id": "8d927847-d178-4de2-9fff-286d32757058",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2023CT008265",
+  "numeroContratoOriginal": "119/2023",
+  "nuProcesso": "197162/2023",
+  "objeto": "SERVIÇOS COMUNS DE ENGENHARIA PARA A PRODUÇÃO DE GRADIL COM DESENHO ARTÍSTICO EM ELEMENTOS METÁLICOS COM UM PORTÃO DE PEDESTRE E OUTRO PARA VEÍCULOS. INCLUSO INSUMOS, OS EQUIPAMENTOS E FERMENTARIAS.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 97500.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2023-11-01T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-04-28T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-11-01T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 97500.0,
+    "valorContratualVigente": 97500.0,
+    "valorEmpenhado": 97500.0,
+    "valorLiquidado": 97500.0,
+    "valorPago": 97500.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "f3c6b223-3414-43a5-ae96-b982411c71e7",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2023NE000796",
+      "dataEmpenho": "08/11/2023",
+      "nomeCredor": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "97.500,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "f840de26-b759-4fef-8573-68fe0cbfc71f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2023NE000796",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
+      "notaLiquidacao": "2023NL007100",
+      "notaLancamento": "2023NL007100",
+      "numProcesso": "02250892023",
+      "dataLiquidacao": "23/11/2023",
+      "valLiqLiquidacao": "97.500,00",
+      "valBrutLiquidacao": "97.500,00",
+      "valEmpenho": "97.500,00",
+      "descObsLiquidacao": "QUEIROZ OLIVEIRA COMERCIO INDUSTRIAL LTDA - SERVIÇO DE BENEFICIAMENTO GRADIL/COLUNAS - PRO",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "3819f0bc-7d4c-40dd-be1e-a3c6956de8de",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2023NE000796",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "QUEIROZ OLIVEIRA COMERCIO E INDUSTRIA LTDA",
+      "notaLiquidacao": "2023NL007100",
+      "ordBancaria": "2023OB074274",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 97.500,00",
+      "dataPagamento": "24/11/2023",
+      "pago": "R$ 97.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2023CT008265"
+    },
+    "nuProcesso": "197162/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "6b0bfcef-2a14-4b3f-834c-84c220df3dfc",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT005109",
+  "numeroContratoOriginal": "026/2023",
+  "nuProcesso": "019426/2023",
+  "objeto": "Execução de obras de Construção da Praça abaixo do Viaduto Juscelino Kubitschek, localizada ao longo da Avenida Anita Garibaldi ¿ Federação Salvador/BA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "MP2 CONSTRUCOES LTDA",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 11712650.34,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "fc47f7b4-645f-4b7f-9fd9-24a2e61ea127",
+      "ec934931-5782-4978-9791-e3b89c2f3e38",
+      "2a3d4b76-c326-4ad2-9542-5be0f3866517",
+      "c3099d38-279c-43f9-8d48-dd0cedb8e3c9",
+      "1361d5b6-0b40-4bc8-8542-d89fadfa9758",
+      "1c210c6d-dfff-4afe-b3c1-7373fa7ddc39",
+      "eb35976f-3ed4-4bc6-b836-9678e81100bb"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-07-04T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2023-10-01T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-07-04T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 757614.46,
+    "valorContratualVigente": 757614.46,
+    "valorEmpenhado": 757614.46,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "b3104c68-ab51-408c-8b5d-f938a7fdab6e",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000933",
+      "dataEmpenho": "04/07/2023",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "10.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "99ecddce-a51c-46c2-a5a7-48f597d16c90",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000974",
+      "dataEmpenho": "17/07/2023",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "747.614,46",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "301f5ab3-148d-468e-84e4-479fc097764c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP6356049",
+      "dataEmpenho": "30/08/2024",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vincula",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-10.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c2a581dd-d473-441a-84fe-8f4efaa4bb42",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP6356053",
+      "dataEmpenho": "30/08/2024",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Ex. Anterior - Recur",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-747.614,46",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "a4953a7a-e763-4c33-b882-926fe63a538b",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP9968553",
+      "dataEmpenho": "31/12/2024",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Ex. Anterior - Recur",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "574cbfc1-1260-4ab7-98b1-b760ab384d2c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP9968550",
+      "dataEmpenho": "31/12/2024",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vincula",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 01/10/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Federação",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.99875,
+  "longitude": -38.50501,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT005109"
+    },
+    "nuProcesso": "019426/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Federação",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Federação via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

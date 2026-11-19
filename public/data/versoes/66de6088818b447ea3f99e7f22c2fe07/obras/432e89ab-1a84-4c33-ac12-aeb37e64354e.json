@@ -1,0 +1,160 @@
+{
+  "id": "432e89ab-1a84-4c33-ac12-aeb37e64354e",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2026CT003488",
+  "numeroContratoOriginal": "412026",
+  "nuProcesso": "0499672026",
+  "objeto": "FORNECIMENTO E MONTAGEM DE MARCO DE INAUGURAÇÃO EM GRANITO CINZA CORUMBÁ",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ELIANA COSTA BRITO LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 97211.98,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "caa84d1b-91aa-459b-9399-0b7011d04ace"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2026-05-28T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-11-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-05-28T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 48911.98,
+    "valorContratualVigente": 48911.98,
+    "valorEmpenhado": 48911.98,
+    "valorLiquidado": 48911.98,
+    "valorPago": 48911.98,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "28ec6e33-3e55-4505-adbd-5b46f3c69eca",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2026NE000673",
+      "dataEmpenho": "08/06/2026",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "48.911,98",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "866ed6eb-900a-4186-beb7-7511503e3982",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000673",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "notaLiquidacao": "2026NL004215",
+      "notaLancamento": "2026NL004215",
+      "numProcesso": "01277282026",
+      "dataLiquidacao": "10/06/2026",
+      "valLiqLiquidacao": "48.911,98",
+      "valBrutLiquidacao": "48.911,98",
+      "valEmpenho": "48.911,98",
+      "descObsLiquidacao": "ELIANA - MARCO DE INAUGURAÇÃO EM GRANITO - PROC 127728/2026 - NF 669",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "a3dffa06-dc5f-4ada-84a5-a42c1839ab70",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000673",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ELIANA COSTA BRITO LTDA",
+      "notaLiquidacao": "2026NL004215",
+      "ordBancaria": "2026OB033754",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 48.911,98",
+      "dataPagamento": "11/06/2026",
+      "pago": "R$ 48.911,98",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2026CT003488"
+    },
+    "nuProcesso": "0499672026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

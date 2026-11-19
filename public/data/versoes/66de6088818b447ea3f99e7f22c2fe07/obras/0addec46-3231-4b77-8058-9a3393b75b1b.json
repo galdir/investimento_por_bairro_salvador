@@ -1,0 +1,180 @@
+{
+  "id": "0addec46-3231-4b77-8058-9a3393b75b1b",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2024CT002145",
+  "numeroContratoOriginal": "001/2024",
+  "nuProcesso": "073240/2023",
+  "objeto": "contratação de serviços de Engenharia Especializada que consista na realização de Testes de\r\nCarga, Análise Estrutural e Laudo Técnico de Tirante T10 da Plataforma de Acesso à Estação da Lapa,\r\nlocalizada no Município de Salvador/BA.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 73000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2024-02-05T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-04-04T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-02-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 73000.0,
+    "valorContratualVigente": 73000.0,
+    "valorEmpenhado": 73000.0,
+    "valorLiquidado": 73000.0,
+    "valorPago": 73000.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "fe39a3ef-a694-46ee-b4a1-a6b8d6508c33",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2024NE000195",
+      "dataEmpenho": "05/02/2024",
+      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "73.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "29441af6-f0d1-4f0d-9914-7f75b531f6ac",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2024NE000195",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
+      "notaLiquidacao": "2024NL007813",
+      "notaLancamento": "2024NL007813",
+      "numProcesso": "01202692024",
+      "dataLiquidacao": "12/06/2024",
+      "valLiqLiquidacao": "73.000,00",
+      "valBrutLiquidacao": "73.000,00",
+      "valEmpenho": "73.000,00",
+      "descObsLiquidacao": "SERVS. DE ENGª ESPECIAL., QUE CONSIST NA REALIZAÇÃO DE TESTE DE CARGA, ANALISE ESTRUT. E L",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "13f54671-6006-4f0d-8628-42998442cf9c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2024NE000195",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB041005",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 73.000,00",
+      "dataPagamento": "14/06/2024",
+      "pago": "R$ 3.650,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8b2178bd-e466-4408-bf4e-6f2e89a7df3e",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2024NE000195",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "AJL RL SA ENGENHARIA ESTRUTURAL LTDA",
+      "notaLiquidacao": "2024NL007813",
+      "ordBancaria": "2024OB041003",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 73.000,00",
+      "dataPagamento": "14/06/2024",
+      "pago": "R$ 69.350,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Barris",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.986317,
+  "longitude": -38.513577,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT002145"
+    },
+    "nuProcesso": "073240/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Barris",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Barris via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Laudo Técnico de Tirante T10 da Plataforma de Acesso à Estação da Lapa",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A Estação da Lapa situa-se integralmente no Bairro Oficial Barris (CEP 40070-040); 'Plataforma de Acesso' é elemento construtivo, não o bairro Plataforma."
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

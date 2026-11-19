@@ -1,0 +1,101 @@
+{
+  "id": "b9b315f3-4e2d-44bc-8113-30ec43f80aef",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2025CT002899",
+  "numeroContratoOriginal": "0192025",
+  "nuProcesso": "123864/2024",
+  "objeto": "Contratação de empresa capacitada para execução da obra de Implantação do CRAS - Centro de \r\nReferência da Assistência Social -Mané Dendê em Ilha Amarela - Salvador/BA.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA LAM LTDA",
+    "cnpj": "03.522.765/0001-80",
+    "totalObras": 3,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 9572087.14,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "fdba77b9-bb6c-4f2c-be83-ddfa21537555",
+      "ce3fa22c-4497-4c99-a0c6-db1ad3e7e947"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2025-05-05T00:00:00.000Z",
+    "dataFimOriginal": "2026-04-29T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-04-29T00:00:00.000Z",
+    "prazoOriginal": "359",
+    "prazoAtualizado": "359"
+  },
+  "dom": {
+    "nuDom": "8860",
+    "dataPublicacao": "2025-05-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3685297.94,
+    "valorContratualVigente": 3685297.94,
+    "valorEmpenhado": 3685297.94,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/04/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Ilha Amarela",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.890839,
+  "longitude": -38.471967,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT002899"
+    },
+    "nuProcesso": "123864/2024",
+    "domContrato": {
+      "nuDom": "8860",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Ilha Amarela",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Ilha Amarela via Stage 1 (Equipamento Oficial)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

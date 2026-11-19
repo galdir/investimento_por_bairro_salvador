@@ -1,0 +1,102 @@
+{
+  "id": "aa578049-9cc6-4c08-abb7-3abe19d67c16",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2023CT002859",
+  "numeroContratoOriginal": "000023/2023",
+  "nuProcesso": "130693/2022",
+  "objeto": "Supervisão da obra de requalificação urbano-ambiental da orla marítima de Salvador/BA ¿ trecho Praia do Flamengo",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "UFC ENGENHARIA SA",
+    "cnpj": "32.690.778/0001-66",
+    "totalObras": 4,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 16326463.35,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "40893ee9-b2ad-4d2e-940f-4e633116c84d",
+      "cbe92b3a-e3af-4286-bb3c-61d71cbbb3e7",
+      "c6c13648-e2d9-4183-b2fd-0a573693bb38"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-04-05T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-06-05T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-04-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1331330.81,
+    "valorContratualVigente": 1331330.81,
+    "valorEmpenhado": 1331330.81,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 05/06/2024 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Stella Maris",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.929128,
+  "longitude": -38.329038,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "540002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2023CT002859"
+    },
+    "nuProcesso": "130693/2022",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Stella Maris",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Stella Maris via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "540002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

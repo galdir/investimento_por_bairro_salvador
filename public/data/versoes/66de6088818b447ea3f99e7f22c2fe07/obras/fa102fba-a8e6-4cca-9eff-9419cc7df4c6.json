@@ -1,0 +1,175 @@
+{
+  "id": "fa102fba-a8e6-4cca-9eff-9419cc7df4c6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT004856",
+  "numeroContratoOriginal": "0102026",
+  "nuProcesso": "0559922026",
+  "objeto": "Contratação de empresa capacitada para o Fornecimento e Instalação de Assentos Rebatíveis para Arquibancadas Fixas do Complexo Multiuso Arena Salvador, localizado Avenida Otávio Mangabeira ¿ Boca do Rio - Salvador/BA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DACOR SPORTS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 2506412.84,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2026-08-19T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-12-16T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-08-19T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 2506412.84,
+    "valorContratualVigente": 2506412.84,
+    "valorEmpenhado": 2506412.84,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "2ef98cef-b802-4473-92e4-432fce5e0981",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001089",
+      "dataEmpenho": "27/08/2026",
+      "nomeCredor": "DACOR SPORTS LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
+      "valEmpenhado": "2.396.411,84",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "f43d6a31-4fb6-4819-a8ce-359c677cc8de",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001090",
+      "dataEmpenho": "27/08/2026",
+      "nomeCredor": "DACOR SPORTS LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
+      "valEmpenhado": "110.001,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "3dc5e967-ba30-4542-aa7f-f0dd2462598c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001091",
+      "dataEmpenho": "27/08/2026",
+      "nomeCredor": "DACOR SPORTS LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
+      "valEmpenhado": "-110.001,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c4036dcd-a5cb-4979-9b62-dc8737f84dac",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001092",
+      "dataEmpenho": "27/08/2026",
+      "nomeCredor": "DACOR SPORTS LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Bens Móveis - Mobiliário em Geral",
+      "valEmpenhado": "110.001,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT004856"
+    },
+    "nuProcesso": "0559922026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Boca do Rio via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

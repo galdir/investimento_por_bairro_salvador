@@ -1,0 +1,140 @@
+{
+  "id": "3f51af53-d3a9-4b2c-8b27-2f0bb0fcaf08",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2024CT006680",
+  "numeroContratoOriginal": "43/2024",
+  "nuProcesso": "041796/2024",
+  "objeto": "Realização de obras de requalificação e modernização do QUADRA POLIESPORTIVA da Rua Lourival Costa com a Rua\r\nJoinville, Águas Claras - Salvador/Ba e do CAMPO DE FUTEBOL. Convênio n° 911864/2021. Proc: 41796/2024.\r\nDeclaramos para os devidos fins legais que a referida despesa possui adequação orçamentária e financeira com a LOA e\r\ncompatibilidade com a LDO e PPA",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "R.N ENGENHARIA LTDA",
+    "cnpj": "26.757.074/0001-60",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 1660562.03,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "0d74e169-e546-4925-9206-d0270632dc03",
+      "a8cd5ed6-bffb-4d87-86cf-87409c99725f"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-07-09T00:00:00.000Z",
+    "dataFimOriginal": "2025-07-09T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-07-09T00:00:00.000Z",
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
+  },
+  "dom": {
+    "nuDom": "8820",
+    "dataPublicacao": "2024-07-15T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 223374.6,
+    "valorContratualVigente": 223374.6,
+    "valorEmpenhado": 223374.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "5960c37c-535f-4652-b934-19fe9944fb14",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2024NE002198",
+      "dataEmpenho": "15/07/2024",
+      "nomeCredor": "R.N ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Confecção de uniformes, bandeiras e flamulas",
+      "valEmpenhado": "3.148,23",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "d78b7ac8-7306-4262-bfd3-746316ce8250",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2024NE003188",
+      "dataEmpenho": "18/11/2024",
+      "nomeCredor": "R.N ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Confecção de uniformes, bandeiras e flamulas",
+      "valEmpenhado": "-3.148,23",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 09/07/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Águas Claras",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.890699,
+  "longitude": -38.435616,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2024CT006680"
+    },
+    "nuProcesso": "041796/2024",
+    "domContrato": {
+      "nuDom": "8820",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Águas Claras",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Águas Claras via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

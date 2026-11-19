@@ -1,0 +1,110 @@
+{
+  "id": "d15ac6a8-4954-494a-a712-3548c1f6ad9e",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2025CT000801",
+  "numeroContratoOriginal": "8742024",
+  "nuProcesso": "012431/2024",
+  "objeto": "Construção do CAPS IA (Centro de Atenção Psicossocial Infância e Adolescência), no Distrito Sanitário de Itapagipe, na Rua Pedreira Franco s/n bairro Calçada, em Salvador-Ba, para a Secretaria Municipal da Saúde, de acordo com as especificações e obrigações constantes no Edital da Licitação, nas condições estabelecidas no Termo de Referência",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+    "cnpj": "13.585.696/0001-07",
+    "totalObras": 12,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 52610665.22,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "ba4d28e2-776b-4513-9fd4-abf4f45fdde2",
+      "e3304abc-7ec8-4f1b-9b3b-92bb1e076df6",
+      "9d9b3409-951d-4a93-8e4a-f122b423c2c3",
+      "0dac0780-6aa8-47c6-8a50-9d8c3315a214",
+      "df7d4c29-a255-431e-bb30-cc79da8b0729",
+      "2eda450a-2d72-42d5-8a54-fc4db483c5fa",
+      "c5034e09-94bc-4f67-89ae-9c1508fb525d",
+      "03196c44-4aee-4e99-9716-741a66888355",
+      "246c7517-040c-4acb-b7f7-13c5ee608539",
+      "bc956af4-e230-4dff-b5c3-f352c3dc338f",
+      "624a0871-ef79-4b24-8a82-84f72b7f905b"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-12-10T00:00:00.000Z",
+    "dataFimOriginal": "2025-12-09T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-12-09T00:00:00.000Z",
+    "prazoOriginal": "364",
+    "prazoAtualizado": "364"
+  },
+  "dom": {
+    "nuDom": "8935",
+    "dataPublicacao": "2025-03-13T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 2269437.83,
+    "valorContratualVigente": 2269437.83,
+    "valorEmpenhado": 2269437.83,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 09/12/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Calçada",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.943002,
+  "longitude": -38.49658,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2025CT000801"
+    },
+    "nuProcesso": "012431/2024",
+    "domContrato": {
+      "nuDom": "8935",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Calçada",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Calçada via Stage 1 (Equipamento Oficial)"
+    }
+  },
+  "cdUnidadeGestora": "301110",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

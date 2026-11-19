@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Published data versions are immutable; keep their original bytes so the
+# manifest SHA-256 values remain valid when Windows line-ending conversion is enabled.
+public/data/versoes/** -text whitespace=cr-at-eol

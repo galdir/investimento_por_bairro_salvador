@@ -1,0 +1,159 @@
+{
+  "id": "c6102e7d-d1a8-4946-ba53-b252ca62e074",
+  "unidadeGestora": "SEMGE",
+  "numeroContrato": "2024CT005904",
+  "numeroContratoOriginal": "000298/2024",
+  "nuProcesso": "194131/2023",
+  "objeto": "SERVIÇO DE ADEQUAÇÃO ELÉTRICA NECESSÁRIA PARA POSSIBILITAR A CLIMATIZAÇÃO COM EXECUÇÃO DE TODOS OS ITENS PERTENCENTES DESDE A DERIVAÇÃO DO RAMAL COELBA.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "CBS - CONSTRUTORA BAHIANA DE SANEAMENTO LTDA",
+    "cnpj": "11.630.923/0001-43",
+    "totalObras": 11,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 875176675.28,
+    "outrasObrasCount": 10,
+    "outrasObrasIds": [
+      "37577f76-f84f-43c9-9293-19b612020a3a",
+      "665aa9ea-c4ca-4819-9dac-0a663ffb5f96",
+      "c4049900-3002-49db-88a9-1efc9bcaac38",
+      "052329fb-1ec9-43ec-a77f-901bdeece3a9",
+      "4a9d4f9d-213c-497e-88bc-75506f3885d0",
+      "e2c5525e-1416-4733-9f75-2993af136add",
+      "79a60881-466e-4028-8d9a-6396241cd3ca",
+      "5caed1e1-106d-49f3-9850-7fe9e85256f8",
+      "02fbfbc5-4d7e-457e-a36b-1ce594eb6b08",
+      "0149afdc-9fd0-4f71-969a-2a98c90af982"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-06-11T00:00:00.000Z",
+    "dataFimOriginal": "2025-06-11T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-10-12T00:00:00.000Z",
+    "prazoOriginal": "365",
+    "prazoAtualizado": "853"
+  },
+  "dom": {
+    "nuDom": "8803",
+    "dataPublicacao": "2024-06-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 12355970.51,
+    "valorContratualVigente": 13673467.7,
+    "valorEmpenhado": 13673467.7,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 1317497.19,
+    "deltaPercentualAditivos": 10.66
+  },
+  "aditivos": [
+    {
+      "nuAditivo": "1",
+      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
+      "dsObjetoAditivo": "ACRÉSCIMO DE VALOR NO PERCENTAL APROXIMADO DE 10,66% COM BASE NO ART. 65,I, a e b, DA LEI FEDERAL  8.666/93 E PRORROGAÇÃO DO PRAZO DE EXECUÇÃO E VIGÊNCIA DO CT. 298/2024 PELO PERÍODO DE 10(DEZ) MESES COM INÍCIO EM 12/06/2025 E TÉRMINO EM 12/04/2026.",
+      "dtAssinatura": "11/06/2025",
+      "dtTerminoVigencia": "12/04/2026",
+      "dtPublicacao": "13/06/2025",
+      "nuDom": "9050",
+      "vlAditivo": 1317497.19
+    },
+    {
+      "nuAditivo": "2",
+      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
+      "dsObjetoAditivo": "SERVIÇO DE ADEQUAÇÃO ELÉTRICA.",
+      "dtAssinatura": "01/05/2026",
+      "dtTerminoVigencia": "12/04/2027",
+      "dtPublicacao": "01/05/2026",
+      "nuDom": "0000",
+      "vlAditivo": 13673467.69
+    },
+    {
+      "nuAditivo": "3",
+      "dsTipoAlteracao": "Redução de prazo com redução de valor",
+      "dsObjetoAditivo": "adequação elétrica\r\nnecessária para possibilitar a climatização nas diversas unidades da Secretaria Municipal da\r\nEducação.",
+      "dtAssinatura": "01/05/2026",
+      "dtTerminoVigencia": "12/10/2026",
+      "dtPublicacao": "25/05/2026",
+      "nuDom": "25052026",
+      "vlAditivo": 13673467.69
+    }
+  ],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 12/10/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 10.66
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "410002",
+      "unidadeGestora": "SEMGE",
+      "nuContratoSigef": "2024CT005904"
+    },
+    "nuProcesso": "194131/2023",
+    "domContrato": {
+      "nuDom": "8803",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "9050",
+        "dtPublicacao": "13/06/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "0000",
+        "dtPublicacao": "01/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "25052026",
+        "dtPublicacao": "25/05/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "410002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

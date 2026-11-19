@@ -1,0 +1,101 @@
+{
+  "id": "a4cfbf71-2e16-43a7-89db-0d5a9aded647",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2025CT005387",
+  "numeroContratoOriginal": "3762025",
+  "nuProcesso": "107560/2024",
+  "objeto": "CONSTRUÇÃO DA UNIDADE DE SAÚDE DA FAMÍLIA CALÇADA.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "OSOLEV CONSTRUTORA LTDA",
+    "cnpj": "16.607.359/0001-61",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 3814184.34,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "b95b6720-8afc-4214-83b6-09e8c312d7db",
+      "b50bc3c4-3ec8-4d35-99ae-11dfb5b01945"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2025-06-17T00:00:00.000Z",
+    "dataFimOriginal": "2026-06-16T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-06-16T00:00:00.000Z",
+    "prazoOriginal": "364",
+    "prazoAtualizado": "364"
+  },
+  "dom": {
+    "nuDom": "9057",
+    "dataPublicacao": "2025-09-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3574184.34,
+    "valorContratualVigente": 3574184.34,
+    "valorEmpenhado": 3574184.34,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 16/06/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Calçada",
+  "prefeituraBairro": "Cidade Baixa",
+  "latitude": -12.9422,
+  "longitude": -38.4972,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2025CT005387"
+    },
+    "nuProcesso": "107560/2024",
+    "domContrato": {
+      "nuDom": "9057",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Calçada",
+      "prefeituraBairro": "Cidade Baixa",
+      "origem": "Alocação em Calçada via Stage 1 (Equipamento Oficial)"
+    }
+  },
+  "cdUnidadeGestora": "301110",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

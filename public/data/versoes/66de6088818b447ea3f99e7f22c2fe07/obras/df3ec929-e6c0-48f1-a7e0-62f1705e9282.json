@@ -1,0 +1,148 @@
+{
+  "id": "df3ec929-e6c0-48f1-a7e0-62f1705e9282",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2020CT001787",
+  "numeroContratoOriginal": "000059/2019",
+  "nuProcesso": "002758/2019",
+  "objeto": "PRESTAÇÃO DE SERVIÇOS TÉCNICOS DE ELABORAÇÃO DE PROJETOS BÁSICO E EXECUTIVO DE ARQUITETURA E ENGENHARIA, E EXECUÇÃO DA OBRA DE RECONSTRUÇÃO DO CMEI UNIÃO BOCA DO RIO.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA VOLQUE LTDA",
+    "cnpj": "00.991.667/0001-01",
+    "totalObras": 5,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 32144731.56,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "01625f7d-9ce2-4a3e-9203-0d77d25524b1",
+      "b9952444-b2ac-4434-a750-8e19e309b172",
+      "7c76516f-3219-4cb7-81cf-ffef16d90621",
+      "bf0a3732-63b1-447f-a4ba-56f5af688df2"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2020-02-03T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2021-04-04T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2020-02-03T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3419149.07,
+    "valorContratualVigente": 3419149.07,
+    "valorEmpenhado": 3419149.07,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Reconstrução de Centros Municipais de Educação Infantil",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "classificacao": "Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "b6fbfff5-60cb-42e9-8dfc-85609467f80c",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2020NE000781",
+      "dataEmpenho": "03/02/2020",
+      "nomeCredor": "CONSTRUTORA VOLQUE LTDA",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Educacional",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "f58bc9dc-93d0-4ce5-8648-9415a0353307",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2020NE000847",
+      "dataEmpenho": "03/02/2020",
+      "nomeCredor": "CONSTRUTORA VOLQUE LTDA",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Educacional",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 04/04/2021 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Imbuí",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.9735,
+  "longitude": -38.4318,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2020CT001787"
+    },
+    "nuProcesso": "002758/2019",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Imbuí",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Imbuí via Stage 1 (Equipamento Oficial)"
+    }
+  },
+  "cdUnidadeGestora": "441010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

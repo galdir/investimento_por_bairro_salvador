@@ -1,0 +1,106 @@
+{
+  "id": "ff181193-7bd7-428e-946c-139508c02a9c",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2022CT002634",
+  "numeroContratoOriginal": "014/2022",
+  "nuProcesso": "025037/2022",
+  "objeto": "Objeto da presente licitação a contratação de empresa especializada para execução das obras de Recuperação Estrutural da Ponte do Antigo Clube do Bahia, Boca do Rio ¿ Salvador/BA",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
+    "cnpj": "07.443.264/0001-69",
+    "totalObras": 7,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 8127118.91,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "cc2ed234-1c79-4260-85d3-1dfde75faa1f",
+      "af0e5f08-d3fc-4ce9-8deb-3e4980e677a7",
+      "cd6ff9d0-0641-45b6-adb7-decccbd4d9cb",
+      "c6376d1b-b81e-47f3-bf4c-afb44cf63d66",
+      "c0b7b675-de73-4c9a-8f18-3cc07cf28e7c",
+      "1f595f98-bd87-4231-b8bb-f495824befb2"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2022-05-19T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2022-09-15T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2022-05-19T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 654108.68,
+    "valorContratualVigente": 654108.68,
+    "valorEmpenhado": 654108.68,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 15/09/2022 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT002634"
+    },
+    "nuProcesso": "025037/2022",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Boca do Rio via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

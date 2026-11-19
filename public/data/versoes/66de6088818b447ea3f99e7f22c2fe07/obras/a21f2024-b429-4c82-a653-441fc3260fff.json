@@ -1,0 +1,278 @@
+{
+  "id": "a21f2024-b429-4c82-a653-441fc3260fff",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2024CT009421",
+  "numeroContratoOriginal": "1272024",
+  "nuProcesso": "213517/2024",
+  "objeto": "CONTRATAÇÃO DIRETA EMERGENCIAL DE EMPRESA DE ENGENHARIA PARA RECUPERAÇÃO DA COBERTURA DE GALPÃO DA DESAL",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "V R CAMPOS BARBOSA",
+    "cnpj": "37.513.644/0001-93",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 11486857.77,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "5819f457-54a3-449b-af29-f3eb5c1b7bc2",
+      "4dd3992e-3563-4c64-9448-801fe6c3e3b3"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-10-17T00:00:00.000Z",
+    "dataFimOriginal": "2025-04-14T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-04-14T00:00:00.000Z",
+    "prazoOriginal": "179",
+    "prazoAtualizado": "179"
+  },
+  "dom": {
+    "nuDom": "8895",
+    "dataPublicacao": "2024-10-31T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 774815.91,
+    "valorContratualVigente": 774815.91,
+    "valorEmpenhado": 774815.91,
+    "valorLiquidado": 723678.06,
+    "valorPago": 774815.91,
+    "percentualExecutado": 93.4,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "3069424c-403d-4389-b92a-f079e021cae3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2024NE001078",
+      "dataEmpenho": "01/11/2024",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "fonteRecurso": "Ex. Anterior - Receita Própria de Entidades de Adm. Indireta - Empresa - Sem Detalhamento - S/Emenda",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Armazéns e Galpões",
+      "valEmpenhado": "774.815,91",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "9e302f4f-ce39-42f9-936f-5f13a11c7a9a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": "2024NL007639",
+      "notaLancamento": "2024NL007639",
+      "numProcesso": "02285792024",
+      "dataLiquidacao": "04/11/2024",
+      "valLiqLiquidacao": "452.886,84",
+      "valBrutLiquidacao": "484.889,55",
+      "valEmpenho": "774.815,91",
+      "descObsLiquidacao": "V R CAMPOS BARBOSA - SERVIÇO COMUNS DE ENGENHARIA PARA RECUPERAÇÃO DA COBERTURA DO GALPÃO ",
+      "pago": "0,00"
+    },
+    {
+      "id": "e824e8ae-ccb7-4ddb-9c32-5604e5bd29a5",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": "2024NL007914",
+      "notaLancamento": "2024NL007914",
+      "numProcesso": "02376462024",
+      "dataLiquidacao": "14/11/2024",
+      "valLiqLiquidacao": "270.791,22",
+      "valBrutLiquidacao": "289.926,36",
+      "valEmpenho": "774.815,91",
+      "descObsLiquidacao": "VR CAMPOS - RECUPERAÇÃO DA COBERTURA DO GALPAO DA DESAL- PROC 237646/2024 - 2 MEDIÇÃO - PE",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "cba3691c-7d3c-4230-ba16-8cb444c428bd",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": "2024NL007639",
+      "ordBancaria": "2024OB076443",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 774.815,91",
+      "dataPagamento": "05/11/2024",
+      "pago": "R$ 438.340,15",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1954c000-0792-44e2-89fa-b2de42704e67",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB076445",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 774.815,91",
+      "dataPagamento": "05/11/2024",
+      "pago": "R$ 14.546,69",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "d41dac08-76c2-4dae-ac06-34b59a1c5fb9",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": "2024NL007914",
+      "ordBancaria": "2024OB079904",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 774.815,91",
+      "dataPagamento": "18/11/2024",
+      "pago": "R$ 262.093,43",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "23825b93-4500-4cfd-a30a-808c990918a4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB079909",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 774.815,91",
+      "dataPagamento": "18/11/2024",
+      "pago": "R$ 8.697,79",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "71cc77c6-abd1-464b-8172-ab42cede25de",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB089483",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 774.815,91",
+      "dataPagamento": "18/12/2024",
+      "pago": "R$ 32.002,71",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "675478c3-8bb3-4425-86f1-0cba17110b46",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE001078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "V R CAMPOS BARBOSA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB089483",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 774.815,91",
+      "dataPagamento": "18/12/2024",
+      "pago": "R$ 19.135,14",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 14/04/2025 com execução física incompleta (93.4%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Porto Seco Pirajá",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.91001,
+  "longitude": -38.454366,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2024CT009421"
+    },
+    "nuProcesso": "213517/2024",
+    "domContrato": {
+      "nuDom": "8895",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Porto Seco Pirajá via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "RECUPERAÇÃO DA COBERTURA DE GALPÃO DA DESAL",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

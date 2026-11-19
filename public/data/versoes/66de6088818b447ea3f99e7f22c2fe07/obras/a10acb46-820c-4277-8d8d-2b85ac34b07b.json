@@ -1,0 +1,259 @@
+{
+  "id": "a10acb46-820c-4277-8d8d-2b85ac34b07b",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2021CT004416",
+  "numeroContratoOriginal": "017/2021",
+  "nuProcesso": "112439/2021",
+  "objeto": "EXECUÇÃO DOS SERVIÇOS RECUPERAÇÃO ESTUTURAL VIADUTOS DO TÚNEL AMERICO SIMAS,PROJETOS COMPLEMENTARES",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CARLOS ROBERTO CARDOSO RODRIGUES",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 65575.55,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2021-10-22T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2021-12-20T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2021-10-22T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 65575.55,
+    "valorContratualVigente": 65575.55,
+    "valorEmpenhado": 65575.55,
+    "valorLiquidado": 65575.55,
+    "valorPago": 65575.55,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Elaboração de Estudos e Projetos de Engenharia",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "76a51ed0-d5b0-4960-b864-8be827e41e27",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2021NE000989",
+      "dataEmpenho": "26/10/2021",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "65.575,55",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "616fd5eb-9075-4af5-9930-19c3d17627e5",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2021NE000989",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "notaLiquidacao": "2022NL004590",
+      "notaLancamento": "2022NL004590",
+      "numProcesso": "00453652022",
+      "dataLiquidacao": "01/04/2022",
+      "valLiqLiquidacao": "65.575,55",
+      "valBrutLiquidacao": "65.575,55",
+      "valEmpenho": "65.575,55",
+      "descObsLiquidacao": "ELAB. DE PROJS. EXECUTIVOS DE RECUP. ESTRUTURAL VIADUTOS DO TUNEL AMERICO SIMAS, SSA/BA, - NFSE 0070, CONTR. 017/21, TOM. DE PREÇO 003/21, PER. 01 A 31/01/22",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "2a9b6112-b869-4972-9bbe-e7ae0549a003",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2021NE000989",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2022PP001128",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 65.575,55",
+      "dataPagamento": "05/04/2022",
+      "pago": "R$ -1.311,51",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "e65b8729-62c7-4ac0-a4ca-27ae4e05b7e9",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2021NE000989",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2022PP001127",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 65.575,55",
+      "dataPagamento": "05/04/2022",
+      "pago": "R$ 1.311,51",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "3898670d-18f8-45cc-ab97-2f00d3b8ab35",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2021NE000989",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2022PP001128",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 65.575,55",
+      "dataPagamento": "05/04/2022",
+      "pago": "R$ 1.311,51",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "84e79ba3-617e-42e1-958f-5f371c83d3e5",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2021NE000989",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2022OB015404",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 65.575,55",
+      "dataPagamento": "06/04/2022",
+      "pago": "R$ -1.311,51",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "81eeeec5-8301-4040-a8ee-bbc8cc185cc8",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2021NE000989",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2022OB015404",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 65.575,55",
+      "dataPagamento": "06/04/2022",
+      "pago": "R$ 1.311,51",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "13688e8e-7e3e-4b8d-aad4-34930d74204c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2021NE000989",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "CARLOS ROBERTO CARDOSO RODRIGUES",
+      "notaLiquidacao": "2022NL004590",
+      "ordBancaria": "2022OB015403",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 65.575,55",
+      "dataPagamento": "06/04/2022",
+      "pago": "R$ 64.264,04",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.9632,
+  "longitude": -38.507445,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2021CT004416"
+    },
+    "nuProcesso": "112439/2021",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Comércio via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

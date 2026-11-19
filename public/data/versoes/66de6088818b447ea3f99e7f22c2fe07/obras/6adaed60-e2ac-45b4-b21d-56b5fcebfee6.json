@@ -1,0 +1,275 @@
+{
+  "id": "6adaed60-e2ac-45b4-b21d-56b5fcebfee6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT005407",
+  "numeroContratoOriginal": "0172026",
+  "nuProcesso": "0246872026",
+  "objeto": "Contratação de empresa de engenharia para prestação de serviços de assessoria técnica à SUCOP na Elaboração de Projetos de Engenharia: Infraestrutura, Contenção de Encostas, Drenagem, Construção/Recuperação de Viadutos (OAE) e projetos complementares; além de Apoio Técnico em análises de projetos e documentos técnicos, em orçamentações e/ou quaisquer outras assessorias técnicas demandadas pela Con",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+    "cnpj": "74.141.532/0001-85",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 29436992.18,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "48b7c110-064e-4dd2-b316-e78e8b0846ab",
+      "e4dfd7e8-a41d-4f6c-931b-6c2495f0b336"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2026-09-21T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2027-09-20T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-09-21T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 8212118.64,
+    "valorContratualVigente": 8212118.64,
+    "valorEmpenhado": 555797.32,
+    "valorLiquidado": 264540.22,
+    "valorPago": 264540.22,
+    "percentualExecutado": 3.22,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "22ce3f2b-3f64-46d2-a26c-6707526a355b",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001551",
+      "dataEmpenho": "18/11/2026",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "fonteRecurso": "ROYALTIES - Fundo Esp. Petroleo / Comp. Fin. Exploração Recursos Minerais - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "291.257,10",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c35a4703-3af5-4795-a854-b31d1c5e4bd3",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001373",
+      "dataEmpenho": "20/10/2026",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "164.540,22",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "06c2510e-9196-4990-b85f-63a754cbe7c7",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001258",
+      "dataEmpenho": "21/09/2026",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "7abf311d-3711-4121-86ce-a677ec20735a",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021715",
+      "notaLancamento": "2026NL021715",
+      "numProcesso": "02350552026",
+      "dataLiquidacao": "20/10/2026",
+      "valLiqLiquidacao": "164.540,22",
+      "valBrutLiquidacao": "164.540,22",
+      "valEmpenho": "164.540,22",
+      "descObsLiquidacao": "ELABORAÇÃO DE PROJETOS DE ENGª. INFRAESTR., CONT. DE ENCOSTAS, DRENAG., CONSTR./RECUP. DE ",
+      "pago": "0,00"
+    },
+    {
+      "id": "7aaaa9cc-c289-49c8-882d-78eb87f8103a",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001258",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021717",
+      "notaLancamento": "2026NL021717",
+      "numProcesso": "02350552026",
+      "dataLiquidacao": "20/10/2026",
+      "valLiqLiquidacao": "100.000,00",
+      "valBrutLiquidacao": "100.000,00",
+      "valEmpenho": "100.000,00",
+      "descObsLiquidacao": "ELABORAÇÃO DE PROJETOS DE ENGª. INFRAESTR., CONT. DE ENCOSTAS, DRENAG., CONSTR./RECUP. DE ",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "cbc04058-193e-451a-ba3e-6c2f05a4b07c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001258",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021717",
+      "ordBancaria": "2026OB064102",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "27/10/2026",
+      "pago": "R$ 100.000,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b6ac03a8-a008-49d7-99cf-efd08de074d6",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": "2026NL021715",
+      "ordBancaria": "2026OB064102",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 164.540,22",
+      "dataPagamento": "27/10/2026",
+      "pago": "R$ 138.615,28",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "35cdaec3-47e4-445b-af78-4ac6fe7b54f6",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB064107",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 164.540,22",
+      "dataPagamento": "27/10/2026",
+      "pago": "R$ 13.227,01",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "19133581-c278-4c91-9fdd-557e4f9fe276",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "siglaOrgao": "SEINFRA",
+      "notaEmpenho": "2026NE001373",
+      "codUnGestora": "616002",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB064107",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 164.540,22",
+      "dataPagamento": "27/10/2026",
+      "pago": "R$ 12.697,93",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Encostas e Contenção",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT005407"
+    },
+    "nuProcesso": "0246872026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

@@ -1,0 +1,154 @@
+{
+  "id": "323dc254-3ccb-4f79-88fc-59e0367e2787",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2024CT008159",
+  "numeroContratoOriginal": "50/2024",
+  "nuProcesso": "044866/2024",
+  "objeto": "1.1.\tO objeto do presente instrumento é a contratação de empresa de engenharia para realização de obras de requalificação e modernização da QUADRA POLIESPORTIVA da Rua da Paz, Pau da Lima, Salvador/Ba e do CAMPO DE FUTEBOL da Rua Principal, Nova Esperança, Salvador/Ba, da Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer ¿ SEMPRE",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "ORRICO OLIVEIRA ENGENHARIA LTDA",
+    "cnpj": "20.852.647/0001-59",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 3524799.56,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "1c5d24cc-c711-4973-937c-f54a319dd0e2",
+      "7d35f2af-bde8-4db9-831d-e123d17adae7",
+      "476da054-26fc-41e7-8cda-a483028c9bf4",
+      "1bfa82f6-eb91-46ec-b0df-74a30dfdd87d"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-09-02T00:00:00.000Z",
+    "dataFimOriginal": "2025-09-02T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-09-02T00:00:00.000Z",
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
+  },
+  "dom": {
+    "nuDom": "8864",
+    "dataPublicacao": "2024-09-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 265250.82,
+    "valorContratualVigente": 265250.82,
+    "valorEmpenhado": 265250.82,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 02/09/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Pau da Lima",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.920121,
+  "longitude": -38.443119,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2024CT008159"
+    },
+    "nuProcesso": "044866/2024",
+    "domContrato": {
+      "nuDom": "8864",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+      "bairro": "Pau da Lima",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Pau da Lima via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "requalificação e modernização da QUADRA POLIESPORTIVA da Rua da Paz, Pau da Lima, Salvador/Ba e do CAMPO DE FUTEBOL da Rua Principal, Nova Esperança, Salvador/Ba",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 equipamentos esportivos explícitos: Quadra na Rua da Paz (Pau da Lima) e Campo na Rua Principal (Nova Esperança).",
+      "cotasListaFechada": [
+        {
+          "bairro": "Pau da Lima",
+          "prefeituraBairro": "Pau da Lima",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.920121,
+          "longitude": -38.443119,
+          "descricaoUnidades": "Quadra Poliesportiva da Rua da Paz (Pau da Lima)"
+        },
+        {
+          "bairro": "Nova Esperança",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.845118,
+          "longitude": -38.375262,
+          "descricaoUnidades": "Campo de Futebol da Rua Principal (Nova Esperança)"
+        }
+      ]
+    }
+  },
+  "cotasListaFechada": [
+    {
+      "bairro": "Pau da Lima",
+      "prefeituraBairro": "Pau da Lima",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.920121,
+      "longitude": -38.443119,
+      "descricaoUnidades": "Quadra Poliesportiva da Rua da Paz (Pau da Lima)"
+    },
+    {
+      "bairro": "Nova Esperança",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.845118,
+      "longitude": -38.375262,
+      "descricaoUnidades": "Campo de Futebol da Rua Principal (Nova Esperança)"
+    }
+  ],
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

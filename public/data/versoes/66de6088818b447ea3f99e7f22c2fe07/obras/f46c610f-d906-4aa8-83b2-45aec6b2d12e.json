@@ -1,0 +1,144 @@
+{
+  "id": "f46c610f-d906-4aa8-83b2-45aec6b2d12e",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2023CT002263",
+  "numeroContratoOriginal": "28/2023",
+  "nuProcesso": "014366/2023",
+  "objeto": "CONTRATAÇÃO DE EMPRESA PARA SERVIÇOS COMUNS DE ENGENHARIA PARA EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT, NO MUNICÍPIO DE SALVADOR - LOTE 2",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "JB MONTAGENS E ENGENHARIA LTDA",
+    "cnpj": "10.231.309/0001-46",
+    "totalObras": 4,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 5128794.82,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "b93320fb-f8a4-4a8d-8007-8e8e540ef461",
+      "642b8ace-033a-4ad0-a4ca-f6859e025260",
+      "aa09ac93-24c7-481d-9eb3-5643e1dbc202"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-03-13T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-03-11T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-03-13T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1798900.0,
+    "valorContratualVigente": 1798900.0,
+    "valorEmpenhado": 1798900.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "eb59c675-8783-428d-921b-0155c62cabd3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2023NE000179",
+      "dataEmpenho": "17/03/2023",
+      "nomeCredor": "JB SERVICE TRANSPORTES E LOCACOES LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "1.200.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "d57c73fb-03fc-4cfd-82cd-42c56eab970d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2023NE000216",
+      "dataEmpenho": "23/03/2023",
+      "nomeCredor": "JB SERVICE TRANSPORTES E LOCACOES LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-1.200.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 11/03/2024 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2023CT002263"
+    },
+    "nuProcesso": "014366/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "EXECUÇÃO, ADAPTAÇÃO E RECUPERAÇÃO DE PASSARELAS COM LOCALIZAÇÕES PROPOSTAS NA AVENIDA VASCO DA GAMA - TRECHO VASCO DA GAMA (POSTO SÃO JORGE) E TRECHO OGUNJÁ (PERINI) E AVENIDA JURACY MAGALHÃES - TRECHO LUCAIA E TRECHO CIDADE JARDIM, INTEGRANTES DO SISTEMA BRT",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "LOTE 2 refere-se a lote licitatório de passarelas do BRT, não à Prefeitura-Bairro Subúrbio/Ilhas."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}

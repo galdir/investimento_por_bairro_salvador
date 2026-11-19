@@ -1,0 +1,272 @@
+{
+  "id": "bc26f79d-4730-4d8a-af8f-6cae48b5bebc",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2023CT001373",
+  "numeroContratoOriginal": "006/2023",
+  "nuProcesso": "000001/2023",
+  "objeto": "O objeto do presente Termo de Contrato é a Contratação de empresa especializada para\r\nprestação de serviços de locação de praticáveis, mobiliários e equipamentos, incluindo montagem\r\ne desmontagem para serem utilizados como Unidade Modular para Serviço da Assistência Social -\r\nUMSAS e das Políticas sobre Drogas - UMPD, da Secretaria de Promoção Social, Combate à Pobreza,\r\nEsportes e Lazer - SEMPRE",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "BOA ERA COMERCIO E SERVICOS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 459116.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2023-02-14T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2023-03-15T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-02-14T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 459116.0,
+    "valorContratualVigente": 459116.0,
+    "valorEmpenhado": 404098.0,
+    "valorLiquidado": 404098.0,
+    "valorPago": 404098.0,
+    "percentualExecutado": 88.02,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "73b3b09f-b30d-469e-b505-df990815489b",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2023NE000252",
+      "dataEmpenho": "15/02/2023",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Locação de Espaço e Equipamentos para Eventos",
+      "valEmpenhado": "459.116,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "ea6d89a4-e1e0-40d2-8ba3-63ab534151a7",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2023NE000468",
+      "dataEmpenho": "27/04/2023",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Locação de Espaço e Equipamentos para Eventos",
+      "valEmpenhado": "-55.018,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "25b7ea7d-8ae3-458f-a390-5bce7555e10f",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2023NE000252",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "notaLiquidacao": "2023NL004130",
+      "notaLancamento": "2023NL004130",
+      "numProcesso": "00612392023",
+      "dataLiquidacao": "14/04/2023",
+      "valLiqLiquidacao": "404.098,00",
+      "valBrutLiquidacao": "404.098,00",
+      "valEmpenho": "459.116,00",
+      "descObsLiquidacao": "Prestação de serviços de locação de praticáveis , mobiliários e equipamentos, incluindo mo",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "08a7210f-1dca-47b8-9f91-92fe19743612",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2023NE000252",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023PP001716",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 459.116,00",
+      "dataPagamento": "14/04/2023",
+      "pago": "R$ 20.204,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "0102cbf0-0cd4-4ac4-b3fe-c1fe6af308c4",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2023NE000252",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023PP001717",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 459.116,00",
+      "dataPagamento": "14/04/2023",
+      "pago": "R$ 20.204,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "dfab0f5d-85a6-4018-bd8d-1f2bacde6d41",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2023NE000252",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023PP001717",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 459.116,00",
+      "dataPagamento": "14/04/2023",
+      "pago": "R$ -20.204,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "e9adb35c-c554-4635-aa53-c048abbffda3",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2023NE000252",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023OB020991",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 459.116,00",
+      "dataPagamento": "17/04/2023",
+      "pago": "R$ 20.204,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "41507be1-ed72-42b4-89f7-41cba54d2843",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2023NE000252",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "notaLiquidacao": "2023NL004130",
+      "ordBancaria": "2023OB020990",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 459.116,00",
+      "dataPagamento": "17/04/2023",
+      "pago": "R$ 383.893,10",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "98ecae2f-5925-4047-8ab7-2ea9ca85381f",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2023NE000252",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "BOA ERA COMERCIO E SERVICOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023OB020991",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 459.116,00",
+      "dataPagamento": "17/04/2023",
+      "pago": "R$ -20.204,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 15/03/2023 com execução física incompleta (88.02%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2023CT001373"
+    },
+    "nuProcesso": "000001/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-19",
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "66de6088818b447ea3f99e7f22c2fe07"
+}
