@@ -12,10 +12,63 @@ from urllib.error import HTTPError
 
 import pytest
 from etl.runner import run_pipeline
-from etl.consultas import ConsultaPagamentos
+from etl.consultas import ConsultaPagamentos, conciliar_pagamentos
+from etl.sources import transparencia
 from tests.etl.fixtures.sample_data import (
     SAMPLE_GEOSALVADOR_BAIRROS, SAMPLE_GEOSALVADOR_PREFEITURAS, SAMPLE_TRANSPARENCIA_GRID,
 )
+
+
+@pytest.mark.parametrize("codigo, espera_servidor", [(429, 17), (503, None), (None, None)])
+def test_portal_aumenta_pausa_apos_falha_e_reduz_gradualmente(codigo, espera_servidor):
+    relogio = 0.0
+    tentativas = 0
+    esperas = []
+
+    def esperar(segundos):
+        nonlocal relogio
+        esperas.append(segundos)
+        relogio += segundos
+
+    def responder(req, **opcoes):
+        nonlocal tentativas
+        tentativas += 1
+        if tentativas == 2:
+            if codigo is None:
+                raise TimeoutError("Tempo de consulta excedido")
+            cabecalhos = {"Retry-After": str(espera_servidor)} if espera_servidor else {}
+            raise HTTPError(req.full_url, codigo, "Indisponível", cabecalhos, BytesIO())
+        return BytesIO(b'{"totalObras":1}')
+
+    with (
+        patch.object(transparencia, "_proxima_requisicao", 0.0),
+        patch.object(transparencia, "_intervalo_requisicoes", 0.5),
+        patch.object(transparencia, "_respostas_estaveis", 0),
+        patch("urllib.request.urlopen", side_effect=responder),
+        patch("time.monotonic", side_effect=lambda: relogio),
+        patch("time.sleep", side_effect=esperar),
+    ):
+        assert transparencia.fetch_totalizador()["totalObras"] == 1
+        assert transparencia.fetch_totalizador()["totalObras"] == 1
+        for _ in range(40):
+            assert transparencia.fetch_totalizador()["totalObras"] == 1
+
+    assert esperas == [0.5, espera_servidor or 10.0] + [2.0] * 19 + [1.0] * 20 + [0.5]
+
+
+def test_bloqueio_explicito_impede_nova_tentativa_de_conciliacao():
+    erro = HTTPError("https://exemplo.invalid", 500, "Erro interno", {},
+                     BytesIO(b"<title>Web Page Blocked!</title>"))
+    with (
+        patch.object(transparencia, "_proxima_requisicao", 0.0),
+        patch("urllib.request.urlopen", side_effect=erro) as consulta,
+        patch("time.sleep") as esperar,
+        pytest.raises(RuntimeError, match="Bloqueio explícito do Portal"),
+    ):
+        conciliar_pagamentos(2401, "001/2024", "2025-12-31", "2025-01-01", "2025-12-31")
+
+    consulta.assert_called_once()
+    esperar.assert_not_called()
 
 
 @pytest.mark.parametrize("codigo,limite", [(503, 1), (503, 2), (503, 3), (404, 1)])

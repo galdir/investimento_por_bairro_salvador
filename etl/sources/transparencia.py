@@ -5,19 +5,61 @@ incluindo totalizadores globais e a listagem detalhada de contratos.
 """
 
 import json
+import logging
 import ssl
 import threading
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
+from http.client import HTTPException
 from typing import Any, Final
 
 from etl.config import TRANSPARENCIA_API_BASE
 
 PAGE_SIZE_TRANSPARENCIA: Final[int] = 10
-_INTERVALO_REQUISICOES: Final[float] = 2.0
+_INTERVALO_MINIMO: Final[float] = 0.5
+_INTERVALO_TRANSITORIO: Final[float] = 2.0
+_RESPOSTAS_PARA_REDUZIR_INTERVALO: Final[int] = 20
+_CODIGOS_TRANSITORIOS = (408, 429, 500, 502, 503, 504)
 _lock_requisicoes = threading.Lock()
-_fim_ultima_requisicao: float | None = None
+_proxima_requisicao = 0.0
+_intervalo_requisicoes = _INTERVALO_MINIMO
+_respostas_estaveis = 0
+logger = logging.getLogger(__name__)
+
+
+def _erro_transitorio(erro: Exception) -> bool:
+    if isinstance(erro, urllib.error.HTTPError):
+        return erro.code in _CODIGOS_TRANSITORIOS
+    return isinstance(erro, (urllib.error.URLError, TimeoutError, ConnectionError))
+
+
+def _segundos_retry_after(erro: Exception) -> float:
+    if not isinstance(erro, urllib.error.HTTPError) or not erro.headers:
+        return 0.0
+    valor = erro.headers.get("Retry-After")
+    if not valor:
+        return 0.0
+    try:
+        return max(0.0, float(int(valor)))
+    except (ValueError, OverflowError):
+        try:
+            instante = parsedate_to_datetime(valor)
+            return max(0.0, (instante - datetime.now(timezone.utc)).total_seconds())
+        except (TypeError, ValueError, OverflowError):
+            return 0.0
+
+
+def _bloqueio_explicito(erro: Exception) -> bool:
+    if not isinstance(erro, urllib.error.HTTPError) or erro.code not in _CODIGOS_TRANSITORIOS:
+        return False
+    try:
+        with erro:
+            return b"web page blocked" in erro.read(4096).lower()
+    except (OSError, HTTPException):
+        return False
 
 
 def _validar_paginacao(paginacao: Any, pagina: int, quantidade: int, anterior: tuple[int, int, int] | None, origem: str) -> tuple[int, int, int]:
@@ -107,12 +149,12 @@ def _post_transparencia(endpoint: str, payload: dict[str, Any], timeout: int = 1
         method="POST",
     )
 
-    global _fim_ultima_requisicao
+    global _proxima_requisicao, _intervalo_requisicoes, _respostas_estaveis
     with _lock_requisicoes:
-        if _fim_ultima_requisicao is not None:
-            espera = _INTERVALO_REQUISICOES - (time.monotonic() - _fim_ultima_requisicao)
-            if espera > 0:
-                time.sleep(espera)
+        espera = _proxima_requisicao - time.monotonic()
+        if espera > 0:
+            time.sleep(espera)
+        espera_servidor = 0.0
         try:
             with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
                 if max_bytes is None:
@@ -124,10 +166,40 @@ def _post_transparencia(endpoint: str, payload: dict[str, Any], timeout: int = 1
                     tamanho = resp.headers.get("Content-Length")
                     if tamanho is not None and tamanho != str(len(body_bytes)):
                         raise ValueError("Tamanho da resposta divergente")
-                body = body_bytes.decode("utf-8")
-                return json.loads(body) if body else {}
+            body = body_bytes.decode("utf-8")
+            resposta = json.loads(body) if body else {}
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as erro:
+            if _bloqueio_explicito(erro):
+                raise RuntimeError(f"Bloqueio explícito do Portal da Transparência em {endpoint}") from erro
+            if _erro_transitorio(erro):
+                _intervalo_requisicoes = _INTERVALO_TRANSITORIO
+                _respostas_estaveis = 0
+                espera_servidor = _segundos_retry_after(erro)
+                logger.info("Portal da Transparência: falha transitória em %s. Pausa de pelo menos %.1f s.",
+                            endpoint, max(_intervalo_requisicoes, espera_servidor))
+            raise
+        else:
+            if _intervalo_requisicoes > _INTERVALO_MINIMO:
+                _respostas_estaveis += 1
+                if _respostas_estaveis >= _RESPOSTAS_PARA_REDUZIR_INTERVALO:
+                    _intervalo_requisicoes = max(_INTERVALO_MINIMO, _intervalo_requisicoes / 2)
+                    _respostas_estaveis = 0
+                    logger.info("Portal da Transparência: pausa reduzida para %.1f s.", _intervalo_requisicoes)
+            return resposta
         finally:
-            _fim_ultima_requisicao = time.monotonic()
+            _proxima_requisicao = time.monotonic() + max(_intervalo_requisicoes, espera_servidor)
+
+
+def consultar_com_tentativas(endpoint: str, payload: dict[str, Any], **opcoes: Any) -> Any:
+    """Repete falhas transitórias de transporte com esperas de 10 e 30 segundos."""
+    for tentativa in range(3):
+        try:
+            return _post_transparencia(endpoint, payload, **opcoes)
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as erro:
+            if not _erro_transitorio(erro) or tentativa == 2:
+                raise
+            time.sleep(max((10, 30)[tentativa], _segundos_retry_after(erro)))
+    raise AssertionError("Tentativas esgotadas")
 
 
 def fetch_totalizador(year: int = 2025) -> dict[str, Any]:
@@ -150,7 +222,7 @@ def fetch_totalizador(year: int = 2025) -> dict[str, Any]:
         Propaga falhas da consulta.
     """
     payload = _criar_payload_filtro_ano(year)
-    resposta = _post_transparencia("/obraspublicas/totalizador", payload)
+    resposta = consultar_com_tentativas("/obraspublicas/totalizador", payload)
     if not isinstance(resposta, dict) or not resposta or "error" in resposta:
         raise ValueError("Resposta inválida do totalizador de obras")
     return resposta
@@ -189,7 +261,7 @@ def fetch_grid_detalhada(
 
     for pagina in range(1, max_paginas + 1):
         url = f"/obraspublicas/gridDetalhada?pagina={pagina}"
-        resp = _post_transparencia(url, payload)
+        resp = consultar_com_tentativas(url, payload)
         if not isinstance(resp, dict) or not isinstance(resp.get("dados"), list):
             raise ValueError("Resposta inválida do grid de obras")
         itens = resp["dados"]
@@ -278,7 +350,7 @@ def _fetch_lista_paginada(
 
     for pagina in range(1, max_paginas + 1):
         url = f"{endpoint}?pagina={pagina}"
-        resp = _post_transparencia(url, payload)
+        resp = consultar_com_tentativas(url, payload)
         if not isinstance(resp, dict) or not isinstance(resp.get("dados"), list):
             raise ValueError(f"Resposta inválida de {endpoint}")
         itens = resp["dados"]
@@ -324,7 +396,7 @@ def fetch_detalhes_obra(
         Propaga falhas de consulta e rejeita respostas inválidas.
     """
     payload = _criar_payload_contrato(cd_unidade_gestora, nu_contrato_sigef, year)
-    resp = _post_transparencia("/obraspublicas/detalhamentoObrasPublicas", payload)
+    resp = consultar_com_tentativas("/obraspublicas/detalhamentoObrasPublicas", payload)
     if isinstance(resp, dict) and "dados" in resp and isinstance(resp["dados"], dict):
         return resp["dados"]
     if isinstance(resp, dict) and resp and "dados" not in resp:

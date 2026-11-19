@@ -294,8 +294,10 @@ def test_atualizacao_respeita_intervalo_entre_requisicoes_ao_portal(tmp_path: Pa
         patch("etl.sources.transparencia.fetch_empenhos_obra", return_value=[]),
         patch("etl.sources.transparencia.fetch_liquidacoes_obra", return_value=[]),
         patch("urllib.request.urlopen", side_effect=urlopen),
+        patch("etl.sources.transparencia._proxima_requisicao", 0.0),
+        patch("etl.sources.transparencia._intervalo_requisicoes", 0.5),
         patch("time.monotonic", side_effect=lambda: relogio[0]),
         patch("time.sleep", side_effect=esperar),
     ):
         run_pipeline(tmp_path, full_refresh=True, data_referencia_pagamentos="2025-12-31")
-    assert esperas == [2.0, 2.0]
+    assert esperas == [0.5, 0.5]
