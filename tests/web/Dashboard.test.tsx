@@ -578,6 +578,33 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(screen.queryByTestId("header-comparativo")).not.toBeInTheDocument();
   });
 
+  it("carrega o acervo legado quando o servidor devolve HTML para buscas sem Accept JSON", async () => {
+    const fetchLegado = globalThis.fetch;
+    vi.stubGlobal("fetch", vi.fn((url: string, init?: RequestInit) => {
+      if (!url.endsWith("atual.json")) return fetchLegado(url);
+      return Promise.resolve(new Headers(init?.headers).get("Accept") === "application/json"
+        ? new Response(null, { status: 404 })
+        : new Response("<!doctype html><html></html>", { headers: { "Content-Type": "text/html" } }));
+    }));
+
+    renderApp(<App />);
+
+    expect(await screen.findByTestId("header-comparativo")).toBeInTheDocument();
+    expect(screen.queryByText("Não foi possível carregar o mapa")).not.toBeInTheDocument();
+  });
+
+  it("rejeita o ponteiro malformado em vez de carregar o acervo legado", async () => {
+    const consultar = vi.fn(() => Promise.resolve(new Response("<!doctype html><html></html>", {
+      headers: { "Content-Type": "application/json" },
+    })));
+    vi.stubGlobal("fetch", consultar);
+
+    renderApp(<App />);
+
+    expect(await screen.findByText("Referência da versão publicada inválida.")).toBeVisible();
+    expect(consultar).toHaveBeenCalledTimes(1);
+  });
+
   it("carrega todos os dados pela versão ativada", async () => {
     const versao = "0123456789abcdef0123456789abcdef";
     const atualizacao = {

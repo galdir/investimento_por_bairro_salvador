@@ -238,12 +238,15 @@ export const App: React.FC = () => {
       try {
         setLoading(true);
 
-        const ponteiroResposta = await fetch(buildDataUrl("data/atual.json"), { cache: "no-store" });
+        const ponteiroResposta = await fetch(buildDataUrl("data/atual.json"), {
+          cache: "no-store",
+          headers: { Accept: "application/json" },
+        });
         let base = "data";
         let versaoPublicada: string | undefined;
         if (ponteiroResposta.ok) {
-          const ponteiro = await ponteiroResposta.json();
-          if (typeof ponteiro.versaoDados !== "string" || !/^[0-9a-f]{32}$/.test(ponteiro.versaoDados)
+          const ponteiro = await ponteiroResposta.json().catch(() => null);
+          if (typeof ponteiro?.versaoDados !== "string" || !/^[0-9a-f]{32}$/.test(ponteiro.versaoDados)
               || ponteiro.caminho !== `versoes/${ponteiro.versaoDados}`) {
             throw new Error("Referência da versão publicada inválida.");
           }
