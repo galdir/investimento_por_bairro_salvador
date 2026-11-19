@@ -266,14 +266,14 @@ jobs:
           result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else None
           remote = json.loads(os.environ["METADADOS_REMOTOS"]) if os.environ["METADADOS_REMOTOS"] else None
           entries = subprocess.run(
-              ["git", "ls-tree", "-r", "-l", "--format=%(objectsize) %(path)", "FETCH_HEAD"],
+              ["git", "ls-tree", "-r", "-l", "FETCH_HEAD"],
               check=True, capture_output=True, text=True,
           ).stdout.splitlines() if os.environ.get("REVISAO_DEPOIS") else []
-          checkpoint_sizes = [
-              int(line.split(maxsplit=1)[0])
-              for line in entries
-              if line.split(maxsplit=1)[-1].startswith("contratos/") and line.split(maxsplit=1)[-1].endswith(".json")
-          ]
+          checkpoint_sizes = []
+          for line in entries:
+              cabecalho, caminho = line.split("\t", maxsplit=1)
+              if caminho.startswith("contratos/") and caminho.endswith(".json"):
+                  checkpoint_sizes.append(int(cabecalho.split()[3]))
           pointer = json.loads(pointer_path.read_text(encoding="utf-8")) if pointer_path.exists() else None
           manifest_path = output / pointer["caminho"] / "manifesto.json" if pointer else None
           manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path and manifest_path.exists() else None
