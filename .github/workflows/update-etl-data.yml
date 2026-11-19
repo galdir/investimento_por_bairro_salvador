@@ -16,6 +16,8 @@ on:
   schedule:
     # Execução semanal toda segunda-feira às 06:00 UTC (03:00 BRT)
     - cron: "0 6 * * 1"
+    # Recuperações diárias, inclusive após disparos manuais.
+    - cron: "0 5 * * *"
 
 permissions:
   contents: write
@@ -52,10 +54,15 @@ jobs:
           if [ "${{ inputs.full_refresh }}" = "true" ]; then
             EXTRA_ARGS="--full-refresh"
           fi
+          if [ "${{ github.event.schedule }}" = "0 5 * * *" ]; then
+            EXTRA_ARGS="--recuperar"
+          fi
           python -m etl.main \
             --output-dir public/data \
             --year "${YEAR}" \
             --cache-file public/data/geocoding_cache.json \
+            --aguardar-publicacao --marcador-sucesso .tmp-etl-concluido \
+            --repositorio-progresso . \
             $EXTRA_ARGS
 
       - name: Validar integridade com suíte de testes (pytest)
@@ -71,4 +78,7 @@ jobs:
           else
             git commit -m "chore(etl): atualizar artefatos estáticos e cache incremental de obras"
             git push
+          fi
+          if [ -f .tmp-etl-concluido ]; then
+            python -c 'from pathlib import Path; from etl.progresso import confirmar_publicacao; confirmar_publicacao(Path("."), Path(".tmp-etl-concluido").read_text(encoding="utf-8"))'
           fi

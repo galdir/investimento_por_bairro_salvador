@@ -16,7 +16,13 @@ from zoneinfo import ZoneInfo
 from pathlib import Path
 from typing import Any
 import warnings
+from dataclasses import asdict
 from uuid import uuid4
+
+if os.name == "nt":
+    import msvcrt
+else:
+    import fcntl
 
 from etl.domain import kpis
 from etl.domain.pagamentos import valor_informado_pagamento
@@ -66,7 +72,8 @@ from etl.reconcile import (
 )
 from etl.sources import geosalvador, ibge_censo, transparencia
 from etl.publicacao import finalizar_versao, versao_anterior_valida, versao_publicada
-from etl.consultas import ConsultaPagamentos, coletar_pagamentos, incorporar_lotes_pagamentos
+from etl.consultas import ConsultaPagamentos, LotePagamentos, coletar_pagamentos, incorporar_lotes_pagamentos
+from etl.progresso import ProgressoGit
 
 
 def run_pipeline(
@@ -77,14 +84,22 @@ def run_pipeline(
     full_refresh: bool = False,
     data_referencia_pagamentos: str | None = None,
     consulta_pagamentos=None,
+    modo_recuperacao: bool = False,
+    aguardar_publicacao: bool = False,
+    repositorio_progresso: Path | None = None,
 ) -> dict[str, Any]:
     """Executa uma tentativa exclusiva e registra seu resultado fora do acervo publicado."""
     output_path = Path(output_dir).resolve()
     output_path.parent.mkdir(parents=True, exist_ok=True)
     lock_path = output_path.parent / f".{output_path.name}.lock"
+    lock = os.open(lock_path, os.O_CREAT | os.O_RDWR, 0o600)
     try:
-        lock = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-    except FileExistsError as exc:
+        if os.name == "nt":
+            msvcrt.locking(lock, msvcrt.LK_NBLCK, 1)
+        else:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError as exc:
+        os.close(lock)
         raise RuntimeError("Já existe uma atualização em andamento") from exc
     tentativa = uuid4().hex
 
@@ -99,17 +114,64 @@ def run_pipeline(
             warnings.warn(f"Não foi possível registrar a tentativa: {exc}", RuntimeWarning, stacklevel=2)
 
     try:
+        estado_path = output_path.parent / f".{output_path.name}-recuperacao.json"
+        progresso = ProgressoGit(repositorio_progresso) if repositorio_progresso is not None else None
+        remoto = progresso.carregar() if progresso is not None else None
+        hoje = datetime.now(ZoneInfo("America/Sao_Paulo")).date()
+        if modo_recuperacao:
+            if progresso is not None:
+                estado = remoto
+            elif estado_path.exists():
+                estado = json.loads(estado_path.read_text(encoding="utf-8"))
+            else:
+                estado = None
+            if estado is None:
+                return {"success": False, "recuperacao": "sem tentativa pendente"}
+            if estado.get("concluida"):
+                return {"success": False, "recuperacao": "sem tentativa pendente"}
+            dias = (hoje - date.fromisoformat(estado["dia_inicial"])).days
+            if dias not in (1, 2, 3) or estado.get("ultima_recuperacao") == hoje.isoformat():
+                return {"success": False, "recuperacao": "fora da janela diária"}
+            estado["ultima_recuperacao"] = hoje.isoformat()
+            year, mandatos, full_refresh = estado["year"], estado["mandatos"], estado["full_refresh"]
+            data_referencia_pagamentos = estado["referencia"]
+        else:
+            estado = {"dia_inicial": hoje.isoformat(), "ultima_recuperacao": None,
+                      "year": year, "mandatos": mandatos, "full_refresh": full_refresh,
+                      "referencia": data_referencia_pagamentos or hoje.isoformat(),
+                      "inicio_consultas": None, "contratos": {}, "historico": []}
+            data_referencia_pagamentos = estado["referencia"]
+
+        def salvar_estado() -> None:
+            temporario = estado_path.with_suffix(".tmp")
+            temporario.write_text(json.dumps(estado, ensure_ascii=False), encoding="utf-8")
+            os.replace(temporario, estado_path)
+            if progresso is not None:
+                progresso.salvar(estado)
+
+        estado.setdefault("historico", []).append({"tentativa": tentativa, "dia": hoje.isoformat(), "estado": "iniciada"})
+        salvar_estado()
         registrar("iniciada")
+
+        def finalizar_estado() -> None:
+            estado["historico"][-1]["estado"] = "preparada" if aguardar_publicacao else "concluida"
+            estado["concluida"] = not aguardar_publicacao
+            salvar_estado()
+
         try:
-            resultado = _preparar_e_publicar(output_path, year, cache_file, mandatos, full_refresh, data_referencia_pagamentos, consulta_pagamentos)
+            resultado = _preparar_e_publicar(output_path, year, cache_file, mandatos, full_refresh, data_referencia_pagamentos, consulta_pagamentos, estado, salvar_estado, finalizar_estado)
         except Exception as exc:
             registrar("falhou", str(exc))
+            estado["concluida"] = False
+            estado["historico"][-1]["estado"] = "falhou"
+            estado["historico"][-1]["erro"] = str(exc)
+            salvar_estado()
             raise
         registrar("concluida")
+        resultado["tentativa"] = tentativa
         return resultado
     finally:
         os.close(lock)
-        lock_path.unlink(missing_ok=True)
 
 
 def _preparar_e_publicar(
@@ -120,6 +182,9 @@ def _preparar_e_publicar(
     full_refresh: bool,
     data_referencia_pagamentos: str | None,
     consulta_pagamentos,
+    estado,
+    salvar_estado,
+    finalizar_estado,
 ) -> dict[str, Any]:
     """Prepara e valida uma versão imutável antes de trocar o ponteiro."""
     output_path = Path(output_dir).resolve()
@@ -158,7 +223,7 @@ def _preparar_e_publicar(
                 stage_cache = stage / "geocoding_cache.json"
 
         anterior_valida = anterior is not None
-        resultado = _executar_pipeline(stage, year, stage_cache, mandatos, full_refresh, anterior_valida, referencia, consulta_pagamentos)
+        resultado = _executar_pipeline(stage, year, stage_cache, mandatos, full_refresh, anterior_valida, referencia, consulta_pagamentos, estado, salvar_estado)
         metadados = finalizar_versao(stage, year, resultado["inicio_consultas"], resultado["fim_consultas"], referencia, resultado["limitacoes_conhecidas"], resultado["total_obras"], stage_cache)
         versao = metadados["versaoDados"]
         ponteiro = temp_path / "atual.json"
@@ -171,10 +236,22 @@ def _preparar_e_publicar(
 
         output_path.mkdir(parents=True, exist_ok=True)
         destino.parent.mkdir(parents=True, exist_ok=True)
+        caminho_atual = output_path / "atual.json"
+        ponteiro_anterior = caminho_atual.read_bytes() if caminho_atual.exists() else None
         os.replace(stage, destino)
+        ativado = False
         try:
-            os.replace(ponteiro, output_path / "atual.json")
+            os.replace(ponteiro, caminho_atual)
+            ativado = True
+            finalizar_estado()
         except BaseException:
+            if ativado:
+                if ponteiro_anterior is None:
+                    caminho_atual.unlink(missing_ok=True)
+                else:
+                    restauracao = temp_path / "anterior.json"
+                    restauracao.write_bytes(ponteiro_anterior)
+                    os.replace(restauracao, caminho_atual)
             shutil.rmtree(destino)
             raise
 
@@ -193,6 +270,8 @@ def _executar_pipeline(
     anterior_valida: bool = False,
     referencia_pagamentos: str = "",
     consulta_pagamentos=None,
+    estado=None,
+    salvar_estado=None,
 ) -> dict[str, Any]:
     """Executa o pipeline completo de extração, geocodificação territorial, rollup e geração de artefatos.
 
@@ -238,13 +317,16 @@ def _executar_pipeline(
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
-    inicio_consultas = None
+    inicio_consultas = estado.get("inicio_consultas") if estado is not None else None
     fim_consultas = None
 
     def consultar(funcao, *args, **kwargs):
         nonlocal inicio_consultas, fim_consultas
         if inicio_consultas is None:
             inicio_consultas = datetime.now(timezone.utc).isoformat()
+            if estado is not None:
+                estado["inicio_consultas"] = inicio_consultas
+                salvar_estado()
         try:
             return funcao(*args, **kwargs)
         finally:
@@ -496,7 +578,14 @@ def _executar_pipeline(
         nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
         obra_id = obra.get("id")
 
-        if consulta_pagamentos is None:
+        chave_recuperacao = json.dumps([str(cd_ug), str(nu_sigef)], ensure_ascii=False)
+        salvo = estado["contratos"].get(chave_recuperacao) if estado is not None else None
+        if salvo is not None:
+            dados = dict(salvo["consulta"])
+            if dados.get("lotes") is not None:
+                dados["lotes"] = [LotePagamentos(**lote) for lote in dados["lotes"]]
+            resultado_pagamentos = ConsultaPagamentos(**dados)
+        elif consulta_pagamentos is None:
             resultado_pagamentos = consultar(coletar_pagamentos, cd_ug, nu_sigef, referencia_pagamentos, obra.get("janelasGrid"))
         else:
             resultado_pagamentos = consultar(consulta_pagamentos, cd_ug, nu_sigef, referencia_pagamentos)
@@ -543,7 +632,10 @@ def _executar_pipeline(
             ):
                 reaproveitar_detalhes = True
 
-        if reaproveitar_detalhes and candidatas_locais:
+        if salvo is not None:
+            detail_cache_hits += 1
+            ficha_obra = mesclar_fichas_obra(obra, [salvo["ficha"]])
+        elif reaproveitar_detalhes and candidatas_locais:
             detail_cache_hits += 1
             ficha_obra = mesclar_fichas_obra(obra, candidatas_locais)
         else:
@@ -624,6 +716,9 @@ def _executar_pipeline(
             ficha_obra.pop("frentesMedicao", None)
         sincronizar_obra_com_ficha(obra, ficha_obra)
         fichas_para_gravar[str(obra_id)] = ficha_obra
+        if estado is not None and salvo is None:
+            estado["contratos"][chave_recuperacao] = {"consulta": asdict(resultado_pagamentos), "ficha": ficha_obra}
+            salvar_estado()
 
     # 7. Unificação de Empreiteiras, gravação das fichas finais e expurgo de órfãos
     concentracao_map, _ = finalizar_acervo_obras(grid_obras, fichas_para_gravar, obras_dir)

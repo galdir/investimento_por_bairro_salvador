@@ -2,11 +2,14 @@
 
 from dataclasses import dataclass, field, replace
 from collections import Counter
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from decimal import Decimal, InvalidOperation
 import hashlib
 import json
 import re
+import time
+from email.utils import parsedate_to_datetime
+from urllib.error import HTTPError, URLError
 from typing import Any
 from uuid import uuid4
 
@@ -101,6 +104,30 @@ def _metadados_pagina(resposta: Any) -> tuple[int, str, Decimal]:
     return total, json.dumps(paginacao, sort_keys=True, ensure_ascii=False), _valor_monetario(totalizadores.get("Valor Pago"))
 
 
+def _consultar_com_tentativas(endpoint: str, payload: dict[str, Any]) -> Any:
+    for tentativa in range(3):
+        try:
+            return transparencia._post_transparencia(endpoint, payload, max_bytes=8 * 1024 * 1024)
+        except (URLError, TimeoutError, ConnectionError) as exc:
+            if isinstance(exc, HTTPError) and exc.code not in (408, 429, 500, 502, 503, 504):
+                raise
+            if tentativa == 2:
+                raise
+            espera = (10, 30)[tentativa]
+            retry_after = exc.headers.get("Retry-After") if isinstance(exc, HTTPError) and exc.headers else None
+            if retry_after:
+                try:
+                    espera = max(espera, int(retry_after))
+                except ValueError:
+                    try:
+                        instante = parsedate_to_datetime(retry_after)
+                        espera = max(espera, (instante - datetime.now(timezone.utc)).total_seconds())
+                    except (TypeError, ValueError, OverflowError):
+                        pass
+            time.sleep(espera)
+    raise AssertionError("Tentativas esgotadas")
+
+
 def conciliar_pagamentos(cd_unidade_gestora: Any, nu_contrato_sigef: Any, data_referencia: str,
                          data_inicio: str, data_fim: str) -> ConsultaPagamentos:
     """Consulta uma janela observada no grid; não habilita a rotina de produção."""
@@ -110,9 +137,9 @@ def conciliar_pagamentos(cd_unidade_gestora: Any, nu_contrato_sigef: Any, data_r
         {"atributo": "NUCONTRATOSIGEF", "valor": nu_contrato_sigef},
     ]}
     pagina = "/obraspublicas/pagamentoRelacionado?pagina=1"
-    antes = _metadados_pagina(transparencia._post_transparencia(pagina, payload, max_bytes=8 * 1024 * 1024))
-    registros = transparencia._post_transparencia("/obrasPublicas/pagamentoRelacionado/downloadDados", payload, max_bytes=8 * 1024 * 1024)
-    depois = _metadados_pagina(transparencia._post_transparencia(pagina, payload, max_bytes=8 * 1024 * 1024))
+    antes = _metadados_pagina(_consultar_com_tentativas(pagina, payload))
+    registros = _consultar_com_tentativas("/obrasPublicas/pagamentoRelacionado/downloadDados", payload)
+    depois = _metadados_pagina(_consultar_com_tentativas(pagina, payload))
     if not isinstance(registros, list) or not all(isinstance(item, dict) for item in registros):
         raise ValueError("Exportação de pagamentos inválida")
     valores = [valor_informado_pagamento(item) for item in registros]

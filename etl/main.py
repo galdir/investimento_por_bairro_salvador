@@ -55,6 +55,10 @@ def main() -> None:
         default=False,
         help="Força reconsulta completa de todos os mandatos e atualização de todas as fichas de obras (padrão: False)",
     )
+    parser.add_argument("--recuperar", action="store_true", help="Retoma a tentativa pendente na janela diária de recuperação")
+    parser.add_argument("--aguardar-publicacao", action="store_true", help="Mantém a tentativa pendente até a publicação externa")
+    parser.add_argument("--marcador-sucesso", help="Arquivo criado somente após uma atualização concluída")
+    parser.add_argument("--repositorio-progresso", help="Repositório Git cujo origin armazena o progresso em ref separado")
     args = parser.parse_args()
 
     cache_path = Path(args.cache_file) if args.cache_file else None
@@ -65,7 +69,12 @@ def main() -> None:
             year=args.year,
             cache_file=cache_path,
             full_refresh=args.full_refresh,
+            modo_recuperacao=args.recuperar,
+            aguardar_publicacao=args.aguardar_publicacao,
+            repositorio_progresso=Path(args.repositorio_progresso) if args.repositorio_progresso else None,
         )
+        if args.marcador_sucesso and resultado.get("success"):
+            Path(args.marcador_sucesso).write_text(resultado["tentativa"], encoding="utf-8")
         print(f"ETL concluído com sucesso: {resultado}")
     except Exception as exc:
         print(f"Erro ao executar ETL: {exc}", file=sys.stderr)

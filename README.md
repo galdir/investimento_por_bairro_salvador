@@ -307,3 +307,5 @@ O repositório possui dois workflows configurados em `.github/workflows/`:
 2. **Atualização de Dados do ETL (`.github/workflows/update-etl-data.yml`):**
    - Disparado por agendamento semanal (`cron: "0 6 * * 1"`, toda segunda-feira às 06:00 UTC) ou manualmente via botão **Run workflow** (`workflow_dispatch`) na aba Actions do GitHub, permitindo informar o ano de referência.
    - Prepara e valida uma versão de dados antes de alterar `public/data/atual.json`; o deploy do painel continua no fluxo existente.
+   - Consulta a cada dia se há tentativa pendente e, nos três dias seguintes ao início, faz no máximo uma recuperação por dia, mantendo a data de referência original.
+   - Persiste cada contrato concluído no ref remoto `etl-progresso`, separado dos dados publicados. Esse ref contém o snapshot da tentativa em andamento, é substituído por atualização forçada condicionada à versão anterior e deve permitir escrita pelo token do workflow. Uma falha ao persistir interrompe a atualização sem publicar dados parciais. O conteúdo do ref tem a mesma visibilidade do repositório.
