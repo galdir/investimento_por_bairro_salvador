@@ -73,7 +73,7 @@ from etl.reconcile import (
 from etl.sources import geosalvador, ibge_censo, transparencia
 from etl.publicacao import finalizar_versao, versao_anterior_valida, versao_publicada
 from etl.consultas import ConsultaPagamentos, LotePagamentos, coletar_pagamentos, incorporar_lotes_pagamentos
-from etl.progresso import ProgressoGit
+from etl.progresso import ProgressoGit, chave_contrato
 
 
 def run_pipeline(
@@ -135,20 +135,26 @@ def run_pipeline(
             estado["ultima_recuperacao"] = hoje.isoformat()
             year, mandatos, full_refresh = estado["year"], estado["mandatos"], estado["full_refresh"]
             data_referencia_pagamentos = estado["referencia"]
+            if not estado.get("tentativa_original"):
+                historico = estado.get("historico") or []
+                estado["tentativa_original"] = historico[0]["tentativa"] if historico else tentativa
         else:
             estado = {"dia_inicial": hoje.isoformat(), "ultima_recuperacao": None,
                       "year": year, "mandatos": mandatos, "full_refresh": full_refresh,
                       "referencia": data_referencia_pagamentos or hoje.isoformat(),
-                      "inicio_consultas": None, "contratos": {}, "historico": []}
+                      "inicio_consultas": None, "contratos": {}, "historico": [],
+                      "tentativa_original": tentativa, "concluida": False}
             data_referencia_pagamentos = estado["referencia"]
 
         def salvar_estado() -> None:
-            temporario = estado_path.with_suffix(".tmp")
-            temporario.write_text(json.dumps(estado, ensure_ascii=False), encoding="utf-8")
-            os.replace(temporario, estado_path)
-            if progresso is not None:
+            if progresso is None:
+                temporario = estado_path.with_suffix(".tmp")
+                temporario.write_text(json.dumps(estado, ensure_ascii=False), encoding="utf-8")
+                os.replace(temporario, estado_path)
+            else:
                 progresso.salvar(estado)
 
+        estado["estado"] = "pendente"
         estado.setdefault("historico", []).append({"tentativa": tentativa, "dia": hoje.isoformat(), "estado": "iniciada"})
         salvar_estado()
         registrar("iniciada")
@@ -156,6 +162,7 @@ def run_pipeline(
         def finalizar_estado() -> None:
             estado["historico"][-1]["estado"] = "preparada" if aguardar_publicacao else "concluida"
             estado["concluida"] = not aguardar_publicacao
+            estado["estado"] = "preparada" if aguardar_publicacao else "concluida"
             salvar_estado()
 
         try:
@@ -163,6 +170,7 @@ def run_pipeline(
         except Exception as exc:
             registrar("falhou", str(exc))
             estado["concluida"] = False
+            estado["estado"] = "pendente"
             estado["historico"][-1]["estado"] = "falhou"
             estado["historico"][-1]["erro"] = str(exc)
             salvar_estado()
@@ -578,8 +586,16 @@ def _executar_pipeline(
         nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
         obra_id = obra.get("id")
 
-        chave_recuperacao = json.dumps([str(cd_ug), str(nu_sigef)], ensure_ascii=False)
+        identidade_contrato = [str(cd_ug), str(nu_sigef)]
+        chave_recuperacao = chave_contrato(*identidade_contrato)
         salvo = estado["contratos"].get(chave_recuperacao) if estado is not None else None
+        if salvo is not None:
+            if "identidade" not in salvo or "tentativa_original" not in salvo:
+                # Checkpoints do formato local antigo não comprovam a identidade da tentativa.
+                salvo = None
+            elif (salvo["identidade"] != identidade_contrato
+                    or salvo["tentativa_original"] != estado.get("tentativa_original")):
+                raise ValueError(f"Checkpoint não corresponde ao contrato ou tentativa selecionada: {obra_id}")
         if salvo is not None:
             dados = dict(salvo["consulta"])
             if dados.get("lotes") is not None:
@@ -717,7 +733,12 @@ def _executar_pipeline(
         sincronizar_obra_com_ficha(obra, ficha_obra)
         fichas_para_gravar[str(obra_id)] = ficha_obra
         if estado is not None and salvo is None:
-            estado["contratos"][chave_recuperacao] = {"consulta": asdict(resultado_pagamentos), "ficha": ficha_obra}
+            estado["contratos"][chave_recuperacao] = {
+                "identidade": identidade_contrato,
+                "tentativa_original": estado["tentativa_original"],
+                "consulta": asdict(resultado_pagamentos),
+                "ficha": ficha_obra,
+            }
             salvar_estado()
 
     # 7. Unificação de Empreiteiras, gravação das fichas finais e expurgo de órfãos

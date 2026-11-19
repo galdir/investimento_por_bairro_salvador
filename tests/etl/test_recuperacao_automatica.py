@@ -13,6 +13,7 @@ from urllib.error import HTTPError
 import pytest
 from etl.runner import run_pipeline
 from etl.consultas import ConsultaPagamentos, conciliar_pagamentos
+from etl.progresso import ProgressoGit, chave_contrato
 from etl.sources import transparencia
 from tests.etl.fixtures.sample_data import (
     SAMPLE_GEOSALVADOR_BAIRROS, SAMPLE_GEOSALVADOR_PREFEITURAS, SAMPLE_TRANSPARENCIA_GRID,
@@ -164,6 +165,29 @@ def test_recuperacao_reusa_contrato_concluido_e_reinicia_o_interrompido(tmp_path
     ):
         processo = subprocess.run([sys.executable, "-m", "tests.etl.fixtures.interromper_pipeline", str(repositorios[0])])
         assert processo.returncode == 23
+        arquivos_remotos = subprocess.run(
+            ["git", "--git-dir", str(remoto), "ls-tree", "-r", "--name-only", "refs/heads/etl-progresso"],
+            check=True, capture_output=True, text=True,
+        ).stdout.splitlines()
+        arquivos_contratos = [arquivo for arquivo in arquivos_remotos if arquivo.startswith("contratos/")]
+        assert "metadados.json" in arquivos_remotos
+        assert "estado.json" not in arquivos_remotos
+        assert len(arquivos_contratos) == 1
+        metadados = json.loads(subprocess.run(
+            ["git", "--git-dir", str(remoto), "show", "refs/heads/etl-progresso:metadados.json"],
+            check=True, capture_output=True, text=True,
+        ).stdout)
+        contrato_salvo = json.loads(subprocess.run(
+            ["git", "--git-dir", str(remoto), "show", f"refs/heads/etl-progresso:{arquivos_contratos[0]}"],
+            check=True, capture_output=True, text=True,
+        ).stdout)
+        assert metadados["tentativa_original"]
+        assert metadados["estado"] == "pendente"
+        assert metadados["referencia"] == "2026-01-05"
+        assert "contratos" not in metadados
+        assert contrato_salvo["identidade"] == ["2401", "001/2024"]
+        assert contrato_salvo["tentativa_original"] == metadados["tentativa_original"]
+        assert contrato_salvo["ficha"]["pagamentos"] == [registro]
         chamadas.clear()
         dia[0] += timedelta(days=1)
         resultado = run_pipeline(repositorios[1] / "data", full_refresh=True, modo_recuperacao=True,
@@ -182,6 +206,79 @@ def test_recuperacao_reusa_contrato_concluido_e_reinicia_o_interrompido(tmp_path
     assert metadata["dataReferenciaPagamentos"] == "2026-01-05"
     assert metadata["inicioConsultas"].startswith("2026-01-05")
     assert metadata["fimConsultas"].startswith("2026-01-06")
+
+
+def test_gravacoes_concorrentes_preservam_a_primeira_revisao(tmp_path: Path) -> None:
+    remoto = tmp_path / "remoto.git"
+    subprocess.run(["git", "init", "--bare", "-q", str(remoto)], check=True)
+    repositorios = [tmp_path / f"runner{indice}" for indice in range(3)]
+    for repositorio in repositorios:
+        repositorio.mkdir()
+        subprocess.run(["git", "init", "-q", str(repositorio)], check=True)
+        subprocess.run(["git", "-C", str(repositorio), "remote", "add", "origin", str(remoto)], check=True)
+
+    inicial = ProgressoGit(repositorios[0])
+    assert inicial.carregar() is None
+    inicial.salvar({
+        "dia_inicial": "2026-01-05", "ultima_recuperacao": None, "year": 2025,
+        "mandatos": None, "full_refresh": True, "referencia": "2026-01-05",
+        "inicio_consultas": None, "concluida": False, "estado": "pendente",
+        "tentativa_original": "tentativa-original", "historico": [], "contratos": {},
+    })
+
+    primeira = ProgressoGit(repositorios[1])
+    segunda = ProgressoGit(repositorios[2])
+    estado_primeiro = primeira.carregar()
+    estado_segundo = segunda.carregar()
+    estado_primeiro["estado"] = "concluida"
+    estado_primeiro["concluida"] = True
+    estado_segundo["estado"] = "pendente"
+    primeira.salvar(estado_primeiro)
+
+    with pytest.raises(RuntimeError, match="conflito"):
+        segunda.salvar(estado_segundo)
+
+    vencedora = ProgressoGit(repositorios[0]).carregar()
+    assert vencedora["estado"] == "concluida"
+    assert vencedora["concluida"] is True
+
+
+def test_chave_do_checkpoint_distingue_pares_de_contrato() -> None:
+    primeiro = ["UG/1", "CT-2"]
+    segundo = ["UG", "1/CT-2"]
+
+    assert chave_contrato(*primeiro) != chave_contrato(*segundo)
+    assert ProgressoGit.caminho_checkpoint(primeiro) != ProgressoGit.caminho_checkpoint(segundo)
+
+
+def test_checkpoint_acima_do_limite_nao_e_enviado(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    from etl import progresso as modulo_progresso
+
+    remoto = tmp_path / "remoto.git"
+    repositorio = tmp_path / "runner"
+    repositorio.mkdir()
+    subprocess.run(["git", "init", "--bare", "-q", str(remoto)], check=True)
+    subprocess.run(["git", "init", "-q", str(repositorio)], check=True)
+    subprocess.run(["git", "-C", str(repositorio), "remote", "add", "origin", str(remoto)], check=True)
+    monkeypatch.setattr(modulo_progresso, "LIMITE_CHECKPOINT_BYTES", 128)
+    progresso = ProgressoGit(repositorio)
+    assert progresso.carregar() is None
+
+    estado = {
+        "dia_inicial": "2026-01-05", "ultima_recuperacao": None, "year": 2025,
+        "mandatos": None, "full_refresh": True, "referencia": "2026-01-05",
+        "inicio_consultas": None, "concluida": False, "estado": "pendente",
+        "tentativa_original": "tentativa-original", "historico": [],
+        "contratos": {
+            chave_contrato("2401", "001/2024"): {
+                "identidade": ["2401", "001/2024"], "tentativa_original": "tentativa-original",
+                "consulta": {"registros": []}, "ficha": {"objeto": "x" * 256},
+            },
+        },
+    }
+    with pytest.raises(ValueError, match="excede o limite"):
+        progresso.salvar(estado)
+    assert ProgressoGit(repositorio).carregar() is None
 
 
 def test_esgotamento_conserva_versao_e_proxima_semanal_recomeca(tmp_path: Path) -> None:
