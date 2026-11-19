@@ -29,6 +29,7 @@ concurrency:
 jobs:
   update-data:
     name: Executar Pipeline ETL Incremental
+    if: github.event_name != 'schedule' || vars.ETL_SCHEDULE_ENABLED == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório (com Cache Incremental)
