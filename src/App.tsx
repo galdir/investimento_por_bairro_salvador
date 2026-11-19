@@ -649,7 +649,7 @@ export const App: React.FC = () => {
             (acc, f) => acc + (hasNumericPayment(f.valorPago) ? f.valorPago : 0),
             0
           );
-          valorNaoLocalizadoPago += Math.max(0, o.valorPago - pagoFrentes);
+          valorNaoLocalizadoPago += o.valorPago - pagoFrentes;
         }
       } else if (
         getObraCotasListaFechada(o).length === 0 &&

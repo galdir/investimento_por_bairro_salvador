@@ -84,14 +84,14 @@ function getMetricSortValue(
   share: ObraTerritoryShare,
   selectedTerritory: TerritorySelection | null | undefined,
   metricType: MetricType
-): number {
+): number | null {
   if (selectedTerritory && share.isFrenteMedicao && !share.isDirectOrRegionalMatch) {
     return metricType === "executado" ? share.frentesValorPago : 0;
   }
   if (metricType === "vigente") {
     return (obra.valorContratualVigente ?? 0) * share.peso;
   }
-  return hasNumericPayment(obra.valorPago) ? obra.valorPago * share.peso : -1;
+  return hasNumericPayment(obra.valorPago) ? obra.valorPago * share.peso : null;
 }
 
 /**
@@ -281,6 +281,9 @@ export const WorksTable: React.FC<WorksTableProps> = ({
           valB = b.valorContratualVigente * pesoB;
       }
 
+      if (valA == null || valB == null) {
+        return valA == null ? (valB == null ? 0 : 1) : -1;
+      }
       if (typeof valA === "string" && typeof valB === "string") {
         return sortDirection === "asc" ? valA.localeCompare(valB) : valB.localeCompare(valA);
       }
@@ -826,7 +829,7 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                     {isFrenteFiltrada ? (
                       metricType === "executado" ? (
                         <>
-                          <div className="text-indigo-900">{formatCurrency(share.frentesValorPago)}</div>
+                          <div className="text-indigo-900">{share.frentesValorPago == null ? "Indisponível" : formatCurrency(share.frentesValorPago)}</div>
                           <div className="text-[10px] font-medium text-indigo-700">
                             Parcela (Frentes • liq. {formatCurrency(share.frentesValorLiquidado)})
                           </div>

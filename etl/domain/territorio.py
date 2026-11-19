@@ -596,7 +596,9 @@ def calcular_rollup_territorial(
         )
         sem_pagamento_bairro = _contar_pagamentos_ausentes([o for o, _ in obras_do_bairro])
         pago_disponivel_bairro = (
-            total_obras_bairro == 0 or sem_pagamento_bairro < total_obras_bairro or bool(frentes_do_bairro)
+            (total_obras_bairro == 0 and not frentes_do_bairro)
+            or sem_pagamento_bairro < total_obras_bairro
+            or any(f.get("valorPago") is not None for f in frentes_do_bairro)
         )
 
         populacao = int(b.get("populacao", 0))
@@ -631,7 +633,8 @@ def calcular_rollup_territorial(
             "valorLiquidadoDireto": round(vl_liq_direto_bairro, 2),
             "valorPagoDireto": round(vl_pago_direto_bairro, 2) if pago_disponivel_bairro else None,
             "valorLiquidadoFrentes": round(vl_liq_frentes_bairro, 2),
-            "valorPagoFrentes": round(vl_pago_frentes_bairro, 2),
+            "valorPagoFrentes": (round(vl_pago_frentes_bairro, 2) if not frentes_do_bairro
+                                 or any(f.get("valorPago") is not None for f in frentes_do_bairro) else None),
             "totalFrentesMedicao": len(frentes_do_bairro),
             "totalObras": total_obras_bairro,
             "obrasVerde": verde_count,
@@ -671,7 +674,7 @@ def calcular_rollup_territorial(
         vl_liq_direto_bairros = sum(b.get("valorLiquidadoDireto", 0.0) for b in bairros_filhos)
         vl_pago_direto_bairros = sum(parse_float(b.get("valorPagoDireto")) for b in bairros_filhos)
         vl_liq_frentes_bairros = sum(b.get("valorLiquidadoFrentes", 0.0) for b in bairros_filhos)
-        vl_pago_frentes_bairros = sum(b.get("valorPagoFrentes", 0.0) for b in bairros_filhos)
+        vl_pago_frentes_bairros = sum(parse_float(b.get("valorPagoFrentes")) for b in bairros_filhos)
         total_frentes_bairros = sum(b.get("totalFrentesMedicao", 0) for b in bairros_filhos)
 
         # Soma as obras regionais e frentes regionais mapeadas diretamente para a prefeitura-bairro
@@ -703,7 +706,10 @@ def calcular_rollup_territorial(
         obras_pb = [o for bn in bairros_filhos_nomes if bn in bairros_index for o, _ in obras_por_bairro.get(bn, [])] + obras_regionais
         total_obras_pb, verde_pb, amarelo_pb, vermelho_pb = _contar_obras_e_semaforos(obras_pb)
         sem_pagamento_pb = _contar_pagamentos_ausentes(obras_pb)
-        pago_disponivel_pb = total_obras_pb == 0 or sem_pagamento_pb < total_obras_pb or total_frentes_pb > 0
+        frentes_pb = [f for bn in bairros_filhos_nomes for f in frentes_por_bairro.get(bn, [])] + frentes_regionais
+        pago_disponivel_pb = ((total_obras_pb == 0 and not frentes_pb)
+                              or sem_pagamento_pb < total_obras_pb
+                              or any(f.get("valorPago") is not None for f in frentes_pb))
 
         pop_total = int(pb.get("populacao_total", 0))
         inv_per_capita_pb = round(vl_total_pb / pop_total, 2) if pop_total > 0 else 0.0
@@ -765,7 +771,8 @@ def calcular_rollup_territorial(
             "valorLiquidadoDireto": round(vl_liq_direto_pb, 2),
             "valorPagoDireto": round(vl_pago_direto_pb, 2) if pago_disponivel_pb else None,
             "valorLiquidadoFrentes": round(vl_liq_frentes_pb, 2),
-            "valorPagoFrentes": round(vl_pago_frentes_pb, 2),
+            "valorPagoFrentes": (round(vl_pago_frentes_pb, 2) if not frentes_pb
+                                 or any(f.get("valorPago") is not None for f in frentes_pb) else None),
             "totalFrentesMedicao": total_frentes_pb,
             "totalObras": total_obras_pb,
             "obrasVerde": verde_pb,
@@ -791,7 +798,7 @@ def calcular_rollup_territorial(
             for f in (o.get("frentesMedicao") or [])
             if isinstance(f, dict)
         )
-        vl_pago_nao_localizado += max(0.0, vl_pago_obra - vl_pago_frentes_obra)
+        vl_pago_nao_localizado += vl_pago_obra - vl_pago_frentes_obra
 
     percentual_opaco = 0.0
     if valor_total_todas_obras > 0:

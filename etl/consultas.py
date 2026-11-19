@@ -4,11 +4,22 @@ from dataclasses import dataclass, field, replace
 from collections import Counter
 from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
+import hashlib
 import json
 import re
 from typing import Any
+from uuid import uuid4
 
+from etl.domain.pagamentos import valor_informado_pagamento
 from etl.sources import transparencia
+
+
+@dataclass(frozen=True)
+class LotePagamentos:
+    """Ocorrências de uma resposta, identificada pela própria coleta, não pelo portal."""
+
+    origem: str
+    registros: list[dict[str, Any]]
 
 
 @dataclass(frozen=True)
@@ -19,6 +30,43 @@ class ConsultaPagamentos:
     validada: bool
     limitacoes_conhecidas: list[str] = field(default_factory=list)
     janela: dict[str, str] | None = None
+    lotes: list[LotePagamentos] | None = None
+
+
+def incorporar_lotes_pagamentos(resultado: ConsultaPagamentos) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Remove apenas a reaplicação exata de uma resposta da mesma coleta.
+
+    A origem é criada para cada resposta recebida; IDs e semelhanças do portal
+    não identificam lotes. Reutilizar uma origem com conteúdo diferente falha.
+    """
+    if resultado.lotes is None:
+        return resultado.registros, []
+    if not isinstance(resultado.lotes, list):
+        raise ValueError("Lotes de pagamentos inválidos")
+    recebidos: list[dict[str, Any]] = []
+    incluidos: list[dict[str, Any]] = []
+    origens: dict[str, tuple[str, int, int]] = {}
+    repeticoes: list[dict[str, Any]] = []
+    for indice, lote in enumerate(resultado.lotes):
+        if (not isinstance(lote, LotePagamentos) or not isinstance(lote.origem, str) or not lote.origem.strip()
+                or not isinstance(lote.registros, list) or not all(isinstance(p, dict) for p in lote.registros)):
+            raise ValueError("Lote de pagamentos inválido")
+        conteudo = json.dumps(lote.registros, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        recebidos.extend(lote.registros)
+        if lote.origem in origens:
+            conteudo_original, indice_original, inicio_original = origens[lote.origem]
+            if conteudo_original != conteudo:
+                raise ValueError("Origem de coleta reutilizada com conteúdo diferente")
+            repeticoes.append({"origem": lote.origem, "sha256": hashlib.sha256(conteudo.encode("utf-8")).hexdigest(),
+                               "ocorrenciasRemovidas": len(lote.registros), "loteOriginal": indice_original,
+                               "inicioOriginal": inicio_original, "loteReprocessado": indice,
+                               "evidencia": "mesma origem da coleta e conteúdo canônico idêntico"})
+        else:
+            origens[lote.origem] = (conteudo, indice, len(incluidos))
+            incluidos.extend(lote.registros)
+    if recebidos != resultado.registros:
+        raise ValueError("Lotes não correspondem aos registros da consulta")
+    return incluidos, repeticoes
 
 
 def _valor_monetario(valor: Any) -> Decimal:
@@ -66,7 +114,8 @@ def conciliar_pagamentos(cd_unidade_gestora: Any, nu_contrato_sigef: Any, data_r
     depois = _metadados_pagina(transparencia._post_transparencia(pagina, payload, max_bytes=8 * 1024 * 1024))
     if not isinstance(registros, list) or not all(isinstance(item, dict) for item in registros):
         raise ValueError("Exportação de pagamentos inválida")
-    soma = sum((_valor_monetario(item["pago"]) for item in registros if item.get("pago") not in (None, "")), Decimal(0))
+    valores = [valor_informado_pagamento(item) for item in registros]
+    soma = sum((_valor_monetario(valor) for valor in valores if valor not in (None, "")), Decimal(0))
     if antes != depois or len(registros) != antes[0] or soma != antes[-1]:
         raise ValueError("Conciliação de pagamentos divergente")
     incluidos = []
@@ -77,7 +126,8 @@ def conciliar_pagamentos(cd_unidade_gestora: Any, nu_contrato_sigef: Any, data_r
             raise ValueError("Data de pagamento inválida") from exc
         if data <= referencia:
             incluidos.append(item)
-    return ConsultaPagamentos(incluidos, data_referencia, True, True)
+    return ConsultaPagamentos(incluidos, data_referencia, True, True,
+                              lotes=[LotePagamentos(str(uuid4()), incluidos)])
 
 
 def multiconjunto_pagamentos(registros: list[dict[str, Any]]) -> Counter:

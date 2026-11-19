@@ -19,6 +19,7 @@ import urllib.request
 
 from shapely.geometry import Point, shape
 
+from etl.domain.pagamentos import valor_informado_pagamento
 from etl.domain.territorio import normalizar_nome, normalizar_nome_prefeitura_bairro, parse_float
 
 # Diretório base dos dicionários de referência
@@ -1337,14 +1338,18 @@ def resolver_frentes_medicao(
         bairros_geojson
     )
 
-    pagamentos_por_nl: dict[str, float] = {}
+    pagamentos_por_nl: dict[str, Optional[float]] = {}
     for pag in pagamentos or []:
         if not isinstance(pag, dict):
             continue
         nl_pag = str(pag.get("notaLiquidacao") or "").strip()
         if not nl_pag:
             continue
-        pagamentos_por_nl[nl_pag] = pagamentos_por_nl.get(nl_pag, 0.0) + parse_float(pag.get("pago", pag.get("valorPago")))
+        valor = valor_informado_pagamento(pag)
+        if valor in (None, ""):
+            pagamentos_por_nl.setdefault(nl_pag, None)
+        else:
+            pagamentos_por_nl[nl_pag] = (pagamentos_por_nl.get(nl_pag) or 0.0) + parse_float(valor)
 
     frentes_resolvidas: list[dict[str, Any]] = []
     for liq in liquidacoes or []:
@@ -1395,7 +1400,7 @@ def resolver_frentes_medicao(
             "bairro": bairro_canonico,
             "prefeituraBairro": pb_final,
             "valorLiquidado": round(val_liq, 2),
-            "valorPago": round(val_pago, 2),
+            "valorPago": round(val_pago, 2) if val_pago is not None else None,
             "dataLiquidacao": liq.get("dataLiquidacao"),
             "trechoComprobatorio": frente_cfg.get("trechoComprobatorio"),
             "documentoOrigem": frente_cfg.get("documentoOrigem"),

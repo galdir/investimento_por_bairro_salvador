@@ -18,6 +18,7 @@ import warnings
 from uuid import uuid4
 
 from etl.domain import kpis
+from etl.domain.pagamentos import valor_informado_pagamento
 from etl.domain.ficha_limpa import (
     construir_ficha_obra,
     mesclar_fichas_obra,
@@ -64,7 +65,7 @@ from etl.reconcile import (
 )
 from etl.sources import geosalvador, ibge_censo, transparencia
 from etl.publicacao import finalizar_versao, versao_anterior_valida, versao_publicada
-from etl.consultas import ConsultaPagamentos, coletar_pagamentos
+from etl.consultas import ConsultaPagamentos, coletar_pagamentos, incorporar_lotes_pagamentos
 
 
 def run_pipeline(
@@ -509,7 +510,7 @@ def _executar_pipeline(
         ):
             raise ValueError(f"Limitações de pagamentos inválidas: {obra_id}")
         limitacoes_conhecidas.update(resultado_pagamentos.limitacoes_conhecidas)
-        pagamentos_raw = resultado_pagamentos.registros
+        pagamentos_raw, repeticoes_coleta = incorporar_lotes_pagamentos(resultado_pagamentos)
         obra["janelaPagamentos"] = resultado_pagamentos.janela
 
         candidatas_locais = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
@@ -569,9 +570,10 @@ def _executar_pipeline(
             )
 
         ficha_obra["pagamentos"] = pagamentos_raw
+        ficha_obra["repeticoesColeta"] = repeticoes_coleta
         ficha_obra["janelaPagamentos"] = resultado_pagamentos.janela
         ficha_obra["consultaPagamentosConcluida"] = True
-        valores = [p.get("pago", p.get("valorPago")) for p in pagamentos_raw]
+        valores = [valor_informado_pagamento(p) for p in pagamentos_raw]
         valores = [valor for valor in valores if valor is not None and valor != ""]
         valores_decimais = []
         for valor in valores:
@@ -588,6 +590,12 @@ def _executar_pipeline(
         ficha_obra.setdefault("funilFinanceiro", {})["valorPago"] = (
             float(sum(valores_decimais)) if valores_decimais else (0.0 if not pagamentos_raw else None)
         )
+        ficha_obra["apuracaoPagamentos"] = {
+            "registrosSemValor": len(pagamentos_raw) - len(valores_decimais),
+            "situacao": "sem_registros" if not pagamentos_raw else (
+                "saldo_registrado" if valores_decimais else "indisponivel"
+            ),
+        }
 
         frentes = resolver_frentes_medicao(
             obra=obra,

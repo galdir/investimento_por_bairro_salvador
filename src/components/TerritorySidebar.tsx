@@ -116,10 +116,10 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
     : hasNumericValue(territorio.valorPago)
       ? territorio.valorPago
       : 0;
-  const valorPagoFrentes = territorio.valorPagoFrentes ?? 0;
+  const valorPagoFrentes = territorio.valorPagoFrentes;
   const valorLiquidadoFrentes = territorio.valorLiquidadoFrentes ?? 0;
   const temFrentes =
-    totalFrentes > 0 || valorPagoFrentes > 0 || valorLiquidadoFrentes > 0 || frentesNoTerritorio.length > 0;
+    totalFrentes > 0 || (valorPagoFrentes ?? 0) > 0 || valorLiquidadoFrentes > 0 || frentesNoTerritorio.length > 0;
   const bairrosEstimados = territorio.bairros_vulnerabilidade_estimada || [];
 
   return (
@@ -315,7 +315,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
             </div>
             <div className="bg-white/90 border border-indigo-200 rounded-lg p-2">
               <span className="text-[10px] font-medium text-indigo-700 block">Frentes de Medição</span>
-              <span className="font-bold text-indigo-900">{formatCurrency(valorPagoFrentes)}</span>
+              <span className="font-bold text-indigo-900">{valorPagoFrentes == null && totalFrentes > 0 ? "Indisponível" : formatCurrency(valorPagoFrentes ?? 0)}</span>
               <span className="text-[10px] text-indigo-600 block">
                 liquidado: {formatCurrency(valorLiquidadoFrentes)}
               </span>
@@ -364,7 +364,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                   </div>
                   <div className="flex items-center justify-between text-[10px] text-slate-600 mt-1">
                     <span>Liquidado: {formatCurrency(frente.valorLiquidado)}</span>
-                    <span>Pago: {formatCurrency(frente.valorPago)}</span>
+                    <span>Pago: {frente.valorPago == null ? "Indisponível" : formatCurrency(frente.valorPago)}</span>
                   </div>
                   {frente.trechoComprobatorio && (
                     <p className="text-[10px] text-slate-500 mt-1 line-clamp-2">

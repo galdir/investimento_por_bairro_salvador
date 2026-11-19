@@ -86,7 +86,7 @@ export interface BairroResumo {
   valorLiquidadoDireto?: number;
   valorPagoDireto?: number | null;
   valorLiquidadoFrentes?: number;
-  valorPagoFrentes?: number;
+  valorPagoFrentes?: number | null;
   totalFrentesMedicao?: number;
   totalObras?: number;
   obrasVerde?: number;
@@ -114,7 +114,7 @@ export interface PrefeituraBairroResumo {
   valorLiquidadoDireto?: number;
   valorPagoDireto?: number | null;
   valorLiquidadoFrentes?: number;
-  valorPagoFrentes?: number;
+  valorPagoFrentes?: number | null;
   totalFrentesMedicao?: number;
   totalObras?: number;
   obrasVerde?: number;
@@ -132,7 +132,7 @@ export interface FrenteMedicao {
   bairro?: string | null;
   prefeituraBairro?: string | null;
   valorLiquidado: number;
-  valorPago: number;
+  valorPago: number | null;
   dataLiquidacao?: string | null;
   trechoComprobatorio?: string | null;
   documentoOrigem?: string | null;
@@ -297,6 +297,10 @@ export interface FichaLimpaObra {
   empenhos?: any[];
   liquidacoes?: any[];
   pagamentos?: any[];
+  apuracaoPagamentos?: {
+    registrosSemValor: number;
+    situacao: "sem_registros" | "indisponivel" | "saldo_registrado";
+  };
   tema?: string;
   vocacao?: VocacaoObra | string;
   semaforo?: SemaforoInfo;
@@ -357,7 +361,7 @@ export interface TerritorySelection {
   valorLiquidadoDireto?: number;
   valorPagoDireto?: number | null;
   valorLiquidadoFrentes?: number;
-  valorPagoFrentes?: number;
+  valorPagoFrentes?: number | null;
   totalFrentesMedicao?: number;
   totalObras?: number;
   obrasVerde?: number;

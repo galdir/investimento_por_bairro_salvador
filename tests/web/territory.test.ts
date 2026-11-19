@@ -61,6 +61,25 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
     },
   ];
 
+  it("mantém indisponível o pagamento de uma frente sem valores numéricos", () => {
+    const obra: ObraCompacta = {
+      id: 42, unidadeGestora: "SUCOP", numeroContrato: "42", objeto: "Contrato por frentes",
+      valorContratualVigente: 100, valorPago: null, percentualExecutado: 0,
+      situacao: "Em execução", credor: "Empresa", nivel: "Escopo Cidade (Não-Localizado)",
+      frentesMedicao: [{ notaLiquidacao: "NL1", nivel: "Bairro", bairro: "Pituba",
+        prefeituraBairro: "Barra/Pituba", valorLiquidado: 50, valorPago: null }],
+    };
+    const resultado = calculateTerritorialRollup(bairrosBase, prefeiturasBase, [obra]);
+    const bairro = resultado.bairros.find((b) => b.nome === "Pituba")!;
+    const prefeitura = resultado.prefeituras.find((p) => p.nome === "Barra/Pituba")!;
+    expect(bairro.valorPagoDisponivel).toBe(false);
+    expect(bairro.valorPago).toBeUndefined();
+    expect(bairro.valorPagoFrentes).toBeNull();
+    expect(prefeitura.valorPagoDisponivel).toBe(false);
+    expect(prefeitura.valorPagoFrentes).toBeNull();
+    expect(getObraTerritoryShare(obra, { tipo: "bairro", nome: "Pituba" }).frentesValorPago).toBeNull();
+  });
+
   const obrasExemplo: ObraCompacta[] = [
     {
       id: 1001,

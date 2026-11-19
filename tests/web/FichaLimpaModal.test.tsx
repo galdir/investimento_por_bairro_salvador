@@ -130,6 +130,15 @@ const OBRA_SEM_DOM_SEM_PROCESSO: FichaLimpaObra = {
 };
 
 describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () => {
+  it("explica valores ausentes e mantém os registros de pagamentos acessíveis", () => {
+    render(<FichaLimpaModal obra={{ ...OBRA_COMPLETA, pagamentos: [
+      { dataPagamento: "01/01/2025", ordemBancaria: "OB1", pago: "R$ 1.000,00" },
+      { dataPagamento: "01/01/2025", pago: null },
+    ], apuracaoPagamentos: { registrosSemValor: 1, situacao: "saldo_registrado" } }} onClose={vi.fn()} />);
+    expect(screen.getByText(/1 registro sem valor informado/)).toBeInTheDocument();
+    expect(screen.getByText(/OB1/)).toBeInTheDocument();
+    expect(screen.getByText(/Valor não informado/)).toBeInTheDocument();
+  });
   const writeTextMock = vi.fn().mockResolvedValue(undefined);
 
   beforeEach(() => {
@@ -264,7 +273,7 @@ describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () 
           bairro: null,
           prefeituraBairro: "Subúrbio/Ilhas",
           valorLiquidado: 180000,
-          valorPago: 150000,
+          valorPago: null,
           trechoComprobatorio: "RECUPERAÇÃO DE EQUIPAMENTOS ESPORTIVOS NO SUBÚRBIO",
         },
       ],
@@ -284,10 +293,10 @@ describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () 
     expect(frente0).toHaveTextContent("REFORMA DOS CAMPOS E QUADRAS DA BOCA DO RIO");
 
     const frente1 = screen.getByTestId("fontes-frente-item-1");
+    expect(frente1).toHaveTextContent("Pago: Indisponível");
     expect(frente1).toHaveTextContent("2025NL019999");
     expect(frente1).toHaveTextContent("Subúrbio/Ilhas");
     expect(frente1).toHaveTextContent("180.000");
-    expect(frente1).toHaveTextContent("150.000");
     expect(frente1).toHaveTextContent("RECUPERAÇÃO DE EQUIPAMENTOS ESPORTIVOS NO SUBÚRBIO");
   });
 

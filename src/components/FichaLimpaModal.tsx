@@ -601,6 +601,24 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   </div>
                 </div>
 
+                {obra.apuracaoPagamentos && <div className="text-xs text-slate-600 space-y-2">
+                  {obra.apuracaoPagamentos.situacao === "sem_registros" && <p>Nenhum registro de pagamento encontrado na fonte.</p>}
+                  {obra.apuracaoPagamentos.situacao === "saldo_registrado" && valorPago === 0 && <p>Saldo registrado igual a zero.</p>}
+                  {obra.apuracaoPagamentos.registrosSemValor > 0 && <p>
+                    {obra.apuracaoPagamentos.registrosSemValor} registro{obra.apuracaoPagamentos.registrosSemValor !== 1 ? "s" : ""} sem valor informado. Esses registros permanecem disponíveis e não tornam a soma parcial por si só.
+                  </p>}
+                  {!!obra.pagamentos?.length && <p>Valores informados são somados mesmo quando faltam campos de identificação; registros semelhantes são preservados.</p>}
+                  {!!obra.pagamentos?.length && <details>
+                    <summary className="cursor-pointer font-medium">Registros de pagamentos ({obra.pagamentos.length})</summary>
+                    <ul className="space-y-2 mt-2">
+                      {obra.pagamentos.map((pagamento, index) => <li key={index} className="border border-slate-200 rounded p-2 break-words">
+                        {Object.entries(pagamento).map(([campo, valor]) => <div key={campo}>{campo}: {valor == null || valor === "" ? "Não informado" : typeof valor === "object" ? JSON.stringify(valor) : String(valor)}</div>)}
+                        {(pagamento.pago == null || pagamento.pago === "") && (pagamento.valorPago == null || pagamento.valorPago === "") && <div>Valor não informado</div>}
+                      </li>)}
+                    </ul>
+                  </details>}
+                </div>}
+
                 {/* Barra Comparativa: Avanço Financeiro vs Avanço Físico */}
                 <div className="space-y-2 pt-2 border-t border-slate-200 text-xs">
                   <div>
@@ -1063,7 +1081,7 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                                     Liquidado: <strong className="text-slate-800">{formatCurrency(frente.valorLiquidado)}</strong>
                                   </span>
                                   <span>
-                                    Pago: <strong className="text-emerald-700">{formatCurrency(frente.valorPago)}</strong>
+                                    Pago: <strong className="text-emerald-700">{frente.valorPago == null ? "Indisponível" : formatCurrency(frente.valorPago)}</strong>
                                   </span>
                                 </div>
                                 {frente.trechoComprobatorio && (

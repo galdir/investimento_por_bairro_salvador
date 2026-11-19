@@ -643,7 +643,7 @@ def mesclar_fichas_obra(
     Descrição Estendida:
         Para contratos que possuem múltiplas versões em disco ou que passaram por reconsulta com
         endpoints secundários vazios, inspeciona todas as fichas candidatas da mesma Chave Canônica
-        da Obra preservando a lista não vazia/mais longa de empenhos, liquidações, pagamentos,
+        da Obra preservando a lista não vazia/mais longa de empenhos e liquidações,
         aditivos e dotações (preferindo dotações reais ao fallback padrão), além do CNPJ formatado,
         processo administrativo, número original do contrato, edição do DOM e datas de vigência
         normalizadas em ISO. Recalcula o Funil de Execução Financeira com os totais reais.
@@ -733,7 +733,10 @@ def mesclar_fichas_obra(
     # Listas: preserva a mais completa de cada endpoint
     empenhos = [dict(e) for e in max((f.get("empenhos") or [] for f in candidatas), key=len, default=[])]
     liquidacoes = [dict(l) for l in max((f.get("liquidacoes") or [] for f in candidatas), key=len, default=[])]
-    pagamentos = [dict(p) for p in max((f.get("pagamentos") or [] for f in candidatas), key=len, default=[])]
+    consulta_validada = next((f for f in candidatas if f.get("consultaPagamentosConcluida") is True), None)
+    pagamentos_fonte = (consulta_validada.get("pagamentos", []) if consulta_validada is not None
+                       else max((f.get("pagamentos") or [] for f in candidatas), key=len, default=[]))
+    pagamentos = [dict(p) for p in pagamentos_fonte]
 
     aditivos = [dict(ad) for ad in max((f.get("aditivos") or [] for f in candidatas), key=len, default=[])]
     if nu_dom != "Não informado":
@@ -753,6 +756,8 @@ def mesclar_fichas_obra(
         dotacao = [dict(d) for d in max(dotacoes_existentes, key=len, default=[])]
 
     funil = _resolver_funil_mesclado(obra, candidatas, empenhos, liquidacoes, pagamentos)
+    if consulta_validada is not None:
+        funil["valorPago"] = (consulta_validada.get("funilFinanceiro") or {}).get("valorPago")
     tema = obra.get("tema") or next((f.get("tema") for f in candidatas if f.get("tema")), None) or classificar_tema(obra)
     vocacao = obra.get("vocacao") or next((f.get("vocacao") for f in candidatas if f.get("vocacao")), None) or classificar_vocacao(obra)
     semaforo = obra.get("semaforo") or next((f.get("semaforo") for f in candidatas if f.get("semaforo")), None) or classificar_semaforo(obra)
@@ -803,7 +808,7 @@ def mesclar_fichas_obra(
     longitude_final = _resolver_territorial(obra.get("longitude"), "longitude", aceitar_none=True)
     estagio_final = _resolver_territorial(obra.get("estagioAlocacao"), "estagioAlocacao")
 
-    return _montar_ficha_base(
+    ficha_mesclada = _montar_ficha_base(
         obra_id=obra_id,
         cd_ug=cd_ug,
         unidade_gestora=unidade_gestora,
@@ -840,6 +845,11 @@ def mesclar_fichas_obra(
         lastro_curadoria=obra.get("lastroCuradoria"),
         cotas_lista_fechada=obra.get("cotasListaFechada"),
     )
+    if consulta_validada is not None:
+        for campo in ("consultaPagamentosConcluida", "apuracaoPagamentos", "repeticoesColeta", "janelaPagamentos"):
+            if campo in consulta_validada:
+                ficha_mesclada[campo] = consulta_validada[campo]
+    return ficha_mesclada
 
 
 def sincronizar_obra_com_ficha(obra: dict[str, Any], ficha: dict[str, Any]) -> None:

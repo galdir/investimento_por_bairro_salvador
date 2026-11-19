@@ -6,6 +6,16 @@ import { ObraCompacta, TerritorySelection } from "../../src/types";
 describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Censo 2022", () => {
   const onClearMock = vi.fn();
 
+  it("mostra pagamento das frentes como indisponível quando não há valor apurável", () => {
+    const territorio: TerritorySelection = {
+      tipo: "bairro", id: 101, nome: "Pituba", prefeitura_bairro: "Barra/Pituba",
+      populacao: 65000, totalFrentesMedicao: 1, valorPagoFrentes: null,
+      valorLiquidadoFrentes: 100, valorPagoDisponivel: false,
+    };
+    render(<TerritorySidebar territorio={territorio} onClear={onClearMock} metricType="executado" />);
+    expect(screen.getByText("Frentes de Medição").parentElement).toHaveTextContent("Indisponível");
+  });
+
   it("exibe índice composto e decomposição em 3 subindicadores para bairro residencial comum", () => {
     const bairroResidencial: TerritorySelection = {
       tipo: "bairro",

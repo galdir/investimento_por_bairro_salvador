@@ -19,7 +19,7 @@ export interface ObraTerritoryShare {
   cotas: CotaListaFechada[];
   frentes: FrenteMedicao[];
   frentesValorLiquidado: number;
-  frentesValorPago: number;
+  frentesValorPago: number | null;
 }
 
 /**
@@ -392,14 +392,14 @@ function aggregateObrasMetrics(obras: ObraCompacta[]): ObrasAggregatedMetrics {
 /**
  * Soma os valores liquidados e pagos de uma lista de Frentes de Medição.
  */
-function sumFrentesMetrics(frentes: FrenteMedicao[]): { valorLiquidado: number; valorPago: number } {
+function sumFrentesMetrics(frentes: FrenteMedicao[]): { valorLiquidado: number; valorPago: number | null } {
   let valorLiquidado = 0;
   let valorPago = 0;
   for (const f of frentes) {
     valorLiquidado += f.valorLiquidado ?? 0;
     valorPago += f.valorPago ?? 0;
   }
-  return { valorLiquidado, valorPago };
+  return { valorLiquidado, valorPago: frentes.length && !frentes.some((f) => hasNumericPayment(f.valorPago)) ? null : valorPago };
 }
 
 /**
@@ -632,7 +632,7 @@ export function calculateTerritorialRollup(
     const frentesComValorPago = frentesDoBairro.filter((f) => hasNumericPayment(f.valorPago)).length;
 
     const valorPagoDireto = metrics.valorPago;
-    const valorPagoTotal = valorPagoDireto + valorPagoFrentes;
+    const valorPagoTotal = valorPagoDireto + (valorPagoFrentes ?? 0);
     const valorPagoDisponivel =
       (metrics.totalObras === 0 && frentesDoBairro.length === 0) ||
       metrics.obrasComValorPago > 0 ||
@@ -663,7 +663,7 @@ export function calculateTerritorialRollup(
         ? Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100
         : undefined,
       valorLiquidadoFrentes: Math.round((valorLiquidadoFrentes + Number.EPSILON) * 100) / 100,
-      valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
+      valorPagoFrentes: valorPagoFrentes == null ? null : Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
       totalFrentesMedicao: frentesDoBairro.length,
       totalObras: metrics.totalObras,
       obrasVerde: metrics.obrasVerde,
@@ -733,7 +733,7 @@ export function calculateTerritorialRollup(
     const valorTotal = valorTotalBairros + regionalMetrics.valorTotal;
     const valorPagoDireto = valorPagoDiretoBairros + regionalMetrics.valorPago;
     const valorLiquidadoFrentes = valorLiquidadoFrentesBairros + valorLiquidadoFrentesReg;
-    const valorPagoFrentes = valorPagoFrentesBairros + valorPagoFrentesReg;
+    const valorPagoFrentes = valorPagoFrentesBairros + (valorPagoFrentesReg ?? 0);
     const valorPago = valorPagoDireto + valorPagoFrentes;
     const totalFrentesMedicao = totalFrentesBairros + frentesRegionais.length;
     const totalFrentesPagas = frentesPagasBairros + frentesPagasReg;
@@ -800,7 +800,7 @@ export function calculateTerritorialRollup(
         ? Math.round((valorPagoDireto + Number.EPSILON) * 100) / 100
         : undefined,
       valorLiquidadoFrentes: Math.round((valorLiquidadoFrentes + Number.EPSILON) * 100) / 100,
-      valorPagoFrentes: Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
+      valorPagoFrentes: totalFrentesMedicao > 0 && totalFrentesPagas === 0 ? null : Math.round((valorPagoFrentes + Number.EPSILON) * 100) / 100,
       totalFrentesMedicao,
       totalObras,
       obrasVerde: contagemUnica.obrasVerde,
