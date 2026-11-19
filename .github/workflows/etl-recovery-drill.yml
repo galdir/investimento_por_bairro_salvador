@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       operacao:
-        description: "Para retomar, use outro runner no primeiro, segundo ou terceiro dia após o início"
+        description: "Para retomar, use outra execução, no mesmo dia ou em até três dias após o início"
         required: true
         default: iniciar
         type: choice
@@ -132,7 +132,7 @@ jobs:
           if [[ "$OPERACAO" == "iniciar" ]]; then
             comando+=(--interromper-apos-checkpoints "$CHECKPOINTS")
           else
-            comando+=(--recuperar)
+            comando+=(--recuperar --retomar-ensaio-no-mesmo-dia)
           fi
           set +e
           "${comando[@]}" 2>&1 | tee "$DIRETORIO_SAIDA/execucao.log"

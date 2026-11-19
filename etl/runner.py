@@ -93,9 +93,17 @@ def run_pipeline(
     repositorio_progresso: Path | None = None,
     ref_progresso: str | None = None,
     interromper_apos_checkpoints: int | None = None,
+    retomar_ensaio_no_mesmo_dia: bool = False,
 ) -> dict[str, Any]:
     """Executa uma tentativa exclusiva e registra seu resultado fora do acervo publicado."""
     output_path = Path(output_dir).resolve()
+    if retomar_ensaio_no_mesmo_dia:
+        ensaio = re.fullmatch(r"refs/heads/ensaios/etl-([a-z0-9][a-z0-9-]{0,39})", ref_progresso or "")
+        if not modo_recuperacao or aguardar_publicacao or repositorio_progresso is None or ensaio is None:
+            raise ValueError("A retomada no mesmo dia exige o modo de recuperação e um ref Git de ensaio")
+        saida_ensaio = Path(repositorio_progresso).resolve() / ".tmp" / "ensaios" / ensaio[1] / "public" / "data"
+        if output_path != saida_ensaio:
+            raise ValueError("A retomada no mesmo dia exige a saída isolada do mesmo ensaio")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     lock_path = output_path.parent / f".{output_path.name}.lock"
     lock = os.open(lock_path, os.O_CREAT | os.O_RDWR, 0o600)
@@ -145,7 +153,9 @@ def run_pipeline(
                     and chave_contrato(*identidade_interrompida) not in estado.get("contratos", {})):
                 metricas_recuperacao["contratos_reiniciados"].append(identidade_interrompida)
             dias = (hoje - date.fromisoformat(estado["dia_inicial"])).days
-            if dias not in (1, 2, 3) or estado.get("ultima_recuperacao") == hoje.isoformat():
+            mesmo_dia_do_ensaio = retomar_ensaio_no_mesmo_dia and dias == 0
+            recuperacao_diaria = dias in (1, 2, 3) and estado.get("ultima_recuperacao") != hoje.isoformat()
+            if not (mesmo_dia_do_ensaio or recuperacao_diaria):
                 return {"success": False, "recuperacao": "fora da janela diária"}
             estado["ultima_recuperacao"] = hoje.isoformat()
             year, mandatos, full_refresh = estado["year"], estado["mandatos"], estado["full_refresh"]

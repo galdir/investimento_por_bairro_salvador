@@ -335,6 +335,36 @@ def test_esgotamento_conserva_versao_e_proxima_semanal_recomeca(tmp_path: Path) 
     assert indice["metadata"]["atualizacao"]["dataReferenciaPagamentos"] == "2026-01-12"
 
 
+def test_retomada_no_mesmo_dia_exige_ref_e_saida_do_ensaio(tmp_path: Path) -> None:
+    remoto = tmp_path / "remoto.git"
+    primeiro_runner = tmp_path / "primeiro"
+    segundo_runner = tmp_path / "segundo"
+    subprocess.run(["git", "init", "--bare", "-q", str(remoto)], check=True)
+    for runner in (primeiro_runner, segundo_runner):
+        subprocess.run(["git", "init", "-q", str(runner)], check=True)
+        subprocess.run(["git", "-C", str(runner), "remote", "add", "origin", str(remoto)], check=True)
+
+    ref = "refs/heads/ensaios/etl-teste"
+    saida_ensaio = Path(".tmp/ensaios/teste/public/data")
+    with patch("etl.runner._preparar_e_publicar", side_effect=OSError("interrompido")):
+        with pytest.raises(OSError, match="interrompido"):
+            run_pipeline(primeiro_runner / saida_ensaio, repositorio_progresso=primeiro_runner, ref_progresso=ref)
+
+    saida = segundo_runner / saida_ensaio
+    opcoes = {"repositorio_progresso": segundo_runner, "modo_recuperacao": True}
+    assert run_pipeline(saida, ref_progresso=ref, **opcoes)["recuperacao"] == "fora da janela diária"
+    with pytest.raises(ValueError, match="ref Git de ensaio"):
+        run_pipeline(saida, retomar_ensaio_no_mesmo_dia=True, **opcoes)
+    with pytest.raises(ValueError, match="saída isolada"):
+        run_pipeline(segundo_runner / "public/data", ref_progresso=ref, retomar_ensaio_no_mesmo_dia=True, **opcoes)
+
+    estado = ProgressoGit(primeiro_runner, ref).carregar()
+    with patch("etl.runner._preparar_e_publicar", return_value={"success": True}):
+        resultado = run_pipeline(saida, ref_progresso=ref, retomar_ensaio_no_mesmo_dia=True, **opcoes)
+    assert resultado["success"] is True
+    assert resultado["data_referencia_pagamentos"] == estado["referencia"]
+
+
 @pytest.mark.parametrize("etapa", ["checkpoint", "estado_final"])
 def test_falha_ao_persistir_checkpoint_impede_publicacao(tmp_path: Path, etapa: str) -> None:
     remoto = tmp_path / "remoto.git"

@@ -65,6 +65,10 @@ def main() -> None:
         help="Força reconsulta completa de todos os mandatos e atualização de todas as fichas de obras (padrão: False)",
     )
     parser.add_argument("--recuperar", action="store_true", help="Retoma a tentativa pendente na janela diária de recuperação")
+    parser.add_argument(
+        "--retomar-ensaio-no-mesmo-dia", action="store_true",
+        help="Com --recuperar, permite retomar no dia inicial usando o ref e a saída isolados do ensaio",
+    )
     parser.add_argument("--aguardar-publicacao", action="store_true", help="Mantém a tentativa pendente até a publicação externa")
     parser.add_argument("--marcador-sucesso", help="Arquivo criado somente após uma atualização concluída")
     parser.add_argument("--repositorio-progresso", help="Repositório Git cujo origin armazena o progresso em ref separado")
@@ -89,6 +93,7 @@ def main() -> None:
             repositorio_progresso=Path(args.repositorio_progresso) if args.repositorio_progresso else None,
             ref_progresso=args.ref_progresso,
             interromper_apos_checkpoints=args.interromper_apos_checkpoints,
+            retomar_ensaio_no_mesmo_dia=args.retomar_ensaio_no_mesmo_dia,
         )
         _gravar_resultado_json(args.resultado_json, resultado)
         if args.marcador_sucesso and resultado.get("success"):
