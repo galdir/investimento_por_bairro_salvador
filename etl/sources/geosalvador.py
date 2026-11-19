@@ -5,9 +5,12 @@ retornar as malhas cartográficas em formato GeoJSON e projeção EPSG:4326.
 """
 
 import json
+import logging
 import ssl
+import time
 import urllib.error
 import urllib.request
+from http.client import HTTPException
 from typing import Any
 from shapely.geometry import shape
 
@@ -19,6 +22,9 @@ from etl.config import (
 from etl.domain.territorio import normalizar_nome_prefeitura_bairro
 
 
+logger = logging.getLogger(__name__)
+
+
 def geometria_valida(geometria: Any) -> bool:
     if not isinstance(geometria, dict) or geometria.get("type") not in {"Polygon", "MultiPolygon"}:
         return False
@@ -26,6 +32,16 @@ def geometria_valida(geometria: Any) -> bool:
         poligono = shape(geometria)
         return not poligono.is_empty and poligono.is_valid
     except (TypeError, ValueError, KeyError):
+        return False
+
+
+def _camada_nao_encontrada(erro: urllib.error.HTTPError) -> bool:
+    if erro.code != 404:
+        return False
+    try:
+        with erro:
+            return b"layer not found" in erro.read(2048).lower()
+    except (OSError, HTTPException):
         return False
 
 
@@ -71,29 +87,42 @@ def _query_arcgis_geojson(layer_id: int, where_clause: str = "1=1", timeout: int
             "Accept": "application/json, application/geo+json, */*",
         },
     )
-    with urllib.request.urlopen(req, timeout=timeout, context=ctx) as response:
-        content = response.read().decode("utf-8", errors="replace")
-        data = json.loads(content)
-        if isinstance(data, dict) and "error" in data:
-            raise RuntimeError(f"Erro retornado pelo GeoSalvador Layer {layer_id}: {data['error']}")
-        if (
-            not isinstance(data, dict)
-            or data.get("type") != "FeatureCollection"
-            or not isinstance(data.get("features"), list)
-            or not data["features"]
-            or data.get("exceededTransferLimit") is True
-        ):
+    for tentativa, espera in enumerate((10, 30, None), start=1):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout, context=ctx) as response:
+                content = response.read().decode("utf-8", errors="replace")
+            break
+        except urllib.error.HTTPError as erro:
+            if espera is None or not _camada_nao_encontrada(erro):
+                logger.error("GeoSalvador camada %d: HTTP %d na tentativa %d.", layer_id, erro.code, tentativa)
+                raise
+            logger.warning(
+                "GeoSalvador camada %d: HTTP 404 (Layer not found) na tentativa %d. Nova tentativa em %d s.",
+                layer_id, tentativa, espera,
+            )
+            time.sleep(espera)
+
+    data = json.loads(content)
+    if isinstance(data, dict) and "error" in data:
+        raise RuntimeError(f"Erro retornado pelo GeoSalvador Layer {layer_id}: {data['error']}")
+    if (
+        not isinstance(data, dict)
+        or data.get("type") != "FeatureCollection"
+        or not isinstance(data.get("features"), list)
+        or not data["features"]
+        or data.get("exceededTransferLimit") is True
+    ):
+        raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
+    nomes = ("NM_BAIRRO", "NOME_BAIRR", "nome") if layer_id == LAYER_BAIRROS_OFICIAIS else ("NM_PREFEITURA_BAIRRO", "SUBCLASSES", "NOMES", "nome")
+    for feature in data["features"]:
+        if not isinstance(feature, dict):
             raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
-        nomes = ("NM_BAIRRO", "NOME_BAIRR", "nome") if layer_id == LAYER_BAIRROS_OFICIAIS else ("NM_PREFEITURA_BAIRRO", "SUBCLASSES", "NOMES", "nome")
-        for feature in data["features"]:
-            if not isinstance(feature, dict):
-                raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
-            props = feature.get("properties")
-            geometria = feature.get("geometry")
-            if (not isinstance(props, dict) or not any(str(props.get(nome) or "").strip() for nome in nomes)
-                    or not geometria_valida(geometria)):
-                raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
-        return data
+        props = feature.get("properties")
+        geometria = feature.get("geometry")
+        if (not isinstance(props, dict) or not any(str(props.get(nome) or "").strip() for nome in nomes)
+                or not geometria_valida(geometria)):
+            raise ValueError(f"GeoJSON inválido retornado pelo GeoSalvador Layer {layer_id}")
+    return data
 
 
 def fetch_bairros_geojson() -> dict[str, Any]:

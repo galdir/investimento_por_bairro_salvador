@@ -6,6 +6,7 @@ from copy import deepcopy
 import json
 import os
 from unittest.mock import patch
+from urllib.error import HTTPError
 
 import pytest
 
@@ -37,6 +38,56 @@ def test_falha_geografica_preserva_arquivos_publicados(tmp_path: Path) -> None:
         run_pipeline(tmp_path)
 
     assert indice.read_bytes() == anterior
+
+
+@pytest.mark.parametrize(
+    "falhas, corpo, esperas, publica",
+    [
+        (1, b"<title>Error: Layer not found</title>", [10], True),
+        (2, b'{"error":{"code":404,"message":"Layer not found"}}', [10, 30], True),
+        (3, b"<title>Error: Layer not found</title>", [10, 30], False),
+        (3, b"<title>URL not found</title>", [], False),
+    ],
+)
+def test_etl_repete_404_de_camada_do_geosalvador(tmp_path, caplog, falhas, corpo, esperas, publica):
+    respostas = []
+
+    def consultar_malha(req, **kwargs):
+        assert "/7/query?" in req.full_url
+        respostas.append(req.full_url)
+        if len(respostas) <= falhas:
+            raise HTTPError(req.full_url, 404, "Not Found", {}, BytesIO(corpo))
+        return BytesIO(json.dumps(SAMPLE_GEOSALVADOR_PREFEITURAS).encode("utf-8"))
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value={}),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value={}),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=[]),
+    ):
+        with patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS):
+            run_pipeline(tmp_path, data_referencia_pagamentos="2025-12-31")
+        antes = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()}
+
+        with (
+            patch("urllib.request.urlopen", side_effect=consultar_malha),
+            patch("time.sleep") as pausa,
+        ):
+            if publica:
+                resultado = run_pipeline(tmp_path, data_referencia_pagamentos="2026-01-01")
+                assert resultado["success"]
+                assert (tmp_path / "atual.json").read_bytes() != antes[Path("atual.json")]
+            else:
+                with pytest.raises(HTTPError) as erro:
+                    run_pipeline(tmp_path, data_referencia_pagamentos="2026-01-01")
+                assert erro.value.code == 404
+                depois = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()}
+                assert depois == antes
+
+    assert len(respostas) == len(esperas) + 1
+    assert [chamada.args[0] for chamada in pausa.call_args_list] == esperas
+    assert "GeoSalvador camada 7" in caplog.text
+    assert "HTTP 404" in caplog.text
 
 
 def test_erro_de_geracao_tardia_preserva_todos_os_arquivos(tmp_path: Path) -> None:
