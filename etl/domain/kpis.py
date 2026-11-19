@@ -130,6 +130,10 @@ def calcular_kpis_globais(
         if soma_pago > 0 and (total_pago == 0.0 or soma_pago > total_pago):
             total_pago = soma_pago
 
+    # Consultas concluídas substituem o totalizador, inclusive com saldo zero ou negativo.
+    if obras_detalhadas and all("vlPagoReal" in obra for obra in obras_detalhadas):
+        total_pago = soma_pago
+
     # Contabiliza obras ativas (situação diferente de Concluída, Cancelada, Rescindida ou Paralisada)
     obras_ativas_count = 0
     obras_criticas_count = 0

@@ -374,31 +374,35 @@ def test_valor_de_pagamento_invalido_impede_publicacao(tmp_path: Path) -> None:
     assert depois == antes
 
 
-def test_reusa_referencia_validada_mas_reconsulta_pagamentos(tmp_path: Path) -> None:
-    valores = iter([10, 5])
-
-    def fonte(ug, contrato, referencia):
-        return ConsultaPagamentos([{"notaLiquidacao": "NL1", "valorPago": next(valores)}], referencia, True, True, ["Histórico anterior indisponível na fonte"])
-
+@pytest.fixture
+def fontes_com_frente_de_medicao():
     curadoria = {"2401:001/2024": {"status": "multi_frente", "frentesMedicao": {
         "NL1": {"status": "promovido", "nivel": "Bairro", "bairro": "Pituba", "prefeituraBairro": "Barra/Pituba"}
     }}}
-
     with (
         patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
         patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
         patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value={}),
-        patch("etl.sources.transparencia.fetch_totalizador", return_value={}),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value={}) as totalizador,
         patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=SAMPLE_TRANSPARENCIA_GRID[:1]),
         patch("etl.sources.transparencia.fetch_detalhes_obra", return_value={}),
         patch("etl.sources.transparencia.fetch_aditivos_obra", return_value=[]),
         patch("etl.sources.transparencia.fetch_dotacao_obra", return_value=[]),
         patch("etl.sources.transparencia.fetch_empenhos_obra", return_value=[]),
-        patch("etl.sources.transparencia.fetch_liquidacoes_obra", return_value=[{"notaLiquidacao": "NL1", "valLiqLiquidacao": 20, "pago": 10}]),
+        patch("etl.sources.transparencia.fetch_liquidacoes_obra", return_value=[{"notaLiquidacao": "NL1", "valLiqLiquidacao": 20, "pago": 10}]) as liquidacoes,
         patch("etl.domain.geocoding._carregar_curadoria_territorial", return_value=curadoria),
     ):
-        anterior = run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos="2025-12-30")
-        nova = run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos="2025-12-31")
+        yield totalizador, liquidacoes
+
+
+def test_reusa_referencia_validada_mas_reconsulta_pagamentos(tmp_path: Path, fontes_com_frente_de_medicao) -> None:
+    valores = iter([10, 5])
+
+    def fonte(ug, contrato, referencia):
+        return ConsultaPagamentos([{"notaLiquidacao": "NL1", "valorPago": next(valores)}], referencia, True, True, ["Histórico anterior indisponível na fonte"])
+
+    anterior = run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos="2025-12-30")
+    nova = run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos="2025-12-31")
 
     assert nova["detail_cache_hits"] == 1
     antes = json.loads((Path(anterior["versao_dir"]) / "obras/1001.json").read_text(encoding="utf-8"))
@@ -410,6 +414,46 @@ def test_reusa_referencia_validada_mas_reconsulta_pagamentos(tmp_path: Path) -> 
     assert indice["obras"][0]["valorPago"] == 5
     assert depois["versaoDados"] == indice["metadata"]["atualizacao"]["versaoDados"]
     assert indice["metadata"]["atualizacao"]["limitacoesConhecidas"] == ["Histórico anterior indisponível na fonte"]
+
+
+def test_atualizacoes_sucessivas_publicam_somente_pagamentos_atuais(tmp_path: Path, fontes_com_frente_de_medicao) -> None:
+    consultas = [
+        ([{"notaLiquidacao": "NL1", "pago": 100}, {"notaLiquidacao": "NL1", "pago": 50}], 150, "saldo_registrado"),
+        ([{"notaLiquidacao": "NL1", "pago": 40}], 40, "saldo_registrado"),
+        ([{"notaLiquidacao": "NL1", "pago": 40}, {"notaLiquidacao": "NL1", "pago": -40}], 0, "saldo_registrado"),
+        ([], 0, "sem_registros"),
+        ([{"notaLiquidacao": "NL1"}], None, "indisponivel"),
+    ]
+    atual = []
+
+    def fonte(ug, contrato, referencia):
+        return ConsultaPagamentos(deepcopy(atual), referencia, True, True, ["Histórico anterior indisponível na fonte"])
+
+    totalizador, liquidacoes = fontes_com_frente_de_medicao
+    totalizador.return_value = {"totalObras": 20, "valorTotal": 999999999, "totalPago": 999}
+    liquidacoes.return_value = [{"notaLiquidacao": "NL1", "valLiqLiquidacao": 200, "pago": 150}]
+
+    for dia, (registros, esperado, situacao) in enumerate(consultas, 1):
+        atual[:] = registros
+        resultado = run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos=f"2025-12-{dia:02}")
+        versao = Path(resultado["versao_dir"])
+        ficha = json.loads((versao / "obras/1001.json").read_text(encoding="utf-8"))
+        indice = json.loads((versao / "index_2025.json").read_text(encoding="utf-8"))
+        assert ficha["pagamentos"] == registros
+        assert ficha["funilFinanceiro"]["valorPago"] == esperado
+        assert ficha["apuracaoPagamentos"]["situacao"] == situacao
+        assert ficha["frentesMedicao"][0]["valorPago"] == esperado
+        assert indice["obras"][0]["valorPago"] == esperado
+        assert indice["kpis_globais"]["totalPago"] == (esperado or 0)
+        pituba = next(b for b in indice["bairros"] if b["nome"] == "Pituba")
+        assert pituba["valorPago"] == esperado
+        assert indice["metadata"]["atualizacao"]["limitacoesConhecidas"] == ["Histórico anterior indisponível na fonte"]
+
+    antes = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()}
+    atual[:] = [{"pago": "inválido"}]
+    with pytest.raises(ValueError, match="pagamento inválido"):
+        run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos="2025-12-06")
+    assert {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()} == antes
 
 
 def test_falha_na_ativacao_preserva_versoes_e_ponteiro(tmp_path: Path) -> None:
