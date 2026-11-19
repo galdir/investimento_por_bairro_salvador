@@ -76,6 +76,10 @@ from etl.consultas import ConsultaPagamentos, LotePagamentos, coletar_pagamentos
 from etl.progresso import ProgressoGit, chave_contrato
 
 
+class InterrupcaoEnsaiada(RuntimeError):
+    """Falha controlada para testar a retomada depois de checkpoints remotos."""
+
+
 def run_pipeline(
     output_dir: Path,
     year: int = 2025,
@@ -87,6 +91,8 @@ def run_pipeline(
     modo_recuperacao: bool = False,
     aguardar_publicacao: bool = False,
     repositorio_progresso: Path | None = None,
+    ref_progresso: str | None = None,
+    interromper_apos_checkpoints: int | None = None,
 ) -> dict[str, Any]:
     """Executa uma tentativa exclusiva e registra seu resultado fora do acervo publicado."""
     output_path = Path(output_dir).resolve()
@@ -115,8 +121,12 @@ def run_pipeline(
 
     try:
         estado_path = output_path.parent / f".{output_path.name}-recuperacao.json"
-        progresso = ProgressoGit(repositorio_progresso) if repositorio_progresso is not None else None
+        if interromper_apos_checkpoints is not None:
+            if interromper_apos_checkpoints < 1 or repositorio_progresso is None or modo_recuperacao:
+                raise ValueError("A interrupção ensaiada exige uma tentativa inicial e um ref remoto")
+        progresso = ProgressoGit(repositorio_progresso, ref_progresso) if repositorio_progresso is not None else None
         remoto = progresso.carregar() if progresso is not None else None
+        metricas_recuperacao = {"contratos_reaproveitados": [], "contratos_reiniciados": []}
         hoje = datetime.now(ZoneInfo("America/Sao_Paulo")).date()
         if modo_recuperacao:
             if progresso is not None:
@@ -129,6 +139,11 @@ def run_pipeline(
                 return {"success": False, "recuperacao": "sem tentativa pendente"}
             if estado.get("concluida"):
                 return {"success": False, "recuperacao": "sem tentativa pendente"}
+            identidade_interrompida = estado.get("contrato_em_andamento")
+            if (isinstance(identidade_interrompida, list) and len(identidade_interrompida) == 2
+                    and all(isinstance(parte, str) for parte in identidade_interrompida)
+                    and chave_contrato(*identidade_interrompida) not in estado.get("contratos", {})):
+                metricas_recuperacao["contratos_reiniciados"].append(identidade_interrompida)
             dias = (hoje - date.fromisoformat(estado["dia_inicial"])).days
             if dias not in (1, 2, 3) or estado.get("ultima_recuperacao") == hoje.isoformat():
                 return {"success": False, "recuperacao": "fora da janela diária"}
@@ -143,8 +158,11 @@ def run_pipeline(
                       "year": year, "mandatos": mandatos, "full_refresh": full_refresh,
                       "referencia": data_referencia_pagamentos or hoje.isoformat(),
                       "inicio_consultas": None, "contratos": {}, "historico": [],
-                      "tentativa_original": tentativa, "concluida": False}
+                      "tentativa_original": tentativa, "concluida": False,
+                      "contrato_em_andamento": None}
             data_referencia_pagamentos = estado["referencia"]
+
+        estado.setdefault("contrato_em_andamento", None)
 
         def salvar_estado() -> None:
             if progresso is None:
@@ -166,7 +184,11 @@ def run_pipeline(
             salvar_estado()
 
         try:
-            resultado = _preparar_e_publicar(output_path, year, cache_file, mandatos, full_refresh, data_referencia_pagamentos, consulta_pagamentos, estado, salvar_estado, finalizar_estado)
+            resultado = _preparar_e_publicar(
+                output_path, year, cache_file, mandatos, full_refresh, data_referencia_pagamentos,
+                consulta_pagamentos, estado, salvar_estado, finalizar_estado,
+                metricas_recuperacao, interromper_apos_checkpoints,
+            )
         except Exception as exc:
             registrar("falhou", str(exc))
             estado["concluida"] = False
@@ -177,6 +199,10 @@ def run_pipeline(
             raise
         registrar("concluida")
         resultado["tentativa"] = tentativa
+        resultado["ref_progresso"] = progresso.ref if progresso is not None else None
+        resultado["revisao_progresso"] = progresso.versao if progresso is not None else None
+        resultado["data_referencia_pagamentos"] = estado["referencia"]
+        resultado.update(metricas_recuperacao)
         return resultado
     finally:
         os.close(lock)
@@ -193,6 +219,8 @@ def _preparar_e_publicar(
     estado,
     salvar_estado,
     finalizar_estado,
+    metricas_recuperacao,
+    interromper_apos_checkpoints,
 ) -> dict[str, Any]:
     """Prepara e valida uma versão imutável antes de trocar o ponteiro."""
     output_path = Path(output_dir).resolve()
@@ -231,7 +259,11 @@ def _preparar_e_publicar(
                 stage_cache = stage / "geocoding_cache.json"
 
         anterior_valida = anterior is not None
-        resultado = _executar_pipeline(stage, year, stage_cache, mandatos, full_refresh, anterior_valida, referencia, consulta_pagamentos, estado, salvar_estado)
+        resultado = _executar_pipeline(
+            stage, year, stage_cache, mandatos, full_refresh, anterior_valida, referencia,
+            consulta_pagamentos, estado, salvar_estado, metricas_recuperacao,
+            interromper_apos_checkpoints,
+        )
         metadados = finalizar_versao(stage, year, resultado["inicio_consultas"], resultado["fim_consultas"], referencia, resultado["limitacoes_conhecidas"], resultado["total_obras"], stage_cache)
         versao = metadados["versaoDados"]
         ponteiro = temp_path / "atual.json"
@@ -280,6 +312,8 @@ def _executar_pipeline(
     consulta_pagamentos=None,
     estado=None,
     salvar_estado=None,
+    metricas_recuperacao=None,
+    interromper_apos_checkpoints=None,
 ) -> dict[str, Any]:
     """Executa o pipeline completo de extração, geocodificação territorial, rollup e geração de artefatos.
 
@@ -324,6 +358,9 @@ def _executar_pipeline(
     """
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
+    metricas_recuperacao = metricas_recuperacao if metricas_recuperacao is not None else {
+        "contratos_reaproveitados": [], "contratos_reiniciados": [],
+    }
 
     inicio_consultas = estado.get("inicio_consultas") if estado is not None else None
     fim_consultas = None
@@ -596,7 +633,11 @@ def _executar_pipeline(
             elif (salvo["identidade"] != identidade_contrato
                     or salvo["tentativa_original"] != estado.get("tentativa_original")):
                 raise ValueError(f"Checkpoint não corresponde ao contrato ou tentativa selecionada: {obra_id}")
+        if salvo is None and estado is not None:
+            estado["contrato_em_andamento"] = identidade_contrato
+            salvar_estado()
         if salvo is not None:
+            metricas_recuperacao["contratos_reaproveitados"].append(identidade_contrato)
             dados = dict(salvo["consulta"])
             if dados.get("lotes") is not None:
                 dados["lotes"] = [LotePagamentos(**lote) for lote in dados["lotes"]]
@@ -611,6 +652,12 @@ def _executar_pipeline(
                 or not isinstance(resultado_pagamentos.registros, list)
                 or not all(isinstance(item, dict) for item in resultado_pagamentos.registros)):
             raise ValueError(f"Consulta obrigatória de pagamentos incompleta: {obra_id}")
+        if (interromper_apos_checkpoints is not None and estado is not None and salvo is None
+                and len(estado["contratos"]) >= interromper_apos_checkpoints):
+            raise InterrupcaoEnsaiada(
+                f"Interrupção ensaiada após {len(estado['contratos'])} checkpoints concluídos; "
+                f"contrato em andamento: {identidade_contrato}"
+            )
         if not isinstance(resultado_pagamentos.limitacoes_conhecidas, list) or not all(
             isinstance(item, str) and item for item in resultado_pagamentos.limitacoes_conhecidas
         ):
@@ -739,7 +786,11 @@ def _executar_pipeline(
                 "consulta": asdict(resultado_pagamentos),
                 "ficha": ficha_obra,
             }
+            estado["contrato_em_andamento"] = None
             salvar_estado()
+
+    if estado is not None and estado.get("contrato_em_andamento") is not None:
+        raise ValueError("O contrato interrompido não foi retomado na carteira atual")
 
     # 7. Unificação de Empreiteiras, gravação das fichas finais e expurgo de órfãos
     concentracao_map, _ = finalizar_acervo_obras(grid_obras, fichas_para_gravar, obras_dir)

@@ -26,8 +26,15 @@ class ProgressoGit:
     ARQUIVO_METADADOS = "metadados.json"
     DIRETORIO_CONTRATOS = "contratos"
 
-    def __init__(self, repositorio: Path):
+    def __init__(self, repositorio: Path, ref: str | None = None):
         self.repositorio = Path(repositorio)
+        self.ref = self.REF if ref is None else ref
+        validacao_ref = subprocess.run(
+            ["git", "check-ref-format", self.ref], stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE, check=False,
+        )
+        if not self.ref.startswith("refs/heads/") or validacao_ref.returncode:
+            raise ValueError("Ref de progresso deve ser um nome válido em refs/heads")
         self.versao = ""
 
     def _git(self, *args: str, entrada: bytes | None = None) -> bytes:
@@ -53,12 +60,12 @@ class ProgressoGit:
         ).encode("utf-8")
 
     def carregar(self) -> dict[str, Any] | None:
-        linhas = self._git("ls-remote", "--heads", "origin", self.REF).decode().splitlines()
+        linhas = self._git("ls-remote", "--heads", "origin", self.ref).decode().splitlines()
         if not linhas:
             self.versao = ""
             return None
         self.versao = linhas[0].split()[0]
-        self._git("fetch", "--no-tags", "origin", self.REF)
+        self._git("fetch", "--no-tags", "origin", self.ref)
         recebido = self._git("rev-parse", "FETCH_HEAD").decode().strip()
         if recebido != self.versao:
             raise RuntimeError("O progresso remoto foi alterado durante a leitura")
@@ -180,7 +187,7 @@ class ProgressoGit:
             "commit-tree", arvore, "-m", "Progresso ETL por contrato",
         ).decode().strip()
         try:
-            self._git("push", f"--force-with-lease={self.REF}:{self.versao}", "origin", f"{commit}:{self.REF}")
+            self._git("push", f"--force-with-lease={self.ref}:{self.versao}", "origin", f"{commit}:{self.ref}")
         except RuntimeError as exc:
             raise RuntimeError(
                 f"Falha no armazenamento remoto de progresso (conflito de gravação concorrente ou erro de transporte): {exc}"

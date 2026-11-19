@@ -4,10 +4,19 @@ Permite disparar a extração e geração de artefatos estáticos via terminal.
 """
 
 import argparse
+import json
 from pathlib import Path
 import sys
 
-from etl.runner import run_pipeline
+from etl.runner import InterrupcaoEnsaiada, run_pipeline
+
+
+def _gravar_resultado_json(caminho: str | None, resultado: dict) -> None:
+    if caminho is None:
+        return
+    destino = Path(caminho)
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    destino.write_text(json.dumps(resultado, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def main() -> None:
@@ -59,6 +68,12 @@ def main() -> None:
     parser.add_argument("--aguardar-publicacao", action="store_true", help="Mantém a tentativa pendente até a publicação externa")
     parser.add_argument("--marcador-sucesso", help="Arquivo criado somente após uma atualização concluída")
     parser.add_argument("--repositorio-progresso", help="Repositório Git cujo origin armazena o progresso em ref separado")
+    parser.add_argument("--ref-progresso", help="Ref heads remota onde o progresso será carregado e persistido")
+    parser.add_argument(
+        "--interromper-apos-checkpoints", type=int,
+        help="Interrompe a tentativa após salvar este número mínimo de checkpoints e iniciar outro contrato",
+    )
+    parser.add_argument("--resultado-json", help="Grava o resultado da execução em JSON")
     args = parser.parse_args()
 
     cache_path = Path(args.cache_file) if args.cache_file else None
@@ -72,11 +87,19 @@ def main() -> None:
             modo_recuperacao=args.recuperar,
             aguardar_publicacao=args.aguardar_publicacao,
             repositorio_progresso=Path(args.repositorio_progresso) if args.repositorio_progresso else None,
+            ref_progresso=args.ref_progresso,
+            interromper_apos_checkpoints=args.interromper_apos_checkpoints,
         )
+        _gravar_resultado_json(args.resultado_json, resultado)
         if args.marcador_sucesso and resultado.get("success"):
             Path(args.marcador_sucesso).write_text(resultado["tentativa"], encoding="utf-8")
         print(f"ETL concluído com sucesso: {resultado}")
     except Exception as exc:
+        _gravar_resultado_json(args.resultado_json, {
+                "success": False,
+                "erro": str(exc),
+                "interrupcao_ensaiada": isinstance(exc, InterrupcaoEnsaiada),
+        })
         print(f"Erro ao executar ETL: {exc}", file=sys.stderr)
         sys.exit(1)
 

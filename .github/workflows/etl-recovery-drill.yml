@@ -1,0 +1,331 @@
+name: Ensaio manual de recuperação do ETL (Linux)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ensaio_id:
+        description: "Identificador exclusivo, reutilizado na execução de retomada (letras minúsculas, números e hífens)"
+        required: true
+        type: string
+      operacao:
+        description: "Para retomar, use outro runner no primeiro, segundo ou terceiro dia após o início"
+        required: true
+        default: iniciar
+        type: choice
+        options:
+          - iniciar
+          - retomar
+      checkpoints_antes_da_interrupcao:
+        description: "Na operação iniciar, interromper depois de ao menos este número de checkpoints remotos"
+        required: true
+        default: "1"
+        type: string
+      ano:
+        description: "Ano das obras consultadas pelo ETL"
+        required: true
+        default: "2025"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "etl-recovery-drill-${{ inputs.ensaio_id }}"
+  cancel-in-progress: false
+
+jobs:
+  ensaiar:
+    name: "${{ inputs.operacao }} · ${{ inputs.ensaio_id }}"
+    runs-on: ubuntu-latest
+    outputs:
+      ensaio_id: ${{ steps.alvos.outputs.ensaio_id }}
+      diretorio_saida: ${{ steps.alvos.outputs.diretorio_saida }}
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Instalar dependências do ETL
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validar ensaio e selecionar alvos isolados
+        id: alvos
+        env:
+          ENSAIO_ID: ${{ inputs.ensaio_id }}
+          OPERACAO: ${{ inputs.operacao }}
+          CHECKPOINTS: ${{ inputs.checkpoints_antes_da_interrupcao }}
+          ANO: ${{ inputs.ano }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ ! "$ENSAIO_ID" =~ ^[a-z0-9][a-z0-9-]{0,39}$ ]]; then
+            echo "ensaio_id deve conter de 1 a 40 letras minúsculas, números ou hífens, começando por letra ou número." >&2
+            exit 2
+          fi
+          if [[ ! "$ANO" =~ ^[0-9]{4}$ ]]; then
+            echo "ano deve conter quatro dígitos." >&2
+            exit 2
+          fi
+          if [[ "$OPERACAO" == "iniciar" ]]; then
+            if [[ ! "$CHECKPOINTS" =~ ^[1-9][0-9]*$ ]]; then
+              echo "checkpoints_antes_da_interrupcao deve ser um inteiro positivo." >&2
+              exit 2
+            fi
+          elif [[ "$OPERACAO" != "retomar" ]]; then
+            echo "Operação inválida." >&2
+            exit 2
+          fi
+
+          progress_ref="refs/heads/ensaios/etl-${ENSAIO_ID}"
+          output_dir=".tmp/ensaios/${ENSAIO_ID}/public/data"
+          revision_before="$(git ls-remote --heads origin "$progress_ref" | awk 'NR == 1 { print $1 }')"
+          if [[ "$OPERACAO" == "iniciar" && -n "$revision_before" ]]; then
+            echo "O ref do ensaio já existe. Use outro identificador ou retome este ensaio." >&2
+            exit 2
+          fi
+          if [[ "$OPERACAO" == "retomar" && -z "$revision_before" ]]; then
+            echo "O ref do ensaio não existe; não há progresso remoto para retomar." >&2
+            exit 2
+          fi
+
+          mkdir -p "$output_dir"
+          {
+            echo "ensaio_id=$ENSAIO_ID"
+            echo "operacao=$OPERACAO"
+            echo "ano=$ANO"
+            echo "checkpoints=$CHECKPOINTS"
+            echo "ref_progresso=$progress_ref"
+            echo "revisao_antes=${revision_before:-ausente}"
+            echo "diretorio_saida=$output_dir"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Executar a entrada normal do ETL na saída do ensaio
+        id: execucao
+        env:
+          ENABLE_NOMINATIM: "1"
+          OPERACAO: ${{ steps.alvos.outputs.operacao }}
+          ANO: ${{ steps.alvos.outputs.ano }}
+          CHECKPOINTS: ${{ steps.alvos.outputs.checkpoints }}
+          REF_PROGRESSO: ${{ steps.alvos.outputs.ref_progresso }}
+          DIRETORIO_SAIDA: ${{ steps.alvos.outputs.diretorio_saida }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          resultado="$DIRETORIO_SAIDA/resultado-etl.json"
+          comando=(python -m etl.main
+            --output-dir "$DIRETORIO_SAIDA"
+            --year "$ANO"
+            --cache-file "$DIRETORIO_SAIDA/geocoding_cache.json"
+            --repositorio-progresso .
+            --ref-progresso "$REF_PROGRESSO"
+            --resultado-json "$resultado")
+
+          if [[ "$OPERACAO" == "iniciar" ]]; then
+            comando+=(--interromper-apos-checkpoints "$CHECKPOINTS")
+          else
+            comando+=(--recuperar)
+          fi
+          set +e
+          "${comando[@]}" 2>&1 | tee "$DIRETORIO_SAIDA/execucao.log"
+          status_pipeline=("${PIPESTATUS[@]}")
+          set -e
+          status_etl="${status_pipeline[0]}"
+          if [[ "${status_pipeline[1]}" -ne 0 ]]; then
+            exit "${status_pipeline[1]}"
+          fi
+          if [[ "$OPERACAO" == "iniciar" ]]; then
+            python - "$resultado" "$status_etl" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          resultado = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          if int(sys.argv[2]) == 0 or resultado.get("interrupcao_ensaiada") is not True:
+              raise SystemExit("O ETL não parou no ponto de interrupção ensaiado.")
+          PY
+          elif [[ "$status_etl" -ne 0 ]]; then
+            exit "$status_etl"
+          fi
+
+      - name: Confirmar checkpoint remoto e contrato interrompido
+        if: steps.execucao.outcome == 'success' && steps.alvos.outputs.operacao == 'iniciar'
+        env:
+          REF_PROGRESSO: ${{ steps.alvos.outputs.ref_progresso }}
+          CHECKPOINTS: ${{ steps.alvos.outputs.checkpoints }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "$REF_PROGRESSO"
+          python - <<'PY'
+          import json
+          import subprocess
+          import os
+          from etl.progresso import ProgressoGit
+
+          arquivos = subprocess.run(
+              ["git", "ls-tree", "-r", "--name-only", "FETCH_HEAD"],
+              check=True, capture_output=True, text=True,
+          ).stdout.splitlines()
+          checkpoints = [nome for nome in arquivos if nome.startswith("contratos/") and nome.endswith(".json")]
+          metadados = json.loads(subprocess.run(
+              ["git", "show", "FETCH_HEAD:metadados.json"], check=True, capture_output=True, text=True,
+          ).stdout)
+          identidade = metadados.get("contrato_em_andamento")
+          if len(checkpoints) < int(os.environ["CHECKPOINTS"]):
+              raise SystemExit(f"Foram encontrados apenas {len(checkpoints)} checkpoints remotos.")
+          if not isinstance(identidade, list) or len(identidade) != 2:
+              raise SystemExit("O ref remoto não identifica um contrato interrompido.")
+          caminho = ProgressoGit.caminho_checkpoint(identidade)
+          if caminho in checkpoints:
+              raise SystemExit("O contrato marcado como interrompido já possui checkpoint concluído.")
+          PY
+
+      - name: Validar ponteiro e manifesto da saída isolada
+        if: steps.execucao.outcome == 'success' && steps.alvos.outputs.operacao == 'retomar'
+        env:
+          DIRETORIO_SAIDA: ${{ steps.alvos.outputs.diretorio_saida }}
+        run: |
+          python - <<'PY'
+          import json
+          import hashlib
+          import os
+          from pathlib import Path
+
+          output = Path(os.environ["DIRETORIO_SAIDA"])
+          resultado = json.loads((output / "resultado-etl.json").read_text(encoding="utf-8"))
+          ponteiro = json.loads((output / "atual.json").read_text(encoding="utf-8"))
+          manifesto = json.loads((output / ponteiro["caminho"] / "manifesto.json").read_text(encoding="utf-8"))
+          versao = output / ponteiro["caminho"]
+          for nome, digest in manifesto["arquivos"].items():
+              arquivo = (versao / nome).resolve()
+              if not arquivo.is_relative_to(versao.resolve()) or hashlib.sha256(arquivo.read_bytes()).hexdigest() != digest:
+                  raise SystemExit(f"Hash inválido no manifesto: {nome}")
+          if resultado.get("success") is not True:
+              raise SystemExit("O ETL não concluiu a tentativa de recuperação.")
+          if ponteiro.get("versaoDados") != manifesto.get("versaoDados"):
+              raise SystemExit("O ponteiro da saída de ensaio não corresponde ao manifesto.")
+          if manifesto.get("validacoes") != "aprovadas" or manifesto.get("consultas") != "concluidas":
+              raise SystemExit("O manifesto da saída de ensaio não foi validado integralmente.")
+          atualizacao = manifesto["atualizacao"]
+          if resultado.get("data_referencia_pagamentos") != atualizacao.get("dataReferenciaPagamentos"):
+              raise SystemExit("A Data de Referência dos Pagamentos mudou durante a retomada.")
+          previstas = manifesto.get("consultasPagamentosPrevistas")
+          concluidas = manifesto.get("consultasPagamentosConcluidas")
+          if previstas != concluidas or concluidas != resultado.get("total_obras"):
+              raise SystemExit("A carteira não foi integralmente conciliada.")
+          if resultado.get("total_obras") != 633:
+              raise SystemExit(f"A carteira do ensaio tem {resultado.get('total_obras')} contratos; eram esperados 633.")
+          if resultado.get("contratos_reaproveitados") == [] or resultado.get("contratos_reiniciados") == []:
+              raise SystemExit("A retomada não comprovou contratos reaproveitados e reiniciados.")
+          PY
+
+      - name: Registrar evidências da execução
+        if: always()
+        env:
+          ENSAIO_ID: ${{ steps.alvos.outputs.ensaio_id || 'invalido' }}
+          OPERACAO: ${{ steps.alvos.outputs.operacao || 'invalida' }}
+          REF_PROGRESSO: ${{ steps.alvos.outputs.ref_progresso }}
+          REVISAO_ANTES: ${{ steps.alvos.outputs.revisao_antes }}
+          DIRETORIO_SAIDA: ${{ steps.alvos.outputs.diretorio_saida || '.tmp/ensaios/invalido/public/data' }}
+          RESULTADO_ETAPA: ${{ steps.execucao.outcome || 'nao-iniciada' }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          revision_after=""
+          remote_metadata=""
+          if [[ -n "$REF_PROGRESSO" ]]; then
+            revision_after="$(git ls-remote --heads origin "$REF_PROGRESSO" | awk 'NR == 1 { print $1 }')"
+            if [[ -n "$revision_after" ]] && git fetch --no-tags origin "$REF_PROGRESSO"; then
+              remote_metadata="$(git show FETCH_HEAD:metadados.json 2>/dev/null || true)"
+            fi
+          fi
+          export REVISAO_DEPOIS="$revision_after"
+          export METADADOS_REMOTOS="$remote_metadata"
+          mkdir -p "$DIRETORIO_SAIDA"
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          output = Path(os.environ["DIRETORIO_SAIDA"])
+          result_path = output / "resultado-etl.json"
+          pointer_path = output / "atual.json"
+          result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else None
+          remote = json.loads(os.environ["METADADOS_REMOTOS"]) if os.environ["METADADOS_REMOTOS"] else None
+          entries = subprocess.run(
+              ["git", "ls-tree", "-r", "-l", "--format=%(objectsize) %(path)", "FETCH_HEAD"],
+              check=True, capture_output=True, text=True,
+          ).stdout.splitlines() if os.environ.get("REVISAO_DEPOIS") else []
+          checkpoint_sizes = [
+              int(line.split(maxsplit=1)[0])
+              for line in entries
+              if line.split(maxsplit=1)[-1].startswith("contratos/") and line.split(maxsplit=1)[-1].endswith(".json")
+          ]
+          pointer = json.loads(pointer_path.read_text(encoding="utf-8")) if pointer_path.exists() else None
+          manifest_path = output / pointer["caminho"] / "manifesto.json" if pointer else None
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path and manifest_path.exists() else None
+          manifest_hash = hashlib.sha256(manifest_path.read_bytes()).hexdigest() if manifest_path and manifest_path.exists() else None
+
+          evidence = {
+              "ensaio_id": os.environ["ENSAIO_ID"],
+              "operacao": os.environ["OPERACAO"],
+              "run_id": os.environ["RUN_ID"],
+              "run_attempt": os.environ["RUN_ATTEMPT"],
+              "run_url": os.environ["RUN_URL"],
+              "resultado_etapa": os.environ["RESULTADO_ETAPA"],
+              "ref_progresso": os.environ.get("REF_PROGRESSO") or None,
+              "revisao_ref_antes": os.environ.get("REVISAO_ANTES") or None,
+              "revisao_ref_depois": os.environ.get("REVISAO_DEPOIS") or None,
+              "tentativa_original": remote.get("tentativa_original") if remote else None,
+              "data_referencia_pagamentos": remote.get("referencia") if remote else None,
+              "contrato_em_andamento": remote.get("contrato_em_andamento") if remote else None,
+              "checkpoints_remotos": len(checkpoint_sizes),
+              "bytes_checkpoints_remotos": sum(checkpoint_sizes),
+              "maior_checkpoint_bytes": max(checkpoint_sizes, default=0),
+              "resultado_etl": result,
+              "ponteiro": pointer,
+              "manifesto_sha256": manifest_hash,
+              "manifesto": manifest,
+          }
+          (output / "evidencias-execucao.json").write_text(
+              json.dumps(evidence, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          with summary.open("a", encoding="utf-8") as file:
+              file.write(f"## Ensaio ETL {evidence['ensaio_id']} · {evidence['operacao']}\n\n")
+              file.write(f"- Execução: [{evidence['run_id']}]({evidence['run_url']})\n")
+              file.write(f"- Ref de progresso: `{evidence['ref_progresso']}`\n")
+              file.write(f"- Revisão antes/depois: `{evidence['revisao_ref_antes']}` → `{evidence['revisao_ref_depois']}`\n")
+              file.write(f"- Checkpoints remotos: {evidence['checkpoints_remotos']}\n")
+              file.write(f"- Tamanho total e maior checkpoint: {evidence['bytes_checkpoints_remotos']} / {evidence['maior_checkpoint_bytes']} bytes\n")
+              file.write(f"- Contrato em andamento: `{evidence['contrato_em_andamento']}`\n")
+              if result:
+                  file.write(f"- Contratos reaproveitados nesta execução: `{result.get('contratos_reaproveitados', [])}`\n")
+                  file.write(f"- Contratos reiniciados nesta execução: `{result.get('contratos_reiniciados', [])}`\n")
+              if pointer and manifest:
+                  file.write(f"- Versão ativada na saída do ensaio: `{pointer['versaoDados']}`\n")
+                  file.write(f"- Data de referência dos pagamentos: `{manifest['atualizacao']['dataReferenciaPagamentos']}`\n")
+                  file.write(f"- SHA-256 do manifesto: `{manifest_hash}`\n")
+          PY
+
+      - name: Disponibilizar resultado e logs como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "ensaio-etl-run-${{ github.run_id }}"
+          path: ${{ steps.alvos.outputs.diretorio_saida || '.tmp/ensaios/invalido/public/data' }}
+          if-no-files-found: warn
+          retention-days: 30
