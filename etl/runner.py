@@ -7,9 +7,10 @@ artefatos estáticos particionados em conformidade com o ADR-0001.
 
 import json
 import os
+import re
 import shutil
 import tempfile
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from decimal import Decimal, InvalidOperation
 from zoneinfo import ZoneInfo
 from pathlib import Path
@@ -592,10 +593,24 @@ def _executar_pipeline(
         )
         ficha_obra["apuracaoPagamentos"] = {
             "registrosSemValor": len(pagamentos_raw) - len(valores_decimais),
+            "limitacoesConhecidas": resultado_pagamentos.limitacoes_conhecidas,
+            "dataReferencia": referencia_pagamentos,
             "situacao": "sem_registros" if not pagamentos_raw else (
                 "saldo_registrado" if valores_decimais else "indisponivel"
             ),
         }
+        if resultado_pagamentos.periodo_disponivel is not None:
+            periodo = resultado_pagamentos.periodo_disponivel
+            if (not isinstance(periodo, dict) or set(periodo) != {"inicio", "fim"}
+                    or any(not isinstance(periodo[campo], str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", periodo[campo]) for campo in ("inicio", "fim"))
+                    or periodo["inicio"] > periodo["fim"]):
+                raise ValueError(f"Período disponível inválido: {obra_id}")
+            try:
+                date.fromisoformat(periodo["inicio"])
+                date.fromisoformat(periodo["fim"])
+            except ValueError as exc:
+                raise ValueError(f"Período disponível inválido: {obra_id}") from exc
+            ficha_obra["apuracaoPagamentos"]["periodoDisponivel"] = periodo
 
         frentes = resolver_frentes_medicao(
             obra=obra,

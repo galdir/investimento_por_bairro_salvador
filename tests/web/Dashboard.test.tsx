@@ -550,6 +550,21 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(screen.getByText(/A coleta atual consulta pagamentos apenas/)).toBeInTheDocument();
   });
 
+  it("atualiza aviso e período da soma parcial ao filtrar mandato", async () => {
+    const originalFetch = globalThis.fetch;
+    vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
+      ? Promise.resolve({ ok: true, json: async () => ({ ...mockIndexData,
+          obras: mockIndexData.obras.map((obra) => obra.id === 1002 ? { ...obra,
+            apuracaoPagamentos: { situacao: "saldo_registrado", registrosSemValor: 0,
+              limitacoesConhecidas: ["Histórico indisponível"], periodoDisponivel: { inicio: "2020-01-01", fim: "2025-12-31" } } } : obra) }) })
+      : originalFetch(url)));
+    render(<App />);
+    const header = await screen.findByTestId("header-comparativo");
+    expect(header).toHaveTextContent("Histórico indisponível (período disponível: 2020-01-01 a 2025-12-31)");
+    fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "2021-2024" } });
+    expect(header).not.toHaveTextContent("Histórico indisponível");
+  });
+
   it("não combina índice e malhas de versões diferentes", async () => {
     const atualizacao = { versaoDados: "versao-a" };
     vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
@@ -946,9 +961,9 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
         }) })
       : fetchOriginal(url)));
     render(<App />);
-    expect(await screen.findByText(/valores pagos são parciais/i)).toHaveTextContent(/pagamento indisponível/i);
+    expect(await screen.findByText(/a soma usa os valores disponíveis/i)).toHaveTextContent(/pagamento indisponível/i);
     fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
-    expect(screen.queryByText(/valores pagos são parciais/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/a soma usa os valores disponíveis/i)).not.toBeInTheDocument();
   });
 
   it("respeita a indisponibilidade em resumo territorial pré-calculado", async () => {
@@ -974,7 +989,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
         }) })
       : fetchOriginal(url)));
     render(<App />);
-    expect(await screen.findByText(/valores pagos são parciais/i)).toHaveTextContent(/3 contrato/);
+    expect(await screen.findByText(/a soma usa os valores disponíveis/i)).toHaveTextContent(/3 contrato/);
   });
 
   it("apresenta o objeto completo, motivos do semáforo e percentuais sem confundir execução física com pagamento", async () => {
@@ -3212,7 +3227,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       // Pagamento ausente (Paripe em Valor Pago): estado distinto de zero, sem barra, sem substituir por contratado
       expect(screen.getByTestId("comparison-valor-paripe")).toHaveTextContent("Pagamento indisponível");
       expect(screen.queryByTestId("comparison-bar-paripe")).not.toBeInTheDocument();
-      expect(screen.getByTestId("comparison-row-paripe")).toHaveTextContent("Sem registro pago");
+      expect(screen.getByTestId("comparison-row-paripe")).toHaveTextContent("Pagamento indisponível");
       expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Sem pagamento");
 
       // Vulnerabilidade indisponível (Bairro Sem Índice): fora do ranking numérico, sem receber 0,00 nem Isento

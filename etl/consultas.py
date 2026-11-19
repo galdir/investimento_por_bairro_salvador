@@ -31,6 +31,7 @@ class ConsultaPagamentos:
     limitacoes_conhecidas: list[str] = field(default_factory=list)
     janela: dict[str, str] | None = None
     lotes: list[LotePagamentos] | None = None
+    periodo_disponivel: dict[str, str] | None = None
 
 
 def incorporar_lotes_pagamentos(resultado: ConsultaPagamentos) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:

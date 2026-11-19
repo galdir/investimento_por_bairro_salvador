@@ -24,9 +24,10 @@ function renderTotalSummary(
   totalTerritorial: number | undefined,
   testSlug: string,
   metricType: MetricType,
-  obrasSemValorPago: number = 0
+  obrasSemValorPago: number = 0,
+  parcial: boolean = false
 ) {
-  const totalPrefix = metricType === "executado" ? "Total pago:" : "Total contratual:";
+  const totalPrefix = metricType === "executado" ? (parcial ? "Soma parcial:" : "Total pago:") : "Total contratual:";
   return (
     <div className="flex flex-wrap items-center justify-end gap-x-2 gap-y-1 ml-auto">
       {totalTerritorial !== undefined ? (
@@ -41,11 +42,11 @@ function renderTotalSummary(
           />
         </span>
       ) : (
-        <span className="text-amber-800 font-medium">Sem registro pago</span>
+        <span className="text-amber-800 font-medium">Pagamento indisponível</span>
       )}
       {obrasSemValorPago > 0 && (
         <span className="text-[10px] text-amber-800 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">
-          {obrasSemValorPago} sem dado de pagamento
+          {obrasSemValorPago} obra(s) sem valor de pagamento
         </span>
       )}
     </div>
@@ -132,8 +133,8 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
   const isCentralidade = !isPrefeitura && isCentralidadeMetropolitana(item as BairroResumo);
 
   const barWidthPct =
-    invState.kind === "value" && invState.perCapita > 0
-      ? Math.max(2, Math.min(100, (invState.perCapita / maxPerCapita) * 100))
+    invState.kind === "value" && invState.perCapita !== 0
+      ? Math.max(2, Math.min(100, (Math.abs(invState.perCapita) / maxPerCapita) * 100))
       : 0;
 
   const populacao = isPrefeitura
@@ -141,6 +142,7 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
     : (item as BairroResumo).populacao;
 
   const totalTerritorial = getTerritoryAbsoluteTotal(item, metricType);
+  const limitacoes = metricType === "executado" ? item.limitacoesConhecidas || [] : [];
 
   const handleSelect = () => {
     if (isPrefeitura) {
@@ -254,7 +256,7 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
           <div
             data-testid={`comparison-bar-${testSlug}`}
             className={`h-2.5 rounded-full transition-all duration-300 ${
-              isSelected ? "bg-emerald-700" : "bg-emerald-600"
+              invState.perCapita < 0 ? "bg-rose-600" : isSelected ? "bg-emerald-700" : "bg-emerald-600"
             }`}
             style={{ width: `${barWidthPct}%` }}
           />
@@ -262,6 +264,10 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
       )}
 
       {/* Metadados e total alocado com valor exato acessível */}
+      {limitacoes.length > 0 && <div className="mt-2 text-xs text-amber-900">
+        <strong>Soma Parcial de Pagamentos</strong>
+        {limitacoes.map((limite) => <div key={limite}>{limite}</div>)}
+      </div>}
       <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
         <span className="tabular-nums">
           {formatNumber(populacao)} hab • {item.totalObras ?? 0}{" "}
@@ -272,7 +278,8 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
           totalTerritorial,
           testSlug,
           metricType,
-          invState.kind === "value" ? invState.obrasSemValorPago : 0
+          item.obrasSemValorPago ?? 0,
+          limitacoes.length > 0
         )}
       </div>
     </li>
@@ -349,8 +356,8 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
 
     for (const item of items) {
       const state = getTerritoryInvestmentState(item, metricType, tipo);
-      if (state.kind === "value" && state.perCapita > max) {
-        max = state.perCapita;
+      if (state.kind === "value" && Math.abs(state.perCapita) > max) {
+        max = Math.abs(state.perCapita);
       }
     }
     return max > 0 ? max : 1;
@@ -661,6 +668,10 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
                         Isento per capita
                       </div>
                     </div>
+                    {metricType === "executado" && !!b.limitacoesConhecidas?.length && <div className="mt-2 text-xs text-amber-900">
+                      <strong>Soma Parcial de Pagamentos</strong>
+                      {b.limitacoesConhecidas.map((limite) => <div key={limite}>{limite}</div>)}
+                    </div>}
                     <div className="mt-1.5 flex items-center justify-between text-xs text-slate-600">
                       <span>
                         {b.totalObras ?? 0} {(b.totalObras ?? 0) === 1 ? "obra" : "obras"}
@@ -669,7 +680,8 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
                         totalTerritorial,
                         testSlug,
                         metricType,
-                        metricType === "executado" ? (b.obrasSemValorPago ?? 0) : 0
+                        metricType === "executado" ? (b.obrasSemValorPago ?? 0) : 0,
+                        metricType === "executado" && !!b.limitacoesConhecidas?.length
                       )}
                     </div>
                   </li>

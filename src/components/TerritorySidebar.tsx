@@ -207,7 +207,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
         <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
           <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
-            {isExecutado ? "Total Pago Alocado" : "Total Contratual Alocado"}
+            {isExecutado ? (territorio.limitacoesConhecidas?.length ? "Soma Parcial de Pagamentos" : "Total Pago Alocado") : "Total Contratual Alocado"}
           </span>
           <div className="text-base font-bold text-slate-900 mt-0.5 block">
             {totalInvestidoDisponivel ? (
@@ -248,7 +248,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                 : invState.kind === "unavailable"
                   ? invState.reason === "population"
                     ? "População censitária indisponível"
-                    : "Sem registro de pagamento"
+                    : "Pagamento indisponível"
                   : "por morador"}
           </span>
         </div>
@@ -291,6 +291,15 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           </span>
         </div>
       </div>
+
+      {isExecutado && ((territorio.limitacoesConhecidas?.length ?? 0) > 0 || (territorio.obrasSemValorPago ?? 0) > 0) && (
+        <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3 text-xs text-amber-900">
+          {!!territorio.limitacoesConhecidas?.length && <><strong>Soma Parcial de Pagamentos</strong>
+            {territorio.limitacoesConhecidas.map((limite) => <p key={limite}>{limite}</p>)}
+          </>}
+          {!!territorio.obrasSemValorPago && <p>{territorio.obrasSemValorPago} obra(s) sem valor de pagamento</p>}
+        </div>
+      )}
 
       {/* Distinção entre Contratos Diretos e Frentes de Medição (Guarda-Chuva) */}
       {temFrentes && (

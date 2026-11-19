@@ -3,6 +3,33 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { FichaLimpaModal } from "../../src/components/FichaLimpaModal";
 import { FichaLimpaObra } from "../../src/types";
 
+it("identifica soma parcial e informa a limitação na ficha", () => {
+  const obra = { ...OBRA_COMPLETA, apuracaoPagamentos: {
+    situacao: "sem_registros" as const, registrosSemValor: 0,
+    limitacoesConhecidas: ["Histórico anterior a 2020 indisponível"], dataReferencia: "2025-12-31",
+  }, funilFinanceiro: { ...OBRA_COMPLETA.funilFinanceiro, valorPago: 0 } };
+  render(<FichaLimpaModal obra={obra} onClose={() => {}} />);
+  expect(screen.getByText(/Soma Parcial de Pagamentos/i)).toBeInTheDocument();
+  expect(screen.getByText(/Histórico anterior a 2020 indisponível/i)).toBeInTheDocument();
+  expect(screen.getByText(/Referência dos pagamentos: 31\/12\/2025/i)).toBeInTheDocument();
+  expect(screen.getByText(/Nenhum registro de pagamento encontrado/i)).toBeInTheDocument();
+});
+
+it.each([375, 1280])("mantém aviso acessível e fecha por teclado na largura %i", (largura) => {
+  const anterior = window.innerWidth;
+  Object.defineProperty(window, "innerWidth", { value: largura, configurable: true });
+  const onClose = vi.fn();
+  render(<FichaLimpaModal obra={{ ...OBRA_COMPLETA, apuracaoPagamentos: {
+    situacao: "indisponivel", registrosSemValor: 1, limitacoesConhecidas: ["Histórico indisponível"],
+  }, funilFinanceiro: { ...OBRA_COMPLETA.funilFinanceiro, valorPago: null } }} onClose={onClose} />);
+  expect(screen.getByRole("dialog")).toHaveFocus();
+  expect(screen.getByRole("dialog")).toHaveTextContent("1 registro sem valor informado");
+  expect(screen.getByRole("dialog")).toHaveTextContent("Histórico indisponível");
+  fireEvent.keyDown(window, { key: "Escape" });
+  expect(onClose).toHaveBeenCalledOnce();
+  Object.defineProperty(window, "innerWidth", { value: anterior, configurable: true });
+});
+
 const OBRA_COMPLETA: FichaLimpaObra = {
   id: 1002,
   cdUnidadeGestora: "2401",

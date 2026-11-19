@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FichaLimpaObra, ObraCompacta } from "../types";
-import { formatCurrency } from "../utils/formatters";
+import { formatCurrency, formatDate } from "../utils/formatters";
 import { getObraCotasListaFechada } from "../utils/territory";
 
 const PORTAL_TRANSPARENCIA_URL = "https://www.transparencia.salvador.ba.gov.br/";
@@ -602,6 +602,13 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                 </div>
 
                 {obra.apuracaoPagamentos && <div className="text-xs text-slate-600 space-y-2">
+                  {obra.apuracaoPagamentos.dataReferencia && <p>Referência dos pagamentos: {formatDate(obra.apuracaoPagamentos.dataReferencia)}</p>}
+                  {obra.apuracaoPagamentos.periodoDisponivel && <p>Período disponível: {formatDate(obra.apuracaoPagamentos.periodoDisponivel.inicio)} a {formatDate(obra.apuracaoPagamentos.periodoDisponivel.fim)}</p>}
+                  {!!obra.apuracaoPagamentos.limitacoesConhecidas?.length && !obra.apuracaoPagamentos.periodoDisponivel && <p>Período disponível não informado.</p>}
+                  {!!obra.apuracaoPagamentos.limitacoesConhecidas?.length && <div>
+                    <strong>Soma Parcial de Pagamentos</strong>
+                    {obra.apuracaoPagamentos.limitacoesConhecidas.map((limite) => <p key={limite}>{limite}</p>)}
+                  </div>}
                   {obra.apuracaoPagamentos.situacao === "sem_registros" && <p>Nenhum registro de pagamento encontrado na fonte.</p>}
                   {obra.apuracaoPagamentos.situacao === "saldo_registrado" && valorPago === 0 && <p>Saldo registrado igual a zero.</p>}
                   {obra.apuracaoPagamentos.registrosSemValor > 0 && <p>

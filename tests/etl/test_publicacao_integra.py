@@ -399,7 +399,7 @@ def test_reusa_referencia_validada_mas_reconsulta_pagamentos(tmp_path: Path, fon
     valores = iter([10, 5])
 
     def fonte(ug, contrato, referencia):
-        return ConsultaPagamentos([{"notaLiquidacao": "NL1", "valorPago": next(valores)}], referencia, True, True, ["Histórico anterior indisponível na fonte"])
+        return ConsultaPagamentos([{"notaLiquidacao": "NL1", "valorPago": next(valores)}], referencia, True, True, ["Histórico anterior indisponível na fonte"], periodo_disponivel={"inicio": "2020-01-01", "fim": referencia})
 
     anterior = run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos="2025-12-30")
     nova = run_pipeline(tmp_path, consulta_pagamentos=fonte, data_referencia_pagamentos="2025-12-31")
@@ -412,6 +412,9 @@ def test_reusa_referencia_validada_mas_reconsulta_pagamentos(tmp_path: Path, fon
     assert depois["funilFinanceiro"]["valorPago"] == 5
     assert depois["frentesMedicao"][0]["valorPago"] == 5
     assert indice["obras"][0]["valorPago"] == 5
+    assert depois["apuracaoPagamentos"]["limitacoesConhecidas"] == ["Histórico anterior indisponível na fonte"]
+    assert depois["apuracaoPagamentos"]["periodoDisponivel"] == {"inicio": "2020-01-01", "fim": "2025-12-31"}
+    assert indice["obras"][0]["apuracaoPagamentos"] == depois["apuracaoPagamentos"]
     assert depois["versaoDados"] == indice["metadata"]["atualizacao"]["versaoDados"]
     assert indice["metadata"]["atualizacao"]["limitacoesConhecidas"] == ["Histórico anterior indisponível na fonte"]
 
@@ -447,6 +450,12 @@ def test_atualizacoes_sucessivas_publicam_somente_pagamentos_atuais(tmp_path: Pa
         assert indice["kpis_globais"]["totalPago"] == (esperado or 0)
         pituba = next(b for b in indice["bairros"] if b["nome"] == "Pituba")
         assert pituba["valorPago"] == esperado
+        assert pituba["limitacoesConhecidas"] == ["Histórico anterior indisponível na fonte (período disponível não informado)"]
+        assert pituba["obrasSemValorPago"] == (1 if esperado is None else 0)
+        malha = json.loads((versao / "geo/bairros.geojson").read_text(encoding="utf-8"))
+        pituba_geo = next(f["properties"] for f in malha["features"] if f["properties"]["nome"] == "Pituba")
+        assert pituba_geo["limitacoesConhecidas"] == pituba["limitacoesConhecidas"]
+        assert pituba_geo["obrasSemValorPago"] == pituba["obrasSemValorPago"]
         assert indice["metadata"]["atualizacao"]["limitacoesConhecidas"] == ["Histórico anterior indisponível na fonte"]
 
     antes = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()}

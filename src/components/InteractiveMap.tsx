@@ -107,8 +107,9 @@ function getPinCoordKey(latitude: number, longitude: number): string {
 function formatPinMetricLabel(obra: ObraCompacta, metricType: MetricType, isCotaPin: boolean): string {
   const prefix = isCotaPin ? "Total contrato — " : "";
   if (metricType === "executado") {
+    const rotulo = obra.apuracaoPagamentos?.limitacoesConhecidas?.length ? "Soma parcial" : "Pago";
     return hasNumericValue(obra.valorPago)
-      ? `${prefix}Pago: ${formatCurrency(obra.valorPago)}`
+      ? `${prefix}${rotulo}: ${formatCurrency(obra.valorPago)}`
       : `${prefix}Pagamento indisponível`;
   }
   return `${prefix}Contratual: ${formatCurrency(obra.valorContratualVigente)}`;
@@ -214,7 +215,8 @@ export function normalizeTestId(nome: string): string {
  * Retorna a cor do mapa coroplético para o Investimento por Habitante (escala esmeralda).
  */
 function getInvestimentoColor(valor: number, breaks: number[]): string {
-  if (valor <= 0) return "#f1f5f9";
+  if (valor < 0) return "#be123c";
+  if (valor === 0) return "#f1f5f9";
   if (valor < breaks[0]) return "#d1fae5";
   if (valor < breaks[1]) return "#6ee7b7";
   if (valor < breaks[2]) return "#10b981";
@@ -660,6 +662,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   is_centralidade_metropolitana: isCentralidade,
                   valorTotal: props.valorTotal,
                   valorPago: props.valorPago,
+                  valorPagoDisponivel: props.valorPagoDisponivel,
+                  obrasSemValorPago: props.obrasSemValorPago,
+                  limitacoesConhecidas: props.limitacoesConhecidas,
                   totalObras: props.totalObras,
                   obrasVerde: props.obrasVerde,
                   obrasAmarelo: props.obrasAmarelo,
@@ -676,6 +681,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   indice_vulnerabilidade: props.indice_vulnerabilidade,
                   valorTotal: props.valorTotal,
                   valorPago: props.valorPago,
+                  valorPagoDisponivel: props.valorPagoDisponivel,
+                  obrasSemValorPago: props.obrasSemValorPago,
+                  limitacoesConhecidas: props.limitacoesConhecidas,
                   totalObras: props.totalObras,
                   obrasVerde: props.obrasVerde,
                   obrasAmarelo: props.obrasAmarelo,
@@ -867,8 +875,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       "bairro"
     );
     const sortedEspeciais = [...especiais].sort((a, b) => {
-      const valA = isExec ? (a.valorPago ?? 0) : (a.valorTotal ?? 0);
-      const valB = isExec ? (b.valorPago ?? 0) : (b.valorTotal ?? 0);
+      const valA = isExec ? (a.valorPagoDisponivel === false ? null : a.valorPago) : a.valorTotal;
+      const valB = isExec ? (b.valorPagoDisponivel === false ? null : b.valorPago) : b.valorTotal;
+      if (!hasNumericValue(valA)) return hasNumericValue(valB) ? 1 : a.nome.localeCompare(b.nome, "pt-BR");
+      if (!hasNumericValue(valB)) return -1;
       if (valB !== valA) return valB - valA;
       return a.nome.localeCompare(b.nome, "pt-BR");
     });
@@ -1028,6 +1038,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           </span>
           {choroplethMetric === "investimentoPorHabitante" ? (
             <div className="grid grid-cols-2 gap-x-2.5 gap-y-1 text-[10px] text-slate-700 tabular-nums">
+              {metricType === "executado" && <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#be123c] shrink-0" />
+                <span>Saldo negativo</span>
+              </div>}
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-sm bg-[#f1f5f9] border border-slate-300 shrink-0" />
                 <span>R$ 0 / hab</span>

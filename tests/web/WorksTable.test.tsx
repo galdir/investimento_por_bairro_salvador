@@ -19,6 +19,18 @@ const BASE_OBRA: Omit<ObraCompacta, "id" | "objeto" | "vocacao"> = {
 };
 
 describe("WorksTable — Selo de Vocação da Obra", () => {
+  it("distingue os zeros e informa registros sem valor e limitação", () => {
+    const obras: ObraCompacta[] = [
+      { ...BASE_OBRA, id: "vazia", objeto: "Consulta vazia", valorPago: 0, apuracaoPagamentos: { situacao: "sem_registros", registrosSemValor: 0, limitacoesConhecidas: ["Histórico anterior a 2020 indisponível"] } },
+      { ...BASE_OBRA, id: "saldo", objeto: "Saldo zero", valorPago: 0, apuracaoPagamentos: { situacao: "saldo_registrado", registrosSemValor: 1 } },
+    ];
+    render(<WorksTable obras={obras} metricType="executado" onSelectObra={vi.fn()} />);
+    expect(screen.getByTestId("linha-obra-vazia")).toHaveTextContent("Nenhum registro encontrado na fonte");
+    expect(screen.getByTestId("linha-obra-vazia")).toHaveTextContent("Soma Parcial de Pagamentos");
+    expect(screen.getByTestId("linha-obra-vazia")).toHaveTextContent("Histórico anterior a 2020 indisponível");
+    expect(screen.getByTestId("linha-obra-saldo")).toHaveTextContent("Saldo registrado igual a zero");
+    expect(screen.getByTestId("linha-obra-saldo")).toHaveTextContent("1 registro sem valor informado");
+  });
   it("exibe valor indisponível para frente sem pagamento apurável", () => {
     const obra: ObraCompacta = { ...BASE_OBRA, id: "frente", objeto: "Contrato por frentes",
       nivel: "Escopo Cidade (Não-Localizado)", bairro: null, prefeituraBairro: null, valorPago: null,

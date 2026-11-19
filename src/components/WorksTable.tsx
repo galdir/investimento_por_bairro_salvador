@@ -866,6 +866,18 @@ export const WorksTable: React.FC<WorksTableProps> = ({
                         Pagamento indisponível
                       </div>
                     )}
+                    {metricType === "executado" && o.apuracaoPagamentos && <div className="text-[10px] font-normal text-slate-600 whitespace-normal">
+                      {(isFrenteFiltrada || isCotaFiltrada) && <div>Apuração do contrato inteiro:</div>}
+                      {!!o.apuracaoPagamentos.limitacoesConhecidas?.length && <div>
+                        <strong>Soma Parcial de Pagamentos</strong>
+                        {o.apuracaoPagamentos.limitacoesConhecidas.map((limite) => <div key={limite}>{limite}</div>)}
+                      </div>}
+                      {o.apuracaoPagamentos.periodoDisponivel && <div>Período disponível: {formatDate(o.apuracaoPagamentos.periodoDisponivel.inicio)} a {formatDate(o.apuracaoPagamentos.periodoDisponivel.fim)}</div>}
+                      {!!o.apuracaoPagamentos.limitacoesConhecidas?.length && !o.apuracaoPagamentos.periodoDisponivel && <div>Período disponível não informado.</div>}
+                      {o.apuracaoPagamentos.situacao === "sem_registros" && <div>Nenhum registro encontrado na fonte</div>}
+                      {o.apuracaoPagamentos.situacao === "saldo_registrado" && o.valorPago === 0 && <div>Saldo registrado igual a zero</div>}
+                      {o.apuracaoPagamentos.registrosSemValor > 0 && <div>{o.apuracaoPagamentos.registrosSemValor} registro{o.apuracaoPagamentos.registrosSemValor === 1 ? "" : "s"} sem valor informado</div>}
+                    </div>}
                     {hasAditivo && !isFrenteFiltrada && (
                       <span
                         className={`text-[10px] font-semibold ${

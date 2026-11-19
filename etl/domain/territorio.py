@@ -457,6 +457,23 @@ def _contar_pagamentos_ausentes(obras: list[dict[str, Any]]) -> int:
     )
 
 
+def _cobertura_territorial(obras: list[dict[str, Any]], frentes: list[tuple[dict[str, Any], dict[str, Any]]]) -> tuple[int, list[str]]:
+    """Conta contratos sem valor territorial e reúne limitações das fontes aplicáveis."""
+    valores = {_chave_obra_rollup(o): o.get("vlPago") is not None or o.get("valorPago") is not None for o in obras}
+    participantes = {_chave_obra_rollup(o): o for o in obras}
+    for obra, frente in frentes:
+        chave = _chave_obra_rollup(obra)
+        participantes[chave] = obra
+        valores[chave] = valores.get(chave, False) or frente.get("valorPago") is not None
+    limites = set()
+    for obra in participantes.values():
+        apuracao = obra.get("apuracaoPagamentos") or {}
+        periodo = apuracao.get("periodoDisponivel")
+        for limite in apuracao.get("limitacoesConhecidas", []):
+            limites.add(f"{limite} (período disponível: {periodo['inicio']} a {periodo['fim']})" if periodo else f"{limite} (período disponível não informado)")
+    return sum(not disponivel for disponivel in valores.values()), sorted(limites)
+
+
 def calcular_rollup_territorial(
     bairros_resumo: list[dict[str, Any]],
     prefeituras_resumo: list[dict[str, Any]],
@@ -501,6 +518,8 @@ def calcular_rollup_territorial(
     obras_escopo_cidade: list[dict[str, Any]] = []
     frentes_por_bairro: dict[str, list[dict[str, Any]]] = {}
     frentes_regionais_por_pb: dict[str, list[dict[str, Any]]] = {}
+    origens_frentes_bairro: dict[str, list[tuple[dict[str, Any], dict[str, Any]]]] = {}
+    origens_frentes_pb: dict[str, list[tuple[dict[str, Any], dict[str, Any]]]] = {}
 
     for obra in obras_alocadas:
         vl_atua = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or obra.get("vlOriginal") or 0.0)
@@ -554,8 +573,10 @@ def calcular_rollup_territorial(
             f_pb = frente.get("prefeituraBairro") or frente.get("prefeitura_bairro")
             if f_nivel in {"Pontual", "Bairro"} and f_bairro:
                 frentes_por_bairro.setdefault(normalizar_nome(f_bairro), []).append(frente)
+                origens_frentes_bairro.setdefault(normalizar_nome(f_bairro), []).append((obra, frente))
             elif f_nivel == "Regional (Prefeitura-Bairro)" and f_pb:
                 frentes_regionais_por_pb.setdefault(normalizar_nome(f_pb), []).append(frente)
+                origens_frentes_pb.setdefault(normalizar_nome(f_pb), []).append((obra, frente))
 
     # 3. Consolidação de Bairros Oficiais
     bairros_atualizados: list[dict[str, Any]] = []
@@ -595,6 +616,7 @@ def calcular_rollup_territorial(
             [o for o, _ in obras_do_bairro]
         )
         sem_pagamento_bairro = _contar_pagamentos_ausentes([o for o, _ in obras_do_bairro])
+        sem_valor_bairro, limitacoes_bairro = _cobertura_territorial([o for o, _ in obras_do_bairro], origens_frentes_bairro.get(b_norm, []))
         pago_disponivel_bairro = (
             (total_obras_bairro == 0 and not frentes_do_bairro)
             or sem_pagamento_bairro < total_obras_bairro
@@ -643,7 +665,8 @@ def calcular_rollup_territorial(
             "investimentoPorHabitante": inv_per_capita,
             "investimentoPorHabitantePago": inv_per_capita_pago if pago_disponivel_bairro else None,
             "valorPagoDisponivel": pago_disponivel_bairro,
-            "obrasSemValorPago": sem_pagamento_bairro,
+            "obrasSemValorPago": sem_valor_bairro,
+            "limitacoesConhecidas": limitacoes_bairro,
             "is_zona_especial_nao_residencial": eh_zona_especial,
             "isZonaEspecialNaoResidencial": eh_zona_especial,
             "is_centralidade_metropolitana": eh_centralidade,
@@ -706,6 +729,8 @@ def calcular_rollup_territorial(
         obras_pb = [o for bn in bairros_filhos_nomes if bn in bairros_index for o, _ in obras_por_bairro.get(bn, [])] + obras_regionais
         total_obras_pb, verde_pb, amarelo_pb, vermelho_pb = _contar_obras_e_semaforos(obras_pb)
         sem_pagamento_pb = _contar_pagamentos_ausentes(obras_pb)
+        origens_pb = [par for bn in bairros_filhos_nomes for par in origens_frentes_bairro.get(bn, [])] + origens_frentes_pb.get(pb_norm, [])
+        sem_valor_pb, limitacoes_pb = _cobertura_territorial(obras_pb, origens_pb)
         frentes_pb = [f for bn in bairros_filhos_nomes for f in frentes_por_bairro.get(bn, [])] + frentes_regionais
         pago_disponivel_pb = ((total_obras_pb == 0 and not frentes_pb)
                               or sem_pagamento_pb < total_obras_pb
@@ -781,7 +806,8 @@ def calcular_rollup_territorial(
             "investimentoPorHabitante": inv_per_capita_pb,
             "investimentoPorHabitantePago": inv_per_capita_pago_pb if pago_disponivel_pb else None,
             "valorPagoDisponivel": pago_disponivel_pb,
-            "obrasSemValorPago": sem_pagamento_pb,
+            "obrasSemValorPago": sem_valor_pb,
+            "limitacoesConhecidas": limitacoes_pb,
         })
         prefeituras_atualizadas.append(pb_dict)
 

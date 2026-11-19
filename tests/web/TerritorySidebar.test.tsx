@@ -6,6 +6,15 @@ import { ObraCompacta, TerritorySelection } from "../../src/types";
 describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Censo 2022", () => {
   const onClearMock = vi.fn();
 
+  it("informa a limitação e obras sem valor no território selecionado", () => {
+    render(<TerritorySidebar territorio={{ tipo: "bairro", id: 1, nome: "Pituba", populacao: 100,
+      valorPago: 0, valorPagoDisponivel: true, obrasSemValorPago: 1,
+      limitacoesConhecidas: ["Histórico anterior a 2020 indisponível"] }} onClear={onClearMock} metricType="executado" />);
+    expect(screen.getByTestId("raio-x-container")).toHaveTextContent("Soma Parcial de Pagamentos");
+    expect(screen.getByTestId("raio-x-container")).toHaveTextContent("Histórico anterior a 2020 indisponível");
+    expect(screen.getByTestId("raio-x-container")).toHaveTextContent("1 obra(s) sem valor de pagamento");
+  });
+
   it("mostra pagamento das frentes como indisponível quando não há valor apurável", () => {
     const territorio: TerritorySelection = {
       tipo: "bairro", id: 101, nome: "Pituba", prefeitura_bairro: "Barra/Pituba",

@@ -96,6 +96,7 @@ export interface BairroResumo {
   investimentoPorHabitantePago?: number | null;
   valorPagoDisponivel?: boolean;
   obrasSemValorPago?: number;
+  limitacoesConhecidas?: string[];
 }
 
 export interface PrefeituraBairroResumo {
@@ -124,6 +125,7 @@ export interface PrefeituraBairroResumo {
   investimentoPorHabitantePago?: number | null;
   valorPagoDisponivel?: boolean;
   obrasSemValorPago?: number;
+  limitacoesConhecidas?: string[];
 }
 
 export interface FrenteMedicao {
@@ -161,6 +163,7 @@ export interface ObraCompacta {
   valorAditivos?: number;
   deltaPercentualValor?: number;
   valorPago?: number | null;
+  apuracaoPagamentos?: ApuracaoPagamentos | null;
   percentualExecutado: number;
   situacao: string;
   credor: string;
@@ -182,6 +185,14 @@ export interface ObraCompacta {
   estagioAlocacao?: string | null;
   frentesMedicao?: FrenteMedicao[];
   cotasListaFechada?: CotaListaFechada[];
+}
+
+export interface ApuracaoPagamentos {
+  registrosSemValor: number;
+  situacao: "sem_registros" | "indisponivel" | "saldo_registrado";
+  limitacoesConhecidas?: string[];
+  dataReferencia?: string;
+  periodoDisponivel?: { inicio: string; fim: string };
 }
 
 export interface EmpreiteiraResumo {
@@ -297,10 +308,7 @@ export interface FichaLimpaObra {
   empenhos?: any[];
   liquidacoes?: any[];
   pagamentos?: any[];
-  apuracaoPagamentos?: {
-    registrosSemValor: number;
-    situacao: "sem_registros" | "indisponivel" | "saldo_registrado";
-  };
+  apuracaoPagamentos?: ApuracaoPagamentos;
   tema?: string;
   vocacao?: VocacaoObra | string;
   semaforo?: SemaforoInfo;
@@ -371,6 +379,7 @@ export interface TerritorySelection {
   investimentoPorHabitantePago?: number | null;
   valorPagoDisponivel?: boolean;
   obrasSemValorPago?: number;
+  limitacoesConhecidas?: string[];
 }
 
 export interface FilterState {

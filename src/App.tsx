@@ -29,6 +29,7 @@ import {
   getObraCotasListaFechada,
   hasNumericPayment,
   isTerritoryCompatibleWithLayer,
+  limitacoesDaObra,
   normalizeName,
   obraMatchesTerritory,
   obraOverlapsMandato,
@@ -858,6 +859,9 @@ export const App: React.FC = () => {
           headerComparisonSummary.contratosPrefeituraBairroSemRateioCount
         }
         isExactLayerWorkCount={headerComparisonSummary.isExactLayerWorkCount}
+        limitacoesConhecidas={Array.from(new Set(topFilteredObras.flatMap(limitacoesDaObra)))}
+        limitacoesAlocadas={Array.from(new Set((activeLayer === "bairros" ? recalculatedBairros : recalculatedPrefeituras).flatMap((territorio) => territorio.limitacoesConhecidas || [])))}
+        limitacoesNaoLocalizadas={Array.from(new Set(topFilteredObras.filter((obra) => obra.nivel === "Escopo Cidade (Não-Localizado)").flatMap(limitacoesDaObra)))}
         generatedAt={indexData.metadata.atualizacao ? undefined : indexData.metadata.generatedAt}
         metricType={filters.metricType}
         mandato={filters.mandato}

@@ -26,6 +26,9 @@ interface HeaderKpisProps {
    */
   valorAlocadoDisponivel?: boolean;
   obrasSemPagamento?: number;
+  limitacoesConhecidas?: string[];
+  limitacoesAlocadas?: string[];
+  limitacoesNaoLocalizadas?: string[];
   /**
    * Quantidade de obras alocadas aos territórios comparados.
    */
@@ -63,6 +66,9 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
   valorAlocadoTerritorial,
   valorAlocadoDisponivel = true,
   obrasSemPagamento = 0,
+  limitacoesConhecidas = [],
+  limitacoesAlocadas = [],
+  limitacoesNaoLocalizadas = [],
   totalObrasAlocadas,
   contratosPrefeituraBairroSemRateioCount = 0,
   isExactLayerWorkCount = true,
@@ -154,7 +160,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
           {/* 2. Valor territorialmente alocado da métrica ativa */}
           <div className="bg-slate-800/90 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-700/80 flex flex-col justify-between min-w-0">
             <span className="text-[10px] sm:text-[11px] font-medium text-slate-400 leading-tight">
-              {metricLabel} alocado nos territórios
+              {!isVigente && limitacoesAlocadas.length ? "Soma Parcial de Pagamentos" : metricLabel} alocado nos territórios
             </span>
             <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
               {valorAlocadoDisponivel ? (
@@ -194,7 +200,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
             className="bg-slate-800/90 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 border border-purple-500/30 flex flex-col justify-between min-w-0"
           >
             <span className="text-[10px] sm:text-[11px] font-medium text-purple-300 leading-tight">
-              Sem localização • {metricLabel} (Escopo Cidade)
+              Sem localização • {!isVigente && limitacoesNaoLocalizadas.length ? "Soma Parcial de Pagamentos" : metricLabel} (Escopo Cidade)
             </span>
             <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2">
               {valorNaoLocalizado !== undefined ? (
@@ -240,15 +246,18 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
                   Pagamento indisponível
                 </span>
               )}
-              <span className="text-[10px] sm:text-[11px] text-slate-400 leading-tight">{metricLabel} • Escopo municipal</span>
+              <span className="text-[10px] sm:text-[11px] text-slate-400 leading-tight">{!isVigente && limitacoesAlocadas.length ? "Soma Parcial de Pagamentos" : metricLabel} • Escopo municipal</span>
             </div>
           </div>
         </div>
         {!isVigente && obrasSemPagamento > 0 && (
           <p className="mt-2 text-xs text-amber-200" role="status">
-            Valores pagos são parciais: pelo menos {formatNumber(obrasSemPagamento)} contrato(s) com pagamento indisponível no acervo selecionado.
+            {formatNumber(obrasSemPagamento)} contrato(s) com pagamento indisponível no acervo selecionado; a soma usa os valores disponíveis.
           </p>
         )}
+        {!isVigente && limitacoesConhecidas.length > 0 && <div className="mt-2 text-xs text-amber-200">
+          {limitacoesConhecidas.map((limite) => <p key={limite}>{limite}</p>)}
+        </div>}
       </div>
     </header>
   );

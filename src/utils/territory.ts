@@ -468,6 +468,7 @@ export function createBairroSelection(bairro: BairroResumo): TerritorySelection 
     investimentoPorHabitantePago: bairro.investimentoPorHabitantePago,
     valorPagoDisponivel: bairro.valorPagoDisponivel,
     obrasSemValorPago: bairro.obrasSemValorPago,
+    limitacoesConhecidas: bairro.limitacoesConhecidas,
   };
 }
 
@@ -506,6 +507,7 @@ export function createPrefeituraSelection(prefeitura: PrefeituraBairroResumo): T
     investimentoPorHabitantePago: prefeitura.investimentoPorHabitantePago,
     valorPagoDisponivel: prefeitura.valorPagoDisponivel,
     obrasSemValorPago: prefeitura.obrasSemValorPago,
+    limitacoesConhecidas: prefeitura.limitacoesConhecidas,
   };
 }
 
@@ -555,6 +557,33 @@ function computeWeightedOrMeanMetric(
   return Math.round(((simpleSum / validItems.length) + Number.EPSILON) * 100) / 100;
 }
 
+export function limitacoesDaObra(obra: ObraCompacta): string[] {
+  const apuracao = obra.apuracaoPagamentos;
+  const periodo = apuracao?.periodoDisponivel;
+  return (apuracao?.limitacoesConhecidas || []).map((limite) => periodo
+    ? `${limite} (período disponível: ${periodo.inicio} a ${periodo.fim})`
+    : `${limite} (período disponível não informado)`);
+}
+
+function coberturaTerritorial(obras: ObraCompacta[], frentes: Array<{ obra: ObraCompacta; frente: FrenteMedicao }>) {
+  const valores = new Map<string, boolean>();
+  const participantes = new Map<string, ObraCompacta>();
+  for (const obra of obras) {
+    const chave = getObraCanonicalKey(obra);
+    participantes.set(chave, obra);
+    valores.set(chave, hasNumericPayment(obra.valorPago));
+  }
+  for (const { obra, frente } of frentes) {
+    const chave = getObraCanonicalKey(obra);
+    participantes.set(chave, obra);
+    valores.set(chave, Boolean(valores.get(chave)) || hasNumericPayment(frente.valorPago));
+  }
+  return {
+    obrasSemValorPago: Array.from(valores.values()).filter((disponivel) => !disponivel).length,
+    limitacoesConhecidas: Array.from(new Set(Array.from(participantes.values()).flatMap(limitacoesDaObra))).sort(),
+  };
+}
+
 /**
  * Recalcula o rollup financeiro, quantitativo e de semáforo dos Bairros Oficiais e Prefeituras-Bairro
  * a partir de um conjunto filtrado de Obras Públicas.
@@ -578,6 +607,8 @@ export function calculateTerritorialRollup(
   const obrasRegionaisPorPrefeitura = new Map<string, ObraCompacta[]>();
   const frentesPorBairro = new Map<string, FrenteMedicao[]>();
   const frentesRegionaisPorPrefeitura = new Map<string, FrenteMedicao[]>();
+  const origensBairro = new Map<string, Array<{ obra: ObraCompacta; frente: FrenteMedicao }>>();
+  const origensPrefeitura = new Map<string, Array<{ obra: ObraCompacta; frente: FrenteMedicao }>>();
 
   for (const obra of obrasFiltradas) {
     const nivel = obra.nivel || "Escopo Cidade (Não-Localizado)";
@@ -611,11 +642,13 @@ export function calculateTerritorialRollup(
         const list = frentesPorBairro.get(bKey) || [];
         list.push(frente);
         frentesPorBairro.set(bKey, list);
+        origensBairro.set(bKey, [...(origensBairro.get(bKey) || []), { obra, frente }]);
       } else if (fNivel === "Regional (Prefeitura-Bairro)" && frente.prefeituraBairro) {
         const pKey = normalizeName(frente.prefeituraBairro);
         const list = frentesRegionaisPorPrefeitura.get(pKey) || [];
         list.push(frente);
         frentesRegionaisPorPrefeitura.set(pKey, list);
+        origensPrefeitura.set(pKey, [...(origensPrefeitura.get(pKey) || []), { obra, frente }]);
       }
     }
   }
@@ -672,7 +705,7 @@ export function calculateTerritorialRollup(
       investimentoPorHabitante,
       investimentoPorHabitantePago,
       valorPagoDisponivel,
-      obrasSemValorPago: metrics.obrasSemValorPago,
+      ...coberturaTerritorial(obrasDoBairro.map(({ obra }) => obra), origensBairro.get(bairroKey) || []),
       is_zona_especial_nao_residencial: ehZonaEsp,
       isZonaEspecialNaoResidencial: ehZonaEsp,
       is_centralidade_metropolitana: ehCentralidade,
@@ -809,7 +842,10 @@ export function calculateTerritorialRollup(
       investimentoPorHabitante,
       investimentoPorHabitantePago,
       valorPagoDisponivel,
-      obrasSemValorPago: contagemUnica.obrasSemValorPago,
+      ...coberturaTerritorial(obrasUnicasPrefeitura, [
+        ...bairrosFilhos.flatMap((bairro) => origensBairro.get(normalizeName(bairro.nome)) || []),
+        ...(origensPrefeitura.get(prefeituraKey) || []),
+      ]),
     };
   });
 
