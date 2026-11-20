@@ -25,6 +25,10 @@ on:
         required: true
         default: "2025"
         type: string
+      usar_base_publicada:
+        description: "Na retomada, copiar a versão aprovada do checkout como base do ETL incremental"
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -107,6 +111,30 @@ jobs:
             echo "revisao_antes=${revision_before:-ausente}"
             echo "diretorio_saida=$output_dir"
           } >> "$GITHUB_OUTPUT"
+
+      - name: Copiar a versão aprovada para a saída isolada
+        id: base
+        if: inputs.usar_base_publicada && steps.alvos.outputs.operacao == 'retomar'
+        env:
+          DIRETORIO_SAIDA: ${{ steps.alvos.outputs.diretorio_saida }}
+        run: |
+          python - <<'PY'
+          import os
+          import shutil
+          from pathlib import Path
+
+          from etl.publicacao import versao_anterior_valida, versao_publicada
+
+          origem = Path("public/data")
+          saida = Path(os.environ["DIRETORIO_SAIDA"])
+          base = versao_publicada(origem)
+          if base is None or not versao_anterior_valida(base):
+              raise SystemExit("A base incremental precisa de uma versão aprovada e íntegra no checkout.")
+          shutil.copytree(base, saida / base.relative_to(origem))
+          shutil.copy2(origem / "atual.json", saida / "atual.json")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as file:
+              file.write(f"versao={base.name}\n")
+          PY
 
       - name: Executar a entrada normal do ETL na saída do ensaio
         id: execucao
@@ -210,7 +238,8 @@ jobs:
                   raise SystemExit(f"Hash inválido no manifesto: {nome}")
           if resultado.get("success") is not True:
               raise SystemExit("O ETL não concluiu a tentativa de recuperação.")
-          if ponteiro.get("versaoDados") != manifesto.get("versaoDados"):
+          if (ponteiro.get("versaoDados") != manifesto.get("versaoDados")
+                  or versao.resolve() != Path(resultado["versao_dir"]).resolve()):
               raise SystemExit("O ponteiro da saída de ensaio não corresponde ao manifesto.")
           if manifesto.get("validacoes") != "aprovadas" or manifesto.get("consultas") != "concluidas":
               raise SystemExit("O manifesto da saída de ensaio não foi validado integralmente.")
@@ -236,6 +265,7 @@ jobs:
           REVISAO_ANTES: ${{ steps.alvos.outputs.revisao_antes }}
           DIRETORIO_SAIDA: ${{ steps.alvos.outputs.diretorio_saida || '.tmp/ensaios/invalido/public/data' }}
           RESULTADO_ETAPA: ${{ steps.execucao.outcome || 'nao-iniciada' }}
+          BASE_INCREMENTAL: ${{ steps.base.outputs.versao }}
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -286,6 +316,7 @@ jobs:
               "run_attempt": os.environ["RUN_ATTEMPT"],
               "run_url": os.environ["RUN_URL"],
               "resultado_etapa": os.environ["RESULTADO_ETAPA"],
+              "base_incremental": os.environ.get("BASE_INCREMENTAL") or None,
               "ref_progresso": os.environ.get("REF_PROGRESSO") or None,
               "revisao_ref_antes": os.environ.get("REVISAO_ANTES") or None,
               "revisao_ref_depois": os.environ.get("REVISAO_DEPOIS") or None,
@@ -312,6 +343,8 @@ jobs:
               file.write(f"- Checkpoints remotos: {evidence['checkpoints_remotos']}\n")
               file.write(f"- Tamanho total e maior checkpoint: {evidence['bytes_checkpoints_remotos']} / {evidence['maior_checkpoint_bytes']} bytes\n")
               file.write(f"- Contrato em andamento: `{evidence['contrato_em_andamento']}`\n")
+              if evidence["base_incremental"]:
+                  file.write(f"- Base incremental copiada para o ensaio: `{evidence['base_incremental']}`\n")
               if result:
                   file.write(f"- Contratos reaproveitados nesta execução: `{result.get('contratos_reaproveitados', [])}`\n")
                   file.write(f"- Contratos reiniciados nesta execução: `{result.get('contratos_reiniciados', [])}`\n")
