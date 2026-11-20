@@ -78,6 +78,30 @@ export function buildDataUrl(
   return `${cleanBase}/${cleanRelative}`;
 }
 
+const RECARREGAR_VERSAO_RETIRADA =
+  "A versão do painel não está mais disponível. Recarregue a página para continuar com os dados atuais.";
+
+async function versaoFoiRetirada(versao: string | undefined): Promise<boolean> {
+  if (!versao || !/^[0-9a-f]{32}$/.test(versao)) return false;
+
+  try {
+    const resposta = await fetch(buildDataUrl("data/versoes-servidas.json"), {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+    });
+    if (!resposta.ok) return false;
+
+    const lista = await resposta.json();
+    if (!Array.isArray(lista?.versoesDados)
+        || lista.versoesDados.some((item: unknown) => typeof item !== "string" || !/^[0-9a-f]{32}$/.test(item))) {
+      return false;
+    }
+    return !lista.versoesDados.includes(versao);
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Componente principal do Painel de Obras Públicas de Salvador.
  *
@@ -759,11 +783,14 @@ export const App: React.FC = () => {
     setLastRequestedObra(obra);
     setFichaError(null);
     setSelectedObraFicha(null);
+    let falhaDeCarregamento = false;
     try {
       setLoadingFicha(true);
+      falhaDeCarregamento = true;
       const res = await fetch(buildDataUrl(`${dataBase}/obras/${obra.id}.json`));
       if (res.ok) {
         const data: FichaLimpaObra = await res.json();
+        falhaDeCarregamento = false;
         const versao = indexData?.metadata.atualizacao?.versaoDados;
         if (versao ? data.versaoDados !== versao : data.versaoDados) {
           throw new Error("A ficha e o painel são de versões diferentes. Recarregue a página.");
@@ -775,8 +802,13 @@ export const App: React.FC = () => {
     } catch (err: any) {
       if (requestId !== fichaRequestRef.current) return;
       console.error("Erro ao carregar Ficha Limpa da Obra sob demanda:", err);
+      const versao = indexData?.metadata.atualizacao?.versaoDados;
+      const mensagem = falhaDeCarregamento && await versaoFoiRetirada(versao)
+        ? RECARREGAR_VERSAO_RETIRADA
+        : err?.message || "Não foi possível carregar os detalhes completos desta obra.";
+      if (requestId !== fichaRequestRef.current) return;
       setFichaError(
-        err?.message || "Não foi possível carregar os detalhes completos desta obra."
+        mensagem
       );
     } finally {
       if (requestId === fichaRequestRef.current) setLoadingFicha(false);

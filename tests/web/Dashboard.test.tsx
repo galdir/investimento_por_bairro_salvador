@@ -626,6 +626,46 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(fetchMock).toHaveBeenCalledWith(expect.stringContaining(`/versoes/${versao}/index_2025.json`));
   });
 
+  it("abre a ficha da versão que a aba carregou mesmo após o Pages ativar outra versão", async () => {
+    const versaoDaAba = "0123456789abcdef0123456789abcdef";
+    const versaoAtualDoPages = "abcdef0123456789abcdef0123456789";
+    const atualizacao = {
+      versaoDados: versaoDaAba, concluidaEm: "2026-11-18T14:00:00Z",
+      dataReferenciaPagamentos: "2025-12-31", inicioConsultas: "2026-11-16T12:00:00Z",
+      fimConsultas: "2026-11-18T13:00:00Z", consultas: "concluidas", validacoes: "aprovadas",
+      coberturaHistorica: "nao_verificada", limitacoesConhecidas: [],
+    };
+    const ficha = { ...mockObra1001Detalhe, versaoDados: versaoDaAba };
+    const fetchMock = vi.fn((input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.endsWith("atual.json")) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ versaoDados: versaoDaAba, caminho: `versoes/${versaoDaAba}` }),
+        });
+      }
+      if (url.includes(`/versoes/${versaoDaAba}/obras/1001.json`)) {
+        return Promise.resolve({ ok: true, json: async () => ficha });
+      }
+      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
+        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versaoDaAba } });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    renderApp(<App />);
+    fireEvent.click(await screen.findByTestId("tab-tabela"));
+    fireEvent.click(screen.getByTestId("btn-ver-detalhes-1001"));
+
+    expect(await screen.findByTestId("funil-financeiro-container")).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining(`/versoes/${versaoDaAba}/obras/1001.json`)
+    );
+    expect(fetchMock).not.toHaveBeenCalledWith(
+      expect.stringContaining(`/versoes/${versaoAtualDoPages}/obras/1001.json`)
+    );
+  });
+
   it("recusa ficha de outra versão ao abrir os detalhes", async () => {
     const versao = "0123456789abcdef0123456789abcdef";
     const atualizacao = {
@@ -646,6 +686,54 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     fireEvent.click(await screen.findByTestId("btn-ver-detalhes-1001"));
     expect(await screen.findByText(/ficha e o painel são de versões diferentes/i)).toBeVisible();
     expect(screen.queryByTestId("funil-financeiro-container")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    {
+      situacao: "a versão ainda está servida",
+      lista: { ok: true, json: async () => ({ versoesDados: ["0123456789abcdef0123456789abcdef"] }) },
+      orientacao: /Falha ao carregar obra 1001/,
+    },
+    {
+      situacao: "a lista confirma que a versão foi retirada",
+      lista: { ok: true, json: async () => ({ versoesDados: [] }) },
+      orientacao: /versão do painel não está mais disponível.*recarregue/i,
+    },
+    {
+      situacao: "a lista atual está indisponível",
+      lista: { ok: false, status: 503, json: async () => ({}) },
+      orientacao: /Falha ao carregar obra 1001/,
+    },
+  ])("orienta a pessoa se a ficha falhar e $situacao", async ({ lista, orientacao }) => {
+    const versao = "0123456789abcdef0123456789abcdef";
+    const atualizacao = {
+      versaoDados: versao, concluidaEm: "2026-11-18T14:00:00Z",
+      dataReferenciaPagamentos: "2025-12-31", inicioConsultas: "2026-11-16T12:00:00Z",
+      fimConsultas: "2026-11-18T13:00:00Z", consultas: "concluidas", validacoes: "aprovadas",
+      coberturaHistorica: "nao_verificada", limitacoesConhecidas: [],
+    };
+    const fetchMock = vi.fn((input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.endsWith("atual.json")) {
+        return Promise.resolve({ ok: true, json: async () => ({ versaoDados: versao, caminho: `versoes/${versao}` }) });
+      }
+      if (url.endsWith("versoes-servidas.json")) return Promise.resolve(lista);
+      if (url.includes("obras/1001.json")) return Promise.resolve({ ok: false, status: 404 });
+      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
+        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao } });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    renderApp(<App />);
+    fireEvent.click(await screen.findByTestId("tab-tabela"));
+    fireEvent.click(screen.getByTestId("btn-ver-detalhes-1001"));
+
+    expect(await screen.findByTestId("ficha-limpa-erro")).toHaveTextContent(orientacao);
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining("/data/versoes-servidas.json"),
+      expect.objectContaining({ cache: "no-store" })
+    );
   });
 
   it("renderiza o cabeçalho comparativo compacto com territórios, valor alocado, recursos sem localização, atualização e valores acumulados", async () => {
