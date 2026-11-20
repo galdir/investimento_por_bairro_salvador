@@ -206,7 +206,7 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
         : "bg-slate-50/70 border-slate-200 hover:bg-slate-100/80 hover:border-slate-300"
         }`}
     >
-      <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1.45fr)_minmax(108px,0.75fr)_minmax(130px,1fr)] items-start gap-2.5 sm:gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1.8fr)_minmax(96px,0.65fr)_minmax(124px,0.9fr)] items-start gap-2.5 sm:gap-3">
         {/* Coluna 1: Território (nome, selos e sublinha de metadados) */}
         <div className="min-w-0">
           <button
@@ -260,8 +260,8 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
             </div>
           )}
 
-          <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[11px] text-slate-600">
-            <span className="tabular-nums">
+          <div className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-[11px] text-slate-600">
+            <span className="tabular-nums whitespace-nowrap">
               {formatNumber(populacao)} hab • {item.totalObras ?? 0}{" "}
               {(item.totalObras ?? 0) === 1 ? "obra" : "obras"}
             </span>
@@ -276,13 +276,13 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
         </div>
 
         {/* Coluna 2: Vulnerabilidade (cápsula fechada 0,00–1,00) */}
-        <div className="flex sm:flex-col items-center sm:items-stretch justify-between gap-2 sm:gap-1 pt-0.5">
+        <div className="flex sm:flex-col items-center sm:items-stretch justify-between gap-2 sm:gap-1.5 pt-0.5">
           {hasVuln ? (
             <div
               data-testid={`comparison-vuln-${testSlug}`}
-              className="flex sm:flex-col items-center sm:items-stretch gap-2 sm:gap-1 w-full"
+              className="flex sm:flex-col items-center sm:items-stretch gap-2 sm:gap-1.5 w-full"
             >
-              <div className="flex items-center justify-between gap-1 text-xs font-bold text-indigo-950 tabular-nums">
+              <div className="flex items-center justify-between gap-1 text-sm font-bold text-indigo-950 tabular-nums">
                 <span className="sm:hidden text-[11px] font-medium text-slate-500">Vuln.</span>
                 <span>{formatDecimal(vuln)}</span>
               </div>
@@ -315,7 +315,7 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
             <>
               <div
                 data-testid={`comparison-valor-${testSlug}`}
-                className="text-sm font-extrabold text-slate-900 tabular-nums"
+                className="text-sm font-bold text-slate-900 tabular-nums"
               >
                 <MonetaryValue value={invState.perCapita} compact={false} suffix=" / hab" />
               </div>
@@ -712,7 +712,7 @@ export const TerritoryComparisonList: React.FC<TerritoryComparisonListProps> = (
           <div role="rowgroup">
             <div
               role="row"
-              className="grid grid-cols-[minmax(0,1.45fr)_auto_auto] sm:grid-cols-[minmax(0,1.45fr)_minmax(108px,0.75fr)_minmax(130px,1fr)] items-center gap-2 sm:gap-3"
+              className="grid grid-cols-[minmax(0,1.8fr)_auto_auto] sm:grid-cols-[minmax(0,1.8fr)_minmax(96px,0.65fr)_minmax(124px,0.9fr)] items-center gap-2 sm:gap-3"
             >
               <div
                 role="columnheader"
