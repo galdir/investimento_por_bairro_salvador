@@ -5041,5 +5041,155 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       fitBoundsSpy.mockRestore();
       setViewSpy.mockRestore();
     });
+
+    it("abre em Todos os mandatos (2017–2028), ordena seletor em ordem decrescente e filtra 2017-2020 sem duplicação em Todos", async () => {
+      const indexTriMandato = {
+        ...mockIndexData,
+        metadata: {
+          ...mockIndexData.metadata,
+          // Ordem crescente proposital para validar ordenação decrescente na UI e rótulo dinâmico
+          mandatosDisponiveis: ["2017-2020", "2021–2024", "2025-2028", "2017-2020"],
+        },
+        prefeituras_bairro: [
+          {
+            ...mockIndexData.prefeituras_bairro[0],
+            valorTotal: 2000000.0,
+            valorPago: 1500000.0,
+            totalObras: 1,
+          },
+          {
+            ...mockIndexData.prefeituras_bairro[1],
+            valorTotal: 3000000.0,
+            valorPago: 3000000.0,
+            totalObras: 1,
+          },
+          {
+            ...mockIndexData.prefeituras_bairro[2],
+            valorTotal: 5000000.0,
+            valorPago: 1000000.0,
+            totalObras: 1,
+          },
+        ],
+        obras: [
+          {
+            id: 7001,
+            unidadeGestora: "SUCOP",
+            numeroContrato: "001/2018",
+            objeto: "Contenção exclusiva 2017-2020 na Pituba",
+            valorOriginal: 2000000.0,
+            valorContratualVigente: 2000000.0,
+            valorEmpenhado: 2000000.0,
+            valorLiquidado: 2000000.0,
+            valorPago: 1500000.0,
+            percentualExecutado: 100.0,
+            situacao: "Concluído",
+            credor: "EMPRESA A",
+            cnpj: "11.111.111/0001-11",
+            ano: 2018,
+            mandatos: ["2017-2020"],
+            tema: "Encostas e Contenção",
+            nivel: "Bairro",
+            bairro: "Pituba",
+            prefeituraBairro: "Barra/Pituba",
+            latitude: -13.005,
+            longitude: -38.459,
+            semaforo: { status: "VERDE", motivo: "No prazo" },
+          },
+          {
+            id: 7002,
+            unidadeGestora: "SEINFRA",
+            numeroContrato: "002/2020",
+            objeto: "Drenagem compartilhada 2017-2020 e 2021-2024 na Liberdade",
+            valorOriginal: 3000000.0,
+            valorContratualVigente: 3000000.0,
+            valorEmpenhado: 3000000.0,
+            valorLiquidado: 3000000.0,
+            valorPago: 3000000.0,
+            percentualExecutado: 100.0,
+            situacao: "Concluído",
+            credor: "EMPRESA B",
+            cnpj: "22.222.222/0001-22",
+            ano: 2020,
+            mandatos: ["2017-2020", "2021-2024"],
+            tema: "Mobilidade, Pavimentação e Drenagem",
+            nivel: "Bairro",
+            bairro: "Liberdade",
+            prefeituraBairro: "Liberdade/São Caetano",
+            latitude: -12.948,
+            longitude: -38.493,
+            semaforo: { status: "VERDE", motivo: "No prazo" },
+          },
+          {
+            id: 7003,
+            unidadeGestora: "SUCOP",
+            numeroContrato: "003/2025",
+            objeto: "Requalificação 2025-2028 em Paripe",
+            valorOriginal: 5000000.0,
+            valorContratualVigente: 5000000.0,
+            valorEmpenhado: 5000000.0,
+            valorLiquidado: 2000000.0,
+            valorPago: 1000000.0,
+            percentualExecutado: 40.0,
+            situacao: "Em Execução",
+            credor: "EMPRESA C",
+            cnpj: "33.333.333/0001-33",
+            ano: 2025,
+            mandatos: ["2025-2028"],
+            tema: "Praças, Esporte e Lazer",
+            nivel: "Bairro",
+            bairro: "Paripe",
+            prefeituraBairro: "Subúrbio/Ilhas",
+            latitude: -12.832,
+            longitude: -38.477,
+            semaforo: { status: "VERDE", motivo: "No prazo" },
+          },
+        ],
+      };
+
+      const fetchBase = globalThis.fetch;
+      globalThis.fetch = vi.fn((input: RequestInfo | URL, init?: RequestInit) => {
+        const url = String(input);
+        if (url.endsWith("index.json") || url.includes("index_2025.json")) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: () => Promise.resolve(indexTriMandato),
+          } as Response);
+        }
+        return init === undefined ? fetchBase(input) : fetchBase(input, init);
+      }) as typeof fetch;
+
+      render(<App />);
+
+      const selectMandato = (await screen.findByTestId("filtro-mandato")) as HTMLSelectElement;
+      expect(selectMandato.value).toBe("todos");
+      expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(
+        "Salvador • Todos os mandatos (2017–2028)"
+      );
+
+      // Seletor em ordem decrescente e sem duplicatas
+      const optionValues = Array.from(selectMandato.options).map((o) => o.value);
+      expect(optionValues).toEqual(["todos", "2025-2028", "2021-2024", "2017-2020"]);
+
+      // Em Todos: 3 obras distintas (1.5M + 3M + 1M = 5.5M pago), sem duplicar a obra 7002
+      expect(screen.getByTestId("tab-tabela")).toHaveTextContent("3");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveTextContent("R$ 5,50 mi");
+
+      // Filtra 2017-2020: 2 obras (7001 e 7002), pago = 4.5M
+      fireEvent.change(selectMandato, { target: { value: "2017-2020" } });
+      expect(screen.getByTestId("header-subtitulo")).toHaveTextContent("Mandato 2017–2020");
+      expect(screen.getByTestId("tab-tabela")).toHaveTextContent("2");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveTextContent("R$ 4,50 mi");
+
+      // Filtra 2021-2024: 1 obra compartilhada (7002), pago = 3M
+      fireEvent.change(selectMandato, { target: { value: "2021-2024" } });
+      expect(screen.getByTestId("tab-tabela")).toHaveTextContent("1");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveTextContent("R$ 3 mi");
+
+      // Retorna para Todos: volta para 3 obras e 5.5M
+      fireEvent.change(selectMandato, { target: { value: "todos" } });
+      expect(screen.getByTestId("tab-tabela")).toHaveTextContent("3");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveTextContent("R$ 5,50 mi");
+    });
   });
 });

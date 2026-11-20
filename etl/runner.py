@@ -587,10 +587,17 @@ def _executar_pipeline(
 
             # Versões anteriores a esta coleta não registravam a procedência do grid.
             # Nesse caso, reconsultar os mandatos para recuperá-la antes do reuso.
+            # Além disso, só reutiliza um mandato encerrado se ele já constar como
+            # efetivamente consolidado nos metadados (mandatosDisponiveis) do índice anterior.
+            existing_mandatos_meta = {
+                str(m_meta).replace("–", "-").replace("—", "-").strip()
+                for m_meta in ((existing_index.get("metadata") or {}).get("mandatosDisponiveis") or [])
+                if str(m_meta).strip()
+            }
             if not full_refresh and all(o.get("janelasGrid") for o in existing_obras):
                 for m in mandatos_lista:
                     info = MANDATOS_MUNICIPAIS.get(m)
-                    if info and info["fim"] < year:
+                    if info and info["fim"] < year and m in existing_mandatos_meta:
                         has_obras_mandato = any(m in o.get("mandatos", []) for o in existing_obras)
                         if has_obras_mandato:
                             closed_mandates_reused.add(m)

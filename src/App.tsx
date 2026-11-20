@@ -3,6 +3,7 @@ import { FichaLimpaModal } from "./components/FichaLimpaModal";
 import { HeaderKpis } from "./components/HeaderKpis";
 import { InteractiveMap } from "./components/InteractiveMap";
 import { NotaMetodologicaModal } from "./components/NotaMetodologicaModal";
+import { FALLBACK_MANDATOS, ordenarMandatosDecrescente } from "./utils/mandatos";
 import {
   ComparisonSortColumn,
   TerritoryComparisonList,
@@ -342,18 +343,18 @@ export const App: React.FC = () => {
 
   // Lista de Mandatos Municipais disponíveis
   const availableMandatos = useMemo(() => {
-    if (!indexData) return ["2025-2028", "2021-2024"];
+    if (!indexData) return [...FALLBACK_MANDATOS];
     if (indexData.metadata.mandatosDisponiveis && indexData.metadata.mandatosDisponiveis.length > 0) {
-      return indexData.metadata.mandatosDisponiveis;
+      return ordenarMandatosDecrescente(indexData.metadata.mandatosDisponiveis);
     }
     const mandatosSet = new Set<string>();
     indexData.obras.forEach((o) => {
       (o.mandatos || []).forEach((m) => mandatosSet.add(m));
     });
     if (mandatosSet.size === 0) {
-      return ["2025-2028", "2021-2024"];
+      return [...FALLBACK_MANDATOS];
     }
-    return Array.from(mandatosSet).sort().reverse();
+    return ordenarMandatosDecrescente(Array.from(mandatosSet));
   }, [indexData]);
 
   // Lista de órgãos contratantes disponíveis
@@ -902,6 +903,7 @@ export const App: React.FC = () => {
         atualizacao={indexData.metadata.atualizacao}
         metricType={filters.metricType}
         mandato={filters.mandato}
+        mandatosDisponiveis={availableMandatos}
         activeTab={activeTab}
         onSelectComparacao={handleBackToComparacao}
         onSelectTabela={handleOpenTabela}

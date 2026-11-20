@@ -83,18 +83,55 @@ def _eh_zero(valor: Any) -> bool:
     return parse_float(texto) == 0.0
 
 
+def _normalizar_mandato_label(valor: Any) -> str:
+    """Normaliza separadores (hífen, meia-risca, travessão) e espaços de um mandato."""
+    texto = str(valor or "").strip()
+    if not texto:
+        return ""
+    texto = re.sub(r"\s*[–—-]\s*", "-", texto)
+    return texto
+
+
+def _chave_ordenacao_mandato(mandato: str) -> tuple[int, int, str]:
+    """Retorna chave cronológica (ano_inicio, ano_fim, label) para ordenar mandatos."""
+    match = re.match(r"^(\d{4})-(\d{4})$", mandato)
+    if match:
+        return (int(match.group(1)), int(match.group(2)), mandato)
+    return (9999, 9999, mandato)
+
+
+def _ordenar_mandatos_normalizados(mandatos: Any) -> list[str]:
+    """Normaliza, deduplica e ordena cronologicamente uma coleção de mandatos."""
+    vistos: set[str] = set()
+    normalizados: list[str] = []
+    for item in mandatos or []:
+        norm = _normalizar_mandato_label(item)
+        if norm and norm not in vistos:
+            vistos.add(norm)
+            normalizados.append(norm)
+    normalizados.sort(key=_chave_ordenacao_mandato)
+    return normalizados
+
+
 def _classificar_coorte_mandato(mandatos: Any) -> str:
-    """Classifica uma Obra Pública em uma das três coortes mutuamente exclusivas."""
-    conjunto = set(mandatos or [])
-    tem_21 = "2021-2024" in conjunto
-    tem_25 = "2025-2028" in conjunto
-    if tem_21 and not tem_25:
-        return "2021-2024 exclusivo"
-    if tem_21 and tem_25:
-        return "2021-2024 ∩ 2025-2028"
-    if tem_25 and not tem_21:
-        return "2025-2028 exclusivo"
-    return "Sem mandato definido"
+    """Classifica uma Obra Pública dinamicamente na sua coorte mutuamente exclusiva de mandatos."""
+    ordenados = _ordenar_mandatos_normalizados(mandatos)
+    if not ordenados:
+        return "Sem mandato definido"
+    if len(ordenados) == 1:
+        return f"{ordenados[0]} exclusivo"
+    return " ∩ ".join(ordenados)
+
+
+def _chave_ordenacao_coorte(coorte: str) -> tuple[int, int, tuple[tuple[int, int, str], ...], str]:
+    """Ordena coortes por cardinalidade crescente e ordem cronológica (individuais -> pares -> tripla)."""
+    if coorte == "Sem mandato definido":
+        return (1, 999, (), coorte)
+    if coorte.endswith(" exclusivo"):
+        mandato = coorte[: -len(" exclusivo")].strip()
+        return (0, 1, (_chave_ordenacao_mandato(mandato),), coorte)
+    partes = [p.strip() for p in coorte.split("∩") if p.strip()]
+    return (0, len(partes), tuple(_chave_ordenacao_mandato(p) for p in partes), coorte)
 
 
 def _resumo_univariado(valores: list[float]) -> dict[str, float | int | None]:
@@ -624,18 +661,18 @@ def _construir_secao_2(
     ]
 
     # 2.5 Coortes mutuamente exclusivas de Mandato Municipal + Datas exatas
-    coortes_ordem = [
-        "2021-2024 exclusivo",
-        "2021-2024 ∩ 2025-2028",
-        "2025-2028 exclusivo",
-        "Sem mandato definido",
-    ]
-    coortes_count: dict[str, int] = {k: 0 for k in coortes_ordem}
-    coortes_valor: dict[str, float] = {k: 0.0 for k in coortes_ordem}
+    coortes_count: dict[str, int] = {}
+    coortes_valor: dict[str, float] = {}
     for o in obras:
         coorte = _classificar_coorte_mandato(o.get("mandatos"))
-        coortes_count[coorte] += 1
-        coortes_valor[coorte] += parse_float(o.get("valorContratualVigente"))
+        coortes_count[coorte] = coortes_count.get(coorte, 0) + 1
+        coortes_valor[coorte] = coortes_valor.get(coorte, 0.0) + parse_float(o.get("valorContratualVigente"))
+
+    coortes_ordem = sorted(
+        (c for c, cnt in coortes_count.items() if cnt > 0),
+        key=_chave_ordenacao_coorte,
+    )
+    coortes_count = {c: coortes_count[c] for c in coortes_ordem}
 
     linhas_coortes = [
         "| Coorte Mutuamente Exclusiva | Contratos | % Contratos | Valor Contratual Vigente |",
@@ -643,8 +680,6 @@ def _construir_secao_2(
     ]
     for c in coortes_ordem:
         cnt = coortes_count[c]
-        if cnt == 0 and c == "Sem mandato definido":
-            continue
         pct = cnt / len(obras) * 100.0 if obras else 0.0
         linhas_coortes.append(f"| {c} | {cnt} | {_fmt_num(pct)}% | {_fmt_brl(coortes_valor[c])} |")
 

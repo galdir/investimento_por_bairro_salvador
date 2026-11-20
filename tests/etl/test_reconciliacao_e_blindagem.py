@@ -633,7 +633,7 @@ def test_run_pipeline_full_refresh_ignora_acervo_nao_validado_e_sincroniza_alias
     obra_m2["id"] = "volatile-m2"
     obra_m2["percentualExecutado"] = 40.0
 
-    mock_grid = MagicMock(side_effect=[[obra_m1], [obra_m2]])
+    mock_grid = MagicMock(side_effect=[[], [obra_m1], [obra_m2]])
     mock_detalhes = MagicMock(return_value={})
 
     totalizador_full_refresh = {
@@ -660,7 +660,7 @@ def test_run_pipeline_full_refresh_ignora_acervo_nao_validado_e_sincroniza_alias
         result = run_pipeline(output_dir=tmp_path, year=2025, full_refresh=True)
 
     assert result["success"] is True
-    assert mock_grid.call_count == 2
+    assert mock_grid.call_count == 3
     assert mock_detalhes.call_count == 1
     assert result["total_obras"] == 1
 

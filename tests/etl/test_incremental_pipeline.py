@@ -92,7 +92,7 @@ def test_incremental_mode_nao_reusa_mandato_sem_versao_validada(tmp_path: Path, 
 
     assert result["success"] is True
 
-    assert mock_grid.call_count == 2
+    assert mock_grid.call_count == 3
 
     # A versão gerada contém a obra consultada, sem importar a referência antiga não validada.
     with open(Path(result["versao_dir"]) / "index_2025.json", "r", encoding="utf-8") as f:
@@ -250,8 +250,8 @@ def test_full_refresh_forces_requery_of_all_mandates_and_details(tmp_path: Path,
         result = run_pipeline(output_dir=tmp_path, year=2025, full_refresh=True)
 
     assert result["success"] is True
-    # full_refresh=True deve consultar AMBOS os mandatos (2021-2024 e 2025-2028)
-    assert mock_grid.call_count == 2
+    # full_refresh=True deve consultar TODOS os mandatos (2017-2020, 2021-2024 e 2025-2028)
+    assert mock_grid.call_count == 3
     # e deve consultar os detalhes mesmo com o arquivo já existente e indicadores idênticos
     assert mock_detalhes.call_count >= 1
 
@@ -279,3 +279,90 @@ def test_cli_accepts_full_refresh_flag(tmp_path: Path, monkeypatch: pytest.Monke
         assert mock_pipeline.call_count == 1
         _, kwargs = mock_pipeline.call_args
         assert kwargs.get("full_refresh") is True
+
+
+def test_incremental_mode_nao_pula_mandato_ausente_dos_metadados_mesmo_com_contrato_compartilhado(
+    tmp_path: Path, portal_simulado
+):
+    """Mandato encerrado (2017-2020) não pode ser pulado antes da primeira coleta só por haver obra compartilhada."""
+    from etl.runner import run_pipeline
+
+    obra_compartilhada = {
+        "id": 2001,
+        "cdUnidadeGestora": 2401,
+        "dsUnidadeGestora": "SUPERINTENDENCIA DE OBRAS PUBLICAS",
+        "sgOrgao": "SUCOP",
+        "nuContratoSigef": "010/2020",
+        "dsObjeto": "Drenagem na Pituba",
+        "vlOriginal": 3000000.0,
+        "vlAtualizado": 3000000.0,
+        "dtInicioVigencia": "2020-03-01T00:00:00.000Z",
+        "dtTerminoVigenciaAtualizado": "2022-06-30T00:00:00.000Z",
+        "percentualExecutado": 100.0,
+        "dsSituacao": "Concluído",
+        "nmCredor": "CONSTRUTORA SALVADOR LTDA",
+        "nuDocumentoCredor": "12.345.678/0001-90",
+    }
+    obra_ativa = {
+        "id": 2002,
+        "cdUnidadeGestora": 2401,
+        "dsUnidadeGestora": "SUPERINTENDENCIA DE OBRAS PUBLICAS",
+        "sgOrgao": "SUCOP",
+        "nuContratoSigef": "020/2025",
+        "dsObjeto": "Requalificação da Orla da Pituba",
+        "vlOriginal": 5000000.0,
+        "vlAtualizado": 5000000.0,
+        "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+        "dtTerminoVigenciaAtualizado": "2027-12-31T00:00:00.000Z",
+        "percentualExecutado": 50.0,
+        "dsSituacao": "Em Execução",
+        "nmCredor": "CONSTRUTORA SALVADOR LTDA",
+        "nuDocumentoCredor": "12.345.678/0001-90",
+    }
+
+    def fake_grid_inicial(year=2025, payload_customizado=None, **kwargs):
+        inicio = (payload_customizado or {}).get("dataInicio", "")
+        if inicio.startswith("2021"):
+            return [obra_compartilhada]
+        return [obra_ativa]
+
+    # 1ª execução: apenas 2021-2024 e 2025-2028 (produz versão válida sem 2017-2020 nos metadados,
+    # mas com obra_compartilhada classificada com mandatos ["2017-2020", "2021-2024"])
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value=SAMPLE_TRANSPARENCIA_TOTALIZADOR),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", side_effect=fake_grid_inicial),
+    ):
+        r1 = run_pipeline(
+            output_dir=tmp_path,
+            year=2025,
+            mandatos=["2021-2024", "2025-2028"],
+            full_refresh=True,
+        )
+    assert r1["success"] is True
+
+    # 2ª execução incremental (sem especificar mandatos -> todos os 3):
+    # 2021-2024 pode ser reutilizado, mas 2017-2020 NÃO constava em mandatosDisponiveis e DEVE ser consultado!
+    mock_grid_2 = MagicMock(side_effect=lambda year=2025, payload_customizado=None, **kwargs: [obra_ativa] if (payload_customizado or {}).get("dataInicio", "").startswith("2025") else [obra_compartilhada])
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value=SAMPLE_TRANSPARENCIA_TOTALIZADOR),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", mock_grid_2),
+    ):
+        r2 = run_pipeline(output_dir=tmp_path, year=2025, full_refresh=False)
+
+    assert r2["success"] is True
+    inicios_consultados = [
+        call_item.kwargs["payload_customizado"]["dataInicio"][:4]
+        for call_item in mock_grid_2.call_args_list
+    ]
+    assert "2017" in inicios_consultados
+    assert "2025" in inicios_consultados
+    assert "2021" not in inicios_consultados
+
+    idx2 = json.loads((Path(r2["versao_dir"]) / "index_2025.json").read_text(encoding="utf-8"))
+    assert idx2["metadata"]["mandatosDisponiveis"] == ["2017-2020", "2021-2024", "2025-2028"]

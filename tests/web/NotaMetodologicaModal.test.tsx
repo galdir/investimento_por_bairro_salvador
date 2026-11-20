@@ -107,6 +107,22 @@ describe("Seam 1: Modal Nota Metodológica — Índice de Vulnerabilidade", () =
     expect(screen.getAllByText(/ADR-0005/i)).toHaveLength(1);
   });
 
+  it("documenta a cobertura 2017–2028, valores nominais sem deflacionamento e base territorial/censitária retroativa", () => {
+    render(<NotaMetodologicaModal isOpen={true} onClose={vi.fn()} />);
+
+    expect(screen.getByTestId("modal-nota-metodologica-titulo")).toHaveTextContent(
+      "Nota Metodológica — Índice de Vulnerabilidade"
+    );
+    expect(screen.getAllByText(/2017–2028/).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/2017–2020/).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/reais nominais/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/IPCA\/INCC/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/retroativ/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/32\.791\/2020/).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/ADR-0008/i)).toHaveLength(1);
+    expect(screen.getAllByText(/ADR-0005/i)).toHaveLength(1);
+  });
+
   it("fecha o modal ao clicar no botão fechar", () => {
     const onCloseMock = vi.fn();
     render(<NotaMetodologicaModal isOpen={true} onClose={onCloseMock} />);

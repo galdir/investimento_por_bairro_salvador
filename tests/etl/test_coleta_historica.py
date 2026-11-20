@@ -102,14 +102,14 @@ def test_conciliacao_controla_publicacao_e_corte_civil(tmp_path: Path, cenario: 
         opcao = {"consulta_pagamentos": consulta} if cenario.startswith("janelas_") or cenario in ("reprocessada", "origens_distintas", "origem_conflitante") else {}
         if cenario not in ("valida", "vazia", "sem_valor", "negativo", "negativo_sem_frente", "semelhantes", "saldo_zero", "reprocessada", "origens_distintas", "janelas_iguais"):
             grid.return_value = []
-            run_pipeline(tmp_path, full_refresh=True, data_referencia_pagamentos="2025-12-30", **opcao)
+            run_pipeline(tmp_path, mandatos=["2021-2024", "2025-2028"], full_refresh=True, data_referencia_pagamentos="2025-12-30", **opcao)
             anterior = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()}
             grid.return_value = SAMPLE_TRANSPARENCIA_GRID[:1]
             with pytest.raises((ValueError, OSError)):
-                run_pipeline(tmp_path, full_refresh=True, data_referencia_pagamentos="2025-12-31", **opcao)
+                run_pipeline(tmp_path, mandatos=["2021-2024", "2025-2028"], full_refresh=True, data_referencia_pagamentos="2025-12-31", **opcao)
             assert {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob("*") if p.is_file()} == anterior
             return
-        resultado = run_pipeline(tmp_path, full_refresh=True, data_referencia_pagamentos="2025-12-31", **opcao)
+        resultado = run_pipeline(tmp_path, mandatos=["2021-2024", "2025-2028"], full_refresh=True, data_referencia_pagamentos="2025-12-31", **opcao)
 
     ficha = json.loads((Path(resultado["versao_dir"]) / "obras/1001.json").read_text(encoding="utf-8"))
     if not cenario.startswith("janelas_") and cenario not in ("reprocessada", "origens_distintas"):
@@ -235,7 +235,7 @@ def test_janelas_do_grid_sobrevivem_ao_reuso_incremental(tmp_path: Path, legado:
         patch("etl.sources.transparencia.fetch_liquidacoes_obra", return_value=[]),
         patch("etl.sources.transparencia._post_transparencia", side_effect=portal),
     ):
-        primeira = run_pipeline(tmp_path, full_refresh=True)
+        primeira = run_pipeline(tmp_path, mandatos=["2021-2024", "2025-2028"], full_refresh=True)
         if legado:
             versao = Path(primeira["versao_dir"])
             manifesto_path = versao / "manifesto.json"
@@ -252,7 +252,7 @@ def test_janelas_do_grid_sobrevivem_ao_reuso_incremental(tmp_path: Path, legado:
         payloads.clear()
         grid.return_value = [encerrada, futura] if legado else [futura]
         valor[0] = 2
-        segunda = run_pipeline(tmp_path)
+        segunda = run_pipeline(tmp_path, mandatos=["2021-2024", "2025-2028"])
         assert grid.call_count == (2 if legado else 1)
         indice_novo = json.loads((Path(segunda["versao_dir"]) / "index_2025.json").read_text(encoding="utf-8"))
         assert {obra["numeroContrato"]: obra["valorPago"] for obra in indice_novo["obras"]} == {"001/2024": 2, "002/2025": 2}

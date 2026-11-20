@@ -2,6 +2,7 @@ import React from "react";
 import { GlobalKpis, IndexData, MetricType } from "../types";
 import { formatCurrency, formatDate, formatNumber } from "../utils/formatters";
 import { hasNumericPayment } from "../utils/territory";
+import { resolverIntervaloTodosMandatos } from "../utils/mandatos";
 import { MonetaryValue } from "./MonetaryValue";
 
 function formatarInstanteSalvador(valor: string): string {
@@ -62,9 +63,13 @@ interface HeaderKpisProps {
    */
   metricType?: MetricType;
   /**
-   * Mandato Municipal selecionado nos filtros (ex: '2025-2028', '2021-2024' ou 'todos').
+   * Mandato Municipal selecionado nos filtros (ex: '2025-2028', '2021-2024', '2017-2020' ou 'todos').
    */
   mandato?: string;
+  /**
+   * Lista de Mandatos Municipais disponíveis nos dados para compor o intervalo dinâmico de Todos os mandatos.
+   */
+  mandatosDisponiveis?: string[];
   /**
    * Aba principal ativa ('comparacao' ou 'tabela').
    */
@@ -104,6 +109,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
   atualizacao,
   metricType = "executado",
   mandato,
+  mandatosDisponiveis,
   activeTab = "comparacao",
   onSelectComparacao,
   onSelectTabela,
@@ -122,10 +128,11 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
   const valorAlocadoExibido =
     valorAlocadoTerritorial !== undefined ? valorAlocadoTerritorial : kpis.valorTotal;
 
+  const intervaloTodosMandatos = resolverIntervaloTodosMandatos(mandatosDisponiveis);
   const mandatoLabel =
     mandato && mandato !== "todos"
       ? `Mandato ${mandato.replace("-", "–")}`
-      : "Todos os mandatos (2021–2028)";
+      : `Todos os mandatos (${intervaloTodosMandatos})`;
 
   const dataAtualizacao = !atualizacao && generatedAt ? formatDate(generatedAt) : null;
 

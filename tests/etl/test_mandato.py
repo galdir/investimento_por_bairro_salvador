@@ -16,8 +16,24 @@ from etl.domain.mandato import (
 from etl.sources.transparencia import fetch_grid_detalhada
 
 
+def test_mandatos_municipais_inclui_tres_ciclos_em_ordem_cronologica():
+    """Valida o catálogo canônico dos três Mandatos Municipais em ordem cronológica crescente."""
+    assert list(MANDATOS_MUNICIPAIS.keys()) == ["2017-2020", "2021-2024", "2025-2028"]
+    assert MANDATOS_MUNICIPAIS["2017-2020"]["inicio"] == 2017
+    assert MANDATOS_MUNICIPAIS["2017-2020"]["fim"] == 2020
+    assert MANDATOS_MUNICIPAIS["2017-2020"]["data_inicio"].startswith("2017-01-01")
+    assert MANDATOS_MUNICIPAIS["2017-2020"]["data_fim"].startswith("2020-12-31")
+
+
 def test_classificar_mandatos_obra_sobreposicao():
     """Valida a atribuição de mandatos municipais por sobreposição de vigência."""
+    # Obra iniciada e encerrada no mandato 2017-2020
+    obra_2017 = {
+        "dtInicioVigencia": "2018-05-10T00:00:00.000Z",
+        "dtTerminoVigenciaAtualizado": "2020-11-30T00:00:00.000Z",
+    }
+    assert classificar_mandatos_obra(obra_2017) == ["2017-2020"]
+
     # Obra iniciada e encerrada no mandato 2021-2024
     obra_passada = {
         "dtInicioVigencia": "2022-03-01T00:00:00.000Z",
@@ -32,6 +48,13 @@ def test_classificar_mandatos_obra_sobreposicao():
     }
     assert classificar_mandatos_obra(obra_recente) == ["2025-2028"]
 
+    # Obra compartilhada 2017-2020 e 2021-2024
+    obra_2017_2021 = {
+        "dtInicioVigencia": "2020-03-01T00:00:00.000Z",
+        "dtTerminoVigenciaAtualizado": "2022-06-30T00:00:00.000Z",
+    }
+    assert classificar_mandatos_obra(obra_2017_2021) == ["2017-2020", "2021-2024"]
+
     # Obra plurianual iniciada em 2023/2024 com término em 2026/2027 (atravessa dois mandatos)
     obra_plurianual = {
         "dtInicioVigencia": "2024-01-10T00:00:00.000Z",
@@ -39,9 +62,21 @@ def test_classificar_mandatos_obra_sobreposicao():
     }
     assert classificar_mandatos_obra(obra_plurianual) == ["2021-2024", "2025-2028"]
 
+    # Obra tri-mandato atravessando 2017-2028
+    obra_tri_mandato = {
+        "dtInicioVigencia": "2019-06-01T00:00:00.000Z",
+        "dtTerminoVigenciaAtualizado": "2025-08-15T00:00:00.000Z",
+    }
+    assert classificar_mandatos_obra(obra_tri_mandato) == ["2017-2020", "2021-2024", "2025-2028"]
+
 
 def test_classificar_mandatos_obra_fallback_contrato_ou_ano():
     """Valida o fallback para extração de ano a partir do nuContratoSigef quando as datas estão ausentes."""
+    obra_2019_sem_datas = {
+        "nuContratoSigef": "012/2019",
+    }
+    assert classificar_mandatos_obra(obra_2019_sem_datas) == ["2017-2020"]
+
     obra_sem_datas = {
         "nuContratoSigef": "045/2023",
     }

@@ -383,6 +383,13 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
               <strong>Ficha Limpa da Obra</strong>, contratos consolidados exibem a data própria de consolidação, enquanto o cabeçalho
               principal preserva a data de referência dos pagamentos da rodada vigente.
             </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              O painel cobre os três <strong>Mandatos Municipais</strong> consecutivos (<code>2017–2020</code>,{" "}
+              <code>2021–2024</code> e <code>2025–2028</code>, série histórica <code>2017–2028</code>). Todos os montantes são exibidos
+              em <strong>reais nominais</strong> exatamente como publicados na fonte oficial, sem deflacionamento ou correção por índices
+              econômicos (IPCA/INCC). A malha vigente de <strong>Bairros Oficiais</strong> (Decreto nº 32.791/2020) e os indicadores
+              demográficos e de vulnerabilidade do Censo 2022 são aplicados retroativamente ao período <code>2017–2020</code>.
+            </p>
           </section>
         </div>
 

@@ -529,3 +529,111 @@ def test_eda_agnostica_acervo_real_deterministico_e_consistente(tmp_path: Path) 
     assert res_1["clusters_bairros"] == 4
     assert res_1["clusters_obras"] == 4
 
+
+def test_eda_agnostica_coortes_mandato_2017_2028_dinamicas(tmp_path: Path) -> None:
+    """Valida normalização, rótulos dinâmicos, ordenação e omissão de coortes vazias para 2017–2028."""
+    from etl.eda import _classificar_coorte_mandato, executar_eda_agnostica
+
+    # Normalização de separadores e duplicatas
+    assert _classificar_coorte_mandato(["2017–2020"]) == "2017-2020 exclusivo"
+    assert _classificar_coorte_mandato(["2021-2024", "2017–2020", "2021-2024"]) == "2017-2020 ∩ 2021-2024"
+    assert _classificar_coorte_mandato(["2025-2028", "2017-2020", "2021-2024"]) == "2017-2020 ∩ 2021-2024 ∩ 2025-2028"
+    assert _classificar_coorte_mandato([]) == "Sem mandato definido"
+
+    data_dir = tmp_path / "data"
+    (data_dir / "obras").mkdir(parents=True)
+    (data_dir / "geo").mkdir(parents=True)
+    censo_path = tmp_path / "censo.json"
+
+    censo = {
+        "Pituba": {
+            "nome": "Pituba",
+            "populacao_censo_2022": 60000,
+            "pct_esgoto_inadequado": 2.0,
+            "pct_agua_inadequada": 1.0,
+            "pct_analfabetismo_15mais": 1.5,
+        }
+    }
+    censo_path.write_text(json.dumps(censo), encoding="utf-8")
+
+    bairros_geo = {
+        "type": "FeatureCollection",
+        "features": [{"type": "Feature", "properties": {"Bairro": "Pituba"}, "geometry": None}],
+    }
+    pref_geo = {
+        "type": "FeatureCollection",
+        "features": [{"type": "Feature", "properties": {"Prefeitura": "Barra/Pituba"}, "geometry": None}],
+    }
+    (data_dir / "geo" / "bairros.geojson").write_text(json.dumps(bairros_geo), encoding="utf-8")
+    (data_dir / "geo" / "prefeituras_bairro.geojson").write_text(json.dumps(pref_geo), encoding="utf-8")
+
+    def _obra(oid: int, mandatos: list[str], valor: float) -> dict:
+        return {
+            "id": oid,
+            "unidadeGestora": "SUCOP",
+            "numeroContrato": f"{oid:03d}/2020",
+            "objeto": f"Obra {oid}",
+            "credor": f"Empresa {oid}",
+            "cnpj": f"11.111.111/000{oid}-00",
+            "valorOriginal": valor,
+            "valorContratualVigente": valor,
+            "variacaoContratualAcumulada": 0.0,
+            "valorEmpenhado": valor,
+            "valorLiquidado": valor,
+            "valorPago": valor,
+            "percentualExecutado": 100.0,
+            "situacao": "Concluído",
+            "semaforo": {"status": "VERDE", "motivo": "No prazo"},
+            "tema": "Mobilidade, Pavimentação e Drenagem",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "mandatos": mandatos,
+            "dtInicioVigencia": "2018-01-01T00:00:00Z",
+            "dtTerminoVigenciaAtualizado": "2020-12-31T00:00:00Z",
+        }
+
+    obras = [
+        _obra(1, ["2017–2020"], 100000.0),
+        _obra(2, ["2021-2024", "2017-2020"], 200000.0),
+        _obra(3, ["2025-2028", "2017-2020", "2021-2024"], 300000.0),
+        _obra(4, ["2025-2028"], 400000.0),
+    ]
+    index_obj = {
+        "metadata": {"generatedAt": "2026-01-01T00:00:00Z", "mandatosDisponiveis": ["2017-2020", "2021-2024", "2025-2028"]},
+        "kpis_globais": {"totalObras": 4, "valorTotal": 1000000.0, "totalLiquidado": 1000000.0, "totalPago": 1000000.0},
+        "bairros": [{"nome": "Pituba", "prefeituraBairro": "Barra/Pituba", "populacao": 60000, "indice_vulnerabilidade": 0.1, "isZonaEspecialNaoResidencial": False, "isCentralidadeMetropolitana": False, "totalObras": 4, "valorTotal": 1000000.0}],
+        "prefeituras_bairro": [{"nome": "Barra/Pituba", "populacao": 60000, "indice_vulnerabilidade": 0.1, "totalObras": 4, "valorTotal": 1000000.0}],
+        "concentracao_empreiteiras": [{"razaoSocial": f"Empresa {i}", "cnpj": f"11.111.111/000{i}-00", "totalObras": 1, "valorTotalContratado": float(i * 100000)} for i in range(1, 5)],
+        "obras": obras,
+    }
+    (data_dir / "index.json").write_text(json.dumps(index_obj), encoding="utf-8")
+    for o in obras:
+        ficha = {
+            "id": o["id"],
+            "unidadeGestora": o["unidadeGestora"],
+            "numeroContrato": o["numeroContrato"],
+            "funilFinanceiro": {"valorOriginal": o["valorOriginal"], "valorContratualVigente": o["valorContratualVigente"], "valorEmpenhado": o["valorEmpenhado"], "valorLiquidado": o["valorLiquidado"], "valorPago": o["valorPago"], "percentualExecutado": 100.0},
+            "vigencia": {"dataInicio": o["dtInicioVigencia"], "dataTerminoAtualizado": o["dtTerminoVigenciaAtualizado"]},
+            "aditivos": [{"tipo": "Valor", "valor": "10.000,00", "dataPublicacao": "2019-06-01"}] if o["id"] == 1 else [],
+            "empenhos": [{"valor": "100.000,00", "data": "2019-01-01"}],
+            "liquidacoes": [{"valLiqLiquidacao": "100.000,00", "dataLiquidacao": "2019-02-01"}],
+            "pagamentos": [{"pago": "100.000,00", "dataPagamento": "2019-03-01"}],
+        }
+        (data_dir / "obras" / f"{o['id']}.json").write_text(json.dumps(ficha), encoding="utf-8")
+
+    res = executar_eda_agnostica(data_dir=data_dir, censo_path=censo_path)
+    coortes = res["coortes_mandato"]
+    # Apenas coortes com contagem > 0 devem estar no dicionário, ordenadas por cardinalidade e ordem cronológica
+    assert list(coortes.keys()) == [
+        "2017-2020 exclusivo",
+        "2025-2028 exclusivo",
+        "2017-2020 ∩ 2021-2024",
+        "2017-2020 ∩ 2021-2024 ∩ 2025-2028",
+    ]
+    assert "Sem mandato definido" not in coortes
+    assert "2021-2024 exclusivo" not in coortes
+    assert "2021-2024 exclusivo" not in res["report_markdown"]
+    assert "Sem mandato definido" not in res["report_markdown"]
+    assert res["coortes_mandato"]["2017-2020 exclusivo"] == 1
+

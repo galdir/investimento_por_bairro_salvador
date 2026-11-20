@@ -153,7 +153,7 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path, port
     # Verifica metadados de mandatos municipais
     metadata = index_data.get("metadata", {})
     assert "mandatosDisponiveis" in metadata
-    assert metadata["mandatosDisponiveis"] == ["2021-2024", "2025-2028"]
+    assert metadata["mandatosDisponiveis"] == ["2017-2020", "2021-2024", "2025-2028"]
 
     # Verifica estrutura dos KPIs Globais incluindo transparência opaca
     kpis = index_data.get("kpis_globais", {})

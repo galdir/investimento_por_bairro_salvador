@@ -57,7 +57,8 @@ Enquanto não houver `atual.json`, o painel continua lendo o acervo legado na ra
   - Indicador de **Transparência Opaca** no topo do painel, destacando o volume financeiro retido em contratos de **Escopo Cidade (Não-Localizado)**.
 - **Camada B (Semáforo da Obra e Temas):**
   - Pinos georreferenciados no mapa (com dispersão geométrica anti-sobreposição para obras no mesmo centróide) e tabela detalhada auditável.
-  - Filtros combinados por Ano, Órgão/Unidade Gestora, **Tema da Obra**, **Semáforo da Obra**, busca textual (objeto, razão social ou CNPJ) e alternância de métrica financeira (**Valor Contratual Vigente** vs. **Valor Executado / Pago**).
+  - Filtros combinados por **Mandato Municipal** (`2017–2020`, `2021–2024` e `2025–2028`, série `2017–2028`), Órgão/Unidade Gestora, **Tema da Obra**, **Semáforo da Obra**, busca textual (objeto, razão social ou CNPJ) e alternância de métrica financeira (**Valor Contratual Vigente** vs. **Valor Executado / Pago**).
+  - Todos os valores financeiros são apresentados em **reais nominais** (sem deflacionamento por IPCA/INCC) e a malha vigente de **Bairros Oficiais** (Decreto nº 32.791/2020) e os dados do Censo 2022 são aplicados retroativamente ao período `2017–2020`.
 - **Camada C (Ficha Limpa da Obra sob Demanda):**
   - Modal detalhado aberto ao clicar em qualquer pino no mapa ou linha na tabela, exibindo o objeto completo, número do contrato SIGEF, processo administrativo, edição do Diário Oficial do Município (`nuDom`), vigência original vs. atualizada, **Funil de Execução Financeira** (`Original -> Vigente -> Empenhado -> Liquidado -> Pago` comparado à execução física), histórico de **Aditivos Contratuais**, dotação orçamentária e resumo de concentração da empreiteira na cidade (com filtro em 1 clique).
 

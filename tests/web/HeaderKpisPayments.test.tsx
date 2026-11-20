@@ -40,3 +40,70 @@ it("mantém a Data de Referência dos Pagamentos da rodada vigente no cabeçalho
   expect(screen.getByText(/Referência dos pagamentos: 15\/06\/2026/i)).toBeInTheDocument();
   expect(screen.queryByText(/Pagamentos consolidados em/i)).not.toBeInTheDocument();
 });
+
+it("calcula dinamicamente o rótulo de Todos os mandatos com fallback 2017–2028", () => {
+  const kpisBase = {
+    totalObras: 10,
+    valorTotal: 1000,
+    totalAtivas: 2,
+    totalEmpenhado: 800,
+    totalLiquidado: 600,
+    totalPago: 500,
+    investimentoPorHabitanteCidade: 1,
+  };
+
+  const { rerender } = render(
+    <HeaderKpis metricType="executado" mandato="todos" kpis={kpisBase} />
+  );
+  expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(
+    "Salvador • Todos os mandatos (2017–2028)"
+  );
+
+  rerender(
+    <HeaderKpis
+      metricType="executado"
+      mandato="todos"
+      mandatosDisponiveis={[]}
+      kpis={kpisBase}
+    />
+  );
+  expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(
+    "Salvador • Todos os mandatos (2017–2028)"
+  );
+
+  rerender(
+    <HeaderKpis
+      metricType="executado"
+      mandato="todos"
+      mandatosDisponiveis={["invalido"]}
+      kpis={kpisBase}
+    />
+  );
+  expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(
+    "Salvador • Todos os mandatos (2017–2028)"
+  );
+
+  rerender(
+    <HeaderKpis
+      metricType="executado"
+      mandato="todos"
+      mandatosDisponiveis={["2017-2020", "2021–2024", "2025-2028"]}
+      kpis={kpisBase}
+    />
+  );
+  expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(
+    "Salvador • Todos os mandatos (2017–2028)"
+  );
+
+  rerender(
+    <HeaderKpis
+      metricType="executado"
+      mandato="todos"
+      mandatosDisponiveis={["2025-2028", "2021-2024", "2017-2020"]}
+      kpis={kpisBase}
+    />
+  );
+  expect(screen.getByTestId("header-subtitulo")).toHaveTextContent(
+    "Salvador • Todos os mandatos (2017–2028)"
+  );
+});

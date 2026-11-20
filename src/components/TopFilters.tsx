@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FilterState, SemaforoStatus, VOCACOES_PADRAO, VocacaoObra } from "../types";
+import { ordenarMandatosDecrescente } from "../utils/mandatos";
 
 const VOCACOES_CONFIG: Array<{
   value: VocacaoObra;
@@ -99,7 +100,7 @@ interface TopFiltersProps {
    */
   onResetFilters: () => void;
   /**
-   * Lista de mandatos municipais disponíveis nos dados (ex: ["2025-2028", "2021-2024"]).
+   * Lista de mandatos municipais disponíveis nos dados (ex: ["2025-2028", "2021-2024", "2017-2020"]).
    */
   availableMandatos?: string[];
   /**
@@ -147,7 +148,7 @@ interface TopFiltersProps {
 /**
  * Barra superior de controles e filtros combinados do Painel de Obras de Salvador.
  *
- * @summary Fornece filtros por Ano, Órgão, Tema da Obra, Semáforo, busca textual e alternância de métrica.
+ * @summary Fornece filtros por Mandato Municipal, Órgão, Tema da Obra, Semáforo, busca textual e alternância de métrica.
  * @description Permite ao cidadão cruzar múltiplos critérios de filtragem para refinar
  * a lista de obras e recalcular em tempo real os 5 KPIs do topo. Inclui controle acessível
  * de busca textual (objeto e construtora), alternância de métrica financeira entre
@@ -175,10 +176,7 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
 }) => {
   const [showMoreFilters, setShowMoreFilters] = useState<boolean>(false);
 
-  const mandatosList =
-    availableMandatos && availableMandatos.length > 0
-      ? availableMandatos
-      : ["2025-2028", "2021-2024"];
+  const mandatosList = ordenarMandatosDecrescente(availableMandatos);
 
   const vocacoesAtivas = filters.vocacoes ?? VOCACOES_CONFIG.map((v) => v.value);
 

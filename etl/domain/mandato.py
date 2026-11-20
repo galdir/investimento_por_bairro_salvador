@@ -1,8 +1,8 @@
 """Módulo de classificação de Mandatos Municipais e deduplicação canônica de obras.
 
-Define os ciclos de mandatos municipais de Salvador (2021-2024 e 2025-2028),
+Define os ciclos de mandatos municipais de Salvador (2017-2020, 2021-2024 e 2025-2028),
 calcula a sobreposição de vigência contratual e realiza a deduplicação de contratos
-pela chave canônica (cdUnidadeGestora, nuContratoSigef) em conformidade com o ADR-0002.
+pela chave canônica (cdUnidadeGestora, nuContratoSigef) em conformidade com o ADR-0002 e ADR-0009.
 """
 
 import re
@@ -11,6 +11,12 @@ from typing import Any, Final
 from etl.domain.territorio import parse_float
 
 MANDATOS_MUNICIPAIS: Final[dict[str, dict[str, Any]]] = {
+    "2017-2020": {
+        "inicio": 2017,
+        "fim": 2020,
+        "data_inicio": "2017-01-01T03:00:00.000Z",
+        "data_fim": "2020-12-31T03:00:00.000Z",
+    },
     "2021-2024": {
         "inicio": 2021,
         "fim": 2024,
