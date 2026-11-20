@@ -158,26 +158,14 @@ describe("Centralidade Metropolitana (Comércio) no Mapa Coroplético", () => {
       />
     );
 
-    // 1. Camada R$ / Habitante: Comércio chip exibe Isento e estilo âmbar
-    const comercioChip = screen.getByTestId("territory-selector-comercio");
-    expect(comercioChip).toHaveTextContent("Comércio(971 hab • Isento)");
-    expect(comercioChip.className).toContain("bg-amber-50");
-
+    // 1. Camada R$ / Habitante: Comércio e Aeroporto recebem cor âmbar (#fef3c7) no mapa coroplético
     const lastCallPerCapita = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1];
     const styleFnPerCapita = (lastCallPerCapita?.[1] as any)?.style;
     expect(styleFnPerCapita({ properties: { nome: "Comércio" } }).fillColor).toBe("#fef3c7");
     expect(styleFnPerCapita({ properties: { nome: "Aeroporto" } }).fillColor).toBe("#fef3c7");
 
-    // 2. Alternar para Vulnerabilidade Social: Comércio chip exibe Vuln: 0,48 e não é âmbar
+    // 2. Alternar para Vulnerabilidade Social: Comércio recebe escala roxa (não âmbar) e Aeroporto permanece âmbar
     fireEvent.click(screen.getByTestId("btn-camada-vulnerabilidade"));
-
-    const comercioChipVuln = screen.getByTestId("territory-selector-comercio");
-    expect(comercioChipVuln).toHaveTextContent("Comércio(971 hab • Vuln: 0,48)");
-    expect(comercioChipVuln.className).not.toContain("bg-amber-50");
-
-    const aeroportoChipVuln = screen.getByTestId("territory-selector-aeroporto");
-    expect(aeroportoChipVuln).toHaveTextContent("Aeroporto(0 hab • Isento)");
-    expect(aeroportoChipVuln.className).toContain("bg-amber-50");
 
     const lastCallVuln = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1];
     const styleFnVuln = (lastCallVuln?.[1] as any)?.style;

@@ -281,7 +281,7 @@ describe("Filtro Multi-Seleção de Vocação da Obra", () => {
       expect(screen.getByTestId("contador-obras-filtradas")).toHaveTextContent("Exibindo 1 de 3 obras");
 
       // Alterna para Bairros Oficiais e verifica lista recalculada (Pituba cai para R$ 0 porque só tinha Mobilidade e Equipamentos)
-      fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+      fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
       const pitubaRow = await screen.findByTestId("comparison-row-pituba");
       expect(pitubaRow).toHaveTextContent("0 obras");
 

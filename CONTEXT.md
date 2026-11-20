@@ -41,7 +41,7 @@ Pessoa jurídica ou consórcio contratado pelo município para executar uma Obra
 _Avoid_: Fornecedor genérico, prestador, parceiro
 
 **Mandato Municipal**:
-Ciclo quadrienal da administração municipal de Salvador (`2021–2024` ou `2025–2028`) utilizado como recorte temporal de controle social; uma Obra Pública integra todos os mandatos com os quais seu período de vigência (`dtInicioVigencia` a `dtTerminoVigenciaAtualizado`) se sobrepõe.
+Ciclo quadrienal da administração municipal de Salvador (`2017–2020`, `2021–2024` ou `2025–2028`) utilizado como recorte temporal de controle social; uma Obra Pública integra todos os mandatos com os quais seu período de vigência (`dtInicioVigencia` a `dtTerminoVigenciaAtualizado`) se sobrepõe.
 _Avoid_: Ano civil isolado, ano de assinatura, exercício contábil
 
 **Tema da Obra**:
@@ -79,12 +79,16 @@ Sequência de estágios orçamentários de uma Obra Pública: Valor Original Con
 _Avoid_: Fluxo de caixa, etapas de pagamento
 
 **Valor Pago Acumulado do Contrato**:
-Valor dos pagamentos registrados para a Obra Pública ao longo de todo o contrato até a data de referência, inclusive antes de 2021 quando aplicável. O Mandato Municipal seleciona contratos por sua vigência e não limita esses pagamentos ao período do mandato.
+Valor dos pagamentos registrados para a Obra Pública ao longo de todo o contrato até sua data de referência aplicável, inclusive anteriores ao recorte do mandato quando aplicável. O Mandato Municipal seleciona contratos por sua vigência e não limita esses pagamentos ao período do mandato.
 _Avoid_: Pagamento do mandato, valor estimado pela execução física
 
 **Data de Referência dos Pagamentos**:
-Limite temporal das datas dos Movimentos de Pagamento considerados na apuração do Valor Pago Acumulado do Contrato.
+Limite temporal das datas dos Movimentos de Pagamento considerados na apuração do Valor Pago Acumulado do Contrato. Contratos ativos utilizam a data de referência da rodada vigente; um Contrato com Pagamentos Consolidados mantém sua própria data de consolidação até ser revalidado.
 _Avoid_: Data da coleta, data da publicação
+
+**Contrato com Pagamentos Consolidados**:
+Obra Pública cuja vigência contratual se encerrou há mais de 12 meses sem alteração recente nos seus dados contratuais e que já possui apuração de pagamentos concluída e validada, dispensando reconsulta semanal até a próxima revalidação periódica (180 dias), alteração contratual ou atualização completa.
+_Avoid_: Obra concluída na API, contrato arquivado, cache de pagamento
 
 **Data da Última Atualização Concluída**:
 Data de conclusão da última substituição bem-sucedida do conjunto de dados preparado e validado, mantida quando uma atualização posterior falha. É distinta da Data de Referência dos Pagamentos, do intervalo de realização das consultas e da data de deploy do site.

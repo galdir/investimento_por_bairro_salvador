@@ -819,18 +819,18 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("btn-camada-bairros")).toBeInTheDocument();
+      expect(screen.getByTestId("btn-recorte-bairros")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
     fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
 
     await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-select-pituba")).toBeInTheDocument();
     });
 
     // Clica no seletor de Pituba
-    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+    fireEvent.click(screen.getByTestId("comparison-select-pituba"));
 
     expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
     expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 12 mi");
@@ -847,17 +847,17 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("btn-camada-bairros")).toBeInTheDocument();
+      expect(screen.getByTestId("btn-recorte-bairros")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
 
     await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-select-pituba")).toBeInTheDocument();
     });
 
     // 1. Seleciona o Bairro Pituba
-    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+    fireEvent.click(screen.getByTestId("comparison-select-pituba"));
 
     // O banner de filtro territorial ativo deve surgir
     await waitFor(() => {
@@ -890,17 +890,17 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("btn-camada-bairros")).toBeInTheDocument();
+      expect(screen.getByTestId("btn-recorte-bairros")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
     fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
 
     await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-aeroporto")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-select-aeroporto")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("territory-selector-aeroporto"));
+    fireEvent.click(screen.getByTestId("comparison-select-aeroporto"));
 
     expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Aeroporto");
     expect(screen.getByTestId("badge-zona-especial")).toBeInTheDocument();
@@ -1433,7 +1433,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("filtro-tema")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
     fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
 
     // Filtra por Tema: "Encostas e Contenção" (onde apenas a Obra 1002 em Liberdade existe)
@@ -1441,26 +1441,24 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       target: { value: "Encostas e Contenção" },
     });
 
-    // 1. No seletor rápido de territórios do mapa:
-    // Pituba (obra 1001) não pertence a este tema: deve ter R$ 0/hab
+    // 1. Na Lista Comparativa de Bairros:
+    // Pituba (obra 1001) não pertence a este tema: deve ter R$ 0 / hab
     await waitFor(() => {
-      const seletorPituba = screen.getByTestId("territory-selector-pituba");
-      expect(seletorPituba).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent(/R\$\s*0/);
     });
 
-    // Liberdade (obra 1002) pertence ao tema: deve ter R$ 50/hab
-    const seletorLiberdade = screen.getByTestId("territory-selector-liberdade");
-    expect(seletorLiberdade).toHaveTextContent(/R\$\s*50(\,00)?\/hab/);
+    // Liberdade (obra 1002) pertence ao tema: deve ter R$ 50 / hab
+    expect(screen.getByTestId("comparison-valor-liberdade")).toHaveTextContent(/R\$\s*50/);
 
     // 2. Na Lista Comparativa de Prefeituras-Bairro:
-    fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
+    fireEvent.click(screen.getByTestId("btn-recorte-prefeituras"));
     await waitFor(() => {
       expect(screen.getByTestId("comparison-valor-liberdade-sao-caetano")).toHaveTextContent(/R\$\s*50/);
     });
 
     // 3. No Raio-X do Bairro:
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
-    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
+    fireEvent.click(screen.getByTestId("comparison-select-pituba"));
     expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 0");
     expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent(/R\$\s*0/);
     expect(screen.getByTestId("raio-x-obras-verde")).toHaveTextContent("0");
@@ -1470,18 +1468,18 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("btn-camada-bairros")).toBeInTheDocument();
+      expect(screen.getByTestId("btn-recorte-bairros")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
     fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
 
     await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-liberdade")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-select-liberdade")).toBeInTheDocument();
     });
 
     // 1. Abre o Raio-X de Liberdade com todos os mandatos ativos
-    fireEvent.click(screen.getByTestId("territory-selector-liberdade"));
+    fireEvent.click(screen.getByTestId("comparison-select-liberdade"));
 
     expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Liberdade");
     expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("R$ 2,40 mi");
@@ -1545,7 +1543,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("filtro-orgao")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
     fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
 
     // Filtra por SUCOP (apenas obra 1001 na Pituba)
@@ -1554,13 +1552,11 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     });
 
     await waitFor(() => {
-      const seletorPituba = screen.getByTestId("territory-selector-pituba");
-      expect(seletorPituba).toHaveTextContent(/R\$\s*184,62\/hab/);
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent(/R\$\s*184,62/);
     });
-    const seletorLiberdade = screen.getByTestId("territory-selector-liberdade");
-    expect(seletorLiberdade).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+    expect(screen.getByTestId("comparison-valor-liberdade")).toHaveTextContent(/R\$\s*0/);
 
-    fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
+    fireEvent.click(screen.getByTestId("btn-recorte-prefeituras"));
     await waitFor(() => {
       expect(screen.getByTestId("comparison-valor-barra-pituba")).toHaveTextContent("R$ 184,62");
       expect(screen.getByTestId("comparison-valor-liberdade-sao-caetano")).toHaveTextContent(/R\$\s*0/);
@@ -1574,7 +1570,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("filtro-semaforo")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
     fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
 
     // Filtra por Semáforo VERMELHO (apenas obra 1003 regional de Subúrbio/Ilhas)
@@ -1584,11 +1580,11 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     // Ambos os bairros Pituba e Liberdade devem estar zerados
     await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-pituba")).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
-      expect(screen.getByTestId("territory-selector-liberdade")).toHaveTextContent(/R\$\s*0(\,00)?\/hab/);
+      expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent(/R\$\s*0/);
+      expect(screen.getByTestId("comparison-valor-liberdade")).toHaveTextContent(/R\$\s*0/);
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
+    fireEvent.click(screen.getByTestId("btn-recorte-prefeituras"));
     await waitFor(() => {
       expect(screen.getByTestId("comparison-valor-suburbio-ilhas")).toHaveTextContent(/R\$\s*50/);
       expect(screen.getByTestId("comparison-valor-barra-pituba")).toHaveTextContent(/R\$\s*0/);
@@ -1643,17 +1639,17 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("btn-camada-bairros")).toBeInTheDocument();
+      expect(screen.getByTestId("btn-recorte-bairros")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
 
     await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-select-pituba")).toBeInTheDocument();
     });
 
     // 1. Seleciona Pituba (Bairro Oficial)
-    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+    fireEvent.click(screen.getByTestId("comparison-select-pituba"));
 
     await waitFor(() => {
       expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
@@ -1664,7 +1660,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     setViewSpy.mockClear();
 
     // 2. Alterna camada para Prefeituras-Bairro
-    const btnPrefeituras = screen.getByTestId("btn-camada-prefeituras");
+    const btnPrefeituras = screen.getByTestId("btn-recorte-prefeituras");
     fireEvent.click(btnPrefeituras);
 
     // 3. A seleção territorial anterior (Pituba) incompatível deve ser limpa
@@ -1681,7 +1677,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     setViewSpy.mockClear();
 
     // 5. Alterna de volta para Bairros Oficiais
-    const btnBairros = screen.getByTestId("btn-camada-bairros");
+    const btnBairros = screen.getByTestId("btn-recorte-bairros");
     fireEvent.click(btnBairros);
 
     // 6. Deve recentralizar com segurança no centro e zoom de Salvador
@@ -1696,17 +1692,17 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("btn-camada-bairros")).toBeInTheDocument();
+      expect(screen.getByTestId("btn-recorte-bairros")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
 
     await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
+      expect(screen.getByTestId("comparison-select-pituba")).toBeInTheDocument();
     });
 
     // 1. Seleciona Bairro Oficial Pituba (abertura em Valor Pago)
-    fireEvent.click(screen.getByTestId("territory-selector-pituba"));
+    fireEvent.click(screen.getByTestId("comparison-select-pituba"));
 
     await waitFor(() => {
       expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
@@ -1729,7 +1725,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     });
 
     // 3. Seleciona Zona Especial Não-Residencial (Aeroporto)
-    fireEvent.click(screen.getByTestId("territory-selector-aeroporto"));
+    fireEvent.click(screen.getByTestId("comparison-select-aeroporto"));
 
     await waitFor(() => {
       expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Aeroporto");
@@ -1761,7 +1757,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("btn-camada-prefeituras")).toBeInTheDocument();
+      expect(screen.getByTestId("btn-recorte-prefeituras")).toBeInTheDocument();
       expect(screen.getByTestId("btn-camada-vulnerabilidade")).toBeInTheDocument();
     });
 
@@ -1780,7 +1776,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     expect(barraStyle.fillColor).toBe("#ede9fe");
 
     // Seleciona Barra/Pituba e verifica o Índice de Vulnerabilidade no Raio-X e na Lista Comparativa
-    fireEvent.click(screen.getByTestId("territory-selector-barra-pituba"));
+    fireEvent.click(screen.getByTestId("comparison-select-barra-pituba"));
     await waitFor(() => {
       expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
       expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("0,12");
@@ -1791,88 +1787,23 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     geoJsonSpy.mockRestore();
   });
 
-  it("sincroniza a barra rápida inferior do mapa com a métrica coroplética ativa (ordem e formato dos chips em R$/hab vs Vulnerabilidade)", async () => {
+  it("remove a barra redundante de chips do mapa e mantém a legenda coroplética sincronizada com R$/hab e Vulnerabilidade", async () => {
     render(<App />);
 
     await waitFor(() => {
       expect(screen.getByTestId("btn-camada-per-capita")).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByTestId("btn-camada-bairros"));
-    fireEvent.click(screen.getByTestId("btn-metrica-vigente"));
+    expect(screen.queryByTestId(/^territory-selector-/)).not.toBeInTheDocument();
+    expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Investimento por Habitante");
 
-    await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-pituba")).toBeInTheDocument();
-    });
-
-    // 1. Métrica R$ / Habitante na camada Bairros Oficiais
-    const botoesBairrosInicial = screen.getAllByTestId(/^territory-selector-/);
-    const nomesBairrosInicial = botoesBairrosInicial.map((btn) => btn.getAttribute("data-testid"));
-
-    expect(nomesBairrosInicial.indexOf("territory-selector-pituba")).toBeLessThan(
-      nomesBairrosInicial.indexOf("territory-selector-liberdade")
-    );
-    expect(nomesBairrosInicial.indexOf("territory-selector-liberdade")).toBeLessThan(
-      nomesBairrosInicial.indexOf("territory-selector-sao-caetano")
-    );
-    // Zonas especiais ficam ao final
-    expect(nomesBairrosInicial.indexOf("territory-selector-sao-caetano")).toBeLessThan(
-      nomesBairrosInicial.indexOf("territory-selector-aeroporto")
-    );
-
-    // Texto dos chips no modo R$ / Habitante
-    expect(screen.getByTestId("territory-selector-pituba")).toHaveTextContent("Pituba(65.000 hab • R$ 184,62/hab)");
-    expect(screen.getByTestId("territory-selector-liberdade")).toHaveTextContent(/Liberdade\(48\.000 hab • R\$\s*50(\,00)?\/hab\)/);
-    expect(screen.getByTestId("territory-selector-aeroporto")).toHaveTextContent("Aeroporto(0 hab • Isento)");
-
-    // 2. Alterna métrica coroplética para "Vulnerabilidade Social" na camada Bairros Oficiais
+    fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
     fireEvent.click(screen.getByTestId("btn-camada-vulnerabilidade"));
+    expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Índice de Vulnerabilidade");
 
-    const botoesBairrosVuln = screen.getAllByTestId(/^territory-selector-/);
-    const nomesBairrosVuln = botoesBairrosVuln.map((btn) => btn.getAttribute("data-testid"));
-
-    expect(nomesBairrosVuln.indexOf("territory-selector-liberdade")).toBeLessThan(
-      nomesBairrosVuln.indexOf("territory-selector-sao-caetano")
-    );
-    expect(nomesBairrosVuln.indexOf("territory-selector-sao-caetano")).toBeLessThan(
-      nomesBairrosVuln.indexOf("territory-selector-pituba")
-    );
-    expect(nomesBairrosVuln.indexOf("territory-selector-pituba")).toBeLessThan(
-      nomesBairrosVuln.indexOf("territory-selector-aeroporto")
-    );
-
-    // Texto dos chips no modo Vulnerabilidade Social
-    expect(screen.getByTestId("territory-selector-liberdade")).toHaveTextContent("Liberdade(48.000 hab • Vuln: 0,78)");
-    expect(screen.getByTestId("territory-selector-sao-caetano")).toHaveTextContent("São Caetano(30.000 hab • Vuln: 0,78)");
-    expect(screen.getByTestId("territory-selector-pituba")).toHaveTextContent("Pituba(65.000 hab • Vuln: 0,12)");
-    expect(screen.getByTestId("territory-selector-aeroporto")).toHaveTextContent("Aeroporto(0 hab • Isento)");
-
-    // 3. Alterna para a camada Prefeituras-Bairro com métrica Vulnerabilidade Social ativa
-    fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
-
-    await waitFor(() => {
-      expect(screen.getByTestId("territory-selector-barra-pituba")).toBeInTheDocument();
-    });
-
-    const botoesPbVuln = screen.getAllByTestId(/^territory-selector-/);
-    const nomesPbVuln = botoesPbVuln.map((btn) => btn.getAttribute("data-testid"));
-
-    expect(nomesPbVuln.indexOf("territory-selector-liberdade-sao-caetano")).toBeLessThan(
-      nomesPbVuln.indexOf("territory-selector-barra-pituba")
-    );
-    expect(screen.getByTestId("territory-selector-barra-pituba")).toHaveTextContent("Barra/Pituba(65.000 hab • Vuln: 0,12)");
-    expect(screen.getByTestId("territory-selector-liberdade-sao-caetano")).toHaveTextContent(/Liberdade\/São Caetano\(48\.000 hab • Vuln: 0,7[5-8]\)/);
-
-    // 4. Alterna de volta para R$ / Habitante na camada Prefeituras-Bairro
+    fireEvent.click(screen.getByTestId("btn-recorte-prefeituras"));
     fireEvent.click(screen.getByTestId("btn-camada-per-capita"));
-
-    const botoesPbPorHabitante = screen.getAllByTestId(/^territory-selector-/);
-    const nomesPbPorHabitante = botoesPbPorHabitante.map((btn) => btn.getAttribute("data-testid"));
-
-    expect(nomesPbPorHabitante.indexOf("territory-selector-barra-pituba")).toBeLessThan(
-      nomesPbPorHabitante.indexOf("territory-selector-liberdade-sao-caetano")
-    );
-    expect(screen.getByTestId("territory-selector-barra-pituba")).toHaveTextContent(/Barra\/Pituba\(65\.000 hab • R\$\s*184,62\/hab\)/);
+    expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Investimento por Habitante");
   });
 
   describe("Gatilhos 'Como é calculado?' e Modal Nota Metodológica", () => {
@@ -2048,12 +1979,12 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       );
 
       // 1. Alterna para Bairros Oficiais e seleciona São Caetano
-      fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+      fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
       await waitFor(() => {
-        expect(screen.getByTestId("territory-selector-sao-caetano")).toBeInTheDocument();
+        expect(screen.getByTestId("comparison-select-sao-caetano")).toBeInTheDocument();
       });
 
-      fireEvent.click(screen.getByTestId("territory-selector-sao-caetano"));
+      fireEvent.click(screen.getByTestId("comparison-select-sao-caetano"));
       fireEvent.click(screen.getByTestId("btn-toggle-pinos-obras"));
 
       await waitFor(() => {
@@ -2076,7 +2007,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       // 2. Volta à comparação, limpa seleção, alterna para Prefeituras-Bairro e seleciona Barra/Pituba
       fireEvent.click(screen.getByTestId("btn-voltar-comparacao"));
       fireEvent.click(screen.getByTestId("btn-limpar-filtro-territorial"));
-      fireEvent.click(screen.getByTestId("btn-camada-prefeituras"));
+      fireEvent.click(screen.getByTestId("btn-recorte-prefeituras"));
       await waitFor(() => {
         expect(screen.getByTestId("comparison-select-barra-pituba")).toBeInTheDocument();
       });
@@ -2330,7 +2261,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       });
 
       // 1. Estado inicial: Prefeituras-Bairro, Valor Pago, todos os mandatos, 3 vocações, sem seleção, pinos desligados
-      expect(screen.getByTestId("btn-camada-prefeituras")).toHaveClass("bg-white");
+      expect(screen.getByTestId("btn-recorte-prefeituras")).toHaveAttribute("aria-pressed", "true");
       expect(screen.getByTestId("btn-metrica-executado")).toHaveClass("bg-emerald-600");
       expect((screen.getByTestId("filtro-mandato") as HTMLSelectElement).value).toBe("todos");
       expect(screen.getByTestId("chip-vocacao-vizinhanca")).toHaveAttribute("aria-pressed", "true");
@@ -3429,8 +3360,8 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       });
       expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Isento");
       expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Dado indisponível");
-      expect(screen.getByTestId("territory-selector-bairro-sem-indice")).toHaveTextContent("Vuln: Indisponível");
-      expect(screen.getByTestId("territory-selector-comercio")).toHaveTextContent("Vuln: 0,48");
+      expect(screen.getByTestId("comparison-vuln-bairro-sem-indice")).toHaveTextContent("Indisponível");
+      expect(screen.getByTestId("comparison-vuln-comercio")).toHaveTextContent("0,48");
       expect(getStyleFill("Bairro Sem Índice")).toBe("#e2e8f0");
       expect(getStyleFill("Comércio")).not.toBe("#fef3c7");
       expect(getStyleFill("Aeroporto")).toBe("#fef3c7");
@@ -4196,7 +4127,6 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("mobile-lista-panel")).not.toBeVisible();
       expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Subúrbio/Ilhas");
       expect(screen.getByTestId("mapa-destaque-busca")).toHaveTextContent(/Subúrbio\/Ilhas/i);
-      expect(screen.getByTestId("territory-selector-suburbio-ilhas")).toHaveAttribute("aria-pressed", "true");
       expect(screen.getByTestId("legenda-coropletica")).toHaveTextContent("Valor Contratual Vigente (R$/hab)");
       expect(invalidateSizeSpy).toHaveBeenCalled();
       expect(fitBoundsSpy).toHaveBeenCalled();
@@ -4227,9 +4157,20 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       fireEvent.click(screen.getByTestId("btn-limpar-busca-territorio"));
       expect(screen.getByTestId("comparison-row-barra-pituba")).toBeInTheDocument();
 
-      // 4. Seleção feita no Mapa sincroniza com Lista e resumo
+      // 4. Seleção feita no Mapa (clique na feição GeoJSON) sincroniza com Lista e resumo
+      const geoJsonSpy = vi.spyOn(L, "geoJSON");
       fireEvent.click(screen.getByTestId("btn-mobile-visao-mapa"));
-      fireEvent.click(screen.getByTestId("territory-selector-barra-pituba"));
+      fireEvent.change(screen.getByTestId("filtro-mandato"), { target: { value: "todos" } });
+      await waitFor(() => {
+        expect(geoJsonSpy).toHaveBeenCalled();
+      });
+      const lastGeoLayer = geoJsonSpy.mock.results[geoJsonSpy.mock.results.length - 1]?.value as L.GeoJSON | undefined;
+      lastGeoLayer?.eachLayer((featureLayer: any) => {
+        if (featureLayer.feature?.properties?.nome === "Barra/Pituba") {
+          featureLayer.fire("click");
+        }
+      });
+      geoJsonSpy.mockRestore();
       await waitFor(() => {
         expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
       });
@@ -4855,7 +4796,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(tabTabela).toHaveTextContent(/Tabela de Obras\s*4/);
 
       // Selecionar Pituba atualiza o contador da Tabela de Obras, mantendo KPIs municipais invariantes
-      fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+      fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
       await waitFor(() => {
         expect(screen.getByTestId("comparison-select-pituba")).toBeInTheDocument();
       });
@@ -5055,6 +4996,50 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(ascIds[0]).toBe("comparison-row-graca");
       expect(ascIds[1]).toBe("comparison-row-sao-caetano");
       expect(ascIds[ascIds.length - 1]).toBe(descIds[0]);
+    });
+  });
+
+  describe("Redesign Issue 03: Mapa CartoDB Positron e drawer flutuante do Raio-X", () => {
+    it("alinha alturas no desktop, recolhe/expande o drawer sem reenquadrar o mapa e reexpande ao selecionar outro território", async () => {
+      const fitBoundsSpy = vi.spyOn(L.Map.prototype, "fitBounds").mockImplementation(function (this: L.Map) {
+        return this;
+      });
+      const setViewSpy = vi.spyOn(L.Map.prototype, "setView");
+
+      render(<App />);
+
+      const listaPanel = await screen.findByTestId("mobile-lista-panel");
+      const mapaPanel = screen.getByTestId("mobile-mapa-panel");
+      const rightWrapper = mapaPanel.parentElement;
+
+      expect(listaPanel.className).toContain("md:h-[calc(100vh-12.5rem)]");
+      expect(listaPanel.className).toContain("md:min-h-[520px]");
+      expect(listaPanel.className).toContain("md:max-h-[780px]");
+      expect(rightWrapper?.className).toContain("md:h-[calc(100vh-12.5rem)]");
+      expect(rightWrapper?.className).toContain("md:min-h-[520px]");
+      expect(rightWrapper?.className).toContain("md:max-h-[780px]");
+
+      // Seleciona Barra/Pituba -> drawer abre expandido
+      fireEvent.click(screen.getByTestId("comparison-select-barra-pituba"));
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      expect(screen.getByTestId("btn-recolher-raiox")).toHaveAttribute("aria-expanded", "true");
+
+      fitBoundsSpy.mockClear();
+      setViewSpy.mockClear();
+
+      // Recolhe drawer -> não chama fitBounds nem setView
+      fireEvent.click(screen.getByTestId("btn-recolher-raiox"));
+      expect(screen.getByTestId("btn-recolher-raiox")).toHaveAttribute("aria-expanded", "false");
+      expect(fitBoundsSpy).not.toHaveBeenCalled();
+      expect(setViewSpy).not.toHaveBeenCalled();
+
+      // Seleciona outro território -> drawer reexpande automaticamente
+      fireEvent.click(screen.getByTestId("comparison-select-liberdade-sao-caetano"));
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Liberdade/São Caetano");
+      expect(screen.getByTestId("btn-recolher-raiox")).toHaveAttribute("aria-expanded", "true");
+
+      fitBoundsSpy.mockRestore();
+      setViewSpy.mockRestore();
     });
   });
 });

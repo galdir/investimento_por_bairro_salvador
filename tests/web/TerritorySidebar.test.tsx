@@ -366,4 +366,60 @@ describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Ce
     expect(screen.getByTestId("raio-x-agua")).toHaveTextContent("5,00%");
     expect(screen.getByTestId("raio-x-analfabetismo")).toHaveTextContent("4,50%");
   });
+
+  it("renderiza como drawer flutuante no desktop com grade em 2 colunas e botão btn-recolher-raiox acessível", () => {
+    const pituba: TerritorySelection = {
+      tipo: "bairro",
+      id: 101,
+      nome: "Pituba",
+      prefeitura_bairro: "Barra/Pituba",
+      populacao: 65000,
+      indice_vulnerabilidade: 0.12,
+      valorTotal: 12000000,
+      totalObras: 2,
+    };
+
+    const onToggleCollapse = vi.fn();
+    const { rerender } = render(
+      <TerritorySidebar
+        territorio={pituba}
+        onClear={onClearMock}
+        isCollapsed={false}
+        onToggleCollapse={onToggleCollapse}
+      />
+    );
+
+    const container = screen.getByTestId("raio-x-container");
+    expect(container.className).toContain("md:absolute");
+    expect(container.className).toContain("md:top-14");
+    expect(container.className).toContain("md:right-3");
+    expect(container.className).toContain("md:bottom-3");
+    expect(container.className).toContain("md:w-[340px]");
+    expect(container.className).toContain("lg:w-[380px]");
+    expect(container.className).toContain("md:z-[450]");
+    expect(container.className).toContain("md:overflow-y-auto");
+
+    const metricsGrid = screen.getByTestId("raio-x-metrics-grid");
+    expect(metricsGrid.className).toContain("grid-cols-2");
+    expect(metricsGrid.className).not.toContain("lg:grid-cols-4");
+
+    const collapseBtn = screen.getByTestId("btn-recolher-raiox");
+    expect(collapseBtn).toHaveAttribute("aria-expanded", "true");
+    fireEvent.click(collapseBtn);
+    expect(onToggleCollapse).toHaveBeenCalledTimes(1);
+
+    rerender(
+      <TerritorySidebar
+        territorio={pituba}
+        onClear={onClearMock}
+        isCollapsed={true}
+        onToggleCollapse={onToggleCollapse}
+      />
+    );
+
+    expect(screen.getByTestId("btn-recolher-raiox")).toHaveAttribute("aria-expanded", "false");
+    expect(screen.getByTestId("raio-x-container").className).toContain("md:bottom-auto");
+    expect(screen.getByTestId("raio-x-body").className).toContain("md:hidden");
+    expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Pituba");
+  });
 });

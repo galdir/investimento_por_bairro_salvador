@@ -44,6 +44,14 @@ interface TerritorySidebarProps {
    * Callback opcional para alternar a métrica financeira global diretamente para "executado" (Valor Executado / Pago).
    */
   onSwitchToExecutado?: () => void;
+  /**
+   * Indica se o drawer flutuante está recolhido no desktop.
+   */
+  isCollapsed?: boolean;
+  /**
+   * Callback para alternar o estado recolhido/expandido do drawer no desktop.
+   */
+  onToggleCollapse?: () => void;
 }
 
 /**
@@ -69,7 +77,19 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
   obras = [],
   onSelectObra,
   onSwitchToExecutado,
+  isCollapsed,
+  onToggleCollapse,
 }) => {
+  const [internalCollapsed, setInternalCollapsed] = React.useState(false);
+  const collapsed = isCollapsed ?? internalCollapsed;
+  const handleToggleCollapse = () => {
+    if (onToggleCollapse) {
+      onToggleCollapse();
+    } else {
+      setInternalCollapsed((prev) => !prev);
+    }
+  };
+
   if (!territorio) {
     return null;
   }
@@ -126,39 +146,66 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
     <aside
       data-testid="raio-x-container"
       aria-label={`Resumo territorial de ${territorio.nome}`}
-      className="w-full bg-white rounded-xl border border-slate-200 p-4 sm:p-5 flex flex-col shadow-sm"
+      className={`w-full bg-white md:bg-white/95 md:backdrop-blur-sm rounded-xl border border-slate-200 p-4 sm:p-5 flex flex-col shadow-sm md:shadow-xl md:absolute md:top-14 md:right-3 md:w-[340px] lg:w-[380px] md:z-[450] ${
+        collapsed ? "md:bottom-auto md:p-3.5" : "md:bottom-3 md:overflow-y-auto"
+      }`}
     >
       {/* Cabeçalho do Raio-X */}
-      <div className="flex items-start justify-between pb-4 border-b border-slate-100">
-        <div>
+      <div
+        className={`flex items-start justify-between gap-2 ${
+          collapsed ? "pb-4 md:pb-0 border-b md:border-b-0 border-slate-100" : "pb-4 border-b border-slate-100"
+        }`}
+      >
+        <div className="min-w-0">
           <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
             {ehBairro ? "Bairro Oficial" : "Prefeitura-Bairro"}
           </span>
           <h2
             data-testid="raio-x-nome"
-            className="text-xl font-bold text-slate-900 mt-1 tracking-tight"
+            className="text-xl font-bold text-slate-900 mt-1 tracking-tight truncate"
           >
             {territorio.nome}
           </h2>
           {territorio.prefeitura_bairro && (
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-slate-500 mt-0.5 truncate">
               Prefeitura-Bairro:{" "}
               <span className="font-medium text-slate-700">{territorio.prefeitura_bairro}</span>
             </p>
           )}
         </div>
-        <button
-          type="button"
-          onClick={onClear}
-          aria-label="Fechar painel lateral"
-          className="text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-1 shrink-0">
+          <button
+            type="button"
+            data-testid="btn-recolher-raiox"
+            aria-expanded={!collapsed}
+            aria-label={collapsed ? "Expandir resumo do território" : "Recolher resumo do território"}
+            title={collapsed ? "Expandir resumo" : "Recolher resumo"}
+            onClick={handleToggleCollapse}
+            className="hidden md:inline-flex text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+          >
+            <svg
+              className={`w-5 h-5 transition-transform ${collapsed ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={onClear}
+            aria-label="Fechar painel lateral"
+            className="text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
 
+      <div data-testid="raio-x-body" className={`flex flex-col flex-1 ${collapsed ? "md:hidden" : ""}`}>
       {/* Alerta de Zona Especial Não-Residencial */}
       {ehZonaEspecial && (
         <div
@@ -204,7 +251,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
       )}
 
       {/* Métricas Principais: Investimento Total, Per Capita, População e Vulnerabilidade */}
-      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+      <div data-testid="raio-x-metrics-grid" className="mt-4 grid grid-cols-2 gap-2.5">
         <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
           <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block">
             {isExecutado ? (territorio.limitacoesConhecidas?.length ? "Soma Parcial de Pagamentos" : "Total Pago Alocado") : "Total Contratual Alocado"}
@@ -701,6 +748,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
         >
           Limpar Seleção do Mapa
         </button>
+      </div>
       </div>
     </aside>
   );

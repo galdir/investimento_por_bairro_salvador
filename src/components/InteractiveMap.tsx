@@ -9,7 +9,7 @@ import {
   PrefeituraBairroResumo,
   TerritorySelection,
 } from "../types";
-import { formatCompactCurrency, formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
+import { formatCompactCurrency, formatCurrency } from "../utils/formatters";
 import {
   createBairroSelection,
   createPrefeituraSelection,
@@ -135,7 +135,7 @@ export function recenterMap(map: L.Map | null | undefined): void {
 
 interface InteractiveMapProps {
   activeLayer: "bairros" | "prefeituras";
-  onToggleLayer: (layer: "bairros" | "prefeituras") => void;
+  onToggleLayer?: (layer: "bairros" | "prefeituras") => void;
   bairros: BairroResumo[];
   prefeituras: PrefeituraBairroResumo[];
   bairrosGeoJson: any;
@@ -148,6 +148,7 @@ interface InteractiveMapProps {
   territorySearch?: string;
   onOpenNotaMetodologica?: () => void;
   isVisible?: boolean;
+  isDesktopDrawerExpanded?: boolean;
 }
 
 function focusSelectedLayerAndGetBounds(
@@ -184,16 +185,40 @@ function focusSelectedLayerAndGetBounds(
   return foundBounds;
 }
 
+/**
+ * Calcula as opções de enquadramento (`fitBounds`) do Leaflet considerando o drawer flutuante no desktop.
+ */
+export function getFitBoundsOptions(
+  mapWidth: number,
+  isDesktopDrawerExpanded: boolean
+): L.FitBoundsOptions {
+  if (isDesktopDrawerExpanded && mapWidth >= 640) {
+    return {
+      maxZoom: 14,
+      paddingTopLeft: [24, 56],
+      paddingBottomRight: [Math.min(380, Math.round(mapWidth * 0.48)), 24],
+    };
+  }
+  return {
+    maxZoom: 14,
+    padding: [40, 40],
+  };
+}
+
 function frameMapViewport(
   map: L.Map,
   geoLayer: L.GeoJSON | null,
-  selectedTerritory: TerritorySelection | null
+  selectedTerritory: TerritorySelection | null,
+  isDesktopDrawerExpanded: boolean,
+  containerEl: HTMLDivElement | null
 ): void {
   if (selectedTerritory) {
     const foundBounds = focusSelectedLayerAndGetBounds(geoLayer, selectedTerritory);
     if (foundBounds && foundBounds.isValid()) {
       try {
-        map.fitBounds(foundBounds, { maxZoom: 14, padding: [40, 40] });
+        const sizeX = typeof map.getSize === "function" ? map.getSize()?.x : 0;
+        const mapWidth = sizeX || containerEl?.clientWidth || 0;
+        map.fitBounds(foundBounds, getFitBoundsOptions(mapWidth, isDesktopDrawerExpanded));
         return;
       } catch { }
     }
@@ -236,75 +261,19 @@ function getVulnerabilidadeColor(vuln: number): string {
 }
 
 /**
- * Ordena territórios (Bairros ou Prefeituras) de acordo com a métrica coroplética ativa no mapa.
- */
-function sortTerritoriesByChoropleth<T extends BairroResumo | PrefeituraBairroResumo>(
-  items: T[],
-  choroplethMetric: ChoroplethMetric,
-  metricType: MetricType,
-  tipo: "bairro" | "prefeitura_bairro"
-): T[] {
-  return [...items].sort((a, b) => {
-    const stateA = getTerritoryInvestmentState(a, metricType, tipo);
-    const stateB = getTerritoryInvestmentState(b, metricType, tipo);
-    const invA = stateA.kind === "value" ? stateA.perCapita : -1;
-    const invB = stateB.kind === "value" ? stateB.perCapita : -1;
-    const hasVulnA = hasNumericValue(a.indice_vulnerabilidade);
-    const hasVulnB = hasNumericValue(b.indice_vulnerabilidade);
-    const vulnA = hasVulnA ? a.indice_vulnerabilidade! : -1;
-    const vulnB = hasVulnB ? b.indice_vulnerabilidade! : -1;
-
-    if (choroplethMetric === "investimentoPorHabitante") {
-      if (invB !== invA) return invB - invA;
-      if (hasVulnA !== hasVulnB) return hasVulnA ? -1 : 1;
-      if (vulnB !== vulnA) return vulnB - vulnA;
-      return a.nome.localeCompare(b.nome, "pt-BR");
-    } else {
-      if (hasVulnA !== hasVulnB) return hasVulnA ? -1 : 1;
-      if (vulnB !== vulnA) return vulnB - vulnA;
-      if (invB !== invA) return invB - invA;
-      return a.nome.localeCompare(b.nome, "pt-BR");
-    }
-  });
-}
-
-/**
- * Formata o indicador textual exibido no chip rápido da base do mapa.
- */
-function formatChipMetric(
-  item: BairroResumo | PrefeituraBairroResumo,
-  choroplethMetric: ChoroplethMetric,
-  metricType: MetricType,
-  tipo: "bairro" | "prefeitura_bairro",
-  isSpecial: boolean = false
-): string {
-  if (isSpecial) return "Isento";
-  if (choroplethMetric === "investimentoPorHabitante") {
-    const state = getTerritoryInvestmentState(item, metricType, tipo);
-    if (state.kind === "exempt") return "Isento";
-    if (state.kind === "unavailable") return state.reason === "population" ? "Indisponível" : "Sem pgto";
-    return `${formatCurrency(state.perCapita)}/hab`;
-  }
-  return hasNumericValue(item.indice_vulnerabilidade)
-    ? `Vuln: ${formatDecimal(item.indice_vulnerabilidade)}`
-    : "Vuln: Indisponível";
-}
-
-/**
  * Componente do Mapa Interativo com Camada A (Justiça Territorial Per Capita e Semáforo da Obra).
  *
  * @summary Renderiza o mapa coroplético de Salvador com pinos de obras e alternância de métricas.
  * @description Apresenta a visualização coroplética dos territórios (Bairros Oficiais ou Prefeituras-Bairro)
- * coloridos pelo Investimento por Habitante (R$/hab) ou pelo Índice de Vulnerabilidade social.
- * Exclui as 3 Zonas Especiais Não-Residenciais da escala per capita, plotando também os pinos
- * georreferenciados das Obras Públicas coloridos pelo Semáforo da Obra com dispersão geométrica anti-sobreposição.
+ * coloridos pelo Investimento por Habitante (R$/hab) ou pelo Índice de Vulnerabilidade social sobre
+ * o basemap CartoDB Positron. Exclui as 3 Zonas Especiais Não-Residenciais da escala per capita,
+ * plotando também os pinos georreferenciados das Obras Públicas coloridos pelo Semáforo da Obra.
  *
  * @param props - Propriedades de configuração do mapa, dados geográficos e obras filtradas.
- * @returns Elemento JSX com controles de camada, legenda coroplética e seletor rápido.
+ * @returns Elemento JSX com controles do mapa, legenda coroplética e painel de pinos.
  */
 export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   activeLayer,
-  onToggleLayer,
   bairros = [],
   prefeituras = [],
   bairrosGeoJson,
@@ -317,6 +286,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   territorySearch = "",
   onOpenNotaMetodologica,
   isVisible = true,
+  isDesktopDrawerExpanded = false,
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
@@ -329,6 +299,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const prevVisibleRef = useRef<boolean>(isVisible);
   const isVisibleRef = useRef<boolean>(isVisible);
   isVisibleRef.current = isVisible;
+  const isDesktopDrawerExpandedRef = useRef<boolean>(isDesktopDrawerExpanded);
+  isDesktopDrawerExpandedRef.current = isDesktopDrawerExpanded;
   const needsViewportSyncWhenVisibleRef = useRef<boolean>(!isVisible);
 
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
@@ -356,11 +328,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         zoomControl: false,
       });
 
-      L.control.zoom({ position: "bottomright" }).addTo(map);
+      L.control.zoom({ position: "bottomleft" }).addTo(map);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19,
+        className: "map-tiles-monochrome",
       }).addTo(map);
 
       leafletMapRef.current = map;
@@ -422,7 +396,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       map.invalidateSize({ pan: false });
       if (needsViewportSyncWhenVisibleRef.current) {
         needsViewportSyncWhenVisibleRef.current = false;
-        frameMapViewport(map, geoJsonLayerRef.current, selectedTerritoryRef.current);
+        frameMapViewport(
+          map,
+          geoJsonLayerRef.current,
+          selectedTerritoryRef.current,
+          isDesktopDrawerExpandedRef.current,
+          mapContainerRef.current
+        );
       }
     } catch { }
   }, [isVisible]);
@@ -728,7 +708,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               focusSelectedLayerAndGetBounds(layer, selectedTerritory);
               needsViewportSyncWhenVisibleRef.current = true;
             } else {
-              frameMapViewport(map, layer, selectedTerritory);
+              frameMapViewport(
+                map,
+                layer,
+                selectedTerritory,
+                isDesktopDrawerExpandedRef.current,
+                mapContainerRef.current
+              );
             }
           } else {
             focusSelectedLayerAndGetBounds(layer, selectedTerritory);
@@ -852,52 +838,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     recenterMap(leafletMapRef.current);
   };
 
-  const handleLayerToggle = (newLayer: "bairros" | "prefeituras") => {
-    if (newLayer !== activeLayer) {
-      onToggleLayer(newLayer);
-    }
-    recenterMap(leafletMapRef.current);
-  };
-
-  // Ordenação e filtragem dos botões do seletor rápido inferior de acordo com a métrica coroplética ativa
-  const filteredBairrosButtons = useMemo(() => {
-    const isExec = metricType === "executado";
-    const isExemptInCurrentLayer = (b: BairroResumo) =>
-      isZonaEspecial(b) ||
-      (choroplethMetric === "investimentoPorHabitante" && isCentralidadeMetropolitana(b));
-    const residenciais = bairros.filter((b) => !isExemptInCurrentLayer(b));
-    const especiais = bairros.filter((b) => isExemptInCurrentLayer(b));
-
-    const sortedResidenciais = sortTerritoriesByChoropleth(
-      residenciais,
-      choroplethMetric,
-      metricType,
-      "bairro"
-    );
-    const sortedEspeciais = [...especiais].sort((a, b) => {
-      const valA = isExec ? (a.valorPagoDisponivel === false ? null : a.valorPago) : a.valorTotal;
-      const valB = isExec ? (b.valorPagoDisponivel === false ? null : b.valorPago) : b.valorTotal;
-      if (!hasNumericValue(valA)) return hasNumericValue(valB) ? 1 : a.nome.localeCompare(b.nome, "pt-BR");
-      if (!hasNumericValue(valB)) return -1;
-      if (valB !== valA) return valB - valA;
-      return a.nome.localeCompare(b.nome, "pt-BR");
-    });
-
-    const baseList = [...sortedResidenciais, ...sortedEspeciais];
-    if (!hasSearch) return baseList;
-    return baseList.filter((b) => normalizeName(b.nome).includes(normalizedSearch));
-  }, [bairros, choroplethMetric, metricType, hasSearch, normalizedSearch]);
-
-  const filteredPrefeiturasButtons = useMemo(() => {
-    const sortedPrefeituras = sortTerritoriesByChoropleth(
-      prefeituras,
-      choroplethMetric,
-      metricType,
-      "prefeitura_bairro"
-    );
-    if (!hasSearch) return sortedPrefeituras;
-    return sortedPrefeituras.filter((pb) => normalizeName(pb.nome).includes(normalizedSearch));
-  }, [prefeituras, choroplethMetric, metricType, hasSearch, normalizedSearch]);
+  const searchMatches = useMemo(() => {
+    if (!hasSearch) return [];
+    const list = activeLayer === "bairros" ? bairros : prefeituras;
+    return list.filter((item) => normalizeName(item.nome).includes(normalizedSearch));
+  }, [activeLayer, bairros, prefeituras, hasSearch, normalizedSearch]);
 
   const [b0, b1, b2, b3] = breaksInvestimento;
   const formatLegendaBreak = (v: number) =>
@@ -908,38 +853,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   return (
       <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
         {/* Área do Mapa: no celular (<sm), controles acima e legenda abaixo evitam cobrir o mapa e os botões de zoom */}
-        <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col sm:block sm:min-h-[390px] w-full">
+        <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col sm:block sm:h-full sm:min-h-[390px] w-full">
         {/* Controles Superiores do Mapa */}
         <div className="p-2 bg-slate-50 border-b border-slate-200 sm:p-0 sm:bg-transparent sm:border-b-0 sm:absolute sm:top-2.5 sm:left-2.5 sm:right-2.5 z-[400] sm:pointer-events-none flex flex-wrap items-center gap-1.5">
         <div className="pointer-events-auto sm:bg-white/95 sm:backdrop-blur-sm sm:p-1.5 sm:rounded-xl sm:shadow-md sm:border sm:border-slate-200/80 flex flex-wrap items-center gap-1.5 max-w-full">
-          {/* Divisão Territorial */}
-          <div className="flex flex-wrap bg-slate-100 p-1 rounded-lg max-w-full" role="group" aria-label="Camada territorial do mapa">
-            <button
-              type="button"
-              data-testid="btn-camada-bairros"
-              aria-pressed={activeLayer === "bairros"}
-              onClick={() => handleLayerToggle("bairros")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${activeLayer === "bairros"
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-600 hover:text-slate-900"
-                }`}
-            >
-              Bairros Oficiais
-            </button>
-            <button
-              type="button"
-              data-testid="btn-camada-prefeituras"
-              aria-pressed={activeLayer === "prefeituras"}
-              onClick={() => handleLayerToggle("prefeituras")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${activeLayer === "prefeituras"
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-600 hover:text-slate-900"
-                }`}
-            >
-              Prefeituras-Bairro
-            </button>
-          </div>
-
           {/* Alternância de Métrica Coroplética */}
           <div
             data-testid="toggle-camada-metrica"
@@ -1016,6 +933,19 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             </svg>
             Centralizar
           </button>
+
+          {hasSearch && (
+            <span
+              data-testid="mapa-destaque-busca"
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-sky-50 text-sky-900 border border-sky-200"
+            >
+              {searchMatches.length === 0
+                ? `Nenhuma correspondência no mapa para "${territorySearch.trim()}"`
+                : searchMatches.length === 1
+                  ? `1 correspondência destacada: ${searchMatches[0].nome}`
+                  : `${searchMatches.length} correspondências destacadas no mapa`}
+            </span>
+          )}
         </div>
         </div>
 
@@ -1023,13 +953,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         <div
           ref={mapContainerRef}
           data-testid="leaflet-map-container"
-          className="w-full h-[300px] sm:h-[405px] lg:h-[435px] min-h-[280px] sm:min-h-[380px] z-0 relative"
+          className="w-full h-[300px] sm:h-[405px] md:h-full min-h-[280px] sm:min-h-[380px] z-0 relative"
         />
 
         {/* Legenda Coroplética com intervalos quantitativos e unidade */}
         <div
           data-testid="legenda-coropletica"
-          className="sm:absolute sm:bottom-2.5 sm:left-2.5 z-[400] bg-white/95 backdrop-blur-sm p-2 sm:rounded-xl sm:shadow-md border-t sm:border border-slate-200 text-xs sm:max-w-[270px]"
+          className="sm:absolute sm:bottom-2.5 sm:left-14 z-[400] bg-white/95 backdrop-blur-sm p-2 sm:rounded-xl sm:shadow-md border-t sm:border border-slate-200 text-xs sm:max-w-[270px]"
         >
           <span className="font-bold text-slate-800 block mb-1.5 text-[11px] leading-tight">
             {choroplethMetric === "investimentoPorHabitante"
@@ -1208,106 +1138,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             )}
           </div>
         )}
-
-        {/* Seletor Rápido de Territórios sincronizado com a busca territorial */}
-          <div className="w-full min-w-0 overflow-hidden bg-white border-t border-slate-200 px-3 py-2 z-10 shrink-0">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                  {activeLayer === "bairros" ? "Bairros no Mapa:" : "Prefeituras-Bairro:"}
-                </span>
-                {hasSearch && (
-                  <span
-                    data-testid="mapa-destaque-busca"
-                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-sky-50 text-sky-900 border border-sky-200"
-                  >
-                    {(() => {
-                      const matches =
-                        activeLayer === "bairros"
-                          ? filteredBairrosButtons
-                          : filteredPrefeiturasButtons;
-                      if (matches.length === 0) {
-                        return `Nenhuma correspondência no mapa para "${territorySearch.trim()}"`;
-                      }
-                      if (matches.length === 1) {
-                        return `1 correspondência destacada: ${matches[0].nome}`;
-                      }
-                      return `${matches.length} correspondências destacadas no mapa`;
-                    })()}
-                  </span>
-                )}
-              </div>
-              <span className="text-xs text-slate-400">
-                {activeLayer === "bairros"
-                  ? `${filteredBairrosButtons.length} de ${bairros.length} bairros`
-                  : `${filteredPrefeiturasButtons.length} de ${prefeituras.length} Prefeituras-Bairro`}
-              </span>
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-thin">
-              {activeLayer === "bairros"
-                ? filteredBairrosButtons.map((b) => {
-                  const isSelected = selectedTerritory?.id === b.id && selectedTerritory?.tipo === "bairro";
-                  const isNonResidentialZone = isZonaEspecial(b);
-                  const isCentralidade = !isNonResidentialZone && isCentralidadeMetropolitana(b);
-                  const isExemptChip =
-                    isNonResidentialZone ||
-                    (choroplethMetric === "investimentoPorHabitante" && isCentralidade);
-                  const testId = `territory-selector-${normalizeTestId(b.nome)}`;
-                  const chipMetricText = formatChipMetric(b, choroplethMetric, metricType, "bairro", isExemptChip);
-
-                  return (
-                    <button
-                      key={b.id}
-                      type="button"
-                      data-testid={testId}
-                      aria-pressed={isSelected}
-                      onClick={() => onSelectTerritory(createBairroSelection(b))}
-                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${isSelected
-                          ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
-                          : isExemptChip
-                            ? "bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100"
-                            : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
-                        }`}
-                    >
-                      <span>{isSelected ? `✓ ${b.nome}` : b.nome}</span>
-                      {isExemptChip && (
-                        <span
-                          className="w-1.5 h-1.5 rounded-full bg-amber-500"
-                          title={isCentralidade ? "Centralidade Metropolitana" : "Zona Especial Não-Residencial"}
-                        ></span>
-                      )}
-                      <span className="text-[10px] opacity-75">
-                        ({formatNumber(b.populacao)} hab • {chipMetricText})
-                      </span>
-                    </button>
-                  );
-                })
-                : filteredPrefeiturasButtons.map((pb) => {
-                  const isSelected = selectedTerritory?.id === pb.id && selectedTerritory?.tipo === "prefeitura_bairro";
-                  const testId = `territory-selector-${normalizeTestId(pb.nome)}`;
-                  const chipMetricText = formatChipMetric(pb, choroplethMetric, metricType, "prefeitura_bairro", false);
-
-                  return (
-                    <button
-                      key={pb.id}
-                      type="button"
-                      data-testid={testId}
-                      aria-pressed={isSelected}
-                      onClick={() => onSelectTerritory(createPrefeituraSelection(pb))}
-                      className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${isSelected
-                          ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
-                          : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
-                        }`}
-                    >
-                      <span>{isSelected ? `✓ ${pb.nome}` : pb.nome}</span>
-                      <span className="text-[10px] opacity-75">
-                        ({formatNumber(pb.populacao_total)} hab • {chipMetricText})
-                      </span>
-                    </button>
-                  );
-                })}
-            </div>
-          </div>
         </div>
         );
 };

@@ -93,7 +93,7 @@ async function versaoFoiRetirada(versao: string | undefined): Promise<boolean> {
 
     const lista = await resposta.json();
     if (!Array.isArray(lista?.versoesDados)
-        || lista.versoesDados.some((item: unknown) => typeof item !== "string" || !/^[0-9a-f]{32}$/.test(item))) {
+      || lista.versoesDados.some((item: unknown) => typeof item !== "string" || !/^[0-9a-f]{32}$/.test(item))) {
       return false;
     }
     return !lista.versoesDados.includes(versao);
@@ -148,6 +148,7 @@ export const App: React.FC = () => {
   const [prefeiturasGeo, setPrefeiturasGeo] = useState<any>(null);
   const [activeLayer, setActiveLayer] = useState<"bairros" | "prefeituras">("prefeituras");
   const [selectedTerritory, setSelectedTerritory] = useState<TerritorySelection | null>(null);
+  const [isDrawerCollapsed, setIsDrawerCollapsed] = useState<boolean>(false);
   const [selectedObraFicha, setSelectedObraFicha] = useState<FichaLimpaObra | null>(null);
   const [loadingFicha, setLoadingFicha] = useState<boolean>(false);
   const [fichaError, setFichaError] = useState<string | null>(null);
@@ -243,11 +244,16 @@ export const App: React.FC = () => {
     setMobileView(nextView);
   };
 
+  const handleSelectTerritory = (territorio: TerritorySelection | null) => {
+    setSelectedTerritory(territorio);
+    setIsDrawerCollapsed(false);
+  };
+
   const handleSelectTerritoryFromMap = (territorio: TerritorySelection) => {
     if (isMobileViewport && mobileView === "mapa") {
       mobileSelectionChangedInMapRef.current = true;
     }
-    setSelectedTerritory(territorio);
+    handleSelectTerritory(territorio);
   };
 
   useEffect(() => {
@@ -266,7 +272,7 @@ export const App: React.FC = () => {
         if (ponteiroResposta.ok) {
           const ponteiro = await ponteiroResposta.json().catch(() => null);
           if (typeof ponteiro?.versaoDados !== "string" || !/^[0-9a-f]{32}$/.test(ponteiro.versaoDados)
-              || ponteiro.caminho !== `versoes/${ponteiro.versaoDados}`) {
+            || ponteiro.caminho !== `versoes/${ponteiro.versaoDados}`) {
             throw new Error("Referência da versão publicada inválida.");
           }
           versaoPublicada = ponteiro.versaoDados;
@@ -302,12 +308,12 @@ export const App: React.FC = () => {
         if (versao) {
           const atualizacao = dataIndex.metadata.atualizacao;
           if (atualizacao.consultas !== "concluidas" || atualizacao.validacoes !== "aprovadas"
-              || !Array.isArray(atualizacao.limitacoesConhecidas)
-              || !/^\d{4}-\d{2}-\d{2}$/.test(atualizacao.dataReferenciaPagamentos)
-              || [atualizacao.inicioConsultas, atualizacao.fimConsultas, atualizacao.concluidaEm]
-                .some((data: string) => typeof data !== "string" || Number.isNaN(Date.parse(data)))
-              || Date.parse(atualizacao.inicioConsultas) > Date.parse(atualizacao.fimConsultas)
-              || Date.parse(atualizacao.fimConsultas) > Date.parse(atualizacao.concluidaEm)) {
+            || !Array.isArray(atualizacao.limitacoesConhecidas)
+            || !/^\d{4}-\d{2}-\d{2}$/.test(atualizacao.dataReferenciaPagamentos)
+            || [atualizacao.inicioConsultas, atualizacao.fimConsultas, atualizacao.concluidaEm]
+              .some((data: string) => typeof data !== "string" || Number.isNaN(Date.parse(data)))
+            || Date.parse(atualizacao.inicioConsultas) > Date.parse(atualizacao.fimConsultas)
+            || Date.parse(atualizacao.fimConsultas) > Date.parse(atualizacao.concluidaEm)) {
             throw new Error("Metadados da atualização inválidos.");
           }
         }
@@ -408,8 +414,8 @@ export const App: React.FC = () => {
 
   const usesPrecomputedSummary = Boolean(
     indexData &&
-      !isContractFiltered &&
-      (indexData.kpis_globais?.totalObras ?? 0) > indexData.obras.length
+    !isContractFiltered &&
+    (indexData.kpis_globais?.totalObras ?? 0) > indexData.obras.length
   );
 
   const { bairros: recalculatedBairros, prefeituras: recalculatedPrefeituras } = useMemo(() => {
@@ -928,11 +934,11 @@ export const App: React.FC = () => {
         onJumpToTerritorySummary={
           activeTab === "comparacao" && isMobileViewport && mobileView === "lista"
             ? () => {
-                const el = document.querySelector('[data-testid="raio-x-container"]');
-                if (el && typeof el.scrollIntoView === "function") {
-                  el.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
+              const el = document.querySelector('[data-testid="raio-x-container"]');
+              if (el && typeof el.scrollIntoView === "function") {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
               }
+            }
             : undefined
         }
       />
@@ -955,11 +961,10 @@ export const App: React.FC = () => {
                   data-testid="btn-mobile-visao-lista"
                   aria-pressed={mobileView === "lista"}
                   onClick={() => handleMobileViewChange("lista")}
-                  className={`min-h-[40px] px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
-                    mobileView === "lista"
-                      ? "bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
-                      : "bg-white/70 text-slate-700 hover:bg-white"
-                  }`}
+                  className={`min-h-[40px] px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${mobileView === "lista"
+                    ? "bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
+                    : "bg-white/70 text-slate-700 hover:bg-white"
+                    }`}
                 >
                   <span aria-hidden="true">{mobileView === "lista" ? "✓" : "☰"}</span>
                   <span>Lista</span>
@@ -969,11 +974,10 @@ export const App: React.FC = () => {
                   data-testid="btn-mobile-visao-mapa"
                   aria-pressed={mobileView === "mapa"}
                   onClick={() => handleMobileViewChange("mapa")}
-                  className={`min-h-[40px] px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
-                    mobileView === "mapa"
-                      ? "bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
-                      : "bg-white/70 text-slate-700 hover:bg-white"
-                  }`}
+                  className={`min-h-[40px] px-3 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${mobileView === "mapa"
+                    ? "bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
+                    : "bg-white/70 text-slate-700 hover:bg-white"
+                    }`}
                 >
                   <span aria-hidden="true">{mobileView === "mapa" ? "✓" : "🗺"}</span>
                   <span>Mapa</span>
@@ -986,9 +990,8 @@ export const App: React.FC = () => {
               <div
                 data-testid="mobile-lista-panel"
                 hidden={isMobileViewport && mobileView !== "lista"}
-                className={`w-full md:w-[45%] min-w-0 md:h-[calc(100vh-14rem)] md:min-h-[480px] md:max-h-[760px] ${
-                  isMobileViewport && mobileView !== "lista" ? "hidden md:block" : ""
-                }`}
+                className={`w-full md:w-[45%] min-w-0 overflow-hidden md:h-[calc(100vh-12.5rem)] md:min-h-[520px] md:max-h-[780px] ${isMobileViewport && mobileView !== "lista" ? "hidden md:block" : ""
+                  }`}
               >
                 <TerritoryComparisonList
                   activeLayer={activeLayer}
@@ -1011,24 +1014,22 @@ export const App: React.FC = () => {
                   hasEmptyContractFilter={isContractFiltered && topFilteredObras.length === 0}
                   onClearContractFilters={handleClearContractFilters}
                   selectedTerritory={activeSelectedTerritory}
-                  onSelectTerritory={setSelectedTerritory}
+                  onSelectTerritory={handleSelectTerritory}
                   onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
                   isVisible={!isMobileViewport || mobileView === "lista"}
                 />
               </div>
 
-              {/* Direita (~55%): Mapa ao lado e Resumo do selecionado abaixo do mapa */}
-              <div className="w-full md:w-[55%] min-w-0 flex flex-col gap-3">
+              {/* Direita (~55%): Mapa com altura alinhada e Raio-X flutuante no desktop (ou empilhado no celular) */}
+              <div className="w-full md:w-[55%] min-w-0 flex flex-col gap-3 md:relative md:overflow-hidden md:h-[calc(100vh-12.5rem)] md:min-h-[520px] md:max-h-[780px]">
                 <div
                   data-testid="mobile-mapa-panel"
                   hidden={isMobileViewport && mobileView !== "mapa"}
-                  className={`sm:min-h-[480px] lg:min-h-[520px] min-w-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm flex flex-col ${
-                    isMobileViewport && mobileView !== "mapa" ? "hidden md:flex" : ""
-                  }`}
+                  className={`sm:min-h-[480px] lg:min-h-[520px] md:h-full min-w-0 overflow-hidden rounded-xl border border-slate-200 shadow-sm flex flex-col ${isMobileViewport && mobileView !== "mapa" ? "hidden md:flex" : ""
+                    }`}
                 >
                   <InteractiveMap
                     activeLayer={activeLayer}
-                    onToggleLayer={handleToggleLayer}
                     bairros={recalculatedBairros}
                     prefeituras={recalculatedPrefeituras}
                     bairrosGeoJson={bairrosGeo}
@@ -1041,6 +1042,9 @@ export const App: React.FC = () => {
                     territorySearch={territorySearch}
                     onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
                     isVisible={!isMobileViewport || mobileView === "mapa"}
+                    isDesktopDrawerExpanded={
+                      !isMobileViewport && Boolean(activeSelectedTerritory) && !isDrawerCollapsed
+                    }
                   />
                 </div>
 
@@ -1054,6 +1058,8 @@ export const App: React.FC = () => {
                     obras={topFilteredObras}
                     onSelectObra={handleSelectObra}
                     onSwitchToExecutado={() => handleFilterChange({ metricType: "executado" })}
+                    isCollapsed={isDrawerCollapsed}
+                    onToggleCollapse={() => setIsDrawerCollapsed((prev) => !prev)}
                   />
                 )}
               </div>
