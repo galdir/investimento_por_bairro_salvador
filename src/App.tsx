@@ -4,6 +4,7 @@ import { HeaderKpis } from "./components/HeaderKpis";
 import { InteractiveMap } from "./components/InteractiveMap";
 import { NotaMetodologicaModal } from "./components/NotaMetodologicaModal";
 import {
+  ComparisonSortColumn,
   TerritoryComparisonList,
   VulnerabilitySortDirection,
 } from "./components/TerritoryComparisonList";
@@ -164,6 +165,7 @@ export const App: React.FC = () => {
   const mobileSelectionChangedInMapRef = useRef<boolean>(false);
   const pendingRestoreMobileScrollRef = useRef<boolean>(false);
   const pendingFocusMobileMapRef = useRef<boolean>(false);
+  const [sortColumn, setSortColumn] = useState<ComparisonSortColumn>("vulnerabilidade");
   const [sortDirection, setSortDirection] = useState<VulnerabilitySortDirection>("asc");
   const [territorySearch, setTerritorySearch] = useState<string>("");
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
@@ -993,10 +995,17 @@ export const App: React.FC = () => {
                   prefeituras={recalculatedPrefeituras}
                   bairros={recalculatedBairros}
                   metricType={filters.metricType}
+                  sortColumn={sortColumn}
+                  onSelectSortColumn={(col, dir) => {
+                    setSortColumn(col);
+                    setSortDirection(dir);
+                  }}
                   sortDirection={sortDirection}
                   onToggleSortDirection={() =>
                     setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"))
                   }
+                  cityAveragePerCapita={headerComparisonSummary.kpis.investimentoPorHabitanteCidade}
+                  cityAverageAvailable={headerComparisonSummary.valorAlocadoDisponivel}
                   territorySearch={territorySearch}
                   onTerritorySearchChange={setTerritorySearch}
                   hasEmptyContractFilter={isContractFiltered && topFilteredObras.length === 0}

@@ -553,10 +553,18 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
   it("atualiza aviso e período da soma parcial ao filtrar mandato", async () => {
     const originalFetch = globalThis.fetch;
     vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
-      ? Promise.resolve({ ok: true, json: async () => ({ ...mockIndexData,
-          obras: mockIndexData.obras.map((obra) => obra.id === 1002 ? { ...obra,
-            apuracaoPagamentos: { situacao: "saldo_registrado", registrosSemValor: 0,
-              limitacoesConhecidas: ["Histórico indisponível"], periodoDisponivel: { inicio: "2020-01-01", fim: "2025-12-31" } } } : obra) }) })
+      ? Promise.resolve({
+        ok: true, json: async () => ({
+          ...mockIndexData,
+          obras: mockIndexData.obras.map((obra) => obra.id === 1002 ? {
+            ...obra,
+            apuracaoPagamentos: {
+              situacao: "saldo_registrado", registrosSemValor: 0,
+              limitacoesConhecidas: ["Histórico indisponível"], periodoDisponivel: { inicio: "2020-01-01", fim: "2025-12-31" }
+            }
+          } : obra)
+        })
+      })
       : originalFetch(url)));
     render(<App />);
     const header = await screen.findByTestId("header-comparativo");
@@ -616,9 +624,11 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith("atual.json")) return Promise.resolve({ ok: true, json: async () => ({ versaoDados: versao, caminho: `versoes/${versao}` }) });
       if (!url.includes(`/versoes/${versao}/`)) return Promise.reject(new Error("caminho fora da versão"));
-      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
-        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
-        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao } });
+      return Promise.resolve({
+        ok: true, json: async () => url.includes("index_")
+          ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+          : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao }
+      });
     });
     vi.stubGlobal("fetch", fetchMock);
     renderApp(<App />);
@@ -647,9 +657,11 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       if (url.includes(`/versoes/${versaoDaAba}/obras/1001.json`)) {
         return Promise.resolve({ ok: true, json: async () => ficha });
       }
-      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
-        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
-        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versaoDaAba } });
+      return Promise.resolve({
+        ok: true, json: async () => url.includes("index_")
+          ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+          : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versaoDaAba }
+      });
     });
     vi.stubGlobal("fetch", fetchMock);
 
@@ -677,9 +689,11 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     vi.stubGlobal("fetch", vi.fn((url: string) => {
       if (url.endsWith("atual.json")) return Promise.resolve({ ok: true, json: async () => ({ versaoDados: versao, caminho: `versoes/${versao}` }) });
       if (url.includes("obras/1001.json")) return Promise.resolve({ ok: true, json: async () => ({ ...mockObra1001Detalhe, versaoDados: "outra" }) });
-      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
-        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
-        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao } });
+      return Promise.resolve({
+        ok: true, json: async () => url.includes("index_")
+          ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+          : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao }
+      });
     }));
     renderApp(<App />);
     fireEvent.click(await screen.findByTestId("tab-tabela"));
@@ -719,9 +733,11 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       }
       if (url.endsWith("versoes-servidas.json")) return Promise.resolve(lista);
       if (url.includes("obras/1001.json")) return Promise.resolve({ ok: false, status: 404 });
-      return Promise.resolve({ ok: true, json: async () => url.includes("index_")
-        ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
-        : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao } });
+      return Promise.resolve({
+        ok: true, json: async () => url.includes("index_")
+          ? { ...mockIndexData, metadata: { ...mockIndexData.metadata, atualizacao } }
+          : { ...(url.includes("bairros.geojson") ? mockBairrosGeo : mockPbGeo), versaoDados: versao }
+      });
     });
     vi.stubGlobal("fetch", fetchMock);
 
@@ -1070,10 +1086,12 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
   it("avisa que os totais pagos são parciais quando há obras sem dados de pagamento", async () => {
     const fetchOriginal = vi.mocked(fetch);
     vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
-      ? Promise.resolve({ ok: true, json: () => Promise.resolve({
+      ? Promise.resolve({
+        ok: true, json: () => Promise.resolve({
           ...mockIndexData,
           obras: mockIndexData.obras.map((obra, index) => index === 0 ? { ...obra, valorPago: null } : obra),
-        }) })
+        })
+      })
       : fetchOriginal(url)));
     render(<App />);
     expect(await screen.findByText(/a soma usa os valores disponíveis/i)).toHaveTextContent(/pagamento indisponível/i);
@@ -1084,12 +1102,14 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
   it("respeita a indisponibilidade em resumo territorial pré-calculado", async () => {
     const fetchOriginal = vi.mocked(fetch);
     vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
-      ? Promise.resolve({ ok: true, json: () => Promise.resolve({
+      ? Promise.resolve({
+        ok: true, json: () => Promise.resolve({
           ...mockIndexData,
           prefeituras_bairro: mockIndexData.prefeituras_bairro.map((pb, index) => index === 0
             ? { ...pb, valorPago: 0, investimentoPorHabitantePago: 0, valorPagoDisponivel: false, obrasSemValorPago: 1 }
             : pb),
-        }) })
+        })
+      })
       : fetchOriginal(url)));
     render(<App />);
     expect(await screen.findByTestId("comparison-valor-barra-pituba")).toHaveTextContent("Pagamento indisponível");
@@ -1098,10 +1118,12 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
   it("avisa sobre pagamentos ausentes fora da amostra em índice parcial", async () => {
     const fetchOriginal = vi.mocked(fetch);
     vi.stubGlobal("fetch", vi.fn((url: string) => url.includes("index_")
-      ? Promise.resolve({ ok: true, json: () => Promise.resolve({
+      ? Promise.resolve({
+        ok: true, json: () => Promise.resolve({
           ...mockIndexData,
           kpis_globais: { ...mockIndexData.kpis_globais, obrasSemValorPago: 3 },
-        }) })
+        })
+      })
       : fetchOriginal(url)));
     render(<App />);
     expect(await screen.findByText(/a soma usa os valores disponíveis/i)).toHaveTextContent(/3 contrato/);
@@ -2077,366 +2099,367 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
   });
 
   describe("Ticket 01: Comparar Prefeituras-Bairro por vulnerabilidade e Valor Pago", () => {
-                            const mockContrastanteIndex = {
-                              metadata: {
-                                generatedAt: "2026-11-15T22:07:56Z",
-                                anoReferencia: 2025,
-                                mandatosDisponiveis: ["2025-2028", "2021-2024"],
-                              },
-                              kpis_globais: {
-                                totalObras: 4,
-                                valorTotal: 25000000.0,
-                                totalAtivas: 4,
-                                totalEmpenhado: 20000000.0,
-                                totalLiquidado: 15000000.0,
-                                totalPago: 13000000.0,
-                                investimentoPorHabitanteCidade: 65.0,
-                                totalNaoLocalizado: 1,
-                                valorNaoLocalizado: 5000000.0,
-                                valorPagoNaoLocalizado: 3000000.0,
-                                percentualNaoLocalizado: 20.0,
-                              },
-                              prefeituras_bairro: [
-                                { id: 1, nome: "Pau da Lima", populacao_total: 100000 },
-                                { id: 2, nome: "Barra/Pituba", populacao_total: 50000 },
-                                { id: 3, nome: "Cabula/Tancredo Neves", populacao_total: 50000 },
-                                { id: 4, nome: "Valéria", populacao_total: 25000 },
-                                { id: 5, nome: "Subúrbio/Ilhas", populacao_total: 100000 },
-                              ],
-                              bairros: [
-                                {
-                                  id: 10,
-                                  nome: "Pituba",
-                                  prefeitura_bairro: "Barra/Pituba",
-                                  populacao: 50000,
-                                  indice_vulnerabilidade: 0.25,
-                                  is_zona_especial_nao_residencial: false,
-                                  vulnerabilidade_estimada_contiguidade: false,
-                                },
-                                {
-                                  id: 11,
-                                  nome: "Pau da Lima",
-                                  prefeitura_bairro: "Pau da Lima",
-                                  populacao: 100000,
-                                  indice_vulnerabilidade: 0.55,
-                                  is_zona_especial_nao_residencial: false,
-                                  vulnerabilidade_estimada_contiguidade: false,
-                                },
-                                {
-                                  id: 12,
-                                  nome: "Cabula",
-                                  prefeitura_bairro: "Cabula/Tancredo Neves",
-                                  populacao: 50000,
-                                  indice_vulnerabilidade: 0.55,
-                                  is_zona_especial_nao_residencial: false,
-                                  vulnerabilidade_estimada_contiguidade: false,
-                                },
-                                {
-                                  id: 13,
-                                  nome: "Valéria",
-                                  prefeitura_bairro: "Valéria",
-                                  populacao: 25000,
-                                  indice_vulnerabilidade: 0.72,
-                                  is_zona_especial_nao_residencial: false,
-                                  vulnerabilidade_estimada_contiguidade: false,
-                                },
-                                {
-                                  id: 14,
-                                  nome: "Ilha de Maré",
-                                  prefeitura_bairro: "Subúrbio/Ilhas",
-                                  populacao: 5000,
-                                  indice_vulnerabilidade: 0.67,
-                                  is_zona_especial_nao_residencial: false,
-                                  vulnerabilidade_estimada_contiguidade: true,
-                                },
-                                {
-                                  id: 15,
-                                  nome: "Paripe",
-                                  prefeitura_bairro: "Subúrbio/Ilhas",
-                                  populacao: 95000,
-                                  indice_vulnerabilidade: 0.90,
-                                  is_zona_especial_nao_residencial: false,
-                                  vulnerabilidade_estimada_contiguidade: false,
-                                },
-                              ],
-                              obras: [
-                                // Barra/Pituba (vuln 0.25): Valor Pago R$ 5.000.000 / 50k = R$ 100,00 / hab
-                                {
-                                  id: 301,
-                                  unidadeGestora: "SUCOP",
-                                  numeroContrato: "010/2025",
-                                  objeto: "Drenagem na Pituba",
-                                  valorContratualVigente: 10000000,
-                                  valorPago: 5000000,
-                                  percentualExecutado: 50,
-                                  situacao: "Em Execução",
-                                  credor: "EMP A",
-                                  vocacao: "Vizinhança e Comunidade",
-                                  mandatos: ["2025-2028"],
-                                  nivel: "Bairro",
-                                  bairro: "Pituba",
-                                  prefeituraBairro: "Barra/Pituba",
-                                  latitude: -12.99,
-                                  longitude: -38.45,
-                                },
-                                // Cabula/Tancredo Neves (vuln 0.55): Valor Pago R$ 5.000.000 / 50k = R$ 100,00 / hab (empate vuln com Pau da Lima!)
-                                {
-                                  id: 302,
-                                  unidadeGestora: "SEINFRA",
-                                  numeroContrato: "011/2025",
-                                  objeto: "Pavimentação no Cabula",
-                                  valorContratualVigente: 8000000,
-                                  valorPago: 5000000,
-                                  percentualExecutado: 62.5,
-                                  situacao: "Em Execução",
-                                  credor: "EMP B",
-                                  vocacao: "Mobilidade Estrutural e Orlas",
-                                  mandatos: ["2025-2028"],
-                                  nivel: "Bairro",
-                                  bairro: "Cabula",
-                                  prefeituraBairro: "Cabula/Tancredo Neves",
-                                  latitude: -12.95,
-                                  longitude: -38.46,
-                                },
-                                // Pau da Lima (vuln 0.55): Zero observado (0 obras / 0 pago) -> R$ 0,00 / hab
-                                // Valéria (vuln 0.72): Obra contratada R$ 4.000.000, mas pagamento AUSENTE (null)!
-                                {
-                                  id: 303,
-                                  unidadeGestora: "FME",
-                                  numeroContrato: "012/2025",
-                                  objeto: "Escola em Valéria sem registro de pagamento",
-                                  valorContratualVigente: 4000000,
-                                  valorPago: null,
-                                  percentualExecutado: 0,
-                                  situacao: "Em Execução",
-                                  credor: "EMP C",
-                                  vocacao: "Vizinhança e Comunidade",
-                                  mandatos: ["2025-2028"],
-                                  nivel: "Bairro",
-                                  bairro: "Valéria",
-                                  prefeituraBairro: "Valéria",
-                                  latitude: -12.86,
-                                  longitude: -38.43,
-                                },
-                                // Subúrbio/Ilhas (vuln ~0.89, inclui estimativa Ilha de Maré): Regional R$ 2.000.000 pago / 100k = R$ 20,00 / hab
-                                {
-                                  id: 304,
-                                  unidadeGestora: "DESAL",
-                                  numeroContrato: "013/2025",
-                                  objeto: "Manutenção regional Subúrbio e Ilhas",
-                                  valorContratualVigente: 3000000,
-                                  valorPago: 2000000,
-                                  percentualExecutado: 66.7,
-                                  situacao: "Em Execução",
-                                  credor: "EMP D",
-                                  vocacao: "Equipamentos e Marcos da Cidade",
-                                  mandatos: ["2021-2024", "2025-2028"],
-                                  nivel: "Regional (Prefeitura-Bairro)",
-                                  bairro: null,
-                                  prefeituraBairro: "Subúrbio/Ilhas",
-                                  latitude: null,
-                                  longitude: null,
-                                },
-                                // Escopo Cidade (Não-Localizado): R$ 3.000.000 pago
-                                {
-                                  id: 305,
-                                  unidadeGestora: "SEINFRA",
-                                  numeroContrato: "014/2025",
-                                  objeto: "Contrato cidade sem localização",
-                                  valorContratualVigente: 5000000,
-                                  valorPago: 3000000,
-                                  percentualExecutado: 60,
-                                  situacao: "Em Execução",
-                                  credor: "EMP E",
-                                  vocacao: "Mobilidade Estrutural e Orlas",
-                                  mandatos: ["2025-2028"],
-                                  nivel: "Escopo Cidade (Não-Localizado)",
-                                  bairro: null,
-                                  prefeituraBairro: null,
-                                  latitude: null,
-                                  longitude: null,
-                                },
-                              ],
-                            };
+    const mockContrastanteIndex = {
+      metadata: {
+        generatedAt: "2026-11-15T22:07:56Z",
+        anoReferencia: 2025,
+        mandatosDisponiveis: ["2025-2028", "2021-2024"],
+      },
+      kpis_globais: {
+        totalObras: 4,
+        valorTotal: 25000000.0,
+        totalAtivas: 4,
+        totalEmpenhado: 20000000.0,
+        totalLiquidado: 15000000.0,
+        totalPago: 13000000.0,
+        investimentoPorHabitanteCidade: 65.0,
+        totalNaoLocalizado: 1,
+        valorNaoLocalizado: 5000000.0,
+        valorPagoNaoLocalizado: 3000000.0,
+        percentualNaoLocalizado: 20.0,
+      },
+      prefeituras_bairro: [
+        { id: 1, nome: "Pau da Lima", populacao_total: 100000 },
+        { id: 2, nome: "Barra/Pituba", populacao_total: 50000 },
+        { id: 3, nome: "Cabula/Tancredo Neves", populacao_total: 50000 },
+        { id: 4, nome: "Valéria", populacao_total: 25000 },
+        { id: 5, nome: "Subúrbio/Ilhas", populacao_total: 100000 },
+      ],
+      bairros: [
+        {
+          id: 10,
+          nome: "Pituba",
+          prefeitura_bairro: "Barra/Pituba",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.25,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: false,
+        },
+        {
+          id: 11,
+          nome: "Pau da Lima",
+          prefeitura_bairro: "Pau da Lima",
+          populacao: 100000,
+          indice_vulnerabilidade: 0.55,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: false,
+        },
+        {
+          id: 12,
+          nome: "Cabula",
+          prefeitura_bairro: "Cabula/Tancredo Neves",
+          populacao: 50000,
+          indice_vulnerabilidade: 0.55,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: false,
+        },
+        {
+          id: 13,
+          nome: "Valéria",
+          prefeitura_bairro: "Valéria",
+          populacao: 25000,
+          indice_vulnerabilidade: 0.72,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: false,
+        },
+        {
+          id: 14,
+          nome: "Ilha de Maré",
+          prefeitura_bairro: "Subúrbio/Ilhas",
+          populacao: 5000,
+          indice_vulnerabilidade: 0.67,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: true,
+        },
+        {
+          id: 15,
+          nome: "Paripe",
+          prefeitura_bairro: "Subúrbio/Ilhas",
+          populacao: 95000,
+          indice_vulnerabilidade: 0.90,
+          is_zona_especial_nao_residencial: false,
+          vulnerabilidade_estimada_contiguidade: false,
+        },
+      ],
+      obras: [
+        // Barra/Pituba (vuln 0.25): Valor Pago R$ 5.000.000 / 50k = R$ 100,00 / hab
+        {
+          id: 301,
+          unidadeGestora: "SUCOP",
+          numeroContrato: "010/2025",
+          objeto: "Drenagem na Pituba",
+          valorContratualVigente: 10000000,
+          valorPago: 5000000,
+          percentualExecutado: 50,
+          situacao: "Em Execução",
+          credor: "EMP A",
+          vocacao: "Vizinhança e Comunidade",
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Pituba",
+          prefeituraBairro: "Barra/Pituba",
+          latitude: -12.99,
+          longitude: -38.45,
+        },
+        // Cabula/Tancredo Neves (vuln 0.55): Valor Pago R$ 5.000.000 / 50k = R$ 100,00 / hab (empate vuln com Pau da Lima!)
+        {
+          id: 302,
+          unidadeGestora: "SEINFRA",
+          numeroContrato: "011/2025",
+          objeto: "Pavimentação no Cabula",
+          valorContratualVigente: 8000000,
+          valorPago: 5000000,
+          percentualExecutado: 62.5,
+          situacao: "Em Execução",
+          credor: "EMP B",
+          vocacao: "Mobilidade Estrutural e Orlas",
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Cabula",
+          prefeituraBairro: "Cabula/Tancredo Neves",
+          latitude: -12.95,
+          longitude: -38.46,
+        },
+        // Pau da Lima (vuln 0.55): Zero observado (0 obras / 0 pago) -> R$ 0,00 / hab
+        // Valéria (vuln 0.72): Obra contratada R$ 4.000.000, mas pagamento AUSENTE (null)!
+        {
+          id: 303,
+          unidadeGestora: "FME",
+          numeroContrato: "012/2025",
+          objeto: "Escola em Valéria sem registro de pagamento",
+          valorContratualVigente: 4000000,
+          valorPago: null,
+          percentualExecutado: 0,
+          situacao: "Em Execução",
+          credor: "EMP C",
+          vocacao: "Vizinhança e Comunidade",
+          mandatos: ["2025-2028"],
+          nivel: "Bairro",
+          bairro: "Valéria",
+          prefeituraBairro: "Valéria",
+          latitude: -12.86,
+          longitude: -38.43,
+        },
+        // Subúrbio/Ilhas (vuln ~0.89, inclui estimativa Ilha de Maré): Regional R$ 2.000.000 pago / 100k = R$ 20,00 / hab
+        {
+          id: 304,
+          unidadeGestora: "DESAL",
+          numeroContrato: "013/2025",
+          objeto: "Manutenção regional Subúrbio e Ilhas",
+          valorContratualVigente: 3000000,
+          valorPago: 2000000,
+          percentualExecutado: 66.7,
+          situacao: "Em Execução",
+          credor: "EMP D",
+          vocacao: "Equipamentos e Marcos da Cidade",
+          mandatos: ["2021-2024", "2025-2028"],
+          nivel: "Regional (Prefeitura-Bairro)",
+          bairro: null,
+          prefeituraBairro: "Subúrbio/Ilhas",
+          latitude: null,
+          longitude: null,
+        },
+        // Escopo Cidade (Não-Localizado): R$ 3.000.000 pago
+        {
+          id: 305,
+          unidadeGestora: "SEINFRA",
+          numeroContrato: "014/2025",
+          objeto: "Contrato cidade sem localização",
+          valorContratualVigente: 5000000,
+          valorPago: 3000000,
+          percentualExecutado: 60,
+          situacao: "Em Execução",
+          credor: "EMP E",
+          vocacao: "Mobilidade Estrutural e Orlas",
+          mandatos: ["2025-2028"],
+          nivel: "Escopo Cidade (Não-Localizado)",
+          bairro: null,
+          prefeituraBairro: null,
+          latitude: null,
+          longitude: null,
+        },
+      ],
+    };
 
-                            // GeoJSON com Subúrbio/Ilhas multipolígono (continente + ilha) para testar enquadramento insular
-                            const mockContrastantePbGeo = {
-                              type: "FeatureCollection",
-                              features: [
-                                {
-                                  type: "Feature",
-                                  properties: { id: 2, nome: "Barra/Pituba" },
-                                  geometry: { type: "Polygon", coordinates: [[[-38.52, -13.01], [-38.45, -13.01], [-38.45, -12.98], [-38.52, -13.01]]] },
-                                },
-                                {
-                                  type: "Feature",
-                                  properties: { id: 5, nome: "Subúrbio/Ilhas" },
-                                  geometry: { type: "Polygon", coordinates: [[[-38.49, -12.88], [-38.46, -12.88], [-38.46, -12.85], [-38.49, -12.88]]] },
-                                },
-                                {
-                                  type: "Feature",
-                                  properties: { id: 5, nome: "Subúrbio/Ilhas" },
-                                  geometry: { type: "Polygon", coordinates: [[[-38.62, -12.78], [-38.59, -12.78], [-38.59, -12.75], [-38.62, -12.78]]] },
-                                },
-                              ],
-                            };
+    // GeoJSON com Subúrbio/Ilhas multipolígono (continente + ilha) para testar enquadramento insular
+    const mockContrastantePbGeo = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: { id: 2, nome: "Barra/Pituba" },
+          geometry: { type: "Polygon", coordinates: [[[-38.52, -13.01], [-38.45, -13.01], [-38.45, -12.98], [-38.52, -13.01]]] },
+        },
+        {
+          type: "Feature",
+          properties: { id: 5, nome: "Subúrbio/Ilhas" },
+          geometry: { type: "Polygon", coordinates: [[[-38.49, -12.88], [-38.46, -12.88], [-38.46, -12.85], [-38.49, -12.88]]] },
+        },
+        {
+          type: "Feature",
+          properties: { id: 5, nome: "Subúrbio/Ilhas" },
+          geometry: { type: "Polygon", coordinates: [[[-38.62, -12.78], [-38.59, -12.78], [-38.59, -12.75], [-38.62, -12.78]]] },
+        },
+      ],
+    };
 
-                            it("abre em Prefeituras-Bairro, Valor Pago, todos mandatos/vocações, ordenado por vulnerabilidade com empate alfabético, inversão, seleção bidirecional, cabeçalho invariante e estados de zero/ausência/estimativa", async () => {
-                              const geoJsonSpy = vi.spyOn(L, "geoJSON");
-                              const fitBoundsSpy = vi.spyOn(L.Map.prototype, "fitBounds");
+    it("abre em Prefeituras-Bairro, Valor Pago, todos mandatos/vocações, ordenado por vulnerabilidade com empate alfabético, inversão, seleção bidirecional, cabeçalho invariante e estados de zero/ausência/estimativa", async () => {
+      const geoJsonSpy = vi.spyOn(L, "geoJSON");
+      const fitBoundsSpy = vi.spyOn(L.Map.prototype, "fitBounds");
 
-                              vi.stubGlobal(
-                                "fetch",
-                                vi.fn((url: string) => {
-                                  if (url.includes("index_")) {
-                                    return Promise.resolve({ ok: true, json: () => Promise.resolve(mockContrastanteIndex) });
-                                  }
-                                  if (url.includes("bairros.geojson")) {
-                                    return Promise.resolve({ ok: true, json: () => Promise.resolve(mockBairrosGeo) });
-                                  }
-                                  if (url.includes("prefeituras_bairro.geojson")) {
-                                    return Promise.resolve({ ok: true, json: () => Promise.resolve(mockContrastantePbGeo) });
-                                  }
-                                  return Promise.reject(new Error("URL desconhecida: " + url));
-                                })
-                              );
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((url: string) => {
+          if (url.includes("index_")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockContrastanteIndex) });
+          }
+          if (url.includes("bairros.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockBairrosGeo) });
+          }
+          if (url.includes("prefeituras_bairro.geojson")) {
+            return Promise.resolve({ ok: true, json: () => Promise.resolve(mockContrastantePbGeo) });
+          }
+          return Promise.reject(new Error("URL desconhecida: " + url));
+        })
+      );
 
-                              render(<App />);
+      render(<App />);
 
-                              await waitFor(() => {
-                                expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
-                              });
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-list-container")).toBeInTheDocument();
+      });
 
-                              // 1. Estado inicial: Prefeituras-Bairro, Valor Pago, todos os mandatos, 3 vocações, sem seleção, pinos desligados
-                              expect(screen.getByTestId("btn-camada-prefeituras")).toHaveClass("bg-white");
-                              expect(screen.getByTestId("btn-metrica-executado")).toHaveClass("bg-emerald-600");
-                              expect((screen.getByTestId("filtro-mandato") as HTMLSelectElement).value).toBe("todos");
-                              expect(screen.getByTestId("chip-vocacao-vizinhanca")).toHaveAttribute("aria-pressed", "true");
-                              expect(screen.getByTestId("chip-vocacao-mobilidade")).toHaveAttribute("aria-pressed", "true");
-                              expect(screen.getByTestId("chip-vocacao-equipamentos")).toHaveAttribute("aria-pressed", "true");
-                              expect(screen.queryByTestId("raio-x-container")).not.toBeInTheDocument();
-                              expect(screen.getByTestId("btn-toggle-pinos-obras")).toHaveAttribute("aria-pressed", "false");
-                              expect(screen.queryByTestId("map-pin-obra-301")).not.toBeInTheDocument();
+      // 1. Estado inicial: Prefeituras-Bairro, Valor Pago, todos os mandatos, 3 vocações, sem seleção, pinos desligados
+      expect(screen.getByTestId("btn-camada-prefeituras")).toHaveClass("bg-white");
+      expect(screen.getByTestId("btn-metrica-executado")).toHaveClass("bg-emerald-600");
+      expect((screen.getByTestId("filtro-mandato") as HTMLSelectElement).value).toBe("todos");
+      expect(screen.getByTestId("chip-vocacao-vizinhanca")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("chip-vocacao-mobilidade")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.getByTestId("chip-vocacao-equipamentos")).toHaveAttribute("aria-pressed", "true");
+      expect(screen.queryByTestId("raio-x-container")).not.toBeInTheDocument();
+      expect(screen.getByTestId("btn-toggle-pinos-obras")).toHaveAttribute("aria-pressed", "false");
+      expect(screen.queryByTestId("map-pin-obra-301")).not.toBeInTheDocument();
 
-                              // 2. Cabeçalho compacto: 5 Prefeituras-Bairro, Valor Pago alocado (5M + 5M + 2M = R$ 12 mi), sem localização (R$ 3 mi), data e acumulados
-                              expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("5 Prefeituras-Bairro");
-                              expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute(
-                                "aria-label",
-                                expect.stringContaining("12.000.000")
-                              );
-                              expect(screen.getByTestId("kpi-valor-nao-localizado")).toHaveAttribute(
-                                "aria-label",
-                                expect.stringContaining("3.000.000")
-                              );
-                              expect(screen.getByTestId("header-atualizacao")).toHaveTextContent("Dados gerados em 15/11/2026");
-                              expect(screen.getByTestId("header-valores-acumulados")).toHaveTextContent(/Valores acumulados/i);
+      // 2. Cabeçalho compacto: 5 Prefeituras-Bairro, Valor Pago alocado (5M + 5M + 2M = R$ 12 mi), sem localização (R$ 3 mi), data e acumulados
+      expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("5 Prefeituras-Bairro");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute(
+        "aria-label",
+        expect.stringContaining("12.000.000")
+      );
+      expect(screen.getByTestId("kpi-valor-nao-localizado")).toHaveAttribute(
+        "aria-label",
+        expect.stringContaining("3.000.000")
+      );
+      expect(screen.getByTestId("header-atualizacao")).toHaveTextContent("Dados gerados em 15/11/2026");
+      expect(screen.getByTestId("header-valores-acumulados")).toHaveTextContent(/Valores acumulados/i);
 
-                              // Valor exato acessível por clique/teclado sem depender de hover
-                              fireEvent.click(screen.getByTestId("kpi-valor-alocado"));
-                              expect(screen.getByTestId("kpi-valor-alocado-exato")).toHaveTextContent(/Valor exato:.*12\.000\.000/);
+      // Valor exato acessível por clique/teclado sem depender de hover
+      fireEvent.click(screen.getByTestId("kpi-valor-alocado"));
+      expect(screen.getByTestId("kpi-valor-alocado-exato")).toHaveTextContent(/Valor exato:.*12\.000\.000/);
 
-                              // 3. Legenda do mapa inicia em Investimento por Habitante com intervalos quantitativos e unidade
-                              const legenda = screen.getByTestId("legenda-coropletica");
-                              expect(legenda).toHaveTextContent(/Investimento por Habitante/i);
-                              expect(legenda).toHaveTextContent(/Valor Pago \(R\$\/hab\)/i);
-                              expect(legenda).toHaveTextContent(/R\$ 0 \/ hab/i);
+      // 3. Legenda do mapa inicia em Investimento por Habitante com intervalos quantitativos e unidade
+      const legenda = screen.getByTestId("legenda-coropletica");
+      expect(legenda).toHaveTextContent(/Investimento por Habitante/i);
+      expect(legenda).toHaveTextContent(/Valor Pago \(R\$\/hab\)/i);
+      expect(legenda).toHaveTextContent(/R\$ 0 \/ hab/i);
 
-                              // 4. Ordenação crescente pela vulnerabilidade com desempate alfabético (NÃO por investimento!)
-                              // Ordem esperada:
-                              // 0: Barra/Pituba (0,25, R$ 100/hab)
-                              // 1: Cabula/Tancredo Neves (0,55, R$ 100/hab) -- desempate alfabético antes de Pau da Lima!
-                              // 2: Pau da Lima (0,55, R$ 0/hab)
-                              // 3: Valéria (0,72, Pagamento indisponível)
-                              // 4: Subúrbio/Ilhas (0,89, R$ 20/hab)
-                              const listItems = screen.getByTestId("comparison-list-items").querySelectorAll("li");
-                              const orderedNames = Array.from(listItems).map((li) => li.getAttribute("data-testid"));
-                              expect(orderedNames).toEqual([
-                                "comparison-row-barra-pituba",
-                                "comparison-row-cabula-tancredo-neves",
-                                "comparison-row-pau-da-lima",
-                                "comparison-row-valeria",
-                                "comparison-row-suburbio-ilhas",
-                              ]);
+      // 4. Ordenação crescente pela vulnerabilidade com desempate alfabético (NÃO por investimento!)
+      // Ordem esperada:
+      // 0: Barra/Pituba (0,25, R$ 100/hab)
+      // 1: Cabula/Tancredo Neves (0,55, R$ 100/hab) -- desempate alfabético antes de Pau da Lima!
+      // 2: Pau da Lima (0,55, R$ 0/hab)
+      // 3: Subúrbio/Ilhas (0,89, R$ 20/hab)
+      // Final (sem numeração): Valéria (0,72, Pagamento indisponível)
+      const listItems = screen.getByTestId("comparison-list-items").querySelectorAll("li");
+      const orderedNames = Array.from(listItems).map((li) => li.getAttribute("data-testid"));
+      expect(orderedNames).toEqual([
+        "comparison-row-barra-pituba",
+        "comparison-row-cabula-tancredo-neves",
+        "comparison-row-pau-da-lima",
+        "comparison-row-suburbio-ilhas",
+        "comparison-row-valeria",
+      ]);
 
-                              // 5. Estados de dados: zero observado vs pagamento ausente vs estimativa regional
-                              expect(screen.getByTestId("comparison-valor-pau-da-lima")).toHaveTextContent(/R\$\s*0/);
-                              expect(screen.getByTestId("comparison-bar-pau-da-lima")).toHaveStyle({ width: "0%" });
+      // 5. Estados de dados: zero observado vs pagamento ausente vs estimativa regional
+      expect(screen.getByTestId("comparison-valor-pau-da-lima")).toHaveTextContent(/R\$\s*0/);
+      expect(screen.getByTestId("comparison-bar-pau-da-lima")).toHaveStyle({ width: "0%" });
 
-                              // Valéria tem obra contratada de R$ 4M mas valorPago=null: NÃO pode receber R$ 4M nem 0 fictício!
-                              expect(screen.getByTestId("comparison-valor-valeria")).toHaveTextContent("Pagamento indisponível");
-                              expect(screen.queryByTestId("comparison-bar-valeria")).not.toBeInTheDocument();
+      // Valéria tem obra contratada de R$ 4M mas valorPago=null: NÃO pode receber R$ 4M nem 0 fictício!
+      expect(screen.getByTestId("comparison-valor-valeria")).toHaveTextContent("Pagamento indisponível");
+      expect(screen.queryByTestId("comparison-bar-valeria")).not.toBeInTheDocument();
 
-                              // Subúrbio/Ilhas sinaliza estimativa por contiguidade de Ilha de Maré na composição regional
-                              expect(screen.getByTestId("comparison-estimativa-suburbio-ilhas")).toHaveTextContent("Ilha de Maré");
+      // Subúrbio/Ilhas sinaliza estimativa por contiguidade de Ilha de Maré na composição regional
+      expect(screen.getByTestId("comparison-estimativa-suburbio-ilhas")).toHaveTextContent("Ilha de Maré");
 
-                              // Barras usam escala comum (max = R$ 100/hab -> Barra/Pituba 100%, Subúrbio/Ilhas 20%)
-                              expect(screen.getByTestId("comparison-bar-barra-pituba")).toHaveStyle({ width: "100%" });
-                              expect(screen.getByTestId("comparison-bar-suburbio-ilhas")).toHaveStyle({ width: "20%" });
+      // Barras usam escala comum (max = R$ 100/hab -> Barra/Pituba 100%, Subúrbio/Ilhas 20%)
+      expect(screen.getByTestId("comparison-bar-barra-pituba")).toHaveStyle({ width: "100%" });
+      expect(screen.getByTestId("comparison-bar-suburbio-ilhas")).toHaveStyle({ width: "20%" });
 
-                              // 6. Inversão da lista mantém escala comum e valores
-                              fireEvent.click(screen.getByTestId("btn-inverter-ordenacao"));
-                              const invertedItems = screen.getByTestId("comparison-list-items").querySelectorAll("li");
-                              const invertedNames = Array.from(invertedItems).map((li) => li.getAttribute("data-testid"));
-                              expect(invertedNames[0]).toBe("comparison-row-suburbio-ilhas");
-                              expect(invertedNames[invertedNames.length - 1]).toBe("comparison-row-barra-pituba");
-                              // Escala das barras permanece idêntica após inversão
-                              expect(screen.getByTestId("comparison-bar-barra-pituba")).toHaveStyle({ width: "100%" });
-                              expect(screen.getByTestId("comparison-bar-suburbio-ilhas")).toHaveStyle({ width: "20%" });
+      // 6. Inversão da lista mantém escala comum e valores
+      fireEvent.click(screen.getByTestId("btn-inverter-ordenacao"));
+      const invertedItems = screen.getByTestId("comparison-list-items").querySelectorAll("li");
+      const invertedNames = Array.from(invertedItems).map((li) => li.getAttribute("data-testid"));
+      expect(invertedNames[0]).toBe("comparison-row-suburbio-ilhas");
+      expect(invertedNames[invertedNames.length - 2]).toBe("comparison-row-barra-pituba");
+      expect(invertedNames[invertedNames.length - 1]).toBe("comparison-row-valeria");
+      // Escala das barras permanece idêntica após inversão
+      expect(screen.getByTestId("comparison-bar-barra-pituba")).toHaveStyle({ width: "100%" });
+      expect(screen.getByTestId("comparison-bar-suburbio-ilhas")).toHaveStyle({ width: "20%" });
 
-                              // 7. Selecionar na lista destaca/enquadra território (inclusive multipolígono insular Subúrbio/Ilhas),
-                              // abre resumo abaixo do mapa e NÃO oculta demais territórios nem altera o escopo municipal do cabeçalho!
-                              fitBoundsSpy.mockClear();
-                              fireEvent.click(screen.getByTestId("comparison-select-suburbio-ilhas"));
+      // 7. Selecionar na lista destaca/enquadra território (inclusive multipolígono insular Subúrbio/Ilhas),
+      // abre resumo abaixo do mapa e NÃO oculta demais territórios nem altera o escopo municipal do cabeçalho!
+      fitBoundsSpy.mockClear();
+      fireEvent.click(screen.getByTestId("comparison-select-suburbio-ilhas"));
 
-                              await waitFor(() => {
-                                expect(screen.getByTestId("raio-x-container")).toBeInTheDocument();
-                              });
-                              expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Subúrbio/Ilhas");
-                              expect(screen.getByTestId("badge-contiguidade-regional")).toHaveTextContent("Ilha de Maré");
-                              expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveAttribute("data-selected", "true");
-                              expect(screen.getByTestId("comparison-selected-badge-suburbio-ilhas")).toHaveTextContent("Selecionado");
-                              // Demais territórios continuam visíveis na lista
-                              expect(screen.getByTestId("comparison-row-barra-pituba")).toBeInTheDocument();
-                              // Enquadrou multipolígono insular no mapa (fitBounds chamado com bounds estendidos às duas feições de Subúrbio/Ilhas)
-                              expect(fitBoundsSpy).toHaveBeenCalled();
-                              const fittedBounds = fitBoundsSpy.mock.calls[fitBoundsSpy.mock.calls.length - 1][0] as L.LatLngBounds;
-                              expect(fittedBounds.getWest()).toBeCloseTo(-38.62, 2);
-                              expect(fittedBounds.getEast()).toBeCloseTo(-38.46, 2);
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-container")).toBeInTheDocument();
+      });
+      expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Subúrbio/Ilhas");
+      expect(screen.getByTestId("badge-contiguidade-regional")).toHaveTextContent("Ilha de Maré");
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveAttribute("data-selected", "true");
+      expect(screen.getByTestId("comparison-selected-badge-suburbio-ilhas")).toHaveTextContent("Selecionado");
+      // Demais territórios continuam visíveis na lista
+      expect(screen.getByTestId("comparison-row-barra-pituba")).toBeInTheDocument();
+      // Enquadrou multipolígono insular no mapa (fitBounds chamado com bounds estendidos às duas feições de Subúrbio/Ilhas)
+      expect(fitBoundsSpy).toHaveBeenCalled();
+      const fittedBounds = fitBoundsSpy.mock.calls[fitBoundsSpy.mock.calls.length - 1][0] as L.LatLngBounds;
+      expect(fittedBounds.getWest()).toBeCloseTo(-38.62, 2);
+      expect(fittedBounds.getEast()).toBeCloseTo(-38.46, 2);
 
-                              // Cabeçalho comparativo municipal NÃO mudou com a seleção
-                              expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("5 Prefeituras-Bairro");
-                              expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute(
-                                "aria-label",
-                                expect.stringContaining("12.000.000")
-                              );
+      // Cabeçalho comparativo municipal NÃO mudou com a seleção
+      expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("5 Prefeituras-Bairro");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute(
+        "aria-label",
+        expect.stringContaining("12.000.000")
+      );
 
-                              // 8. Seleção bidirecional: clicar em polígono do mapa (Barra/Pituba) localiza sua linha e atualiza o resumo
-                              const lastGeoOptions = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1][1] as L.GeoJSONOptions;
-                              const fakeLayer: any = { on: vi.fn() };
-                              lastGeoOptions.onEachFeature!(mockContrastantePbGeo.features[0] as any, fakeLayer);
-                              const clickHandler = fakeLayer.on.mock.calls[0][0].click;
-                              act(() => {
-                                clickHandler();
-                              });
+      // 8. Seleção bidirecional: clicar em polígono do mapa (Barra/Pituba) localiza sua linha e atualiza o resumo
+      const lastGeoOptions = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1][1] as L.GeoJSONOptions;
+      const fakeLayer: any = { on: vi.fn() };
+      lastGeoOptions.onEachFeature!(mockContrastantePbGeo.features[0] as any, fakeLayer);
+      const clickHandler = fakeLayer.on.mock.calls[0][0].click;
+      act(() => {
+        clickHandler();
+      });
 
-                              await waitFor(() => {
-                                expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
-                              });
-                              expect(screen.getByTestId("comparison-row-barra-pituba")).toHaveAttribute("data-selected", "true");
-                              expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveAttribute("data-selected", "false");
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Barra/Pituba");
+      });
+      expect(screen.getByTestId("comparison-row-barra-pituba")).toHaveAttribute("data-selected", "true");
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveAttribute("data-selected", "false");
 
-                              // 9. Selecionar Valéria mostra estado de pagamento indisponível no resumo sem substituir por R$ 4M contratado
-                              fireEvent.click(screen.getByTestId("comparison-select-valeria"));
-                              await waitFor(() => {
-                                expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Valéria");
-                              });
-                              expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("Pagamento indisponível");
-                              expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Pagamento indisponível");
+      // 9. Selecionar Valéria mostra estado de pagamento indisponível no resumo sem substituir por R$ 4M contratado
+      fireEvent.click(screen.getByTestId("comparison-select-valeria"));
+      await waitFor(() => {
+        expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Valéria");
+      });
+      expect(screen.getByTestId("raio-x-total-investido")).toHaveTextContent("Pagamento indisponível");
+      expect(screen.getByTestId("raio-x-investimento-per-capita")).toHaveTextContent("Pagamento indisponível");
 
-                              geoJsonSpy.mockRestore();
-                              fitBoundsSpy.mockRestore();
-                            });
-                          });
+      geoJsonSpy.mockRestore();
+      fitBoundsSpy.mockRestore();
+    });
+  });
 
   describe("Ticket 02: Comparar métricas financeiras e Mandatos Municipais", () => {
     const mockTicket02Index = {
@@ -2747,8 +2770,8 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(getOrderedRowIds()).toEqual([
         "comparison-row-barra-pituba",
         "comparison-row-cabula-tancredo-neves",
-        "comparison-row-valeria",
         "comparison-row-suburbio-ilhas",
+        "comparison-row-valeria",
       ]);
 
       // Valores em Valor Pago (Cota-Parte 1/2 + Frente de Medição 500k + Regional 2M + ausência em Valéria)
@@ -2783,9 +2806,9 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       fireEvent.click(screen.getByTestId("btn-inverter-ordenacao"));
       expect(getOrderedRowIds()).toEqual([
         "comparison-row-suburbio-ilhas",
-        "comparison-row-valeria",
         "comparison-row-cabula-tancredo-neves",
         "comparison-row-barra-pituba",
+        "comparison-row-valeria",
       ]);
 
       fireEvent.click(screen.getByTestId("comparison-select-barra-pituba"));
@@ -3319,7 +3342,8 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("comparison-list-count")).toHaveTextContent("11 Bairros Oficiais");
 
       // Ordenação crescente por vulnerabilidade com desempate alfabético (Chame-Chame 0,12 antes de Pituba 0,12)
-      // e Comércio (0,48) incluído na lista por vulnerabilidade; Bairro Sem Índice e Zonas Especiais ficam fora do ranking numérico!
+      // e Comércio (Isento per capita) + Paripe (Pagamento indisponível) posicionados sem numeração ao final de comparison-list-items;
+      // Bairro Sem Índice e Zonas Especiais ficam em seções separadas!
       const rankedIds = Array.from(
         screen.getByTestId("comparison-list-items").querySelectorAll("li")
       ).map((li) => li.getAttribute("data-testid"));
@@ -3327,10 +3351,10 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
         "comparison-row-chame-chame",
         "comparison-row-pituba",
         "comparison-row-graca",
-        "comparison-row-comercio",
         "comparison-row-cabula",
         "comparison-row-ilha-de-mare",
         "comparison-row-sao-caetano",
+        "comparison-row-comercio",
         "comparison-row-paripe",
       ]);
 
@@ -3371,6 +3395,19 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
         "aria-label",
         expect.stringContaining("500.000")
       );
+
+      // Ordenação por R$ / Habitante (desc e asc) mantém Comércio e Paripe sem numeração ao final de comparison-list-items
+      fireEvent.click(screen.getByTestId("sort-col-investimento"));
+      const rankedByInvDesc = Array.from(
+        screen.getByTestId("comparison-list-items").querySelectorAll("li")
+      ).map((li) => li.getAttribute("data-testid"));
+      expect(rankedByInvDesc.slice(-2)).toEqual([
+        "comparison-row-comercio",
+        "comparison-row-paripe",
+      ]);
+      expect(screen.getByTestId("comparison-row-comercio")).not.toHaveTextContent("#");
+      expect(screen.getByTestId("comparison-row-paripe")).not.toHaveTextContent("#");
+      fireEvent.click(screen.getByTestId("sort-col-vulnerabilidade"));
 
       // 3. Mapa em R$/Habitante vs Vulnerabilidade Social: cores, chips e legenda para Isento vs Dado indisponível
       const getStyleFill = (bairroNome: string) => {
@@ -3640,7 +3677,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toBeInTheDocument();
       expect(screen.queryByTestId("comparison-row-barra-pituba")).not.toBeInTheDocument();
       expect(screen.queryByTestId("comparison-row-cabula-tancredo-neves")).not.toBeInTheDocument();
-      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveTextContent("#3");
+      expect(screen.getByTestId("comparison-row-suburbio-ilhas")).toHaveTextContent("#2");
       expect(screen.getByTestId("comparison-valor-suburbio-ilhas")).toHaveTextContent("R$ 20 / hab");
       expect(screen.getByTestId("comparison-bar-suburbio-ilhas").style.width).toBe(initialSuburbioWidth);
 
@@ -3792,7 +3829,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(screen.getByTestId("comparison-valor-pituba")).toHaveTextContent("R$ 200 / hab");
 
       // Navegação da câmera no mapa não acrescenta filtros nem altera valores
-      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => { });
       const mapEl = screen.getByTestId("leaflet-map-container");
       fireEvent.mouseDown(mapEl);
       fireEvent.mouseMove(mapEl);
@@ -4097,7 +4134,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     it("preserva ordenação, filtros, busca, seleção sincronizada e posição de leitura na troca Lista ↔ Mapa, e expõe valor exato por toque e teclado", async () => {
       const invalidateSizeSpy = vi.spyOn(L.Map.prototype, "invalidateSize");
       const fitBoundsSpy = vi.spyOn(L.Map.prototype, "fitBounds");
-      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => { });
       let currentScrollY = 0;
       Object.defineProperty(window, "scrollY", {
         configurable: true,
@@ -4653,7 +4690,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
         configurable: true,
         get: () => currentScrollY,
       });
-      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+      const scrollToSpy = vi.spyOn(window, "scrollTo").mockImplementation(() => { });
 
       render(<App />);
 
@@ -4934,6 +4971,90 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
           window.dispatchEvent(new Event("resize"));
         });
       }
+    });
+  });
+
+  describe("Redesign Issue 02: Tabela bivariada ordenável por Vulnerabilidade e R$ / Habitante", () => {
+    it("exibe cabeçalhos ordenáveis com aria-sort, alterna entre Vulnerabilidade e R$ / Habitante, sincroniza btn-inverter-ordenacao, desenha linha da média municipal e mantém Comércio/indisponíveis ao final", async () => {
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("sort-col-vulnerabilidade")).toBeInTheDocument();
+      });
+
+      const vulnBtn = screen.getByTestId("sort-col-vulnerabilidade");
+      const invBtn = screen.getByTestId("sort-col-investimento");
+      const invertBtn = screen.getByTestId("btn-inverter-ordenacao");
+
+      // Estado inicial: Vulnerabilidade asc
+      expect(vulnBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "ascending");
+      expect(invBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "none");
+      expect(invertBtn).toHaveAttribute("aria-pressed", "false");
+      expect(invertBtn).toHaveTextContent("Menor vulnerabilidade primeiro");
+
+      // Média municipal exibida no cabeçalho e como linha vertical tracejada nas barras
+      expect(screen.getByTestId("comparison-city-average-label")).toHaveTextContent(/Média municipal:/i);
+      expect(screen.getByTestId("comparison-avg-line-barra-pituba")).toBeInTheDocument();
+
+      // Clica em R$ / Habitante (inativo -> ativa em desc)
+      fireEvent.click(invBtn);
+      expect(invBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "descending");
+      expect(vulnBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "none");
+      expect(invertBtn).toHaveAttribute("aria-pressed", "true");
+      expect(invertBtn).toHaveTextContent("Maior investimento por habitante primeiro");
+
+      // Inverte direção pelo botão btn-inverter-ordenacao -> asc
+      fireEvent.click(invertBtn);
+      expect(invBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "ascending");
+      expect(invertBtn).toHaveAttribute("aria-pressed", "false");
+      expect(invertBtn).toHaveTextContent("Menor investimento por habitante primeiro");
+
+      // Clica em R$ / Habitante novamente (já ativo asc -> desc)
+      fireEvent.click(invBtn);
+      expect(invBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "descending");
+
+      // Volta para Vulnerabilidade (inativo -> ativa em asc)
+      fireEvent.click(vulnBtn);
+      expect(vulnBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "ascending");
+      expect(invBtn.closest('[role="columnheader"]')).toHaveAttribute("aria-sort", "none");
+      expect(invertBtn).toHaveTextContent("Menor vulnerabilidade primeiro");
+    });
+
+    it("ordena Bairros Oficiais por R$ / Habitante (desc e asc) com desempate alfabético e preserva Zonas Especiais na seção isenta", async () => {
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("btn-recorte-bairros")).toBeInTheDocument();
+      });
+
+      fireEvent.click(screen.getByTestId("btn-recorte-bairros"));
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-row-pituba")).toBeInTheDocument();
+      });
+
+      // Ordenação por R$ / Habitante (desc)
+      fireEvent.click(screen.getByTestId("sort-col-investimento"));
+      const descIds = Array.from(
+        screen.getByTestId("comparison-list-items").querySelectorAll("li")
+      ).map((li) => li.getAttribute("data-testid"));
+
+      expect(descIds.length).toBeGreaterThan(1);
+      expect(screen.getByTestId(descIds[0]!)).toHaveTextContent("#1");
+      expect(screen.getByTestId("comparison-exempt-section")).toContainElement(
+        screen.getByTestId("comparison-row-aeroporto")
+      );
+
+      // Inverte para menor investimento por habitante primeiro (asc):
+      // Graça e São Caetano empatam em R$ 0 / hab (desempate alfabético mantém Graça antes de São Caetano)
+      fireEvent.click(screen.getByTestId("sort-col-investimento"));
+      const ascIds = Array.from(
+        screen.getByTestId("comparison-list-items").querySelectorAll("li")
+      ).map((li) => li.getAttribute("data-testid"));
+
+      expect(ascIds[0]).toBe("comparison-row-graca");
+      expect(ascIds[1]).toBe("comparison-row-sao-caetano");
+      expect(ascIds[ascIds.length - 1]).toBe(descIds[0]);
     });
   });
 });
