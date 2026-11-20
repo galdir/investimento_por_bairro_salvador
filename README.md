@@ -306,6 +306,7 @@ O repositório possui dois workflows configurados em `.github/workflows/`:
    - Executa toda a suíte `pytest` (ETL) e `vitest` (Painel Web), compila o pacote estático em `dist/` com `npm run build` e publica o artefato diretamente no GitHub Pages.
 2. **Atualização de Dados do ETL (`.github/workflows/update-etl-data.yml`):**
    - A coleta semanal (`cron: "0 6 * * 1"`, toda segunda-feira às 06:00 UTC) e a recuperação diária (`cron: "0 5 * * *"`) ficam pausadas quando a variável de repositório `ETL_SCHEDULE_ENABLED` está ausente ou tem valor diferente de `true` (a comparação do GitHub Actions não diferencia maiúsculas de minúsculas). Configure-a como `true` em **Settings → Secrets and variables → Actions → Variables** somente após o aceite do ensaio e da retenção previstos para o lançamento.
+   - Para voltar a pausar os dois agendamentos, defina `ETL_SCHEDULE_ENABLED` como `false` ou remova a variável.
    - Também pode ser disparado manualmente pelo botão **Run workflow** (`workflow_dispatch`) na aba Actions do GitHub, permitindo informar o ano de referência. Esse disparo não depende da variável dos agendamentos.
    - Prepara e valida uma versão de dados antes de alterar `public/data/atual.json`; o deploy do painel continua no fluxo existente.
    - Consulta a cada dia se há tentativa pendente e, nos três dias seguintes ao início, faz no máximo uma recuperação por dia, mantendo a data de referência original.

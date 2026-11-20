@@ -1,5 +1,7 @@
 # Índice de Vulnerabilidade Composto por Bairro a partir do Universo do Censo 2022 (IBGE/SIDRA)
 
+> **Status: substituído por [ADR-0008](./0008-reconstrucao-indice-vulnerabilidade-agregados-bairro-censo-2022.md).**
+
 O **Índice de Vulnerabilidade do Bairro** deixa de ser atribuído por um dicionário manual estático e passa a ser calculado de forma determinística e auditável na escala `0,00` a `1,00` pela combinação de três dimensões do Universo do Censo Demográfico 2022 do IBGE no nível territorial de Bairro (`N102` no SIDRA), fundamentada no Índice de Desenvolvimento Social (IDS — Cavallieri & Lopes / IPP) e nas dimensões de Infraestrutura Urbana e Capital Humano do Índice de Vulnerabilidade Social (IVS — IPEA): (1) déficit de esgotamento sanitário adequado (Tabela 6805), (2) déficit de abastecimento de água por rede geral (Tabela 6803) e (3) taxa de analfabetismo de pessoas de 15 anos ou mais (Tabela 9543), normalizadas via *min-max* entre os Bairros Oficiais residenciais de Salvador e consolidadas por média aritmética simples (e por média ponderada populacional nas Prefeituras-Bairro).
 
 ## Opções Consideradas

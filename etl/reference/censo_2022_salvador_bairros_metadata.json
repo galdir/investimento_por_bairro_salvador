@@ -1,0 +1,20 @@
+{
+  "fonte": "IBGE Censo Demográfico 2022 — Agregados por Bairro (Universo)",
+  "url_base": "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Bairro_csv/",
+  "municipio_codigo": "2927408",
+  "total_bairros": 170,
+  "extraido_em": "2026-11-20T13:30:25.618485+00:00",
+  "pacotes": {
+    "basico": "Agregados_por_bairros_basico_BR_20260520.zip",
+    "caracteristicas_domicilio1": "Agregados_por_bairros_caracteristicas_domicilio1_BR_20261021.zip",
+    "caracteristicas_domicilio2": "Agregados_por_bairros_caracteristicas_domicilio2_BR_20250417.zip",
+    "alfabetizacao": "Agregados_por_bairros_alfabetizacao_BR.zip"
+  },
+  "variaveis": {
+    "populacao": "basico.v0001",
+    "domicilios_particulares_permanentes_ocupados": "caracteristicas_domicilio1.V00001",
+    "pct_esgoto_inadequado": "100 * (1 - (caracteristicas_domicilio2.V00309 + V00310 + V00311) / caracteristicas_domicilio1.V00001) [PLANSAB]",
+    "pct_agua_inadequada": "100 * (1 - caracteristicas_domicilio2.V00111 / caracteristicas_domicilio1.V00001)",
+    "pct_analfabetismo_15mais": "100 * alfabetizacao.V00901 / (alfabetizacao.V00900 + alfabetizacao.V00901)"
+  }
+}
