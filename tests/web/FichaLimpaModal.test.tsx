@@ -339,4 +339,74 @@ describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () 
     rerender(<FichaLimpaModal obra={OBRA_COMPLETA} onClose={vi.fn()} />);
     expect(screen.getByTestId("ficha-limpa-vocacao")).toHaveTextContent("Vizinhança e Comunidade");
   });
+
+  it("exibe os 5 estágios do Funil de Execução Financeira em grade horizontal de 5 colunas com conectores, destaque esmeralda no 5º estágio e barras comparativas abaixo", () => {
+    const obraComCentavos: FichaLimpaObra = {
+      ...OBRA_COMPLETA,
+      funilFinanceiro: {
+        valorOriginal: 3500000.45,
+        valorContratualVigente: 4200000.75,
+        valorEmpenhado: 4200000.75,
+        valorLiquidado: 1680000.12,
+        valorPago: 1680000.12,
+        percentualExecutado: 112.5,
+        valorAditivos: 700000.3,
+        deltaPercentualAditivos: 20,
+      },
+    };
+
+    const { rerender } = render(<FichaLimpaModal obra={obraComCentavos} onClose={vi.fn()} />);
+
+    const funil = screen.getByTestId("funil-financeiro-container");
+    const grid = screen.getByTestId("funil-estagios-grid");
+    expect(funil).toContainElement(grid);
+    expect(grid).toHaveClass("grid-cols-1", "md:grid-cols-5", "gap-2");
+    expect(grid.children).toHaveLength(5);
+
+    const conectores = Array.from(grid.querySelectorAll('[aria-hidden="true"]')).filter(
+      (el) => el.textContent?.trim() === "→"
+    );
+    expect(conectores).toHaveLength(4);
+
+    const estagioOriginal = screen.getByTestId("funil-valor-original");
+    const estagioVigente = screen.getByTestId("funil-valor-vigente");
+    const estagioEmpenhado = screen.getByTestId("funil-valor-empenhado");
+    const estagioLiquidado = screen.getByTestId("funil-valor-liquidado");
+    const estagioPago = screen.getByTestId("funil-valor-pago");
+
+    expect(estagioOriginal).toHaveClass("tabular-nums");
+    expect(estagioVigente).toHaveClass("tabular-nums");
+    expect(estagioEmpenhado).toHaveClass("tabular-nums");
+    expect(estagioLiquidado).toHaveClass("tabular-nums");
+    expect(estagioPago).toHaveClass("tabular-nums");
+
+    expect(estagioOriginal).toHaveTextContent("R$ 3.500.000,45");
+    expect(estagioVigente).toHaveTextContent("R$ 4.200.000,75");
+    expect(estagioEmpenhado).toHaveTextContent("R$ 4.200.000,75");
+    expect(estagioLiquidado).toHaveTextContent("R$ 1.680.000,12");
+    expect(estagioPago).toHaveTextContent("R$ 1.680.000,12");
+    expect(grid).toHaveTextContent("+20,0% aditivos");
+
+    const cardPago = grid.children[4] as HTMLElement;
+    expect(cardPago).toHaveClass("bg-emerald-50/70", "border-emerald-300");
+
+    expect(funil).toHaveTextContent("Execução Financeira (Pago / Vigente):");
+    expect(funil).toHaveTextContent("Execução Física Medida (percentualExecutado):");
+    expect(screen.getByTestId("ficha-execucao-fisica-acima-100")).toBeInTheDocument();
+
+    rerender(
+      <FichaLimpaModal
+        obra={{
+          ...obraComCentavos,
+          funilFinanceiro: { ...obraComCentavos.funilFinanceiro, valorPago: null },
+        }}
+        onClose={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId("funil-valor-pago")).toHaveTextContent("Indisponível");
+    expect(screen.getByTestId("funil-estagios-grid").children[4]).toHaveClass(
+      "bg-emerald-50/70",
+      "border-emerald-300"
+    );
+  });
 });

@@ -523,82 +523,94 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                 </div>
 
                 {/* Blocos de Estágios do Funil */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 mb-4">
-                  {/* Estágio 1: Valor Original */}
-                  <div className="bg-white p-3 rounded-lg border border-slate-200">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      1. Valor Original
-                    </span>
+                <div
+                  data-testid="funil-estagios-grid"
+                  className="grid grid-cols-1 md:grid-cols-5 gap-2 mb-4"
+                >
+                  {[
+                    {
+                      titulo: "1. Valor Original",
+                      testId: "funil-valor-original",
+                      valor: formatCurrency(obra.funilFinanceiro?.valorOriginal || 0),
+                      valorClassName: "text-slate-800",
+                      subtitulo: <span className="text-[10px] text-slate-500">Contrato inicial</span>,
+                      destaque: false,
+                      conector: true,
+                    },
+                    {
+                      titulo: "2. Valor Contratual Vigente",
+                      testId: "funil-valor-vigente",
+                      valor: formatCurrency(obra.funilFinanceiro?.valorContratualVigente || 0),
+                      valorClassName: "text-slate-900",
+                      subtitulo:
+                        obra.funilFinanceiro?.valorAditivos && obra.funilFinanceiro.valorAditivos > 0 ? (
+                          <span className="text-[10px] font-bold text-amber-700">
+                            +{obra.funilFinanceiro.deltaPercentualAditivos?.toFixed(1).replace(".", ",")}% aditivos
+                          </span>
+                        ) : (
+                          <span className="text-[10px] text-emerald-600 font-medium">Sem acréscimo</span>
+                        ),
+                      destaque: false,
+                      conector: true,
+                    },
+                    {
+                      titulo: "3. Valor Empenhado",
+                      testId: "funil-valor-empenhado",
+                      valor: formatCurrency(obra.funilFinanceiro?.valorEmpenhado || 0),
+                      valorClassName: "text-slate-800",
+                      subtitulo: <span className="text-[10px] text-slate-500">Reserva orçamentária</span>,
+                      destaque: false,
+                      conector: true,
+                    },
+                    {
+                      titulo: "4. Valor Liquidado",
+                      testId: "funil-valor-liquidado",
+                      valor: formatCurrency(obra.funilFinanceiro?.valorLiquidado || 0),
+                      valorClassName: "text-slate-800",
+                      subtitulo: <span className="text-[10px] text-slate-500">Medição atestada</span>,
+                      destaque: false,
+                      conector: true,
+                    },
+                    {
+                      titulo: "5. Valor Pago",
+                      testId: "funil-valor-pago",
+                      valor: valorPago == null ? "Indisponível" : formatCurrency(valorPago),
+                      valorClassName: "text-emerald-700",
+                      subtitulo: <span className="text-[10px] text-slate-500">Repasse à empresa</span>,
+                      destaque: true,
+                      conector: false,
+                    },
+                  ].map((estagio) => (
                     <div
-                      data-testid="funil-valor-original"
-                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1 break-words"
+                      key={estagio.testId}
+                      className={`relative p-3 rounded-lg border flex flex-col justify-between ${
+                        estagio.destaque
+                          ? "bg-emerald-50/70 border-emerald-300"
+                          : "bg-white border-slate-200"
+                      }`}
                     >
-                      {formatCurrency(obra.funilFinanceiro?.valorOriginal || 0)}
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
+                          {estagio.titulo}
+                        </span>
+                        <div
+                          data-testid={estagio.testId}
+                          className={`text-xs sm:text-sm font-bold tabular-nums mt-1 break-words ${estagio.valorClassName}`}
+                        >
+                          {estagio.valor}
+                        </div>
+                      </div>
+                      <div className="mt-1">{estagio.subtitulo}</div>
+                      {estagio.conector && (
+                        <span
+                          aria-hidden="true"
+                          className="hidden md:inline-flex items-center justify-center absolute -right-1 translate-x-1/2 top-1/2 -translate-y-1/2 z-10 bg-slate-50 px-0.5 rounded text-[11px] font-semibold text-slate-400 leading-none pointer-events-none select-none"
+                        >
+                          →
+                        </span>
+                      )}
                     </div>
-                    <span className="text-[10px] text-slate-500">Contrato inicial</span>
-                  </div>
-
-                  {/* Estágio 2: Valor Vigente */}
-                  <div className="bg-white p-3 rounded-lg border border-slate-200">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      2. Valor Contratual Vigente
-                    </span>
-                    <div
-                      data-testid="funil-valor-vigente"
-                      className="text-xs sm:text-sm font-bold text-slate-900 mt-1 break-words"
-                    >
-                      {formatCurrency(obra.funilFinanceiro?.valorContratualVigente || 0)}
-                    </div>
-                    {obra.funilFinanceiro?.valorAditivos && obra.funilFinanceiro.valorAditivos > 0 ? (
-                      <span className="text-[10px] font-bold text-amber-700">
-                        +{obra.funilFinanceiro.deltaPercentualAditivos?.toFixed(1).replace(".", ",")}% aditivos
-                      </span>
-                    ) : (
-                      <span className="text-[10px] text-emerald-600 font-medium">Sem acréscimo</span>
-                    )}
-                  </div>
-
-                  {/* Estágio 3: Valor Empenhado */}
-                  <div className="bg-white p-3 rounded-lg border border-slate-200">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      3. Valor Empenhado
-                    </span>
-                    <div
-                      data-testid="funil-valor-empenhado"
-                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1 break-words"
-                    >
-                      {formatCurrency(obra.funilFinanceiro?.valorEmpenhado || 0)}
-                    </div>
-                    <span className="text-[10px] text-slate-500">Reserva orçamentária</span>
-                  </div>
-
-                  {/* Estágio 4: Valor Liquidado */}
-                  <div className="bg-white p-3 rounded-lg border border-slate-200">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      4. Valor Liquidado
-                    </span>
-                    <div
-                      data-testid="funil-valor-liquidado"
-                      className="text-xs sm:text-sm font-bold text-slate-800 mt-1 break-words"
-                    >
-                      {formatCurrency(obra.funilFinanceiro?.valorLiquidado || 0)}
-                    </div>
-                    <span className="text-[10px] text-slate-500">Medição atestada</span>
-                  </div>
-
-                  {/* Estágio 5: Valor Pago */}
-                  <div className="bg-white p-3 rounded-lg border border-slate-200">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                      5. Valor Pago
-                    </span>
-                    <div
-                      data-testid="funil-valor-pago"
-                      className="text-xs sm:text-sm font-bold text-emerald-700 mt-1 break-words"
-                    >
-                      {valorPago == null ? "Indisponível" : formatCurrency(valorPago)}
-                    </div>
-                    <span className="text-[10px] text-slate-500">Repasse à empresa</span>
-                  </div>
+                  ))}
                 </div>
 
                 {obra.apuracaoPagamentos && <div className="text-xs text-slate-600 space-y-2">
