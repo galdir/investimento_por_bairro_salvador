@@ -92,6 +92,21 @@ describe("Seam 1: Modal Nota Metodológica — Índice de Vulnerabilidade", () =
     expect(screen.getByText(/ADR-0005/i)).toBeInTheDocument();
   });
 
+  it("documenta a política de Contrato com Pagamentos Consolidados sem duplicar referências existentes", () => {
+    render(<NotaMetodologicaModal isOpen={true} onClose={vi.fn()} />);
+
+    expect(screen.getByTestId("modal-nota-metodologica-titulo")).toHaveTextContent(
+      "Nota Metodológica — Índice de Vulnerabilidade"
+    );
+    expect(screen.getAllByText(/Contrato com Pagamentos Consolidados/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/12 meses/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/180 dias/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/alteração contratual/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/atualização completa/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/ADR-0008/i)).toHaveLength(1);
+    expect(screen.getAllByText(/ADR-0005/i)).toHaveLength(1);
+  });
+
   it("fecha o modal ao clicar no botão fechar", () => {
     const onCloseMock = vi.fn();
     render(<NotaMetodologicaModal isOpen={true} onClose={onCloseMock} />);

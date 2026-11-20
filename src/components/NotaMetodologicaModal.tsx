@@ -365,6 +365,25 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
               </div>
             </div>
           </section>
+
+          {/* Seção 7: Consolidação de Pagamentos Históricos */}
+          <section className="space-y-2">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs font-bold shrink-0">
+                7
+              </span>
+              <h3>Apuração de Pagamentos e Contrato com Pagamentos Consolidados</h3>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Nas atualizações semanais normais, cada <strong>Obra Pública</strong> cuja vigência atualizada tenha se encerrado há mais de{" "}
+              <strong>12 meses</strong> (mais de 365 dias corridos), sem alteração contratual nos dados monitorados e com coleta anterior
+              válida e conciliada, opera como <strong>Contrato com Pagamentos Consolidados</strong>, reaproveitando seus pagamentos sem
+              reconsulta semanal. Esses contratos passam por revalidação automática após <strong>180 dias</strong> e descongelam
+              imediatamente diante de qualquer <strong>alteração contratual</strong> ou execução de <strong>atualização completa</strong>. Na{" "}
+              <strong>Ficha Limpa da Obra</strong>, contratos consolidados exibem a data própria de consolidação, enquanto o cabeçalho
+              principal preserva a data de referência dos pagamentos da rodada vigente.
+            </p>
+          </section>
         </div>
 
         {/* Rodapé do Modal com Botão de Concluir */}

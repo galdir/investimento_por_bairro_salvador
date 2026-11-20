@@ -4,6 +4,7 @@ Estrutura o prontuário analítico de cada contrato de engenharia com Funil de E
 Financeira, Aditivos Contratuais, Dotação Orçamentária e concentração da Empreiteira.
 """
 
+import copy
 from typing import Any
 
 from etl.domain.empreiteiras import eh_cnpj_valido, formatar_cnpj, obter_chave_empreiteira
@@ -848,7 +849,7 @@ def mesclar_fichas_obra(
     if consulta_validada is not None:
         for campo in ("consultaPagamentosConcluida", "apuracaoPagamentos", "repeticoesColeta", "janelaPagamentos"):
             if campo in consulta_validada:
-                ficha_mesclada[campo] = consulta_validada[campo]
+                ficha_mesclada[campo] = copy.deepcopy(consulta_validada[campo])
     return ficha_mesclada
 
 
@@ -881,8 +882,12 @@ def sincronizar_obra_com_ficha(obra: dict[str, Any], ficha: dict[str, Any]) -> N
     obra["vlPagoReal"] = valor_pago_indice
     obra["valorPago"] = valor_pago_indice
     obra["vlPago"] = valor_pago_indice
-    if "apuracaoPagamentos" in ficha:
-        obra["apuracaoPagamentos"] = ficha["apuracaoPagamentos"]
+    if "apuracaoPagamentos" in ficha and isinstance(ficha["apuracaoPagamentos"], dict):
+        obra["apuracaoPagamentos"] = copy.deepcopy(ficha["apuracaoPagamentos"])
+    else:
+        obra.pop("apuracaoPagamentos", None)
+    if "janelaPagamentos" in ficha:
+        obra["janelaPagamentos"] = copy.deepcopy(ficha["janelaPagamentos"])
     if ficha.get("frentesMedicao"):
         obra["frentesMedicao"] = ficha["frentesMedicao"]
     elif "frentesMedicao" in obra:

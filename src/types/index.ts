@@ -192,6 +192,7 @@ export interface ApuracaoPagamentos {
   situacao: "sem_registros" | "indisponivel" | "saldo_registrado";
   limitacoesConhecidas?: string[];
   dataReferencia?: string;
+  pagamentosConsolidados?: boolean;
   periodoDisponivel?: { inicio: string; fim: string };
 }
 

@@ -409,4 +409,92 @@ describe("Seam 2: FichaLimpaModal — Fontes Oficiais & Lastro Territorial", () 
       "border-emerald-300"
     );
   });
+
+  it("exibe aviso canônico exclusivo para Contrato com Pagamentos Consolidados quando indicador é verdadeiro e data é válida", () => {
+    const obraConsolidada: FichaLimpaObra = {
+      ...OBRA_COMPLETA,
+      apuracaoPagamentos: {
+        situacao: "saldo_registrado",
+        registrosSemValor: 0,
+        dataReferencia: "2025-12-01",
+        pagamentosConsolidados: true,
+      },
+    };
+    render(<FichaLimpaModal obra={obraConsolidada} onClose={vi.fn()} />);
+
+    expect(
+      screen.getByText("Pagamentos consolidados em 01/12/2025 (vigência encerrada há mais de 12 meses)")
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/Referência dos pagamentos:/i)).not.toBeInTheDocument();
+  });
+
+  it("preserva exibição padrão para contrato ativo, ficha antiga sem indicador e data inválida ou ausente", () => {
+    const { rerender } = render(
+      <FichaLimpaModal
+        obra={{
+          ...OBRA_COMPLETA,
+          apuracaoPagamentos: {
+            situacao: "saldo_registrado",
+            registrosSemValor: 0,
+            dataReferencia: "2025-12-31",
+            pagamentosConsolidados: false,
+          },
+        }}
+        onClose={vi.fn()}
+      />
+    );
+    expect(screen.getByText(/Referência dos pagamentos: 31\/12\/2025/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Pagamentos consolidados em/i)).not.toBeInTheDocument();
+
+    // Ficha antiga sem pagamentosConsolidados
+    rerender(
+      <FichaLimpaModal
+        obra={{
+          ...OBRA_COMPLETA,
+          apuracaoPagamentos: {
+            situacao: "saldo_registrado",
+            registrosSemValor: 0,
+            dataReferencia: "2025-11-15",
+          },
+        }}
+        onClose={vi.fn()}
+      />
+    );
+    expect(screen.getByText(/Referência dos pagamentos: 15\/11\/2025/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Pagamentos consolidados em/i)).not.toBeInTheDocument();
+
+    // Data inválida
+    rerender(
+      <FichaLimpaModal
+        obra={{
+          ...OBRA_COMPLETA,
+          apuracaoPagamentos: {
+            situacao: "saldo_registrado",
+            registrosSemValor: 0,
+            dataReferencia: "2024-02-31",
+            pagamentosConsolidados: true,
+          },
+        }}
+        onClose={vi.fn()}
+      />
+    );
+    expect(screen.queryByText(/Pagamentos consolidados em/i)).not.toBeInTheDocument();
+
+    // Data ausente
+    rerender(
+      <FichaLimpaModal
+        obra={{
+          ...OBRA_COMPLETA,
+          apuracaoPagamentos: {
+            situacao: "saldo_registrado",
+            registrosSemValor: 0,
+            pagamentosConsolidados: true,
+          },
+        }}
+        onClose={vi.fn()}
+      />
+    );
+    expect(screen.queryByText(/Pagamentos consolidados em/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Referência dos pagamentos:/i)).not.toBeInTheDocument();
+  });
 });

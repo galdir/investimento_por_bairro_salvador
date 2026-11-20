@@ -133,14 +133,14 @@ def test_conciliacao_controla_publicacao_e_corte_civil(tmp_path: Path, cenario: 
     elif cenario == "vazia":
         assert ficha["pagamentos"] == []
         assert ficha["funilFinanceiro"]["valorPago"] == 0
-        assert ficha["apuracaoPagamentos"] == {"registrosSemValor": 0, "situacao": "sem_registros", "limitacoesConhecidas": [], "dataReferencia": "2025-12-31"}
+        assert ficha["apuracaoPagamentos"] == {"registrosSemValor": 0, "situacao": "sem_registros", "limitacoesConhecidas": [], "dataReferencia": "2025-12-31", "pagamentosConsolidados": False}
     elif cenario == "negativo_sem_frente":
         assert ficha["funilFinanceiro"]["valorPago"] == -2
         assert indice["kpis_globais"]["valorPagoNaoLocalizado"] == -2
     elif cenario in ("sem_valor", "negativo"):
         assert len(ficha["pagamentos"]) == 1
         assert ficha["funilFinanceiro"]["valorPago"] == (None if cenario == "sem_valor" else -2)
-        assert ficha["apuracaoPagamentos"] == {"registrosSemValor": 1 if cenario == "sem_valor" else 0, "situacao": "indisponivel" if cenario == "sem_valor" else "saldo_registrado", "limitacoesConhecidas": [], "dataReferencia": "2025-12-31"}
+        assert ficha["apuracaoPagamentos"] == {"registrosSemValor": 1 if cenario == "sem_valor" else 0, "situacao": "indisponivel" if cenario == "sem_valor" else "saldo_registrado", "limitacoesConhecidas": [], "dataReferencia": "2025-12-31", "pagamentosConsolidados": False}
         assert ficha["frentesMedicao"][0]["valorPago"] == (None if cenario == "sem_valor" else -2)
         if cenario == "sem_valor":
             pituba = next(b for b in indice["bairros"] if b["nome"] == "Pituba")
@@ -150,7 +150,7 @@ def test_conciliacao_controla_publicacao_e_corte_civil(tmp_path: Path, cenario: 
     elif cenario in ("semelhantes", "saldo_zero"):
         assert ficha["pagamentos"] == registros
         assert ficha["funilFinanceiro"]["valorPago"] == (0 if cenario == "saldo_zero" else 2003)
-        assert ficha["apuracaoPagamentos"] == {"registrosSemValor": 1, "situacao": "saldo_registrado", "limitacoesConhecidas": [], "dataReferencia": "2025-12-31"}
+        assert ficha["apuracaoPagamentos"] == {"registrosSemValor": 1, "situacao": "saldo_registrado", "limitacoesConhecidas": [], "dataReferencia": "2025-12-31", "pagamentosConsolidados": False}
         assert ficha["frentesMedicao"][0]["valorPago"] == (0 if cenario == "saldo_zero" else 2000)
     else:
         assert len(ficha["pagamentos"]) == 35

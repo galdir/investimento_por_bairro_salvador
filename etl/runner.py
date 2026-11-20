@@ -5,7 +5,9 @@ execução do funil de alocação territorial com cache incremental em disco e g
 artefatos estáticos particionados em conformidade com o ADR-0001.
 """
 
+import copy
 import json
+import math
 import os
 import re
 import shutil
@@ -78,6 +80,139 @@ from etl.progresso import ProgressoGit, chave_contrato
 
 class InterrupcaoEnsaiada(RuntimeError):
     """Falha controlada para testar a retomada depois de checkpoints remotos."""
+
+
+def _parse_data_calendario(valor: Any) -> date | None:
+    """Converte string ISO/BR para `date` apenas quando representa data de calendário válida."""
+    if not isinstance(valor, str) or not valor.strip():
+        return None
+    chave = normalizar_data_chave(valor)
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", chave):
+        return None
+    try:
+        return date.fromisoformat(chave)
+    except ValueError:
+        return None
+
+
+def _validar_periodo_disponivel(periodo: Any) -> bool:
+    """Valida se `periodoDisponivel` possui início e fim ISO válidos com início <= fim."""
+    if (
+        not isinstance(periodo, dict)
+        or set(periodo) != {"inicio", "fim"}
+        or any(
+            not isinstance(periodo[campo], str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", periodo[campo])
+            for campo in ("inicio", "fim")
+        )
+        or periodo["inicio"] > periodo["fim"]
+    ):
+        return False
+    return _parse_data_calendario(periodo["inicio"]) is not None and _parse_data_calendario(periodo["fim"]) is not None
+
+
+def _primeiro_float_informado(registro: dict[str, Any], *chaves: str) -> float:
+    for chave in chaves:
+        val = registro.get(chave)
+        if val is not None and val != "":
+            return parse_float(val)
+    return 0.0
+
+
+def _campos_monitorados_inalterados(obra: dict[str, Any], ficha_disco: dict[str, Any]) -> bool:
+    """Compara os quatro campos monitorados do grid com a ficha persistida localmente."""
+    vl_atua = _primeiro_float_informado(obra, "vlAtualizado", "valorContratualVigente", "vlOriginal")
+    perc_exec = _primeiro_float_informado(obra, "percentualExecutado")
+    ds_situacao = str(obra.get("dsSituacao") or obra.get("situacao") or "").strip()
+    dt_termino = normalizar_data_chave(obra.get("dtTerminoVigenciaAtualizado") or "")
+
+    p_funil = ficha_disco.get("funilFinanceiro") or {}
+    p_vigencia = ficha_disco.get("vigencia") or {}
+    p_vl_atua = _primeiro_float_informado(p_funil, "valorContratualVigente")
+    if p_vl_atua == 0.0 and p_funil.get("valorContratualVigente") is None:
+        p_vl_atua = _primeiro_float_informado(ficha_disco, "vlAtualizado")
+    p_perc_exec = _primeiro_float_informado(p_funil, "percentualExecutado")
+    if p_perc_exec == 0.0 and p_funil.get("percentualExecutado") is None:
+        p_perc_exec = _primeiro_float_informado(ficha_disco, "percentualExecutado")
+    p_ds_situacao = str(ficha_disco.get("situacao") or ficha_disco.get("dsSituacao") or "").strip()
+    p_dt_termino = normalizar_data_chave(
+        p_vigencia.get("dataTerminoAtualizado") or ficha_disco.get("dtTerminoVigenciaAtualizado") or ""
+    )
+
+    return (
+        vl_atua == p_vl_atua
+        and perc_exec == p_perc_exec
+        and ds_situacao == p_ds_situacao
+        and dt_termino == p_dt_termino
+    )
+
+
+def _eh_ficha_pagamentos_integra(ficha: Any) -> bool:
+    """Verifica se a ficha local comprova coleta de pagamentos concluída e estruturalmente íntegra."""
+    if not isinstance(ficha, dict) or ficha.get("consultaPagamentosConcluida") is not True:
+        return False
+    pagamentos = ficha.get("pagamentos")
+    if not isinstance(pagamentos, list) or not all(isinstance(item, dict) for item in pagamentos):
+        return False
+    funil = ficha.get("funilFinanceiro")
+    if not isinstance(funil, dict) or "valorPago" not in funil:
+        return False
+    valor_pago = funil.get("valorPago")
+    if valor_pago is not None and (
+        not isinstance(valor_pago, (int, float)) or isinstance(valor_pago, bool) or not math.isfinite(valor_pago)
+    ):
+        return False
+    apuracao = ficha.get("apuracaoPagamentos")
+    if not isinstance(apuracao, dict):
+        return False
+    situacao = apuracao.get("situacao")
+    if situacao not in {"sem_registros", "indisponivel", "saldo_registrado"}:
+        return False
+    if situacao == "sem_registros" and (pagamentos != [] or valor_pago not in (0, 0.0)):
+        return False
+    if situacao == "indisponivel" and valor_pago is not None:
+        return False
+    if situacao == "saldo_registrado" and valor_pago is None:
+        return False
+    reg_sem_valor = apuracao.get("registrosSemValor")
+    if not isinstance(reg_sem_valor, int) or isinstance(reg_sem_valor, bool) or reg_sem_valor < 0:
+        return False
+    limitacoes = apuracao.get("limitacoesConhecidas")
+    if not isinstance(limitacoes, list) or not all(isinstance(item, str) and item for item in limitacoes):
+        return False
+    if "periodoDisponivel" in apuracao and apuracao["periodoDisponivel"] is not None:
+        if not _validar_periodo_disponivel(apuracao["periodoDisponivel"]):
+            return False
+    return _parse_data_calendario(apuracao.get("dataReferencia")) is not None
+
+
+def _contrato_elegivel_pagamentos_consolidados(
+    *,
+    obra: dict[str, Any],
+    ficha_disco: dict[str, Any] | None,
+    referencia_pagamentos: str,
+    full_refresh: bool,
+    anterior_valida: bool,
+) -> bool:
+    """Avalia se o contrato é elegível ao reaproveitamento local como Contrato com Pagamentos Consolidados."""
+    if full_refresh or not anterior_valida or ficha_disco is None:
+        return False
+
+    ref_date = _parse_data_calendario(referencia_pagamentos)
+    dt_termino_date = _parse_data_calendario(obra.get("dtTerminoVigenciaAtualizado"))
+    if ref_date is None or dt_termino_date is None or (ref_date - dt_termino_date).days <= 365:
+        return False
+
+    if not _campos_monitorados_inalterados(obra, ficha_disco):
+        return False
+
+    if not _eh_ficha_pagamentos_integra(ficha_disco):
+        return False
+
+    data_ref_salva = _parse_data_calendario((ficha_disco.get("apuracaoPagamentos") or {}).get("dataReferencia"))
+    if data_ref_salva is None:
+        return False
+    dias_consolidacao = (ref_date - data_ref_salva).days
+    return 0 <= dias_consolidacao < 180
 
 
 def run_pipeline(
@@ -419,6 +554,17 @@ def _executar_pipeline(
                 pb_clean = normalizar_nome_prefeitura_bairro(pb_val)
                 item_copy["prefeitura_bairro"] = pb_clean
                 item_copy["prefeituraBairro"] = pb_clean
+        ficha_local = fichas_por_id.get(str(o.get("id")))
+        if ficha_local is None:
+            cands_local = coletar_fichas_candidatas(o, fichas_por_chave, fichas_por_id)
+            ficha_local = cands_local[0] if cands_local else None
+        if ficha_local is not None:
+            vigencia_local = ficha_local.get("vigencia") or {}
+            item_copy["dtTerminoVigenciaAtualizado"] = vigencia_local.get("dataTerminoAtualizado")
+            if "dtFimVigenciaOriginal" not in item_copy and vigencia_local.get("dataFimOriginal"):
+                item_copy["dtFimVigenciaOriginal"] = vigencia_local.get("dataFimOriginal")
+        else:
+            item_copy.pop("dtTerminoVigenciaAtualizado", None)
         return item_copy
 
     obras_dir = output_path / "obras"
@@ -618,10 +764,43 @@ def _executar_pipeline(
     fichas_para_gravar: dict[str, dict[str, Any]] = {}
     limitacoes_conhecidas: set[str] = set()
 
+    def _finalizar_ficha_obra(obra_atual: dict[str, Any], ficha_atual: dict[str, Any]) -> None:
+        frentes = resolver_frentes_medicao(
+            obra=obra_atual,
+            bairros_geojson=raw_bairros,
+            liquidacoes=ficha_atual.get("liquidacoes"),
+            pagamentos=ficha_atual.get("pagamentos"),
+        )
+        if frentes:
+            ficha_atual["frentesMedicao"] = frentes
+        else:
+            ficha_atual.pop("frentesMedicao", None)
+        sincronizar_obra_com_ficha(obra_atual, ficha_atual)
+        fichas_para_gravar[str(obra_atual.get("id"))] = ficha_atual
+
     for obra in grid_obras:
         cd_ug = obra.get("cdUnidadeGestora") or obra.get("unidadeGestora") or obra.get("sgOrgao")
         nu_sigef = obra.get("nuContratoSigef") or obra.get("numeroContrato")
         obra_id = obra.get("id")
+
+        candidatas_locais = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
+        ficha_disco = fichas_por_id.get(str(obra_id)) or (candidatas_locais[0] if candidatas_locais else None)
+        if _contrato_elegivel_pagamentos_consolidados(
+            obra=obra,
+            ficha_disco=ficha_disco,
+            referencia_pagamentos=referencia_pagamentos,
+            full_refresh=full_refresh,
+            anterior_valida=anterior_valida,
+        ):
+            detail_cache_hits += 1
+            cands_consolidacao = [ficha_disco, *(c for c in candidatas_locais if c is not ficha_disco)]
+            ficha_obra = mesclar_fichas_obra(obra, cands_consolidacao)
+            apuracao_consolidada = copy.deepcopy(ficha_obra["apuracaoPagamentos"])
+            apuracao_consolidada["pagamentosConsolidados"] = True
+            ficha_obra["apuracaoPagamentos"] = apuracao_consolidada
+            limitacoes_conhecidas.update(apuracao_consolidada.get("limitacoesConhecidas") or [])
+            _finalizar_ficha_obra(obra, ficha_obra)
+            continue
 
         identidade_contrato = [str(cd_ug), str(nu_sigef)]
         chave_recuperacao = chave_contrato(*identidade_contrato)
@@ -666,8 +845,6 @@ def _executar_pipeline(
         pagamentos_raw, repeticoes_coleta = incorporar_lotes_pagamentos(resultado_pagamentos)
         obra["janelaPagamentos"] = resultado_pagamentos.janela
 
-        candidatas_locais = coletar_fichas_candidatas(obra, fichas_por_chave, fichas_por_id)
-        ficha_disco = fichas_por_id.get(str(obra_id)) or (candidatas_locais[0] if candidatas_locais else None)
         reaproveitar_detalhes = False
 
         if not full_refresh and ficha_disco is not None:
@@ -748,37 +925,20 @@ def _executar_pipeline(
         )
         ficha_obra["apuracaoPagamentos"] = {
             "registrosSemValor": len(pagamentos_raw) - len(valores_decimais),
-            "limitacoesConhecidas": resultado_pagamentos.limitacoes_conhecidas,
+            "limitacoesConhecidas": list(resultado_pagamentos.limitacoes_conhecidas),
             "dataReferencia": referencia_pagamentos,
+            "pagamentosConsolidados": False,
             "situacao": "sem_registros" if not pagamentos_raw else (
                 "saldo_registrado" if valores_decimais else "indisponivel"
             ),
         }
         if resultado_pagamentos.periodo_disponivel is not None:
             periodo = resultado_pagamentos.periodo_disponivel
-            if (not isinstance(periodo, dict) or set(periodo) != {"inicio", "fim"}
-                    or any(not isinstance(periodo[campo], str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", periodo[campo]) for campo in ("inicio", "fim"))
-                    or periodo["inicio"] > periodo["fim"]):
+            if not _validar_periodo_disponivel(periodo):
                 raise ValueError(f"Período disponível inválido: {obra_id}")
-            try:
-                date.fromisoformat(periodo["inicio"])
-                date.fromisoformat(periodo["fim"])
-            except ValueError as exc:
-                raise ValueError(f"Período disponível inválido: {obra_id}") from exc
-            ficha_obra["apuracaoPagamentos"]["periodoDisponivel"] = periodo
+            ficha_obra["apuracaoPagamentos"]["periodoDisponivel"] = copy.deepcopy(periodo)
 
-        frentes = resolver_frentes_medicao(
-            obra=obra,
-            bairros_geojson=raw_bairros,
-            liquidacoes=ficha_obra.get("liquidacoes"),
-            pagamentos=ficha_obra.get("pagamentos"),
-        )
-        if frentes:
-            ficha_obra["frentesMedicao"] = frentes
-        else:
-            ficha_obra.pop("frentesMedicao", None)
-        sincronizar_obra_com_ficha(obra, ficha_obra)
-        fichas_para_gravar[str(obra_id)] = ficha_obra
+        _finalizar_ficha_obra(obra, ficha_obra)
         if estado is not None and salvo is None:
             estado["contratos"][chave_recuperacao] = {
                 "identidade": identidade_contrato,

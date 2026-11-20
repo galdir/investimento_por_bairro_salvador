@@ -9,3 +9,34 @@ it("identifica a soma parcial nos totais afetados e explica a limitação", () =
   expect(screen.getAllByText(/Soma Parcial de Pagamentos/).length).toBeGreaterThan(0);
   expect(screen.getByText("Histórico anterior a 2020 indisponível")).toBeInTheDocument();
 });
+
+it("mantém a Data de Referência dos Pagamentos da rodada vigente no cabeçalho principal", () => {
+  render(
+    <HeaderKpis
+      metricType="executado"
+      atualizacao={{
+        versaoDados: "abc123",
+        dataReferenciaPagamentos: "2026-06-15",
+        inicioConsultas: "2026-06-15T10:00:00Z",
+        fimConsultas: "2026-06-15T10:05:00Z",
+        concluidaEm: "2026-06-15T10:05:00Z",
+        consultas: "concluidas",
+        validacoes: "aprovadas",
+        coberturaHistorica: "nao_verificada",
+        limitacoesConhecidas: [],
+      }}
+      kpis={{
+        totalObras: 10,
+        valorTotal: 1000,
+        totalAtivas: 2,
+        totalEmpenhado: 800,
+        totalLiquidado: 600,
+        totalPago: 500,
+        investimentoPorHabitanteCidade: 1,
+      }}
+    />
+  );
+
+  expect(screen.getByText(/Referência dos pagamentos: 15\/06\/2026/i)).toBeInTheDocument();
+  expect(screen.queryByText(/Pagamentos consolidados em/i)).not.toBeInTheDocument();
+});

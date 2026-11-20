@@ -12,6 +12,24 @@ const TRAILING_TITLE_CONNECTORS = new Set([
   "de", "da", "do", "das", "dos", "e", "com", "para", "por", "em", "a", "o", "as", "os", "no", "na", "nos", "nas", "ao", "aos", "à", "às",
 ]);
 
+function formatarDataCalendarioValida(dataStr?: string | null): string | null {
+  if (!dataStr) return null;
+  const match = dataStr.trim().match(/^(\d{4})-(\d{2})-(\d{2})(?:$|T)/);
+  if (!match) return null;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const d = new Date(Date.UTC(year, month - 1, day));
+  if (
+    d.getUTCFullYear() !== year ||
+    d.getUTCMonth() !== month - 1 ||
+    d.getUTCDate() !== day
+  ) {
+    return null;
+  }
+  return `${String(day).padStart(2, "0")}/${String(month).padStart(2, "0")}/${year}`;
+}
+
 function normalizeObjectText(value: string): string {
   return value.trim().replace(/\s+/g, " ");
 }
@@ -613,30 +631,46 @@ export const FichaLimpaModal: React.FC<FichaLimpaModalProps> = ({
                   ))}
                 </div>
 
-                {obra.apuracaoPagamentos && <div className="text-xs text-slate-600 space-y-2">
-                  {obra.apuracaoPagamentos.dataReferencia && <p>Referência dos pagamentos: {formatDate(obra.apuracaoPagamentos.dataReferencia)}</p>}
-                  {obra.apuracaoPagamentos.periodoDisponivel && <p>Período disponível: {formatDate(obra.apuracaoPagamentos.periodoDisponivel.inicio)} a {formatDate(obra.apuracaoPagamentos.periodoDisponivel.fim)}</p>}
-                  {!!obra.apuracaoPagamentos.limitacoesConhecidas?.length && !obra.apuracaoPagamentos.periodoDisponivel && <p>Período disponível não informado.</p>}
-                  {!!obra.apuracaoPagamentos.limitacoesConhecidas?.length && <div>
-                    <strong>Soma Parcial de Pagamentos</strong>
-                    {obra.apuracaoPagamentos.limitacoesConhecidas.map((limite) => <p key={limite}>{limite}</p>)}
-                  </div>}
-                  {obra.apuracaoPagamentos.situacao === "sem_registros" && <p>Nenhum registro de pagamento encontrado na fonte.</p>}
-                  {obra.apuracaoPagamentos.situacao === "saldo_registrado" && valorPago === 0 && <p>Saldo registrado igual a zero.</p>}
-                  {obra.apuracaoPagamentos.registrosSemValor > 0 && <p>
-                    {obra.apuracaoPagamentos.registrosSemValor} registro{obra.apuracaoPagamentos.registrosSemValor !== 1 ? "s" : ""} sem valor informado. Esses registros permanecem disponíveis e não tornam a soma parcial por si só.
-                  </p>}
-                  {!!obra.pagamentos?.length && <p>Valores informados são somados mesmo quando faltam campos de identificação; registros semelhantes são preservados.</p>}
-                  {!!obra.pagamentos?.length && <details>
-                    <summary className="cursor-pointer font-medium">Registros de pagamentos ({obra.pagamentos.length})</summary>
-                    <ul className="space-y-2 mt-2">
-                      {obra.pagamentos.map((pagamento, index) => <li key={index} className="border border-slate-200 rounded p-2 break-words">
-                        {Object.entries(pagamento).map(([campo, valor]) => <div key={campo}>{campo}: {valor == null || valor === "" ? "Não informado" : typeof valor === "object" ? JSON.stringify(valor) : String(valor)}</div>)}
-                        {(pagamento.pago == null || pagamento.pago === "") && (pagamento.valorPago == null || pagamento.valorPago === "") && <div>Valor não informado</div>}
-                      </li>)}
-                    </ul>
-                  </details>}
-                </div>}
+                {obra.apuracaoPagamentos && (() => {
+                  const dataConsolidacao =
+                    obra.apuracaoPagamentos.pagamentosConsolidados === true
+                      ? formatarDataCalendarioValida(obra.apuracaoPagamentos.dataReferencia)
+                      : null;
+                  return (
+                    <div className="text-xs text-slate-600 space-y-2">
+                      {dataConsolidacao ? (
+                        <p>
+                          Pagamentos consolidados em {dataConsolidacao} (vigência encerrada há mais de 12 meses)
+                        </p>
+                      ) : (
+                        obra.apuracaoPagamentos.dataReferencia && (
+                          <p>Referência dos pagamentos: {formatDate(obra.apuracaoPagamentos.dataReferencia)}</p>
+                        )
+                      )}
+                      {obra.apuracaoPagamentos.periodoDisponivel && <p>Período disponível: {formatDate(obra.apuracaoPagamentos.periodoDisponivel.inicio)} a {formatDate(obra.apuracaoPagamentos.periodoDisponivel.fim)}</p>}
+                      {!!obra.apuracaoPagamentos.limitacoesConhecidas?.length && !obra.apuracaoPagamentos.periodoDisponivel && <p>Período disponível não informado.</p>}
+                      {!!obra.apuracaoPagamentos.limitacoesConhecidas?.length && <div>
+                        <strong>Soma Parcial de Pagamentos</strong>
+                        {obra.apuracaoPagamentos.limitacoesConhecidas.map((limite) => <p key={limite}>{limite}</p>)}
+                      </div>}
+                      {obra.apuracaoPagamentos.situacao === "sem_registros" && <p>Nenhum registro de pagamento encontrado na fonte.</p>}
+                      {obra.apuracaoPagamentos.situacao === "saldo_registrado" && valorPago === 0 && <p>Saldo registrado igual a zero.</p>}
+                      {obra.apuracaoPagamentos.registrosSemValor > 0 && <p>
+                        {obra.apuracaoPagamentos.registrosSemValor} registro{obra.apuracaoPagamentos.registrosSemValor !== 1 ? "s" : ""} sem valor informado. Esses registros permanecem disponíveis e não tornam a soma parcial por si só.
+                      </p>}
+                      {!!obra.pagamentos?.length && <p>Valores informados são somados mesmo quando faltam campos de identificação; registros semelhantes são preservados.</p>}
+                      {!!obra.pagamentos?.length && <details>
+                        <summary className="cursor-pointer font-medium">Registros de pagamentos ({obra.pagamentos.length})</summary>
+                        <ul className="space-y-2 mt-2">
+                          {obra.pagamentos.map((pagamento, index) => <li key={index} className="border border-slate-200 rounded p-2 break-words">
+                            {Object.entries(pagamento).map(([campo, valor]) => <div key={campo}>{campo}: {valor == null || valor === "" ? "Não informado" : typeof valor === "object" ? JSON.stringify(valor) : String(valor)}</div>)}
+                            {(pagamento.pago == null || pagamento.pago === "") && (pagamento.valorPago == null || pagamento.valorPago === "") && <div>Valor não informado</div>}
+                          </li>)}
+                        </ul>
+                      </details>}
+                    </div>
+                  );
+                })()}
 
                 {/* Barra Comparativa: Avanço Financeiro vs Avanço Físico */}
                 <div className="space-y-2 pt-2 border-t border-slate-200 text-xs">
