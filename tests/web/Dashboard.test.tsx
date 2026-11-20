@@ -4800,4 +4800,140 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       bindTooltipSpy.mockRestore();
     });
   });
+
+  describe("Redesign Issue 01: Cabeçalho municipal e barra de controles em duas faixas", () => {
+    it("exibe as abas principais dentro do header-comparativo com contador dinâmico na Tabela de Obras e KPIs municipais invariantes", async () => {
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("header-comparativo")).toBeInTheDocument();
+      });
+
+      const header = screen.getByTestId("header-comparativo");
+      const tabComparacao = screen.getByTestId("tab-comparacao");
+      const tabTabela = screen.getByTestId("tab-tabela");
+
+      expect(header).toContainElement(tabComparacao);
+      expect(header).toContainElement(tabTabela);
+      expect(tabTabela).toHaveTextContent(/Tabela de Obras\s*4/);
+
+      // Selecionar Pituba atualiza o contador da Tabela de Obras, mantendo KPIs municipais invariantes
+      fireEvent.click(screen.getByTestId("btn-camada-bairros"));
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-select-pituba")).toBeInTheDocument();
+      });
+      fireEvent.click(screen.getByTestId("comparison-select-pituba"));
+
+      await waitFor(() => {
+        expect(tabTabela).toHaveTextContent(/Tabela de Obras\s*1/);
+      });
+      expect(screen.getByTestId("kpi-territorios-comparados")).toHaveTextContent("6 Bairros Oficiais");
+      expect(screen.getByTestId("kpi-valor-alocado")).toHaveAttribute("aria-label", expect.stringContaining("14.310.000"));
+    });
+
+    it("exibe os metadados de atualizacao diretamente dentro do header-comparativo sem faixa cinza intermediaria", async () => {
+      const baseFetch = globalThis.fetch;
+      globalThis.fetch = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+        const url = String(input);
+        if (url.endsWith("index_2025.json")) {
+          return Promise.resolve({
+            ok: true,
+            json: async () => ({
+              ...mockIndexData,
+              metadata: {
+                ...mockIndexData.metadata,
+                atualizacao: {
+                  versaoDados: "0123456789abcdef0123456789abcdef",
+                  concluidaEm: "2026-11-10T15:30:00Z",
+                  dataReferenciaPagamentos: "2026-11-05",
+                  inicioConsultas: "2026-11-10T14:00:00Z",
+                  fimConsultas: "2026-11-10T15:20:00Z",
+                  consultas: "concluidas",
+                  validacoes: "aprovadas",
+                  coberturaHistorica: "nao_verificada",
+                  limitacoesConhecidas: ["Contratos anteriores a 2021 podem ter histórico parcial."],
+                },
+              },
+            }),
+          } as Response);
+        }
+        const res = await (init === undefined ? baseFetch(input) : baseFetch(input, init));
+        if (url.endsWith(".geojson")) {
+          const geo = await res.json();
+          return {
+            ok: true,
+            json: async () => ({ ...geo, versaoDados: "0123456789abcdef0123456789abcdef" }),
+          } as Response;
+        }
+        return res;
+      }) as typeof fetch;
+
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("header-comparativo")).toBeInTheDocument();
+      });
+
+      const header = screen.getByTestId("header-comparativo");
+      expect(header).toHaveTextContent(/Última atualização concluída em/i);
+      expect(header).toHaveTextContent(/Referência dos pagamentos:/i);
+      expect(header).toHaveTextContent(/Consultas realizadas entre .* \(horário de Salvador\)/i);
+      expect(header).toHaveTextContent(/As consultas ocorreram em momentos diferentes\./i);
+      expect(header).toHaveTextContent(/A abrangência histórica da fonte não foi verificada de forma independente\./i);
+      expect(header).toHaveTextContent("Contratos anteriores a 2021 podem ter histórico parcial.");
+      expect(screen.queryByTestId("header-atualizacao")).not.toBeInTheDocument();
+    });
+
+    it("integra banner-territorio-filtrado na barra de controles com texto contextual para desktop, lista/mapa móvel e tabela", async () => {
+      render(<App />);
+
+      await waitFor(() => {
+        expect(screen.getByTestId("comparison-select-barra-pituba")).toBeInTheDocument();
+      });
+
+      fireEvent.click(screen.getByTestId("comparison-select-barra-pituba"));
+
+      const filterBar = screen.getByRole("region", { name: "Filtros superiores de auditoria de obras" });
+      const banner = await screen.findByTestId("banner-territorio-filtrado");
+      expect(filterBar).toContainElement(banner);
+      expect(banner).toHaveTextContent("Barra/Pituba (Prefeitura-Bairro) — comparação municipal preservada; resumo no painel ao lado do mapa");
+
+      // Na aba Tabela de Obras
+      fireEvent.click(screen.getByTestId("tab-tabela"));
+      expect(screen.getByTestId("banner-territorio-filtrado")).toHaveTextContent(
+        "Barra/Pituba (Prefeitura-Bairro) — exibindo apenas obras deste território"
+      );
+
+      // Volta para comparação e simula viewport móvel
+      fireEvent.click(screen.getByTestId("tab-comparacao"));
+      const originalInnerWidth = window.innerWidth;
+      Object.defineProperty(window, "innerWidth", { writable: true, configurable: true, value: 390 });
+      act(() => {
+        window.dispatchEvent(new Event("resize"));
+      });
+
+      try {
+        await waitFor(() => {
+          expect(screen.getByTestId("mobile-view-toggle")).toBeInTheDocument();
+        });
+        expect(screen.getByTestId("banner-territorio-filtrado")).toHaveTextContent(
+          "Barra/Pituba (Prefeitura-Bairro) — comparação municipal preservada; resumo abaixo da lista"
+        );
+        expect(screen.getByTestId("btn-ir-resumo-territorio")).toBeInTheDocument();
+
+        fireEvent.click(screen.getByTestId("btn-mobile-visao-mapa"));
+        expect(screen.getByTestId("banner-territorio-filtrado")).toHaveTextContent(
+          "Barra/Pituba (Prefeitura-Bairro) — comparação municipal preservada; resumo abaixo do mapa"
+        );
+
+        fireEvent.click(screen.getByTestId("btn-limpar-filtro-territorial"));
+        expect(screen.queryByTestId("banner-territorio-filtrado")).not.toBeInTheDocument();
+      } finally {
+        Object.defineProperty(window, "innerWidth", { writable: true, configurable: true, value: originalInnerWidth });
+        act(() => {
+          window.dispatchEvent(new Event("resize"));
+        });
+      }
+    });
+  });
 });

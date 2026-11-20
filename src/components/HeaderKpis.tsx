@@ -1,8 +1,16 @@
 import React from "react";
-import { GlobalKpis, MetricType } from "../types";
+import { GlobalKpis, IndexData, MetricType } from "../types";
 import { formatCurrency, formatDate, formatNumber } from "../utils/formatters";
 import { hasNumericPayment } from "../utils/territory";
 import { MonetaryValue } from "./MonetaryValue";
+
+function formatarInstanteSalvador(valor: string): string {
+  return new Intl.DateTimeFormat("pt-BR", {
+    timeZone: "America/Bahia",
+    dateStyle: "short",
+    timeStyle: "short",
+  }).format(new Date(valor));
+}
 
 interface HeaderKpisProps {
   /**
@@ -42,9 +50,13 @@ interface HeaderKpisProps {
    */
   isExactLayerWorkCount?: boolean;
   /**
-   * Data ISO de atualização do acervo (metadata.generatedAt).
+   * Data ISO de atualização do acervo (metadata.generatedAt) usada como fallback.
    */
   generatedAt?: string;
+  /**
+   * Metadados completos da atualização concluída do acervo (metadata.atualizacao).
+   */
+  atualizacao?: IndexData["metadata"]["atualizacao"];
   /**
    * Métrica financeira ativa: 'vigente' (Valor Contratual Vigente) ou 'executado' (Valor Pago).
    */
@@ -53,6 +65,22 @@ interface HeaderKpisProps {
    * Mandato Municipal selecionado nos filtros (ex: '2025-2028', '2021-2024' ou 'todos').
    */
   mandato?: string;
+  /**
+   * Aba principal ativa ('comparacao' ou 'tabela').
+   */
+  activeTab?: "comparacao" | "tabela";
+  /**
+   * Callback para ativar a aba de Comparação Territorial.
+   */
+  onSelectComparacao?: () => void;
+  /**
+   * Callback para ativar a aba de Tabela de Obras.
+   */
+  onSelectTabela?: () => void;
+  /**
+   * Quantidade de obras filtradas exibida no contador da aba Tabela de Obras.
+   */
+  tableObrasCount?: number;
 }
 
 /**
@@ -73,8 +101,13 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
   contratosPrefeituraBairroSemRateioCount = 0,
   isExactLayerWorkCount = true,
   generatedAt,
+  atualizacao,
   metricType = "executado",
   mandato,
+  activeTab = "comparacao",
+  onSelectComparacao,
+  onSelectTabela,
+  tableObrasCount = 0,
 }) => {
   const isVigente = metricType === "vigente";
   const metricLabel = isVigente ? "Valor Contratual Vigente" : "Valor Pago";
@@ -94,7 +127,7 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
       ? `Mandato ${mandato.replace("-", "–")}`
       : "Todos os mandatos (2021–2028)";
 
-  const dataAtualizacao = generatedAt ? formatDate(generatedAt) : null;
+  const dataAtualizacao = !atualizacao && generatedAt ? formatDate(generatedAt) : null;
 
   return (
     <header
@@ -102,41 +135,87 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
       className="bg-slate-900 text-white shadow-sm border-b border-slate-800 shrink-0"
     >
       <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-2 sm:py-2.5">
-        {/* Linha 1: Título, indicação de acumulados, data de atualização e fontes */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 pb-1.5 sm:pb-2 border-b border-slate-800">
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-            <h1 className="text-sm sm:text-lg font-bold tracking-tight text-white">
-              Mapa das Obras e do Dinheiro por Bairro
-            </h1>
-            <span
-              data-testid="header-subtitulo"
-              className="text-[11px] sm:text-xs text-slate-300"
-            >
-              Salvador • {mandatoLabel}
-            </span>
+        {/* Linha 1: Título, indicação de acumulados, data de atualização, fontes e abas principais */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 pb-1.5 sm:pb-2 border-b border-slate-800">
+          <div className="flex flex-col gap-1 min-w-0">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+              <h1 className="text-sm sm:text-lg font-bold tracking-tight text-white">
+                Mapa das Obras e do Dinheiro por Bairro
+              </h1>
+              <span
+                data-testid="header-subtitulo"
+                className="text-[11px] sm:text-xs text-slate-300"
+              >
+                Salvador • {mandatoLabel}
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-slate-300">
+              <span
+                data-testid="header-valores-acumulados"
+                className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-medium text-emerald-300"
+              >
+                {mandato && mandato !== "todos"
+                  ? "Valores acumulados dos contratos (não exclusivos do mandato)"
+                  : "Valores acumulados no acervo"}
+              </span>
+              {dataAtualizacao && (
+                <span
+                  data-testid="header-atualizacao"
+                  className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700"
+                >
+                  Dados gerados em {dataAtualizacao}
+                </span>
+              )}
+              <span className="hidden xl:inline text-slate-400">
+                Fontes: Portal da Transparência • GeoSalvador • IBGE Censo 2022
+              </span>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-slate-300">
-            <span
-              data-testid="header-valores-acumulados"
-              className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-medium text-emerald-300"
+          {onSelectComparacao && onSelectTabela && (
+            <div
+              role="tablist"
+              aria-label="Visões principais do painel"
+              className="inline-flex items-center gap-1 bg-slate-800/90 p-1 rounded-lg border border-slate-700 shadow-sm self-start lg:self-center shrink-0"
             >
-              {mandato && mandato !== "todos"
-                ? "Valores acumulados dos contratos (não exclusivos do mandato)"
-                : "Valores acumulados no acervo"}
-            </span>
-            {dataAtualizacao && (
-              <span
-                data-testid="header-atualizacao"
-                className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700"
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "comparacao"}
+                data-testid="tab-comparacao"
+                onClick={onSelectComparacao}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+                  activeTab === "comparacao"
+                    ? "bg-white text-slate-900 shadow-sm"
+                    : "text-slate-300 hover:text-white hover:bg-slate-700/60"
+                }`}
               >
-                Dados gerados em {dataAtualizacao}
-              </span>
-            )}
-            <span className="hidden xl:inline text-slate-400">
-              Fontes: Portal da Transparência • GeoSalvador • IBGE Censo 2022
-            </span>
-          </div>
+                Comparação Territorial
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "tabela"}
+                data-testid="tab-tabela"
+                onClick={onSelectTabela}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+                  activeTab === "tabela"
+                    ? "bg-white text-slate-900 shadow-sm"
+                    : "text-slate-300 hover:text-white hover:bg-slate-700/60"
+                }`}
+              >
+                Tabela de Obras
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full tabular-nums ${
+                    activeTab === "tabela" ? "bg-slate-200 text-slate-900" : "bg-slate-700 text-slate-200"
+                  }`}
+                >
+                  {tableObrasCount}
+                </span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Linha 2: Resumo comparativo municipal compacto (invariante à seleção de território) */}
@@ -250,6 +329,30 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
             </div>
           </div>
         </div>
+        {atualizacao && (
+          <div
+            data-testid="header-atualizacao-detalhes"
+            className="mt-2 pt-2 border-t border-slate-800/80 text-[11px] text-slate-300 flex flex-wrap gap-x-4 gap-y-1"
+          >
+            <span>Última atualização concluída em {formatarInstanteSalvador(atualizacao.concluidaEm)}</span>
+            <span>Referência dos pagamentos: {formatDate(atualizacao.dataReferenciaPagamentos)}</span>
+            <span>
+              Consultas realizadas entre {formatarInstanteSalvador(atualizacao.inicioConsultas)} e{" "}
+              {formatarInstanteSalvador(atualizacao.fimConsultas)} (horário de Salvador)
+            </span>
+            <span>As consultas ocorreram em momentos diferentes.</span>
+            {atualizacao.coberturaHistorica === "nao_verificada" && (
+              <span className="text-amber-200">
+                A abrangência histórica da fonte não foi verificada de forma independente.
+              </span>
+            )}
+            {atualizacao.limitacoesConhecidas.map((limitacao) => (
+              <span key={limitacao} className="text-amber-200">
+                {limitacao}
+              </span>
+            ))}
+          </div>
+        )}
         {!isVigente && obrasSemPagamento > 0 && (
           <p className="mt-2 text-xs text-amber-200" role="status">
             {formatNumber(obrasSemPagamento)} contrato(s) com pagamento indisponível no acervo selecionado; a soma usa os valores disponíveis.

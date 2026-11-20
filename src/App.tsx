@@ -34,7 +34,6 @@ import {
   obraMatchesTerritory,
   obraOverlapsMandato,
 } from "./utils/territory";
-import { formatDate } from "./utils/formatters";
 
 const TEMAS_PADRAO: TemaObra[] = [
   "Encostas e Contenção",
@@ -116,12 +115,6 @@ async function versaoFoiRetirada(versao: string | undefined): Promise<boolean> {
  * @throws Não lança exceções; captura falhas de rede de forma amigável.
  */
 const MOBILE_MEDIA_QUERY = "(max-width: 767px)";
-
-function formatarInstanteSalvador(valor: string): string {
-  return new Intl.DateTimeFormat("pt-BR", {
-    timeZone: "America/Bahia", dateStyle: "short", timeStyle: "short",
-  }).format(new Date(valor));
-}
 
 function getMobileMediaQueryList(): MediaQueryList | null {
   if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
@@ -898,22 +891,14 @@ export const App: React.FC = () => {
         limitacoesAlocadas={Array.from(new Set((activeLayer === "bairros" ? recalculatedBairros : recalculatedPrefeituras).flatMap((territorio) => territorio.limitacoesConhecidas || [])))}
         limitacoesNaoLocalizadas={Array.from(new Set(topFilteredObras.filter((obra) => obra.nivel === "Escopo Cidade (Não-Localizado)").flatMap(limitacoesDaObra)))}
         generatedAt={indexData.metadata.atualizacao ? undefined : indexData.metadata.generatedAt}
+        atualizacao={indexData.metadata.atualizacao}
         metricType={filters.metricType}
         mandato={filters.mandato}
+        activeTab={activeTab}
+        onSelectComparacao={handleBackToComparacao}
+        onSelectTabela={handleOpenTabela}
+        tableObrasCount={tableObras.length}
       />
-
-      {indexData.metadata.atualizacao && (
-        <div className="bg-slate-100 px-4 sm:px-6 py-2 text-xs text-slate-800 flex flex-wrap gap-x-5 gap-y-1">
-          <span>Última atualização concluída em {formatarInstanteSalvador(indexData.metadata.atualizacao.concluidaEm)}</span>
-          <span>Referência dos pagamentos: {formatDate(indexData.metadata.atualizacao.dataReferenciaPagamentos)}</span>
-          <span>Consultas realizadas entre {formatarInstanteSalvador(indexData.metadata.atualizacao.inicioConsultas)} e {formatarInstanteSalvador(indexData.metadata.atualizacao.fimConsultas)} (horário de Salvador)</span>
-          <span>As consultas ocorreram em momentos diferentes.</span>
-          {indexData.metadata.atualizacao.coberturaHistorica === "nao_verificada" && (
-            <span>A abrangência histórica da fonte não foi verificada de forma independente.</span>
-          )}
-          {indexData.metadata.atualizacao.limitacoesConhecidas.map((limitacao) => <span key={limitacao}>{limitacao}</span>)}
-        </div>
-      )}
 
       {/* 2. Barra de Filtros Superiores Combinados */}
       <TopFilters
@@ -927,94 +912,30 @@ export const App: React.FC = () => {
         totalObrasGeral={indexData.obras.length}
         activeLayer={activeLayer}
         onToggleLayer={handleToggleLayer}
+        selectedTerritory={activeSelectedTerritory}
+        territoryContextMessage={
+          activeTab === "comparacao"
+            ? isMobileViewport
+              ? mobileView === "lista"
+                ? " — comparação municipal preservada; resumo abaixo da lista"
+                : " — comparação municipal preservada; resumo abaixo do mapa"
+              : " — comparação municipal preservada; resumo no painel ao lado do mapa"
+            : " — exibindo apenas obras deste território"
+        }
+        onClearTerritory={() => setSelectedTerritory(null)}
+        onJumpToTerritorySummary={
+          activeTab === "comparacao" && isMobileViewport && mobileView === "lista"
+            ? () => {
+                const el = document.querySelector('[data-testid="raio-x-container"]');
+                if (el && typeof el.scrollIntoView === "function") {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+              }
+            : undefined
+        }
       />
 
-      {/* Indicador de Seleção Territorial Ativa para Consulta de Obras */}
-      {activeSelectedTerritory && (
-        <div
-          data-testid="banner-territorio-filtrado"
-          className="bg-emerald-50 border-b border-emerald-200 px-4 sm:px-6 py-1.5 flex flex-wrap items-center justify-between gap-2 text-xs text-emerald-900"
-        >
-          <div className="flex items-center gap-2">
-            <span className="font-bold uppercase tracking-wider text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded">
-              Território selecionado
-            </span>
-            <span>
-              <strong>{activeSelectedTerritory.nome}</strong> (
-              {activeSelectedTerritory.tipo === "bairro" ? "Bairro Oficial" : "Prefeitura-Bairro"})
-              {activeTab === "comparacao"
-                ? isMobileViewport && mobileView === "lista"
-                  ? " — comparação municipal preservada; resumo abaixo da lista"
-                  : " — comparação municipal preservada; resumo abaixo do mapa"
-                : " — exibindo apenas obras deste território"}
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            {activeTab === "comparacao" && isMobileViewport && mobileView === "lista" && (
-              <button
-                type="button"
-                data-testid="btn-ir-resumo-territorio"
-                onClick={() => {
-                  const el = document.querySelector('[data-testid="raio-x-container"]');
-                  if (el && typeof el.scrollIntoView === "function") {
-                    el.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }
-                }}
-                className="text-xs font-semibold text-emerald-900 hover:text-emerald-950 underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-              >
-                Ver resumo
-              </button>
-            )}
-            <button
-              type="button"
-              data-testid="btn-limpar-filtro-territorial"
-              onClick={() => setSelectedTerritory(null)}
-              className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-            >
-              Limpar seleção
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* 3. Seletor de Visão: Comparação Territorial vs Tabela de Obras */}
-      <div className="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between">
-        <div className="flex items-center gap-1 bg-white p-1 rounded-lg border border-slate-200 shadow-sm">
-          <button
-            type="button"
-            data-testid="tab-comparacao"
-            onClick={handleBackToComparacao}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
-              activeTab === "comparacao"
-                ? "bg-slate-900 text-white shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            Comparação Territorial
-          </button>
-          <button
-            type="button"
-            data-testid="tab-tabela"
-            onClick={handleOpenTabela}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
-              activeTab === "tabela"
-                ? "bg-slate-900 text-white shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            Tabela de Obras
-            <span
-              className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                activeTab === "tabela" ? "bg-slate-700 text-white" : "bg-slate-200 text-slate-700"
-              }`}
-            >
-              {tableObras.length}
-            </span>
-          </button>
-        </div>
-      </div>
-
-      {/* 4. Área Central de Visualização */}
+      {/* 3. Área Central de Visualização */}
       <main className="flex-1">
         {activeTab === "comparacao" && (
           <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 py-3 md:py-4 flex flex-col gap-3 md:gap-4">

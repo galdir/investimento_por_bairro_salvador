@@ -126,6 +126,22 @@ interface TopFiltersProps {
    * Callback para alternar o recorte territorial entre Prefeituras-Bairro e Bairros Oficiais.
    */
   onToggleLayer?: (layer: "bairros" | "prefeituras") => void;
+  /**
+   * Território selecionado atualmente, exibido como subfaixa compacta na barra de controles.
+   */
+  selectedTerritory?: { nome: string; tipo: "bairro" | "prefeitura_bairro" } | null;
+  /**
+   * Mensagem contextual exibida ao lado do território selecionado.
+   */
+  territoryContextMessage?: string;
+  /**
+   * Callback para limpar a seleção territorial ativa.
+   */
+  onClearTerritory?: () => void;
+  /**
+   * Callback opcional para rolar até o resumo do território na lista móvel.
+   */
+  onJumpToTerritorySummary?: () => void;
 }
 
 /**
@@ -152,6 +168,10 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
   totalObrasGeral,
   activeLayer,
   onToggleLayer,
+  selectedTerritory,
+  territoryContextMessage,
+  onClearTerritory,
+  onJumpToTerritorySummary,
 }) => {
   const [showMoreFilters, setShowMoreFilters] = useState<boolean>(false);
 
@@ -516,6 +536,45 @@ export const TopFilters: React.FC<TopFiltersProps> = ({
               </div>
             </div>
           </div>
+
+          {/* Subfaixa compacta de território selecionado integrada à barra de controles */}
+          {selectedTerritory && onClearTerritory && (
+            <div
+              data-testid="banner-territorio-filtrado"
+              className="pt-1.5 border-t border-emerald-200/80 bg-emerald-50/90 -mx-3 sm:-mx-6 px-3 sm:px-6 -mb-2 sm:-mb-2.5 py-1.5 flex flex-wrap items-center justify-between gap-2 text-xs text-emerald-900"
+            >
+              <div className="flex flex-wrap items-center gap-2 min-w-0">
+                <span className="font-bold uppercase tracking-wider text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded shrink-0">
+                  Território selecionado
+                </span>
+                <span className="min-w-0">
+                  <strong>{selectedTerritory.nome}</strong> (
+                  {selectedTerritory.tipo === "bairro" ? "Bairro Oficial" : "Prefeitura-Bairro"})
+                  {territoryContextMessage}
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-3 shrink-0">
+                {onJumpToTerritorySummary && (
+                  <button
+                    type="button"
+                    data-testid="btn-ir-resumo-territorio"
+                    onClick={onJumpToTerritorySummary}
+                    className="text-xs font-semibold text-emerald-900 hover:text-emerald-950 underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                  >
+                    Ver resumo
+                  </button>
+                )}
+                <button
+                  type="button"
+                  data-testid="btn-limpar-filtro-territorial"
+                  onClick={onClearTerritory}
+                  className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                >
+                  Limpar seleção
+                </button>
+              </div>
+            </div>
+          )}
         </div>
     </section>
   );
