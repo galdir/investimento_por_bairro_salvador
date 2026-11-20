@@ -1,4 +1,4 @@
-name: CI e Publicação no GitHub Pages (Publicação Pausada)
+name: CI e Publicação no GitHub Pages
 
 on:
   push:
@@ -10,12 +10,6 @@ on:
       - main
       - master
   workflow_dispatch:
-    inputs:
-      publish:
-        description: "Publicar no GitHub Pages (requer Pages habilitado nas configurações do repositório)"
-        required: false
-        default: false
-        type: boolean
 
 permissions:
   contents: read
@@ -65,7 +59,7 @@ jobs:
         run: npm run build
 
       - name: Registrar histórico de versões publicadas no GitHub Pages
-        if: github.event_name == 'workflow_dispatch' && inputs.publish
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: actions/github-script@v7
         with:
           github-token: ${{ github.token }}
@@ -129,16 +123,15 @@ jobs:
             );
 
       - name: Reter somente as três versões servidas
-        if: github.event_name == 'workflow_dispatch' && inputs.publish
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: python scripts/package_pages.py --dist-dir dist --deployments-file "$RUNNER_TEMP/github-pages-deployments.json"
 
-      # Publicação no GitHub Pages pausada provisoriamente; só executa via workflow_dispatch com publish=true.
       - name: Configurar GitHub Pages
-        if: github.event_name == 'workflow_dispatch' && inputs.publish
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: actions/configure-pages@v5
 
       - name: Empacotar artefato estático (dist/)
-        if: github.event_name == 'workflow_dispatch' && inputs.publish
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -146,7 +139,7 @@ jobs:
   deploy:
     name: Publicar no GitHub Pages
     needs: test-and-build
-    if: github.event_name == 'workflow_dispatch' && inputs.publish
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
