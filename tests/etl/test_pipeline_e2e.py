@@ -88,13 +88,22 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path, port
     assert "investimentoPorHabitante" in pituba
     assert pituba["totalObras"] >= 1
 
-    # Bairros estimados por contiguidade espacial
-    for b_contig in ["Chame-Chame", "Ilha de Maré"]:
-        if b_contig in bairros_map:
-            assert bairros_map[b_contig]["vulnerabilidade_estimada_contiguidade"] is True
-            assert bairros_map[b_contig]["pct_esgoto_inadequado"] > 0
-            assert bairros_map[b_contig]["pct_agua_inadequada"] > 0
-            assert bairros_map[b_contig]["pct_analfabetismo_15mais"] > 0
+    # Contiguidade exclusiva para Aquarius (população 0 e per capita indisponível/null)
+    assert "Aquarius" in bairros_map
+    aquarius = bairros_map["Aquarius"]
+    assert aquarius["populacao"] == 0
+    assert aquarius["vulnerabilidade_estimada_contiguidade"] is True
+    assert aquarius["pct_esgoto_inadequado"] > 0
+    assert aquarius["pct_agua_inadequada"] > 0
+    assert aquarius["pct_analfabetismo_15mais"] > 0
+    assert aquarius["investimentoPorHabitante"] is None
+    assert aquarius["investimentoPorHabitantePago"] is None
+
+    # Bairros com dados reais do Censo 2022 (sem marcação de contiguidade)
+    for b_real in ["Chame-Chame", "Ilha de Maré", "Colinas de Periperi"]:
+        assert b_real in bairros_map
+        assert bairros_map[b_real]["vulnerabilidade_estimada_contiguidade"] is False
+        assert bairros_map[b_real]["pct_esgoto_inadequado"] > 0
 
     # Zonas Especiais Não-Residenciais
     nome_cab = "Centro Administrativo da Bahia" if "Centro Administrativo da Bahia" in bairros_map else "Centro Administrativo da Bahia - CAB"
@@ -126,6 +135,11 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path, port
     pb_map = {feat["properties"]["nome"]: feat["properties"] for feat in features_pb}
     assert "Barra/Pituba" in pb_map
     assert pb_map["Barra/Pituba"]["populacao_total"] >= 65000
+    assert pb_map["Barra/Pituba"]["vulnerabilidade_estimada_contiguidade"] is True
+    assert pb_map["Barra/Pituba"]["bairros_vulnerabilidade_estimada"] == ["Aquarius"]
+    assert "Subúrbio/Ilhas" in pb_map
+    assert pb_map["Subúrbio/Ilhas"]["vulnerabilidade_estimada_contiguidade"] is False
+    assert pb_map["Subúrbio/Ilhas"]["bairros_vulnerabilidade_estimada"] == []
     assert "investimentoPorHabitante" in pb_map["Barra/Pituba"]
     assert "valorTotal" in pb_map["Barra/Pituba"]
 

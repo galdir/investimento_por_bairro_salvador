@@ -27,6 +27,11 @@ from etl.domain.territorio import (
 )
 
 
+def _parse_float_opcional(valor: Any) -> Optional[float]:
+    """Converte valor opcional para float preservando None."""
+    return None if valor is None else parse_float(valor)
+
+
 def generate_bairros_geojson(
     raw_bairros_geojson: dict[str, Any],
     bairros_resumo: list[dict[str, Any]],
@@ -104,8 +109,8 @@ def generate_bairros_geojson(
             "valorPagoFrentes": None if dados_rollup.get("valorPagoFrentes") is None else parse_float(dados_rollup["valorPagoFrentes"]),
             "totalFrentesMedicao": int(dados_rollup.get("totalFrentesMedicao", 0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
-            "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
-            "investimentoPorHabitantePago": None if dados_rollup.get("investimentoPorHabitantePago") is None else parse_float(dados_rollup["investimentoPorHabitantePago"]),
+            "investimentoPorHabitante": _parse_float_opcional(dados_rollup.get("investimentoPorHabitante")),
+            "investimentoPorHabitantePago": _parse_float_opcional(dados_rollup.get("investimentoPorHabitantePago")),
             "valorPagoDisponivel": dados_rollup.get("valorPagoDisponivel", False),
             "obrasSemValorPago": dados_rollup.get("obrasSemValorPago", 0),
             "limitacoesConhecidas": dados_rollup.get("limitacoesConhecidas", []),
@@ -176,6 +181,8 @@ def generate_prefeituras_geojson(
             "pct_esgoto_inadequado": parse_float(dados_rollup.get("pct_esgoto_inadequado", 0.0)),
             "pct_agua_inadequada": parse_float(dados_rollup.get("pct_agua_inadequada", 0.0)),
             "pct_analfabetismo_15mais": parse_float(dados_rollup.get("pct_analfabetismo_15mais", 0.0)),
+            "vulnerabilidade_estimada_contiguidade": bool(dados_rollup.get("vulnerabilidade_estimada_contiguidade", False)),
+            "bairros_vulnerabilidade_estimada": list(dados_rollup.get("bairros_vulnerabilidade_estimada") or []),
             "valorTotal": parse_float(dados_rollup.get("valorTotal", 0.0)),
             "valorLiquidado": parse_float(dados_rollup.get("valorLiquidado", 0.0)),
             "valorPago": None if dados_rollup.get("valorPago") is None else parse_float(dados_rollup["valorPago"]),
@@ -185,8 +192,8 @@ def generate_prefeituras_geojson(
             "valorPagoFrentes": None if dados_rollup.get("valorPagoFrentes") is None else parse_float(dados_rollup["valorPagoFrentes"]),
             "totalFrentesMedicao": int(dados_rollup.get("totalFrentesMedicao", 0)),
             "totalObras": int(dados_rollup.get("totalObras", 0)),
-            "investimentoPorHabitante": parse_float(dados_rollup.get("investimentoPorHabitante", 0.0)),
-            "investimentoPorHabitantePago": None if dados_rollup.get("investimentoPorHabitantePago") is None else parse_float(dados_rollup["investimentoPorHabitantePago"]),
+            "investimentoPorHabitante": _parse_float_opcional(dados_rollup.get("investimentoPorHabitante")),
+            "investimentoPorHabitantePago": _parse_float_opcional(dados_rollup.get("investimentoPorHabitantePago")),
             "valorPagoDisponivel": dados_rollup.get("valorPagoDisponivel", False),
             "obrasSemValorPago": dados_rollup.get("obrasSemValorPago", 0),
             "limitacoesConhecidas": dados_rollup.get("limitacoesConhecidas", []),

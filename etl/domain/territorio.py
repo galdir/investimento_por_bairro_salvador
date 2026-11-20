@@ -5,27 +5,20 @@ estrita de Zonas Especiais Não-Residenciais para prevenção de distorções pe
 e o cálculo das agregações financeiras e per capita em múltiplos níveis territoriais.
 """
 
+import math
 import re
 from typing import Any, Final
 import unicodedata
 
 from etl.config import CENTRALIDADES_METROPOLITANAS, ZONAS_ESPECIAIS_NAO_RESIDENCIAIS
 
-# Mapeamento de contiguidade espacial e ponderação populacional para os 3 Bairros Oficiais
-# residenciais do Decreto 32.791/2020 ausentes no nível N102 do Censo 2022 (IBGE/SIDRA).
+# Mapeamento de contiguidade espacial e ponderação populacional para o único Bairro Oficial
+# residencial do Decreto 32.791/2020 ausente nos Agregados por Bairro do Censo 2022 (IBGE).
 CONTIGUIDADE_BAIRROS_AUSENTES: Final[dict[str, list[str]]] = {
-    "ILHA DE MARE": [
-        "ILHA DE BOM JESUS DOS PASSOS",
-        "ILHA DOS FRADES/ILHA DE SANTO ANTONIO",
-    ],
-    "CHAME-CHAME": [
-        "GRACA",
-        "BARRA",
-        "VITORIA",
-    ],
-    "COLINAS DE PITUACU": [
-        "SAO MARCOS",
-        "PAU DA LIMA",
+    "AQUARIUS": [
+        "PITUBA",
+        "ITAIGARA",
+        "CAMINHO DAS ARVORES",
     ],
 }
 
@@ -272,29 +265,78 @@ def is_centralidade_metropolitana(nome_bairro: str) -> bool:
     return nome_norm in nomes_exatos
 
 
+_SUBINDICADORES_VULNERABILIDADE: Final[tuple[str, ...]] = (
+    "pct_esgoto_inadequado",
+    "pct_agua_inadequada",
+    "pct_analfabetismo_15mais",
+)
+
+
+def _validar_subindicador(valor: Any, nome_bairro: str, campo: str) -> float:
+    """Valida e converte um sub-indicador numérico obrigatório, falhando com ValueError se ausente ou inválido."""
+    if valor is None or isinstance(valor, bool):
+        raise ValueError(f"Bairro residencial '{nome_bairro}' sem sub-indicador válido '{campo}'.")
+    if isinstance(valor, (int, float)):
+        num = float(valor)
+    else:
+        s = str(valor).strip()
+        if not s:
+            raise ValueError(f"Bairro residencial '{nome_bairro}' sem sub-indicador válido '{campo}'.")
+        if "," in s:
+            s = s.replace(".", "").replace(",", ".")
+        try:
+            num = float(s)
+        except (ValueError, TypeError) as exc:
+            raise ValueError(f"Bairro residencial '{nome_bairro}' com sub-indicador inválido '{campo}': {valor!r}.") from exc
+    if not math.isfinite(num):
+        raise ValueError(f"Bairro residencial '{nome_bairro}' com sub-indicador não finito '{campo}': {valor!r}.")
+    return num
+
+
+def _percentil_linear_inclusivo(valores_ordenados: list[float], percentil: float) -> float:
+    """Calcula o percentil por interpolação linear inclusiva (N - 1) * p sobre valores ordenados."""
+    n = len(valores_ordenados)
+    if n == 0:
+        return 0.0
+    if n == 1:
+        return valores_ordenados[0]
+    pos = (n - 1) * percentil
+    lo = int(math.floor(pos))
+    hi = int(math.ceil(pos))
+    if lo == hi:
+        return valores_ordenados[lo]
+    frac = pos - lo
+    return valores_ordenados[lo] + frac * (valores_ordenados[hi] - valores_ordenados[lo])
+
+
+def _limites_winsorizacao_p95(valores: list[float]) -> tuple[float, float]:
+    """Retorna (minimo, amplitude_p95) para normalização min-max winsorizada no P95."""
+    ordenados = sorted(valores)
+    min_val = ordenados[0]
+    p95_val = _percentil_linear_inclusivo(ordenados, 0.95)
+    return min_val, p95_val - min_val
+
+
 def calcular_indice_vulnerabilidade_bairros(
     demografia: dict[str, dict[str, Any]],
 ) -> dict[str, dict[str, Any]]:
-    """Calcula o Índice de Vulnerabilidade do Bairro (0.00 a 1.00) multidimensional do Censo 2022.
+    """Calcula o Índice de Vulnerabilidade do Bairro (0.00 a 1.00) via normalização P95 winsorizada.
 
     Sumário:
-        Combina déficit de esgoto (PLANSAB), déficit de água e taxa de analfabetismo 15+ via min-max.
+        Combina déficit de esgoto (PLANSAB), déficit de água e taxa de analfabetismo 15+ via
+        normalização min-max winsorizada no percentil 95 (P95).
 
     Descrição Estendida:
         1. As 3 Zonas Especiais Não-Residenciais (Aeroporto, Porto Seco Pirajá e CAB) são excluídas
-           do cálculo min-max e recebem 0.0 em todas as dimensões e no índice composto.
-        2. Os 3 Bairros Oficiais residenciais ausentes na malha N102 (Ilha de Maré, Chame-Chame e
-           Colinas de Pituaçu) têm seus 3 sub-indicadores estimados pela média ponderada populacional
-           dos seus bairros limítrofes, recebendo vulnerabilidade_estimada_contiguidade=True.
-        3. Para os 168 bairros residenciais, cada indicador k é normalizado na escala 0 a 1 por
-           I_{k,b} = (x_{k,b} - min(x_k)) / (max(x_k) - min(x_k)). O índice composto é a média
-           aritmética simples (pesos iguais 1/3) arredondada em 2 casas decimais.
-
-    Argumentos:
-        demografia: Dicionário mapeando nome do bairro para atributos populacionais e sub-indicadores.
-
-    Retornos:
-        Dicionário mapeando nomes para cópias atualizadas dos registros demográficos.
+           do domínio de normalização e recebem 0.0 em todas as dimensões e no índice composto.
+        2. Todos os bairros residenciais fora da lista de contiguidade devem possuir os 3
+           sub-indicadores válidos, falhando com ValueError em caso de ausência ou valor inválido.
+        3. Aquarius (único Bairro Oficial ausente nos Agregados por Bairro do Censo 2022) tem
+           seus 3 sub-indicadores estimados pela média ponderada populacional de Pituba, Itaigara
+           e Caminho das Árvores, recebendo vulnerabilidade_estimada_contiguidade=True.
+        4. Cada dimensão k é normalizada por min(1.0, (x - min) / (P95 - min)) com P95 obtido
+           por interpolação linear inclusiva (N - 1) * 0.95 e amplitude zero tratada como 0.0;
+           o índice composto é a média aritmética simples (1/3 cada) arredondada em 2 casas decimais.
     """
     working_map: dict[str, dict[str, Any]] = {}
     orig_keys_map: dict[str, list[str]] = {}
@@ -307,12 +349,11 @@ def calcular_indice_vulnerabilidade_bairros(
         if norm not in working_map:
             working_map[norm] = dict(v)
         else:
-            # Atualiza campos faltantes se a chave alternativa tiver dados
             for field, val in v.items():
                 if working_map[norm].get(field) is None:
                     working_map[norm][field] = val
 
-    # 1. Tratamento preliminar: identificar Zonas Especiais e Centralidades Metropolitanas
+    # 1. Tratamento preliminar: identificar Zonas Especiais, Centralidades e validar residenciais
     for norm, entry in working_map.items():
         eh_centralidade = is_centralidade_metropolitana(norm)
         if is_zona_especial_nao_residencial(norm):
@@ -330,42 +371,35 @@ def calcular_indice_vulnerabilidade_bairros(
             entry["isZonaEspecialNaoResidencial"] = False
             entry["is_centralidade_metropolitana"] = eh_centralidade
             entry["isCentralidadeMetropolitana"] = eh_centralidade
-            entry.setdefault("vulnerabilidade_estimada_contiguidade", False)
+            entry["vulnerabilidade_estimada_contiguidade"] = False
+            if norm not in CONTIGUIDADE_BAIRROS_AUSENTES:
+                nome_exibicao = (orig_keys_map.get(norm) or [norm])[0]
+                for campo in _SUBINDICADORES_VULNERABILIDADE:
+                    entry[campo] = _validar_subindicador(entry.get(campo), nome_exibicao, campo)
 
-    # 2. Imputação por contiguidade para os 3 bairros residenciais ausentes no N102
+    # 2. Imputação por contiguidade exclusiva (Aquarius)
     for target_norm, vizinhos_norms in CONTIGUIDADE_BAIRROS_AUSENTES.items():
         if target_norm in working_map:
             target_entry = working_map[target_norm]
-            pop_viz_total = sum(
-                int(working_map.get(vn, {}).get("populacao", 0))
-                for vn in vizinhos_norms
-                if vn in working_map
-            )
-            if pop_viz_total > 0:
-                soma_esgoto = sum(
-                    int(working_map.get(vn, {}).get("populacao", 0))
-                    * parse_float(working_map.get(vn, {}).get("pct_esgoto_inadequado", 0.0))
-                    for vn in vizinhos_norms
-                    if vn in working_map
-                )
-                soma_agua = sum(
-                    int(working_map.get(vn, {}).get("populacao", 0))
-                    * parse_float(working_map.get(vn, {}).get("pct_agua_inadequada", 0.0))
-                    for vn in vizinhos_norms
-                    if vn in working_map
-                )
-                soma_analf = sum(
-                    int(working_map.get(vn, {}).get("populacao", 0))
-                    * parse_float(working_map.get(vn, {}).get("pct_analfabetismo_15mais", 0.0))
-                    for vn in vizinhos_norms
-                    if vn in working_map
-                )
-                target_entry["pct_esgoto_inadequado"] = round(soma_esgoto / pop_viz_total, 2)
-                target_entry["pct_agua_inadequada"] = round(soma_agua / pop_viz_total, 2)
-                target_entry["pct_analfabetismo_15mais"] = round(soma_analf / pop_viz_total, 2)
+            vizinhos_pop: list[tuple[dict[str, Any], int]] = []
+            for vn in vizinhos_norms:
+                if vn not in working_map:
+                    raise ValueError(f"Vizinho obrigatório '{vn}' ausente para contiguidade de '{target_norm}'.")
+                v_entry = working_map[vn]
+                v_pop = int(v_entry.get("populacao", 0) or 0)
+                if v_pop <= 0:
+                    raise ValueError(
+                        f"Vizinho obrigatório '{vn}' com população inválida ({v_pop}) para contiguidade de '{target_norm}'."
+                    )
+                vizinhos_pop.append((v_entry, v_pop))
+
+            pop_viz_total = sum(pop for _, pop in vizinhos_pop)
+            for campo in _SUBINDICADORES_VULNERABILIDADE:
+                soma_ponderada = sum(pop * float(v_entry[campo]) for v_entry, pop in vizinhos_pop)
+                target_entry[campo] = round(soma_ponderada / pop_viz_total, 2)
             target_entry["vulnerabilidade_estimada_contiguidade"] = True
 
-    # 3. Normalização min-max sobre os bairros residenciais
+    # 3. Normalização min-max winsorizada no P95 sobre os bairros residenciais
     bairros_residenciais = [
         (norm, entry)
         for norm, entry in working_map.items()
@@ -373,33 +407,20 @@ def calcular_indice_vulnerabilidade_bairros(
     ]
 
     if bairros_residenciais:
-        esgotos = [parse_float(e.get("pct_esgoto_inadequado", 0.0)) for _, e in bairros_residenciais]
-        aguas = [parse_float(e.get("pct_agua_inadequada", 0.0)) for _, e in bairros_residenciais]
-        analfs = [parse_float(e.get("pct_analfabetismo_15mais", 0.0)) for _, e in bairros_residenciais]
-
-        min_e, max_e = min(esgotos), max(esgotos)
-        min_a, max_a = min(aguas), max(aguas)
-        min_analf, max_analf = min(analfs), max(analfs)
-
-        range_e = (max_e - min_e) if max_e > min_e else 1.0
-        range_a = (max_a - min_a) if max_a > min_a else 1.0
-        range_analf = (max_analf - min_analf) if max_analf > min_analf else 1.0
+        limites_por_campo = {
+            campo: _limites_winsorizacao_p95([float(e[campo]) for _, e in bairros_residenciais])
+            for campo in _SUBINDICADORES_VULNERABILIDADE
+        }
 
         for _, entry in bairros_residenciais:
-            e_val = parse_float(entry.get("pct_esgoto_inadequado", 0.0))
-            a_val = parse_float(entry.get("pct_agua_inadequada", 0.0))
-            analf_val = parse_float(entry.get("pct_analfabetismo_15mais", 0.0))
-
-            i_e = (e_val - min_e) / range_e if max_e > min_e else 0.0
-            i_a = (a_val - min_a) / range_a if max_a > min_a else 0.0
-            i_analf = (analf_val - min_analf) / range_analf if max_analf > min_analf else 0.0
+            indices_dim = []
+            for campo in _SUBINDICADORES_VULNERABILIDADE:
+                min_val, amp = limites_por_campo[campo]
+                val = float(entry[campo])
+                indices_dim.append(0.0 if amp <= 0.0 else min(1.0, (val - min_val) / amp))
 
             # Média aritmética simples de pesos iguais (1/3 cada)
-            indice_composto = round((i_e + i_a + i_analf) / 3.0, 2)
-            entry["indice_vulnerabilidade"] = indice_composto
-            entry["pct_esgoto_inadequado"] = e_val
-            entry["pct_agua_inadequada"] = a_val
-            entry["pct_analfabetismo_15mais"] = analf_val
+            entry["indice_vulnerabilidade"] = round(sum(indices_dim) / len(indices_dim), 2)
 
     # 4. Constrói o resultado mapeando tanto as chaves originais quanto as normalizadas
     resultado: dict[str, dict[str, Any]] = {}
@@ -635,12 +656,17 @@ def calcular_rollup_territorial(
             )
         )
 
-        # Regra: Zonas Especiais Não-Residenciais e Centralidades Metropolitanas têm per capita zerado
-        inv_per_capita = 0.0
-        inv_per_capita_pago = 0.0
-        if not eh_zona_especial and not eh_centralidade and populacao > 0:
-            inv_per_capita = round(vl_total_bairro / populacao, 2)
-            inv_per_capita_pago = round(vl_pago_bairro / populacao, 2)
+        # Regra: Zonas Especiais Não-Residenciais e Centralidades Metropolitanas têm per capita zerado;
+        # Bairros Oficiais residenciais com população <= 0 (ex: Aquarius) serializam None (indisponível).
+        inv_per_capita: float | None = 0.0
+        inv_per_capita_pago: float | None = 0.0
+        if not eh_zona_especial and not eh_centralidade:
+            if populacao > 0:
+                inv_per_capita = round(vl_total_bairro / populacao, 2)
+                inv_per_capita_pago = round(vl_pago_bairro / populacao, 2)
+            else:
+                inv_per_capita = None
+                inv_per_capita_pago = None
 
         pct_esgoto = parse_float(b.get("pct_esgoto_inadequado", 0.0))
         pct_agua = parse_float(b.get("pct_agua_inadequada", 0.0))
@@ -784,12 +810,20 @@ def calcular_rollup_territorial(
             pct_agua_pb = round(parse_float(pb.get("pct_agua_inadequada", 0.0)), 2)
             pct_analf_pb = round(parse_float(pb.get("pct_analfabetismo_15mais", 0.0)), 2)
 
+        bairros_estimados = sorted(
+            str(b.get("nome", ""))
+            for b in bairros_residenciais
+            if b.get("vulnerabilidade_estimada_contiguidade") and str(b.get("nome", "")).strip()
+        )
+
         pb_dict = dict(pb)
         pb_dict.update({
             "indice_vulnerabilidade": indice_vuln_pb,
             "pct_esgoto_inadequado": pct_esgoto_pb,
             "pct_agua_inadequada": pct_agua_pb,
             "pct_analfabetismo_15mais": pct_analf_pb,
+            "vulnerabilidade_estimada_contiguidade": bool(bairros_estimados),
+            "bairros_vulnerabilidade_estimada": bairros_estimados,
             "valorTotal": round(vl_total_pb, 2),
             "valorLiquidado": round(vl_liq_pb, 2),
             "valorPago": round(vl_pago_pb, 2) if pago_disponivel_pb else None,

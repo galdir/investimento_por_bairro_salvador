@@ -15,7 +15,7 @@ Bairro Oficial cuja ocupação é predominantemente institucional, aeroportuári
 _Avoid_: Bairro sem dados, bairro inválido, bairro deserto
 
 **Centralidade Metropolitana de Baixa População Residente**:
-Bairro Oficial continental de vocação portuária, financeira, institucional e cultural metropolitana (`ZUE-3` / `ZCMe` na LOUOS) com população residente inferior a 1.000 habitantes e densidade demográfica inferior a 1.000 hab/km² no Censo 2022 (`Comércio`), que preserva seu Índice de Vulnerabilidade do Bairro mas é isento do cálculo e ranking de Investimento por Habitante no nível de bairro para evitar distorções estatísticas per capita.
+Bairro Oficial continental de vocação portuária, financeira, institucional e cultural metropolitana (`ZUE-3` / `ZCMe` na LOUOS) com população residente inferior a 1.000 habitantes e densidade demográfica inferior a 1.000 hab/km² no Censo 2022 (`Comércio`), que preserva seu Índice de Vulnerabilidade do Bairro (inclusive na média ponderada populacional da Prefeitura-Bairro `Centro/Brotas` e no mapa coroplético de vulnerabilidade), mas é isento do cálculo de Investimento por Habitante no nível de bairro para evitar distorções estatísticas per capita, sendo posicionado ao final dos bairros com comparação per capita ativa na lista bivariada de Bairros Oficiais em qualquer ordenação.
 _Avoid_: Bairro comercial, zona mista, bairro semi-isento
 
 **Prefeitura-Bairro**:
@@ -127,11 +127,11 @@ Métrica composta multidimensional (`0,00` a `1,00`) de carência de infraestrut
 _Avoid_: Índice de pobreza, nota social, estimativa manual
 
 **Comparação Territorial**:
-Leitura conjunta do Investimento por Habitante e do Índice de Vulnerabilidade do Bairro entre Bairros Oficiais ou entre Prefeituras-Bairro, para investigar a distribuição territorial dos recursos municipais. A associação observada não estabelece, por si só, a população beneficiada nem a suficiência dos investimentos.
+Leitura conjunta do Investimento por Habitante e do Índice de Vulnerabilidade do Bairro entre Bairros Oficiais ou entre Prefeituras-Bairro, com o Índice de Vulnerabilidade representado em escala fechada (`0,00` a `1,00`) e o Investimento por Habitante em barra comparativa referenciada pela média municipal, para investigar a distribuição territorial dos recursos municipais. A associação observada não estabelece, por si só, a população beneficiada nem a suficiência dos investimentos.
 _Avoid_: Prova de abandono, índice de favorecimento
 
 **Ranking Territorial**:
-Ordenação comparativa de Bairros Oficiais ou de Prefeituras-Bairro segundo critérios de justiça distributiva e execução (Investimento por Habitante, Valor Total Alocado, Quantidade de Obras ou Índice de Vulnerabilidade), permitindo identificar tanto os territórios com maior concentração de recursos quanto os mais vulneráveis e desassistidos.
+Ordenação comparativa de Bairros Oficiais ou de Prefeituras-Bairro segundo o Índice de Vulnerabilidade do Bairro ou o Investimento por Habitante (com desempate alfabético e preservação à parte dos territórios isentos ou sem dado disponível), permitindo investigar tanto a partir da carência social quanto da concentração per capita de recursos.
 _Avoid_: Top bairros, placar de obras, lista de prefeituras
 
 **Semáforo da Obra**:

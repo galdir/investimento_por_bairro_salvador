@@ -229,68 +229,54 @@ def test_rollup_territorial_regras_de_alocacao_e_zonas_especiais() -> None:
     assert opacidade["percentualNaoLocalizado"] == pytest.approx((2000000.0 / 16500000.0) * 100.0, rel=1e-2)
 
 
-def test_calculo_multidimensional_vulnerabilidade_min_max_e_contiguidade() -> None:
-    """Valida o cálculo composto multidimensional do Índice de Vulnerabilidade do Bairro.
+def test_calculo_multidimensional_vulnerabilidade_p95_e_contiguidade_aquarius() -> None:
+    """Valida o cálculo P95 winsorizado, a isenção de Zonas Especiais e a contiguidade exclusiva de Aquarius."""
+    from etl.domain.territorio import CONTIGUIDADE_BAIRROS_AUSENTES, calcular_indice_vulnerabilidade_bairros
 
-    Sumário:
-        Verifica a imputação por contiguidade para os 3 bairros ausentes no N102,
-        a isenção das Zonas Especiais Não-Residenciais e a normalização min-max
-        com pesos iguais (1/3 cada), preservando a ordenação Pituba < Cabula < Liberdade.
-    """
-    from etl.domain.territorio import calcular_indice_vulnerabilidade_bairros
+    assert list(CONTIGUIDADE_BAIRROS_AUSENTES.keys()) == ["AQUARIUS"]
 
     demografia_input = {
-        # Bairros de referência para contiguidade da Ilha de Maré
-        "Ilha de Bom Jesus dos Passos": {
-            "populacao": 1635,
-            "pct_esgoto_inadequado": 20.0,
-            "pct_agua_inadequada": 10.0,
-            "pct_analfabetismo_15mais": 4.0,
-        },
-        "Ilha dos Frades/Ilha de Santo Antônio": {
-            "populacao": 894,
-            "pct_esgoto_inadequado": 25.0,
-            "pct_agua_inadequada": 15.0,
-            "pct_analfabetismo_15mais": 6.0,
-        },
-        # Bairros limítrofes do Chame-Chame
-        "Graça": {
-            "populacao": 14996,
-            "pct_esgoto_inadequado": 1.5,
-            "pct_agua_inadequada": 0.3,
-            "pct_analfabetismo_15mais": 0.6,
-        },
-        "Barra": {
-            "populacao": 15094,
-            "pct_esgoto_inadequado": 2.0,
-            "pct_agua_inadequada": 0.4,
-            "pct_analfabetismo_15mais": 0.8,
-        },
-        "Vitória": {
-            "populacao": 4416,
+        # Vizinhos obrigatórios de Aquarius (soma pop = 100.000)
+        "Pituba": {
+            "populacao": 60000,
             "pct_esgoto_inadequado": 1.0,
             "pct_agua_inadequada": 0.2,
             "pct_analfabetismo_15mais": 0.5,
         },
-        # Bairros limítrofes de Colinas de Pituaçu
-        "São Marcos": {
-            "populacao": 22962,
+        "Itaigara": {
+            "populacao": 20000,
+            "pct_esgoto_inadequado": 2.0,
+            "pct_agua_inadequada": 0.4,
+            "pct_analfabetismo_15mais": 1.0,
+        },
+        "Caminho das Árvores": {
+            "populacao": 20000,
+            "pct_esgoto_inadequado": 3.0,
+            "pct_agua_inadequada": 0.6,
+            "pct_analfabetismo_15mais": 1.5,
+        },
+        # Aquarius: população 0 e sem sub-indicadores próprios (deve ser imputado)
+        "Aquarius": {
+            "populacao": 0,
+        },
+        # Bairros antes imputados e agora com dados reais do Censo 2022
+        "Ilha de Maré": {
+            "populacao": 4036,
+            "pct_esgoto_inadequado": 94.32,
+            "pct_agua_inadequada": 1.2,
+            "pct_analfabetismo_15mais": 14.42,
+        },
+        "Chame-Chame": {
+            "populacao": 2187,
+            "pct_esgoto_inadequado": 1.8,
+            "pct_agua_inadequada": 0.4,
+            "pct_analfabetismo_15mais": 0.9,
+        },
+        "Colinas de Periperi": {
+            "populacao": 1500,
             "pct_esgoto_inadequado": 22.0,
             "pct_agua_inadequada": 2.5,
             "pct_analfabetismo_15mais": 4.5,
-        },
-        "Pau da Lima": {
-            "populacao": 20665,
-            "pct_esgoto_inadequado": 24.0,
-            "pct_agua_inadequada": 2.8,
-            "pct_analfabetismo_15mais": 5.0,
-        },
-        # Âncoras do Censo 2022
-        "Pituba": {
-            "populacao": 57894,
-            "pct_esgoto_inadequado": 1.8,
-            "pct_agua_inadequada": 0.3,
-            "pct_analfabetismo_15mais": 0.7,
         },
         "Cabula": {
             "populacao": 21825,
@@ -304,31 +290,14 @@ def test_calculo_multidimensional_vulnerabilidade_min_max_e_contiguidade() -> No
             "pct_agua_inadequada": 3.5,
             "pct_analfabetismo_15mais": 6.5,
         },
-        # 3 Bairros sem linha própria no SIDRA N102 (devem ser imputados)
-        "Ilha de Maré": {
-            "populacao": 4036,
-        },
-        "Chame-Chame": {
-            "populacao": 2187,
-        },
-        "Colinas de Pituaçu": {
-            "populacao": 3000,
-        },
         # Zonas Especiais Não-Residenciais
-        "Aeroporto": {
-            "populacao": 0,
-        },
-        "Porto Seco Pirajá": {
-            "populacao": 0,
-        },
-        "Centro Administrativo da Bahia - CAB": {
-            "populacao": 173,
-        },
+        "Aeroporto": {"populacao": 0},
+        "Porto Seco Pirajá": {"populacao": 0},
+        "Centro Administrativo da Bahia - CAB": {"populacao": 173},
     }
 
     resultado = calcular_indice_vulnerabilidade_bairros(demografia_input)
 
-    # 1. Zonas Especiais Não-Residenciais: isentas (0.0) e sem contiguidade
     for ze in ["Aeroporto", "Porto Seco Pirajá", "Centro Administrativo da Bahia - CAB"]:
         assert resultado[ze]["indice_vulnerabilidade"] == 0.0
         assert resultado[ze]["pct_esgoto_inadequado"] == 0.0
@@ -336,28 +305,104 @@ def test_calculo_multidimensional_vulnerabilidade_min_max_e_contiguidade() -> No
         assert resultado[ze]["pct_analfabetismo_15mais"] == 0.0
         assert resultado[ze]["vulnerabilidade_estimada_contiguidade"] is False
 
-    # 2. Imputação por contiguidade para os 3 bairros ausentes no N102
-    assert resultado["Ilha de Maré"]["vulnerabilidade_estimada_contiguidade"] is True
-    # Ponderação Ilha de Maré: (1635*20 + 894*25)/(1635+894) = 55050 / 2529 = 21.77
-    assert resultado["Ilha de Maré"]["pct_esgoto_inadequado"] == pytest.approx(21.77, abs=0.05)
+    # Aquarius recebe média ponderada de Pituba (60k), Itaigara (20k) e Caminho das Árvores (20k)
+    assert resultado["Aquarius"]["vulnerabilidade_estimada_contiguidade"] is True
+    assert resultado["Aquarius"]["pct_esgoto_inadequado"] == 1.6
+    assert resultado["Aquarius"]["pct_agua_inadequada"] == 0.32
+    assert resultado["Aquarius"]["pct_analfabetismo_15mais"] == 0.8
 
-    assert resultado["Chame-Chame"]["vulnerabilidade_estimada_contiguidade"] is True
-    # Ponderação Chame-Chame: (14996*1.5 + 15094*2.0 + 4416*1.0) / 34506 = 57098 / 34506 = 1.65
-    assert resultado["Chame-Chame"]["pct_esgoto_inadequado"] == pytest.approx(1.65, abs=0.05)
+    # Ilha de Maré, Chame-Chame e Colinas de Periperi preservam dados reais sem contiguidade
+    for b_real in ["Ilha de Maré", "Chame-Chame", "Colinas de Periperi", "Pituba", "Liberdade"]:
+        assert resultado[b_real]["vulnerabilidade_estimada_contiguidade"] is False
+    assert resultado["Ilha de Maré"]["pct_esgoto_inadequado"] == 94.32
 
-    assert resultado["Colinas de Pituaçu"]["vulnerabilidade_estimada_contiguidade"] is True
-    # Ponderação Colinas de Pituaçu: (22962*22 + 20665*24) / 43627 = 1001124 / 43627 = 22.95
-    assert resultado["Colinas de Pituaçu"]["pct_esgoto_inadequado"] == pytest.approx(22.95, abs=0.05)
-
-    # Bairros comuns têm estimativa_contiguidade False
-    assert resultado["Pituba"]["vulnerabilidade_estimada_contiguidade"] is False
-    assert resultado["Liberdade"]["vulnerabilidade_estimada_contiguidade"] is False
-
-    # 3. Invariante de ordenação socioeconômica do Censo 2022
     iv_pituba = resultado["Pituba"]["indice_vulnerabilidade"]
     iv_cabula = resultado["Cabula"]["indice_vulnerabilidade"]
     iv_liberdade = resultado["Liberdade"]["indice_vulnerabilidade"]
     assert 0.0 <= iv_pituba < iv_cabula < iv_liberdade <= 1.0
+
+
+def test_normalizacao_p95_winsorizada_formula_exata_e_amplitude_zero() -> None:
+    """Valida a interpolação linear inclusiva (N - 1) * 0.95, teto em 1.00 e amplitude zero."""
+    demografia = {
+        "Bairro A": {"populacao": 100, "pct_esgoto_inadequado": 1.0, "pct_agua_inadequada": 1.0, "pct_analfabetismo_15mais": 0.0},
+        "Bairro B": {"populacao": 100, "pct_esgoto_inadequado": 2.0, "pct_agua_inadequada": 1.0, "pct_analfabetismo_15mais": 1.0},
+        "Bairro C": {"populacao": 100, "pct_esgoto_inadequado": 3.0, "pct_agua_inadequada": 1.0, "pct_analfabetismo_15mais": 2.0},
+        "Bairro D": {"populacao": 100, "pct_esgoto_inadequado": 4.0, "pct_agua_inadequada": 1.0, "pct_analfabetismo_15mais": 3.0},
+        "Bairro E": {"populacao": 100, "pct_esgoto_inadequado": 100.0, "pct_agua_inadequada": 1.0, "pct_analfabetismo_15mais": 4.0},
+    }
+    resultado = calcular_indice_vulnerabilidade_bairros(demografia)
+    # Bairro A: (0.0 + 0.0 + 0.0) / 3 = 0.0
+    assert resultado["Bairro A"]["indice_vulnerabilidade"] == 0.0
+    # Bairro E: (1.0 + 0.0 + 1.0) / 3 = 0.67 (clamped at 1.00 in esgoto and analf, 0.0 in zero-range agua)
+    assert resultado["Bairro E"]["indice_vulnerabilidade"] == 0.67
+
+
+def test_calculo_vulnerabilidade_falha_se_bairro_residencial_sem_subindicadores() -> None:
+    """Bairro Oficial residencial fora da contiguidade sem os 3 sub-indicadores válidos deve falhar com ValueError."""
+    demografia = {
+        "Pituba": {"populacao": 60000, "pct_esgoto_inadequado": 1.0, "pct_agua_inadequada": 0.2, "pct_analfabetismo_15mais": 0.5},
+        "IAPI": {"populacao": 19941, "pct_esgoto_inadequado": None, "pct_agua_inadequada": 0.3, "pct_analfabetismo_15mais": 3.8},
+    }
+    with pytest.raises(ValueError, match="IAPI"):
+        calcular_indice_vulnerabilidade_bairros(demografia)
+
+
+def test_calculo_vulnerabilidade_falha_se_vizinho_aquarius_ausente_ou_sem_populacao() -> None:
+    """Aquarius deve falhar com ValueError se qualquer vizinho obrigatório estiver ausente ou com população <= 0."""
+    demografia_sem_itaigara = {
+        "Pituba": {"populacao": 60000, "pct_esgoto_inadequado": 1.0, "pct_agua_inadequada": 0.2, "pct_analfabetismo_15mais": 0.5},
+        "Caminho das Árvores": {"populacao": 20000, "pct_esgoto_inadequado": 3.0, "pct_agua_inadequada": 0.6, "pct_analfabetismo_15mais": 1.5},
+        "Aquarius": {"populacao": 0},
+    }
+    with pytest.raises(ValueError, match="ITAIGARA"):
+        calcular_indice_vulnerabilidade_bairros(demografia_sem_itaigara)
+
+    demografia_itaigara_zero = {
+        **demografia_sem_itaigara,
+        "Itaigara": {"populacao": 0, "pct_esgoto_inadequado": 2.0, "pct_agua_inadequada": 0.4, "pct_analfabetismo_15mais": 1.0},
+    }
+    with pytest.raises(ValueError, match="ITAIGARA"):
+        calcular_indice_vulnerabilidade_bairros(demografia_itaigara_zero)
+
+
+def test_normalizacao_p95_sobre_base_real_censo_2022() -> None:
+    """Valida a normalização P95 winsorizada sobre a base real completa do Censo 2022 (modo offline)."""
+    import json
+    from pathlib import Path
+    from etl.sources.ibge_censo import normalizar_registros_censo_2022
+
+    geo_path = Path("etl/reference/geosalvador_bairros_real.geojson")
+    bairros_geo = json.loads(geo_path.read_text(encoding="utf-8"))
+    bairros_oficiais = [
+        (f["properties"].get("NM_BAIRRO") or f["properties"].get("NOME_BAIRR") or "").strip()
+        for f in bairros_geo["features"]
+    ]
+
+    resultado = normalizar_registros_censo_2022([])
+    residenciais = [
+        (nome, resultado[nome])
+        for nome in bairros_oficiais
+        if not is_zona_especial_nao_residencial(nome)
+    ]
+    assert len(residenciais) == 168
+
+    valores = [entry["indice_vulnerabilidade"] for _, entry in residenciais]
+    assert min(valores) == 0.01
+    assert max(valores) == 0.93
+
+    assert resultado["IAPI"]["indice_vulnerabilidade"] > 0.0
+    assert resultado["STIEP"]["indice_vulnerabilidade"] > 0.0
+    assert (
+        resultado["Pituba"]["indice_vulnerabilidade"]
+        < resultado["Cabula"]["indice_vulnerabilidade"]
+        < resultado["Liberdade"]["indice_vulnerabilidade"]
+    )
+    assert resultado["Aquarius"]["populacao"] == 0
+    assert resultado["Aquarius"]["vulnerabilidade_estimada_contiguidade"] is True
+    for nome in bairros_oficiais:
+        if nome != "Aquarius":
+            assert resultado[nome]["vulnerabilidade_estimada_contiguidade"] is False
 
 
 def test_rollup_territorial_consolida_subindicadores_prefeituras_bairro() -> None:
@@ -650,3 +695,215 @@ def test_centralidade_metropolitana_comercio_isencao_per_capita_preserva_vulnera
         2,
     )
     assert pb_centro["indice_vulnerabilidade"] == vuln_esperada_pb
+
+
+def test_rollup_bairro_residencial_populacao_zero_serializa_per_capita_nulo_e_contiguidade_pb() -> None:
+    """Bairro residencial com população <= 0 (Aquarius) serializa null per capita e propaga metadados para a PB."""
+    bairros = [
+        {
+            "id": 1,
+            "nome": "Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "populacao": 57894,
+            "indice_vulnerabilidade": 0.04,
+            "pct_esgoto_inadequado": 0.5,
+            "pct_agua_inadequada": 0.2,
+            "pct_analfabetismo_15mais": 0.6,
+            "vulnerabilidade_estimada_contiguidade": False,
+            "is_zona_especial_nao_residencial": False,
+        },
+        {
+            "id": 2,
+            "nome": "Aquarius",
+            "prefeitura_bairro": "Barra/Pituba",
+            "populacao": 0,
+            "indice_vulnerabilidade": 0.05,
+            "pct_esgoto_inadequado": 0.6,
+            "pct_agua_inadequada": 0.25,
+            "pct_analfabetismo_15mais": 0.7,
+            "vulnerabilidade_estimada_contiguidade": True,
+            "is_zona_especial_nao_residencial": False,
+        },
+        {
+            "id": 3,
+            "nome": "Ilha de Maré",
+            "prefeitura_bairro": "Subúrbio/Ilhas",
+            "populacao": 4036,
+            "indice_vulnerabilidade": 0.85,
+            "pct_esgoto_inadequado": 94.32,
+            "pct_agua_inadequada": 1.2,
+            "pct_analfabetismo_15mais": 14.42,
+            "vulnerabilidade_estimada_contiguidade": False,
+            "is_zona_especial_nao_residencial": False,
+        },
+    ]
+    prefeituras = [
+        {"id": 1, "nome": "Barra/Pituba", "populacao_total": 57894},
+        {"id": 2, "nome": "Subúrbio/Ilhas", "populacao_total": 4036},
+    ]
+    obras = [
+        {
+            "id": "obra-aquarius",
+            "nivel": "Pontual",
+            "bairro": "Aquarius",
+            "prefeitura_bairro": "Barra/Pituba",
+            "vlAtualizado": 250000.0,
+            "vlPago": 100000.0,
+            "semaforo": {"status": "VERDE"},
+        },
+    ]
+
+    b_proc, pb_proc, _ = calcular_rollup_territorial(bairros, prefeituras, obras)
+
+    aquarius = next(b for b in b_proc if b["nome"] == "Aquarius")
+    assert aquarius["populacao"] == 0
+    assert aquarius["investimentoPorHabitante"] is None
+    assert aquarius["investimentoPorHabitantePago"] is None
+    assert aquarius["indice_vulnerabilidade"] == 0.05
+    assert aquarius["valorTotal"] == 250000.0
+    assert aquarius["valorPago"] == 100000.0
+    assert aquarius["totalObras"] == 1
+
+    pb_barra = next(p for p in pb_proc if p["nome"] == "Barra/Pituba")
+    assert pb_barra["vulnerabilidade_estimada_contiguidade"] is True
+    assert pb_barra["bairros_vulnerabilidade_estimada"] == ["Aquarius"]
+    # Aquarius tem peso populacional 0 na média ponderada da PB
+    assert pb_barra["indice_vulnerabilidade"] == 0.04
+
+    pb_suburbio = next(p for p in pb_proc if p["nome"] == "Subúrbio/Ilhas")
+    assert pb_suburbio["vulnerabilidade_estimada_contiguidade"] is False
+    assert pb_suburbio["bairros_vulnerabilidade_estimada"] == []
+
+
+def test_generator_geojson_preserva_per_capita_nulo_e_contiguidade_prefeitura(tmp_path) -> None:
+    """GeoJSONs de bairros e Prefeituras-Bairro devem preservar null per capita e metadados de contiguidade."""
+    import json
+    from etl.generator import generate_bairros_geojson, generate_prefeituras_geojson
+
+    raw_bairros = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {"CD_BAIRRO": 1, "NM_BAIRRO": "Aquarius", "PREFEITURA_BAIRRO": "Barra/Pituba"},
+                "geometry": {"type": "Polygon", "coordinates": [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]]},
+            }
+        ],
+    }
+    raw_pbs = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {"CD_PREFEITURA_BAIRRO": 1, "NM_PREFEITURA_BAIRRO": "Barra/Pituba"},
+                "geometry": {"type": "Polygon", "coordinates": [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]]},
+            }
+        ],
+    }
+    bairros_resumo = [
+        {
+            "nome": "Aquarius",
+            "prefeitura_bairro": "Barra/Pituba",
+            "populacao": 0,
+            "indice_vulnerabilidade": 0.05,
+            "vulnerabilidade_estimada_contiguidade": True,
+            "valorTotal": 250000.0,
+            "valorPago": 100000.0,
+            "valorPagoDisponivel": True,
+            "totalObras": 1,
+            "investimentoPorHabitante": None,
+            "investimentoPorHabitantePago": None,
+        }
+    ]
+    pbs_resumo = [
+        {
+            "nome": "Barra/Pituba",
+            "populacao_total": 57894,
+            "indice_vulnerabilidade": 0.04,
+            "vulnerabilidade_estimada_contiguidade": True,
+            "bairros_vulnerabilidade_estimada": ["Aquarius"],
+            "valorTotal": 250000.0,
+            "valorPago": 100000.0,
+            "valorPagoDisponivel": True,
+            "totalObras": 1,
+            "investimentoPorHabitante": 4.32,
+            "investimentoPorHabitantePago": 1.73,
+        }
+    ]
+
+    b_out = tmp_path / "bairros.geojson"
+    pb_out = tmp_path / "prefeituras_bairro.geojson"
+    generate_bairros_geojson(raw_bairros, bairros_resumo, b_out)
+    generate_prefeituras_geojson(raw_pbs, pbs_resumo, pb_out)
+
+    b_props = json.loads(b_out.read_text(encoding="utf-8"))["features"][0]["properties"]
+    assert b_props["investimentoPorHabitante"] is None
+    assert b_props["investimentoPorHabitantePago"] is None
+
+    pb_props = json.loads(pb_out.read_text(encoding="utf-8"))["features"][0]["properties"]
+    assert pb_props["vulnerabilidade_estimada_contiguidade"] is True
+    assert pb_props["bairros_vulnerabilidade_estimada"] == ["Aquarius"]
+
+
+def test_fetch_demografia_censo_2022_preserva_falha_bloqueante_sidra_9923() -> None:
+    """Coleta online via SIDRA Tabela 9923 deve continuar bloqueante em falhas de rede ou payload inválido."""
+    import io
+    from unittest.mock import patch
+    from etl.sources.ibge_censo import fetch_demografia_censo_2022
+
+    with patch("urllib.request.urlopen", side_effect=OSError("SIDRA indisponível")):
+        with pytest.raises(OSError, match="SIDRA indisponível"):
+            fetch_demografia_censo_2022()
+
+    payload_invalido = io.BytesIO(b'[{"D2C": "93", "D1C": "123", "D1N": "Pituba", "V": "abc"}]')
+    with patch("urllib.request.urlopen") as mock_open:
+        mock_open.return_value.__enter__.return_value = payload_invalido
+        with pytest.raises(ValueError, match="Resposta inválida do Censo 2022"):
+            fetch_demografia_censo_2022()
+
+
+def test_artefatos_publicados_regenerados_integros_e_validos() -> None:
+    """Valida a integridade dos artefatos publicados regenerados na raiz e na versão ativa."""
+    import json
+    from pathlib import Path
+    from etl.publicacao import versao_anterior_valida, versao_publicada
+    from scripts.package_pages import _validate_version
+
+    root = Path("public/data")
+    active = versao_publicada(root)
+    assert active is not None
+    assert versao_anterior_valida(active) is True
+    _validate_version(active, active.name, "local")
+
+    for snap in (root, active):
+        idx = json.loads((snap / "index.json").read_text(encoding="utf-8"))
+        b_map = {b["nome"]: b for b in idx["bairros"]}
+        pb_map = {p["nome"]: p for p in idx["prefeituras_bairro"]}
+
+        assert b_map["Aquarius"]["populacao"] == 0
+        assert b_map["Aquarius"]["vulnerabilidade_estimada_contiguidade"] is True
+        assert b_map["Aquarius"]["investimentoPorHabitante"] is None
+        assert b_map["Aquarius"]["investimentoPorHabitantePago"] is None
+        assert b_map["Aquarius"]["indice_vulnerabilidade"] > 0.0
+
+        assert b_map["IAPI"]["indice_vulnerabilidade"] > 0.0
+        assert b_map["STIEP"]["indice_vulnerabilidade"] > 0.0
+        for b_real in ("Ilha de Maré", "Chame-Chame", "Colinas de Periperi"):
+            assert b_map[b_real]["vulnerabilidade_estimada_contiguidade"] is False
+
+        assert pb_map["Barra/Pituba"]["vulnerabilidade_estimada_contiguidade"] is True
+        assert pb_map["Barra/Pituba"]["bairros_vulnerabilidade_estimada"] == ["Aquarius"]
+        assert pb_map["Subúrbio/Ilhas"]["vulnerabilidade_estimada_contiguidade"] is False
+        assert pb_map["Subúrbio/Ilhas"]["bairros_vulnerabilidade_estimada"] == []
+
+        b_geo = json.loads((snap / "geo" / "bairros.geojson").read_text(encoding="utf-8"))
+        b_geo_map = {f["properties"]["nome"]: f["properties"] for f in b_geo["features"]}
+        assert b_geo_map["Aquarius"]["investimentoPorHabitante"] is None
+        assert b_geo_map["Aquarius"]["investimentoPorHabitantePago"] is None
+
+        pb_geo = json.loads((snap / "geo" / "prefeituras_bairro.geojson").read_text(encoding="utf-8"))
+        pb_geo_map = {f["properties"]["nome"]: f["properties"] for f in pb_geo["features"]}
+        assert pb_geo_map["Barra/Pituba"]["vulnerabilidade_estimada_contiguidade"] is True
+        assert pb_geo_map["Barra/Pituba"]["bairros_vulnerabilidade_estimada"] == ["Aquarius"]
+        assert pb_geo_map["Subúrbio/Ilhas"]["vulnerabilidade_estimada_contiguidade"] is False
+        assert pb_geo_map["Subúrbio/Ilhas"]["bairros_vulnerabilidade_estimada"] == []
