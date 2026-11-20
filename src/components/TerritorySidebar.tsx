@@ -230,7 +230,15 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
           </span>
           <span
             data-testid="raio-x-investimento-per-capita"
-            className="text-base font-bold text-emerald-700 mt-0.5 block tabular-nums"
+            className={`text-base font-bold mt-0.5 block tabular-nums ${
+              invState.kind === "exempt"
+                ? "text-amber-800"
+                : invState.kind === "unavailable"
+                  ? invState.reason === "population"
+                    ? "text-slate-600 text-sm"
+                    : "text-amber-800 text-sm"
+                  : "text-emerald-700"
+            }`}
           >
             {invState.kind === "exempt"
               ? "Isento"
@@ -574,7 +582,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                   ></div>
                 </div>
 
-                {/* Badge de Contiguidade Territorial para Bairros ausentes na malha SIDRA */}
+                {/* Badge de Contiguidade Territorial para Bairros ausentes nos Agregados por Bairro do Censo 2022 */}
                 {ehBairro && territorio.vulnerabilidade_estimada_contiguidade && (
                   <div
                     data-testid="badge-contiguidade-territorial"
@@ -587,7 +595,7 @@ export const TerritorySidebar: React.FC<TerritorySidebarProps> = ({
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span>Estimativa por contiguidade territorial (bairro sem linha individual na malha N102 do IBGE)</span>
+                    <span>Estimativa por contiguidade territorial (bairro ausente nos Agregados por Bairro do Censo 2022 do IBGE)</span>
                   </div>
                 )}
 

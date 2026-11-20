@@ -1,7 +1,13 @@
 import React, { useMemo, useState } from "react";
 import { BairroResumo, MetricType, ObraCompacta, PrefeituraBairroResumo } from "../types";
 import { formatCurrency, formatDecimal, formatNumber } from "../utils/formatters";
-import { isCentralidadeMetropolitana, isZonaEspecial, normalizeName } from "../utils/territory";
+import {
+  getTerritoryInvestmentState,
+  isCentralidadeMetropolitana,
+  isZonaEspecial,
+  normalizeName,
+  TerritoryInvestmentState,
+} from "../utils/territory";
 
 export type RankingLevel = "prefeituras" | "bairros";
 export type RankingCriteria = "investimento" | "valorTotal" | "totalObras" | "vulnerabilidade";
@@ -52,9 +58,16 @@ const sortTerritories = <T extends PrefeituraBairroResumo | BairroResumo>(
   items: T[],
   criterion: RankingCriteria,
   direction: RankingDirection,
-  metric: MetricType
+  metric: MetricType,
+  tipo: "bairro" | "prefeitura_bairro"
 ): T[] => {
   return [...items].sort((a, b) => {
+    if (criterion === "investimento") {
+      const availA = getTerritoryInvestmentState(a, metric, tipo).kind === "value";
+      const availB = getTerritoryInvestmentState(b, metric, tipo).kind === "value";
+      if (availA !== availB) return availA ? -1 : 1;
+    }
+
     const valA = getTerritoryMetric(a, criterion, metric);
     const valB = getTerritoryMetric(b, criterion, metric);
     const vulnA = a.indice_vulnerabilidade ?? 0;
@@ -75,12 +88,20 @@ const sortTerritories = <T extends PrefeituraBairroResumo | BairroResumo>(
   });
 };
 
+const formatInlinePerCapita = (invState: TerritoryInvestmentState): string => {
+  if (invState.kind === "exempt") return "Isento per capita";
+  if (invState.kind === "unavailable") {
+    return invState.reason === "population" ? "Per capita indisponível" : "Pagamento indisponível";
+  }
+  return `${formatCurrency(invState.perCapita)} / hab`;
+};
+
 const formatCardPrimaryValue = (
   item: PrefeituraBairroResumo | BairroResumo,
   criterion: RankingCriteria,
   metric: MetricType,
-  isSpecial: boolean = false,
-  isCentralidade: boolean = false
+  invState: TerritoryInvestmentState,
+  isSpecial: boolean = false
 ): { text: string; unit?: string } => {
   switch (criterion) {
     case "vulnerabilidade":
@@ -93,17 +114,29 @@ const formatCardPrimaryValue = (
       const obras = item.totalObras ?? 0;
       return { text: `${obras} ${obras === 1 ? "obra" : "obras"}` };
     }
-    case "investimento": {
-      if (isSpecial || isCentralidade) {
-        return { text: "Isento per capita" };
-      }
-      const val =
-        metric === "vigente"
-          ? (item.investimentoPorHabitante ?? 0)
-          : (item.investimentoPorHabitantePago ?? 0);
-      return { text: formatCurrency(val), unit: "/ hab" };
+    case "investimento":
+      return invState.kind === "value"
+        ? { text: formatCurrency(invState.perCapita), unit: "/ hab" }
+        : { text: formatInlinePerCapita(invState) };
+  }
+};
+
+const getPrimaryBadgeClassName = (
+  criterion: RankingCriteria,
+  invState: TerritoryInvestmentState,
+  baseTextSize: string = "text-xs sm:text-sm"
+): string => {
+  if (criterion === "investimento") {
+    if (invState.kind === "unavailable") {
+      return invState.reason === "population"
+        ? "text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-300 px-2 py-0.5 rounded"
+        : "text-[11px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded";
+    }
+    if (invState.kind === "exempt") {
+      return "text-[11px] font-semibold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded";
     }
   }
+  return `font-extrabold text-slate-900 ${baseTextSize}`;
 };
 
 /**
@@ -181,7 +214,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
 
   // Ordenação de Prefeituras-Bairro
   const sortedPrefeituras = useMemo(() => {
-    return sortTerritories(prefeituras, rankingCriteria, rankingDirection, metricType);
+    return sortTerritories(prefeituras, rankingCriteria, rankingDirection, metricType, "prefeitura_bairro");
   }, [prefeituras, metricType, rankingCriteria, rankingDirection]);
 
   // Critério per capita ou vulnerabilidade: separa Zonas Especiais Não-Residenciais
@@ -221,7 +254,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
 
   // 3. Ordenação dos bairros e indexação de posição no ranking da visão
   const bairrosOrdenadosComPosicao = useMemo(() => {
-    const sorted = sortTerritories(bairrosParaOrdenar, rankingCriteria, rankingDirection, metricType);
+    const sorted = sortTerritories(bairrosParaOrdenar, rankingCriteria, rankingDirection, metricType, "bairro");
     return sorted.map((b, idx) => ({
       ...b,
       posicaoNoRanking: idx + 1,
@@ -503,21 +536,20 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
       {rankingLevel === "prefeituras" && (
         <div className="space-y-2.5">
           {sortedPrefeituras.map((pb, index) => {
-            const perCapita =
-              metricType === "vigente"
-                ? (pb.investimentoPorHabitante ?? 0)
-                : (pb.investimentoPorHabitantePago ?? 0);
+            const invState = getTerritoryInvestmentState(pb, metricType, "prefeitura_bairro");
             const valorTotalExibido =
               metricType === "vigente"
                 ? (pb.valorTotal ?? 0)
                 : (pb.valorPago ?? 0);
             const vuln = pb.indice_vulnerabilidade ?? 0;
             const primaryVal = getTerritoryMetric(pb, rankingCriteria, metricType);
-            const primaryFormatted = formatCardPrimaryValue(pb, rankingCriteria, metricType);
+            const primaryFormatted = formatCardPrimaryValue(pb, rankingCriteria, metricType, invState);
             const percentualBarra =
               rankingCriteria === "vulnerabilidade"
                 ? Math.min(100, Math.max(8, vuln * 100))
-                : Math.min(100, Math.max(8, (primaryVal / maxVal) * 100));
+                : rankingCriteria === "investimento" && invState.kind !== "value"
+                  ? 0
+                  : Math.min(100, Math.max(8, (primaryVal / maxVal) * 100));
             const isSelected = selectedNome === pb.nome;
 
             return (
@@ -543,7 +575,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                   <div className="text-right">
                     <span
                       data-testid={`ranking-valor-${index + 1}`}
-                      className="font-extrabold text-slate-900 text-xs sm:text-sm"
+                      className={getPrimaryBadgeClassName(rankingCriteria, invState, "text-xs sm:text-sm")}
                     >
                       {primaryFormatted.text}
                     </span>
@@ -575,7 +607,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                     {formatNumber(pb.populacao_total)} habitantes • Total: {formatCurrency(valorTotalExibido)} • {pb.totalObras ?? 0} {(pb.totalObras ?? 0) === 1 ? "obra" : "obras"}
                   </span>
                   <span>
-                    {formatCurrency(perCapita)} / hab • Vulnerabilidade: {formatDecimal(vuln)}
+                    {formatInlinePerCapita(invState)} • Vulnerabilidade: {formatDecimal(vuln)}
                   </span>
                 </div>
               </div>
@@ -595,10 +627,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
             finalBairros.map((b, index) => {
               const isSpecial = isZonaEspecial(b);
               const isCentralidade = !isSpecial && isCentralidadeMetropolitana(b);
-              const perCapita =
-                metricType === "vigente"
-                  ? (b.investimentoPorHabitante ?? 0)
-                  : (b.investimentoPorHabitantePago ?? 0);
+              const invState = getTerritoryInvestmentState(b, metricType, "bairro");
               const valorTotalExibido =
                 metricType === "vigente"
                   ? (b.valorTotal ?? 0)
@@ -609,13 +638,15 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                 b,
                 rankingCriteria,
                 metricType,
-                isSpecial,
-                isCentralidade
+                invState,
+                isSpecial
               );
               const percentualBarra =
                 rankingCriteria === "vulnerabilidade"
                   ? Math.min(100, Math.max(5, vuln * 100))
-                  : Math.min(100, Math.max(5, (primaryVal / maxVal) * 100));
+                  : rankingCriteria === "investimento" && invState.kind !== "value"
+                    ? 0
+                    : Math.min(100, Math.max(5, (primaryVal / maxVal) * 100));
               const isSelected = selectedNome === b.nome;
 
               return (
@@ -652,7 +683,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                     <div className="text-right">
                       <span
                         data-testid={`ranking-bairro-valor-${index + 1}`}
-                        className="font-extrabold text-slate-900 text-xs"
+                        className={getPrimaryBadgeClassName(rankingCriteria, invState, "text-xs")}
                       >
                         {primaryFormatted.text}
                       </span>
@@ -684,7 +715,7 @@ export const PrefeiturasRanking: React.FC<PrefeiturasRankingProps> = ({
                       {formatNumber(b.populacao)} habitantes • Total: {formatCurrency(valorTotalExibido)} • {b.totalObras ?? 0} {(b.totalObras ?? 0) === 1 ? "obra" : "obras"}
                     </span>
                     <span>
-                      {isSpecial || isCentralidade ? "Isento per capita" : `${formatCurrency(perCapita)} / hab`} • Vulnerabilidade: {isSpecial ? "Isento" : formatDecimal(vuln)}
+                      {formatInlinePerCapita(invState)} • Vulnerabilidade: {isSpecial ? "Isento" : formatDecimal(vuln)}
                     </span>
                   </div>
                 </div>

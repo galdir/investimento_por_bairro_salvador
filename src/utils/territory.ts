@@ -589,7 +589,7 @@ function coberturaTerritorial(obras: ObraCompacta[], frentes: Array<{ obra: Obra
  * a partir de um conjunto filtrado de Obras Públicas.
  *
  * @summary Aplica regras de domínio territorial estritas sem rateio artificial de contratos regionais.
- * @param bairrosBase - Lista base de resumos dos 170 Bairros Oficiais com população e vulnerabilidade.
+ * @param bairrosBase - Lista base de resumos dos 171 Bairros Oficiais com população e vulnerabilidade.
  * @param prefeiturasBase - Lista base de resumos das Prefeituras-Bairro com população total.
  * @param obrasFiltradas - Conjunto de obras públicas após aplicação dos filtros da barra superior.
  * @returns Objeto contendo os arrays de bairros e prefeituras-bairro recalculados.
@@ -793,8 +793,7 @@ export function calculateTerritorialRollup(
       .filter((b) => Boolean(b.vulnerabilidade_estimada_contiguidade))
       .map((b) => b.nome)
       .sort((a, b) => a.localeCompare(b, "pt-BR"));
-    const temEstimativaContiguidade =
-      bairrosEstimados.length > 0 || Boolean(prefeitura.vulnerabilidade_estimada_contiguidade);
+    const temEstimativaContiguidade = bairrosEstimados.length > 0;
 
     const indiceVulnerabilidade = computeWeightedOrMeanMetric(
       bairrosResidenciais,

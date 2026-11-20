@@ -51,28 +51,76 @@ describe("Seam 3: Painel Lateral Raio-X (TerritorySidebar) com Decomposição Ce
     expect(screen.queryByTestId("badge-contiguidade-territorial")).not.toBeInTheDocument();
   });
 
-  it("exibe badge de contiguidade territorial quando vulnerabilidade_estimada_contiguidade é true", () => {
-    const bairroContiguidade: TerritorySelection = {
+  it("exibe badge de contiguidade territorial referenciando Agregados por Bairro do Censo 2022 para Aquarius e não exibe para Ilha de Maré", () => {
+    const aquarius: TerritorySelection = {
+      tipo: "bairro",
+      id: 171,
+      nome: "Aquarius",
+      prefeitura_bairro: "Barra/Pituba",
+      populacao: 0,
+      indice_vulnerabilidade: 0.05,
+      pct_esgoto_inadequado: 0.19,
+      pct_agua_inadequada: 0.35,
+      pct_analfabetismo_15mais: 0.35,
+      vulnerabilidade_estimada_contiguidade: true,
+      is_zona_especial_nao_residencial: false,
+      valorTotal: 500000,
+      valorPago: 250000,
+      valorPagoDisponivel: true,
+      totalObras: 2,
+      investimentoPorHabitante: null,
+      investimentoPorHabitantePago: null,
+    };
+
+    const { rerender } = render(<TerritorySidebar territorio={aquarius} onClear={onClearMock} />);
+
+    expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Aquarius");
+    expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("0,05");
+    const badge = screen.getByTestId("badge-contiguidade-territorial");
+    expect(badge).toBeInTheDocument();
+    expect(badge).toHaveTextContent(/Agregados por Bairro do Censo 2022 do IBGE/i);
+    expect(badge).not.toHaveTextContent(/N102/i);
+    expect(screen.getByTestId("raio-x-esgoto")).toHaveTextContent("0,19%");
+
+    // Per capita indisponível em estilo neutro (não R$ 0,00 / hab e não Isento)
+    const perCapita = screen.getByTestId("raio-x-investimento-per-capita");
+    expect(perCapita).toHaveTextContent("Per capita indisponível");
+    expect(perCapita.className).toContain("text-slate-600");
+    expect(perCapita).not.toHaveTextContent(/R\$\s*0,00/);
+
+    // Ilha de Maré com dados reais do Censo 2022 não exibe badge de contiguidade
+    const ilhaDeMare: TerritorySelection = {
       tipo: "bairro",
       id: 301,
       nome: "Ilha de Maré",
       prefeitura_bairro: "Subúrbio/Ilhas",
-      populacao: 4236,
-      indice_vulnerabilidade: 0.67,
-      pct_esgoto_inadequado: 85.0,
-      pct_agua_inadequada: 12.0,
-      pct_analfabetismo_15mais: 9.5,
-      vulnerabilidade_estimada_contiguidade: true,
+      populacao: 4036,
+      indice_vulnerabilidade: 0.93,
+      pct_esgoto_inadequado: 94.32,
+      pct_agua_inadequada: 2.22,
+      pct_analfabetismo_15mais: 14.42,
+      vulnerabilidade_estimada_contiguidade: false,
       is_zona_especial_nao_residencial: false,
     };
+    rerender(<TerritorySidebar territorio={ilhaDeMare} onClear={onClearMock} />);
+    expect(screen.queryByTestId("badge-contiguidade-territorial")).not.toBeInTheDocument();
 
-    render(<TerritorySidebar territorio={bairroContiguidade} onClear={onClearMock} />);
-
-    expect(screen.getByTestId("raio-x-nome")).toHaveTextContent("Ilha de Maré");
-    expect(screen.getByTestId("raio-x-vulnerabilidade")).toHaveTextContent("0,67");
-    expect(screen.getByTestId("badge-contiguidade-territorial")).toBeInTheDocument();
-    expect(screen.getByTestId("badge-contiguidade-territorial")).toHaveTextContent(/contiguidade/i);
-    expect(screen.getByTestId("raio-x-esgoto")).toHaveTextContent("85,00%");
+    // Chame-Chame com dados reais do Censo 2022 também não exibe badge de contiguidade
+    const chameChame: TerritorySelection = {
+      tipo: "bairro",
+      id: 302,
+      nome: "Chame-Chame",
+      prefeitura_bairro: "Barra/Pituba",
+      populacao: 2187,
+      indice_vulnerabilidade: 0.04,
+      pct_esgoto_inadequado: 0.1,
+      pct_agua_inadequada: 0.21,
+      pct_analfabetismo_15mais: 0.49,
+      vulnerabilidade_estimada_contiguidade: false,
+      is_zona_especial_nao_residencial: false,
+    };
+    rerender(<TerritorySidebar territorio={chameChame} onClear={onClearMock} />);
+    expect(screen.queryByTestId("badge-contiguidade-territorial")).not.toBeInTheDocument();
   });
 
   it("exibe 'Isento' no indicador de vulnerabilidade para Zonas Especiais Não-Residenciais e omite subindicadores", () => {

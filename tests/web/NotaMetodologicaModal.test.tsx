@@ -30,29 +30,45 @@ describe("Seam 1: Modal Nota Metodológica — Índice de Vulnerabilidade", () =
     expect(screen.getAllByText(/Índice de Desenvolvimento Social/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Índice de Vulnerabilidade Social/i).length).toBeGreaterThanOrEqual(1);
 
-    // 2. Variáveis do Universo Censo 2022 SIDRA nível N102 (Tabelas 6805, 6803 e 9543 com PLANSAB)
-    expect(screen.getByText(/Tabela 6805/i)).toBeInTheDocument();
+    // 2. Variáveis dos Agregados por Bairro do Censo 2022 (IBGE) e população na Tabela SIDRA 9923
+    expect(screen.getAllByText(/Agregados por Bairro/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/V00001/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/V00309–V00311/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/V00111/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/V00900–V00901/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/9923/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/PLANSAB/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText(/Tabela 6803/i)).toBeInTheDocument();
-    expect(screen.getByText(/Tabela 9543/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/N102/i).length).toBeGreaterThanOrEqual(1);
 
-    // 3. Normalização min-max e média simples (1/3 cada) sobre os 168 bairros residenciais
+    // 3. Normalização min-max winsorizada no P95 e média simples (1/3 cada) sobre os 168 bairros residenciais
     expect(screen.getAllByText(/min-max/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/P95/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/min\(1,/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/168/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/1\/3/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/0,07/)).toBeInTheDocument();
+    expect(screen.getByText(/0,08/)).toBeInTheDocument();
+    expect(screen.getByText(/0,15/)).toBeInTheDocument();
 
     // 4. Média ponderada populacional para Prefeituras-Bairro
     expect(screen.getAllByText(/Prefeituras-Bairro/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/ponderada/i).length).toBeGreaterThanOrEqual(1);
 
-    // 5. Exceções territoriais: Zonas Especiais (Isento) e Contiguidade (Chame-Chame, Colinas de Pituaçu, Ilha de Maré)
+    // 5. Exceções territoriais: Zonas Especiais (Isento) e Contiguidade exclusiva de Aquarius
     expect(screen.getAllByText(/Aeroporto/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Porto Seco Pirajá/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Centro Administrativo da Bahia/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/Chame-Chame/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/Colinas de Pituaçu/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/Ilha de Maré/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Aquarius/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Pituba/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Itaigara/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Caminho das Árvores/i).length).toBeGreaterThanOrEqual(1);
+
+    // Referências obsoletas do ADR-0003 não devem aparecer
+    expect(screen.queryByText(/ADR-0003/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/6805/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/6803/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/9543/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/N102/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Colinas de Pituaçu/i)).not.toBeInTheDocument();
   });
 
   it("documenta Centralidade Metropolitana de Baixa População Residente (Comércio), as 3 categorias de Vocação da Obra e a referência ao ADR-0005", () => {
@@ -71,6 +87,8 @@ describe("Seam 1: Modal Nota Metodológica — Índice de Vulnerabilidade", () =
     expect(screen.getByText(/Mobilidade Estrutural e Orlas/i)).toBeInTheDocument();
     expect(screen.getByText(/Equipamentos e Marcos da Cidade/i)).toBeInTheDocument();
 
+    expect(screen.getByText(/0,42/)).toBeInTheDocument();
+    expect(screen.getByText(/ADR-0008/i)).toBeInTheDocument();
     expect(screen.getByText(/ADR-0005/i)).toBeInTheDocument();
   });
 

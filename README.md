@@ -12,7 +12,7 @@ Hospedado de forma 100% estática no **GitHub Pages** (`/investimento_por_bairro
 2. [Camadas de Informação do Painel](#camadas-de-informação-do-painel)
 3. [Fontes de Dados Oficiais Utilizadas](#fontes-de-dados-oficiais-utilizadas)
 4. [Regras de Domínio e Alocação Territorial](#regras-de-domínio-e-alocação-territorial)
-5. [Metodologia do Índice de Vulnerabilidade do Bairro (Censo 2022 / ADR-0003)](#metodologia-do-índice-de-vulnerabilidade-do-bairro-censo-2022--adr-0003)
+5. [Metodologia do Índice de Vulnerabilidade do Bairro (Censo 2022 / ADR-0008)](#metodologia-do-índice-de-vulnerabilidade-do-bairro-censo-2022--adr-0008)
 6. [Como Executar o ETL Manualmente na Máquina Local](#como-executar-o-etl-manualmente-na-máquina-local)
 7. [Como Rodar o Painel Web Localmente](#como-rodar-o-painel-web-localmente)
 8. [Como Executar os Testes Automatizados](#como-executar-os-testes-automatizados)
@@ -25,7 +25,7 @@ Hospedado de forma 100% estática no **GitHub Pages** (`/investimento_por_bairro
 O sistema adota uma **Arquitetura Estática Particionada** (documentada em `docs/adr/0001-arquitetura-estatica-github-pages.md`), dividida em dois subsistemas desacoplados que se comunicam exclusivamente por artefatos JSON e GeoJSON estáticos:
 
 1. **Subsistema de Pipeline ETL (`etl/` — Python):**
-   - Extrai dados da API do Portal da Transparência de Salvador, do servidor ArcGIS REST do GeoSalvador e da API SIDRA do Censo 2022 do IBGE.
+   - Extrai dados da API do Portal da Transparência de Salvador, do servidor ArcGIS REST do GeoSalvador e da população residente do Censo 2022 via API SIDRA (Tabela `9923`), combinados à base versionada de **Agregados por Bairro do Censo 2022** (`etl/reference/censo_2022_salvador_bairros.json`, gerada por `scripts/extrair_censo_2022_bairros.py`).
    - Executa o **Funil de Alocação Territorial em 3 Estágios** apoiado pelo cache da última versão validada.
    - Classifica cada contrato pelo **Semáforo da Obra**, **Tema da Obra** e **Nível de Alocação Territorial**, calcula a concentração por construtora e emite os artefatos estáticos particionados.
 2. **Subsistema do Painel Web (`src/` — React + TypeScript + Vite + Tailwind CSS + Leaflet):**
@@ -70,16 +70,13 @@ Enquanto não houver `atual.json`, o painel continua lendo o acervo legado na ra
    - `POST /obraspublicas/detalhamentoObrasPublicas`: CNPJ da construtora (`nuDocumentoCredor`), prazos originais e edição do Diário Oficial (`nuDom`).
    - `POST /obraspublicas/aditivo`, `/obraspublicas/dotacao`, `/obraspublicas/empenhoRelacionado`, `/obraspublicas/liquidacaoRelacionado` e `/obraspublicas/pagamentoRelacionado`: histórico de termos aditivos, fontes de recurso e estágios da execução orçamentária.
 2. **GeoSalvador — Servidor ArcGIS REST (`https://geo.salvador.ba.gov.br/arcgis/rest/services/MAPA_BASE/MAPA_BASE_Consulta/MapServer`):**
-   - `Layer 164`: Malha vigente dos 170 **Bairros Oficiais** de Salvador (Decreto nº 32.791/2020, que atualizou a Lei nº 9.278/2017), consultada em projeção `EPSG:4326` (`outSR=4326&f=geojson`).
+   - `Layer 164`: Malha vigente dos 171 **Bairros Oficiais** de Salvador (Decreto nº 32.791/2020, que atualizou a Lei nº 9.278/2017), consultada em projeção `EPSG:4326` (`outSR=4326&f=geojson`).
    - `Layer 7`: Limites das **Prefeituras-Bairro**.
    - `Layer 9` e `Layer 11`: Cadastro oficial georreferenciado de **Equipamentos Públicos** municipais (118 Unidades de Saúde e 368 Escolas Municipais/CMEIs).
    - `Layer 2`: Malha oficial de logradouros.
-3. **IBGE — API SIDRA do Censo Demográfico 2022 (`https://apisidra.ibge.gov.br`):**
-   - Dados agregados do Universo (100% dos domicílios e moradores recenseados) no nível territorial `N102` (Bairros de Salvador — código municipal `2927408`):
-     - `Tabela 9923`: População residente por bairro.
-     - `Tabela 6805`: Domicílios particulares permanentes ocupados por tipo de esgotamento sanitário (definição PLANSAB de esgotamento adequado).
-     - `Tabela 6803`: Domicílios particulares permanentes ocupados por forma principal de abastecimento de água (rede geral).
-     - `Tabela 9543`: Alfabetização e taxa de analfabetismo de pessoas residentes com 15 anos ou mais de idade.
+3. **IBGE — Censo Demográfico 2022 (Agregados por Bairro e API SIDRA):**
+   - **Agregados por Bairro do Universo (`Agregados_por_Bairro_csv` / `etl/reference/censo_2022_salvador_bairros.json`):** Dados censitários do Universo (100% dos domicílios e moradores recenseados) para 170 dos 171 Bairros Oficiais de Salvador (`V00001`, `V00111`, `V00309`–`V00311` em `caracteristicas_domicilio1`/`2` e `V00900`–`V00901` em `alfabetizacao`).
+   - **API SIDRA (`https://apisidra.ibge.gov.br`, Tabela `9923` / `v0001`):** População residente oficial por bairro de Salvador (código municipal `2927408`). (`Aquarius` é o único bairro da malha municipal ausente nos agregados do IBGE, mantendo `populacao = 0` e **Investimento por Habitante** indisponível.)
 
 ---
 
@@ -94,7 +91,7 @@ Cada **Obra Pública** recebe um dos quatro **Níveis de Alocação Territorial*
 - **Escopo Cidade (Não-Localizado)**: Contrato sem localização discriminada no objeto; alimenta os KPIs globais da cidade e o indicador de **Transparência Opaca**, sem inflar bairros ou Prefeituras-Bairro.
 
 Os três estágios do funil executam em ordem:
-1. **Estágio 1 (Catálogo Oficial Determinístico):** Casamento textual normalizado contra os 368 equipamentos de educação, 118 equipamentos de saúde, dicionários de lotes regionais e sublocalidades e os 170 **Bairros Oficiais**.
+1. **Estágio 1 (Catálogo Oficial Determinístico):** Casamento textual normalizado contra os 368 equipamentos de educação, 118 equipamentos de saúde, dicionários de lotes regionais e sublocalidades e os 171 **Bairros Oficiais**.
 2. **Estágio 2 (Nominatim OpenStreetMap Fallback):** Quando habilitado (`ENABLE_NOMINATIM=1`), geocodifica logradouros remanescentes dentro da bounding box de Salvador com validação espacial *point-in-polygon* (`Shapely`) contra os polígonos oficiais.
 3. **Estágio 3 (Extrator LLM Opcional):** Suporte opcional via variável de ambiente (`GEMINI_API_KEY`, `OPENAI_API_KEY` ou `ANTHROPIC_API_KEY`) para casos ambíguos.
 
@@ -112,11 +109,11 @@ Calculado a partir da variação percentual de aditivos `delta_percentual_valor 
 
 ---
 
-## Metodologia do Índice de Vulnerabilidade do Bairro (Censo 2022 / ADR-0003)
+## Metodologia do Índice de Vulnerabilidade do Bairro (Censo 2022 / ADR-0008)
 
-O **Índice de Vulnerabilidade do Bairro** do painel é uma métrica composta multidimensional contínua na escala `0,00` (menor vulnerabilidade relativa) a `1,00` (maior vulnerabilidade relativa), calculada de forma determinística e 100% auditável a partir de agregados do **Universo do Censo Demográfico 2022 do IBGE** (nível territorial `N102` — Bairros de Salvador `2927408`).
+O **Índice de Vulnerabilidade do Bairro** do painel é uma métrica composta multidimensional contínua na escala `0,00` (menor vulnerabilidade relativa) a `1,00` (maior vulnerabilidade relativa), calculada de forma determinística e 100% auditável a partir dos **Agregados por Bairro do Universo do Censo Demográfico 2022 do IBGE** (`Agregados_por_Bairro_csv` — Bairros de Salvador `2927408`) e da população residente oficial (Tabela SIDRA `9923` / `v0001`).
 
-Esta metodologia foi homologada no repositório no **ADR-0003** (`docs/adr/0003-indice-vulnerabilidade-composto-censo-2022.md`), substituindo completamente dicionários manuais ou estimativas empíricas anteriores.
+Esta metodologia foi homologada no repositório no **ADR-0008** (`docs/adr/0008-reconstrucao-indice-vulnerabilidade-agregados-bairro-censo-2022.md`), substituindo o desenho anterior e eliminando lacunas silenciosas na base de referência.
 
 ### 1. Referencial Científico: IDS (IPP) e IVS (IPEA)
 
@@ -128,46 +125,46 @@ Ao contrário de índices que dependem de renda monetária per capita da amostra
 
 ---
 
-### 2. As 3 Variáveis do Universo do Censo 2022 (IBGE / SIDRA nível N102)
+### 2. As 3 Variáveis dos Agregados por Bairro do Censo 2022 (IBGE)
 
-Para cada **Bairro Oficial** residencial $b$ de Salvador, são extraídas as seguintes variáveis censitárias:
+Para cada **Bairro Oficial** residencial $b$ de Salvador, são extraídas as seguintes variáveis censitárias dos arquivos oficiais de **Agregados por Bairro do Censo 2022**:
 
-| Dimensão | Tabela SIDRA | Indicador de Domínio | Definição Oficial IBGE / PLANSAB |
+| Dimensão | Variáveis IBGE (Censo 2022) | Indicador de Domínio | Definição Oficial IBGE / PLANSAB |
 | :--- | :---: | :--- | :--- |
-| **Esgotamento Sanitário** | **Tabela 6805** | `pct_esgoto_inadequado` | Percentual de domicílios particulares permanentes ocupados sem rede geral/pluvial ou fossa séptica/filtro (critério oficial de adequação do **PLANSAB** — Plano Nacional de Saneamento Básico). |
-| **Abastecimento de Água** | **Tabela 6803** | `pct_agua_inadequada` | Percentual de domicílios particulares permanentes ocupados sem ligação principal à rede geral de distribuição de água tratada. |
-| **Alfabetização** | **Tabela 9543** | `pct_analfabetismo_15mais` | Percentual de moradores de 15 anos ou mais de idade que não sabem ler e escrever um bilhete simples (complemento de 100% da taxa de alfabetização). |
+| **Esgotamento Sanitário** | `V00309`–`V00311` / `V00001` | `pct_esgoto_inadequado` | Percentual de domicílios particulares permanentes ocupados sem rede geral/pluvial ou fossa séptica/filtro (critério oficial de adequação do **PLANSAB** — Plano Nacional de Saneamento Básico). |
+| **Abastecimento de Água** | `V00111` / `V00001` | `pct_agua_inadequada` | Percentual de domicílios particulares permanentes ocupados sem ligação principal à rede geral de distribuição de água tratada. |
+| **Alfabetização** | `V00900`–`V00901` | `pct_analfabetismo_15mais` | Percentual de moradores de 15 anos ou mais de idade que não sabem ler e escrever um bilhete simples (`V00901 / (V00900 + V00901)`). |
 
 #### Equações dos Sub-indicadores Brutos:
 
 1. **Déficit de Esgotamento Sanitário Adequado (critério PLANSAB):**
-   $$x_{\text{esgoto}, b} = 100\% - \left(\frac{\text{Domicílios com rede geral} + \text{Domicílios com fossa séptica ou filtro}}{\text{Total de domicílios particulares permanentes ocupados}}\right) \times 100$$
+   $$x_{\text{esgoto}, b} = 100\% \times \left(1 - \frac{\text{V00309} + \text{V00310} + \text{V00311}}{\text{V00001}}\right)$$
 
 2. **Déficit de Abastecimento de Água por Rede Geral:**
-   $$x_{\text{agua}, b} = 100\% - \left(\frac{\text{Domicílios com rede geral de distribuição}}{\text{Total de domicílios particulares permanentes ocupados}}\right) \times 100$$
+   $$x_{\text{agua}, b} = 100\% \times \left(1 - \frac{\text{V00111}}{\text{V00001}}\right)$$
 
 3. **Taxa de Analfabetismo (15 anos ou mais):**
-   $$x_{\text{analf}, b} = 100\% - \text{Taxa de Alfabetização da População de 15 anos ou mais}$$
+   $$x_{\text{analf}, b} = 100\% \times \frac{\text{V00901}}{\text{V00900} + \text{V00901}}$$
 
 ---
 
 ### 3. Fórmulas Matemáticas Passo a Passo
 
-#### 3.1 Normalização Min-Max sobre os Bairros Residenciais
-Para unificar as variáveis em uma escala comum sem distorcer as amplitudes naturais observadas em Salvador, cada sub-indicador $k \in \{\text{esgoto}, \text{agua}, \text{analf}\}$ é normalizado pelo método *min-max* sobre o conjunto dos **168 Bairros Oficiais residenciais**:
+#### 3.1 Normalização Min-Max Winsorizada no P95 sobre os Bairros Residenciais
+Para unificar as variáveis em uma escala comum sem que *outliers* extremos reais (*Ilha de Maré* e *Cassange*) comprimam mais de 95% dos bairros continentais abaixo de `0,25`, cada sub-indicador $k \in \{\text{esgoto}, \text{agua}, \text{analf}\}$ é normalizado pelo método *min-max* **winsorizado no percentil 95 (`P95`)** com teto em `1,00` sobre o conjunto dos **168 Bairros Oficiais residenciais**:
 
-$$I_{k, b} = \frac{x_{k, b} - \min_{j \in \text{Residenciais}}(x_{k, j})}{\max_{j \in \text{Residenciais}}(x_{k, j}) - \min_{j \in \text{Residenciais}}(x_{k, j})}$$
+$$I_{k, b} = \min\!\left(1,\; \frac{x_{k, b} - \min_{j \in \text{Residenciais}}(x_{k, j})}{P_{95, j \in \text{Residenciais}}(x_{k, j}) - \min_{j \in \text{Residenciais}}(x_{k, j})}\right)$$
 
 Onde:
 - $I_{k, b} \in [0,00;\; 1,00]$ é o sub-índice normalizado da dimensão $k$ no bairro $b$;
-- $\min(x_k)$ e $\max(x_k)$ são os limites inferior e superior empíricos observados exclusivamente entre os 168 bairros residenciais de Salvador no Censo 2022.
+- $\min(x_k)$ e $P_{95}(x_k)$ são o mínimo empírico e o percentil 95 (interpolação linear inclusiva `(N - 1) * 0.95`) observados exclusivamente entre os 168 bairros residenciais de Salvador no Censo 2022.
 
 #### 3.2 Composição por Média Aritmética Simples de Pesos Iguais
 O **Índice de Vulnerabilidade do Bairro ($\text{IVB}_b$)** é obtido pela média aritmética simples das três dimensões normalizadas (peso de $\frac{1}{3}$ para esgoto, água e analfabetismo), arredondada em duas casas decimais:
 
 $$\text{IVB}_b = \text{round}\left(\frac{I_{\text{esgoto}, b} + I_{\text{agua}, b} + I_{\text{analf}, b}}{3},\; 2\right)$$
 
-Essa composição preserva a hierarquia socioeconômica observada pelo IBGE em Salvador (exemplo real: `Pituba (0,13) < Cabula (0,55) < Liberdade (0,78)`).
+Essa composição preserva a hierarquia socioeconômica observada pelo IBGE em Salvador (exemplo real: `Pituba (0,07) < Cabula (0,08) < Liberdade (0,15)`).
 
 #### 3.3 Agregação Regional para as Prefeituras-Bairro
 Para as 10 macrorregiões administrativas descentralizadas de Salvador (**Prefeituras-Bairro**), tanto o índice composto quanto os seus três sub-indicadores percentuais são consolidados pela **média ponderada populacional** dos seus Bairros Oficiais residenciais constituintes:
@@ -188,16 +185,12 @@ Os recortes `Aeroporto`, `Porto Seco Pirajá` e `Centro Administrativo da Bahia 
 - **Representação:** No pipeline ETL e no painel web, recebem `isZonaEspecialNaoResidencial: true`, `indice_vulnerabilidade: 0.0` e são apresentados com o status **`Isento`** no **Ranking Territorial**, no mapa coroplético e no card do painel lateral **Raio-X**.
 
 #### 4.2 Imputação Espacial por Contiguidade Territorial
-Três Bairros Oficiais residenciais delimitados pela malha legal vigente do município (Decreto nº 32.791/2020) não possuem linha própria de agregação individual no nível `N102` do SIDRA/IBGE. Para esses casos, os sub-indicadores brutos foram imputados de forma determinística pela **média ponderada populacional dos bairros limítrofes contíguos da mesma zona homogênea** no Censo 2022:
+Entre os 171 Bairros Oficiais delimitados pela malha legal vigente do município (Decreto nº 32.791/2020), 170 constam nos **Agregados por Bairro do Censo 2022 (IBGE)** (incluindo `Ilha de Maré`, `Chame-Chame` e `Colinas de Periperi` com dados reais). Apenas o bairro **Aquarius** não possui recorte individual nos agregados do IBGE; por isso, seus sub-indicadores brutos são imputados de forma determinística pela **média ponderada populacional dos vizinhos limítrofes contíguos** no Censo 2022:
 
-1. **Chame-Chame** (Prefeitura-Bairro Barra/Pituba):
-   Imputado pela média ponderada populacional dos vizinhos contíguos `Graça`, `Barra` e `Vitória`.
-2. **Colinas de Pituaçu** (Prefeitura-Bairro Pau da Lima):
-   Imputado pela média ponderada populacional dos vizinhos contíguos `São Marcos` e `Pau da Lima`.
-3. **Ilha de Maré** (Prefeitura-Bairro Subúrbio/Ilhas):
-   Imputado pela média ponderada populacional das ilhas vizinhas do Censo 2022 (`Ilha de Bom Jesus dos Passos` e `Ilha dos Frades/Ilha de Santo Antônio`).
+1. **Aquarius** (Prefeitura-Bairro Barra/Pituba):
+   Imputado pela média ponderada populacional dos vizinhos contíguos `Pituba`, `Itaigara` e `Caminho das Árvores`, mantendo `populacao = 0` e **Investimento por Habitante** indisponível por ausência de recorte populacional próprio no Censo 2022.
 
-Estes três bairros recebem no modelo de dados a flag booleana `vulnerabilidade_estimada_contiguidade: true`, gerando automaticamente no painel lateral **Raio-X** um selo amarelo transparente que alerta o cidadão sobre a estimativa por contiguidade territorial.
+`Aquarius` recebe no modelo de dados a flag booleana `vulnerabilidade_estimada_contiguidade: true`, gerando automaticamente no painel lateral **Raio-X** um selo amarelo transparente que alerta o cidadão sobre a estimativa por contiguidade territorial (e propagando o aviso regional exclusivamente para `Barra/Pituba`).
 
 ---
 

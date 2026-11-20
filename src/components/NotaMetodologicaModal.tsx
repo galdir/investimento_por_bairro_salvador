@@ -14,8 +14,8 @@ export interface NotaMetodologicaModalProps {
 /**
  * Modal explicativo da metodologia de cálculo do Índice de Vulnerabilidade do Bairro.
  *
- * @summary Apresenta a fundamentação técnica (IDS/IPP e IVS/IPEA), fontes do Censo 2022 (IBGE/SIDRA),
- * fórmulas matemáticas passo a passo (min-max e pesos iguais) e regras de exceção territorial.
+ * @summary Apresenta a fundamentação técnica (IDS/IPP e IVS/IPEA), fontes do Censo 2022 (Agregados por Bairro do IBGE e SIDRA 9923),
+ * fórmulas matemáticas passo a passo (normalização min-max winsorizada no P95 e pesos iguais) e regras de exceção territorial.
  *
  * @param props - Propriedades de visibilidade e fechamento do modal.
  * @returns Elemento JSX do modal acessível ou nulo quando fechado.
@@ -63,7 +63,7 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                 Metodologia Multidimensional
               </span>
               <span className="text-slate-400 text-xs">
-                Censo Demográfico 2022 (IBGE) • Nível N102
+                Censo Demográfico 2022 (IBGE) • Agregados por Bairro
               </span>
             </div>
             <h2
@@ -112,18 +112,19 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
             </p>
           </section>
 
-          {/* Seção 2: As 3 Variáveis do Universo do Censo 2022 (IBGE/SIDRA) */}
+          {/* Seção 2: As 3 Variáveis dos Agregados por Bairro do Censo 2022 (IBGE) */}
           <section className="space-y-3">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
               <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs font-bold shrink-0">
                 2
               </span>
-              <h3>As 3 Variáveis do Universo do Censo 2022 (IBGE/SIDRA nível N102)</h3>
+              <h3>As 3 Variáveis dos Agregados por Bairro do Censo 2022 (IBGE)</h3>
             </div>
             <p className="text-xs sm:text-sm text-slate-600">
               O cálculo utiliza dados do Universo do Censo Demográfico 2022 do IBGE (100% dos domicílios e moradores recenseados, sem
-              erros amostrais) extraídos via API SIDRA no nível territorial <code>N102</code> (Bairros de Salvador — código{" "}
-              <code>2927408</code>):
+              erros amostrais) extraídos dos arquivos oficiais de <strong>Agregados por Bairro do Censo Demográfico 2022</strong> (
+              <code>Agregados_por_Bairro_csv</code>) para os 3 sub-indicadores, combinados à população residente oficial da{" "}
+              <strong>Tabela SIDRA 9923</strong> (<code>v0001</code>) para os bairros de Salvador (código <code>2927408</code>):
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
@@ -132,7 +133,7 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">
-                      Tabela 6805
+                      V00309–V00311 / V00001
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium">PLANSAB</span>
                   </div>
@@ -140,8 +141,9 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                     Déficit de Esgotamento Sanitário
                   </h4>
                   <p className="text-[11px] text-slate-600 leading-relaxed">
-                    Percentual de domicílios particulares permanentes ocupados sem acesso à rede geral/pluvial ou fossa séptica/filtro,
-                    segundo o critério de adequação do <strong>PLANSAB</strong> (Plano Nacional de Saneamento Básico).
+                    Percentual de domicílios particulares permanentes ocupados sem acesso à rede geral/pluvial ou fossa séptica/filtro
+                    (<code>100% × (1 - (V00309 + V00310 + V00311) / V00001)</code>), segundo o critério de adequação do{" "}
+                    <strong>PLANSAB</strong>.
                   </p>
                 </div>
                 <div className="mt-3 pt-2 border-t border-slate-200 text-[11px] font-mono text-slate-700">
@@ -154,7 +156,7 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">
-                      Tabela 6803
+                      V00111 / V00001
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium">Rede Geral</span>
                   </div>
@@ -162,7 +164,8 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                     Déficit de Abastecimento de Água
                   </h4>
                   <p className="text-[11px] text-slate-600 leading-relaxed">
-                    Percentual de domicílios particulares permanentes ocupados sem ligação à rede geral de distribuição de água tratada.
+                    Percentual de domicílios particulares permanentes ocupados sem ligação à rede geral de distribuição de água tratada (
+                    <code>100% × (1 - V00111 / V00001)</code>).
                   </p>
                 </div>
                 <div className="mt-3 pt-2 border-t border-slate-200 text-[11px] font-mono text-slate-700">
@@ -175,7 +178,7 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">
-                      Tabela 9543
+                      V00900–V00901
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium">15 anos ou mais</span>
                   </div>
@@ -183,7 +186,8 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                     Taxa de Analfabetismo
                   </h4>
                   <p className="text-[11px] text-slate-600 leading-relaxed">
-                    Percentual de pessoas residentes de 15 anos ou mais que não sabem ler e escrever um bilhete simples (complemento de 100% da alfabetização).
+                    Percentual de pessoas residentes de 15 anos ou mais que não sabem ler e escrever um bilhete simples (
+                    <code>100% × V00901 / (V00900 + V00901)</code>).
                   </p>
                 </div>
                 <div className="mt-3 pt-2 border-t border-slate-200 text-[11px] font-mono text-slate-700">
@@ -193,27 +197,28 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
             </div>
           </section>
 
-          {/* Seção 3: Normalização Min-Max e Composição do Índice */}
+          {/* Seção 3: Normalização Min-Max Winsorizada no P95 e Composição do Índice */}
           <section className="space-y-3">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
               <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs font-bold shrink-0">
                 3
               </span>
-              <h3>Normalização Min-Max e Média Composta (1/3 cada)</h3>
+              <h3>Normalização Min-Max Winsorizada no P95 e Média Composta (1/3 cada)</h3>
             </div>
             <p className="text-xs sm:text-sm text-slate-600">
-              Para compatibilizar grandezas com diferentes dispersões estatísticas sem que uma dimensão domine artificialmente o índice,
-              cada sub-indicador é normalizado na escala <code>0</code> a <code>1</code> pelo método <strong>min-max</strong> sobre o universo
-              dos <strong>168 Bairros Oficiais</strong> residenciais:
+              Para compatibilizar grandezas com diferentes dispersões estatísticas e evitar que <em>outliers</em> extremos reais
+              comprimam mais de 95% dos bairros na base da escala, cada sub-indicador é normalizado de <code>0</code> a{" "}
+              <code>1</code> pelo método <strong>min-max winsorizado no percentil 95 (P95)</strong> sobre o universo dos{" "}
+              <strong>168 Bairros Oficiais</strong> residenciais:
             </p>
 
             <div className="bg-slate-900 text-emerald-300 font-mono text-xs sm:text-sm p-4 rounded-xl border border-slate-800 space-y-2">
               <div className="text-slate-400 text-[11px]">
-                {/* Fórmula de normalização min-max */}
-                # 1. Normalização de cada indicador k nos 168 bairros residenciais:
+                {/* Fórmula de normalização min-max winsorizada no P95 */}
+                # 1. Normalização winsorizada no percentil 95 (teto em 1,00) nos 168 bairros residenciais:
               </div>
               <div className="font-bold">
-                I_k,b = (x_k,b - min(x_k)) / (max(x_k) - min(x_k))
+                I_k,b = min(1, (x_k,b - min(x_k)) / (P95(x_k) - min(x_k)))
               </div>
               <div className="text-slate-400 text-[11px] pt-1">
                 {/* Média aritmética simples de pesos iguais */}
@@ -226,7 +231,7 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
 
             <p className="text-xs text-slate-500">
               O resultado é arredondado em 2 casas decimais e reflete fielmente a hierarquia socioeconômica observada pelo Censo 2022
-              em Salvador (por exemplo, Pituba com <code>0,13</code> &lt; Cabula com <code>0,55</code> &lt; Liberdade com <code>0,78</code>).
+              em Salvador (por exemplo, Pituba com <code>0,07</code> &lt; Cabula com <code>0,08</code> &lt; Liberdade com <code>0,15</code>).
             </p>
           </section>
 
@@ -287,7 +292,7 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                   O bairro <strong>Comércio</strong> combina faixa portuária (<code>ZUE-3</code>) e centralidade metropolitana de uso misto (
                   <code>ZCMe</code> na LOUOS), com população residente inferior a <code>1.000 hab.</code> e densidade inferior a{" "}
                   <code>1.000 hab/km²</code> no Censo 2022. Diferente de uma <strong>Zona Especial Não-Residencial</strong>, o Comércio{" "}
-                  <strong>preserva seu Índice de Vulnerabilidade do Bairro</strong> (<code>0,48</code>) e participa normalmente das visões
+                  <strong>preserva seu Índice de Vulnerabilidade do Bairro</strong> (<code>0,42</code>) e participa normalmente das visões
                   de <strong>Vulnerabilidade</strong>, <strong>Valor Total</strong> e <strong>Nº de Obras</strong> (bem como da média
                   ponderada populacional da Prefeitura-Bairro), mas fica <strong>isento do cálculo e ranking de Investimento por Habitante</strong>{" "}
                   (<code>R$/Hab</code>) no nível de bairro para evitar distorções estatísticas per capita.
@@ -300,23 +305,18 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
                   Imputação Espacial por Contiguidade Territorial
                 </h4>
                 <p className="text-blue-900 leading-relaxed text-xs">
-                  Três Bairros Oficiais residenciais delimitados pelo Decreto Municipal nº 32.791/2020 não possuem linha individual própria
-                  na malha censitária <code>N102</code> do SIDRA/IBGE. Para evitar suposições arbitrárias, seus sub-indicadores foram
-                  imputados pela <strong>média ponderada populacional dos bairros limítrofes contíguos da mesma zona homogênea</strong> no
-                  Censo 2022 (e marcados com o selo transparente de estimativa por contiguidade no painel Raio-X):
+                  Entre os 171 Bairros Oficiais delimitados pelo Decreto Municipal nº 32.791/2020, 170 constam nos{" "}
+                  <strong>Agregados por Bairro do Censo 2022 (IBGE)</strong> (incluindo <em>Ilha de Maré</em>,{" "}
+                  <em>Chame-Chame</em> e <em>Colinas de Periperi</em> com dados reais). Apenas o bairro{" "}
+                  <strong>Aquarius</strong> não possui recorte individual nos agregados censitários do IBGE; por isso, seus
+                  sub-indicadores são estimados pela <strong>média ponderada populacional dos vizinhos limítrofes contíguos</strong>{" "}
+                  (e marcados com o selo transparente de estimativa por contiguidade no painel Raio-X), mantendo população{" "}
+                  <code>0</code> e <strong>Investimento por Habitante</strong> indisponível:
                 </p>
                 <ul className="list-disc list-inside mt-2 text-xs text-blue-950 space-y-1">
                   <li>
-                    <strong>Chame-Chame:</strong> imputado a partir dos bairros vizinhos contíguos <em>Graça</em>, <em>Barra</em> e{" "}
-                    <em>Vitória</em> (Prefeitura-Bairro Barra/Pituba).
-                  </li>
-                  <li>
-                    <strong>Colinas de Pituaçu:</strong> imputado a partir dos vizinhos contíguos <em>São Marcos</em> e{" "}
-                    <em>Pau da Lima</em> (Prefeitura-Bairro Pau da Lima).
-                  </li>
-                  <li>
-                    <strong>Ilha de Maré:</strong> imputado a partir das ilhas vizinhas do Censo <em>Ilha de Bom Jesus dos Passos</em> e{" "}
-                    <em>Ilha dos Frades/Ilha de Santo Antônio</em> (Prefeitura-Bairro Subúrbio/Ilhas).
+                    <strong>Aquarius:</strong> único bairro com estimativa por contiguidade, calculado a partir dos vizinhos
+                    limítrofes <em>Pituba</em>, <em>Itaigara</em> e <em>Caminho das Árvores</em> (Prefeitura-Bairro Barra/Pituba).
                   </li>
                 </ul>
               </div>
@@ -370,7 +370,7 @@ export const NotaMetodologicaModal: React.FC<NotaMetodologicaModalProps> = ({
         {/* Rodapé do Modal com Botão de Concluir */}
         <div className="bg-slate-50 px-5 py-3.5 border-t border-slate-200 flex items-center justify-between shrink-0">
           <span className="text-xs text-slate-500">
-            Auditabilidade cidadã garantida conforme <strong>ADR-0003</strong> e <strong>ADR-0005</strong>.
+            Auditabilidade cidadã garantida conforme <strong>ADR-0008</strong> e <strong>ADR-0005</strong>.
           </span>
           <button
             type="button"

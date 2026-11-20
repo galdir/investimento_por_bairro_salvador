@@ -1872,7 +1872,8 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
         "Nota Metodológica — Índice de Vulnerabilidade"
       );
       expect(screen.getByText(/Cavallieri & Lopes/i)).toBeInTheDocument();
-      expect(screen.getByText(/Tabela 6805/i)).toBeInTheDocument();
+      expect(screen.getByText(/V00309–V00311/i)).toBeInTheDocument();
+      expect(screen.getByText(/ADR-0008/i)).toBeInTheDocument();
 
       // Fecha modal pelo botão de fechar
       fireEvent.click(screen.getByTestId("btn-fechar-nota-metodologica"));

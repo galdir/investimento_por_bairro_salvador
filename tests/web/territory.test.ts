@@ -769,5 +769,122 @@ describe("Seam 1: Agregação e Rollup Territorial (calculateTerritorialRollup)"
     expect(sharePituba.frentesValorLiquidado).toBe(300000);
     expect(sharePituba.frentesValorPago).toBe(250000);
   });
+
+  it("calculateTerritorialRollup preserva sub-indicadores reais de IAPI e STIEP e deriva contiguidade regional exclusivamente dos bairros constituintes", () => {
+    const bairrosBase: BairroResumo[] = [
+      {
+        id: 1,
+        nome: "IAPI",
+        prefeitura_bairro: "Liberdade/São Caetano",
+        populacao: 19941,
+        indice_vulnerabilidade: 0.22,
+        pct_esgoto_inadequado: 0.6,
+        pct_agua_inadequada: 0.31,
+        pct_analfabetismo_15mais: 3.82,
+        vulnerabilidade_estimada_contiguidade: false,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 2,
+        nome: "STIEP",
+        prefeitura_bairro: "Cabula/Tancredo Neves",
+        populacao: 13277,
+        indice_vulnerabilidade: 0.02,
+        pct_esgoto_inadequado: 0.11,
+        pct_agua_inadequada: 0.04,
+        pct_analfabetismo_15mais: 0.49,
+        vulnerabilidade_estimada_contiguidade: false,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 3,
+        nome: "Pituba",
+        prefeitura_bairro: "Barra/Pituba",
+        populacao: 57894,
+        indice_vulnerabilidade: 0.07,
+        pct_esgoto_inadequado: 0.2,
+        pct_agua_inadequada: 0.43,
+        pct_analfabetismo_15mais: 0.37,
+        vulnerabilidade_estimada_contiguidade: false,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 4,
+        nome: "Aquarius",
+        prefeitura_bairro: "Barra/Pituba",
+        populacao: 0,
+        indice_vulnerabilidade: 0.05,
+        pct_esgoto_inadequado: 0.19,
+        pct_agua_inadequada: 0.35,
+        pct_analfabetismo_15mais: 0.35,
+        vulnerabilidade_estimada_contiguidade: true,
+        is_zona_especial_nao_residencial: false,
+      },
+      {
+        id: 5,
+        nome: "Ilha de Maré",
+        prefeitura_bairro: "Subúrbio/Ilhas",
+        populacao: 4036,
+        indice_vulnerabilidade: 0.93,
+        pct_esgoto_inadequado: 94.32,
+        pct_agua_inadequada: 2.22,
+        pct_analfabetismo_15mais: 14.42,
+        vulnerabilidade_estimada_contiguidade: false,
+        is_zona_especial_nao_residencial: false,
+      },
+    ];
+
+    const prefeiturasBase: PrefeituraBairroResumo[] = [
+      { id: 1, nome: "Liberdade/São Caetano", populacao_total: 19941 },
+      { id: 2, nome: "Cabula/Tancredo Neves", populacao_total: 13277 },
+      { id: 3, nome: "Barra/Pituba", populacao_total: 57894, vulnerabilidade_estimada_contiguidade: false },
+      // Mesmo se o objeto base tivesse flag legada true, deve derivar exclusivamente dos bairros constituintes
+      { id: 4, nome: "Subúrbio/Ilhas", populacao_total: 4036, vulnerabilidade_estimada_contiguidade: true },
+    ];
+
+    const obrasFiltradas: ObraCompacta[] = [
+      {
+        id: 7001,
+        unidadeGestora: "SUCOP",
+        numeroContrato: "01/2025",
+        objeto: "Drenagem Aquarius",
+        valorContratualVigente: 1000000,
+        valorPago: 400000,
+        percentualExecutado: 40,
+        situacao: "Em Execução",
+        credor: "EMP",
+        nivel: "Bairro",
+        bairro: "Aquarius",
+        prefeituraBairro: "Barra/Pituba",
+      },
+    ];
+
+    const { bairros, prefeituras } = calculateTerritorialRollup(bairrosBase, prefeiturasBase, obrasFiltradas);
+
+    const iapi = bairros.find((b) => b.nome === "IAPI")!;
+    expect(iapi.indice_vulnerabilidade).toBe(0.22);
+    expect(iapi.pct_esgoto_inadequado).toBe(0.6);
+
+    const stiep = bairros.find((b) => b.nome === "STIEP")!;
+    expect(stiep.indice_vulnerabilidade).toBe(0.02);
+    expect(stiep.pct_analfabetismo_15mais).toBe(0.49);
+
+    const aquarius = bairros.find((b) => b.nome === "Aquarius")!;
+    expect(aquarius.valorTotal).toBe(1000000);
+    expect(aquarius.valorPago).toBe(400000);
+    expect(aquarius.totalObras).toBe(1);
+    expect(aquarius.investimentoPorHabitante).toBeUndefined();
+    expect(aquarius.investimentoPorHabitantePago).toBeUndefined();
+
+    const pbBarra = prefeituras.find((p) => p.nome === "Barra/Pituba")!;
+    // Aquarius tem populacao=0 -> peso 0 na média ponderada (preserva 0.07 da Pituba)
+    expect(pbBarra.indice_vulnerabilidade).toBe(0.07);
+    expect(pbBarra.vulnerabilidade_estimada_contiguidade).toBe(true);
+    expect(pbBarra.bairros_vulnerabilidade_estimada).toEqual(["Aquarius"]);
+
+    const pbSuburbio = prefeituras.find((p) => p.nome === "Subúrbio/Ilhas")!;
+    expect(pbSuburbio.vulnerabilidade_estimada_contiguidade).toBe(false);
+    expect(pbSuburbio.bairros_vulnerabilidade_estimada).toEqual([]);
+  });
 });
 

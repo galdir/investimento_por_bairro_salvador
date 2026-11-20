@@ -231,7 +231,11 @@ const ComparisonTerritoryRow: React.FC<ComparisonTerritoryRowProps> = ({
           {invState.kind === "unavailable" && (
             <div
               data-testid={`comparison-valor-${testSlug}`}
-              className="text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded"
+              className={`text-xs font-semibold px-2 py-0.5 rounded border ${
+                invState.reason === "population"
+                  ? "text-slate-700 bg-slate-100 border-slate-300"
+                  : "text-amber-800 bg-amber-50 border-amber-200"
+              }`}
             >
               {invState.reason === "population" ? "Per capita indisponível" : "Pagamento indisponível"}
             </div>
