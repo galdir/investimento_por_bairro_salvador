@@ -1,0 +1,260 @@
+{
+  "id": "03ec9f99-418a-48de-9256-f1a7f80b08c1",
+  "unidadeGestora": "SEMDEC",
+  "numeroContrato": "2021CT004930",
+  "numeroContratoOriginal": "000006/2021",
+  "nuProcesso": "183728/2021",
+  "objeto": "PROJETO BÁSICO ARQUITETÕNICO SAC EMPRESARIAL/SALA DO EMPREENDEDOR",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 7875.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2021-11-23T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2022-11-22T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2021-11-23T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 7875.0,
+    "valorContratualVigente": 7875.0,
+    "valorEmpenhado": 7875.0,
+    "valorLiquidado": 7875.0,
+    "valorPago": 7875.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Operacionalização dos Postos do Centro Empreendedor - CEM",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "4b5407e4-b363-410a-9eb8-2d75b45a4eaf",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "cdUnGestora": "591010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "notaEmpenho": "2021NE000046",
+      "dataEmpenho": "14/12/2021",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "7.875,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "ea72243a-f54e-4f03-b717-2f8f2951264f",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "siglaOrgao": "SEMDEC",
+      "notaEmpenho": "2021NE000046",
+      "codUnGestora": "591010",
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "siglaUnGestora": "FMT/SALVADOR",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "notaLiquidacao": "2021NL000438",
+      "notaLancamento": "2021NL000438",
+      "numProcesso": "02176212021",
+      "dataLiquidacao": "22/12/2021",
+      "valLiqLiquidacao": "7.875,00",
+      "valBrutLiquidacao": "7.875,00",
+      "valEmpenho": "7.875,00",
+      "descObsLiquidacao": "Pgto. Despesa elaboração de Projeto básico arquitetônico de interiores para layout do SAC Empresarial/Sala do Empreendedor da SEMDEC, que será instalado no Mezanino do Mercado São Miguel, localizado no bairro da Barroquinha. \r\nCont. 006/2021, Proc. 217621/2021.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "2e36be83-48ba-4f9b-8c5b-97302f056f07",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "siglaOrgao": "SEMDEC",
+      "notaEmpenho": "2021NE000046",
+      "codUnGestora": "591010",
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "siglaUnGestora": "FMT/SALVADOR",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021PP000194",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.875,00",
+      "dataPagamento": "23/12/2021",
+      "pago": "R$ 170,89",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "ec9affee-9a71-4605-834e-b31357e489bb",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "siglaOrgao": "SEMDEC",
+      "notaEmpenho": "2021NE000046",
+      "codUnGestora": "591010",
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "siglaUnGestora": "FMT/SALVADOR",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "notaLiquidacao": "2021NL000438",
+      "ordBancaria": "2021OB060633",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.875,00",
+      "dataPagamento": "24/12/2021",
+      "pago": "R$ 7.704,11",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8040cbf7-1fa9-4f9e-97fc-bd27a1ed9e75",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "siglaOrgao": "SEMDEC",
+      "notaEmpenho": "2021NE000046",
+      "codUnGestora": "591010",
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "siglaUnGestora": "FMT/SALVADOR",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021PP000212",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.875,00",
+      "dataPagamento": "27/12/2021",
+      "pago": "R$ 170,89",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1f509499-d161-4b58-b075-5f437b73f2db",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "siglaOrgao": "SEMDEC",
+      "notaEmpenho": "2021NE000046",
+      "codUnGestora": "591010",
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "siglaUnGestora": "FMT/SALVADOR",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021PP000212",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.875,00",
+      "dataPagamento": "27/12/2021",
+      "pago": "R$ -170,89",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "77a62bd1-ff88-4cae-ae9e-f325e4d9abe8",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "siglaOrgao": "SEMDEC",
+      "notaEmpenho": "2021NE000046",
+      "codUnGestora": "591010",
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "siglaUnGestora": "FMT/SALVADOR",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021OB060820",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.875,00",
+      "dataPagamento": "28/12/2021",
+      "pago": "R$ -170,89",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6502c86c-4756-46b6-8c66-0f3fe9a90711",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento Econômico, Emprego e Renda",
+      "siglaOrgao": "SEMDEC",
+      "notaEmpenho": "2021NE000046",
+      "codUnGestora": "591010",
+      "descUnGestora": "UG FMT/SALVADOR - Fundo Municipal do Trabalho",
+      "siglaUnGestora": "FMT/SALVADOR",
+      "nomeCredor": "ATELIER SOLAR ARQUITETURA E SERVICOS SOCIAIS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021OB060820",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.875,00",
+      "dataPagamento": "28/12/2021",
+      "pago": "R$ 170,89",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "591010",
+      "unidadeGestora": "SEMDEC",
+      "nuContratoSigef": "2021CT004930"
+    },
+    "nuProcesso": "183728/2021",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "591010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

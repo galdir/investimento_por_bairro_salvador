@@ -1,0 +1,260 @@
+{
+  "id": "dbcece8a-c321-46a0-b774-f1e2a0303778",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT003288",
+  "numeroContratoOriginal": "000022/2017",
+  "nuProcesso": "000273/2017",
+  "objeto": "AQUISIÇÃO (com entrega inclusa) DE TUBO GALVANIZADO DIVERSOS, CONFORME ESPECIFICAÇÃO E BARRA REDONDA",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 510787.96,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-07-05T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-07-04T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-07-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 510787.96,
+    "valorContratualVigente": 510787.96,
+    "valorEmpenhado": 28150.9,
+    "valorLiquidado": 56293.66,
+    "valorPago": 28150.9,
+    "percentualExecutado": 11.02,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "575ca023-ed5b-4bf0-af7a-2f0fe993be2d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000386",
+      "dataEmpenho": "13/07/2017",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "510.787,96",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b5b4fd2f-e6da-4cd4-af92-6df7d894a882",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000733",
+      "dataEmpenho": "13/07/2017",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-382.637,06",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9f73b7b5-ab09-4412-9359-58f499dd7402",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000501",
+      "dataEmpenho": "18/09/2017",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "09b805a0-4bd9-4dea-954e-6576c858c093",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000531",
+      "dataEmpenho": "18/09/2017",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "7ca54965-8b5c-40e3-9d89-6066d21700d2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000732",
+      "dataEmpenho": "18/09/2017",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "38d13c1e-ba03-44b9-abe3-0a7184587e56",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000386",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "notaLiquidacao": "2017NL003811",
+      "notaLancamento": "2017NL003811",
+      "numProcesso": "00008472017",
+      "dataLiquidacao": "06/09/2017",
+      "valLiqLiquidacao": "28.142,76",
+      "valBrutLiquidacao": "28.142,76",
+      "valEmpenho": "510.787,96",
+      "descObsLiquidacao": "Valor de aquisição de tubos galvanizados e barra redondas, contrato nº: 22/2017, conforme nota fiscal nº:1468.",
+      "pago": "0,00"
+    },
+    {
+      "id": "1ce997a7-0937-4d96-91ec-f5b1b48b6144",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000386",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "notaLiquidacao": "2017NL003878",
+      "notaLancamento": "2017NL003878",
+      "numProcesso": "00008472017",
+      "dataLiquidacao": "20/09/2017",
+      "valLiqLiquidacao": "28.150,90",
+      "valBrutLiquidacao": "28.150,90",
+      "valEmpenho": "510.787,96",
+      "descObsLiquidacao": "Valor de aquisição de tubos galvanizados e barras redondas, contrato nº: 22/2017, conforme nota fiscal nº: 1480.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "979ca7ac-7143-4648-81ce-e8cf75b8272e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000386",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "WALLNOX DO BRASIL COMERCIO DE MAQUINAS E EQUIPAMENTOS LTDA - ME",
+      "notaLiquidacao": "2017NL003878",
+      "ordBancaria": "2017OB025152",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 510.787,96",
+      "dataPagamento": "20/09/2017",
+      "pago": "R$ 28.150,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 04/07/2018 com execução física incompleta (11.02%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Barra",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -13.005618,
+  "longitude": -38.527577,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT003288"
+    },
+    "nuProcesso": "000273/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Barra",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Barra via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

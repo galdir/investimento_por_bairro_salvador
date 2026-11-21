@@ -1,0 +1,174 @@
+{
+  "id": "73287507-88b2-448d-9da3-c3314dd1b4f0",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT003726",
+  "numeroContratoOriginal": "000021/2018",
+  "nuProcesso": "000231/2018",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE MATERIAL PARA USO NO SETOR DE METALURGIA.(BARRA GALVANIZADA E BARRA ROSQUEADA)",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ALDENER GONCALVES DE OLIVEIRA",
+    "cnpj": "",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 1647767.79,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "8ba5c35d-f086-49d2-88cf-2a2c5c3306ba",
+      "d85774be-3884-45bf-858c-285c8a45cfe4",
+      "ef7a1cd3-f318-4fa8-aaa2-2b20a8cef257",
+      "045c1b67-12a2-4fb6-8c9c-207bbb7b81ab",
+      "7f62eef7-dbce-4540-b8f7-4e4d1d15718a",
+      "f8b569f8-f65e-404d-b4c7-9a956e9cb471",
+      "78620433-a505-437f-9738-13481cc91f18",
+      "0ffdb62f-8c5d-4c0e-bb6a-fb7c7453779a"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-07-16T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-07-16T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-07-16T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4149.0,
+    "valorContratualVigente": 4149.0,
+    "valorEmpenhado": 4149.0,
+    "valorLiquidado": 4149.0,
+    "valorPago": 4149.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "3ca1f2ef-2e7c-41a8-8fe7-a1a6fcc25faa",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000377",
+      "dataEmpenho": "25/07/2018",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "4.149,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "db291292-fb70-4ef1-9359-9b72bc742f21",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000377",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL003542",
+      "notaLancamento": "2018NL003542",
+      "numProcesso": "00007122018",
+      "dataLiquidacao": "05/09/2018",
+      "valLiqLiquidacao": "4.149,00",
+      "valBrutLiquidacao": "4.149,00",
+      "valEmpenho": "4.149,00",
+      "descObsLiquidacao": "ALDENER - FORNECIMENTO DE BARRA GALVANIZADA - NF 1195 - PROCESSO 712/2018 CT 021/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "0a4b2ed4-7a77-439f-b253-92ea949327ed",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000377",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL003542",
+      "ordBancaria": "2018OB026664",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 4.149,00",
+      "dataPagamento": "05/09/2018",
+      "pago": "R$ 4.149,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Barra",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -13.005618,
+  "longitude": -38.527577,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT003726"
+    },
+    "nuProcesso": "000231/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Barra",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Barra via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

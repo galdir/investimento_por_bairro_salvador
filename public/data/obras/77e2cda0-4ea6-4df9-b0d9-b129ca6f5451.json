@@ -1,0 +1,152 @@
+{
+  "id": "77e2cda0-4ea6-4df9-b0d9-b129ca6f5451",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2021CT000513",
+  "numeroContratoOriginal": "000001/2020",
+  "nuProcesso": "000012/2019",
+  "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DOS SERVIÇOS DE RECUPERAÇÃO DE CAMPOS DE FUTEBOL, LOCALIZADOS:LADEIRA DE MIRANTE, ABAETÉ/ITAPUÃ- SALVADOR/BA.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "MP2 CONSTRUCOES LTDA",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 11712650.34,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "a8b3583b-7681-40b6-ba4e-1c49d6d992af",
+      "000f3183-cb6e-4f87-bafd-e6706f9537ca",
+      "3f5760f3-c387-4192-b06e-d3ccbcef1d57",
+      "26384a93-4bbb-4816-af11-77464c8a710e",
+      "e67ba113-432f-4094-b4c5-0b138115fcc6",
+      "803ab407-5844-4896-b1ce-7ccc9b993723",
+      "0b42c7dd-bfce-4261-b1cc-f53741c8f0f4"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2021-02-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2021-09-08T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2021-02-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 525246.18,
+    "valorContratualVigente": 525246.18,
+    "valorEmpenhado": 525246.18,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Requalificação de Espaços Públicos",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "classificacao": "Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "809b6e76-2f00-492c-9d64-7bce7818dcd5",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2021NE000091",
+      "dataEmpenho": "11/02/2021",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "109.688,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "f2348867-118f-40dd-bdae-66eba4ca7c23",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2021NE000505",
+      "dataEmpenho": "20/04/2021",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "-109.688,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 08/09/2021 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Itapuã",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.939631,
+  "longitude": -38.358185,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2021CT000513"
+    },
+    "nuProcesso": "000012/2019",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Itapuã",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Itapuã via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

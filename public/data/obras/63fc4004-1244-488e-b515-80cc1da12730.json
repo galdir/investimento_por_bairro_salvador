@@ -1,0 +1,104 @@
+{
+  "id": "63fc4004-1244-488e-b515-80cc1da12730",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2018CT000655",
+  "numeroContratoOriginal": "000134/2018",
+  "nuProcesso": "000005/2018",
+  "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA COORDENAR E OPERACIONALIZAR AS ATIVIDADES DA CENTRAL DE VISTORIA DE VEICULOS DAS ENTIDADES CARNAVALESCAS PARTICIPANETES DOS DESFILES DO CARNAVAL 2018",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "JAVA ENTRETENIMENTO LTDA - EPP",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 157800.0,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "466e7a1d-ae3a-46ee-be6f-3cfd463d210f"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-01-29T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-04-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-01-29T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 78900.0,
+    "valorContratualVigente": 78900.0,
+    "valorEmpenhado": 78900.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/04/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "547002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2018CT000655"
+    },
+    "nuProcesso": "000005/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA COORDENAR E OPERACIONALIZAR AS ATIVIDADES DA CENTRAL DE VISTORIA DE VEICULOS DAS ENTIDADES CARNAVALESCAS PARTICIPANETES DOS DESFILES DO CARNAVAL 2018",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "547002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

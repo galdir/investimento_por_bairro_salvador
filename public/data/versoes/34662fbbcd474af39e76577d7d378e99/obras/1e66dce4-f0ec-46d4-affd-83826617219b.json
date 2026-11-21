@@ -1,0 +1,156 @@
+{
+  "id": "1e66dce4-f0ec-46d4-affd-83826617219b",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2025CT002882",
+  "numeroContratoOriginal": "0262024",
+  "nuProcesso": "083585/2024",
+  "objeto": "Contratação de empresas Centro de Referência Especializado de Assistência Social (CREAS): em Brotas, Paripe e Parque São Cristóvão",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA JF PRADO LTDA",
+    "cnpj": "13.585.696/0001-07",
+    "totalObras": 15,
+    "totalObrasAtivas": 13,
+    "valorTotalContratado": 53260117.59,
+    "outrasObrasCount": 14,
+    "outrasObrasIds": [
+      "7a838951-b48d-4846-9d2c-8d289cd2ea47",
+      "05083126-4533-450c-a2f2-1674fd3eafff",
+      "9b89586c-1f65-4285-ad02-f83f5db8eaed",
+      "6ceb47ca-79e5-4db9-8e02-551184ca2c52",
+      "cc1fed2b-9927-41bf-94cb-70e55890f075",
+      "08264f2e-3edb-47e1-bd2a-a81664d12e01",
+      "34f3e179-fc1c-46c1-a621-c2663e37675d",
+      "f4c0c494-d097-40bd-aca5-c94708f7f6e4",
+      "5b5be466-717b-4fde-b6fa-e882c0ff48eb",
+      "342a9142-ca77-4899-9005-c74cd908dd6a",
+      "6d5e3e92-d4e5-4670-b0e7-2c1926e30861",
+      "96636d21-2012-426d-b280-239e1027e66d",
+      "02186b30-3b7c-4e4c-b472-dffc0faf1af8",
+      "b24d6678-634b-4cd1-91c4-bf765383ae6e"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2025-05-05T00:00:00.000Z",
+    "dataFimOriginal": "2026-02-28T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-02-28T00:00:00.000Z",
+    "prazoOriginal": "299",
+    "prazoAtualizado": "299"
+  },
+  "dom": {
+    "nuDom": "8892",
+    "dataPublicacao": "2025-05-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 9563865.78,
+    "valorContratualVigente": 9563865.78,
+    "valorEmpenhado": 9563865.78,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "5f05e403-9711-481a-afbf-554bac4825fa",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2025NE000524",
+      "dataEmpenho": "05/05/2025",
+      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "50.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "d3be8548-44a9-47c8-bdf1-8e435ce5a098",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2025NE000568",
+      "dataEmpenho": "05/05/2025",
+      "nomeCredor": "CONSTRUTORA JF PRADO LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-50.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 28/02/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2025CT002882"
+    },
+    "nuProcesso": "083585/2024",
+    "domContrato": {
+      "nuDom": "8892",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Centro de Referência Especializado de Assistência Social (CREAS): em Brotas, Paripe e Parque São Cristóvão",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Contrato abrange 3 unidades (Brotas, Paripe e Parque São Cristóvão, em divisa territorial próxima a Cassange/São Cristóvão e sem liquidações discriminadas); além de impedir rateio sem regra contratual, o Estágio 1 capturava Paripe indevidamente."
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

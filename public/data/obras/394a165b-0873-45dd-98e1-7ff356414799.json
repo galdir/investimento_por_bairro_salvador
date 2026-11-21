@@ -1,0 +1,161 @@
+{
+  "id": "394a165b-0873-45dd-98e1-7ff356414799",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000591",
+  "numeroContratoOriginal": "000003/2018",
+  "nuProcesso": "000432/2017",
+  "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE PISO ALTA RESISTÊNCIA PARA ATENDER AOS SERVIÇOS DE REQUALIFICAÇÃO DE ESPAÇOS EM LOGRADOUROS PÚBLICO DE SALVADOR",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 739367.12,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "cbc9b5dc-36e6-468f-995e-a85c9d77308f",
+      "a2978f86-4e62-43ac-a33c-aed9ca3f3381",
+      "8d386f83-dc8f-444c-b5e2-648a5a7ff56c",
+      "d8e1ed1d-1b0e-49a3-a5c8-f68eccc92696",
+      "de0df8e9-7ab4-422d-b86d-f3df7ae0fee2",
+      "7a92f059-83dc-42ab-8dde-6b1388b75fe4",
+      "78e766d2-4dda-43ea-8f77-df30fc518582",
+      "b5042f60-8f26-41fe-8a64-f236536d5581",
+      "5e719a43-0cc3-48d1-a436-6fa6dcfe62d8",
+      "19c78f5d-4e5f-47c8-9356-bb05b15bbc46",
+      "53cc655e-9db7-4251-b4c4-b49f8065ae6a",
+      "ad32d833-abb2-4e41-a33a-c90c7d590b34",
+      "b15b7c75-8f25-48df-bcdd-6dbd44cac0ca"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-01-29T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-01-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-01-29T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 6988.8,
+    "valorContratualVigente": 6988.8,
+    "valorEmpenhado": 6988.8,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Obras e Serviços em Espaços e Equipamentos Públicos",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a06774b5-daeb-4603-9e24-25ba1f280e00",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000102",
+      "dataEmpenho": "05/02/2018",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "6.988,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9f37e42d-253e-49ce-93c6-a356cf29c5b3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000673",
+      "dataEmpenho": "15/12/2018",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-6.988,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/01/2019 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000591"
+    },
+    "nuProcesso": "000432/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE PISO ALTA RESISTÊNCIA PARA ATENDER AOS SERVIÇOS DE REQUALIFICAÇÃO DE ESPAÇOS EM LOGRADOUROS PÚBLICO DE SALVADOR",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "d85774be-3884-45bf-858c-285c8a45cfe4",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT002096",
+  "numeroContratoOriginal": "000009/2018",
+  "nuProcesso": "000134/2018",
+  "objeto": "Aquisição de tinta, solventes e materiais para pintura de abrigos metálicos.PR-134/2018",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ALDENER GONCALVES DE OLIVEIRA",
+    "cnpj": "",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 1647767.79,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "73287507-88b2-448d-9da3-c3314dd1b4f0",
+      "8ba5c35d-f086-49d2-88cf-2a2c5c3306ba",
+      "ef7a1cd3-f318-4fa8-aaa2-2b20a8cef257",
+      "045c1b67-12a2-4fb6-8c9c-207bbb7b81ab",
+      "7f62eef7-dbce-4540-b8f7-4e4d1d15718a",
+      "f8b569f8-f65e-404d-b4c7-9a956e9cb471",
+      "78620433-a505-437f-9738-13481cc91f18",
+      "0ffdb62f-8c5d-4c0e-bb6a-fb7c7453779a"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-04-12T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-07-10T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-04-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 75000.0,
+    "valorContratualVigente": 75000.0,
+    "valorEmpenhado": 75000.0,
+    "valorLiquidado": 75000.0,
+    "valorPago": 75000.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "9798a9af-d982-446b-bbbe-034cf753ce69",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000206",
+      "dataEmpenho": "17/04/2018",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "75.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "f899dc2a-480b-4431-97e3-e1b933818623",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000211",
+      "dataEmpenho": "23/04/2018",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "75.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "22b35264-fe4c-481f-b931-c397adc32f93",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000210",
+      "dataEmpenho": "23/04/2018",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-75.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "c5d69ee1-dc88-406a-865f-44145b172fc8",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000211",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL001516",
+      "notaLancamento": "2018NL001516",
+      "numProcesso": "00003252018",
+      "dataLiquidacao": "07/05/2018",
+      "valLiqLiquidacao": "75.000,00",
+      "valBrutLiquidacao": "75.000,00",
+      "valEmpenho": "75.000,00",
+      "descObsLiquidacao": "PAGAMENTO ALDENER (TINTA, SOLVENTE, ESTOPA,ETC) NF:1112 PR.325/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "4af1b52e-893b-4410-90f9-c6ef51008baa",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000211",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL001516",
+      "ordBancaria": "2018OB012247",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 75.000,00",
+      "dataPagamento": "07/05/2018",
+      "pago": "R$ 75.000,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT002096"
+    },
+    "nuProcesso": "000134/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Aquisição de tinta, solventes e materiais para pintura de abrigos metálicos.PR-134/2018",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

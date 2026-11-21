@@ -1,0 +1,187 @@
+{
+  "id": "ac8d65f9-671c-441f-809b-a73ff65f664a",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2019CT009459",
+  "numeroContratoOriginal": "000041/2019",
+  "nuProcesso": "000467/2019",
+  "objeto": "OBRA DE REQUAL1FICAÇÃO DA PRAÇA NA RUA HENRIQUE DIAS, LOCALIZADA NO BAIRRO DO BOMFIM, DA PRAÇA QUINZE DE AGOSTO, LOCALIZADA NO BAIRRO DA VILA RUI BARBOSA E DA PRAÇA ANA SIRONE, LOCALIZADA NO BAIRRO VALE DAS PEDRINHAS, ORIUNDO DO CONTRATO DE REPASSE N° 845446/2017",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "ENGEMAIS CONSTRUCAO E LOCACAO DE MAQUINAS EIRELI",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 0,
+    "valorTotalContratado": 403583.11,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2019-12-16T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2020-06-12T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2019-12-16T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 403583.11,
+    "valorContratualVigente": 403583.11,
+    "valorEmpenhado": 403583.11,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Requalificação de Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    },
+    {
+      "subacao": "Requalificação de Praças Públicas",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "cef53b87-19dc-46a2-9df0-ed0f9df96dd6",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2019NE001387",
+      "dataEmpenho": "17/12/2019",
+      "nomeCredor": "ENGEMAIS CONSTRUCAO E LOCACAO DE MAQUINAS EIRELI",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "402.701,12",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "e51d454d-2c5e-41ce-bf5a-5e65a69253ff",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2019NE001380",
+      "dataEmpenho": "17/12/2019",
+      "nomeCredor": "ENGEMAIS CONSTRUCAO E LOCACAO DE MAQUINAS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "881,99",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "8d49eede-748f-461c-a810-2a7208f195fb",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2019NE001500",
+      "dataEmpenho": "20/12/2019",
+      "nomeCredor": "ENGEMAIS CONSTRUCAO E LOCACAO DE MAQUINAS EIRELI",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "-402.701,12",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "424b20fc-817b-43d2-b175-c952abfab968",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2019NE001501",
+      "dataEmpenho": "20/12/2019",
+      "nomeCredor": "ENGEMAIS CONSTRUCAO E LOCACAO DE MAQUINAS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "-881,99",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 12/06/2020 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Vale das Pedrinhas",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -13.008432,
+  "longitude": -38.481255,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2019CT009459"
+    },
+    "nuProcesso": "000467/2019",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Vale das Pedrinhas",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Vale das Pedrinhas via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

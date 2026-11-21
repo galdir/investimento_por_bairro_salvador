@@ -1,0 +1,294 @@
+{
+  "id": "811c1a71-4356-418f-8a60-05f69b762e91",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT001038",
+  "numeroContratoOriginal": "000001/2018",
+  "nuProcesso": "000431/2017",
+  "objeto": "AQUISIÇÃO DE MATERIAIS PARA FABRICAÇÃO DE FÔRMAS METÁLICAS, ABRIGOS DE ÔNIBUS E RECUPERAÇÕES DE BENS PÚBLICOS DIVERSOS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PODIUM DISTRIBUIDORA LTDA",
+    "cnpj": "",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 1524874.62,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "d63747ad-b8b0-4bb7-ba6e-694a5fad5976",
+      "19082b32-dba1-468a-8959-d960cd7d7002",
+      "7173c9b2-7a5e-4f97-98fa-5840329c148a",
+      "ad0b156d-6377-4437-b611-4f420de9f526",
+      "856487f7-a8e5-41d0-9e95-f9d2e2493743",
+      "991f8e21-c926-4016-9954-743429ec1c8a",
+      "551e2fd4-8ccf-4eef-8191-3a5e96328e4f",
+      "5c01f983-3913-4a93-a5aa-b7bc63599ea6",
+      "16165255-0a1d-4a41-b40c-476df5d80ed3",
+      "93ae0d9d-0a6f-4b3c-a1fc-64b75e7cf93d",
+      "c4f2b933-6250-4423-bb75-2d700615dacd"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-01-31T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-03-31T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-01-31T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 86470.55,
+    "valorContratualVigente": 86470.55,
+    "valorEmpenhado": 86470.55,
+    "valorLiquidado": 86470.55,
+    "valorPago": 86470.55,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "ee22573a-592b-49ff-af27-75ab2b894429",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000110",
+      "dataEmpenho": "05/02/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "86.470,55",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "d134f2bf-f8ca-4a54-be4a-38a7520bef19",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000921",
+      "notaLancamento": "2018NL000921",
+      "numProcesso": "00001952018",
+      "dataLiquidacao": "23/03/2018",
+      "valLiqLiquidacao": "59.500,00",
+      "valBrutLiquidacao": "59.500,00",
+      "valEmpenho": "86.470,55",
+      "descObsLiquidacao": "PAGAMENTO PODIUM NF:4563 (CHAPAS FERRO E GALVANIZADAS) PR.195/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "bc50c064-3014-4a0a-974f-695dae6a9ff4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000940",
+      "notaLancamento": "2018NL000940",
+      "numProcesso": "00002012018",
+      "dataLiquidacao": "26/03/2018",
+      "valLiqLiquidacao": "3.170,40",
+      "valBrutLiquidacao": "3.170,40",
+      "valEmpenho": "86.470,55",
+      "descObsLiquidacao": "PAGAMENTO  PODIUM NF:4566 (BARRA ROSQUEADA) CT- 01/2018- PR.201/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "7749906f-438e-49c0-9ef4-4bbdaa0eb9ce",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000942",
+      "notaLancamento": "2018NL000942",
+      "numProcesso": "00002022018",
+      "dataLiquidacao": "26/03/2018",
+      "valLiqLiquidacao": "4.800,00",
+      "valBrutLiquidacao": "4.800,00",
+      "valEmpenho": "86.470,55",
+      "descObsLiquidacao": "PAGAMENTO PODIUM NF:4569 (BARRA DE FERRO) CT-01/2018- PR.202/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "99df4756-fa34-45fe-b245-8cfa383b2313",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL001436",
+      "notaLancamento": "2018NL001436",
+      "numProcesso": "00002972018",
+      "dataLiquidacao": "26/04/2018",
+      "valLiqLiquidacao": "19.000,15",
+      "valBrutLiquidacao": "19.000,15",
+      "valEmpenho": "86.470,55",
+      "descObsLiquidacao": "PAGAMENTO PODIUM DISTRIBUIDORA - NF 4571 - PR. 297/2018 - CT 01/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "442fbd20-d750-4d40-9cef-e8a83334eb67",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000921",
+      "ordBancaria": "2018OB007749",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 86.470,55",
+      "dataPagamento": "23/03/2018",
+      "pago": "R$ 59.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "3490937e-758f-4336-9720-a76333bcf17e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000940",
+      "ordBancaria": "2018OB008175",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 86.470,55",
+      "dataPagamento": "26/03/2018",
+      "pago": "R$ 3.170,40",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "85a04adf-dcd4-4ef1-b35d-99632b2bcf18",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000942",
+      "ordBancaria": "2018OB008175",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 86.470,55",
+      "dataPagamento": "26/03/2018",
+      "pago": "R$ 4.800,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "ad677ffa-50a7-44a3-822f-8e40a053f4ea",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000110",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL001436",
+      "ordBancaria": "2018OB011873",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 86.470,55",
+      "dataPagamento": "26/04/2018",
+      "pago": "R$ 19.000,15",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT001038"
+    },
+    "nuProcesso": "000431/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE MATERIAIS PARA FABRICAÇÃO DE FÔRMAS METÁLICAS, ABRIGOS DE ÔNIBUS E RECUPERAÇÕES DE BENS PÚBLICOS DIVERSOS",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

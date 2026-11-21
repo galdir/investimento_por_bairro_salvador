@@ -1,0 +1,275 @@
+{
+  "id": "7173c9b2-7a5e-4f97-98fa-5840329c148a",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT001666",
+  "numeroContratoOriginal": "000007/2018",
+  "nuProcesso": "000436/2017",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE MATERIAIS PARA FABRICAÇÃO DE QUISOQUES. (PREGOS, DOBRADIÇAS, PARAFUSOS.) CT-07/2018",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "PODIUM DISTRIBUIDORA LTDA",
+    "cnpj": "",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 1524874.62,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "d63747ad-b8b0-4bb7-ba6e-694a5fad5976",
+      "19082b32-dba1-468a-8959-d960cd7d7002",
+      "ad0b156d-6377-4437-b611-4f420de9f526",
+      "856487f7-a8e5-41d0-9e95-f9d2e2493743",
+      "811c1a71-4356-418f-8a60-05f69b762e91",
+      "991f8e21-c926-4016-9954-743429ec1c8a",
+      "551e2fd4-8ccf-4eef-8191-3a5e96328e4f",
+      "5c01f983-3913-4a93-a5aa-b7bc63599ea6",
+      "16165255-0a1d-4a41-b40c-476df5d80ed3",
+      "93ae0d9d-0a6f-4b3c-a1fc-64b75e7cf93d",
+      "c4f2b933-6250-4423-bb75-2d700615dacd"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-03-05T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-03-05T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-03-05T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 24925.35,
+    "valorContratualVigente": 24925.35,
+    "valorEmpenhado": 21755.35,
+    "valorLiquidado": 21755.35,
+    "valorPago": 21755.35,
+    "percentualExecutado": 87.28,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "e40ca3a4-178e-431f-9ad5-a178b9f37623",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000173",
+      "dataEmpenho": "14/03/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "24.925,35",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "6b4d9679-d915-4471-aff9-c137442bbfdc",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000719",
+      "dataEmpenho": "20/12/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-3.170,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "cb4b86ed-c57d-4b26-b971-6f2d4456e114",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000173",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002860",
+      "notaLancamento": "2018NL002860",
+      "numProcesso": "00005942018",
+      "dataLiquidacao": "30/07/2018",
+      "valLiqLiquidacao": "9.416,00",
+      "valBrutLiquidacao": "9.416,00",
+      "valEmpenho": "24.925,35",
+      "descObsLiquidacao": "PODIUM DISTRIBUIDORA LTDA - NF 4589 - PROCESSO 594/2018 - CT 07/2018 - MATERIAIS PARA FABRICAÇÃO DE QUIOSQUES (BARRA, PORCA, ARRUELAS, PARAFUSOS TODOS INOX ETC)",
+      "pago": "0,00"
+    },
+    {
+      "id": "7b4f1838-f02e-48bb-b71a-61cefc0b12fc",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000173",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002934",
+      "notaLancamento": "2018NL002934",
+      "numProcesso": "00006112018",
+      "dataLiquidacao": "03/08/2018",
+      "valLiqLiquidacao": "8.839,35",
+      "valBrutLiquidacao": "8.839,35",
+      "valEmpenho": "24.925,35",
+      "descObsLiquidacao": "PODIUM - CT 07/2018 - DOBRADIÇA E FERROLHA INOX - NF 4590 - PROCESSO 611/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "6ff074c6-cc7c-49e8-aef1-eb109f7a61ed",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000173",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002936",
+      "notaLancamento": "2018NL002936",
+      "numProcesso": "00006102018",
+      "dataLiquidacao": "03/08/2018",
+      "valLiqLiquidacao": "3.500,00",
+      "valBrutLiquidacao": "3.500,00",
+      "valEmpenho": "24.925,35",
+      "descObsLiquidacao": "PODIUM - CT 07/2018 - PREGOS GALVANIZADOS DOBRADIÇAS E FERROLHO EM INOX- NF 4584 - PROCESSO 610/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "685e6679-5450-46ef-b290-6069a70d097d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000173",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002860",
+      "ordBancaria": "2018OB022063",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 24.925,35",
+      "dataPagamento": "30/07/2018",
+      "pago": "R$ 9.416,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "3af92c7a-e9b6-4e23-bab3-9657339712e2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000173",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002936",
+      "ordBancaria": "2018OB022807",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 24.925,35",
+      "dataPagamento": "03/08/2018",
+      "pago": "R$ 3.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6a8d868c-c47d-45e9-a95a-126562f837b4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000173",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002934",
+      "ordBancaria": "2018OB022807",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 24.925,35",
+      "dataPagamento": "03/08/2018",
+      "pago": "R$ 8.839,35",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 05/03/2019 com execução física incompleta (87.28%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT001666"
+    },
+    "nuProcesso": "000436/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE MATERIAIS PARA FABRICAÇÃO DE QUISOQUES. (PREGOS, DOBRADIÇAS, PARAFUSOS.) CT-07/2018",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

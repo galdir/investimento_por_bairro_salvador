@@ -1,0 +1,263 @@
+{
+  "id": "8950224c-0001-4106-a67f-a7e86cca9726",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT004421",
+  "numeroContratoOriginal": "000023/2018",
+  "nuProcesso": "000617/2018",
+  "objeto": "Serviços especializados em Confecções de Projetos elétricos para atender o contrato Federal n. 842345/2016 - Reforma do CREAS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 6000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-06-22T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-10-19T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-06-22T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 6000.0,
+    "valorContratualVigente": 6000.0,
+    "valorEmpenhado": 6000.0,
+    "valorLiquidado": 5700.0,
+    "valorPago": 6000.0,
+    "percentualExecutado": 95.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Requalificação e Conservação das Edificações Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "6434e03e-f89a-476b-a682-1e6b3f7bcfd9",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2018NE000670",
+      "dataEmpenho": "01/08/2018",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
+      "valEmpenhado": "6.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "a7d36e89-f205-406f-a0b3-53e58384c68e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000670",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL005256",
+      "notaLancamento": "2018NL005256",
+      "numProcesso": "00009572018",
+      "dataLiquidacao": "29/10/2018",
+      "valLiqLiquidacao": "5.700,00",
+      "valBrutLiquidacao": "6.000,00",
+      "valEmpenho": "6.000,00",
+      "descObsLiquidacao": "REFERENTE A CONTRATAÇÃO PROFISSIONAL PARA ELABORAÇÃO DE PROJETOS PARA INSTALAÇAO ELETRICA DE DOIS DREAS ,CONFORME NF 99.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "a8485406-726c-4141-960a-0bdb0318e998",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000670",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL005256",
+      "ordBancaria": "2018OB032937",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 6.000,00",
+      "dataPagamento": "29/10/2018",
+      "pago": "R$ 5.700,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "fe31d944-a81d-4af5-b1d2-49eb304cd91c",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000670",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018NL005256",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 6.000,00",
+      "dataPagamento": "29/10/2018",
+      "pago": "R$ 300,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "e5a09202-1362-4770-89dd-86485c506053",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000670",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP002857",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 6.000,00",
+      "dataPagamento": "31/10/2018",
+      "pago": "R$ 300,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "4ebf7ab4-6219-41ed-9525-032983e0f389",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000670",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP002857",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 6.000,00",
+      "dataPagamento": "31/10/2018",
+      "pago": "R$ -300,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8a0fded8-4a32-43f1-b7ab-1ff261bcaa87",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000670",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB032968",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 6.000,00",
+      "dataPagamento": "01/11/2018",
+      "pago": "R$ -300,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "3d8c77ee-5667-4367-9cae-2c95159c3e60",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000670",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "RAMIREZ ARQUITETURA CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB032968",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 6.000,00",
+      "dataPagamento": "01/11/2018",
+      "pago": "R$ 300,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 19/10/2018 com execução física incompleta (95.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT004421"
+    },
+    "nuProcesso": "000617/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Serviços especializados em Confecções de Projetos elétricos para atender o contrato Federal n. 842345/2016 - Reforma do CREAS",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

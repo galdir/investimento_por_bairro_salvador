@@ -1,0 +1,168 @@
+{
+  "id": "d0500b14-d555-468b-87a8-27e567422aa6",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT003145",
+  "numeroContratoOriginal": "000021/2017",
+  "nuProcesso": "000367/2017",
+  "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA AQUISIÇÃO E INSTALÇÃO DE TANQUE CILINDRICO MNETALICO 20.000 LTS AEREO HORIZONTAL COM BACIA DE RETENÇÃO BOCA DE VISITA E ESCADA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "NORTE SHOPPING LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 47899.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-07-03T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-12-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-07-03T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 47899.0,
+    "valorContratualVigente": 47899.0,
+    "valorEmpenhado": 47899.0,
+    "valorLiquidado": 47899.0,
+    "valorPago": 47899.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Equipamentos e Material Permanente"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "6b147b25-8bc2-4edc-80d2-3d59055517df",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000374",
+      "dataEmpenho": "06/07/2017",
+      "nomeCredor": "NORTE SHOPPING LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Outros Equipamentos e Materiais Permanentes",
+      "valEmpenhado": "47.899,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "834096cd-36b3-4b66-9b38-78d82761b22b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000374",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "NORTE SHOPPING LTDA",
+      "notaLiquidacao": "2017NL003411",
+      "notaLancamento": "2017NL003411",
+      "numProcesso": "00007702017",
+      "dataLiquidacao": "14/08/2017",
+      "valLiqLiquidacao": "47.899,00",
+      "valBrutLiquidacao": "47.899,00",
+      "valEmpenho": "47.899,00",
+      "descObsLiquidacao": "Valor de aquisição de tanque cilíndrico metálico de 20.000lts, contrato nº: 21/2017,  conforme nota fiscal nº: 284.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "10ec8c19-a3d4-4b61-a029-85030e9cfa57",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000374",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "NORTE SHOPPING LTDA",
+      "notaLiquidacao": "2017NL003411",
+      "ordBancaria": "2017OB021221",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "valEmpenhado": "R$ 47.899,00",
+      "dataPagamento": "14/08/2017",
+      "pago": "R$ 47.899,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT003145"
+    },
+    "nuProcesso": "000367/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA AQUISIÇÃO E INSTALÇÃO DE TANQUE CILINDRICO MNETALICO 20.000 LTS AEREO HORIZONTAL COM BACIA DE RETENÇÃO BOCA DE VISITA E ESCADA",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

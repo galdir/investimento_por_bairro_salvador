@@ -1,0 +1,214 @@
+{
+  "id": "e98994b5-c1dc-4306-976d-f7b4b6eb84c6",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000339",
+  "numeroContratoOriginal": "37/2017",
+  "nuProcesso": "000400/2017",
+  "objeto": "AQUISIÇÃO DE CHAPAS E TUBOS EM AÇO INOX",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 1565042.0,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "5dd4c7f9-8dae-45aa-aa4d-e02897433130",
+      "a942ae46-fdac-4b08-a447-e05b6691271e",
+      "398998e5-994a-4744-80e8-62baf7c0bce2",
+      "c2e367da-163b-49ae-82b6-3a4c7e12c65d",
+      "0081ba3e-0374-4862-aafe-04851cc2bc23",
+      "c66c95de-b469-4962-9cea-25eeeae1607b",
+      "7c2d28ac-6a71-466d-b266-38fe9f07e320"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-14T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-14T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 98622.0,
+    "valorContratualVigente": 98622.0,
+    "valorEmpenhado": 98622.0,
+    "valorLiquidado": 98622.0,
+    "valorPago": 98622.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "134e5fd3-399d-431c-b517-838985201c97",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000065",
+      "dataEmpenho": "26/01/2018",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "98.622,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "d9c6bec1-68a6-47b5-89a8-53ac8b0f47be",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000065",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000876",
+      "notaLancamento": "2018NL000876",
+      "numProcesso": "00001842018",
+      "dataLiquidacao": "22/03/2018",
+      "valLiqLiquidacao": "10.958,00",
+      "valBrutLiquidacao": "10.958,00",
+      "valEmpenho": "98.622,00",
+      "descObsLiquidacao": "PAGAMENTO BAHIA FORTE NF:931- (CHAPA INOX) PR.184/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "981b58e3-cdb0-4b26-ad9d-a1c89625388e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000065",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL002366",
+      "notaLancamento": "2018NL002366",
+      "numProcesso": "00004812018",
+      "dataLiquidacao": "27/06/2018",
+      "valLiqLiquidacao": "87.664,00",
+      "valBrutLiquidacao": "87.664,00",
+      "valEmpenho": "98.622,00",
+      "descObsLiquidacao": "BAHIA FORTE -AQUISIÇÃO DE CHAPAS EM AÇO- CT 37/2017 NF 948 PROCESSO 481/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "95efae53-a771-4c22-92ba-4425c85b8733",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000065",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000876",
+      "ordBancaria": "2018OB007749",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 98.622,00",
+      "dataPagamento": "22/03/2018",
+      "pago": "R$ 10.958,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6f3907ec-79e3-44ad-ab48-cbf4d99ee891",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000065",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL002366",
+      "ordBancaria": "2018OB018634",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 98.622,00",
+      "dataPagamento": "27/06/2018",
+      "pago": "R$ 87.664,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000339"
+    },
+    "nuProcesso": "000400/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE CHAPAS E TUBOS EM AÇO INOX",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

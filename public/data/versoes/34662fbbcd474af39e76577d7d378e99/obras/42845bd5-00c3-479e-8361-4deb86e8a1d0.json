@@ -1,0 +1,157 @@
+{
+  "id": "42845bd5-00c3-479e-8361-4deb86e8a1d0",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000199",
+  "numeroContratoOriginal": "000001/2018",
+  "nuProcesso": "000609/2017",
+  "objeto": "Serviços de engenharia para recuperação de imovel localizado na rua Matriz, 494, Valéria - onde funcionava a prefeitura Bairro",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "CB ENGENHARIA E CONSTRUCOES LTDA",
+    "cnpj": "",
+    "totalObras": 13,
+    "totalObrasAtivas": 13,
+    "valorTotalContratado": 37647352.35,
+    "outrasObrasCount": 12,
+    "outrasObrasIds": [
+      "782f2061-9ae3-4dd5-b4fd-6f13c26d9f8e",
+      "f08e7113-259d-47d5-8df0-b39762fe86dc",
+      "66f320ac-0282-4b04-a3ec-49fe351d6fa9",
+      "9f42d9c5-8309-4816-8565-2a2ec2a61a7e",
+      "56302c84-454f-495b-b1b8-cb2114f1679c",
+      "6f521932-0cb0-48d0-8d99-f67e6a48abf7",
+      "f22560ce-c5c7-4278-befe-616bd5b199ec",
+      "35e2726c-01b1-4a6d-b819-0465911c020e",
+      "88a6a19f-db77-42ac-9d69-38b1dde471b8",
+      "f797e11e-1f44-4751-9a76-061e6f6c7c2d",
+      "599eab14-1f97-42b6-ac0f-dde4d1db12b4",
+      "c06b64ad-65de-47c2-873d-f7e734edf8d7"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-01-16T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-07-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-01-16T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 87661.71,
+    "valorContratualVigente": 87661.71,
+    "valorEmpenhado": 87661.71,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Requalificação e Conservação das Edificações Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "2d3a06f9-6771-4599-858f-f9be8e086a15",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2018NE000337",
+      "dataEmpenho": "01/03/2018",
+      "nomeCredor": "CB ENGENHARIA E CONSTRUCOES LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-87.661,71",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b36b4b35-5b01-4ceb-a4a8-96b18b0e63ea",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2018NE000113",
+      "dataEmpenho": "16/01/2018",
+      "nomeCredor": "CB ENGENHARIA E CONSTRUCOES LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "87.661,71",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 14/07/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Valéria",
+  "prefeituraBairro": "Valéria",
+  "latitude": -12.865315,
+  "longitude": -38.433886,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000199"
+    },
+    "nuProcesso": "000609/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Valéria",
+      "prefeituraBairro": "Valéria",
+      "origem": "Alocação em Valéria via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

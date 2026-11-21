@@ -1,0 +1,235 @@
+{
+  "id": "4ef7cff8-e26e-45b3-9fac-82fee37fd26e",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2024CT006897",
+  "numeroContratoOriginal": "78/2024",
+  "nuProcesso": "127566/2024",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA SUBSTITUIÇÃO DE CONJUNTO MOTOR-BOMBA DA REDE DE INCÊNDIO, QUADRO DE COMANDO E OUTROS AFINS INSTALADOS NA SEDE DA DESAL",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 82800.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2024-07-15T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-12-11T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-07-15T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 82800.0,
+    "valorContratualVigente": 82800.0,
+    "valorEmpenhado": 82800.0,
+    "valorLiquidado": 82800.0,
+    "valorPago": 82800.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "0334cdd6-0589-438d-82cb-2a01ffb9a2d4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2024NE000693",
+      "dataEmpenho": "24/07/2024",
+      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "82.800,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "f4b8e135-be81-40d5-a382-2e96ea5a009f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE000693",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+      "notaLiquidacao": "2024NL005212",
+      "notaLancamento": "2024NL005212",
+      "numProcesso": "01716042024",
+      "dataLiquidacao": "19/08/2024",
+      "valLiqLiquidacao": "42.800,00",
+      "valBrutLiquidacao": "42.800,00",
+      "valEmpenho": "82.800,00",
+      "descObsLiquidacao": "NIRHALL ENGENHARIA - CONSULTORIA ESPECIALIZADA EM SEGURANÇA DO TRABALHO - PROC 171604/2024",
+      "pago": "0,00"
+    },
+    {
+      "id": "76189f17-e1f4-4fe5-a831-9c975aa7d5de",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE000693",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+      "notaLiquidacao": "2024NL006465",
+      "notaLancamento": "2024NL006465",
+      "numProcesso": "01979592024",
+      "dataLiquidacao": "23/09/2024",
+      "valLiqLiquidacao": "40.000,00",
+      "valBrutLiquidacao": "40.000,00",
+      "valEmpenho": "82.800,00",
+      "descObsLiquidacao": "NIRHALL ENGENHARIA - CONSULTORIA ESPECIALIZADA EM SEGURANÇA DO TRABALHO - PROC 197959/2024",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "9238fc63-7bdf-4dca-83de-12822956dc82",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE000693",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+      "notaLiquidacao": "2024NL005212",
+      "ordBancaria": "2024OB058115",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 82.800,00",
+      "dataPagamento": "21/08/2024",
+      "pago": "R$ 41.944,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "334c2b9e-1db4-4efa-a352-b25fc74f05e5",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE000693",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB058116",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 82.800,00",
+      "dataPagamento": "21/08/2024",
+      "pago": "R$ 856,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "369c8d81-50ca-4f6c-bc5d-7d46cc4b5bd8",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE000693",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB066840",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 82.800,00",
+      "dataPagamento": "24/09/2024",
+      "pago": "R$ 800,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "a4835a9c-9e7d-46b3-b78f-91da656346a9",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2024NE000693",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "NIRHALL ENGENHARIA - CONSULTORIA E ASSESSORIA EM SEGURANCA DO TRABALHO, HIGIENE OCUPACIONAL E MEIO AMBIENTE LTDA",
+      "notaLiquidacao": "2024NL006465",
+      "ordBancaria": "2024OB066839",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 82.800,00",
+      "dataPagamento": "24/09/2024",
+      "pago": "R$ 39.200,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Saúde",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Porto Seco Pirajá",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.91001,
+  "longitude": -38.454366,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2024CT006897"
+    },
+    "nuProcesso": "127566/2024",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Porto Seco Pirajá via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

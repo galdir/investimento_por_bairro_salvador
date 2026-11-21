@@ -1,0 +1,258 @@
+{
+  "id": "8d386f83-dc8f-444c-b5e2-648a5a7ff56c",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT002891",
+  "numeroContratoOriginal": "000015/2018",
+  "nuProcesso": "000151/2018",
+  "objeto": "AQUISIÇÃO DE TELAS COM ENTREGA INCLUSA, PARA USO NA PRODUÇÃO  E DEMANDAS DA DESAL. CT-15/2018  PR.151/2018",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 739367.12,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "cbc9b5dc-36e6-468f-995e-a85c9d77308f",
+      "a2978f86-4e62-43ac-a33c-aed9ca3f3381",
+      "394a165b-0873-45dd-98e1-7ff356414799",
+      "d8e1ed1d-1b0e-49a3-a5c8-f68eccc92696",
+      "de0df8e9-7ab4-422d-b86d-f3df7ae0fee2",
+      "7a92f059-83dc-42ab-8dde-6b1388b75fe4",
+      "78e766d2-4dda-43ea-8f77-df30fc518582",
+      "b5042f60-8f26-41fe-8a64-f236536d5581",
+      "5e719a43-0cc3-48d1-a436-6fa6dcfe62d8",
+      "19c78f5d-4e5f-47c8-9356-bb05b15bbc46",
+      "53cc655e-9db7-4251-b4c4-b49f8065ae6a",
+      "ad32d833-abb2-4e41-a33a-c90c7d590b34",
+      "b15b7c75-8f25-48df-bcdd-6dbd44cac0ca"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-05-14T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-09-10T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-05-14T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 55245.0,
+    "valorContratualVigente": 55245.0,
+    "valorEmpenhado": 55245.0,
+    "valorLiquidado": 55245.0,
+    "valorPago": 55245.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "fb191a36-773c-4eed-8b19-8e53d1de184b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000287",
+      "dataEmpenho": "22/05/2018",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "55.245,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "9c8f6aa5-1417-4271-a446-c5f484a9222c",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000287",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL003129",
+      "notaLancamento": "2018NL003129",
+      "numProcesso": "00006482018",
+      "dataLiquidacao": "14/08/2018",
+      "valLiqLiquidacao": "35.200,00",
+      "valBrutLiquidacao": "35.200,00",
+      "valEmpenho": "55.245,00",
+      "descObsLiquidacao": "DEPAU COMERCIO - AQUISIÇÃO DE TELAS COM ENTREGA INCLUSA - NF 4325 - PROCESSO 648/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "fe00f073-fac1-4e2a-82a5-b125e74ed6aa",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000287",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL003523",
+      "notaLancamento": "2018NL003523",
+      "numProcesso": "00007052018",
+      "dataLiquidacao": "05/09/2018",
+      "valLiqLiquidacao": "4.800,00",
+      "valBrutLiquidacao": "4.800,00",
+      "valEmpenho": "55.245,00",
+      "descObsLiquidacao": "DEPAU COM.TELA GALVANIZADA ELETROSALDADA - NF 4360 - PROCESSO 705/2018 - CT 015/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "3ba707a8-4e68-4cdf-b21a-4afebe651da4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000287",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL003621",
+      "notaLancamento": "2018NL003621",
+      "numProcesso": "00007252018",
+      "dataLiquidacao": "12/09/2018",
+      "valLiqLiquidacao": "15.245,00",
+      "valBrutLiquidacao": "15.245,00",
+      "valEmpenho": "55.245,00",
+      "descObsLiquidacao": "DEPAU - FORNECIMENTO DE TELA GALVANIZADA ELETROSOLDADA, TELA MF 138/196",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "bc90083c-0fcb-4c74-b7fa-f0b9566261e2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000287",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL003129",
+      "ordBancaria": "2018OB023998",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 55.245,00",
+      "dataPagamento": "14/08/2018",
+      "pago": "R$ 35.200,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "765816e7-d218-497c-8aaf-f4a695fa2a06",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000287",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL003523",
+      "ordBancaria": "2018OB026663",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 55.245,00",
+      "dataPagamento": "05/09/2018",
+      "pago": "R$ 4.800,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "fe0e088d-1167-43b2-8d88-a99a9f67c3ef",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000287",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL003621",
+      "ordBancaria": "2018OB027260",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 55.245,00",
+      "dataPagamento": "12/09/2018",
+      "pago": "R$ 15.245,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT002891"
+    },
+    "nuProcesso": "000151/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE TELAS COM ENTREGA INCLUSA, PARA USO NA PRODUÇÃO  E DEMANDAS DA DESAL. CT-15/2018  PR.151/2018",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

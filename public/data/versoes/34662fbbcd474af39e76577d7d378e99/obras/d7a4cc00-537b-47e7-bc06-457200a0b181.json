@@ -1,0 +1,209 @@
+{
+  "id": "d7a4cc00-537b-47e7-bc06-457200a0b181",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006171",
+  "numeroContratoOriginal": "29/2017",
+  "nuProcesso": "000374/2017",
+  "objeto": "AQUISIÇÃO DE MATERIAIS PARA O SETOR DE METALURGIA (ELETRODO, DISCO E ROLO)",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "D FORMA INSTALACOES E DIVISORIAS LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 61021.48,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "f17d9725-79cc-43f7-88d1-441e971de59a",
+      "84e3fad9-e0ef-44da-b35e-eb6ac25217a4"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-10T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 30858.0,
+    "valorContratualVigente": 30858.0,
+    "valorEmpenhado": 30858.0,
+    "valorLiquidado": 30858.0,
+    "valorPago": 30858.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "7a98e3db-95f6-4479-8c62-c42e5ef164d9",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000411",
+      "dataEmpenho": "12/12/2017",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "30.858,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "ef453407-28ca-4777-b017-d7c889cb35fc",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000451",
+      "dataEmpenho": "18/12/2017",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-30.858,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "439cd2f7-1f4a-476e-903a-b19dcddc1f2a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000072",
+      "dataEmpenho": "29/01/2018",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "30.858,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "d5b2ecb4-710b-4748-82e7-c440c64d523e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000072",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "notaLiquidacao": "2018NL000403",
+      "notaLancamento": "2018NL000403",
+      "numProcesso": "00001062018",
+      "dataLiquidacao": "19/02/2018",
+      "valLiqLiquidacao": "30.858,00",
+      "valBrutLiquidacao": "30.858,00",
+      "valEmpenho": "30.858,00",
+      "descObsLiquidacao": "PAGAMENTO PARA D.FORMAS - AQUISIÇÃO DE ELETRODO, DISCOS, FLAP, DISCO MANTA E PANO BRIM ROLO PG E PASTA CHOCOLATE- CONTRATO Nº 29/2017, ORDEM FORN.Nº 01/2017 PROCESSO Nº 106/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "29aecd1d-bd46-42a0-9f88-123c5a66ad58",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000072",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "notaLiquidacao": "2018NL000403",
+      "ordBancaria": "2018OB003503",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 30.858,00",
+      "dataPagamento": "19/02/2018",
+      "pago": "R$ 30.858,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006171"
+    },
+    "nuProcesso": "000374/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE MATERIAIS PARA O SETOR DE METALURGIA (ELETRODO, DISCO E ROLO)",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

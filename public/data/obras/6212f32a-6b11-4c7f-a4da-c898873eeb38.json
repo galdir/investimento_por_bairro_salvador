@@ -1,0 +1,120 @@
+{
+  "id": "6212f32a-6b11-4c7f-a4da-c898873eeb38",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2024CT000228",
+  "numeroContratoOriginal": "000009/2024",
+  "nuProcesso": "132143/2023",
+  "objeto": "PRESTAÇÃO DE SERVIÇO TÉCNICOS DE ELABORAÇÃO DE PROJETOS BÁSICOS, EXECUTIVO DE ARQUITETURA E ENGENHARIA E EXECUÇÃO DA OBRA DE CONSTRUÇÃO DA ESCOLA MUNICIPAL DO BAIRRO DA PAZ.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "QUALY ENGENHARIA LTDA",
+    "cnpj": "05.903.304/0001-82",
+    "totalObras": 21,
+    "totalObrasAtivas": 20,
+    "valorTotalContratado": 255349671.6,
+    "outrasObrasCount": 20,
+    "outrasObrasIds": [
+      "39831e17-ff42-4d51-adfe-2792145ff982",
+      "2361035f-f416-4a21-8bac-c61c9ff355f1",
+      "7d9e3487-a9d0-474a-98cd-e49d86359be4",
+      "9acd1dae-b42e-4bc8-8ff4-ed85f96683ab",
+      "d1db712e-4b3d-42ac-9af0-fda150bcf6a3",
+      "a2e8ec6e-4a07-4b2b-955f-3ef7fb38d2bf",
+      "22ebba97-4243-4a2c-867f-8f3267c83488",
+      "26ba7371-3d35-445a-a207-bab772c39dde",
+      "8765387f-2177-43a6-8c6f-1b6badca9df3",
+      "9ae39da0-427b-41c6-bb5a-cac264627242",
+      "54078e42-f5de-426a-9430-3f4131fed88d",
+      "edde1182-db20-45c5-86a8-375a4393a934",
+      "4a24102e-2d1a-472d-a0ce-cec3dc14f26e",
+      "e6cccbec-4aab-4f63-9a8a-171f4a8897b9",
+      "d47611b0-4715-4e80-b593-874ea1066a60",
+      "9c561b6c-a5e8-4419-a10d-1af97405e27e",
+      "91f7a60f-ae6e-41b5-9f8f-79f2b5815045",
+      "098729e9-e44a-46a9-9ca9-3dfb3c37c0ed",
+      "baeb185e-35ed-4a7f-a266-d63eb7b98df3",
+      "23df3b37-bc58-4441-8c42-966ddf525f25"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-01-12T00:00:00.000Z",
+    "dataFimOriginal": "2025-05-12T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-05-12T00:00:00.000Z",
+    "prazoOriginal": "486",
+    "prazoAtualizado": "486"
+  },
+  "dom": {
+    "nuDom": "8704",
+    "dataPublicacao": "2024-01-17T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 16274991.76,
+    "valorContratualVigente": 16274991.76,
+    "valorEmpenhado": 16274991.76,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 12/05/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Bairro da Paz",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.926,
+  "longitude": -38.3769,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2024CT000228"
+    },
+    "nuProcesso": "132143/2023",
+    "domContrato": {
+      "nuDom": "8704",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Bairro da Paz",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Bairro da Paz via Stage 1 (Equipamento Oficial)"
+    }
+  },
+  "cdUnidadeGestora": "441010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

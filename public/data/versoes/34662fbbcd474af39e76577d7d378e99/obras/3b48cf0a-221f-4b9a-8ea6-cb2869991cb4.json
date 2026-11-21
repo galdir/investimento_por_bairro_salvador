@@ -1,0 +1,106 @@
+{
+  "id": "3b48cf0a-221f-4b9a-8ea6-cb2869991cb4",
+  "unidadeGestora": "SINDEC",
+  "numeroContrato": "2015CT000371",
+  "numeroContratoOriginal": "023/2015",
+  "nuProcesso": "2496/2014",
+  "objeto": "Elaboração de projetos básicos e executivos de engenharia, para obras de estabilização de taludes, no Município de Salvador, correspondente ao Lote 01 - Zona de Abrangência: Prefeitura Bairro III ¿ Cajazeiras;Prefeitura Bairro IV ¿ Itapuã/Ipitanga; Prefeitura Bairro VII ¿ Liberdade/São Caetano;Prefeitura Bairro VIII ¿ Cabula/Tancredo Neves; Prefeitura Bairro IX ¿ Pau da Lima; Prefeitura Bairro X ¿",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "RK ENGENHARIA E CONSULTORIA LTDA",
+    "cnpj": "18.150.794/0001-35",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 65373303.91,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "3b451a93-415f-4461-b0e5-b55e08cd69b3",
+      "37939519-25cb-4a1c-bc78-10d8a6960d5b",
+      "0ffc6873-7c8b-4a7c-a6f5-c860d35477c8"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2015-06-19T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-06-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2015-06-19T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1750000.0,
+    "valorContratualVigente": 1750000.0,
+    "valorEmpenhado": 1750000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Encostas e Contenção",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 14/06/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "516002",
+      "unidadeGestora": "SINDEC",
+      "nuContratoSigef": "2015CT000371"
+    },
+    "nuProcesso": "2496/2014",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Elaboração de projetos básicos e executivos de engenharia, para obras de estabilização de taludes, no Município de Salvador, correspondente ao Lote 01 - Zona de Abrangência: Prefeitura Bairro III ¿ Cajazeiras;Prefeitura Bairro IV ¿ Itapuã/Ipitanga; Prefeitura Bairro VII ¿ Liberdade/São Caetano;Prefeitura Bairro VIII ¿ Cabula/Tancredo Neves; Prefeitura Bairro IX ¿ Pau da Lima; Prefeitura Bairro X ¿",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "516002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

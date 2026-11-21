@@ -1,0 +1,277 @@
+{
+  "id": "de0df8e9-7ab4-422d-b86d-f3df7ae0fee2",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006240",
+  "numeroContratoOriginal": "27/2017",
+  "nuProcesso": "000395/2017",
+  "objeto": "AQUISIÇÃO DE MATERIAIS PARA SETOR METALURGIA (PAQUIMETRO, ALICATE, VALVULA, ETC...)",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 739367.12,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "cbc9b5dc-36e6-468f-995e-a85c9d77308f",
+      "a2978f86-4e62-43ac-a33c-aed9ca3f3381",
+      "8d386f83-dc8f-444c-b5e2-648a5a7ff56c",
+      "394a165b-0873-45dd-98e1-7ff356414799",
+      "d8e1ed1d-1b0e-49a3-a5c8-f68eccc92696",
+      "7a92f059-83dc-42ab-8dde-6b1388b75fe4",
+      "78e766d2-4dda-43ea-8f77-df30fc518582",
+      "b5042f60-8f26-41fe-8a64-f236536d5581",
+      "5e719a43-0cc3-48d1-a436-6fa6dcfe62d8",
+      "19c78f5d-4e5f-47c8-9356-bb05b15bbc46",
+      "53cc655e-9db7-4251-b4c4-b49f8065ae6a",
+      "ad32d833-abb2-4e41-a33a-c90c7d590b34",
+      "b15b7c75-8f25-48df-bcdd-6dbd44cac0ca"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-04-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 14948.05,
+    "valorContratualVigente": 14948.05,
+    "valorEmpenhado": 14948.05,
+    "valorLiquidado": 14948.05,
+    "valorPago": 14948.05,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "f29ce161-8863-45d9-bf70-ffd097330d06",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000192",
+      "dataEmpenho": "12/03/2018",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "1.867,50",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "94b2179f-0c45-4fe5-897b-344421188f2a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000419",
+      "dataEmpenho": "13/12/2017",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "14.948,05",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "252494f3-9d5b-435a-978b-cc3ac4d47912",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000473",
+      "dataEmpenho": "15/12/2017",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "13.080,55",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "fcb26514-bafa-421e-a1e4-1bb2a1bd4b43",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000446",
+      "dataEmpenho": "18/12/2017",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "-14.948,05",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "148a3c74-a75e-4352-b94c-f87352170bed",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000473",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL000033",
+      "notaLancamento": "2018NL000033",
+      "numProcesso": "00000072018",
+      "dataLiquidacao": "22/01/2018",
+      "valLiqLiquidacao": "13.080,55",
+      "valBrutLiquidacao": "13.080,55",
+      "valEmpenho": "13.080,55",
+      "descObsLiquidacao": "PAGAMENTO DEPAU - NF 3918 - PR. 7/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "0d19ca88-ad18-4885-b2e9-d853cc265828",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000192",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL001158",
+      "notaLancamento": "2018NL001158",
+      "numProcesso": "00002332018",
+      "dataLiquidacao": "09/04/2018",
+      "valLiqLiquidacao": "1.867,50",
+      "valBrutLiquidacao": "1.867,50",
+      "valEmpenho": "1.867,50",
+      "descObsLiquidacao": "PAGAMENTO DEPAU NF:4097 (COMPASSO INDUSTRIAL) PR.233/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "7fab1b54-8e96-4e6b-8add-67158ff77a92",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000473",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL000033",
+      "ordBancaria": "2018OB000307",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 13.080,55",
+      "dataPagamento": "22/01/2018",
+      "pago": "R$ 13.080,55",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "a68dc596-b39a-4c4e-8621-c02036c0226b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000192",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL001158",
+      "ordBancaria": "2018OB009436",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 1.867,50",
+      "dataPagamento": "09/04/2018",
+      "pago": "R$ 1.867,50",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006240"
+    },
+    "nuProcesso": "000395/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE MATERIAIS PARA SETOR METALURGIA (PAQUIMETRO, ALICATE, VALVULA, ETC...)",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

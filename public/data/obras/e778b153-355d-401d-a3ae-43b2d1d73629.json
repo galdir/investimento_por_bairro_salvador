@@ -1,0 +1,203 @@
+{
+  "id": "e778b153-355d-401d-a3ae-43b2d1d73629",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2026CT004073",
+  "numeroContratoOriginal": "502026",
+  "nuProcesso": "1328502026",
+  "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA REFORMA PÁTIO FABRIL DA DESAL.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "WFC SERVICOS E EDIFICACOES LTDA",
+    "cnpj": "13.241.391/0001-88",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 989961.73,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "598a47fc-e369-4a0f-85b3-df7c6f2b8357",
+      "294f1ab1-ec5e-4b4f-bbac-c9ec63b68676"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2026-07-01T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-09-28T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-07-01T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 98134.83,
+    "valorContratualVigente": 98134.83,
+    "valorEmpenhado": 96000.0,
+    "valorLiquidado": 91776.0,
+    "valorPago": 96000.0,
+    "percentualExecutado": 93.52,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "0663edc9-9254-482a-b06f-3ee07a1c70e2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2026NE000788",
+      "dataEmpenho": "08/07/2026",
+      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "96.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "037a35f1-9509-4b6a-8b8d-b9990e6ab489",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000788",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
+      "notaLiquidacao": "2026NL005243",
+      "notaLancamento": "2026NL005243",
+      "numProcesso": "01485802026",
+      "dataLiquidacao": "10/07/2026",
+      "valLiqLiquidacao": "91.776,00",
+      "valBrutLiquidacao": "96.000,00",
+      "valEmpenho": "96.000,00",
+      "descObsLiquidacao": "WFC SERVIÇOS - REFORMA DO PATIO FABRIL DA DESAL - PROC 148580/2026 - NF 2026046 - NFTS 123",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "53ceb686-4d43-41e2-bc4c-18fdf11dcf8f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000788",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB041030",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 96.000,00",
+      "dataPagamento": "13/07/2026",
+      "pago": "R$ 768,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "2946ad31-d7f5-4c90-8499-79dbba7eabc6",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000788",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
+      "notaLiquidacao": "2026NL005243",
+      "ordBancaria": "2026OB041027",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 96.000,00",
+      "dataPagamento": "13/07/2026",
+      "pago": "R$ 91.008,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "dc269fe5-2980-4203-acfc-f95cc1d201ae",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000788",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "WFC SERVICOS E EDIFICACOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB048869",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 96.000,00",
+      "dataPagamento": "18/08/2026",
+      "pago": "R$ 4.224,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 28/09/2026 com execução física incompleta (93.52%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Porto Seco Pirajá",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.91001,
+  "longitude": -38.454366,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2026CT004073"
+    },
+    "nuProcesso": "1328502026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Porto Seco Pirajá via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "REFORMA PÁTIO FABRIL DA DESAL.",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "As instalações operacionais, pátio fabril, galpões, cabine primária, alojamentos e sede da DESAL concentram-se na BR-324 Km 8,5, integralmente contidas no polígono do Bairro Oficial Porto Seco Pirajá."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

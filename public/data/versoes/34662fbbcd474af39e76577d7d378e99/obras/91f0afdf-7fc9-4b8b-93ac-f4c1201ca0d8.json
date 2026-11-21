@@ -1,0 +1,216 @@
+{
+  "id": "91f0afdf-7fc9-4b8b-93ac-f4c1201ca0d8",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2024CT004275",
+  "numeroContratoOriginal": "020/2024",
+  "nuProcesso": "135542/2023",
+  "objeto": "reforma da Unidade de Saúde da Família Fazenda Coutos II ¿ USF Fazenda Coutos II ¿ situada na Rua Cristóvão Barreto, s/n, Quadra 32, Bairro de Fazenda Coutos II, Distrito Sanitário Subúrbio Ferroviário, nesta Cidade do Salvador-BA",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "REIS LAGO CONSTRUTORA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 268103.46,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2024-03-04T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-07-31T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2024-03-04T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 268103.46,
+    "valorContratualVigente": 268103.46,
+    "valorEmpenhado": 19907.19,
+    "valorLiquidado": 19210.44,
+    "valorPago": 19907.19,
+    "percentualExecutado": 7.17,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "f1ac113a-c47a-4f00-b904-71f4e567327e",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2024NE007577",
+      "dataEmpenho": "03/05/2024",
+      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
+      "fonteRecurso": "Transfer. de Recursos SUS do Gov Fed - Bloco de Custeio - PAB Fixo",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "64e2aee2-eecc-408c-8b45-f031daf54484",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2024NE014518",
+      "dataEmpenho": "21/08/2024",
+      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
+      "fonteRecurso": "Transfer. de Recursos SUS do Gov Fed - Bloco de Custeio - PAB Fixo",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
+      "valEmpenhado": "-80.092,81",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "b9449f9a-1086-481d-bece-5df49a2acbd4",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "siglaOrgao": "SMS",
+      "notaEmpenho": "2024NE007577",
+      "codUnGestora": "301110",
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "siglaUnGestora": "FMS",
+      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
+      "notaLiquidacao": "2024NL091988",
+      "notaLancamento": "2024NL091988",
+      "numProcesso": "01452242024",
+      "dataLiquidacao": "23/07/2024",
+      "valLiqLiquidacao": "19.210,44",
+      "valBrutLiquidacao": "19.907,19",
+      "valEmpenho": "100.000,00",
+      "descObsLiquidacao": "03/2024#00020/2024#0145224/2024#NFE 22 - 1ª MEDIÇÃO - REFORMA DA UNIDADE USF FAZENDA COUTO",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "937fac1a-b546-4562-979d-fd63f7b9a8be",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "siglaOrgao": "SMS",
+      "notaEmpenho": "2024NE007577",
+      "codUnGestora": "301110",
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "siglaUnGestora": "FMS",
+      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
+      "notaLiquidacao": "2024NL091988",
+      "ordBancaria": "2024OB051736",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "26/07/2024",
+      "pago": "R$ 18.438,04",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "823eb23c-f30c-4f17-a8d0-14b917e696bd",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "siglaOrgao": "SMS",
+      "notaEmpenho": "2024NE007577",
+      "codUnGestora": "301110",
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "siglaUnGestora": "FMS",
+      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB051736",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "26/07/2024",
+      "pago": "R$ 772,40",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "85e039b8-39fa-4706-ad72-9941e3f20734",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "siglaOrgao": "SMS",
+      "notaEmpenho": "2024NE007577",
+      "codUnGestora": "301110",
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "siglaUnGestora": "FMS",
+      "nomeCredor": "REIS LAGO CONSTRUTORA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB058578",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "20/08/2024",
+      "pago": "R$ 696,75",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Saúde",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 31/07/2024 com execução física incompleta (7.17%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Fazenda Coutos",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.84549,
+  "longitude": -38.46237,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2024CT004275"
+    },
+    "nuProcesso": "135542/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Fazenda Coutos via Stage 1 (Equipamento Oficial)"
+    }
+  },
+  "cdUnidadeGestora": "301110",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

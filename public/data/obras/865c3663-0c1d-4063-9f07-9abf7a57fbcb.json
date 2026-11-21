@@ -1,0 +1,202 @@
+{
+  "id": "865c3663-0c1d-4063-9f07-9abf7a57fbcb",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2026CT000007",
+  "numeroContratoOriginal": "1112025",
+  "nuProcesso": "2560742025",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA FABRICAÇÃO E INSTALAÇÃO DE ACADEMIA AO AR LIVRE, EM ESTRUTURA METÁLICA.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ZIOBER BRASIL LTDA",
+    "cnpj": "08.374.053/0001-84",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 478094.0,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "d4eae929-2580-4511-a9cd-a9a7649cb82f",
+      "b4cfc91e-3bd4-4d7e-a67a-728c83347e9c",
+      "c9f2f30f-3112-4a19-b6c0-696df5e291f4",
+      "764da8a5-3103-48c4-bdee-8350cef2f92f"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2025-12-29T00:00:00.000Z",
+    "dataFimOriginal": "2026-03-28T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-03-28T00:00:00.000Z",
+    "prazoOriginal": "89",
+    "prazoAtualizado": "89"
+  },
+  "dom": {
+    "nuDom": "9198",
+    "dataPublicacao": "2026-01-27T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 96142.0,
+    "valorContratualVigente": 96142.0,
+    "valorEmpenhado": 96142.0,
+    "valorLiquidado": 91911.75,
+    "valorPago": 96142.0,
+    "percentualExecutado": 95.6,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "089f418f-7fb3-4a68-bd02-c55579e497c6",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2026NE000081",
+      "dataEmpenho": "27/01/2026",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "96.142,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "4124f616-a9b5-4167-a492-aca430d3e905",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": "2026NL000492",
+      "notaLancamento": "2026NL000492",
+      "numProcesso": "00166712026",
+      "dataLiquidacao": "29/01/2026",
+      "valLiqLiquidacao": "91.911,75",
+      "valBrutLiquidacao": "96.142,00",
+      "valEmpenho": "96.142,00",
+      "descObsLiquidacao": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA PARA FABRICAÇÃO E INSTALAÇÃO DE ACADEMIA AO A",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "d0152a18-d208-4408-b7a0-7f0679df8a3f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": "2026NL000492",
+      "ordBancaria": "2026OB003686",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 96.142,00",
+      "dataPagamento": "30/01/2026",
+      "pago": "R$ 87.104,65",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1d3994d7-e168-4157-9d49-1608cfa86023",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB003687",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 96.142,00",
+      "dataPagamento": "30/01/2026",
+      "pago": "R$ 4.807,10",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "63b5f221-532d-46cf-b7a8-47d7a431ceb0",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2026NE000081",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ZIOBER BRASIL LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB007833",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 96.142,00",
+      "dataPagamento": "20/02/2026",
+      "pago": "R$ 4.230,25",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 28/03/2026 com execução física incompleta (95.6%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2026CT000007"
+    },
+    "nuProcesso": "2560742025",
+    "domContrato": {
+      "nuDom": "9198",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,164 @@
+{
+  "id": "60c163d0-c9e1-4d27-8b3f-38aaeb608a82",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT006515",
+  "numeroContratoOriginal": "000008/2023",
+  "nuProcesso": "072901/2022",
+  "objeto": "Execução das Obras de Melhorias Habitacionais e Ligações Intradomiciliares do Programa de Saneamento Ambiental e Urbanização da Bacia do Rio Mané Dendê.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "PEJOTA CONSTRUCOES LTDA",
+    "cnpj": "03.174.004/0001-84",
+    "totalObras": 26,
+    "totalObrasAtivas": 25,
+    "valorTotalContratado": 1027079294.16,
+    "outrasObrasCount": 25,
+    "outrasObrasIds": [
+      "40e6a9ec-af77-4ac9-b069-efffefac22d4",
+      "b2b4b209-a563-42dd-bed2-28fcb9392cfe",
+      "b5261805-85af-48ed-8f53-09993dedd451",
+      "577fa900-701a-4e77-a50f-b8b6a0b4a1a3",
+      "c7876078-1ebd-4c1d-9f12-625a57ada40d",
+      "b6fea889-3fb3-4197-a078-e3f3b1a81835",
+      "d50a225d-5c6e-4fb8-ba4c-519eabb7a73b",
+      "9bb2a281-8df0-4573-8361-e1cc9614d42c",
+      "7130032d-6e56-4645-a969-52cdd41060a6",
+      "44cc1b46-9ab8-4165-8146-16c001981c09",
+      "4a530517-111f-4414-922a-2577cfb166ad",
+      "9b32a4c6-1918-43e7-91ea-5810d295f16a",
+      "5878f1fd-ec9c-42f5-bf55-ff4815a3cf52",
+      "3df79c30-bcf6-462b-8e1d-a53783012529",
+      "d4a0dcdd-7d5d-487c-a192-dffde999bb0d",
+      "99ab008a-3a29-410c-b99a-1f1e603d83bd",
+      "09216d4e-a8d8-46f2-8bdc-eebd80cae03e",
+      "c9e7f077-d164-4f92-8fe7-60a6011c6769",
+      "508750be-7951-4c1a-9924-ead4b42378a8",
+      "cc4ebbd8-3d1c-4127-aeed-8b10fe00a1fd",
+      "cecfeb97-777d-4f38-b96d-523a51284a28",
+      "fcf8f0af-67a5-4b67-95d9-c33839b8254d",
+      "a002ef2d-5d83-423b-a46f-c199446d354a",
+      "c0b0e1f5-97cd-47a7-83c9-bc2e05a221b5",
+      "628239ac-8005-4170-b6f0-80701b9b7924"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-08-22T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-08-22T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-08-22T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 8255291.14,
+    "valorContratualVigente": 8255291.14,
+    "valorEmpenhado": 8255291.14,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "20508e23-cd93-49da-8f93-0a6e29b853b6",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "610002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEINFRA - Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "notaEmpenho": "2023NE001974",
+      "dataEmpenho": "13/12/2023",
+      "nomeCredor": "PJ CONSTRUCOES E TERRAPLANAGEM LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção de Apartamentos e Casas p/ Habitação Popular",
+      "valEmpenhado": "-250.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "bea01498-9b37-495c-9b80-7e66e53fc8ae",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "610002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEINFRA - Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "notaEmpenho": "2023NE001211",
+      "dataEmpenho": "30/08/2023",
+      "nomeCredor": "PJ CONSTRUCOES E TERRAPLANAGEM LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção de Apartamentos e Casas p/ Habitação Popular",
+      "valEmpenhado": "250.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 22/08/2024 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Rio Sena",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.881,
+  "longitude": -38.469748,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "610002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT006515"
+    },
+    "nuProcesso": "072901/2022",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Rio Sena",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Rio Sena via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "610002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

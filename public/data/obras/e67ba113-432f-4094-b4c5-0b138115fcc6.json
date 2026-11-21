@@ -1,0 +1,146 @@
+{
+  "id": "e67ba113-432f-4094-b4c5-0b138115fcc6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT005096",
+  "numeroContratoOriginal": "026/2023",
+  "nuProcesso": "019426/2023",
+  "objeto": "Execução das obras de IMPLANTAÇÃO DA INTERVENÇÃO \"C\" - VIADUTO DIRECIONAL SENTIDO ACESSO NORTE-Caminho das Árvores, Salvador/BA.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MP2 CONSTRUCOES LTDA",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 11712650.34,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "a8b3583b-7681-40b6-ba4e-1c49d6d992af",
+      "000f3183-cb6e-4f87-bafd-e6706f9537ca",
+      "3f5760f3-c387-4192-b06e-d3ccbcef1d57",
+      "26384a93-4bbb-4816-af11-77464c8a710e",
+      "803ab407-5844-4896-b1ce-7ccc9b993723",
+      "0b42c7dd-bfce-4261-b1cc-f53741c8f0f4",
+      "77e2cda0-4ea6-4df9-b0d9-b129ca6f5451"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-07-03T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2023-12-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-07-03T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 757614.46,
+    "valorContratualVigente": 757614.46,
+    "valorEmpenhado": 757614.46,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "001401be-d4c2-4222-80a5-53b54235cf0c",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000932",
+      "dataEmpenho": "04/07/2023",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "-10.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "cce7e129-c35c-453b-b544-6614743fb1b1",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000921",
+      "dataEmpenho": "04/07/2023",
+      "nomeCredor": "MP2 CONSTRUCOES LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "10.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/12/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Caminho das Árvores",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.982567,
+  "longitude": -38.458986,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT005096"
+    },
+    "nuProcesso": "019426/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Caminho das Árvores",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Caminho das Árvores via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

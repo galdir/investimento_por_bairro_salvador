@@ -907,3 +907,43 @@ def test_artefatos_publicados_regenerados_integros_e_validos() -> None:
         assert pb_geo_map["Barra/Pituba"]["bairros_vulnerabilidade_estimada"] == ["Aquarius"]
         assert pb_geo_map["Subúrbio/Ilhas"]["vulnerabilidade_estimada_contiguidade"] is False
         assert pb_geo_map["Subúrbio/Ilhas"]["bairros_vulnerabilidade_estimada"] == []
+
+
+def test_curadoria_100_porcento_escopo_cidade_2017_2020_na_versao_ativa() -> None:
+    """Garante 100% de cobertura da Curadoria Territorial Auditável para Escopo Cidade em 2017-2020 na versão ativa."""
+    import json
+    from pathlib import Path
+    from etl.domain.geocoding import _carregar_curadoria_territorial
+    from etl.publicacao import versao_publicada
+
+    active = versao_publicada(Path("public/data"))
+    assert active is not None, "Ponteiro de publicação ativo não encontrado"
+
+    idx = json.loads((active / "index.json").read_text(encoding="utf-8"))
+    assert "2017-2020" in idx["metadata"]["mandatosDisponiveis"]
+
+    curadoria = _carregar_curadoria_territorial()
+    obras_2017_2020_nao_loc = [
+        o for o in idx["obras"]
+        if "2017-2020" in (o.get("mandatos") or [])
+        and o.get("nivel") == "Escopo Cidade (Não-Localizado)"
+    ]
+    assert obras_2017_2020_nao_loc, "Esperado ao menos um contrato de 2017-2020 em Escopo Cidade"
+
+    faltantes = []
+    invalidos = []
+    for o in obras_2017_2020_nao_loc:
+        chave = f"{str(o.get('cdUnidadeGestora') or '').strip()}:{str(o.get('nuContratoSigef') or '').strip()}"
+        entrada = curadoria.get(chave)
+        if not isinstance(entrada, dict):
+            faltantes.append(chave)
+            continue
+        status = str(entrada.get("status") or "").strip().lower()
+        trecho = str(entrada.get("trechoComprobatorio") or "").strip()
+        doc = str(entrada.get("documentoOrigem") or "").strip()
+        just = str(entrada.get("justificativa") or "").strip()
+        if status not in {"ambiguo", "multi_frente"} or not trecho or not doc or not just:
+            invalidos.append((chave, status, bool(trecho), bool(doc), bool(just)))
+
+    assert not faltantes, f"Contratos 2017-2020 em Escopo Cidade sem curadoria: {faltantes}"
+    assert not invalidos, f"Entradas de curadoria inválidas ou sem lastro: {invalidos}"

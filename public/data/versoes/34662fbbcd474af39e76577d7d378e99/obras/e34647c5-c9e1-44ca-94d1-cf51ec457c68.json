@@ -1,0 +1,185 @@
+{
+  "id": "e34647c5-c9e1-44ca-94d1-cf51ec457c68",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2021CT005559",
+  "numeroContratoOriginal": "000046/2021",
+  "nuProcesso": "196638/2021",
+  "objeto": "Credenciamento de Pessoas Jurídicas devidamente registradas no CREA/CAU para a prestação dos\r\nserviços de Confecção de Plantas com Memorial Descritivo, Implantações de Marcos\r\nGeorreferenciados e Entrega dos Convites aos Confrontantes de Imóveis Urbanos, nos Municípios de\r\nSalvador, Lauro de Freitas e Simões Filho",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 220000.0,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "58830aff-2af3-4e96-bc78-a0464ed1b8ec",
+      "7ca7eb37-f4db-4968-b9d6-a578f5c52f87"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2021-12-01T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2022-12-01T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2021-12-01T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 20000.0,
+    "valorContratualVigente": 20000.0,
+    "valorEmpenhado": 20000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SEFAZ",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "70daca3f-2f25-4656-8461-afe6b866a541",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2022NE000001",
+      "dataEmpenho": "02/01/2022",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9228a260-e06c-45dc-a947-ddf74d17a864",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2021NE001328",
+      "dataEmpenho": "20/12/2021",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "1.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "44efeb1e-c18a-4594-b5d0-31ca923d8638",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2021NE001388",
+      "dataEmpenho": "23/12/2021",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-1.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "8fefa236-9b22-4629-97ea-b596758935d6",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2022NE001431",
+      "dataEmpenho": "28/12/2022",
+      "nomeCredor": "PROAMBIENTEHS SUSTENTABILIDADE E ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 01/12/2022 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2021CT005559"
+    },
+    "nuProcesso": "196638/2021",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

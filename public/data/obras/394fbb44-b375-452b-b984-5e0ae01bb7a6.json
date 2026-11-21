@@ -1,0 +1,153 @@
+{
+  "id": "394fbb44-b375-452b-b984-5e0ae01bb7a6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2024CT002733",
+  "numeroContratoOriginal": "000003/2024",
+  "nuProcesso": "191105/2023",
+  "objeto": "Execução das obras de Requalificação Urbana da Orla de Jaguaribe - Salvador/BA",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA BSM LTDA",
+    "cnpj": "07.324.514/0001-41",
+    "totalObras": 14,
+    "totalObrasAtivas": 13,
+    "valorTotalContratado": 578038488.66,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "1dd6c11f-2d3d-4799-be29-14838be980a8",
+      "1da236ad-129e-423c-b870-ee5e0f41bdf5",
+      "2c0188e4-74b0-4733-a7a2-e9be6ad13bd0",
+      "551a0f21-0aa3-42d0-aeaa-6556f2d9c89e",
+      "b5d22c0a-ef49-4a54-a3bf-1c976762f611",
+      "414924fa-b76a-40ad-9751-b64adba3eece",
+      "3db4853e-7339-48a9-b271-fe2526a478e3",
+      "fe4027a0-b16c-4bd9-9138-be9c0c872a1f",
+      "52efa82e-2a4a-4772-b284-9005cf4887dd",
+      "6ea836e5-6d32-45d4-8236-c1fb1c6f0cf4",
+      "995cef9c-3d1b-493c-9ff9-9d07ac6e41ad",
+      "a6ba0427-cd0c-40ae-bc90-f4b1b297f22d",
+      "f7ddb8d8-db29-4c84-8578-a37dc10faa51"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-03-11T00:00:00.000Z",
+    "dataFimOriginal": "2025-03-05T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-03-05T00:00:00.000Z",
+    "prazoOriginal": "359",
+    "prazoAtualizado": "359"
+  },
+  "dom": {
+    "nuDom": "8737",
+    "dataPublicacao": "2024-03-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 30843557.31,
+    "valorContratualVigente": 30843557.31,
+    "valorEmpenhado": 30843557.31,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "be3b6e5e-5631-4f70-ae41-9777d9584607",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2024NE000294",
+      "dataEmpenho": "11/03/2024",
+      "nomeCredor": "CONSTRUTORA BSM LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "908eea15-8a66-4c17-b565-c80d78c752a3",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2024NE000293",
+      "dataEmpenho": "11/03/2024",
+      "nomeCredor": "CONSTRUTORA BSM LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 05/03/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Patamares",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.9473,
+  "longitude": -38.403517,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT002733"
+    },
+    "nuProcesso": "191105/2023",
+    "domContrato": {
+      "nuDom": "8737",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Patamares",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Patamares via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

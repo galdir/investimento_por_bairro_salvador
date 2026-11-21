@@ -1,0 +1,260 @@
+{
+  "id": "bddb530c-9ff8-4b5d-8c2a-a8f81177395c",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2018CT005443",
+  "numeroContratoOriginal": "000010/2018",
+  "nuProcesso": "000444/2018",
+  "objeto": "Serviços especializado de projeto Engrnharia na Suestação do Teatro Gregório de Mattos",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 7800.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-09-25T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-11-24T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-09-25T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 7800.0,
+    "valorContratualVigente": 7800.0,
+    "valorEmpenhado": 7800.0,
+    "valorLiquidado": 7410.0,
+    "valorPago": 7800.0,
+    "percentualExecutado": 95.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Recuperação e Requalificação de Monumentos Públicos e Espaços Culturais",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "6585bae2-cff9-492d-a5d5-eefb5fbeed46",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "cdUnGestora": "543002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "notaEmpenho": "2018NE000510",
+      "dataEmpenho": "27/09/2018",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "7.800,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "2c68647b-dcfc-4cf5-a04c-65c9484040d2",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000510",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "notaLiquidacao": "2018NL004070",
+      "notaLancamento": "2018NL004070",
+      "numProcesso": "00007482018",
+      "dataLiquidacao": "20/11/2018",
+      "valLiqLiquidacao": "7.410,00",
+      "valBrutLiquidacao": "7.800,00",
+      "valEmpenho": "7.800,00",
+      "descObsLiquidacao": "Pagtº de NFS-e nº 0000078 ref. elaboração do Projeto de instalações elétricas para o Teatro Gregório de Mattos.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "66b9e81d-1ca9-411e-89f1-eed429fde307",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000510",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "notaLiquidacao": "2018NL004070",
+      "ordBancaria": "2019OB001557",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.800,00",
+      "dataPagamento": "20/11/2018",
+      "pago": "R$ 7.410,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "273cd4c6-1f2c-45ac-8f67-413990a61931",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000510",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018NL004070",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.800,00",
+      "dataPagamento": "20/11/2018",
+      "pago": "R$ 390,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b8baafb0-6e70-4df5-8a22-e59fd109db70",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000510",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP002510",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.800,00",
+      "dataPagamento": "19/12/2018",
+      "pago": "R$ -390,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1e75ae73-cf3d-4b8c-a5e4-76587649acc7",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000510",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP002510",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.800,00",
+      "dataPagamento": "19/12/2018",
+      "pago": "R$ 390,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "4f1bae7d-4a18-448f-9b4b-8622bf2b01e1",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000510",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB040235",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.800,00",
+      "dataPagamento": "21/12/2018",
+      "pago": "R$ 390,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "83b5fc04-3848-43fa-b22c-88644c7f1657",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000510",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "RCN PROJETOS E CONSULTORIA LTDA - ME",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB040235",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.800,00",
+      "dataPagamento": "21/12/2018",
+      "pago": "R$ -390,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 24/11/2018 com execução física incompleta (95.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "543002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2018CT005443"
+    },
+    "nuProcesso": "000444/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "543002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

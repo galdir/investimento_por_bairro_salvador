@@ -1,0 +1,150 @@
+{
+  "id": "3feef9b0-4388-427a-bf70-70ef261a1661",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2018CT006510",
+  "numeroContratoOriginal": "000020/2018",
+  "nuProcesso": "052714/2018",
+  "objeto": "SERVIÇOS DE LEVANTAMENTOS TOPOGRAFICOS",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MSOUZA CONSTRUTORA LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 635000.0,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "671d8df3-2863-4e7d-a04c-9757c5e8a9e5",
+      "36c5b1c3-5906-4013-8084-e450120c2d4b"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-10-30T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-10-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-10-30T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 40000.0,
+    "valorContratualVigente": 40000.0,
+    "valorEmpenhado": 40000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SEFAZ",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a8c7522a-ba64-4356-a9fc-034ee301e542",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2018NE001155",
+      "dataEmpenho": "19/11/2018",
+      "nomeCredor": "MSOUZA CONSTRUTORA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "6ab2c392-6e2d-4a4c-bd53-cb7b5913dd72",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2018NE001179",
+      "dataEmpenho": "23/11/2018",
+      "nomeCredor": "MSOUZA CONSTRUTORA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/10/2019 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2018CT006510"
+    },
+    "nuProcesso": "052714/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "SERVIÇOS DE LEVANTAMENTOS TOPOGRAFICOS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

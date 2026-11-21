@@ -1,0 +1,322 @@
+{
+  "id": "cc7e8fae-66bb-4dc0-9830-e72ff8444bca",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2016CT003952",
+  "numeroContratoOriginal": "0000282016",
+  "nuProcesso": "0056722016",
+  "objeto": "SERVIÇOS DE PLOTAGEM E CÓPIA DE PLANTAS ARQUITETÔNICAS E DE PROJETOS COMPLEMENTARES PARA OBRAS.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "COPIADORA EXEMPLO LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 15834.6,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "2a86eece-c87b-4a33-adb1-3c7c53144c33"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-10-14T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-10-13T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-10-14T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 7917.3,
+    "valorContratualVigente": 7917.3,
+    "valorEmpenhado": 7917.3,
+    "valorLiquidado": 15497.32,
+    "valorPago": 7917.3,
+    "percentualExecutado": 195.74,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Reforma e Adequação de Escolas Municipais",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "f188e31f-6105-47b8-9593-cd5369c921e8",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2016NE003157",
+      "dataEmpenho": "01/11/2016",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Cópias, Encadernações e outros serviços gráficos ",
+      "valEmpenhado": "7.917,30",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "98ff2335-1b9d-4de3-ac26-0ce38449939d",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2017NE000867",
+      "dataEmpenho": "15/03/2017",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Cópias, Encadernações e outros serviços gráficos",
+      "valEmpenhado": "7.917,30",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9214bc99-b774-4222-b064-5e30ea651eb0",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2016NE003932",
+      "dataEmpenho": "16/12/2016",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Cópias, Encadernações e outros serviços gráficos ",
+      "valEmpenhado": "-7.917,30",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "5c717d06-6c67-4596-a63a-f43939e3e33e",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": "2017NL003203",
+      "notaLancamento": "2017NL003203",
+      "numProcesso": "00020062017",
+      "dataLiquidacao": "28/03/2017",
+      "valLiqLiquidacao": "7.917,30",
+      "valBrutLiquidacao": "7.917,30",
+      "valEmpenho": "7.917,30",
+      "descObsLiquidacao": "PR. 2006/2017 P PGTO. REF. AOS SERVIÇOS DE PLOTAGEM E CÓPIAS DE PLANTAS ARQUITETÔNICAS E DE PROJETOS COMPLEMENTARES PARA OBRAS DE CONSTRUÇÃO, RECONSTRUÇÃO, AMPLIAÇÃO E REFORMAS DE PRÉDIOS ESCOLARES DA REDE MUNICIPAL DE ENSINO. CT 28/16 NF-e 11001.",
+      "pago": "0,00"
+    },
+    {
+      "id": "cbde0f3d-8385-4bc3-9192-8a49522eb486",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": "2017NL003814",
+      "notaLancamento": "2017NL003814",
+      "numProcesso": "00020062017",
+      "dataLiquidacao": "03/04/2017",
+      "valLiqLiquidacao": "7.580,02",
+      "valBrutLiquidacao": "7.917,30",
+      "valEmpenho": "7.917,30",
+      "descObsLiquidacao": "PR. 2006/2017 P PGTO. REF. AOS SERVIÇOS DE PLOTAGEM E CÓPIAS DE PLANTAS ARQUITETÔNICAS E DE PROJETOS COMPLEMENTARES PARA OBRAS DE CONSTRUÇÃO, RECONSTRUÇÃO, AMPLIAÇÃO E REFORMAS DE PRÉDIOS ESCOLARES DA REDE MUNICIPAL DE ENSINO. CT 28/16 NF-e 11001.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "ff50ed11-8898-4a3d-a592-0728c0168037",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": "2017NL003814",
+      "ordBancaria": "2017OB007514",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "03/04/2017",
+      "pago": "R$ 7.580,02",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "7463aa23-caab-4985-8538-95b822136b6f",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017PP002450",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "03/04/2017",
+      "pago": "R$ 337,28",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "ea609cef-d668-46b8-932c-a8859e221341",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017NL003814",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "03/04/2017",
+      "pago": "R$ 337,28",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "2387cabc-28b6-431d-8f28-fc1b70fe4ab3",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017PP002450",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "03/04/2017",
+      "pago": "R$ -337,28",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b68dfc95-96a3-4470-b9c8-b364120ffc28",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017OB008597",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "20/04/2017",
+      "pago": "R$ 337,28",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "4bebe774-697b-4c88-836a-37a7bb6e1e1c",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2017NE000867",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017OB008597",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "20/04/2017",
+      "pago": "R$ -337,28",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2016CT003952"
+    },
+    "nuProcesso": "0056722016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "SERVIÇOS DE PLOTAGEM E CÓPIA DE PLANTAS ARQUITETÔNICAS E DE PROJETOS COMPLEMENTARES PARA OBRAS.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "441010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

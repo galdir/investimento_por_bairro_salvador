@@ -1,0 +1,146 @@
+{
+  "id": "8d7ecfb6-2e66-474f-a596-d081d41d8416",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT007759",
+  "numeroContratoOriginal": "035/2023",
+  "nuProcesso": "123418/2023",
+  "objeto": "Execução de obras de Construção da Escola de Artes e Tecnologia e Casa de Espetáculos, na Rua Santos Dumont, Comércio-Salvador/BA.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA NM LTDA",
+    "cnpj": "74.190.620/0001-77",
+    "totalObras": 8,
+    "totalObrasAtivas": 7,
+    "valorTotalContratado": 303689536.46,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "c95923fe-07eb-4ba4-9f3a-9fa7e78a2d32",
+      "a840361c-9160-4027-b2d7-c6bf4114f268",
+      "c8568d53-9c42-4a72-88fc-ca2e77c7a5c5",
+      "71c83584-db6e-4c3c-b4ba-8679d454d1d4",
+      "270ac82e-0fdc-4aba-af98-01d5e1dd2506",
+      "b8b74aa5-2d29-4b3a-b157-7f8109955133",
+      "c2b406b3-34a1-47a8-aa67-a987ad787d83"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-10-06T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-09-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-10-06T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 69958906.14,
+    "valorContratualVigente": 69958906.14,
+    "valorEmpenhado": 69958906.14,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "b4ac9203-97de-4339-8e74-c9209f1bf75a",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE001507",
+      "dataEmpenho": "06/10/2023",
+      "nomeCredor": "CONSTRUTORA NM LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Externa - Principal - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Edifícios Públicos",
+      "valEmpenhado": "500.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "bee869eb-7a90-4165-afba-fcdb48962384",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE001600",
+      "dataEmpenho": "06/10/2023",
+      "nomeCredor": "CONSTRUTORA NM LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Externa - Principal - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Edifícios Públicos",
+      "valEmpenhado": "-500.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 29/09/2024 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.97263,
+  "longitude": -38.51244,
+  "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT007759"
+    },
+    "nuProcesso": "123418/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Stage 1 (Equipamento Oficial)",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Comércio via Stage 1 (Equipamento Oficial)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

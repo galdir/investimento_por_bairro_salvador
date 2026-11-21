@@ -1,0 +1,277 @@
+{
+  "id": "d2d0c6ac-f468-4822-8ff0-6538a07f4226",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2026CT002070",
+  "numeroContratoOriginal": "022026",
+  "nuProcesso": "0876252025",
+  "objeto": "Contratação de empresa para a prestação de serviços técnicos especializados para elaboração de Projeto de Arquitetura e Engenharia para a Recuperação da Sede da Secretaria da Fazenda do Município de Salvador- SEFAZ.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+    "cnpj": "",
+    "totalObras": 4,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 1226870.15,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "b1aec7dc-7531-45e1-b3f1-4fed5dc68d08",
+      "1c1fc512-02fb-4d91-ac2d-523d9bfa82d9",
+      "20892500-8558-4467-b7cf-c8b1cf40902d"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2026-02-10T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-10-07T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-02-10T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 552720.0,
+    "valorContratualVigente": 552720.0,
+    "valorEmpenhado": 552720.0,
+    "valorLiquidado": 66326.4,
+    "valorPago": 66326.4,
+    "percentualExecutado": 12.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "9b5fa3ba-66ab-440f-b1d7-8447cf660198",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2026NE000490",
+      "dataEmpenho": "26/03/2026",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "498.720,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "3b079182-d425-4130-b067-c2653e554d9c",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2026NE000492",
+      "dataEmpenho": "26/03/2026",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "-498.720,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "35095764-1a5e-4fde-a369-7ae6ce3abe2b",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2026NE000491",
+      "dataEmpenho": "26/03/2026",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "54.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "466bcfd4-d239-4026-abf0-844aa71846c7",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2026NE000493",
+      "dataEmpenho": "26/03/2026",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Projetos de Engenharia",
+      "valEmpenhado": "498.720,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "527c1c9a-09db-4291-8c36-2df92a18e1e7",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000491",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007816",
+      "notaLancamento": "2026NL007816",
+      "numProcesso": "01467252026",
+      "dataLiquidacao": "10/07/2026",
+      "valLiqLiquidacao": "6.632,64",
+      "valBrutLiquidacao": "6.632,64",
+      "valEmpenho": "54.000,00",
+      "descObsLiquidacao": "PAGTº DA NF: 0125 -  REF. A SERVIÇOS DE ARQUITETURA, MÊS: 06/2026",
+      "pago": "0,00"
+    },
+    {
+      "id": "6a0adf94-1094-4945-93c6-84a9b9149b84",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000493",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007818",
+      "notaLancamento": "2026NL007818",
+      "numProcesso": "01467252026",
+      "dataLiquidacao": "10/07/2026",
+      "valLiqLiquidacao": "59.693,76",
+      "valBrutLiquidacao": "59.693,76",
+      "valEmpenho": "498.720,00",
+      "descObsLiquidacao": "PAGTº DA NF: 0125 -  REF. A SERVIÇOS DE ARQUITETURA, MÊS: 06/2026",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "28a47dfe-9f24-4bf2-a3eb-cef93536dff7",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000493",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007818",
+      "ordBancaria": "2026OB044789",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 498.720,00",
+      "dataPagamento": "28/07/2026",
+      "pago": "R$ 59.693,76",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1f0de4fa-143e-4af9-94da-9cc9df4869fa",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000491",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB044788",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 54.000,00",
+      "dataPagamento": "28/07/2026",
+      "pago": "R$ 1.326,53",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "89b56a92-ab9a-44d0-a4cd-afd81acbd527",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2026NE000491",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "ALPPOIM E ARQUITETOS ASSOCIADOS LTDA",
+      "notaLiquidacao": "2026NL007816",
+      "ordBancaria": "2026OB044788",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 54.000,00",
+      "dataPagamento": "28/07/2026",
+      "pago": "R$ 5.306,11",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 07/10/2026 com execução física incompleta (12.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2026CT002070"
+    },
+    "nuProcesso": "0876252025",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro Histórico via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

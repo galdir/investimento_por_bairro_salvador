@@ -1,0 +1,268 @@
+{
+  "id": "f049f2af-cfbe-46e1-b740-c88ba2ab1ed5",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT004886",
+  "numeroContratoOriginal": "000029/2017",
+  "nuProcesso": "005812/0017",
+  "objeto": "Fabricação de Equipamentos para Parque Infantil conforme projeto básico anexo, para atender a diversos projetos de praças e canteiros públicos da Cidade de Salvador",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+    "cnpj": "",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 3323919.86,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "0f38872a-4801-4bf5-9f09-c2228a7cb20f",
+      "399c0d8f-6841-46f1-8e8a-7a6a36195d1d",
+      "80b4e9e0-2ed5-4f14-9281-90348f990c05",
+      "72faf9c4-e2cd-4e3a-9ce9-55a209f34ac5"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-10-18T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-06-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-10-18T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 122399.6,
+    "valorContratualVigente": 122399.6,
+    "valorEmpenhado": 122399.6,
+    "valorLiquidado": 118984.65,
+    "valorPago": 122399.6,
+    "percentualExecutado": 97.21,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "17811b81-88a2-4a96-af58-eb83fa369962",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000552",
+      "dataEmpenho": "19/10/2017",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Agronomia, Irrigação, Jardinagem e Manutenção Áreas Verdes",
+      "valEmpenhado": "122.399,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "9d768e60-a287-4460-9fe8-79773bc02b3f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000552",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "notaLiquidacao": "2017NL006091",
+      "notaLancamento": "2017NL006091",
+      "numProcesso": "00013372017",
+      "dataLiquidacao": "18/12/2017",
+      "valLiqLiquidacao": "118.984,65",
+      "valBrutLiquidacao": "122.399,60",
+      "valEmpenho": "122.399,60",
+      "descObsLiquidacao": "FABRICAÇÃO DE 20 ESCORREGADEIRAS PEQUENAS, 20 PORTICOS COM 3 GANGORRAS APOIADO EM PIQUETE COLONIAL, 20 PORTICOS COM 2 BALANÇOS, 05 FORMIGUEIROS EM ESTRUTURA METALICA, CT 29/2017, CONFORME NF 136",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "af537739-05e0-4a50-a7ad-4246e1ae046b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000552",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "notaLiquidacao": "2017NL006091",
+      "ordBancaria": "2017OB035772",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 122.399,60",
+      "dataPagamento": "18/12/2017",
+      "pago": "R$ 118.984,65",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "55c4786c-983c-4842-bb8c-413ce195f328",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000552",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017NL006091",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 122.399,60",
+      "dataPagamento": "18/12/2017",
+      "pago": "R$ 3.414,95",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "5dbed7b3-a00b-495f-b152-ee3582ca2d25",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000552",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017PP003443",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 122.399,60",
+      "dataPagamento": "20/12/2017",
+      "pago": "R$ 3.414,95",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b8dbdf87-6232-45b3-8880-1b1c084e13b8",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000552",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017PP003443",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 122.399,60",
+      "dataPagamento": "20/12/2017",
+      "pago": "R$ -3.414,95",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "0f017447-1cd4-4ce3-ab8f-c5df1d8ff4ec",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000552",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017OB035767",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 122.399,60",
+      "dataPagamento": "25/12/2017",
+      "pago": "R$ 3.414,95",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "7a603375-880a-4a53-bbd8-adf4a5cd1944",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000552",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017OB035767",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 122.399,60",
+      "dataPagamento": "25/12/2017",
+      "pago": "R$ -3.414,95",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 14/06/2018 com execução física incompleta (97.21%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT004886"
+    },
+    "nuProcesso": "005812/0017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Fabricação de Equipamentos para Parque Infantil conforme projeto básico anexo, para atender a diversos projetos de praças e canteiros públicos da Cidade de Salvador",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

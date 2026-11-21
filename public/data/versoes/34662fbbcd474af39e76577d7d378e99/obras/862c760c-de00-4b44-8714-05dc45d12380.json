@@ -1,0 +1,159 @@
+{
+  "id": "862c760c-de00-4b44-8714-05dc45d12380",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2023CT004800",
+  "numeroContratoOriginal": "000024/2023",
+  "nuProcesso": "202781/2022",
+  "objeto": "Execução de obras de Requalificação do Acesso à Estação Pirajá e Implantação de duas Alças do Viaduto de Pirajá do Km 621+550 da pista Oeste da BR 324, Salvador/BA.",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MHR ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 8906588.81,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "3d14c8f4-5b9e-4854-a267-12b1a780e05c"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-06-26T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2023-12-22T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-06-26T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4755259.08,
+    "valorContratualVigente": 4755259.08,
+    "valorEmpenhado": 4755259.08,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "19f3b518-d686-4b1a-a983-ad6ac80d927e",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP2671152",
+      "dataEmpenho": "19/04/2024",
+      "nomeCredor": "MHR ENGENHARIA LTDA",
+      "fonteRecurso": "Outros Recursos Não ",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "18ef1db0-9ccb-4d62-8355-8d7ce1bb8b36",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2023NE000894",
+      "dataEmpenho": "26/06/2023",
+      "nomeCredor": "MHR ENGENHARIA LTDA",
+      "fonteRecurso": "Outros Recursos Não Vinculados - Tesouro - S/Emenda",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b3d6b221-ff31-4d39-a2c1-84d14cdfb6b0",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP9968548",
+      "dataEmpenho": "31/12/2024",
+      "nomeCredor": "MHR ENGENHARIA LTDA",
+      "fonteRecurso": "Outros Recursos Não ",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 22/12/2023 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Pirajá",
+  "prefeituraBairro": "Valéria",
+  "latitude": -12.888251,
+  "longitude": -38.457286,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2023CT004800"
+    },
+    "nuProcesso": "202781/2022",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Pirajá",
+      "prefeituraBairro": "Valéria",
+      "origem": "Alocação em Pirajá via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

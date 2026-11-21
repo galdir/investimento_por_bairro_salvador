@@ -1,0 +1,279 @@
+{
+  "id": "530bb965-a56d-42cc-81e4-e95e3035049e",
+  "unidadeGestora": "SEMOP",
+  "numeroContrato": "2024CT003702",
+  "numeroContratoOriginal": "048730/2023",
+  "nuProcesso": "048730/2023",
+  "objeto": "Prestação de serviço de construção de cobertura em áreas públicas, destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria de Ordem Pública do Município de Salvador.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "P C MELHOR LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 863650.54,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "4959cfec-1bd1-4f6d-afe4-8756c331d7a4",
+      "9a1b025b-90da-44a3-98a4-9acc2aa81c14"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2023-08-25T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-08-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-08-25T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 82131.06,
+    "valorContratualVigente": 82131.06,
+    "valorEmpenhado": 82025.48,
+    "valorLiquidado": 74807.24,
+    "valorPago": 82025.48,
+    "percentualExecutado": 91.08,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "5314df7a-cccc-498c-a0d9-9c0965746f0a",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2024NE000314",
+      "dataEmpenho": "05/04/2024",
+      "nomeCredor": "P C MELHOR LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Feiras e Mercados Populares",
+      "valEmpenhado": "82.131,06",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "48e9f49b-50e5-491b-8363-d2b037744b70",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2024NE001156",
+      "dataEmpenho": "13/12/2024",
+      "nomeCredor": "P C MELHOR LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Feiras e Mercados Populares",
+      "valEmpenhado": "-105,58",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "9a31f34c-7548-4eb9-89b9-90c8e0adb927",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000314",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "P C MELHOR LTDA",
+      "notaLiquidacao": "2024NL003334",
+      "notaLancamento": "2024NL003334",
+      "numProcesso": "00451882024",
+      "dataLiquidacao": "17/04/2024",
+      "valLiqLiquidacao": "78.416,36",
+      "valBrutLiquidacao": "82.025,48",
+      "valEmpenho": "82.131,06",
+      "descObsLiquidacao": "Pgto da PC Melhor, ref. a construção de cobertura em áreas públicas destinadas para comérc",
+      "pago": "0,00"
+    },
+    {
+      "id": "9f45fdc9-1cd2-4de2-b75c-9fb8e42b6110",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000314",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "P C MELHOR LTDA",
+      "notaLiquidacao": "2024NL003383",
+      "notaLancamento": "8058871",
+      "numProcesso": "2024NL003383",
+      "dataLiquidacao": "17/04/2024",
+      "valLiqLiquidacao": "-82.025,48",
+      "valBrutLiquidacao": "-82.025,48",
+      "valEmpenho": "82.131,06",
+      "descObsLiquidacao": " ",
+      "pago": "0,00"
+    },
+    {
+      "id": "a9402697-0a9f-4d41-84f6-4091b1d6e917",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000314",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "P C MELHOR LTDA",
+      "notaLiquidacao": "2024NL003384",
+      "notaLancamento": "2024NL003384",
+      "numProcesso": "00451882024",
+      "dataLiquidacao": "18/04/2024",
+      "valLiqLiquidacao": "78.416,36",
+      "valBrutLiquidacao": "82.025,48",
+      "valEmpenho": "82.131,06",
+      "descObsLiquidacao": "Pgto da PC Melhor, ref. a construção de coberturas, CT 031/2023 - Medição 04.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "f0d06ad2-977a-4e8f-9194-2559ecd61f29",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000314",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "P C MELHOR LTDA",
+      "notaLiquidacao": "2024NL003384",
+      "ordBancaria": "2024OB027111",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 82.131,06",
+      "dataPagamento": "19/04/2024",
+      "pago": "R$ 75.791,54",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6e4117d1-6add-41f7-b42f-5fdd35c61e96",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000314",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "P C MELHOR LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB027113",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 82.131,06",
+      "dataPagamento": "19/04/2024",
+      "pago": "R$ 1.640,51",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "f5987249-a15d-49ad-a205-1efc56af1ec9",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000314",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "P C MELHOR LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB027113",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 82.131,06",
+      "dataPagamento": "19/04/2024",
+      "pago": "R$ 984,31",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6fdd215a-5a88-4bf8-a5d5-72e513068ff9",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2024NE000314",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "P C MELHOR LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB033825",
+      "elemDespesa": "Obras e Instalações",
+      "valEmpenhado": "R$ 82.131,06",
+      "dataPagamento": "16/05/2024",
+      "pago": "R$ 3.609,12",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 23/08/2024 com execução física incompleta (91.08%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "450002",
+      "unidadeGestora": "SEMOP",
+      "nuContratoSigef": "2024CT003702"
+    },
+    "nuProcesso": "048730/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "destinadas ao ordenamento do comércio informal de permissionários licenciados pela Secretaria",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A palavra 'comércio' integra a expressão genérica 'comércio informal' em áreas públicas da cidade, não se referindo ao Bairro Oficial Comércio."
+    }
+  },
+  "cdUnidadeGestora": "450002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

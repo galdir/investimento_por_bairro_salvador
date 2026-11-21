@@ -1,0 +1,109 @@
+{
+  "id": "dfa58540-c5d9-4249-9b89-6d25cf79f371",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT002689",
+  "numeroContratoOriginal": "0122025",
+  "nuProcesso": "1665972025",
+  "objeto": "Contratação de empresa capacitada para execução de obras de Construção da Arena Aquática, localizada na Rua Maria Cecília, s/n, bairro Rio Sena - Salvador/Ba",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "800-D ENGENHARIA LTDA",
+    "cnpj": "02.214.613/0001-57",
+    "totalObras": 10,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 64327544.92,
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
+      "4ef3a674-6ef0-4faf-83e3-54441c644174",
+      "9da48f98-27c2-4e19-b3ad-441c11c60210",
+      "c981d214-d66a-4444-abc2-a59b650ea420",
+      "f747ef2c-090c-4a40-8960-a0581bbe923e",
+      "ec579236-e175-472b-9ad9-daef89bf8b6d",
+      "72831ff9-6df3-4503-89b4-451889d4fe5b",
+      "7dbf627c-6ac6-4238-8967-8098c9b87216",
+      "e95b8d73-9c6b-4384-8bcc-b726409100d2",
+      "71b34d8a-5ae1-4fad-ad78-8abd75a27e29"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2026-01-12T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-10-08T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-01-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4417123.96,
+    "valorContratualVigente": 4417123.96,
+    "valorEmpenhado": 4417123.96,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 08/10/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Rio Sena",
+  "prefeituraBairro": "Subúrbio/Ilhas",
+  "latitude": -12.881,
+  "longitude": -38.469748,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT002689"
+    },
+    "nuProcesso": "1665972025",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Rio Sena",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "origem": "Alocação em Rio Sena via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

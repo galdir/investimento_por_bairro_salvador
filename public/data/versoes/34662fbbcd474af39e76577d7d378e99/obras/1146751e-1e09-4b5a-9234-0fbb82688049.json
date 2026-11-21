@@ -1,0 +1,254 @@
+{
+  "id": "1146751e-1e09-4b5a-9234-0fbb82688049",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2023CT005138",
+  "numeroContratoOriginal": "000017/2023",
+  "nuProcesso": "105037/2023",
+  "objeto": "Contratação de uma empresa especializada em engenharia e arquitetura, visando à reformulação do layout do 3º andar do Edif. Sede da SEFAZ.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "LD ENGENHARIA E CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 99744.25,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2023-07-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2023-08-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-07-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 99744.25,
+    "valorContratualVigente": 99744.25,
+    "valorEmpenhado": 99744.25,
+    "valorLiquidado": 99744.25,
+    "valorPago": 99744.25,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "37a7d87a-70c7-42f1-9392-6d3744646a32",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2023NE000795",
+      "dataEmpenho": "03/07/2023",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "99.744,25",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "d738130f-04ba-455d-9bbc-cebe0dd93743",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2023NE000795",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "notaLiquidacao": "2023NL007136",
+      "notaLancamento": "2023NL007136",
+      "numProcesso": "01280892023",
+      "dataLiquidacao": "19/07/2023",
+      "valLiqLiquidacao": "99.744,25",
+      "valBrutLiquidacao": "99.744,25",
+      "valEmpenho": "99.744,25",
+      "descObsLiquidacao": "PAGAMENTO DA NF-e 006 SERVIÇOS DE DEMOLIÇÃO E INSTALAÇÃO DE DIVISORIAS EM DRIWALL",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "0f662ac3-2cb9-4a9a-9806-b80dbf8c625f",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2023NE000795",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023PP002739",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 99.744,25",
+      "dataPagamento": "19/07/2023",
+      "pago": "R$ 3.221,74",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "7f189163-09b0-4105-9ebe-416e7223878e",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2023NE000795",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023PP002738",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 99.744,25",
+      "dataPagamento": "19/07/2023",
+      "pago": "R$ 3.221,74",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "4932e6fb-0443-4680-b158-c5433f2e094e",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2023NE000795",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023PP002739",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 99.744,25",
+      "dataPagamento": "19/07/2023",
+      "pago": "R$ -3.221,74",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "53f64d73-940e-4271-ac2d-90739aa431ff",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2023NE000795",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023OB042907",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 99.744,25",
+      "dataPagamento": "20/07/2023",
+      "pago": "R$ -3.221,74",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "e79a0130-7285-44f0-9d96-1be945a1142c",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2023NE000795",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2023OB042907",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 99.744,25",
+      "dataPagamento": "20/07/2023",
+      "pago": "R$ 3.221,74",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "3bc54cb5-37cd-473b-8ccf-d6e02b9802a1",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2023NE000795",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "LD ENGENHARIA E CONSTRUCAO LTDA",
+      "notaLiquidacao": "2023NL007136",
+      "ordBancaria": "2023OB042906",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "valEmpenhado": "R$ 99.744,25",
+      "dataPagamento": "20/07/2023",
+      "pago": "R$ 96.522,51",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2023CT005138"
+    },
+    "nuProcesso": "105037/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro Histórico via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

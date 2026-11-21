@@ -1,0 +1,201 @@
+{
+  "id": "78e766d2-4dda-43ea-8f77-df30fc518582",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2016CT003234",
+  "numeroContratoOriginal": "035/2016",
+  "nuProcesso": "647/2016",
+  "objeto": "AQUISIÇÃO - COM ENTREGA INCLUSA - DE ADITIVO ACELERADOR PARA ARGAMASSA E CONCRETO NÃO ESTRUTURAL",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 739367.12,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "cbc9b5dc-36e6-468f-995e-a85c9d77308f",
+      "a2978f86-4e62-43ac-a33c-aed9ca3f3381",
+      "8d386f83-dc8f-444c-b5e2-648a5a7ff56c",
+      "394a165b-0873-45dd-98e1-7ff356414799",
+      "d8e1ed1d-1b0e-49a3-a5c8-f68eccc92696",
+      "de0df8e9-7ab4-422d-b86d-f3df7ae0fee2",
+      "7a92f059-83dc-42ab-8dde-6b1388b75fe4",
+      "b5042f60-8f26-41fe-8a64-f236536d5581",
+      "5e719a43-0cc3-48d1-a436-6fa6dcfe62d8",
+      "19c78f5d-4e5f-47c8-9356-bb05b15bbc46",
+      "53cc655e-9db7-4251-b4c4-b49f8065ae6a",
+      "ad32d833-abb2-4e41-a33a-c90c7d590b34",
+      "b15b7c75-8f25-48df-bcdd-6dbd44cac0ca"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-09-01T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-02-27T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-09-01T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1702.8,
+    "valorContratualVigente": 1702.8,
+    "valorEmpenhado": 1700.0,
+    "valorLiquidado": 1700.0,
+    "valorPago": 1700.0,
+    "percentualExecutado": 99.84,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Fabricação e Montagem de Peças Pré Moldadas (Argamassa e Concreto)",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "ed408038-0b1b-4c9e-8b0a-d95fbdb18b3e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2016NE000424",
+      "dataEmpenho": "12/09/2016",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "1.702,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "a13a6766-6993-4265-8aa1-05cb83b4fdfd",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "RP2755074",
+      "dataEmpenho": "24/11/2017",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-2,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "b389483c-8fb9-4254-88cf-a3266ac0e86d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000424",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2017NL000129",
+      "notaLancamento": "2017NL000129",
+      "numProcesso": "00014962016",
+      "dataLiquidacao": "02/02/2017",
+      "valLiqLiquidacao": "1.700,00",
+      "valBrutLiquidacao": "1.700,00",
+      "valEmpenho": "1.702,80",
+      "descObsLiquidacao": "Valor de aquisição de aditivo acelerador de pega para argamassa concentrado não estrutural, contrato nº:35/2016, conforme nota fiscal nº: 3299.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "68f81396-23df-404f-a462-128b63af9820",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000424",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2017NL000129",
+      "ordBancaria": "2017OB001051",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 1.702,80",
+      "dataPagamento": "02/02/2017",
+      "pago": "R$ 1.700,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 27/02/2017 com execução física incompleta (99.84%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2016CT003234"
+    },
+    "nuProcesso": "647/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO - COM ENTREGA INCLUSA - DE ADITIVO ACELERADOR PARA ARGAMASSA E CONCRETO NÃO ESTRUTURAL",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

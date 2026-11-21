@@ -1,0 +1,168 @@
+{
+  "id": "ac1cd349-78e6-4206-ab85-eb525e30f9ea",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT003485",
+  "numeroContratoOriginal": "000008/2017",
+  "nuProcesso": "000155/2017",
+  "objeto": "CABOS FLEXÍVEIS E TERMINAL PARA CABO",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "COBREFLEX INDUSTRIA E COMERCIO DE FIOS E CABOS EIRELI",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 27750.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-07-19T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-11-15T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-07-19T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 27750.0,
+    "valorContratualVigente": 27750.0,
+    "valorEmpenhado": 27750.0,
+    "valorLiquidado": 27750.0,
+    "valorPago": 27750.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "98e42079-2be6-4fee-b872-65b598ea12a5",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000218",
+      "dataEmpenho": "26/07/2017",
+      "nomeCredor": "COBREFLEX INDUSTRIA E COMERCIO DE FIOS E CABOS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material Elétrico e Eletrônico",
+      "valEmpenhado": "27.750,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "3a7efe26-26fb-47e1-bfab-7fc620e8da42",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000218",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "COBREFLEX INDUSTRIA E COMERCIO DE FIOS E CABOS EIRELI",
+      "notaLiquidacao": "2017NL001401",
+      "notaLancamento": "2017NL001401",
+      "numProcesso": "00002512017",
+      "dataLiquidacao": "14/08/2017",
+      "valLiqLiquidacao": "27.750,00",
+      "valBrutLiquidacao": "27.750,00",
+      "valEmpenho": "27.750,00",
+      "descObsLiquidacao": "PAGAMENTO COBREFLEX- NF:16415- AQUISIÇÃO CABOS E TERMINAIS ELETRICOS- PR- 251/2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "b423a22a-ff8f-4b0a-80ad-79bea705d9e1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000218",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "COBREFLEX INDUSTRIA E COMERCIO DE FIOS E CABOS EIRELI",
+      "notaLiquidacao": "2017NL001401",
+      "ordBancaria": "2017OB020158",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 27.750,00",
+      "dataPagamento": "14/08/2017",
+      "pago": "R$ 27.750,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT003485"
+    },
+    "nuProcesso": "000155/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CABOS FLEXÍVEIS E TERMINAL PARA CABO",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

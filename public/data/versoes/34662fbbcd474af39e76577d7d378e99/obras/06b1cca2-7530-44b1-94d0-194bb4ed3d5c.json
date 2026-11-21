@@ -1,0 +1,356 @@
+{
+  "id": "06b1cca2-7530-44b1-94d0-194bb4ed3d5c",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2022CT007255",
+  "numeroContratoOriginal": "000041/2022",
+  "nuProcesso": "161424/2022",
+  "objeto": "AVALIAÇÃO DE IMOVEIS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PORELLI ENGENHARIA LTDA",
+    "cnpj": "35.169.293/0001-10",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 55000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2022-11-16T00:00:00.000Z",
+    "dataFimOriginal": "2023-11-15T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-12-13T00:00:00.000Z",
+    "prazoOriginal": "364",
+    "prazoAtualizado": "1488"
+  },
+  "dom": {
+    "nuDom": "9179",
+    "dataPublicacao": "2025-12-23T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 20000.0,
+    "valorContratualVigente": 55000.0,
+    "valorEmpenhado": 5000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 35000.0,
+    "deltaPercentualAditivos": 175.0
+  },
+  "aditivos": [
+    {
+      "nuAditivo": "1",
+      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
+      "dsObjetoAditivo": "AVALIAÇÃO DE IMOVEIS",
+      "dtAssinatura": "22/12/2023",
+      "dtTerminoVigencia": "13/12/2024",
+      "dtPublicacao": "22/12/2023",
+      "nuDom": "8684",
+      "vlAditivo": 10000.0
+    },
+    {
+      "nuAditivo": "2",
+      "dsTipoAlteracao": "Prorrogação de prazo",
+      "dsObjetoAditivo": "PELO PRESENTE TERMO FICA  A VIGÊNCIA DO TERMO DE CREDENCIAMENTO N° 41/2022 PRORROGADO ATÉ 13/12/2025.",
+      "dtAssinatura": "18/02/2025",
+      "dtTerminoVigencia": "13/12/2025",
+      "dtPublicacao": "18/02/2025",
+      "nuDom": "8973",
+      "vlAditivo": 0.0
+    },
+    {
+      "nuAditivo": "3",
+      "dsTipoAlteracao": "Renovação (serviço continuado)",
+      "dsObjetoAditivo": "3º ADITIVO PRORROGAÇÃO DE PRAZO E VALOR - AVALIAÇÃO DE IMÓVEIS URBANOS",
+      "dtAssinatura": "01/01/2026",
+      "dtTerminoVigencia": "13/12/2026",
+      "dtPublicacao": "01/01/2026",
+      "nuDom": "9179",
+      "vlAditivo": 20000.0
+    },
+    {
+      "nuAditivo": "4",
+      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
+      "dsObjetoAditivo": "3º ADITIVO PRAZO E VALOR PORELLI - ASSINADO EM 12/12/2025",
+      "dtAssinatura": "02/02/2026",
+      "dtTerminoVigencia": "13/12/2026",
+      "dtPublicacao": "02/02/2026",
+      "nuDom": "9179",
+      "vlAditivo": 25000.0
+    }
+  ],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "6972f785-9d91-45b5-95b9-7e32b1139944",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2023NE000062",
+      "dataEmpenho": "02/01/2023",
+      "nomeCredor": "PORELLI EMPREENDIMENTOS E SERVICOS EIRELI",
+      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "2c44e5df-9827-4dd1-b5a5-ce1dc2234ac4",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2024NE000071",
+      "dataEmpenho": "02/01/2024",
+      "nomeCredor": "PORELLI ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "4a5ac92c-64ec-481f-adf4-e0468b2d9cc7",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2025NE000239",
+      "dataEmpenho": "02/02/2025",
+      "nomeCredor": "PORELLI ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "46ba9eb8-56d3-4672-9c79-2df7e46a089e",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2026NE000252",
+      "dataEmpenho": "02/02/2026",
+      "nomeCredor": "PORELLI ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c46a20f9-d417-44e4-8e41-3d9c09000f18",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2025NE000496",
+      "dataEmpenho": "09/04/2025",
+      "nomeCredor": "PORELLI ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-2.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "5ec34af4-a529-471f-b2d8-56b6cdc17cc1",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2024NE001778",
+      "dataEmpenho": "10/12/2024",
+      "nomeCredor": "PORELLI ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "f75230d9-c57e-4135-b1c8-226f821c252a",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2025NE002094",
+      "dataEmpenho": "18/12/2025",
+      "nomeCredor": "PORELLI ENGENHARIA LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-3.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "972cc4c2-8fc0-4965-b88c-09a23a3ce92c",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2023NE001620",
+      "dataEmpenho": "22/12/2023",
+      "nomeCredor": "PORELLI EMPREENDIMENTOS E SERVICOS EIRELI",
+      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "3.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "96fbf7ae-dbdb-4b8e-8d91-630c6aa1d363",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2023NE001684",
+      "dataEmpenho": "28/12/2023",
+      "nomeCredor": "PORELLI EMPREENDIMENTOS E SERVICOS EIRELI",
+      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-3.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "2c570041-5076-4103-a8aa-6006427e8884",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2023NE001683",
+      "dataEmpenho": "28/12/2023",
+      "nomeCredor": "PORELLI EMPREENDIMENTOS E SERVICOS EIRELI",
+      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Aditivo de valor superior a 25% (+175.0%) acumulado em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 175.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2022CT007255"
+    },
+    "nuProcesso": "161424/2022",
+    "domContrato": {
+      "nuDom": "9179",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8684",
+        "dtPublicacao": "22/12/2023",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "2",
+        "nuDom": "8973",
+        "dtPublicacao": "18/02/2025",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "3",
+        "nuDom": "9179",
+        "dtPublicacao": "01/01/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      },
+      {
+        "nuAditivo": "4",
+        "nuDom": "9179",
+        "dtPublicacao": "02/02/2026",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,128 @@
+{
+  "id": "96870374-483c-4829-be5e-4b661ecffb39",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2016CT000641",
+  "numeroContratoOriginal": "000001/2016",
+  "nuProcesso": "533/2014",
+  "objeto": "Contratação de Empresa Especializada em engenharia para a execução dos serviços de reforma das instalações fisicas e complementares da sede da PGMS e Dívida Ativa Municipal",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "GAN ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 14,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 32231317.24,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "3c0c68dc-2302-410e-80fe-dc767f784595",
+      "385b8963-96f6-4152-ad53-3d448acf7711",
+      "0fd09563-6f0b-46c0-afa1-ac8663239703",
+      "b6d98b88-3b46-4b21-8ad0-3ffb3b367bf9",
+      "4e86d629-a0ce-4a3a-9145-fc2b3b056e71",
+      "1bc0d394-9582-4e99-bf51-05ff31379134",
+      "104c4c30-97dd-4207-85a2-e854167d4974",
+      "9f25a615-7bed-4c81-9e06-f607bb4c9a11",
+      "f99efaa3-5a6c-4cd0-84d6-42869a0a4052",
+      "a0b1d212-74f0-457e-b6ba-e3d9a6899875",
+      "6417a177-54ce-467f-a2d3-21089bbf62a5",
+      "7ba14548-f0ce-4ffb-8484-4847ab5a6810",
+      "9b07d0e5-af66-491b-b070-63e0a215286b"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-01-08T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-02-05T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-01-08T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 2193308.38,
+    "valorContratualVigente": 3004468.37,
+    "valorEmpenhado": 3004468.37,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 811159.99,
+    "deltaPercentualAditivos": 36.98
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implantação de Ações de Modernização do Processo de Representação e Defesa Judicial",
+      "fonteRecurso": "Tesouro",
+      "classificacao": " Obras e Instalações"
+    },
+    {
+      "subacao": "Implantação de Ações de Modernização do Processo de Representação e Defesa Judicial",
+      "fonteRecurso": "Operações de Crédito Internas",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 05/02/2018 com execução física incompleta (0.0%)",
+      "Aditivo de valor superior a 25% (+36.98%) acumulado em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 36.98
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2016CT000641"
+    },
+    "nuProcesso": "533/2014",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "reforma das instalações fisicas e complementares da sede da PGMS e Dívida Ativa Municipal",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A sede da Procuradoria Geral do Município (PGMS) localiza-se no Bairro Oficial Centro."
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

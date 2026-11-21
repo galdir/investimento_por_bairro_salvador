@@ -1,0 +1,176 @@
+{
+  "id": "8efe2dc7-7952-44d9-a3d4-932651c42aff",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT005734",
+  "numeroContratoOriginal": "0142026",
+  "nuProcesso": "0398222026",
+  "objeto": "Contratação de empresa capacitada para execução de obras de Reforma de Campo de Futebol, Rua Nova do Arenoso, nº 124, Bairro: Arenoso - Salvador/BA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "VENETO EMPREENDIMENTOS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 2016995.24,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2026-10-26T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2027-04-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-10-26T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 2016995.24,
+    "valorContratualVigente": 2016995.24,
+    "valorEmpenhado": 109281.06,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "2f8a5cd8-6381-4382-96a7-ad91e638c78d",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001431",
+      "dataEmpenho": "26/10/2026",
+      "nomeCredor": "VENETO EMPREENDIMENTOS LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Recreativo",
+      "valEmpenhado": "9.281,06",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "75b96033-43dc-4425-ab7b-ad311f1213ac",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001430",
+      "dataEmpenho": "26/10/2026",
+      "nomeCredor": "VENETO EMPREENDIMENTOS LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Recreativo",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "087d4ab2-84fc-426b-b63e-28af9c845de1",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001429",
+      "dataEmpenho": "29/10/2026",
+      "nomeCredor": "VENETO EMPREENDIMENTOS LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Recreativo",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "cb7050d4-3a8e-4b9f-88ad-09c2d4d2f909",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2026NE001428",
+      "dataEmpenho": "29/10/2026",
+      "nomeCredor": "VENETO EMPREENDIMENTOS LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Imóveis de Uso Recreativo",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Arenoso",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.948165,
+  "longitude": -38.441257,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT005734"
+    },
+    "nuProcesso": "0398222026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Arenoso",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Arenoso via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,144 @@
+{
+  "id": "fc00600b-4f40-4ecb-ba4e-def992a4709e",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000268",
+  "numeroContratoOriginal": "002/2018",
+  "nuProcesso": "000915/2017",
+  "objeto": "SERVIÇOS DE ENGENHARIA PARA RECUPERAÇÃO E CORREÇÃO DE PATOLOGIAS PRE EXISTENTES NA PREFEITURA BAIRRO DE CAJAZEIRAS",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "REIS ALMEIDA SERVICOS LTDA  - ME",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 161496.18,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-01-16T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-07-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-01-16T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 161496.18,
+    "valorContratualVigente": 161496.18,
+    "valorEmpenhado": 161496.18,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Requalificação e Conservação das Edificações Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "aec4656b-7525-4d7a-aa31-67e7a589b5b5",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2018NE000336",
+      "dataEmpenho": "01/03/2018",
+      "nomeCredor": "REIS ALMEIDA SERVICOS LTDA  - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-161.496,18",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "26724550-d837-4f33-8cbf-3d6a766b5b31",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2018NE000117",
+      "dataEmpenho": "24/01/2018",
+      "nomeCredor": "REIS ALMEIDA SERVICOS LTDA  - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "161.496,18",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 14/07/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Regional (Prefeitura-Bairro)",
+  "bairro": null,
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Stage 1 (Lote Regional)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000268"
+    },
+    "nuProcesso": "000915/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Regional (Prefeitura-Bairro)",
+      "estagioAlocacao": "Stage 1 (Lote Regional)",
+      "bairro": null,
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Cajazeiras via Stage 1 (Lote Regional)"
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

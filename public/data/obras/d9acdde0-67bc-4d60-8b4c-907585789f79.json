@@ -1,0 +1,102 @@
+{
+  "id": "d9acdde0-67bc-4d60-8b4c-907585789f79",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2019CT001794",
+  "numeroContratoOriginal": "000001/2019",
+  "nuProcesso": "001137/2018",
+  "objeto": "AQUISIÇÃO (com entrega inclusa) DE MATERIAIS ELÉTRICOS, PARA EXECUÇÃO DE SERVIÇOS NA SUB ESTAÇÃO DO EDF. RANULFO DE OLIVIERA - LOTE 01",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "GR COMERCIO LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 0,
+    "valorTotalContratado": 36488.82,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2019-01-07T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-07-05T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2019-01-07T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 36488.82,
+    "valorContratualVigente": 36488.82,
+    "valorEmpenhado": 36488.82,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 05/07/2019 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2019CT001794"
+    },
+    "nuProcesso": "001137/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO (com entrega inclusa) DE MATERIAIS ELÉTRICOS, PARA EXECUÇÃO DE SERVIÇOS NA SUB ESTAÇÃO DO EDF. RANULFO DE OLIVIERA - LOTE 01",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

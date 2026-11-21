@@ -1,0 +1,121 @@
+{
+  "id": "19147d2e-39c7-4c3d-9e2f-732fc820bc14",
+  "unidadeGestora": "SEMGE",
+  "numeroContrato": "2017CT006042",
+  "numeroContratoOriginal": "000041/2017",
+  "nuProcesso": "003611/2016",
+  "objeto": "Serviços de eng.ª para construção e reconstrução de muros em Unidades Escolares do Municipio",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "METRO ENGENHARIA E CONSULTORIA LTDA",
+    "cnpj": "07.478.417/0001-03",
+    "totalObras": 13,
+    "totalObrasAtivas": 13,
+    "valorTotalContratado": 230058165.64,
+    "outrasObrasCount": 12,
+    "outrasObrasIds": [
+      "fac7c0cd-8569-4b1b-808b-0a800bf80001",
+      "62ebc735-9a10-4ddf-90b8-a418eaec9f18",
+      "8a2d56e0-05d7-42a2-bc9d-96b389236fad",
+      "09ee8f6f-8d42-4edb-b3b9-ed8b0373dc1a",
+      "1f6ccf24-7ee5-4b0b-bda0-5286a933881e",
+      "017101ac-95a3-4208-8a82-c042707383af",
+      "093e5de5-2678-4946-8c92-710818105ff3",
+      "caa0db67-bed0-49b1-abf9-250c9bc63bce",
+      "7c4af489-2e22-4222-8128-c5663c5128ad",
+      "6439f6ca-db52-43a2-82b6-5669f3bd843b",
+      "de85df99-f7a0-4d58-aa74-00beb7b598d8",
+      "57b4a18f-dbdd-4720-9e4a-cc2e9afecdb8"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-04T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-03T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-04T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 20184.0,
+    "valorContratualVigente": 20184.0,
+    "valorEmpenhado": 20184.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Reforma e Adequação de Escolas Municipais",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 03/12/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "410002",
+      "unidadeGestora": "SEMGE",
+      "nuContratoSigef": "2017CT006042"
+    },
+    "nuProcesso": "003611/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Serviços de eng.ª para construção e reconstrução de muros em Unidades Escolares do Municipio",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "410002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,168 @@
+{
+  "id": "8e03a796-bf5e-48f6-a39e-e06d17fd30b3",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT001280",
+  "numeroContratoOriginal": "000005/2018",
+  "nuProcesso": "000920/2017",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE TUBO GALVANIZADO. PR-920/2017-APOSTILADO DA SEMAN PARA DESAL PUBLICAÇÃO DOM Nº7053 DE 22/02/2018.TERMO Nº23/2018 E Nº23/2018.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RR FERNANDES COMERCIO DE CONEXOES E ACESSORIOS INDUSTRIAIS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 124990.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-02-02T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-06-02T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-02-02T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 124990.0,
+    "valorContratualVigente": 124990.0,
+    "valorEmpenhado": 124990.0,
+    "valorLiquidado": 124990.0,
+    "valorPago": 124990.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "34fbd7d2-0d11-4620-b257-c0f4d39cee6f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000141",
+      "dataEmpenho": "26/02/2018",
+      "nomeCredor": "RR FERNANDES COMERCIO DE CONEXOES E ACESSORIOS INDUSTRIAIS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "124.990,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "aeaf241a-e162-474b-a754-a2bddb0b1de1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000141",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "RR FERNANDES COMERCIO DE CONEXOES E ACESSORIOS INDUSTRIAIS LTDA",
+      "notaLiquidacao": "2018NL000793",
+      "notaLancamento": "2018NL000793",
+      "numProcesso": "00001632018",
+      "dataLiquidacao": "14/03/2018",
+      "valLiqLiquidacao": "124.990,00",
+      "valBrutLiquidacao": "124.990,00",
+      "valEmpenho": "124.990,00",
+      "descObsLiquidacao": "PAGAMENTO RR FERNANDES (TUBO GALVANIZADO) NF:1378 E NF:1379  CT-04/2018  PR.163/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "9aa0c20f-260c-49f9-8bf4-1e7866d1649e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000141",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "RR FERNANDES COMERCIO DE CONEXOES E ACESSORIOS INDUSTRIAIS LTDA",
+      "notaLiquidacao": "2018NL000793",
+      "ordBancaria": "2018OB006565",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 124.990,00",
+      "dataPagamento": "14/03/2018",
+      "pago": "R$ 124.990,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT001280"
+    },
+    "nuProcesso": "000920/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE TUBO GALVANIZADO. PR-920/2017-APOSTILADO DA SEMAN PARA DESAL PUBLICAÇÃO DOM Nº7053 DE 22/02/2018.TERMO Nº23/2018 E Nº23/2018.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

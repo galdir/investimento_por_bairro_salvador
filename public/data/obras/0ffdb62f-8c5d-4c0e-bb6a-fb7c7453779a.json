@@ -1,0 +1,177 @@
+{
+  "id": "0ffdb62f-8c5d-4c0e-bb6a-fb7c7453779a",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2016CT002976",
+  "numeroContratoOriginal": "032/2016",
+  "nuProcesso": "646/2016",
+  "objeto": "AQUISIÇÃO DE TINTAS, ESMALTES E CORRELATADOS",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "ALDENER GONCALVES DE OLIVEIRA",
+    "cnpj": "",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 1647767.79,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "73287507-88b2-448d-9da3-c3314dd1b4f0",
+      "8ba5c35d-f086-49d2-88cf-2a2c5c3306ba",
+      "d85774be-3884-45bf-858c-285c8a45cfe4",
+      "ef7a1cd3-f318-4fa8-aaa2-2b20a8cef257",
+      "045c1b67-12a2-4fb6-8c9c-207bbb7b81ab",
+      "7f62eef7-dbce-4540-b8f7-4e4d1d15718a",
+      "f8b569f8-f65e-404d-b4c7-9a956e9cb471",
+      "78620433-a505-437f-9738-13481cc91f18"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-08-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-01-11T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-08-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 770000.0,
+    "valorContratualVigente": 770000.0,
+    "valorEmpenhado": 770000.0,
+    "valorLiquidado": 770000.0,
+    "valorPago": 770000.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "9777da07-93f2-4b07-993b-28114edfdd27",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2016NE000395",
+      "dataEmpenho": "17/08/2016",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "770.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "efc68b07-674d-4d73-80b6-0e328e81c3c6",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000395",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2016NL003743",
+      "notaLancamento": "2016NL003743",
+      "numProcesso": "00009092016",
+      "dataLiquidacao": "25/08/2016",
+      "valLiqLiquidacao": "770.000,00",
+      "valBrutLiquidacao": "770.000,00",
+      "valEmpenho": "770.000,00",
+      "descObsLiquidacao": "Aquisição de tintas poliuretano,esmalte sintético,acrílica, verniz, verniz selador, rolos de lã para epóxi,trinchas,fita crepe e espátulas, contrato nº:32/2016, conforme nota fiscal nº: 246.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "20e37450-ddd1-42bc-b74a-2d81ef7c6285",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000395",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2016NL003743",
+      "ordBancaria": "2016OB022573",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 770.000,00",
+      "dataPagamento": "25/08/2016",
+      "pago": "R$ 770.000,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2016CT002976"
+    },
+    "nuProcesso": "646/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE TINTAS, ESMALTES E CORRELATADOS",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

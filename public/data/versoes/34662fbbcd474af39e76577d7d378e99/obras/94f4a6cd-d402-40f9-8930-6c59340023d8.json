@@ -1,0 +1,112 @@
+{
+  "id": "94f4a6cd-d402-40f9-8930-6c59340023d8",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2019CT004315",
+  "numeroContratoOriginal": "000003/2019",
+  "nuProcesso": "001398/2018",
+  "objeto": "SERVIÇO DE ENGENHARIA PARA MANUTENÇÃO PREDIAL NAS UNIDADES DE ASSISTÊNCIA SOCIAL",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "MAINAN ENGENHARIA LTDA",
+    "cnpj": "08.729.801/0001-02",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 56513033.38,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "fb27a4a9-1b04-4aab-ba20-e54759f399d7",
+      "1927ff51-b23b-49c3-8edf-6c00360a823a"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2019-06-06T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-09-07T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2019-06-06T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4507000.0,
+    "valorContratualVigente": 36634392.6,
+    "valorEmpenhado": 36634392.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 32127392.6,
+    "deltaPercentualAditivos": 712.83
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Reforma de Equipamentos Socioassistências",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 07/09/2024 com execução física incompleta (0.0%)",
+      "Aditivo de valor superior a 25% (+712.83%) acumulado em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 712.83
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2019CT004315"
+    },
+    "nuProcesso": "001398/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "SERVIÇO DE ENGENHARIA PARA MANUTENÇÃO PREDIAL NAS UNIDADES DE ASSISTÊNCIA SOCIAL",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

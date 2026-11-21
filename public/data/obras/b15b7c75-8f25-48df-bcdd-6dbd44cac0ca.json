@@ -1,0 +1,182 @@
+{
+  "id": "b15b7c75-8f25-48df-bcdd-6dbd44cac0ca",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2016CT001983",
+  "numeroContratoOriginal": "000004/2016",
+  "nuProcesso": "000190/2016",
+  "objeto": "FORNECIMENTO DE MATERIAIS DE CONSTRUÇÃO, (FERRO E ARAME) CONF. LOTE II,",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 739367.12,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "cbc9b5dc-36e6-468f-995e-a85c9d77308f",
+      "a2978f86-4e62-43ac-a33c-aed9ca3f3381",
+      "8d386f83-dc8f-444c-b5e2-648a5a7ff56c",
+      "394a165b-0873-45dd-98e1-7ff356414799",
+      "d8e1ed1d-1b0e-49a3-a5c8-f68eccc92696",
+      "de0df8e9-7ab4-422d-b86d-f3df7ae0fee2",
+      "7a92f059-83dc-42ab-8dde-6b1388b75fe4",
+      "78e766d2-4dda-43ea-8f77-df30fc518582",
+      "b5042f60-8f26-41fe-8a64-f236536d5581",
+      "5e719a43-0cc3-48d1-a436-6fa6dcfe62d8",
+      "19c78f5d-4e5f-47c8-9356-bb05b15bbc46",
+      "53cc655e-9db7-4251-b4c4-b49f8065ae6a",
+      "ad32d833-abb2-4e41-a33a-c90c7d590b34"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-05-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-05-11T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-05-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 110468.0,
+    "valorContratualVigente": 110468.0,
+    "valorEmpenhado": 110468.0,
+    "valorLiquidado": 110468.0,
+    "valorPago": 110468.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "e4a1cf99-3bd0-4f65-b620-b3773003855b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2016NE000257",
+      "dataEmpenho": "30/05/2016",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "110.468,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "88322a23-b209-465d-bfa5-d361a9d04eca",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000257",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2016NL002623",
+      "notaLancamento": "2016NL002623",
+      "numProcesso": "00006042016",
+      "dataLiquidacao": "27/06/2016",
+      "valLiqLiquidacao": "110.468,00",
+      "valBrutLiquidacao": "110.468,00",
+      "valEmpenho": "110.468,00",
+      "descObsLiquidacao": "AQUISIÇÃO DE MATERIAL DE CONSUMO PARA ATENDER A PRODUÇÃO - CT 004/2016 - REF MÊS DE JUNHO/2016 - NF. 2920",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "82228329-a267-41f3-87aa-2a050a43fed2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000257",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2016NL002623",
+      "ordBancaria": "2016OB016647",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 110.468,00",
+      "dataPagamento": "27/06/2016",
+      "pago": "R$ 110.468,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2016CT001983"
+    },
+    "nuProcesso": "000190/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "FORNECIMENTO DE MATERIAIS DE CONSTRUÇÃO, (FERRO E ARAME) CONF. LOTE II,",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

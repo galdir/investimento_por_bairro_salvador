@@ -1,0 +1,223 @@
+{
+  "id": "bd7bed81-4789-43f7-822d-4bffa09cef8a",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2019CT008434",
+  "numeroContratoOriginal": "000036/2019",
+  "nuProcesso": "001531/2019",
+  "objeto": "Execução dos serviços de modernização do Campo de Futebol, através da implantação de grama sintética, no bairro da Boca do Rio, Salvador/BA",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA FARIA LIMA LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 3195720.37,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "7add07f7-f918-4699-9544-8752d4269b8c",
+      "5beaa406-f315-4e21-b4ef-1bd517c87412"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2019-11-06T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2020-08-24T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2019-11-06T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 404633.43,
+    "valorContratualVigente": 404633.43,
+    "valorEmpenhado": 404633.43,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Requalificação de Espaços Públicos",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "1ffa09cf-9da1-4e40-ac0d-2b3fbaa9270d",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2019NE001302",
+      "dataEmpenho": "06/11/2019",
+      "nomeCredor": "CONSTRUTORA FARIA LIMA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "350.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "3e0db80d-e150-4ea4-a592-6be375f00c44",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2020NE000891",
+      "dataEmpenho": "12/08/2020",
+      "nomeCredor": "CONSTRUTORA FARIA LIMA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-10.965,57",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "a26cdbac-e1fa-45d3-ac0c-1e3957ccaafb",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP4150264",
+      "dataEmpenho": "21/12/2020",
+      "nomeCredor": "CONSTRUTORA FARIA LIMA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "e2bac3fd-4ae4-4e2b-8fc7-dc425234855b",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2020NE000704",
+      "dataEmpenho": "24/06/2020",
+      "nomeCredor": "CONSTRUTORA FARIA LIMA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "10.965,57",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c5a0c311-29bc-4c09-adfd-fb644a7501ae",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2019NE001706",
+      "dataEmpenho": "27/12/2019",
+      "nomeCredor": "CONSTRUTORA FARIA LIMA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-250.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b6b411fe-b0bb-4ecb-8782-a39520778d59",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP4802011",
+      "dataEmpenho": "31/12/2020",
+      "nomeCredor": "CONSTRUTORA FARIA LIMA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 24/08/2020 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2019CT008434"
+    },
+    "nuProcesso": "001531/2019",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Boca do Rio via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

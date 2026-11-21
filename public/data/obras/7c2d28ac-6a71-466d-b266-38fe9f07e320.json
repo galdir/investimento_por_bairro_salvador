@@ -1,0 +1,252 @@
+{
+  "id": "7c2d28ac-6a71-466d-b266-38fe9f07e320",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006154",
+  "numeroContratoOriginal": "000045/2017",
+  "nuProcesso": "000472/2017",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE FERRO CA 60  E CA 50 E ARAME RECOZIDO, CONFORME TERMO DE APOSTILAMENTO 005/2017 do PR seman-474/2017, conforme publicação no DOM:6983 de 05/12/2017, da  SEMAN PARA DESAL",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 1565042.0,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "5dd4c7f9-8dae-45aa-aa4d-e02897433130",
+      "a942ae46-fdac-4b08-a447-e05b6691271e",
+      "398998e5-994a-4744-80e8-62baf7c0bce2",
+      "c2e367da-163b-49ae-82b6-3a4c7e12c65d",
+      "0081ba3e-0374-4862-aafe-04851cc2bc23",
+      "c66c95de-b469-4962-9cea-25eeeae1607b",
+      "e98994b5-c1dc-4306-976d-f7b4b6eb84c6"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-11-22T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-03-22T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-11-22T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 999720.0,
+    "valorContratualVigente": 999720.0,
+    "valorEmpenhado": 540546.4,
+    "valorLiquidado": 540546.4,
+    "valorPago": 540546.4,
+    "percentualExecutado": 54.07,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "133fb9e5-82f9-4da8-9162-60e6de4acd2d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000147",
+      "dataEmpenho": "01/02/2018",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "320.393,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "7cce922e-1a17-49cd-bd7d-73c6056103cf",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000409",
+      "dataEmpenho": "11/12/2017",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "220.600,20",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "57ad49f2-2de0-4fa2-8f54-b96a54819727",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000452",
+      "dataEmpenho": "18/12/2017",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-446,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "26b3f297-294c-467c-8f98-56fa311c5606",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000409",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2017NL002460",
+      "notaLancamento": "2017NL002460",
+      "numProcesso": "00005032017",
+      "dataLiquidacao": "18/12/2017",
+      "valLiqLiquidacao": "220.153,40",
+      "valBrutLiquidacao": "220.153,40",
+      "valEmpenho": "220.600,20",
+      "descObsLiquidacao": "PAGAMENTO BAHIA FORTE - NF 922 - PR. 503/2017",
+      "pago": "0,00"
+    },
+    {
+      "id": "fca241aa-bcce-45d6-ba02-18329b3e96cd",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000147",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000751",
+      "notaLancamento": "2018NL000751",
+      "numProcesso": "00001592018",
+      "dataLiquidacao": "12/03/2018",
+      "valLiqLiquidacao": "320.393,00",
+      "valBrutLiquidacao": "320.393,00",
+      "valEmpenho": "320.393,00",
+      "descObsLiquidacao": "PAGAMENTO BAHIA FORTE NF:929 - FERRO CA E ARAME - PR-159/2018 CONTRATO 045-2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "89937a38-faec-44dd-b69c-1cd04d2db4d7",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000409",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2017NL002460",
+      "ordBancaria": "2017OB035120",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 220.600,20",
+      "dataPagamento": "18/12/2017",
+      "pago": "R$ 220.153,40",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8be95b95-9be3-45c2-8c61-a3bf959c892b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000147",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000751",
+      "ordBancaria": "2018OB006418",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 320.393,00",
+      "dataPagamento": "12/03/2018",
+      "pago": "R$ 320.393,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 22/03/2018 com execução física incompleta (54.07%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006154"
+    },
+    "nuProcesso": "000472/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE FERRO CA 60  E CA 50 E ARAME RECOZIDO, CONFORME TERMO DE APOSTILAMENTO 005/2017 do PR seman-474/2017, conforme publicação no DOM:6983 de 05/12/2017, da  SEMAN PARA DESAL",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

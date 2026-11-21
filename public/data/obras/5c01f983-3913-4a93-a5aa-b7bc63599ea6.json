@@ -1,0 +1,197 @@
+{
+  "id": "5c01f983-3913-4a93-a5aa-b7bc63599ea6",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006308",
+  "numeroContratoOriginal": "000030/2017",
+  "nuProcesso": "000387/2017",
+  "objeto": "Aquisição de materiais para fabricação e manutenção de equipamentos públicos- disco de debaste diamantado para concreto",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "PODIUM DISTRIBUIDORA LTDA",
+    "cnpj": "",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 1524874.62,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "d63747ad-b8b0-4bb7-ba6e-694a5fad5976",
+      "19082b32-dba1-468a-8959-d960cd7d7002",
+      "7173c9b2-7a5e-4f97-98fa-5840329c148a",
+      "ad0b156d-6377-4437-b611-4f420de9f526",
+      "856487f7-a8e5-41d0-9e95-f9d2e2493743",
+      "811c1a71-4356-418f-8a60-05f69b762e91",
+      "991f8e21-c926-4016-9954-743429ec1c8a",
+      "551e2fd4-8ccf-4eef-8191-3a5e96328e4f",
+      "16165255-0a1d-4a41-b40c-476df5d80ed3",
+      "93ae0d9d-0a6f-4b3c-a1fc-64b75e7cf93d",
+      "c4f2b933-6250-4423-bb75-2d700615dacd"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-02-08T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 5775.6,
+    "valorContratualVigente": 5775.6,
+    "valorEmpenhado": 5775.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "7e467733-ff5d-4dbd-9adc-21d6952ab9d2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000425",
+      "dataEmpenho": "14/12/2017",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "5.775,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "01153026-c1ca-4e10-8e4b-4a0af755676a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000448",
+      "dataEmpenho": "18/12/2017",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "-5.775,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "67679171-0d67-4c77-a2fa-1f6a3fecb5a8",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000714",
+      "dataEmpenho": "20/12/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "-5.775,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "ca63a0be-6b3b-4049-a179-58bb9e3993d8",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000071",
+      "dataEmpenho": "25/01/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "5.775,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 08/02/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006308"
+    },
+    "nuProcesso": "000387/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Aquisição de materiais para fabricação e manutenção de equipamentos públicos- disco de debaste diamantado para concreto",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

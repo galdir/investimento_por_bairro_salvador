@@ -1,0 +1,195 @@
+{
+  "id": "3e137578-aaae-42c2-b5fa-d78b3b466c6b",
+  "unidadeGestora": "SINDEC",
+  "numeroContrato": "2016CT004229",
+  "numeroContratoOriginal": "0000152016",
+  "nuProcesso": "0011842016",
+  "objeto": "EXECUÇÃO, SOB O REGIME DE EMPREITADA POR PREÇO UNITÁRIO, DA OBRA DE DRENAGEM NA RUA E CANAL DO SOSSEGO, NO BAIRRO DA MATA ESCURA, SALVADOR/BA",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
+    "cnpj": "18.318.752/0001-60",
+    "totalObras": 7,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 26001567.97,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "39ceb44d-42fa-41aa-b663-cc7c43620c4e",
+      "676e0ffd-571a-4e51-9dda-0199dbc04c66",
+      "8acef319-9ab0-4152-8e3b-ea03413f61a1",
+      "f8590163-01f8-44a7-ba89-eb6bcc2599ee",
+      "f09e4f80-5637-4baf-9178-0b17892ab5b6",
+      "17621d9a-423c-4ac0-9953-94e92e984eda"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-11-16T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-09-06T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-11-16T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 2108549.86,
+    "valorContratualVigente": 2381139.68,
+    "valorEmpenhado": 46201.49,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 272589.82,
+    "deltaPercentualAditivos": 12.93
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implantação da Infraestrutura Viária",
+      "fonteRecurso": "Tesouro",
+      "classificacao": " Obras e Instalações"
+    },
+    {
+      "subacao": "Implantação da Infraestrutura Viária",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "b215fda6-3cdb-4ec6-961c-ad81d6d321b6",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "cdUnGestora": "516002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "notaEmpenho": "2016NE000652",
+      "dataEmpenho": "21/11/2016",
+      "nomeCredor": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "6.201,49",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "5806bbe8-fa9b-4b44-a03c-5d54db60dcbb",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "cdUnGestora": "516002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "notaEmpenho": "2016NE000653",
+      "dataEmpenho": "21/11/2016",
+      "nomeCredor": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "150.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "5c3d09f4-34f7-405e-83ec-997ab7f0f953",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "cdUnGestora": "516002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "notaEmpenho": "2016NE000713",
+      "dataEmpenho": "21/11/2016",
+      "nomeCredor": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-85.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "67c0ec02-1827-4660-9d11-16dc9d29b2a4",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "cdUnGestora": "516002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "notaEmpenho": "2016NE000715",
+      "dataEmpenho": "21/11/2016",
+      "nomeCredor": "DAUD EMPREENDIMENTOS E CONSTRUCOES LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-25.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 06/09/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 12.93
+  },
+  "nivel": "Bairro",
+  "bairro": "Mata Escura",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.932852,
+  "longitude": -38.458147,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "516002",
+      "unidadeGestora": "SINDEC",
+      "nuContratoSigef": "2016CT004229"
+    },
+    "nuProcesso": "0011842016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Mata Escura via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "516002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

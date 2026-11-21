@@ -1,0 +1,223 @@
+{
+  "id": "991f8e21-c926-4016-9954-743429ec1c8a",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000847",
+  "numeroContratoOriginal": "000002/2018",
+  "nuProcesso": "000434/2017",
+  "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA FORNECIMENTO E MONTAGEM DE ESQUEDRIAS EM PAU D¿ARCO",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PODIUM DISTRIBUIDORA LTDA",
+    "cnpj": "",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 1524874.62,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "d63747ad-b8b0-4bb7-ba6e-694a5fad5976",
+      "19082b32-dba1-468a-8959-d960cd7d7002",
+      "7173c9b2-7a5e-4f97-98fa-5840329c148a",
+      "ad0b156d-6377-4437-b611-4f420de9f526",
+      "856487f7-a8e5-41d0-9e95-f9d2e2493743",
+      "811c1a71-4356-418f-8a60-05f69b762e91",
+      "551e2fd4-8ccf-4eef-8191-3a5e96328e4f",
+      "5c01f983-3913-4a93-a5aa-b7bc63599ea6",
+      "16165255-0a1d-4a41-b40c-476df5d80ed3",
+      "93ae0d9d-0a6f-4b3c-a1fc-64b75e7cf93d",
+      "c4f2b933-6250-4423-bb75-2d700615dacd"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-01-31T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-01-31T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-01-31T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 33825.98,
+    "valorContratualVigente": 33825.98,
+    "valorEmpenhado": 33825.98,
+    "valorLiquidado": 33825.98,
+    "valorPago": 33825.98,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Obras e Serviços em Espaços e Equipamentos Públicos",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    },
+    {
+      "subacao": "Implementação de Obras e Serviços em Espaços e Equipamentos Públicos",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "8db820a0-e676-4178-a10b-606ff8716ddb",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000106",
+      "dataEmpenho": "05/02/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "33.825,98",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "865508f5-dc1e-48ae-85f8-d712d2e3df55",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000103",
+      "dataEmpenho": "05/02/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "33.825,98",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b1381981-ef8f-4269-b4a1-7afc4fdde33d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000105",
+      "dataEmpenho": "05/02/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-33.825,98",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "2ba1f918-c4fb-48d1-9998-e3567ee7bdf0",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000106",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2019NL001707",
+      "notaLancamento": "2019NL001707",
+      "numProcesso": "00004032018",
+      "dataLiquidacao": "06/05/2019",
+      "valLiqLiquidacao": "33.825,98",
+      "valBrutLiquidacao": "33.825,98",
+      "valEmpenho": "33.825,98",
+      "descObsLiquidacao": "PODIUM DISTRIBUIDORA LTDA - REFERENTE AO FORNECIMENTO COM INSTALAÇÃO DE ESQUADRIAS DE PAU D ARCO - CT 002/2018 - PR 403/2018 - NF 4574",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "f17fc306-2549-48b6-bde9-75e5b3b8e69e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000106",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2019NL001707",
+      "ordBancaria": "2019OB015654",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 33.825,98",
+      "dataPagamento": "06/05/2019",
+      "pago": "R$ 33.825,98",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000847"
+    },
+    "nuProcesso": "000434/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA FORNECIMENTO E MONTAGEM DE ESQUEDRIAS EM PAU D¿ARCO",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

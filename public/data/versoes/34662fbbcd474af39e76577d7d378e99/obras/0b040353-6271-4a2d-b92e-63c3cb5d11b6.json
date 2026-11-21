@@ -1,0 +1,269 @@
+{
+  "id": "0b040353-6271-4a2d-b92e-63c3cb5d11b6",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2017CT005200",
+  "numeroContratoOriginal": "000010/2017",
+  "nuProcesso": "000995/2017",
+  "objeto": "EXECUÇÃO DOS SERVIÇOS DE REQUALIFICAÇÃO DA RUA ASTRO CAMPELO - SUSSUARANA",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "A J CONSTRUTORA LTDA",
+    "cnpj": "",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 11051923.34,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "f5c4b5ef-b1da-47f9-be68-56a9cddff575",
+      "8908bc41-93d3-4ade-a87f-c4743ff0d322",
+      "a5d4391f-87b4-4298-ab54-d78008083d15",
+      "e2dfcbe9-1713-423c-9616-441a908b2d0b",
+      "56848dd0-ac3c-4606-8bc5-be993cfeeb15"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-10-20T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-04-17T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-10-20T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 168049.57,
+    "valorContratualVigente": 168049.57,
+    "valorEmpenhado": 168049.57,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implantação da Infraestrutura Viária",
+      "fonteRecurso": "Tesouro",
+      "classificacao": " Obras e Instalações"
+    },
+    {
+      "subacao": "Implantação da Infraestrutura Viária",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "69eb3070-dac9-41e7-a08f-509ea4ba3236",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2017NE000573",
+      "dataEmpenho": "01/11/2017",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "11.511,40",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "6a102cfc-6f8e-405d-8a99-61b304233f4b",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2017NE000572",
+      "dataEmpenho": "01/11/2017",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "156.538,17",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "bf379919-b847-4748-b660-8fe8b970fc38",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2018NE000055",
+      "dataEmpenho": "02/01/2018",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "11.511,40",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "7026f892-0966-4285-985a-673ed426f61d",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2018NE000078",
+      "dataEmpenho": "02/01/2018",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "156.538,17",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "c8ea6aaa-0ded-495a-9220-c32fa0d187b8",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2018NE001282",
+      "dataEmpenho": "21/12/2018",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-11.511,40",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "a3cac336-45f3-4897-90f0-b52074b968ba",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2018NE001283",
+      "dataEmpenho": "21/12/2018",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-156.538,17",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "986e862c-3ad0-4731-a19e-efd96e13a309",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2017NE000846",
+      "dataEmpenho": "27/12/2017",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-11.511,40",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9d5fa36a-02e3-4036-9cd9-99661006393d",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2017NE000845",
+      "dataEmpenho": "27/12/2017",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-156.538,17",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 17/04/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Sussuarana",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.933346,
+  "longitude": -38.445351,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2017CT005200"
+    },
+    "nuProcesso": "000995/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Sussuarana",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Sussuarana via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

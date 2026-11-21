@@ -1,0 +1,168 @@
+{
+  "id": "c3559f61-5627-40a8-bbdb-f1df10ffd10d",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006116",
+  "numeroContratoOriginal": "000021/2017",
+  "nuProcesso": "000345/2017",
+  "objeto": "SERVIÇO DE ENGENHARIA DE SEGURANÇA DO TRABALHO PARA ELABORAÇÃO DO PROGRAMA DE PREVENÇÃO DE RISCOS AMBIENTAIS PPRA CONFORME NR9, ELABORAÇÃO DE LAUDO TÉCNICO- LTCAT",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ONEVENCE ENGENHARIA DE SEGURANCA DO TRABALHO EIRELI - EPP",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 7350.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-06T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-03-06T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-06T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 7350.0,
+    "valorContratualVigente": 7350.0,
+    "valorEmpenhado": 7350.0,
+    "valorLiquidado": 7350.0,
+    "valorPago": 7350.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "93f303ec-c2e5-4c6f-b471-8e001fab63f7",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000377",
+      "dataEmpenho": "07/12/2017",
+      "nomeCredor": "ONEVENCE ENGENHARIA DE SEGURANCA DO TRABALHO EIRELI - EPP",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços Técnicos Profissionais",
+      "valEmpenhado": "7.350,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "ff7bbd6a-bcf5-45d7-9fc8-fe412cb5eca6",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000377",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ONEVENCE ENGENHARIA DE SEGURANCA DO TRABALHO EIRELI - EPP",
+      "notaLiquidacao": "2018NL001712",
+      "notaLancamento": "2018NL001712",
+      "numProcesso": "00003572018",
+      "dataLiquidacao": "17/05/2018",
+      "valLiqLiquidacao": "7.350,00",
+      "valBrutLiquidacao": "7.350,00",
+      "valEmpenho": "7.350,00",
+      "descObsLiquidacao": "PAGAMENTO ONEVENCE ENG. NF:142. (PROGRAMA PROT. RISCOS AMBIENTAIS) PR.357/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "343b4228-6740-42dc-9427-0d28e160080c",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000377",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ONEVENCE ENGENHARIA DE SEGURANCA DO TRABALHO EIRELI - EPP",
+      "notaLiquidacao": "2018NL001712",
+      "ordBancaria": "2018OB014944",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 7.350,00",
+      "dataPagamento": "17/05/2018",
+      "pago": "R$ 7.350,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006116"
+    },
+    "nuProcesso": "000345/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "SERVIÇO DE ENGENHARIA DE SEGURANÇA DO TRABALHO PARA ELABORAÇÃO DO PROGRAMA DE PREVENÇÃO DE RISCOS AMBIENTAIS PPRA CONFORME NR9, ELABORAÇÃO DE LAUDO TÉCNICO- LTCAT",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

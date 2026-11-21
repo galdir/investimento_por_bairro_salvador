@@ -1,0 +1,110 @@
+{
+  "id": "2b24a25e-8b66-4962-a9ca-59dcfaf9b63e",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT001524",
+  "numeroContratoOriginal": "0012026",
+  "nuProcesso": "2410612025",
+  "objeto": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
+    "cnpj": "07.443.264/0001-69",
+    "totalObras": 8,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 8793753.64,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "58ab1474-64d7-4125-9c8c-b5bce0ad807f",
+      "5efcdfb9-1822-463d-9be0-e9b1ead1076c",
+      "87af8306-19d3-4b09-af08-0fdae04290a6",
+      "2339f704-7dee-4915-a9ef-ca25e37bb2fa",
+      "d95348e2-7e94-4114-b1c7-ba465983e101",
+      "1e6f77b5-ac81-4f81-86de-77ad2feb5c7f",
+      "9ae8f7fb-9bdd-4545-8762-33997b6aea52"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2026-01-20T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-04-19T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-01-20T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 999671.05,
+    "valorContratualVigente": 999671.05,
+    "valorEmpenhado": 999671.05,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 19/04/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT001524"
+    },
+    "nuProcesso": "2410612025",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro Histórico via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "contratação Emergencial para o Escoramento Metálico, e outros serviços emergenciais do Edifício Cine Excelsior",
+      "documentoOrigem": "dsObjeto (Contrato 616002:2026CT001524)",
+      "justificativa": "O objeto identifica univocamente o Edifício Cine Excelsior (Praça da Sé), situado no polígono oficial do Bairro Oficial Centro Histórico."
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2025-01-01T03:00:00.000Z",
+    "dataFim": "2028-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,105 @@
+{
+  "id": "04d728e5-a46a-4233-be58-d8854b7df9af",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2024CT008417",
+  "numeroContratoOriginal": "020/2024",
+  "nuProcesso": "079815/2024",
+  "objeto": "Contratação de empresa capacitada para execução da obra de Reforma e Requalificação do Teatro Vila \r\nVelha, Av. Sete de Setembro, Passeio Público - Bairro: Campo Grande-Salvador/BA.",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA PENTAGONO LTDA",
+    "cnpj": "34.145.847/0001-86",
+    "totalObras": 5,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 47894570.49,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "e2751d71-ec3e-446c-8f26-df857aa7e7be",
+      "16f23d24-099c-4a08-9422-51c1a28f1464",
+      "6c609859-4a00-46e6-867e-5c2f59539ee6",
+      "1b41f06c-aa9c-45b3-9405-4f8a6396582b"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-09-06T00:00:00.000Z",
+    "dataFimOriginal": "2025-08-31T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-08-31T00:00:00.000Z",
+    "prazoOriginal": "359",
+    "prazoAtualizado": "359"
+  },
+  "dom": {
+    "nuDom": "8865",
+    "dataPublicacao": "2024-09-06T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 10976265.85,
+    "valorContratualVigente": 10976265.85,
+    "valorEmpenhado": 10976265.85,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 31/08/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT008417"
+    },
+    "nuProcesso": "079815/2024",
+    "domContrato": {
+      "nuDom": "8865",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

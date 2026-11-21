@@ -1,0 +1,215 @@
+{
+  "id": "f8b569f8-f65e-404d-b4c7-9a956e9cb471",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006144",
+  "numeroContratoOriginal": "000044/2017",
+  "nuProcesso": "000472/2017",
+  "objeto": "AQUISIÇÃO DE TELA ELETRO SOLDADAD COM ENTREGA INCLUSA, CONFORME TERMO DE APOSTILAMENTO 004 e 005/2017 do PR seman-474/2017, conforme publicação no DOM:6983 de 05/12/2017, da  SEMAN PARA DESAL.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ALDENER GONCALVES DE OLIVEIRA",
+    "cnpj": "",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 1647767.79,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "73287507-88b2-448d-9da3-c3314dd1b4f0",
+      "8ba5c35d-f086-49d2-88cf-2a2c5c3306ba",
+      "d85774be-3884-45bf-858c-285c8a45cfe4",
+      "ef7a1cd3-f318-4fa8-aaa2-2b20a8cef257",
+      "045c1b67-12a2-4fb6-8c9c-207bbb7b81ab",
+      "7f62eef7-dbce-4540-b8f7-4e4d1d15718a",
+      "78620433-a505-437f-9738-13481cc91f18",
+      "0ffdb62f-8c5d-4c0e-bb6a-fb7c7453779a"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-11-22T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-03-22T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-11-22T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 79399.8,
+    "valorContratualVigente": 79399.8,
+    "valorEmpenhado": 79399.8,
+    "valorLiquidado": 79399.8,
+    "valorPago": 79399.8,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "db23cc1b-8cdc-4d0e-954d-7904b02801ca",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000408",
+      "dataEmpenho": "11/12/2017",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "79.399,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "ffdfbad9-8214-4acf-8bf1-bfcc9398cd39",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000445",
+      "dataEmpenho": "18/12/2017",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-79.399,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "50292bfb-4444-49e9-91c7-686b529a4cc2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000053",
+      "dataEmpenho": "25/01/2018",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "79.399,80",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "605032ab-61d6-43af-a57c-85fe5ab73012",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000053",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL000202",
+      "notaLancamento": "2018NL000202",
+      "numProcesso": "00000492018",
+      "dataLiquidacao": "29/01/2018",
+      "valLiqLiquidacao": "79.399,80",
+      "valBrutLiquidacao": "79.399,80",
+      "valEmpenho": "79.399,80",
+      "descObsLiquidacao": "PAGAMENTO ALDENER - NF 1001 - PR 49/2018- CONTRATO 44/2017 SEMAN",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "3e3c8bed-7146-4a43-8b53-b4c8c850ba51",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000053",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL000202",
+      "ordBancaria": "2018OB001476",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 79.399,80",
+      "dataPagamento": "29/01/2018",
+      "pago": "R$ 79.399,80",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006144"
+    },
+    "nuProcesso": "000472/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE TELA ELETRO SOLDADAD COM ENTREGA INCLUSA, CONFORME TERMO DE APOSTILAMENTO 004 e 005/2017 do PR seman-474/2017, conforme publicação no DOM:6983 de 05/12/2017, da  SEMAN PARA DESAL.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

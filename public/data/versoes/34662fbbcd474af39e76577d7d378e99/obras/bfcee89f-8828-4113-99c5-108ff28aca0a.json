@@ -1,0 +1,149 @@
+{
+  "id": "bfcee89f-8828-4113-99c5-108ff28aca0a",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2017CT006126",
+  "numeroContratoOriginal": "000028/2017",
+  "nuProcesso": "001274/2017",
+  "objeto": "Execução, sob o regime de empreitada por preço unitário, dos serviços de infraestrutura, estabilização e contenção de encostas no Município do Salvador/BA, em jurisdição das Prefeituras Bairros: I e VI,",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "CONSORCIO MAF/LIGA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 119738401.7,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "e93c1295-c1b9-41db-a618-dc3ddffe5fb5"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-07T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-06T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-07T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 109000.0,
+    "valorContratualVigente": 109000.0,
+    "valorEmpenhado": 109000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implantação da Infraestrutura Viária",
+      "fonteRecurso": "Tesouro",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "0d3a49e8-e7a4-4ea4-a4c3-df86db993a89",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2017NE000694",
+      "dataEmpenho": "11/12/2017",
+      "nomeCredor": "CONSORCIO MAF/LIGA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "109.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "6587c88c-3453-4c5f-beec-04b28db63325",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2017NE000701",
+      "dataEmpenho": "11/12/2017",
+      "nomeCredor": "CONSORCIO MAF/LIGA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-109.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Encostas e Contenção",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 06/12/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2017CT006126"
+    },
+    "nuProcesso": "001274/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Execução, sob o regime de empreitada por preço unitário, dos serviços de infraestrutura, estabilização e contenção de encostas no Município do Salvador/BA, em jurisdição das Prefeituras Bairros: I e VI,",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

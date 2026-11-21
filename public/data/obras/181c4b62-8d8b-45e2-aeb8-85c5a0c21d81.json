@@ -1,0 +1,234 @@
+{
+  "id": "181c4b62-8d8b-45e2-aeb8-85c5a0c21d81",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2021CT005406",
+  "numeroContratoOriginal": "007/2021",
+  "nuProcesso": "096622/2021",
+  "objeto": "Para aquisição de materiais,\r\nequipamentos, ou gêneros que só possam ser fornecidos por produtor, empresa ou representante\r\ncomercial exclusivo, vedada a preferência de marca, devendo a comprovação de exclusividade ser feita\r\natravés de atestado fornecido pelo órgão de registro do comércio do local em que se realizaria a licitação\r\nou a obra ou o serviço, pelo Sindicato, Federação ou Confederaçã",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "TS CONSTRUCOES E SERVICOS LTDA",
+    "cnpj": "27.839.615/0001-62",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 7157406.36,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "a6e1c9c5-4004-48cc-9bd8-88a3e7358f8c",
+      "dc2457c5-7adc-47ba-b1ec-0b8961b39d7e",
+      "a94cda2c-82dc-45bb-aa4c-79c5350ee25f",
+      "33af1566-e905-43f6-a889-57febbf903ff",
+      "6a8b1d28-99b0-4edb-bbfb-e0c6191762f9",
+      "6e07b007-c1b7-4612-9f4a-b44e2daac7fc",
+      "c0ce696f-250f-4597-86b7-0d74aa57c739",
+      "41ec443a-6133-4e58-be73-47a847edeed1"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2021-12-09T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2022-12-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2021-12-09T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 384709.21,
+    "valorContratualVigente": 384664.75,
+    "valorEmpenhado": 384664.75,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": -0.01
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção de Equipamentos de Esporte e Lazer nas Comunidades",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Obras e Instalações"
+    },
+    {
+      "subacao": "Construção de Equipamentos de Esporte e Lazer nas Comunidades",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "classificacao": "Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "e6e15195-4f1e-41a4-aa91-c4125332fb81",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "RP2892172",
+      "dataEmpenho": "01/07/2022",
+      "nomeCredor": "TS CONSTRUCOES E SERVICOS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "-3.847,10",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "60f6a72d-079c-4b0c-8636-3b2c273b624c",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "RP2892128",
+      "dataEmpenho": "01/07/2022",
+      "nomeCredor": "TS CONSTRUCOES E SERVICOS LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "-380.862,11",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "abf5ac4f-9aff-45d3-97eb-4e251898a92e",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2021NE002024",
+      "dataEmpenho": "17/12/2021",
+      "nomeCredor": "TS CONSTRUCOES E SERVICOS LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "380.862,11",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "cbbfcf0c-79e7-4c83-ba89-c6883a399d3e",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2021NE002026",
+      "dataEmpenho": "17/12/2021",
+      "nomeCredor": "TS CONSTRUCOES E SERVICOS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "3.847,10",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "0560d57e-4518-4067-895c-eca76688d262",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "RP6820815",
+      "dataEmpenho": "31/12/2022",
+      "nomeCredor": "TS CONSTRUCOES E SERVICOS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "152c32b3-6a5b-45a1-9484-dac19c572ca9",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "RP6820814",
+      "dataEmpenho": "31/12/2022",
+      "nomeCredor": "TS CONSTRUCOES E SERVICOS LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 09/12/2022 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": -0.01
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2021CT005406"
+    },
+    "nuProcesso": "096622/2021",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Multi-Bairro (Prefeituras-Bairro Múltiplas)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Multi-Bairro (Prefeituras-Bairro Múltiplas))"
+    }
+  },
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

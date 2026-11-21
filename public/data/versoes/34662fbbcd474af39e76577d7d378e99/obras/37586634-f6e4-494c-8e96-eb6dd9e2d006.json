@@ -1,0 +1,168 @@
+{
+  "id": "37586634-f6e4-494c-8e96-eb6dd9e2d006",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT003942",
+  "numeroContratoOriginal": "000028/2018",
+  "nuProcesso": "000022/2018",
+  "objeto": "AQUISIÇÃO DE RESINA DE POLIURETANO PARA SETOR DE PRODUÇÃO",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RJ COMERCIO E PRESTACAO DE SERVICOS ESPECIALIZADOS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 54226.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-07-25T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-01-20T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-07-25T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 54226.0,
+    "valorContratualVigente": 54226.0,
+    "valorEmpenhado": 54226.0,
+    "valorLiquidado": 54226.0,
+    "valorPago": 54226.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Argamassa e Concreto",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "0d4394d4-95ca-4082-a738-c703204a65c2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000395",
+      "dataEmpenho": "31/07/2018",
+      "nomeCredor": "RJ COMERCIO E PRESTACAO DE SERVICOS ESPECIALIZADOS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "54.226,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "bd35019d-5994-4ac1-9e04-2f8d219c2157",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000395",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "RJ COMERCIO E PRESTACAO DE SERVICOS ESPECIALIZADOS LTDA",
+      "notaLiquidacao": "2018NL003294",
+      "notaLancamento": "2018NL003294",
+      "numProcesso": "00006852018",
+      "dataLiquidacao": "27/08/2018",
+      "valLiqLiquidacao": "54.226,00",
+      "valBrutLiquidacao": "54.226,00",
+      "valEmpenho": "54.226,00",
+      "descObsLiquidacao": "RJ COMERCIO - FORNECIMENTO DE RESINA DE POLIURETANO - NF 316 - PROCESSO 685/2018 CT 028/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "43e35048-23bc-44a5-91aa-1f9d94bf37c1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000395",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "RJ COMERCIO E PRESTACAO DE SERVICOS ESPECIALIZADOS LTDA",
+      "notaLiquidacao": "2018NL003294",
+      "ordBancaria": "2018OB026664",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 54.226,00",
+      "dataPagamento": "27/08/2018",
+      "pago": "R$ 54.226,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT003942"
+    },
+    "nuProcesso": "000022/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE RESINA DE POLIURETANO PARA SETOR DE PRODUÇÃO",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,280 @@
+{
+  "id": "52455a7f-b1e3-49d5-b3cf-20d1320e63d4",
+  "unidadeGestora": "SEMOB",
+  "numeroContrato": "2018CT002371",
+  "numeroContratoOriginal": "000004/2018",
+  "nuProcesso": "000740/2018",
+  "objeto": "Serviço de substituição dos conjuntos de braquetes para fixação das guias das cabines 01 e 02 do Elevador Lacerda, incluindo o fornecimento de materiais.",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 0,
+    "valorTotalContratado": 64500.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-04-24T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-08-21T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-04-24T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 64500.0,
+    "valorContratualVigente": 64500.0,
+    "valorEmpenhado": 32250.0,
+    "valorLiquidado": 31605.0,
+    "valorPago": 32250.0,
+    "percentualExecutado": 49.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção do Sistema de Transportes Vertical",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "b23b4345-a0b0-4ea0-8066-69e64602bc07",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "cdUnGestora": "530002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "notaEmpenho": "2018NE000267",
+      "dataEmpenho": "04/05/2018",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Manutenção e Conservação de Máquinas e Equipamentos",
+      "valEmpenhado": "64.500,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "30412e79-510d-48c8-9df1-fc96962e9b1d",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "cdUnGestora": "530002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "notaEmpenho": "2018NE000622",
+      "dataEmpenho": "29/10/2018",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Manutenção e Conservação de Máquinas e Equipamentos",
+      "valEmpenhado": "-32.250,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "e32ee882-fa73-4319-8495-ad9ddb0eca63",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "siglaOrgao": "SEMOB",
+      "notaEmpenho": "2018NE000267",
+      "codUnGestora": "530002",
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "siglaUnGestora": "SEMOB",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "notaLiquidacao": "2018NL002319",
+      "notaLancamento": "2018NL002319",
+      "numProcesso": "00005972018",
+      "dataLiquidacao": "03/08/2018",
+      "valLiqLiquidacao": "31.605,00",
+      "valBrutLiquidacao": "32.250,00",
+      "valEmpenho": "64.500,00",
+      "descObsLiquidacao": "0597/2018; Substituição dos braquetes para fixação das guias das cabines 1 e 2 do Elevador Lacerda; 07/18; Ct. 04/18; NF 10",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "567ea16b-d184-4f55-8969-218b746e2fe5",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "siglaOrgao": "SEMOB",
+      "notaEmpenho": "2018NE000267",
+      "codUnGestora": "530002",
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "siglaUnGestora": "SEMOB",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "notaLiquidacao": "2018NL002319",
+      "ordBancaria": "2018OB022478",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 64.500,00",
+      "dataPagamento": "03/08/2018",
+      "pago": "R$ 31.605,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1eff198f-848a-4408-a0e3-324be58238fa",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "siglaOrgao": "SEMOB",
+      "notaEmpenho": "2018NE000267",
+      "codUnGestora": "530002",
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "siglaUnGestora": "SEMOB",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP001188",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 64.500,00",
+      "dataPagamento": "03/08/2018",
+      "pago": "R$ -645,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b5f076cf-30be-41a2-b00f-153098071ae7",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "siglaOrgao": "SEMOB",
+      "notaEmpenho": "2018NE000267",
+      "codUnGestora": "530002",
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "siglaUnGestora": "SEMOB",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP001188",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 64.500,00",
+      "dataPagamento": "03/08/2018",
+      "pago": "R$ 645,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "e64198ae-5c12-4b83-bb47-a96be1b8fef5",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "siglaOrgao": "SEMOB",
+      "notaEmpenho": "2018NE000267",
+      "codUnGestora": "530002",
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "siglaUnGestora": "SEMOB",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018NL002319",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 64.500,00",
+      "dataPagamento": "03/08/2018",
+      "pago": "R$ 645,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "59c5f974-abae-4f3e-a997-ad75a6bd8c74",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "siglaOrgao": "SEMOB",
+      "notaEmpenho": "2018NE000267",
+      "codUnGestora": "530002",
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "siglaUnGestora": "SEMOB",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB022480",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 64.500,00",
+      "dataPagamento": "06/08/2018",
+      "pago": "R$ -645,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "0de2bd82-7b08-4d4a-8bd9-6d66ad22eb3c",
+      "descOrgao": "Secretaria Municipal de Mobilidade",
+      "siglaOrgao": "SEMOB",
+      "notaEmpenho": "2018NE000267",
+      "codUnGestora": "530002",
+      "descUnGestora": "UG SEMOB - Secretaria Municipal de Mobilidade",
+      "siglaUnGestora": "SEMOB",
+      "nomeCredor": "PREVELAR SOLUCOES EM ENGENHARIA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB022480",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 64.500,00",
+      "dataPagamento": "06/08/2018",
+      "pago": "R$ 645,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Saúde",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 21/08/2018 com execução física incompleta (49.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "530002",
+      "unidadeGestora": "SEMOB",
+      "nuContratoSigef": "2018CT002371"
+    },
+    "nuProcesso": "000740/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Stage 1 (Bairro / Sublocalidade)",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro Histórico via Stage 1 (Bairro / Sublocalidade)"
+    }
+  },
+  "cdUnidadeGestora": "530002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

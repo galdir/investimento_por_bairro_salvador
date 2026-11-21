@@ -1,0 +1,104 @@
+{
+  "id": "9e7b3d78-6f61-46ae-b15c-11efa8f1ae70",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2024CT009756",
+  "numeroContratoOriginal": "202024",
+  "nuProcesso": "122157/2023",
+  "objeto": "Contratação de pessoa jurídica especializada em serviços de engenharia para Elaboração de Estudos Preliminares, Anteprojeto, Projetos Básicos e Executivos de Engenharia, conforme exigências estabelecidas no Projeto Básico e seus anexos,relativo ao lote 02, a distribuição por Prefeituras Bairros (PB), assim indicadas PB Cidade Baixa, PB Subúrbio/Ilhas, B Valéria, PB Pau da Lima, PB Cabula/Tancredo",
+  "situacao": "Cancelado",
+  "empreiteira": {
+    "razaoSocial": "UFC ENGENHARIA SA",
+    "cnpj": "32.690.778/0001-66",
+    "totalObras": 5,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 17242023.2,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "142c9a26-ba96-4802-9d48-d88269df527b",
+      "4b1ac7ea-71e9-4d31-8fc6-b02181aea110",
+      "7b6f363d-b2f1-4f5d-96c6-c5a1864e236a",
+      "d06c3d68-ea9e-4f1c-842e-480d7f28149c"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2024-10-30T00:00:00.000Z",
+    "dataFimOriginal": "2025-10-30T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-10-30T00:00:00.000Z",
+    "prazoOriginal": "365",
+    "prazoAtualizado": "365"
+  },
+  "dom": {
+    "nuDom": "8908",
+    "dataPublicacao": "2024-11-07T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 6709223.49,
+    "valorContratualVigente": 6709223.49,
+    "valorEmpenhado": 6709223.49,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 30/10/2025 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "610002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2024CT009756"
+    },
+    "nuProcesso": "122157/2023",
+    "domContrato": {
+      "nuDom": "8908",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Múltiplas Prefeituras-Bairro",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Múltiplas Prefeituras-Bairro)"
+    }
+  },
+  "cdUnidadeGestora": "610002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}

@@ -1,0 +1,127 @@
+{
+  "id": "165caaf6-0825-4679-bf73-c9a838936907",
+  "unidadeGestora": "SINDEC",
+  "numeroContrato": "2015CT000370",
+  "numeroContratoOriginal": "22/2015",
+  "nuProcesso": "2496/2014",
+  "objeto": "Elaboração de projetos básicos e executivos de engenharia, para obras de estabilização de taludes, no Município de Salvador, correspondente ao Lote 02, Zona de Abrangência: Prefeitura Bairro I ¿ Centro/Brotas; Prefeitura Bairro II ¿ Subúrbio / Ilhas; Prefeitura Bairro V ¿ Cidade Baixa; Prefeitura Bairro VI ¿ Barra / Pituba",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+    "cnpj": "74.141.532/0001-85",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 31041806.55,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "ab5ff1ad-7f58-4bcc-b1ce-d3e9a4b7e86a",
+      "48ca1046-c098-4c14-ab94-7a08882c83f7",
+      "8b00f998-5b9c-4a49-8b73-1a4188469b63"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2015-06-17T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-12-04T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2015-06-17T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1250000.0,
+    "valorContratualVigente": 1604814.37,
+    "valorEmpenhado": 310250.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 354814.37,
+    "deltaPercentualAditivos": 28.39
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "e0c9f850-c0bd-43f6-b21e-235460a312f3",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "cdUnGestora": "516002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "notaEmpenho": "2016NE000580",
+      "dataEmpenho": "19/10/2016",
+      "nomeCredor": "GEOHIDRO CONSULTORIA SOCIEDADE SIMPLES LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "310.250,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Encostas e Contenção",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 04/12/2019 com execução física incompleta (0.0%)",
+      "Aditivo de valor superior a 25% (+28.39%) acumulado em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 28.39
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "516002",
+      "unidadeGestora": "SINDEC",
+      "nuContratoSigef": "2015CT000370"
+    },
+    "nuProcesso": "2496/2014",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Elaboração de projetos básicos e executivos de engenharia, para obras de estabilização de taludes, no Município de Salvador, correspondente ao Lote 02, Zona de Abrangência: Prefeitura Bairro I ¿ Centro/Brotas; Prefeitura Bairro II ¿ Subúrbio / Ilhas; Prefeitura Bairro V ¿ Cidade Baixa; Prefeitura Bairro VI ¿ Barra / Pituba",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "516002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "34662fbbcd474af39e76577d7d378e99"
+}
