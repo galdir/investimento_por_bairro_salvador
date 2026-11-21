@@ -570,10 +570,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             (dynamicBairro
               ? isCentralidadeMetropolitana(dynamicBairro)
               : isCentralidadeMetropolitana({
-                  nome: rawNome,
-                  is_centralidade_metropolitana: props.is_centralidade_metropolitana,
-                  isCentralidadeMetropolitana: props.isCentralidadeMetropolitana,
-                }));
+                nome: rawNome,
+                is_centralidade_metropolitana: props.is_centralidade_metropolitana,
+                isCentralidadeMetropolitana: props.isCentralidadeMetropolitana,
+              }));
           const isExemptInCurrentLayer =
             isZonaEspecial || (choroplethMetric === "investimentoPorHabitante" && isCentralidade);
 
@@ -655,10 +655,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             (dynamicBairro
               ? isCentralidadeMetropolitana(dynamicBairro)
               : isCentralidadeMetropolitana({
-                  nome: rawNome,
-                  is_centralidade_metropolitana: props.is_centralidade_metropolitana,
-                  isCentralidadeMetropolitana: props.isCentralidadeMetropolitana,
-                }));
+                nome: rawNome,
+                is_centralidade_metropolitana: props.is_centralidade_metropolitana,
+                isCentralidadeMetropolitana: props.isCentralidadeMetropolitana,
+              }));
 
           layerItem.on({
             click: () => {
@@ -908,114 +908,114 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     metricType === "executado" ? "Valor Pago (R$/hab)" : "Valor Contratual Vigente (R$/hab)";
 
   return (
-      <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
-        {/* Área do Mapa: no celular (<sm), controles acima e legenda abaixo evitam cobrir o mapa e os botões de zoom */}
-        <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col sm:block sm:h-full sm:min-h-[390px] w-full">
+    <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
+      {/* Área do Mapa: no celular (<sm), controles acima e legenda abaixo evitam cobrir o mapa e os botões de zoom */}
+      <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col sm:block sm:h-full sm:min-h-[390px] w-full">
         {/* Controles Superiores do Mapa */}
         <div className="p-2 bg-slate-50 border-b border-slate-200 sm:p-0 sm:bg-transparent sm:border-b-0 sm:absolute sm:top-2.5 sm:left-2.5 sm:right-2.5 z-[400] sm:pointer-events-none flex flex-wrap items-center gap-1.5">
-        <div className="pointer-events-auto sm:bg-white/95 sm:backdrop-blur-sm sm:p-1.5 sm:rounded-xl sm:shadow-md sm:border sm:border-slate-200/80 flex flex-wrap items-center gap-1.5 max-w-full">
-          {/* Alternância de Métrica Coroplética */}
-          <div
-            data-testid="toggle-camada-metrica"
-            role="group"
-            aria-label="Métrica coroplética do mapa"
-            className="flex flex-wrap bg-slate-100 p-1 rounded-lg border border-slate-200 max-w-full"
-          >
-            <button
-              type="button"
-              data-testid="btn-camada-per-capita"
-              aria-pressed={choroplethMetric === "investimentoPorHabitante"}
-              onClick={() => setChoroplethMetric("investimentoPorHabitante")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${choroplethMetric === "investimentoPorHabitante"
+          <div className="pointer-events-auto sm:bg-white/95 sm:backdrop-blur-sm sm:p-1.5 sm:rounded-xl sm:shadow-md sm:border sm:border-slate-200/80 flex flex-wrap items-center gap-1.5 max-w-full">
+            {/* Alternância de Métrica Coroplética */}
+            <div
+              data-testid="toggle-camada-metrica"
+              role="group"
+              aria-label="Métrica coroplética do mapa"
+              className="flex flex-wrap bg-slate-100 p-1 rounded-lg border border-slate-200 max-w-full"
+            >
+              <button
+                type="button"
+                data-testid="btn-camada-per-capita"
+                aria-pressed={choroplethMetric === "investimentoPorHabitante"}
+                onClick={() => setChoroplethMetric("investimentoPorHabitante")}
+                className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${choroplethMetric === "investimentoPorHabitante"
                   ? "bg-emerald-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
-                }`}
-            >
-              R$ / Habitante
-            </button>
-            <button
-              type="button"
-              data-testid="btn-camada-vulnerabilidade"
-              aria-pressed={choroplethMetric === "vulnerabilidade"}
-              onClick={() => setChoroplethMetric("vulnerabilidade")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${choroplethMetric === "vulnerabilidade"
+                  }`}
+              >
+                R$ / Habitante
+              </button>
+              <button
+                type="button"
+                data-testid="btn-camada-vulnerabilidade"
+                aria-pressed={choroplethMetric === "vulnerabilidade"}
+                onClick={() => setChoroplethMetric("vulnerabilidade")}
+                className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${choroplethMetric === "vulnerabilidade"
                   ? "bg-indigo-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
-                }`}
-            >
-              Vulnerabilidade Social
-            </button>
-            <button
-              type="button"
-              data-testid="btn-camada-mapa-calor"
-              aria-pressed={choroplethMetric === "mapaCalor"}
-              onClick={() => setChoroplethMetric("mapaCalor")}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 ${choroplethMetric === "mapaCalor"
+                  }`}
+              >
+                Vulnerabilidade Social
+              </button>
+              <button
+                type="button"
+                data-testid="btn-camada-mapa-calor"
+                aria-pressed={choroplethMetric === "mapaCalor"}
+                onClick={() => setChoroplethMetric("mapaCalor")}
+                className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 ${choroplethMetric === "mapaCalor"
                   ? "bg-orange-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-900"
-                }`}
-            >
-              Mapa de Calor
-            </button>
-          </div>
+                  }`}
+              >
+                Mapa de Calor
+              </button>
+            </div>
 
-          {/* Botão de Como é calculado? */}
-          {onOpenNotaMetodologica && (
+            {/* Botão de Como é calculado? */}
+            {onOpenNotaMetodologica && (
+              <button
+                type="button"
+                data-testid="btn-como-calculado-mapa"
+                onClick={onOpenNotaMetodologica}
+                title="Como é calculado o Índice de Vulnerabilidade?"
+                className="px-2.5 py-1 text-xs font-medium bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+              >
+                <span className="font-bold">ⓘ</span>
+                <span>Como é calculado?</span>
+              </button>
+            )}
+
+            {/* Toggle de Pinos de Obras */}
             <button
               type="button"
-              data-testid="btn-como-calculado-mapa"
-              onClick={onOpenNotaMetodologica}
-              title="Como é calculado o Índice de Vulnerabilidade?"
-              className="px-2.5 py-1 text-xs font-medium bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
-            >
-              <span className="font-bold">ⓘ</span>
-              <span>Como é calculado?</span>
-            </button>
-          )}
-
-          {/* Toggle de Pinos de Obras */}
-          <button
-            type="button"
-            data-testid="btn-toggle-pinos-obras"
-            aria-pressed={showPins}
-            onClick={() => setShowPins((prev) => !prev)}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${showPins
+              data-testid="btn-toggle-pinos-obras"
+              aria-pressed={showPins}
+              onClick={() => setShowPins((prev) => !prev)}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${showPins
                 ? "bg-slate-900 text-white border-slate-900"
                 : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
-              }`}
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            Pinos de Obras ({mapPinEntries.length})
-          </button>
-
-          {/* Botão de Recentralizar */}
-          <button
-            type="button"
-            data-testid="btn-centralizar-salvador"
-            onClick={handleRecenter}
-            title="Recentralizar visualização em Salvador"
-            className="px-2.5 py-1 text-xs font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-700 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-          >
-            <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            Centralizar
-          </button>
-
-          {hasSearch && (
-            <span
-              data-testid="mapa-destaque-busca"
-              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-sky-50 text-sky-900 border border-sky-200"
+                }`}
             >
-              {searchMatches.length === 0
-                ? `Nenhuma correspondência no mapa para "${territorySearch.trim()}"`
-                : searchMatches.length === 1
-                  ? `1 correspondência destacada: ${searchMatches[0].nome}`
-                  : `${searchMatches.length} correspondências destacadas no mapa`}
-            </span>
-          )}
-        </div>
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              Pinos de Obras ({mapPinEntries.length})
+            </button>
+
+            {/* Botão de Recentralizar */}
+            <button
+              type="button"
+              data-testid="btn-centralizar-salvador"
+              onClick={handleRecenter}
+              title="Recentralizar visualização em Salvador"
+              className="px-2.5 py-1 text-xs font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-700 transition-colors flex items-center gap-1 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            >
+              <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Centralizar
+            </button>
+
+            {hasSearch && (
+              <span
+                data-testid="mapa-destaque-busca"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-sky-50 text-sky-900 border border-sky-200"
+              >
+                {searchMatches.length === 0
+                  ? `Nenhuma correspondência no mapa para "${territorySearch.trim()}"`
+                  : searchMatches.length === 1
+                    ? `1 correspondência destacada: ${searchMatches[0].nome}`
+                    : `${searchMatches.length} correspondências destacadas no mapa`}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Container Leaflet do Mapa */}
@@ -1122,119 +1122,118 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               (choroplethMetric === "investimentoPorHabitante" &&
                 (hasUnavailablePayment || hasUnavailablePopulation)) ||
               (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 pt-1 border-t border-slate-100 text-[10px]">
-              {activeLayer === "bairros" && (
-                <div className="flex items-center gap-1 text-amber-800">
-                  <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400 shrink-0" />
-                  <span>Isento</span>
-                </div>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 pt-1 border-t border-slate-100 text-[10px]">
+                {activeLayer === "bairros" && (
+                  <div className="flex items-center gap-1 text-amber-800">
+                    <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400 shrink-0" />
+                    <span>Isento</span>
+                  </div>
+                )}
+                {choroplethMetric === "investimentoPorHabitante" && hasUnavailablePayment && (
+                  <div className="flex items-center gap-1 text-slate-700">
+                    <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
+                    <span>Sem pagamento</span>
+                  </div>
+                )}
+                {((choroplethMetric === "investimentoPorHabitante" && hasUnavailablePopulation) ||
+                  (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
+                    <div className="flex items-center gap-1 text-slate-700">
+                      <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
+                      <span>Dado indisponível</span>
+                    </div>
+                  )}
+              </div>
+            )}
+        </div>
+      </div>
+
+      {/* Painel acessível de pinos ativos: expõe obras sobrepostas e distingue locais aproximados */}
+      {showPins && (
+        <div
+          data-testid="painel-pinos-obras"
+          aria-label="Lista acessível de obras com pinos no mapa"
+          className="w-full min-w-0 bg-slate-50 border-t border-slate-200 px-3 py-2.5 space-y-2 shrink-0"
+        >
+          <div
+            data-testid="aviso-precisao-pinos"
+            className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-700"
+          >
+            <span>
+              <strong>Pinos ativos ({mapPinEntries.length}):</strong>{" "}
+              <span className="text-amber-900 font-medium">
+                locais aproximados (nível Bairro/Prefeitura-Bairro) indicam o centróide do território e não são endereços exatos.
+              </span>
+              {mapPinEntries.some((entry) => entry.overlapCount > 1) && (
+                <span className="text-sky-900 font-medium">
+                  {" "}
+                  Obras sobrepostas no mesmo ponto estão listadas abaixo para acesso individual.
+                </span>
               )}
-              {choroplethMetric === "investimentoPorHabitante" && hasUnavailablePayment && (
-                <div className="flex items-center gap-1 text-slate-700">
-                  <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
-                  <span>Sem pagamento</span>
-                </div>
-              )}
-              {((choroplethMetric === "investimentoPorHabitante" && hasUnavailablePopulation) ||
-                (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
-                <div className="flex items-center gap-1 text-slate-700">
-                  <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
-                  <span>Dado indisponível</span>
-                </div>
-              )}
+            </span>
+          </div>
+
+          {mapPinEntries.length === 0 ? (
+            <p className="text-xs text-slate-500">
+              Nenhuma obra deste recorte possui coordenada georreferenciada para exibir pino no mapa.
+            </p>
+          ) : (
+            <div className="max-h-36 overflow-y-auto space-y-1.5 pr-0.5">
+              {mapPinEntries.map((entry) => {
+                const valorText = formatPinMetricLabel(entry.obra, metricType, Boolean(entry.fracao));
+
+                return (
+                  <button
+                    key={entry.key}
+                    type="button"
+                    data-testid={
+                      entry.isPrimaryPin
+                        ? `map-pin-obra-${entry.obra.id}`
+                        : `map-pin-obra-${entry.obra.id}-extra-${entry.key}`
+                    }
+                    onClick={() => onSelectObra && onSelectObra(entry.obra)}
+                    className="w-full text-left bg-white hover:bg-emerald-50/70 border border-slate-200 hover:border-emerald-300 rounded-lg px-2.5 py-1.5 text-xs transition-colors flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                  >
+                    <div className="min-w-0">
+                      <div className="font-semibold text-slate-900 truncate">
+                        {entry.obra.objeto}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10px]">
+                        <span
+                          className={`px-1.5 py-0.5 rounded border font-semibold ${entry.isApproximate
+                            ? "bg-amber-50 text-amber-900 border-amber-200"
+                            : "bg-emerald-50 text-emerald-800 border-emerald-200"
+                            }`}
+                        >
+                          {entry.isApproximate
+                            ? "Local aproximado (não é endereço exato)"
+                            : "Ponto identificado (Pontual)"}
+                        </span>
+                        {entry.overlapCount > 1 && (
+                          <span className="px-1.5 py-0.5 rounded border bg-sky-50 text-sky-900 border-sky-200 font-semibold">
+                            Sobreposição: {entry.overlapCount} obras no mesmo ponto
+                          </span>
+                        )}
+                        {entry.fracao && (
+                          <span className="px-1.5 py-0.5 rounded border bg-amber-50 text-amber-900 border-amber-200 font-semibold">
+                            Cota-Parte ({entry.fracao}){entry.bairroLabel ? ` • ${entry.bairroLabel}` : ""}
+                          </span>
+                        )}
+                        {!entry.fracao && entry.bairroLabel && (
+                          <span className="text-slate-600">{entry.bairroLabel}</span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="shrink-0 flex items-center gap-2 text-[11px]">
+                      <span className="font-semibold text-slate-800 tabular-nums">{valorText}</span>
+                      <span className="text-emerald-700 font-semibold underline">Ver detalhes</span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
-        </div>
-
-        {/* Painel acessível de pinos ativos: expõe obras sobrepostas e distingue locais aproximados */}
-        {showPins && (
-          <div
-            data-testid="painel-pinos-obras"
-            aria-label="Lista acessível de obras com pinos no mapa"
-            className="w-full min-w-0 bg-slate-50 border-t border-slate-200 px-3 py-2.5 space-y-2 shrink-0"
-          >
-            <div
-              data-testid="aviso-precisao-pinos"
-              className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-700"
-            >
-              <span>
-                <strong>Pinos ativos ({mapPinEntries.length}):</strong>{" "}
-                <span className="text-amber-900 font-medium">
-                  locais aproximados (nível Bairro/Prefeitura-Bairro) indicam o centróide do território e não são endereços exatos.
-                </span>
-                {mapPinEntries.some((entry) => entry.overlapCount > 1) && (
-                  <span className="text-sky-900 font-medium">
-                    {" "}
-                    Obras sobrepostas no mesmo ponto estão listadas abaixo para acesso individual.
-                  </span>
-                )}
-              </span>
-            </div>
-
-            {mapPinEntries.length === 0 ? (
-              <p className="text-xs text-slate-500">
-                Nenhuma obra deste recorte possui coordenada georreferenciada para exibir pino no mapa.
-              </p>
-            ) : (
-              <div className="max-h-36 overflow-y-auto space-y-1.5 pr-0.5">
-                {mapPinEntries.map((entry) => {
-                  const valorText = formatPinMetricLabel(entry.obra, metricType, Boolean(entry.fracao));
-
-                  return (
-                    <button
-                      key={entry.key}
-                      type="button"
-                      data-testid={
-                        entry.isPrimaryPin
-                          ? `map-pin-obra-${entry.obra.id}`
-                          : `map-pin-obra-${entry.obra.id}-extra-${entry.key}`
-                      }
-                      onClick={() => onSelectObra && onSelectObra(entry.obra)}
-                      className="w-full text-left bg-white hover:bg-emerald-50/70 border border-slate-200 hover:border-emerald-300 rounded-lg px-2.5 py-1.5 text-xs transition-colors flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
-                    >
-                      <div className="min-w-0">
-                        <div className="font-semibold text-slate-900 truncate">
-                          {entry.obra.objeto}
-                        </div>
-                        <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10px]">
-                          <span
-                            className={`px-1.5 py-0.5 rounded border font-semibold ${
-                              entry.isApproximate
-                                ? "bg-amber-50 text-amber-900 border-amber-200"
-                                : "bg-emerald-50 text-emerald-800 border-emerald-200"
-                            }`}
-                          >
-                            {entry.isApproximate
-                              ? "Local aproximado (não é endereço exato)"
-                              : "Ponto identificado (Pontual)"}
-                          </span>
-                          {entry.overlapCount > 1 && (
-                            <span className="px-1.5 py-0.5 rounded border bg-sky-50 text-sky-900 border-sky-200 font-semibold">
-                              Sobreposição: {entry.overlapCount} obras no mesmo ponto
-                            </span>
-                          )}
-                          {entry.fracao && (
-                            <span className="px-1.5 py-0.5 rounded border bg-amber-50 text-amber-900 border-amber-200 font-semibold">
-                              Cota-Parte ({entry.fracao}){entry.bairroLabel ? ` • ${entry.bairroLabel}` : ""}
-                            </span>
-                          )}
-                          {!entry.fracao && entry.bairroLabel && (
-                            <span className="text-slate-600">{entry.bairroLabel}</span>
-                          )}
-                        </div>
-                      </div>
-                      <div className="shrink-0 flex items-center gap-2 text-[11px]">
-                        <span className="font-semibold text-slate-800 tabular-nums">{valorText}</span>
-                        <span className="text-emerald-700 font-semibold underline">Ver detalhes</span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        )}
-        </div>
-        );
+      )}
+    </div>
+  );
 };
