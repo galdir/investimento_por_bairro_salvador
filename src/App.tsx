@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { FichaLimpaModal } from "./components/FichaLimpaModal";
+import { GlossarioPage } from "./components/GlossarioPage";
 import { HeaderKpis } from "./components/HeaderKpis";
 import { InteractiveMap } from "./components/InteractiveMap";
 import { NotaMetodologicaModal } from "./components/NotaMetodologicaModal";
+import { parseGlossarioHash } from "./data/glossario";
 import { FALLBACK_MANDATOS, ordenarMandatosDecrescente } from "./utils/mandatos";
 import {
   ComparisonSortColumn,
@@ -173,6 +175,34 @@ export const App: React.FC = () => {
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [glossarioRoute, setGlossarioRoute] = useState(() =>
+    typeof window !== "undefined" ? parseGlossarioHash(window.location.hash) : { isGlossario: false, slug: null }
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleHashChange = () => {
+      setGlossarioRoute(parseGlossarioHash(window.location.hash));
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("popstate", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("popstate", handleHashChange);
+    };
+  }, []);
+
+  const handleBackFromGlossario = () => {
+    if (typeof window !== "undefined") {
+      if (typeof window.history?.pushState === "function") {
+        window.history.pushState(null, "", `${window.location.pathname}${window.location.search}`);
+      } else if (window.location.hash) {
+        window.location.hash = "";
+      }
+    }
+    setGlossarioRoute({ isGlossario: false, slug: null });
+    safeWindowScrollTo(0);
+  };
 
   useEffect(() => {
     const updateViewport = () => setIsMobileViewport(checkIsMobileViewport());
@@ -849,6 +879,22 @@ export const App: React.FC = () => {
     setFichaError(null);
     setLoadingFicha(false);
   };
+
+  if (glossarioRoute.isGlossario) {
+    return (
+      <>
+        <GlossarioPage
+          activeSlug={glossarioRoute.slug}
+          onBackToPanel={handleBackFromGlossario}
+          onOpenNotaMetodologica={() => setShowNotaMetodologica(true)}
+        />
+        <NotaMetodologicaModal
+          isOpen={showNotaMetodologica}
+          onClose={() => setShowNotaMetodologica(false)}
+        />
+      </>
+    );
+  }
 
   if (loading) {
     return (

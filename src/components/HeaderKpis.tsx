@@ -180,49 +180,58 @@ export const HeaderKpis: React.FC<HeaderKpisProps> = ({
             </div>
           </div>
 
-          {onSelectComparacao && onSelectTabela && (
-            <div
-              role="tablist"
-              aria-label="Visões principais do painel"
-              className="inline-flex items-center gap-1 bg-slate-800/90 p-1 rounded-lg border border-slate-700 shadow-sm self-start lg:self-center shrink-0"
+          <div className="flex flex-wrap items-center gap-2 self-start lg:self-center shrink-0">
+            <a
+              href="#glossario"
+              data-testid="link-header-glossario"
+              className="px-2.5 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/80 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
             >
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === "comparacao"}
-                data-testid="tab-comparacao"
-                onClick={onSelectComparacao}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
-                  activeTab === "comparacao"
-                    ? "bg-white text-slate-900 shadow-sm"
-                    : "text-slate-300 hover:text-white hover:bg-slate-700/60"
-                }`}
+              Glossário
+            </a>
+            {onSelectComparacao && onSelectTabela && (
+              <div
+                role="tablist"
+                aria-label="Visões principais do painel"
+                className="inline-flex items-center gap-1 bg-slate-800/90 p-1 rounded-lg border border-slate-700 shadow-sm"
               >
-                Comparação Territorial
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === "tabela"}
-                data-testid="tab-tabela"
-                onClick={onSelectTabela}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
-                  activeTab === "tabela"
-                    ? "bg-white text-slate-900 shadow-sm"
-                    : "text-slate-300 hover:text-white hover:bg-slate-700/60"
-                }`}
-              >
-                Tabela de Obras
-                <span
-                  className={`text-[10px] px-1.5 py-0.2 rounded-full tabular-nums ${
-                    activeTab === "tabela" ? "bg-slate-200 text-slate-900" : "bg-slate-700 text-slate-200"
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === "comparacao"}
+                  data-testid="tab-comparacao"
+                  onClick={onSelectComparacao}
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+                    activeTab === "comparacao"
+                      ? "bg-white text-slate-900 shadow-sm"
+                      : "text-slate-300 hover:text-white hover:bg-slate-700/60"
                   }`}
                 >
-                  {tableObrasCount}
-                </span>
-              </button>
-            </div>
-          )}
+                  Comparação Territorial
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === "tabela"}
+                  data-testid="tab-tabela"
+                  onClick={onSelectTabela}
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+                    activeTab === "tabela"
+                      ? "bg-white text-slate-900 shadow-sm"
+                      : "text-slate-300 hover:text-white hover:bg-slate-700/60"
+                  }`}
+                >
+                  Tabela de Obras
+                  <span
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full tabular-nums ${
+                      activeTab === "tabela" ? "bg-slate-200 text-slate-900" : "bg-slate-700 text-slate-200"
+                    }`}
+                  >
+                    {tableObrasCount}
+                  </span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Linha 2: Resumo comparativo municipal compacto (invariante à seleção de território) */}
