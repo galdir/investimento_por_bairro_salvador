@@ -49,7 +49,7 @@ from etl.domain.mandato import (
     obter_chaves_candidatas_obra,
     resolver_datas_vigencia,
 )
-from etl.domain.semaforo import classificar_semaforo
+from etl.domain.semaforo import classificar_semaforo, recalcular_semaforo_pos_ficha
 from etl.domain.tema import classificar_tema
 from etl.domain.vocacao import classificar_vocacao
 from etl.domain.territorio import (
@@ -782,7 +782,7 @@ def _executar_pipeline(
     for obra in grid_obras:
         obra["tema"] = classificar_tema(obra)
         obra["vocacao"] = classificar_vocacao(obra)
-        obra["semaforo"] = classificar_semaforo(obra)
+        obra["semaforo"] = classificar_semaforo(obra, data_referencia=referencia_pagamentos)
 
     # 6. Detalhamento individual com reconciliação local e blindagem histórica
     obras_dir.mkdir(parents=True, exist_ok=True)
@@ -802,6 +802,11 @@ def _executar_pipeline(
         else:
             ficha_atual.pop("frentesMedicao", None)
         sincronizar_obra_com_ficha(obra_atual, ficha_atual)
+        recalcular_semaforo_pos_ficha(
+            obra_atual,
+            ficha_atual,
+            data_referencia=referencia_pagamentos,
+        )
         fichas_para_gravar[str(obra_atual.get("id"))] = ficha_atual
 
     for obra in grid_obras:

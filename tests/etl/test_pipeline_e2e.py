@@ -19,7 +19,9 @@ from tests.etl.fixtures.sample_data import (
 )
 
 
-def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path, portal_simulado) -> None:
+def test_pipeline_runs_and_generates_valid_static_artifacts(
+    tmp_path: Path, portal_simulado, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """Valida a execução completa do pipeline ETL e integridade dos artefatos estáticos gerados.
 
     Sumário:
@@ -36,7 +38,23 @@ def test_pipeline_runs_and_generates_valid_static_artifacts(tmp_path: Path, port
     Erros:
         Lança AssertionError caso algum arquivo esteja ausente, malformado ou com valores incorretos.
     """
+    from etl.consultas import ConsultaPagamentos
     from etl.runner import run_pipeline
+
+    # Obras vigentes Em Execução (1001, 1002, 1004) recebem movimentação recente para preservar cobertura
+    # de VERDE e AMARELO, mantendo 1003 e 1005 sem movimentação para exercitar o disparo de VERMELHO.
+    contratos_com_movimentacao_recente = {"001/2024", "002/2024", "042/2024"}
+    monkeypatch.setattr(
+        "etl.runner.coletar_pagamentos",
+        lambda ug, contrato, referencia, janelas: ConsultaPagamentos(
+            [{"ordemBancaria": f"OB-{contrato}", "dataPagamento": referencia, "pago": "R$ 10.000,00"}]
+            if str(contrato) in contratos_com_movimentacao_recente
+            else [],
+            referencia,
+            True,
+            True,
+        ),
+    )
 
     # Mock das fontes externas para garantir teste determinístico sem rede
     with (
@@ -405,5 +423,216 @@ def test_pipeline_normalizes_raw_online_geosalvador_and_sidra_payloads_and_compu
     # 7. KPIs globais consistentes
     assert kpis.get("valorTotal", 0.0) >= kpis.get("valorNaoLocalizado", 0.0)
     assert 0 <= kpis.get("percentualNaoLocalizado", 0.0) <= 100
+
+
+def test_pipeline_recalcula_semaforo_pos_ficha_com_data_referencia_e_pagamentos_consolidados(
+    tmp_path: Path,
+) -> None:
+    """Valida na fronteira do orquestrador o recálculo determinístico pós-ficha do Semáforo."""
+    from etl.consultas import ConsultaPagamentos
+    from etl.runner import run_pipeline
+
+    data_ref_r1 = "2025-06-01"
+    data_ref_r2 = "2025-06-15"
+
+    # Obras desenhadas para exercitar todos os critérios pós-ficha com data_referencia fixa:
+    # 2001: Vigente, sem variação, mas com aditivo de prorrogação na ficha + pagamento recente -> AMARELO
+    # 2002: Vigente Em Execução (<95%) com último pagamento > 90 dias antes de 2025-06-01 -> VERMELHO
+    # 2003: Vigente Em Execução (<95%) iniciada > 90 dias sem nenhuma movimentação -> VERMELHO
+    # 2004: Expirada > 90 dias com execução >= 95%, sem outros alertas -> VERDE
+    # 2005: Expirada > 90 dias com execução >= 95% + prorrogação na ficha (elegível a consolidados!) -> AMARELO
+    # 2006: Expirada > 90 dias com execução >= 95% + variação > 25% -> VERMELHO
+    # 2007: Ajustar Cronograma > 90 dias sem pagamento, dentro da vigência -> VERDE
+    grid_obras = [
+        {
+            "id": 2001,
+            "cdUnidadeGestora": 2401,
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "101/2025",
+            "dsObjeto": "Drenagem na Pituba",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 50.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+        {
+            "id": 2002,
+            "cdUnidadeGestora": 2401,
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "102/2025",
+            "dsObjeto": "Pavimentação na Pituba",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 40.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+        {
+            "id": 2003,
+            "cdUnidadeGestora": 2401,
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "103/2025",
+            "dsObjeto": "Contenção na Liberdade",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 10.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+        {
+            "id": 2004,
+            "cdUnidadeGestora": 2401,
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "104/2023",
+            "dsObjeto": "Praça na Pituba",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1000000.0,
+            "dtInicioVigencia": "2023-01-01T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2024-01-01T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2024-01-01T00:00:00.000Z",
+            "percentualExecutado": 96.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+        {
+            "id": 2005,
+            "cdUnidadeGestora": 2401,
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "105/2023",
+            "dsObjeto": "Escola na Liberdade",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1000000.0,
+            "dtInicioVigencia": "2023-01-01T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2024-01-01T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2024-01-01T00:00:00.000Z",
+            "percentualExecutado": 95.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+        {
+            "id": 2006,
+            "cdUnidadeGestora": 2401,
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "106/2023",
+            "dsObjeto": "Creche na Pituba",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1300000.0,
+            "dtInicioVigencia": "2023-01-01T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2024-01-01T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2024-01-01T00:00:00.000Z",
+            "percentualExecutado": 98.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+        {
+            "id": 2007,
+            "cdUnidadeGestora": 2401,
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "107/2025",
+            "dsObjeto": "Campo na Pituba",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 20.0,
+            "dsSituacao": "Ajustar Cronograma",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+    ]
+
+    aditivos_por_contrato = {
+        "101/2025": [{"nuAditivo": "1º TA", "dsTipoAlteracao": "Prorrogação de Prazo"}],
+        "105/2023": [{"nuAditivo": "1º TA", "dsTipoAlteracao": "Prorrogação de Prazo"}],
+    }
+    pagamentos_por_contrato = {
+        # 2001: pagamento recente em 2025-05-15 (17 dias antes de 2025-06-01)
+        "101/2025": [{"ordemBancaria": "OB1", "dataPagamento": "15/05/2025", "pago": "R$ 100.000,00"}],
+        # 2002: último pagamento em 2025-02-01 (120 dias antes de 2025-06-01 -> > 90 dias)
+        "102/2025": [{"ordemBancaria": "OB2", "dataPagamento": "01/02/2025", "pago": "R$ 100.000,00"}],
+    }
+
+    def consulta_pagamentos(ug, contrato, referencia):
+        return ConsultaPagamentos(
+            registros=pagamentos_por_contrato.get(str(contrato), []),
+            data_referencia=referencia,
+            concluida=True,
+            validada=True,
+            limitacoes_conhecidas=[],
+        )
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value={"totalObras": 7, "valorTotal": 7300000.0, "totalPago": 200000.0}),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=grid_obras),
+        patch("etl.sources.transparencia.fetch_detalhes_obra", return_value={}),
+        patch("etl.sources.transparencia.fetch_aditivos_obra", side_effect=lambda ug, contrato, year=2025: aditivos_por_contrato.get(str(contrato), [])),
+        patch("etl.sources.transparencia.fetch_dotacao_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_empenhos_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_liquidacoes_obra", return_value=[]),
+    ):
+        r1 = run_pipeline(
+            output_dir=tmp_path,
+            year=2025,
+            consulta_pagamentos=consulta_pagamentos,
+            data_referencia_pagamentos=data_ref_r1,
+        )
+        # Segunda rodada para exercitar o caminho de Contrato com Pagamentos Consolidados (2004, 2005, 2006)
+        r2 = run_pipeline(
+            output_dir=tmp_path,
+            year=2025,
+            consulta_pagamentos=consulta_pagamentos,
+            data_referencia_pagamentos=data_ref_r2,
+        )
+
+    for resultado in (r1, r2):
+        versao_dir = Path(resultado["versao_dir"])
+        indice = json.loads((versao_dir / "index_2025.json").read_text(encoding="utf-8"))
+        obras_idx = {o["id"]: o for o in indice["obras"]}
+
+        esperado = {
+            2001: "AMARELO",
+            2002: "VERMELHO",
+            2003: "VERMELHO",
+            2004: "VERDE",
+            2005: "AMARELO",
+            2006: "VERMELHO",
+            2007: "VERDE",
+        }
+        for obra_id, status_esperado in esperado.items():
+            ficha = json.loads((versao_dir / "obras" / f"{obra_id}.json").read_text(encoding="utf-8"))
+            assert obras_idx[obra_id]["semaforo"]["status"] == status_esperado, f"Obra {obra_id} no índice"
+            assert ficha["semaforo"] == obras_idx[obra_id]["semaforo"], f"Paridade ficha vs índice para obra {obra_id}"
+
+        assert indice["kpis_globais"]["totalCriticas"] == 3  # 2002, 2003, 2006
+        pituba_rollup = next(b for b in indice["bairros"] if b["nome"] == "Pituba")
+        liberdade_rollup = next(b for b in indice["bairros"] if b["nome"] == "Liberdade")
+        assert (pituba_rollup["obrasVerde"], pituba_rollup["obrasAmarelo"], pituba_rollup["obrasVermelho"]) == (2, 1, 2)
+        assert (liberdade_rollup["obrasVerde"], liberdade_rollup["obrasAmarelo"], liberdade_rollup["obrasVermelho"]) == (0, 1, 1)
+
+    # Garante que o caminho de pagamentos consolidados foi realmente exercitado na rodada 2
+    ficha_2005_r2 = json.loads((Path(r2["versao_dir"]) / "obras" / "2005.json").read_text(encoding="utf-8"))
+    assert ficha_2005_r2["apuracaoPagamentos"]["pagamentosConsolidados"] is True
+    assert ficha_2005_r2["semaforo"]["status"] == "AMARELO"
+
 
 

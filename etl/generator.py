@@ -4,6 +4,7 @@ Escreve os arquivos particionados no formato exigido pela arquitetura estática 
 e pelo painel web no GitHub Pages.
 """
 
+import copy
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -227,6 +228,7 @@ def generate_index_json(
     output_path: Path,
     concentracao_empreiteiras: Optional[Any] = None,
     mandatos_disponiveis: Optional[list[str]] = None,
+    atualizacao: Optional[dict[str, Any]] = None,
 ) -> None:
     """Gera o arquivo de índice anual estático `index_<ano>.json`.
 
@@ -349,12 +351,16 @@ def generate_index_json(
         elif isinstance(concentracao_empreiteiras, list):
             conc_payload = concentracao_empreiteiras
 
+    metadata_payload: dict[str, Any] = {
+        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "anoReferencia": year,
+        "mandatosDisponiveis": mandatos_disponiveis or list(MANDATOS_MUNICIPAIS.keys()),
+    }
+    if isinstance(atualizacao, dict):
+        metadata_payload["atualizacao"] = copy.deepcopy(atualizacao)
+
     payload = {
-        "metadata": {
-            "generatedAt": datetime.now(timezone.utc).isoformat(),
-            "anoReferencia": year,
-            "mandatosDisponiveis": mandatos_disponiveis or list(MANDATOS_MUNICIPAIS.keys()),
-        },
+        "metadata": metadata_payload,
         "kpis_globais": kpis_globais,
         "concentracao_empreiteiras": conc_payload,
         "prefeituras_bairro": prefeituras_resumo,

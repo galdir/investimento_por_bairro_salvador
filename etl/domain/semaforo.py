@@ -285,3 +285,24 @@ def classificar_semaforo(
         ],
         "deltaPercentualValor": delta_percentual_valor,
     }
+
+
+def recalcular_semaforo_pos_ficha(
+    obra: dict[str, Any],
+    ficha: Optional[dict[str, Any]] = None,
+    data_referencia: Optional[date | str] = None,
+) -> dict[str, Any]:
+    """Enriquece sinais da Ficha Limpa, recalcula o Semáforo e sincroniza obra e ficha."""
+    obra_enriquecida = enriquecer_sinais_semaforo(
+        obra,
+        ficha=ficha,
+        data_referencia=data_referencia,
+    )
+    semaforo = classificar_semaforo(
+        obra_enriquecida,
+        data_referencia=data_referencia,
+    )
+    obra["semaforo"] = semaforo
+    if isinstance(ficha, dict):
+        ficha["semaforo"] = copy.deepcopy(semaforo)
+    return semaforo

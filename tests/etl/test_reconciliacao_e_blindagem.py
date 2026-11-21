@@ -1900,3 +1900,229 @@ def test_reconciliar_acervo_local_promove_equipamento_unico_a_pontual_e_abstem_m
     assert obras_final["obra-logradouro-brotas"]["prefeituraBairro"] == "Centro/Brotas"
 
 
+def test_reconciliar_acervo_local_recalcula_semaforo_pos_ficha_e_preserva_metadados_atualizacao(
+    tmp_path: Path,
+) -> None:
+    """Reconciliação local usa dataReferenciaPagamentos dos metadados, preserva atualizacao e iguala o pipeline."""
+    from etl.reconcile import reconciliar_acervo_local
+
+    _criar_geo_minimo(tmp_path)
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+
+    atualizacao_original = {
+        "versaoDados": "abc123",
+        "dataReferenciaPagamentos": "2025-06-01",
+        "inicioConsultas": "2025-06-01T10:00:00+00:00",
+        "fimConsultas": "2025-06-01T10:05:00+00:00",
+        "consultas": "concluidas",
+        "validacoes": "aprovadas",
+    }
+
+    obras_iniciais = [
+        {
+            "id": "rec-amarelo",
+            "cdUnidadeGestora": "2401",
+            "unidadeGestora": "SUCOP",
+            "nuContratoSigef": "01/2025",
+            "numeroContrato": "01/2025",
+            "objeto": "Obra A na Pituba",
+            "valorOriginal": 1000000.0,
+            "valorContratualVigente": 1000000.0,
+            "percentualExecutado": 50.0,
+            "situacao": "Em Execução",
+            "credor": "EMP TESTE",
+            "cnpj": "11.111.111/0001-11",
+            "semaforo": {"status": "VERDE", "rotulo": "Verde (No Prazo)", "motivos": []},
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "latitude": -12.999,
+            "longitude": -38.458,
+            "estagioAlocacao": "Bairro",
+        },
+        {
+            "id": "rec-vermelho",
+            "cdUnidadeGestora": "2401",
+            "unidadeGestora": "SUCOP",
+            "nuContratoSigef": "02/2025",
+            "numeroContrato": "02/2025",
+            "objeto": "Obra B na Pituba",
+            "valorOriginal": 1000000.0,
+            "valorContratualVigente": 1000000.0,
+            "percentualExecutado": 30.0,
+            "situacao": "Em Execução",
+            "credor": "EMP TESTE",
+            "cnpj": "11.111.111/0001-11",
+            "semaforo": {"status": "VERDE", "rotulo": "Verde (No Prazo)", "motivos": []},
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "latitude": -12.999,
+            "longitude": -38.458,
+            "estagioAlocacao": "Bairro",
+        },
+        {
+            "id": "rec-verde-95",
+            "cdUnidadeGestora": "2401",
+            "unidadeGestora": "SUCOP",
+            "nuContratoSigef": "03/2023",
+            "numeroContrato": "03/2023",
+            "objeto": "Obra C na Pituba",
+            "valorOriginal": 1000000.0,
+            "valorContratualVigente": 1000000.0,
+            "percentualExecutado": 96.0,
+            "situacao": "Em Execução",
+            "credor": "EMP TESTE",
+            "cnpj": "11.111.111/0001-11",
+            "semaforo": {"status": "VERMELHO", "rotulo": "Vermelho (Crítica)", "motivos": ["Obsoleto"]},
+            "dtInicioVigencia": "2023-01-01T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2024-01-01T00:00:00.000Z",
+            "nivel": "Bairro",
+            "bairro": "Pituba",
+            "prefeituraBairro": "Barra/Pituba",
+            "prefeitura_bairro": "Barra/Pituba",
+            "latitude": -12.999,
+            "longitude": -38.458,
+            "estagioAlocacao": "Bairro",
+        },
+    ]
+
+    fichas_iniciais = {
+        "rec-amarelo": {
+            "id": "rec-amarelo",
+            "unidadeGestora": "SUCOP",
+            "numeroContrato": "01/2025",
+            "aditivos": [{"nuAditivo": "1º TA", "dsTipoAlteracao": "Prorrogação de Prazo"}],
+            "pagamentos": [{"ordemBancaria": "OB1", "dataPagamento": "15/05/2025", "pago": 100000.0}],
+            "funilFinanceiro": {"valorOriginal": 1000000.0, "valorContratualVigente": 1000000.0, "valorPago": 100000.0},
+        },
+        "rec-vermelho": {
+            "id": "rec-vermelho",
+            "unidadeGestora": "SUCOP",
+            "numeroContrato": "02/2025",
+            "aditivos": [],
+            "pagamentos": [{"ordemBancaria": "OB2", "dataPagamento": "01/02/2025", "pago": 100000.0}],
+            "funilFinanceiro": {"valorOriginal": 1000000.0, "valorContratualVigente": 1000000.0, "valorPago": 100000.0},
+        },
+        "rec-verde-95": {
+            "id": "rec-verde-95",
+            "unidadeGestora": "SUCOP",
+            "numeroContrato": "03/2023",
+            "aditivos": [],
+            "pagamentos": [],
+            "funilFinanceiro": {"valorOriginal": 1000000.0, "valorContratualVigente": 1000000.0, "valorPago": 960000.0},
+        },
+    }
+
+    for fid, ficha in fichas_iniciais.items():
+        (obras_dir / f"{fid}.json").write_text(json.dumps(ficha, ensure_ascii=False), encoding="utf-8")
+
+    index_inicial = {
+        "metadata": {
+            "generatedAt": "2026-11-21T00:00:00+00:00",
+            "anoReferencia": 2025,
+            "atualizacao": atualizacao_original,
+        },
+        "bairros": [{"nome": "Pituba", "prefeitura_bairro": "Barra/Pituba", "populacao": 57894}],
+        "prefeituras_bairro": [{"nome": "Barra/Pituba", "populacao_total": 66417}],
+        "obras": obras_iniciais,
+    }
+    (tmp_path / "index_2025.json").write_text(json.dumps(index_inicial, ensure_ascii=False), encoding="utf-8")
+
+    res = reconciliar_acervo_local(output_dir=tmp_path, year=2025, curadoria={})
+    assert res["kpis_globais"]["totalCriticas"] == 1
+
+    indice_final = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    assert indice_final["metadata"]["atualizacao"] == atualizacao_original
+
+    obras_idx = {o["id"]: o for o in indice_final["obras"]}
+    esperado = {"rec-amarelo": "AMARELO", "rec-vermelho": "VERMELHO", "rec-verde-95": "VERDE"}
+    for oid, status_esp in esperado.items():
+        ficha_final = json.loads((obras_dir / f"{oid}.json").read_text(encoding="utf-8"))
+        assert obras_idx[oid]["semaforo"]["status"] == status_esp
+        assert ficha_final["semaforo"] == obras_idx[oid]["semaforo"]
+
+    pituba = next(b for b in indice_final["bairros"] if b["nome"] == "Pituba")
+    assert (pituba["obrasVerde"], pituba["obrasAmarelo"], pituba["obrasVermelho"]) == (1, 1, 1)
+
+    # Paridade com passagem explícita de data_referencia_pagamentos e preservação de manifesto
+    res_override = reconciliar_acervo_local(
+        output_dir=tmp_path,
+        year=2025,
+        curadoria={},
+        data_referencia_pagamentos="2025-06-01",
+    )
+    assert res_override["kpis_globais"]["totalCriticas"] == 1
+    indice_override = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    assert indice_override["obras"] == indice_final["obras"]
+
+
+def test_reconciliar_acervo_local_fallback_deterministico_sem_bloco_atualizacao(
+    tmp_path: Path,
+) -> None:
+    """Acervos legados sem metadata.atualizacao usam fallback determinístico de dataReferencia das fichas."""
+    from etl.reconcile import reconciliar_acervo_local
+
+    _criar_geo_minimo(tmp_path)
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+
+    (obras_dir / "legada-1.json").write_text(
+        json.dumps(
+            {
+                "id": "legada-1",
+                "unidadeGestora": "SUCOP",
+                "numeroContrato": "99/2025",
+                "apuracaoPagamentos": {"dataReferencia": "2025-06-01"},
+                "pagamentos": [{"ordemBancaria": "OB1", "dataPagamento": "15/05/2025", "pago": 50000.0}],
+                "funilFinanceiro": {"valorOriginal": 1000000.0, "valorContratualVigente": 1000000.0, "valorPago": 50000.0},
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    (tmp_path / "index_2025.json").write_text(
+        json.dumps(
+            {
+                "metadata": {"generatedAt": "2026-11-21T00:00:00+00:00", "anoReferencia": 2025},
+                "bairros": [{"nome": "Pituba", "prefeitura_bairro": "Barra/Pituba", "populacao": 57894}],
+                "prefeituras_bairro": [{"nome": "Barra/Pituba", "populacao_total": 66417}],
+                "obras": [
+                    {
+                        "id": "legada-1",
+                        "cdUnidadeGestora": "2401",
+                        "unidadeGestora": "SUCOP",
+                        "numeroContrato": "99/2025",
+                        "objeto": "Obra Legada",
+                        "valorOriginal": 1000000.0,
+                        "valorContratualVigente": 1000000.0,
+                        "percentualExecutado": 50.0,
+                        "situacao": "Em Execução",
+                        "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+                        "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+                        "nivel": "Bairro",
+                        "bairro": "Pituba",
+                        "prefeitura_bairro": "Barra/Pituba",
+                    }
+                ],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    res = reconciliar_acervo_local(output_dir=tmp_path, year=2025, curadoria={})
+    assert res["kpis_globais"]["totalCriticas"] == 0
+    indice = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    assert "atualizacao" not in indice["metadata"]
+    assert indice["obras"][0]["semaforo"]["status"] == "VERDE"
+
+
+

@@ -7,6 +7,7 @@ KPIs reais do Funil de Execução Financeira e os rollups territoriais e remove 
 """
 
 import argparse
+from datetime import date
 import json
 from pathlib import Path
 import shutil
@@ -30,6 +31,7 @@ from etl.domain.geocoding import (
 )
 from etl.domain.kpis import calcular_kpis_globais
 from etl.domain.mandato import cds_ug_compativeis, obter_chaves_candidatas_obra
+from etl.domain.semaforo import parse_iso_date, recalcular_semaforo_pos_ficha
 from etl.domain.territorio import calcular_rollup_territorial
 from etl.generator import (
     generate_bairros_geojson,
@@ -281,10 +283,54 @@ def finalizar_acervo_obras(
     return concentracao_map, orfaos_removidos
 
 
+def _ler_atualizacao_manifesto(output_path: Path) -> dict[str, Any] | None:
+    """Lê o bloco `atualizacao` de `manifesto.json` caso exista e seja válido."""
+    manifesto_path = output_path / "manifesto.json"
+    if not manifesto_path.is_file():
+        return None
+    try:
+        manifesto = json.loads(manifesto_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    atualizacao = manifesto.get("atualizacao") if isinstance(manifesto, dict) else None
+    return atualizacao if isinstance(atualizacao, dict) else None
+
+
+def _resolver_data_referencia_reconciliacao(
+    data_referencia_pagamentos: str | date | None,
+    atualizacao_index: dict[str, Any] | None,
+    atualizacao_manifesto: dict[str, Any] | None,
+    fichas: list[dict[str, Any]],
+    obras: list[dict[str, Any]],
+    generated_at: Any,
+) -> date:
+    """Resolve deterministicamente a data de referência do Semáforo na reconciliação local."""
+    for candidata in (
+        data_referencia_pagamentos,
+        (atualizacao_index or {}).get("dataReferenciaPagamentos"),
+        (atualizacao_manifesto or {}).get("dataReferenciaPagamentos"),
+    ):
+        dt = parse_iso_date(candidata)
+        if dt is not None:
+            return dt
+
+    datas_fichas = [
+        dt
+        for item in (*fichas, *obras)
+        for dt in [parse_iso_date(((item.get("apuracaoPagamentos") or {}) if isinstance(item.get("apuracaoPagamentos"), dict) else {}).get("dataReferencia"))]
+        if dt is not None
+    ]
+    if datas_fichas:
+        return max(datas_fichas)
+
+    return parse_iso_date(generated_at) or date.today()
+
+
 def reconciliar_acervo_local(
     output_dir: Path,
     year: int = 2025,
     curadoria: dict[str, dict[str, Any]] | None = None,
+    data_referencia_pagamentos: str | date | None = None,
 ) -> dict[str, Any]:
     """Executa a reconciliação canônica completa do acervo estático local de obras.
 
@@ -323,7 +369,11 @@ def reconciliar_acervo_local(
     obras_catalogo: list[dict[str, Any]] = [dict(o) for o in index_data.get("obras", [])]
     bairros_base: list[dict[str, Any]] = index_data.get("bairros", [])
     prefeituras_base: list[dict[str, Any]] = index_data.get("prefeituras_bairro", [])
-    mandatos_disponiveis = (index_data.get("metadata") or {}).get("mandatosDisponiveis")
+    metadata_inicial = index_data.get("metadata") or {}
+    mandatos_disponiveis = metadata_inicial.get("mandatosDisponiveis")
+    atualizacao_index = metadata_inicial.get("atualizacao") if isinstance(metadata_inicial.get("atualizacao"), dict) else None
+    atualizacao_manifesto = _ler_atualizacao_manifesto(output_path)
+    atualizacao_preservada = atualizacao_index if atualizacao_index is not None else atualizacao_manifesto
 
     obras_dir = output_path / "obras"
     obras_dir.mkdir(parents=True, exist_ok=True)
@@ -411,6 +461,21 @@ def reconciliar_acervo_local(
         sincronizar_obra_com_ficha(obra, ficha)
         fichas_consolidadas[str(obra_id)] = ficha
 
+    referencia_semaforo = _resolver_data_referencia_reconciliacao(
+        data_referencia_pagamentos=data_referencia_pagamentos,
+        atualizacao_index=atualizacao_index,
+        atualizacao_manifesto=atualizacao_manifesto,
+        fichas=[*fichas_consolidadas.values(), *fichas_por_id.values()],
+        obras=obras_catalogo,
+        generated_at=metadata_inicial.get("generatedAt"),
+    )
+    for obra in obras_catalogo:
+        recalcular_semaforo_pos_ficha(
+            obra,
+            fichas_consolidadas[str(obra["id"])],
+            data_referencia=referencia_semaforo,
+        )
+
     concentracao_map, orfaos_removidos = finalizar_acervo_obras(
         obras_catalogo,
         fichas_consolidadas,
@@ -451,6 +516,7 @@ def reconciliar_acervo_local(
         output_path=index_file_path,
         concentracao_empreiteiras=concentracao_map,
         mandatos_disponiveis=mandatos_disponiveis,
+        atualizacao=atualizacao_preservada,
     )
     escrever_indices_alias(index_file_path, output_path)
 
