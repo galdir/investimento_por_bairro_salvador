@@ -29,7 +29,7 @@ _Avoid_: Prédio público, repartição, instalação
 ### Classificação e Alocação de Obras
 
 **Obra Pública**:
-Contrato administrativo vigente ou concluído no período cujo objeto compreende obras ou serviços de engenharia gerenciados por Unidades Gestoras do município de Salvador.
+Contrato administrativo vigente ou concluído no período cujo objeto compreende obras ou serviços de engenharia gerenciados por Unidades Gestoras do município de Salvador. Contratos com situação cadastral `Cancelado` que não registraram nenhuma liquidação nem pagamento são expurgados da carteira publicada para não inflar valores contratuais nem alertas sem gasto público; contratos `Cancelado` com gasto financeiro registrado permanecem na carteira sob classificação crítica.
 _Avoid_: Despesa genérica, compra, licitação
 
 **Chave Canônica da Obra**:
@@ -139,10 +139,10 @@ Ordenação comparativa de Bairros Oficiais ou de Prefeituras-Bairro segundo o �
 _Avoid_: Top bairros, placar de obras, lista de prefeituras
 
 **Semáforo da Obra**:
-Classificação automática de risco e andamento de cada Obra Pública pela pior condição observada:
-- **Vermelho (Crítica)**: Obra paralisada/suspensa/rescindida, com prazo atualizado vencido e execução inferior a 100%, com aditivo de valor superior a 25%, ou em execução sem liquidação/pagamento há mais de 90 dias.
-- **Amarelo (Atenção)**: Obra não crítica que sofreu prorrogação de prazo em relação à vigência original ou aditivo de valor entre 10% e 25%.
-- **Verde (No Prazo)**: Obra dentro da vigência original (ou concluída), sem prorrogação de prazo e com aditivo de valor inferior a 10%.
+Classificação automática de risco e andamento de cada Obra Pública em três estados canônicos pela pior condição observada (preservando os motivos de atenção também quando a obra é classificada como crítica):
+- **Vermelho (Crítica)**: Obra paralisada/suspensa/rescindida ou cancelada com gasto financeiro registrado, com prazo atualizado vencido na Data de Referência dos Pagamentos e execução física inferior a 95%, com Variação Contratual Acumulada superior a 25%, ou em execução dentro da vigência atualizada (e execução inferior a 95%) sem liquidação ou pagamento há mais de 90 dias (contados da última movimentação ou da data de início da vigência quando ainda não houve movimentação).
+- **Amarelo (Atenção)**: Obra não crítica que sofreu prorrogação de prazo em relação à vigência original (por extensão da data de término ou termo aditivo de prazo) ou Variação Contratual Acumulada entre 10% e 25%.
+- **Verde (No Prazo)**: Obra dentro da vigência original (ou com execução substancial >= 95% sem outros alertas), sem prorrogação de prazo e com Variação Contratual Acumulada inferior a 10%.
 _Avoid_: Status do contrato, nota da obra, cor do pino
 
 **Ficha Limpa da Obra**:

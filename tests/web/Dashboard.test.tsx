@@ -4723,6 +4723,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
 
     it("mantém pinos desligados inicialmente, torna obras sobrepostas acessíveis ao ativar e distingue locais aproximados de endereços exatos", async () => {
       const bindTooltipSpy = vi.spyOn(L.Marker.prototype, "bindTooltip");
+      const markerSpy = vi.spyOn(L, "marker");
 
       render(<App />);
 
@@ -4765,16 +4766,45 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
       expect(tooltipTexts.some((t) => /Local aproximado.*não é endereço exato/i.test(t))).toBe(true);
       expect(tooltipTexts.some((t) => /mesmo ponto|compartilhado/i.test(t))).toBe(true);
 
-      // Abre a ficha da obra sobreposta 6002 pelo painel acessível de pinos
-      pin6002.focus();
-      expect(pin6002).toHaveFocus();
-      fireEvent.click(pin6002);
+      // Clica no cluster indivisível das obras sobrepostas para filtrar Pinos ativos
+      const totalAntesDoFoco = (btnPinos.textContent?.match(/\((\d+)\)/)?.[1]) ?? "";
+      expect(Number(totalAntesDoFoco)).toBeGreaterThanOrEqual(2);
+
+      const clusterIndivisivel = markerSpy.mock.results
+        .map((r) => r.value as L.Marker)
+        .find((m) => Boolean(m?.getElement()?.getAttribute("aria-label")?.includes("mesmo ponto")));
+      expect(clusterIndivisivel).toBeTruthy();
+
+      act(() => {
+        clusterIndivisivel!.fire("click", {
+          originalEvent: new MouseEvent("click", { bubbles: true, cancelable: true }),
+        });
+      });
+
+      expect(btnPinos).toHaveTextContent(`Pinos de Obras (${totalAntesDoFoco})`);
+      expect(painelPinos).toHaveTextContent(`Pinos ativos (2 de ${totalAntesDoFoco} — grupo selecionado):`);
+      const btnMostrarTodos = screen.getByTestId("btn-mostrar-todos-pinos");
+      expect(btnMostrarTodos).toBeVisible();
+      expect(screen.getByTestId("map-pin-obra-6001")).toBeVisible();
+      expect(screen.getByTestId("map-pin-obra-6002")).toBeVisible();
+
+      // Abre a ficha da obra sobreposta 6002 pelo painel acessível de pinos filtrado
+      const pin6002Focado = screen.getByTestId("map-pin-obra-6002");
+      pin6002Focado.focus();
+      expect(pin6002Focado).toHaveFocus();
+      fireEvent.click(pin6002Focado);
 
       await waitFor(() => {
         expect(screen.getByTestId("ficha-limpa-modal")).toBeInTheDocument();
         expect(screen.getByTestId("ficha-limpa-contrato")).toHaveTextContent("602/2025");
       });
 
+      // Restaura a lista completa via "Mostrar todos"
+      fireEvent.click(btnMostrarTodos);
+      expect(painelPinos).toHaveTextContent(`Pinos ativos (${totalAntesDoFoco}):`);
+      expect(screen.queryByTestId("btn-mostrar-todos-pinos")).not.toBeInTheDocument();
+
+      markerSpy.mockRestore();
       bindTooltipSpy.mockRestore();
     });
   });

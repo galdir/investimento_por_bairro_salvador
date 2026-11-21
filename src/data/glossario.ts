@@ -191,16 +191,16 @@ export const GLOSSARIO_VERBETES: GlossarioVerbete[] = [
     resumo:
       "Sinalização automática (Verde, Amarelo ou Vermelho) que resume o risco e o andamento do contrato.",
     explicacao:
-      "Classifica cada Obra Pública pela pior condição observada nos dados oficiais: Verde (no prazo, dentro da vigência original e aditivo abaixo de 10%), Amarelo (sofreu prorrogação de prazo ou aditivo de valor entre 10% e 25%) e Vermelho (paralisada/rescindida, prazo vencido sem conclusão, aditivo acima de 25% ou mais de 90 dias sem pagamento em execução).",
+      "Classifica cada Obra Pública pela pior condição observada nos dados oficiais: Verde (no prazo, sem prorrogação e variação contratual acumulada abaixo de 10%), Amarelo (sofreu prorrogação de prazo ou variação contratual acumulada entre 10% e 25%) e Vermelho (paralisada/suspensa/rescindida ou cancelada com gasto, prazo vencido com execução abaixo de 95%, variação contratual acumulada acima de 25% ou obra vigente em execução há mais de 90 dias sem liquidação ou pagamento).",
     exemploSalvador:
-      "Uma obra com prazo atualizado vencido há meses e execução abaixo de 100% recebe sinal Vermelho na tabela e no mapa.",
+      "Uma obra com prazo atualizado vencido e execução física abaixo de 95% recebe sinal Vermelho na tabela e no mapa, exibindo na Ficha Limpa tanto os motivos críticos quanto eventuais alertas de atenção.",
     palavrasChave: [
       "verde",
       "amarelo",
       "vermelho",
       "obra crítica",
       "obra atrasada",
-      "aditivo acima de 25%",
+      "variação contratual acima de 25%",
     ],
   },
   {

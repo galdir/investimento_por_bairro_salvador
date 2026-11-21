@@ -749,4 +749,329 @@ describe("InteractiveMap — 3ª camada Mapa de Calor", () => {
     circleMarkerSpy.mockRestore();
     stopPropagationSpy.mockRestore();
   });
+
+  it("filtra Pinos ativos ao ativar cluster indivisível por clique ou teclado e restaura com Mostrar todos", () => {
+    const onSelectTerritory = vi.fn();
+    const onSelectObra = vi.fn();
+    const markerSpy = vi.spyOn(L, "marker");
+    const stopPropagationSpy = vi.spyOn(L.DomEvent, "stopPropagation");
+
+    const obrasClusterMock: ObraCompacta[] = [
+      {
+        ...(obrasMunicipais[0] as ObraCompacta),
+        id: 801,
+        objeto: "Drenagem Pituba Trecho A",
+        nivel: "Pontual",
+        latitude: -12.9960,
+        longitude: -38.4550,
+        semaforo: { status: "VERMELHO", rotulo: "Crítica", motivos: [] },
+      },
+      {
+        ...(obrasMunicipais[0] as ObraCompacta),
+        id: 802,
+        objeto: "Pavimentação Pituba Trecho B",
+        nivel: "Bairro",
+        latitude: -12.9980,
+        longitude: -38.4570,
+        semaforo: { status: "AMARELO", rotulo: "Atenção", motivos: [] },
+      },
+      {
+        ...(obrasMunicipais[1] as ObraCompacta),
+        id: 803,
+        objeto: "Reforma Escola Paripe 1",
+        nivel: "Bairro",
+        latitude: -12.8250,
+        longitude: -38.4750,
+        semaforo: { status: "VERDE", rotulo: "No Prazo", motivos: [] },
+      },
+      {
+        ...(obrasMunicipais[1] as ObraCompacta),
+        id: 804,
+        objeto: "Reforma Escola Paripe 2",
+        nivel: "Bairro",
+        latitude: -12.8250,
+        longitude: -38.4750,
+        semaforo: { status: "VERDE", rotulo: "No Prazo", motivos: [] },
+      },
+    ];
+
+    render(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={obrasClusterMock}
+        selectedTerritory={null}
+        onSelectTerritory={onSelectTerritory}
+        onSelectObra={onSelectObra}
+      />
+    );
+
+    const btnPinos = screen.getByTestId("btn-toggle-pinos-obras");
+    fireEvent.click(btnPinos);
+
+    expect(btnPinos).toHaveTextContent("Pinos de Obras (4)");
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (4):");
+    expect(screen.queryByTestId("btn-mostrar-todos-pinos")).not.toBeInTheDocument();
+
+    const clusterParipe = markerSpy.mock.results[1].value as L.Marker;
+    const domClick = new MouseEvent("click", { bubbles: true, cancelable: true });
+    act(() => {
+      clusterParipe.fire("click", { originalEvent: domClick });
+    });
+
+    expect(stopPropagationSpy).toHaveBeenCalled();
+    expect(onSelectTerritory).not.toHaveBeenCalled();
+
+    // Botão superior mantém contagem total, painel exibe contagem focada e botão Mostrar todos
+    expect(btnPinos).toHaveTextContent("Pinos de Obras (4)");
+    const painel = screen.getByTestId("painel-pinos-obras");
+    expect(painel).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+    expect(screen.queryByTestId("map-pin-obra-801")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("map-pin-obra-802")).not.toBeInTheDocument();
+    expect(screen.getByTestId("map-pin-obra-803")).toBeInTheDocument();
+    expect(screen.getByTestId("map-pin-obra-804")).toBeInTheDocument();
+
+    // Permite abrir a ficha da obra a partir da lista focada
+    fireEvent.click(screen.getByTestId("map-pin-obra-803"));
+    expect(onSelectObra).toHaveBeenCalledWith(expect.objectContaining({ id: 803 }));
+
+    // Botão Mostrar todos restaura a lista completa
+    fireEvent.click(screen.getByTestId("btn-mostrar-todos-pinos"));
+    expect(painel).toHaveTextContent("Pinos ativos (4):");
+    expect(screen.queryByTestId("btn-mostrar-todos-pinos")).not.toBeInTheDocument();
+    expect(screen.getByTestId("map-pin-obra-801")).toBeInTheDocument();
+    expect(screen.getByTestId("map-pin-obra-804")).toBeInTheDocument();
+
+    // Ativação por teclado (Enter e Space) no cluster indivisível também filtra
+    const paripeEl = clusterParipe.getElement()!;
+    const enterEvent = new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true });
+    act(() => {
+      paripeEl.dispatchEvent(enterEvent);
+    });
+    expect(enterEvent.defaultPrevented).toBe(true);
+    expect(painel).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+
+    fireEvent.click(screen.getByTestId("btn-mostrar-todos-pinos"));
+    expect(painel).toHaveTextContent("Pinos ativos (4):");
+
+    const spaceEvent = new KeyboardEvent("keydown", { key: " ", bubbles: true, cancelable: true });
+    act(() => {
+      paripeEl.dispatchEvent(spaceEvent);
+    });
+    expect(spaceEvent.defaultPrevented).toBe(true);
+    expect(painel).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+
+    markerSpy.mockRestore();
+    stopPropagationSpy.mockRestore();
+  });
+
+  it("limpa o foco ao desligar pinos, alterar assinatura de pinos/território, trocar recorte, ocorrer zoomend ou ativar cluster expansível, mas preserva ao alternar métrica financeira", () => {
+    const onSelectTerritory = vi.fn();
+    const mapSpy = vi.spyOn(L, "map");
+    const markerSpy = vi.spyOn(L, "marker");
+
+    const buildObras = (valorPagoParipe: number): ObraCompacta[] => [
+      {
+        ...(obrasMunicipais[0] as ObraCompacta),
+        id: 901,
+        objeto: "Drenagem Pituba A",
+        nivel: "Pontual",
+        latitude: -12.9960,
+        longitude: -38.4550,
+        valorContratualVigente: 1000000,
+        valorPago: 400000,
+      },
+      {
+        ...(obrasMunicipais[0] as ObraCompacta),
+        id: 902,
+        objeto: "Pavimentação Pituba B",
+        nivel: "Bairro",
+        latitude: -12.9980,
+        longitude: -38.4570,
+        valorContratualVigente: 1000000,
+        valorPago: 500000,
+      },
+      {
+        ...(obrasMunicipais[1] as ObraCompacta),
+        id: 903,
+        objeto: "Reforma Escola Paripe 1",
+        nivel: "Bairro",
+        latitude: -12.8250,
+        longitude: -38.4750,
+        valorContratualVigente: 2000000,
+        valorPago: valorPagoParipe,
+      },
+      {
+        ...(obrasMunicipais[1] as ObraCompacta),
+        id: 904,
+        objeto: "Reforma Escola Paripe 2",
+        nivel: "Bairro",
+        latitude: -12.8250,
+        longitude: -38.4750,
+        valorContratualVigente: 2000000,
+        valorPago: valorPagoParipe,
+      },
+    ];
+
+    const territoryParipe = () => ({ id: "paripe", tipo: "bairro" as const, nome: "Paripe", populacao: 50000 });
+    const territoryPituba = () => ({ id: "pituba", tipo: "bairro" as const, nome: "Pituba", populacao: 60000 });
+
+    const { rerender } = render(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={buildObras(1500000)}
+        selectedTerritory={territoryParipe()}
+        onSelectTerritory={onSelectTerritory}
+        metricType="vigente"
+      />
+    );
+
+    const mapInstance = mapSpy.mock.results[mapSpy.mock.results.length - 1].value as L.Map;
+    const btnPinos = screen.getByTestId("btn-toggle-pinos-obras");
+    fireEvent.click(btnPinos);
+
+    const focusParipeCluster = () => {
+      const markers = markerSpy.mock.results
+        .map((r) => r.value as L.Marker)
+        .filter((m) => Boolean(m?.getElement()?.getAttribute("aria-label")?.includes("mesmo ponto")));
+      const clusterParipe = markers[markers.length - 1];
+      act(() => {
+        clusterParipe.fire("click", { originalEvent: new MouseEvent("click", { bubbles: true, cancelable: true }) });
+      });
+    };
+
+    // 1) Foca o cluster indivisível de Paripe
+    focusParipeCluster();
+    const painel = screen.getByTestId("painel-pinos-obras");
+    expect(painel).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+    expect(screen.getByTestId("map-pin-obra-903")).toHaveTextContent(/Contratual: R\$ 2\.000\.000/);
+
+    // 2) Alternar métrica financeira com NOVAS referências de obras e selectedTerritory (mesma identidade) PRESERVA o foco e atualiza valores
+    rerender(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={buildObras(1500000)}
+        selectedTerritory={territoryParipe()}
+        onSelectTerritory={onSelectTerritory}
+        metricType="executado"
+      />
+    );
+    expect(painel).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+    expect(screen.getByTestId("map-pin-obra-903")).toHaveTextContent(/Pago: R\$ 1\.500\.000/);
+
+    // 3) (a) Desligar e religar Pinos de Obras limpa o foco
+    fireEvent.click(btnPinos);
+    fireEvent.click(btnPinos);
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (4):");
+
+    // 4) (b.1) Alterar assinatura do conjunto de pinos limpa o foco
+    focusParipeCluster();
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+    rerender(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={buildObras(1500000).slice(1)}
+        selectedTerritory={territoryParipe()}
+        onSelectTerritory={onSelectTerritory}
+        metricType="executado"
+      />
+    );
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (3):");
+
+    // Restaura 4 obras e refoca
+    rerender(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={buildObras(1500000)}
+        selectedTerritory={territoryParipe()}
+        onSelectTerritory={onSelectTerritory}
+        metricType="executado"
+      />
+    );
+    focusParipeCluster();
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+
+    // 5) (b.2) Alterar identidade do território selecionado limpa o foco
+    rerender(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={buildObras(1500000)}
+        selectedTerritory={territoryPituba()}
+        onSelectTerritory={onSelectTerritory}
+        metricType="executado"
+      />
+    );
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (4):");
+
+    // 6) (c) Trocar recorte territorial (bairros -> prefeituras) limpa o foco
+    focusParipeCluster();
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+    rerender(
+      <InteractiveMap
+        activeLayer="prefeituras"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={buildObras(1500000)}
+        selectedTerritory={territoryPituba()}
+        onSelectTerritory={onSelectTerritory}
+        metricType="executado"
+      />
+    );
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (4):");
+
+    // 7) (d) Ocorrer zoomend limpa o foco
+    focusParipeCluster();
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+    act(() => {
+      mapInstance.setZoom(13);
+      mapInstance.fire("zoomend");
+    });
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (4):");
+
+    // Volta para zoom 11 para ter o cluster expansível da Pituba e testar (e)
+    act(() => {
+      mapInstance.setZoom(11);
+      mapInstance.fire("zoomend");
+    });
+    focusParipeCluster();
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (2 de 4 — grupo selecionado):");
+
+    // 8) (e) Ativar cluster expansível limpa o foco
+    const expansibleMarkers = markerSpy.mock.results
+      .map((r) => r.value as L.Marker)
+      .filter((m) => Boolean(m?.getElement()?.getAttribute("aria-label")?.includes("aproximar")));
+    const clusterPituba = expansibleMarkers[expansibleMarkers.length - 1];
+    act(() => {
+      clusterPituba.fire("click", { originalEvent: new MouseEvent("click", { bubbles: true, cancelable: true }) });
+    });
+    expect(screen.getByTestId("painel-pinos-obras")).toHaveTextContent("Pinos ativos (4):");
+
+    mapSpy.mockRestore();
+    markerSpy.mockRestore();
+  });
 });

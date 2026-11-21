@@ -317,6 +317,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const [showVulnerabilityUnderlay, setShowVulnerabilityUnderlay] = useState<boolean>(false);
   const [showPins, setShowPins] = useState<boolean>(false);
   const [mapZoom, setMapZoom] = useState<number>(SALVADOR_DEFAULT_ZOOM);
+  const [focusedClusterKeys, setFocusedClusterKeys] = useState<string[] | null>(null);
   const normalizedSearch = normalizeName(territorySearch);
   const hasSearch = normalizedSearch.length > 0;
 
@@ -324,6 +325,43 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     () => buildMapPinEntries(obras, selectedTerritory),
     [obras, selectedTerritory]
   );
+
+  const focusedClusterKeySet = useMemo(
+    () => (focusedClusterKeys ? new Set(focusedClusterKeys) : null),
+    [focusedClusterKeys]
+  );
+
+  const displayedPinEntries = useMemo(() => {
+    if (!focusedClusterKeySet) return mapPinEntries;
+    return mapPinEntries.filter((entry) => focusedClusterKeySet.has(entry.key));
+  }, [mapPinEntries, focusedClusterKeySet]);
+
+  const isClusterFocusActive = focusedClusterKeys !== null;
+
+  const pinEntriesSignature = useMemo(
+    () =>
+      mapPinEntries
+        .map(
+          (entry) =>
+            `${entry.key}@${entry.latitude.toFixed(6)},${entry.longitude.toFixed(6)}:${entry.isApproximate ? 1 : 0}`
+        )
+        .join("|"),
+    [mapPinEntries]
+  );
+
+  const territoryIdentity = selectedTerritory
+    ? `${selectedTerritory.tipo}:${normalizeName(selectedTerritory.nome)}`
+    : "";
+
+  useEffect(() => {
+    if (!showPins) {
+      setFocusedClusterKeys(null);
+    }
+  }, [showPins]);
+
+  useEffect(() => {
+    setFocusedClusterKeys(null);
+  }, [pinEntriesSignature, territoryIdentity, activeLayer]);
 
   const bairroCentroids = useMemo(
     () => computeBairroCentroids(bairrosGeoJson),
@@ -368,6 +406,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         try {
           setMapZoom(map.getZoom());
         } catch { }
+        setFocusedClusterKeys(null);
       };
       map.on("zoomend", handleZoomEnd);
 
@@ -947,7 +986,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         });
 
         const ariaLabel = cluster.isIndivisible
-          ? `Agrupamento com ${total} obras no mesmo ponto ou no zoom máximo. Consulte a lista de pinos para abrir as fichas.`
+          ? `Agrupamento com ${total} obras no mesmo ponto ou no zoom máximo. Clique ou pressione Enter para filtrar a lista de pinos abaixo.`
           : `Agrupamento com ${total} obras. Clique ou pressione Enter para aproximar e expandir.`;
 
         const clusterMarker = L.marker([cluster.latitude, cluster.longitude], {
@@ -967,9 +1006,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           ? `<br/><span style="color: #0369a1; font-size: 10px; font-weight: 600;">Ponto compartilhado (${total} obras na mesma coordenada) — acesse todas na lista de pinos</span>`
           : "";
 
-        const expandHint = !cluster.isIndivisible
-          ? `<br/><span style="color: #475569; font-size: 10px;">Clique para aproximar e expandir</span>`
-          : "";
+        const expandHint = cluster.isIndivisible
+          ? `<br/><span style="color: #475569; font-size: 10px;">Clique para filtrar na lista de pinos abaixo</span>`
+          : `<br/><span style="color: #475569; font-size: 10px;">Clique para aproximar e expandir</span>`;
 
         const clusterTooltip = `
           <div style="font-size: 11px; max-width: 260px;">
@@ -986,7 +1025,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         clusterMarker.bindTooltip(clusterTooltip, { direction: "top", offset: [0, -Math.round(size / 2)] });
 
         const activateCluster = () => {
-          if (cluster.isIndivisible) return;
+          if (cluster.isIndivisible) {
+            setFocusedClusterKeys(cluster.entries.map((item) => item.key));
+            return;
+          }
+          setFocusedClusterKeys(null);
           const prevZoom = getSafeZoom(currentZoom);
           const bounds = L.latLngBounds(
             cluster.entries.map((item) => [item.latitude, item.longitude] as L.LatLngTuple)
@@ -1365,7 +1408,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-700"
           >
             <span>
-              <strong>Pinos ativos ({mapPinEntries.length}):</strong>{" "}
+              <strong>
+                {isClusterFocusActive
+                  ? `Pinos ativos (${displayedPinEntries.length} de ${mapPinEntries.length} — grupo selecionado):`
+                  : `Pinos ativos (${mapPinEntries.length}):`}
+              </strong>{" "}
               <span className="text-amber-900 font-medium">
                 locais aproximados (nível Bairro/Prefeitura-Bairro) indicam o centróide do território e não são endereços exatos.
               </span>
@@ -1376,15 +1423,25 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 </span>
               )}
             </span>
+            {isClusterFocusActive && (
+              <button
+                type="button"
+                data-testid="btn-mostrar-todos-pinos"
+                onClick={() => setFocusedClusterKeys(null)}
+                className="px-2 py-0.5 rounded border border-slate-300 bg-white hover:bg-slate-100 text-[11px] font-semibold text-slate-700 transition-colors shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+              >
+                Mostrar todos
+              </button>
+            )}
           </div>
 
-          {mapPinEntries.length === 0 ? (
+          {displayedPinEntries.length === 0 ? (
             <p className="text-xs text-slate-500">
               Nenhuma obra deste recorte possui coordenada georreferenciada para exibir pino no mapa.
             </p>
           ) : (
             <div className="max-h-36 overflow-y-auto space-y-1.5 pr-0.5">
-              {mapPinEntries.map((entry) => {
+              {displayedPinEntries.map((entry) => {
                 const valorText = formatPinMetricLabel(entry.obra, metricType, Boolean(entry.fracao));
 
                 return (
