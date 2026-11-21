@@ -12,6 +12,7 @@ import os
 import re
 import shutil
 import tempfile
+import time
 from datetime import date, datetime, timezone
 from decimal import Decimal, InvalidOperation
 from zoneinfo import ZoneInfo
@@ -80,6 +81,22 @@ from etl.progresso import ProgressoGit, chave_contrato
 
 class InterrupcaoEnsaiada(RuntimeError):
     """Falha controlada para testar a retomada depois de checkpoints remotos."""
+
+
+def _substituir_com_retentativa(origem: Path, destino: Path, tentativas: int = 10) -> None:
+    """Executa `os.replace` com retentativa breve para contornar bloqueios transitórios no Windows."""
+    for tentativa in range(tentativas):
+        try:
+            os.replace(origem, destino)
+            return
+        except PermissionError:
+            if tentativa == tentativas - 1:
+                if origem.is_dir() and not destino.exists():
+                    shutil.copytree(origem, destino)
+                    shutil.rmtree(origem, ignore_errors=True)
+                    return
+                raise
+            time.sleep(0.1 * (tentativa + 1))
 
 
 def _parse_data_calendario(valor: Any) -> date | None:
@@ -303,7 +320,7 @@ def run_pipeline(
             if progresso is None:
                 temporario = estado_path.with_suffix(".tmp")
                 temporario.write_text(json.dumps(estado, ensure_ascii=False), encoding="utf-8")
-                os.replace(temporario, estado_path)
+                _substituir_com_retentativa(temporario, estado_path)
             else:
                 progresso.salvar(estado)
 
@@ -365,7 +382,9 @@ def _preparar_e_publicar(
     if mandatos is not None and (not mandatos or any(m not in MANDATOS_MUNICIPAIS for m in mandatos)):
         raise ValueError("Plano de consultas contém mandato inválido ou vazio")
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix=f".{output_path.name}-", dir=output_path.parent) as temp:
+    with tempfile.TemporaryDirectory(
+        prefix=f".{output_path.name}-", dir=output_path.parent, ignore_cleanup_errors=True
+    ) as temp:
         temp_path = Path(temp)
         stage = temp_path / "preparado"
         anterior = versao_publicada(output_path)
@@ -413,10 +432,10 @@ def _preparar_e_publicar(
         destino.parent.mkdir(parents=True, exist_ok=True)
         caminho_atual = output_path / "atual.json"
         ponteiro_anterior = caminho_atual.read_bytes() if caminho_atual.exists() else None
-        os.replace(stage, destino)
+        _substituir_com_retentativa(stage, destino)
         ativado = False
         try:
-            os.replace(ponteiro, caminho_atual)
+            _substituir_com_retentativa(ponteiro, caminho_atual)
             ativado = True
             finalizar_estado()
         except BaseException:
@@ -426,7 +445,7 @@ def _preparar_e_publicar(
                 else:
                     restauracao = temp_path / "anterior.json"
                     restauracao.write_bytes(ponteiro_anterior)
-                    os.replace(restauracao, caminho_atual)
+                    _substituir_com_retentativa(restauracao, caminho_atual)
             shutil.rmtree(destino)
             raise
 

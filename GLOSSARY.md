@@ -156,3 +156,11 @@ _Avoid_: Rateio de contrato, estimativa por bairro, subcontrato informal
 **Curadoria Territorial Auditável**:
 Julgamento semântico explícito e versionado sobre textos livres de contratos, aditivos e liquidações, registrando a decisão e o trecho documental comprobatório para vincular uma Obra Pública ou Frente de Medição ao território sem heurísticas cegas por palavras-chave.
 _Avoid_: Regex de bairro, geocodificação automática por palavra-chave
+
+**Regra de Frente Auditada**:
+Critério explícito e versionado vinculado a um contrato específico já auditado como `multi_frente`, que reconhece novas notas de liquidação de uma frente previamente verificada e as promove automaticamente a Frentes de Medição desde que atendam às travas de integridade (frente única sem truncamento ambíguo nem estorno), mantendo precedência de curadorias manuais por nota.
+_Avoid_: Regex global, extração automática irrestrita, classificação cega
+
+**Mapa de Calor de Obras Localizadas**:
+Camada visual de concentração espacial construída exclusivamente sobre Obras Públicas com localização identificada (`Pontual`, `Bairro`, Cota-Parte de Lista Fechada Contratual e, na métrica executada/paga, Frentes de Medição), ponderada em escala logarítmica para revelar manchas de concentração e vazios territoriais sem ratear contratos de `Escopo Cidade` nem transferir valores financeiros entre Bairros Oficiais.
+_Avoid_: Transbordamento financeiro, rateio por vizinhança, cobertura integral da cidade

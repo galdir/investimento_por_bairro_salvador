@@ -33,6 +33,8 @@ logger = logging.getLogger(__name__)
 def _erro_transitorio(erro: Exception) -> bool:
     if isinstance(erro, urllib.error.HTTPError):
         return erro.code in _CODIGOS_TRANSITORIOS
+    if isinstance(erro, ssl.SSLError):
+        return "timed out" in str(erro).lower()
     return isinstance(erro, (urllib.error.URLError, TimeoutError, ConnectionError))
 
 
@@ -168,7 +170,7 @@ def _post_transparencia(endpoint: str, payload: dict[str, Any], timeout: int = 1
                         raise ValueError("Tamanho da resposta divergente")
             body = body_bytes.decode("utf-8")
             resposta = json.loads(body) if body else {}
-        except (urllib.error.URLError, TimeoutError, ConnectionError) as erro:
+        except (urllib.error.URLError, TimeoutError, ConnectionError, ssl.SSLError) as erro:
             if _bloqueio_explicito(erro):
                 raise RuntimeError(f"Bloqueio explícito do Portal da Transparência em {endpoint}") from erro
             if _erro_transitorio(erro):
@@ -195,7 +197,7 @@ def consultar_com_tentativas(endpoint: str, payload: dict[str, Any], **opcoes: A
     for tentativa in range(3):
         try:
             return _post_transparencia(endpoint, payload, **opcoes)
-        except (urllib.error.URLError, TimeoutError, ConnectionError) as erro:
+        except (urllib.error.URLError, TimeoutError, ConnectionError, ssl.SSLError) as erro:
             if not _erro_transitorio(erro) or tentativa == 2:
                 raise
             time.sleep(max((10, 30)[tentativa], _segundos_retry_after(erro)))

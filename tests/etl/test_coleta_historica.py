@@ -301,3 +301,25 @@ def test_atualizacao_respeita_intervalo_entre_requisicoes_ao_portal(tmp_path: Pa
     ):
         run_pipeline(tmp_path, full_refresh=True, data_referencia_pagamentos="2025-12-31")
     assert esperas == [0.5, 0.5]
+
+
+def test_consultar_com_tentativas_repete_ssl_read_timeout() -> None:
+    import ssl
+    from etl.sources.transparencia import consultar_com_tentativas
+
+    chamadas = 0
+
+    def fake_post(endpoint, payload, **opcoes):
+        nonlocal chamadas
+        chamadas += 1
+        if chamadas == 1:
+            raise ssl.SSLError("The read operation timed out")
+        return {"ok": True}
+
+    with (
+        patch("etl.sources.transparencia._post_transparencia", side_effect=fake_post),
+        patch("time.sleep") as mock_sleep,
+    ):
+        assert consultar_com_tentativas("/obraspublicas/gridDetalhada?pagina=1", {}) == {"ok": True}
+    assert chamadas == 2
+    mock_sleep.assert_called_once_with(10)
