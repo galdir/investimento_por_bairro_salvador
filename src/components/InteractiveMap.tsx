@@ -119,6 +119,7 @@ function formatPinMetricLabel(obra: ObraCompacta, metricType: MetricType, isCota
 
 export const SALVADOR_CENTER: L.LatLngTuple = [-12.88, -38.48];
 export const SALVADOR_DEFAULT_ZOOM = 11;
+const HEATMAP_VULNERABILITY_FILL_OPACITY = 0.38;
 
 /**
  * Enquadra e recentraliza o mapa Leaflet na visão padrão de Salvador com invalidateSize.
@@ -309,6 +310,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const needsViewportSyncWhenVisibleRef = useRef<boolean>(!isVisible);
 
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
+  const [showVulnerabilityUnderlay, setShowVulnerabilityUnderlay] = useState<boolean>(false);
   const [showPins, setShowPins] = useState<boolean>(false);
   const normalizedSearch = normalizeName(territorySearch);
   const hasSearch = normalizedSearch.length > 0;
@@ -446,12 +448,14 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     hasUnavailablePayment,
     hasUnavailablePopulation,
     hasUnavailableVulnerability,
+    hasZonaEspecialInBairros,
   } = useMemo(() => {
     const list = activeLayer === "bairros" ? bairros : prefeituras;
     const tipo = activeLayer === "bairros" ? "bairro" : "prefeitura_bairro";
     let unavailablePayment = false;
     let unavailablePopulation = false;
     let unavailableVuln = false;
+    let zonaEspecialInBairros = false;
     const valores: number[] = [];
 
     for (const item of list) {
@@ -464,7 +468,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       }
 
       const isExemptVuln = activeLayer === "bairros" && isZonaEspecial(item as BairroResumo);
-      if (!isExemptVuln && !hasNumericValue(item.indice_vulnerabilidade)) {
+      if (isExemptVuln) {
+        zonaEspecialInBairros = true;
+      } else if (!hasNumericValue(item.indice_vulnerabilidade)) {
         unavailableVuln = true;
       }
     }
@@ -476,6 +482,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         hasUnavailablePayment: unavailablePayment,
         hasUnavailablePopulation: unavailablePopulation,
         hasUnavailableVulnerability: unavailableVuln,
+        hasZonaEspecialInBairros: zonaEspecialInBairros,
       };
     }
 
@@ -485,6 +492,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       hasUnavailablePayment: unavailablePayment,
       hasUnavailablePopulation: unavailablePopulation,
       hasUnavailableVulnerability: unavailableVuln,
+      hasZonaEspecialInBairros: zonaEspecialInBairros,
     };
   }, [activeLayer, bairros, prefeituras, metricType]);
 
@@ -546,7 +554,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           const isSearchMatch = isFeatureSearchMatch(lookupKey, dynamicBairro, dynamicPrefeitura);
 
-          if (choroplethMetric === "mapaCalor") {
+          if (choroplethMetric === "mapaCalor" && !showVulnerabilityUnderlay) {
             return {
               fill: true,
               fillColor: "#ffffff",
@@ -623,21 +631,43 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             }
           }
 
+          const isHeatmapUnderlay = choroplethMetric === "mapaCalor";
+          const borderColor = isSelected
+            ? isHeatmapUnderlay
+              ? "#0f172a"
+              : "#064e3b"
+            : isSearchMatch
+              ? "#0369a1"
+              : isExemptInCurrentLayer
+                ? "#d97706"
+                : isUnavailable
+                  ? "#64748b"
+                  : "#ffffff";
+
           return {
-            fillColor: isSelected ? "#10B981" : fillColor,
+            fill: true,
+            fillColor: !isHeatmapUnderlay && isSelected ? "#10B981" : fillColor,
             weight: isSelected ? 3.5 : isSearchMatch ? 3.0 : 1.2,
-            opacity: isSelected || !hasSearch || isSearchMatch ? 1 : 0.45,
-            color: isSelected
-              ? "#064e3b"
-              : isSearchMatch
-                ? "#0369a1"
-                : isExemptInCurrentLayer
-                  ? "#d97706"
-                  : isUnavailable
-                    ? "#64748b"
-                    : "#ffffff",
+            opacity: isHeatmapUnderlay
+              ? isSelected || isSearchMatch
+                ? 1
+                : !hasSearch
+                  ? 0.85
+                  : 0.35
+              : isSelected || !hasSearch || isSearchMatch
+                ? 1
+                : 0.45,
+            color: borderColor,
             dashArray: !isSelected && isUnavailable ? "4 3" : undefined,
-            fillOpacity: isSelected ? 0.8 : hasSearch ? (isSearchMatch ? 0.78 : 0.2) : 0.65,
+            fillOpacity: isHeatmapUnderlay
+              ? HEATMAP_VULNERABILITY_FILL_OPACITY
+              : isSelected
+                ? 0.8
+                : hasSearch
+                  ? isSearchMatch
+                    ? 0.78
+                    : 0.2
+                  : 0.65,
           };
         },
         onEachFeature: (feature, layerItem) => {
@@ -765,6 +795,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     prefeiturasGeoJson,
     selectedTerritory,
     choroplethMetric,
+    showVulnerabilityUnderlay,
     metricType,
     breaksInvestimento,
     bairros,
@@ -907,6 +938,34 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const metricSubtitle =
     metricType === "executado" ? "Valor Pago (R$/hab)" : "Valor Contratual Vigente (R$/hab)";
 
+  const renderLegendExceptionChips = (
+    showExempt: boolean,
+    showUnavailablePayment: boolean,
+    showUnavailableData: boolean,
+    extraClassName = ""
+  ) => (
+    <div className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] ${extraClassName}`}>
+      {showExempt && (
+        <div className="flex items-center gap-1 text-amber-800">
+          <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400 shrink-0" />
+          <span>Isento</span>
+        </div>
+      )}
+      {showUnavailablePayment && (
+        <div className="flex items-center gap-1 text-slate-700">
+          <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
+          <span>Sem pagamento</span>
+        </div>
+      )}
+      {showUnavailableData && (
+        <div className="flex items-center gap-1 text-slate-700">
+          <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
+          <span>Dado indisponível</span>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div className="relative flex-1 min-w-0 overflow-hidden flex flex-col h-full bg-slate-100">
       {/* Área do Mapa: no celular (<sm), controles acima e legenda abaixo evitam cobrir o mapa e os botões de zoom */}
@@ -958,6 +1017,22 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 Mapa de Calor
               </button>
             </div>
+
+            {choroplethMetric === "mapaCalor" && (
+              <button
+                type="button"
+                data-testid="btn-toggle-vulnerabilidade-fundo"
+                aria-pressed={showVulnerabilityUnderlay}
+                onClick={() => setShowVulnerabilityUnderlay((prev) => !prev)}
+                className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${showVulnerabilityUnderlay
+                  ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
+                  : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+                  }`}
+              >
+                <span className="w-2 h-2 rounded-full bg-violet-400"></span>
+                Vulnerabilidade ao fundo
+              </button>
+            )}
 
             {/* Botão de Como é calculado? */}
             {onOpenNotaMetodologica && (
@@ -1051,6 +1126,36 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   <span>Maior concentração</span>
                 </div>
               </div>
+              {showVulnerabilityUnderlay && (
+                <div
+                  data-testid="legenda-vulnerabilidade-fundo"
+                  className="pt-1 border-t border-slate-100 space-y-1"
+                >
+                  <span className="font-semibold text-slate-700 block">
+                    Vulnerabilidade ao fundo
+                  </span>
+                  <div>
+                    <div
+                      className="h-2 w-full rounded-full border border-violet-200"
+                      style={{
+                        background:
+                          "linear-gradient(to right, #ede9fe 0%, #c4b5fd 25%, #8b5cf6 50%, #6d28d9 75%, #4c1d95 100%)",
+                      }}
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-600 mt-0.5 font-medium tabular-nums">
+                      <span>0,00</span>
+                      <span>1,00</span>
+                    </div>
+                  </div>
+                  {(hasZonaEspecialInBairros || hasUnavailableVulnerability) &&
+                    renderLegendExceptionChips(
+                      hasZonaEspecialInBairros,
+                      false,
+                      hasUnavailableVulnerability,
+                      "pt-0.5"
+                    )}
+                </div>
+              )}
               <p className="font-semibold text-slate-800 tabular-nums">
                 {heatmapData.localizedObraCount}{" "}
                 {heatmapData.localizedObraCount === 1
@@ -1121,28 +1226,13 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             (activeLayer === "bairros" ||
               (choroplethMetric === "investimentoPorHabitante" &&
                 (hasUnavailablePayment || hasUnavailablePopulation)) ||
-              (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 pt-1 border-t border-slate-100 text-[10px]">
-                {activeLayer === "bairros" && (
-                  <div className="flex items-center gap-1 text-amber-800">
-                    <span className="w-3 h-3 rounded-sm bg-[#fef3c7] border border-amber-400 shrink-0" />
-                    <span>Isento</span>
-                  </div>
-                )}
-                {choroplethMetric === "investimentoPorHabitante" && hasUnavailablePayment && (
-                  <div className="flex items-center gap-1 text-slate-700">
-                    <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
-                    <span>Sem pagamento</span>
-                  </div>
-                )}
-                {((choroplethMetric === "investimentoPorHabitante" && hasUnavailablePopulation) ||
-                  (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
-                    <div className="flex items-center gap-1 text-slate-700">
-                      <span className="w-3 h-3 rounded-sm bg-[#e2e8f0] border border-dashed border-slate-500 shrink-0" />
-                      <span>Dado indisponível</span>
-                    </div>
-                  )}
-              </div>
+              (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) &&
+            renderLegendExceptionChips(
+              activeLayer === "bairros",
+              choroplethMetric === "investimentoPorHabitante" && hasUnavailablePayment,
+              (choroplethMetric === "investimentoPorHabitante" && hasUnavailablePopulation) ||
+              (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability),
+              "mt-1.5 pt-1 border-t border-slate-100"
             )}
         </div>
       </div>

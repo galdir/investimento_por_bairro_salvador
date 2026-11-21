@@ -45,6 +45,34 @@ const prefeiturasMock: PrefeituraBairroResumo[] = [
   },
 ];
 
+const bairrosComExcecoesMock: BairroResumo[] = [
+  ...bairrosMock,
+  {
+    id: 3,
+    nome: "Polo Industrial",
+    prefeitura_bairro: "Subúrbio/Ilhas",
+    populacao: 0,
+    indice_vulnerabilidade: null,
+    is_zona_especial_nao_residencial: true,
+    valorTotal: 0,
+    valorPago: 0,
+    valorPagoDisponivel: true,
+    totalObras: 0,
+  },
+  {
+    id: 4,
+    nome: "Ilha Sem Dado",
+    prefeitura_bairro: "Subúrbio/Ilhas",
+    populacao: 1000,
+    indice_vulnerabilidade: null,
+    is_zona_especial_nao_residencial: false,
+    valorTotal: 0,
+    valorPago: 0,
+    valorPagoDisponivel: true,
+    totalObras: 0,
+  },
+];
+
 const bairrosGeoJsonMock = {
   type: "FeatureCollection",
   features: [
@@ -210,5 +238,260 @@ describe("InteractiveMap — 3ª camada Mapa de Calor", () => {
     );
 
     geoJsonSpy.mockRestore();
+  });
+
+  it("exibe o toggle 'Vulnerabilidade ao fundo' somente no Mapa de Calor e preserva o estado ao alternar camadas", () => {
+    render(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={obrasMunicipais}
+        selectedTerritory={null}
+        onSelectTerritory={vi.fn()}
+      />
+    );
+
+    // Oculto na camada inicial (R$ / Habitante)
+    expect(screen.queryByTestId("btn-toggle-vulnerabilidade-fundo")).not.toBeInTheDocument();
+
+    // Oculto em Vulnerabilidade Social
+    fireEvent.click(screen.getByTestId("btn-camada-vulnerabilidade"));
+    expect(screen.queryByTestId("btn-toggle-vulnerabilidade-fundo")).not.toBeInTheDocument();
+
+    // Visível e desligado por padrão em Mapa de Calor
+    fireEvent.click(screen.getByTestId("btn-camada-mapa-calor"));
+    const toggleUnderlay = screen.getByTestId("btn-toggle-vulnerabilidade-fundo");
+    expect(toggleUnderlay).toHaveTextContent("Vulnerabilidade ao fundo");
+    expect(toggleUnderlay).toHaveAttribute("aria-pressed", "false");
+
+    // Liga o toggle
+    fireEvent.click(toggleUnderlay);
+    expect(toggleUnderlay).toHaveAttribute("aria-pressed", "true");
+
+    // Alterna para outra camada (oculta) e volta para Mapa de Calor (preserva ligado)
+    fireEvent.click(screen.getByTestId("btn-camada-per-capita"));
+    expect(screen.queryByTestId("btn-toggle-vulnerabilidade-fundo")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByTestId("btn-camada-mapa-calor"));
+    expect(screen.getByTestId("btn-toggle-vulnerabilidade-fundo")).toHaveAttribute(
+      "aria-pressed",
+      "true"
+    );
+  });
+
+  it("aplica preenchimento de vulnerabilidade com opacidade reduzida (0.30-0.45) em bairros, isentos, indisponíveis, selecionados, busca e prefeituras mantendo clique e canvas acima", () => {
+    const onSelectTerritory = vi.fn();
+    const geoJsonSpy = vi.spyOn(L, "geoJSON");
+
+    const geoJsonComExcecoes = {
+      type: "FeatureCollection",
+      features: [
+        ...bairrosGeoJsonMock.features,
+        {
+          type: "Feature",
+          properties: { id: 3, nome: "Polo Industrial", is_zona_especial_nao_residencial: true },
+          geometry: {
+            type: "Polygon",
+            coordinates: [
+              [
+                [-38.49, -12.81],
+                [-38.48, -12.81],
+                [-38.48, -12.8],
+                [-38.49, -12.8],
+                [-38.49, -12.81],
+              ],
+            ],
+          },
+        },
+        {
+          type: "Feature",
+          properties: { id: 4, nome: "Ilha Sem Dado" },
+          geometry: {
+            type: "Polygon",
+            coordinates: [
+              [
+                [-38.5, -12.81],
+                [-38.49, -12.81],
+                [-38.49, -12.8],
+                [-38.5, -12.8],
+                [-38.5, -12.81],
+              ],
+            ],
+          },
+        },
+      ],
+    };
+
+    const prefeiturasGeoJsonMock = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: { id: 10, nome: "Barra/Pituba" },
+          geometry: bairrosGeoJsonMock.features[0].geometry,
+        },
+      ],
+    };
+
+    const selectedPituba: TerritorySelection = {
+      tipo: "bairro",
+      id: 1,
+      nome: "Pituba",
+      prefeitura_bairro: "Barra/Pituba",
+      populacao: 65000,
+      indice_vulnerabilidade: 0.12,
+    };
+
+    const { rerender } = render(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosComExcecoesMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={geoJsonComExcecoes}
+        prefeiturasGeoJson={prefeiturasGeoJsonMock}
+        obras={[obrasMunicipais[0]]}
+        heatmapObras={obrasMunicipais}
+        selectedTerritory={selectedPituba}
+        onSelectTerritory={onSelectTerritory}
+        territorySearch="Paripe"
+      />
+    );
+
+    fireEvent.click(screen.getByTestId("btn-camada-mapa-calor"));
+    fireEvent.click(screen.getByTestId("btn-toggle-vulnerabilidade-fundo"));
+
+    // Canvas do Mapa de Calor continua montado com pointer-events: none e z-index acima do overlayPane (400)
+    const mapContainer = screen.getByTestId("leaflet-map-container");
+    const canvas = mapContainer.querySelector("canvas.leaflet-heatmap-layer") as HTMLCanvasElement | null;
+    expect(canvas).toBeInTheDocument();
+    expect(canvas!.style.pointerEvents).toBe("none");
+    expect(Number((canvas!.parentElement as HTMLElement).style.zIndex)).toBeGreaterThan(400);
+
+    const lastGeoCall = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1];
+    const styleFn = (lastGeoCall[1] as L.GeoJSONOptions).style as (f: any) => L.PathOptions;
+
+    // Pituba (selecionado, vuln 0.12 -> #ede9fe): preserva cor de vulnerabilidade com opacidade reduzida e borda de alto contraste (sem verde #10B981 nem fillOpacity 0.78/0.8)
+    const styleSelected = styleFn(geoJsonComExcecoes.features[0]);
+    expect(styleSelected.fillColor).toBe("#ede9fe");
+    expect(styleSelected.fillColor).not.toBe("#10B981");
+    expect(styleSelected.fillOpacity).toBeGreaterThanOrEqual(0.3);
+    expect(styleSelected.fillOpacity).toBeLessThanOrEqual(0.45);
+    expect(styleSelected.color).toBe("#0f172a");
+
+    // Paripe (match de busca, vuln 0.85 -> #4c1d95): preserva cor de vulnerabilidade com opacidade reduzida e borda de busca
+    const styleSearchMatch = styleFn(geoJsonComExcecoes.features[1]);
+    expect(styleSearchMatch.fillColor).toBe("#4c1d95");
+    expect(styleSearchMatch.fillOpacity).toBeGreaterThanOrEqual(0.3);
+    expect(styleSearchMatch.fillOpacity).toBeLessThanOrEqual(0.45);
+    expect(styleSearchMatch.color).toBe("#0369a1");
+
+    // Polo Industrial (Zona Especial isenta): preenchimento âmbar suave com opacidade reduzida e borda âmbar
+    const styleExempt = styleFn(geoJsonComExcecoes.features[2]);
+    expect(styleExempt.fillColor).toBe("#fef3c7");
+    expect(styleExempt.fillOpacity).toBeGreaterThanOrEqual(0.3);
+    expect(styleExempt.fillOpacity).toBeLessThanOrEqual(0.45);
+    expect(styleExempt.color).toBe("#d97706");
+
+    // Ilha Sem Dado (indisponível): preenchimento cinza com opacidade reduzida e borda tracejada cinza
+    const styleUnavailable = styleFn(geoJsonComExcecoes.features[3]);
+    expect(styleUnavailable.fillColor).toBe("#e2e8f0");
+    expect(styleUnavailable.fillOpacity).toBeGreaterThanOrEqual(0.3);
+    expect(styleUnavailable.fillOpacity).toBeLessThanOrEqual(0.45);
+    expect(styleUnavailable.color).toBe("#64748b");
+    expect(styleUnavailable.dashArray).toBe("4 3");
+
+    // Clique territorial continua funcional com a sobreposição ativa
+    const createdLayer = geoJsonSpy.mock.results[geoJsonSpy.mock.results.length - 1].value as L.GeoJSON;
+    (createdLayer.getLayers()[1] as any).fire("click");
+    expect(onSelectTerritory).toHaveBeenCalledWith(
+      expect.objectContaining({ tipo: "bairro", nome: "Paripe" })
+    );
+
+    // Recorte Prefeituras-Bairro também aplica preenchimento de vulnerabilidade em opacidade reduzida
+    rerender(
+      <InteractiveMap
+        activeLayer="prefeituras"
+        bairros={bairrosComExcecoesMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={geoJsonComExcecoes}
+        prefeiturasGeoJson={prefeiturasGeoJsonMock}
+        obras={obrasMunicipais}
+        heatmapObras={obrasMunicipais}
+        selectedTerritory={null}
+        onSelectTerritory={onSelectTerritory}
+      />
+    );
+    const prefGeoCall = geoJsonSpy.mock.calls[geoJsonSpy.mock.calls.length - 1];
+    const prefStyleFn = (prefGeoCall[1] as L.GeoJSONOptions).style as (f: any) => L.PathOptions;
+    const stylePref = prefStyleFn(prefeiturasGeoJsonMock.features[0]);
+    expect(stylePref.fillColor).toBe("#ede9fe");
+    expect(stylePref.fillOpacity).toBeGreaterThanOrEqual(0.3);
+    expect(stylePref.fillOpacity).toBeLessThanOrEqual(0.45);
+
+    geoJsonSpy.mockRestore();
+  });
+
+  it("atualiza a legenda do Mapa de Calor com barra contínua roxa (0,00 -> 1,00) e marcadores Isento / Dado indisponível apenas quando aplicáveis", () => {
+    const { rerender } = render(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosComExcecoesMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={obrasMunicipais}
+        selectedTerritory={null}
+        onSelectTerritory={vi.fn()}
+      />
+    );
+
+    fireEvent.click(screen.getByTestId("btn-camada-mapa-calor"));
+    const legenda = screen.getByTestId("legenda-coropletica");
+    expect(screen.queryByTestId("legenda-vulnerabilidade-fundo")).not.toBeInTheDocument();
+
+    // Ativa Vulnerabilidade ao fundo -> exibe barra roxa 0,00 -> 1,00 + Isento + Dado indisponível
+    fireEvent.click(screen.getByTestId("btn-toggle-vulnerabilidade-fundo"));
+    const legendaVuln = screen.getByTestId("legenda-vulnerabilidade-fundo");
+    expect(legendaVuln).toBeInTheDocument();
+    expect(legendaVuln).toHaveTextContent("0,00");
+    expect(legendaVuln).toHaveTextContent("1,00");
+    expect(legenda).toHaveTextContent("Isento");
+    expect(legenda).toHaveTextContent("Dado indisponível");
+
+    // Sem Zona Especial e sem dado indisponível -> mantém barra roxa, oculta Isento e Dado indisponível
+    rerender(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={obrasMunicipais}
+        selectedTerritory={null}
+        onSelectTerritory={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId("legenda-vulnerabilidade-fundo")).toBeInTheDocument();
+    expect(legenda).not.toHaveTextContent("Isento");
+    expect(legenda).not.toHaveTextContent("Dado indisponível");
+
+    // Em Prefeituras-Bairro, mesmo com bairros tendo Zona Especial, não exibe Isento
+    rerender(
+      <InteractiveMap
+        activeLayer="prefeituras"
+        bairros={bairrosComExcecoesMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={obrasMunicipais}
+        selectedTerritory={null}
+        onSelectTerritory={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId("legenda-vulnerabilidade-fundo")).toBeInTheDocument();
+    expect(legenda).not.toHaveTextContent("Isento");
   });
 });
