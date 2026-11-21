@@ -7093,6 +7093,45 @@
       "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, P004 REQ. NA RUA MARIA LUIZA ALVES/ JD. DAS MARGARID",
       "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009963)",
       "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
+    },
+    {
+      "notaLiquidacao": "2026NL018129",
+      "nivel": "Bairro",
+      "bairro": "Areia Branca",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 999364.98,
+      "valorPago": 955710.98,
+      "dataLiquidacao": "09/09/2026",
+      "trechoComprobatorio": "OBRA: P010 - REQUALIFICAÇÃO DE PAVIMENTAÇÃO NA RUA DO CASARÃO - AREIA BRANCA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação P010 do Contrato 040/2022)",
+      "justificativa": "Regra auditada para medições limpas da frente P010 (Rua do Casarão) no Bairro Oficial Areia Branca.",
+      "regraFrenteId": "regra-areia-branca-casarao"
+    },
+    {
+      "notaLiquidacao": "2026NL021172",
+      "nivel": "Bairro",
+      "bairro": "Areia Branca",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 941170.4,
+      "valorPago": 900058.43,
+      "dataLiquidacao": "09/10/2026",
+      "trechoComprobatorio": "OBRA: P010 - REQUALIFICAÇÃO DE PAVIMENTAÇÃO NA RUA DO CASARÃO - AREIA BRANCA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação P010 do Contrato 040/2022)",
+      "justificativa": "Regra auditada para medições limpas da frente P010 (Rua do Casarão) no Bairro Oficial Areia Branca.",
+      "regraFrenteId": "regra-areia-branca-casarao"
+    },
+    {
+      "notaLiquidacao": "2026NL023168",
+      "nivel": "Bairro",
+      "bairro": "Areia Branca",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "valorLiquidado": 1586253.02,
+      "valorPago": 1516962.72,
+      "dataLiquidacao": "09/11/2026",
+      "trechoComprobatorio": "OBRA: P010 - REQUALIFICAÇÃO DE PAVIMENTAÇÃO NA RUA DO CASARÃO - AREIA BRANCA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação P010 do Contrato 040/2022)",
+      "justificativa": "Regra auditada para medições limpas da frente P010 (Rua do Casarão) no Bairro Oficial Areia Branca.",
+      "regraFrenteId": "regra-areia-branca-casarao"
     }
   ],
   "versaoDados": "34662fbbcd474af39e76577d7d378e99"

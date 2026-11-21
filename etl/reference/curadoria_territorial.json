@@ -305,7 +305,20 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2023NL009963)",
           "justificativa": "Nota de liquidação comprova pavimentação na Rua Maria Luiza Alves, Bairro Oficial Jardim das Margaridas."
         }
-      }
+      },
+      "regrasFrentes": [
+        {
+          "id": "regra-areia-branca-casarao",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Areia Branca",
+          "prefeituraBairro": "Itapuã/Ipitanga",
+          "contemTodos": ["CASARAO", "AREIA BRANCA"],
+          "trechoComprobatorio": "OBRA: P010 - REQUALIFICAÇÃO DE PAVIMENTAÇÃO NA RUA DO CASARÃO - AREIA BRANCA",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação P010 do Contrato 040/2022)",
+          "justificativa": "Regra auditada para medições limpas da frente P010 (Rua do Casarão) no Bairro Oficial Areia Branca."
+        }
+      ]
     },
     "616002:2023CT008627": {
       "cdUnidadeGestora": "616002",
@@ -417,7 +430,20 @@
           "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL001857 - Contrato 038/2023)",
           "justificativa": "Nota de liquidação individualizada para macrodrenagem/pavimentação na Av. Barros Reis junto ao Ferro Velho do Memeu (nº 19, CEP 40353-100), Bairro Oficial Fazenda Grande do Retiro."
         }
-      }
+      },
+      "regrasFrentes": [
+        {
+          "id": "regra-saramandaia-amargosa",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Saramandaia",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["AMARGOSA", "SARAMANDAIA"],
+          "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE CONTENÇÃO, E004 - SERV. DE CONTENÇÃO NA RUA AMARGOSA/SARAMANDAIA",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação E004 do Contrato 038/2023)",
+          "justificativa": "Regra auditada para medições limpas da frente E004 (Rua Amargosa) no Bairro Oficial Saramandaia."
+        }
+      ]
     },
     "616002:2024CT004834": {
       "cdUnidadeGestora": "616002",
@@ -2375,7 +2401,31 @@
       "prefeituraBairro": null,
       "trechoComprobatorio": "Obra de Contenção de Encosta do Barro Branco, NFS-e 686, Contr. 040/14, Lote 02, Per. 01 a 30/04/2016.",
       "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual."
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual.",
+      "regrasFrentes": [
+        {
+          "id": "regra-arraial-do-retiro",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Arraial do Retiro",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["ARRAIAL DO RETIRO"],
+          "trechoComprobatorio": "Pagamento referente obra de contençao de encosta Arraial do Retiro,mediçao nº 05,contrato nº 40/2014",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 040/2014)",
+          "justificativa": "Regra auditada para medições limpas de contenção de encosta no Bairro Oficial Arraial do Retiro."
+        },
+        {
+          "id": "regra-saramandaia-tubo",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Saramandaia",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["SARAMANDAIA"],
+          "trechoComprobatorio": "OBRA DE CONTENÇÃO E PROTEÇÃO DE ENCOSTA, NFS-E 814, NA 1ª TRAVESSA DO TUBO SARAMANDAIA, CONTR. 040/14",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 040/2014)",
+          "justificativa": "Regra auditada para medições limpas na 1ª Travessa do Tubo, Bairro Oficial Saramandaia."
+        }
+      ]
     },
     "616002:2020CT004212": {
       "cdUnidadeGestora": "616002",
@@ -2386,7 +2436,131 @@
       "prefeituraBairro": null,
       "trechoComprobatorio": "VALOR REF. A NFS-e 2034 - 1ª MED CONTENÇÃO NA TERRACOM/ VALÉRIA 2ª ETAPA (TRECHO RUA JOSE ROBERTO OTONI) CONTRATO 90.003.84210/75 PERIODO 01/06/20 A 30/06/20 CEI 90.003.84210/75",
       "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual."
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual.",
+      "regrasFrentes": [
+        {
+          "id": "regra-tancredo-neves-doralice",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Beiru/Tancredo Neves",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["DORALICE DOREA", "TANCREDO NEVES"],
+          "excluirSeContiver": ["ENGOMADEIRA"],
+          "trechoComprobatorio": "EXEC. DE SERVIÇOS DE MACRODRENAGEM, REQUALIF. DO CANAL NA RUA DORALICE DOREA, TANCREDO NEVES, SSA/BA",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições exclusivas do canal da Rua Doralice Dorea no Bairro Oficial Beiru/Tancredo Neves, excluindo notas compartilhadas com Engomadeira."
+        },
+        {
+          "id": "regra-trobogy-vila-02-julho",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Trobogy",
+          "prefeituraBairro": "Pau da Lima",
+          "contemTodos": ["VILA 02 DE JULHO", "TROBOGY"],
+          "trechoComprobatorio": "EXEC. DOS SEVIÇOS DE CONTENÇÃO- NA VILA 02 DE JULHO/TROBOGY, - NFSE 3144, CONTR. 008/20",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas de contenção na Vila 02 de Julho, Bairro Oficial Trobogy."
+        },
+        {
+          "id": "regra-jardim-nova-esperanca",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Jardim Nova Esperança",
+          "prefeituraBairro": "Pau da Lima",
+          "contemTodos": ["RECANTO DOS PASSAROS", "JARDIM NOVA ESPERANCA"],
+          "trechoComprobatorio": "SERVIÇO DE ENCOSTA NO RECANTO DOS PASSAROS / JARDIM NOVA ESPERANÇA, - NFSE 3538",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas no Recanto dos Pássaros, Bairro Oficial Jardim Nova Esperança."
+        },
+        {
+          "id": "regra-mata-escura-sebastiao",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["SEBASTIAO MASCARENHAS", "MATA ESCURA"],
+          "trechoComprobatorio": "1ª MEDIÇÃO DRENAGEM NA RUA SEBASTIÃO MASCARENHAS/ MATA ESCURA CONTRATO 008/20",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas na Rua Sebastião Mascarenhas, Bairro Oficial Mata Escura."
+        },
+        {
+          "id": "regra-mata-escura-sossego",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Mata Escura",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["CANAL DO SOSSEGO", "MATA ESCURA"],
+          "trechoComprobatorio": "EXEC. DAS OBRAS DE ADEQUAÇÃO DE TRECHOS DA DRENAGEM DO CANAL DO SOSSEGO, EM MATA ESCURA, SSA/BA",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas no Canal do Sossego, Bairro Oficial Mata Escura."
+        },
+        {
+          "id": "regra-sao-caetano-bananeiras",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "São Caetano",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "contemTodos": ["DAS BANANEIRAS", "SAO CAETANO"],
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE CONTENÇÃO- AV. DAS BANANEIRAS/SÃO CAETANO, - NFSE 2332",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas na Av. das Bananeiras, Bairro Oficial São Caetano."
+        },
+        {
+          "id": "regra-fazenda-grande-retiro-diva",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Fazenda Grande do Retiro",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "contemTodos": ["DIVA PIMENTEL", "FAZENDA GRANDE DO RETIRO"],
+          "trechoComprobatorio": "EXECUÇÃO DE SERVIÇOS DE MACRODRENAGEM, NA RUA DIVA PIMENTEL/FAZENDA GRANDE DO RETIRO",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas na Rua Diva Pimentel, Bairro Oficial Fazenda Grande do Retiro."
+        },
+        {
+          "id": "regra-iapi-fernando-leal",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "IAPI",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "contemTodos": ["FERNANDO LEAL", "IAPI"],
+          "trechoComprobatorio": "EXECUÇÃO DE SERVS. DE CONTENÇÃO - ESTAB. DE ENCOSTA NA RUA FERNANDO LEAL/IAPI",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas na Rua Fernando Leal, Bairro Oficial IAPI."
+        },
+        {
+          "id": "regra-cabula-vi-laerte",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Cabula VI",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["LAERTE", "CABULA VI"],
+          "trechoComprobatorio": "SERVIS. DE CONTENÇÃO DE ENCOSTA, RUA LAERTE C. OLIVIA/CABULA VI",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas na Rua Laerte C. Olívia, Bairro Oficial Cabula VI."
+        },
+        {
+          "id": "regra-sao-marcos-paracaina",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "São Marcos",
+          "prefeituraBairro": "Pau da Lima",
+          "contemTodos": ["PARACAINA", "SAO MARCOS"],
+          "trechoComprobatorio": "EXECUÇÃO DE SERV. DE MACRODRENAGEM, M001 MACRODRENAGEM NA RUA PARACAINA / SÃO MARCOS",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas da frente M001 na Rua Paracaína, Bairro Oficial São Marcos."
+        },
+        {
+          "id": "regra-pau-da-lima-gal-costa",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Pau da Lima",
+          "prefeituraBairro": "Pau da Lima",
+          "contemTodos": ["GAL COSTA", "PAU DA LIMA"],
+          "trechoComprobatorio": "EXECUÇÃO DE SERV. DE CONTENÇÃO, E001 EST. DE ENCOSTA NA LIG. GAL COSTA/PAU DA LIMA",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 008/2020)",
+          "justificativa": "Regra auditada para medições limpas na Ligação Gal Costa, Bairro Oficial Pau da Lima."
+        }
+      ]
     },
     "540002:2018CT005478": {
       "cdUnidadeGestora": "540002",
@@ -2408,7 +2582,119 @@
       "prefeituraBairro": null,
       "trechoComprobatorio": "EXEC. DOS SERVIÇOS DE MI-MACRODRENAGEM EM JURISD. DAS PREFS. BAIRROS II,III,V, E X, CONTR. 034/18, CONC. 007/18, OBRA URBANO DUARTE /BOA VIAGEM, - NFS-E 001 E 1170, CONTR. 034/18, MED. 01, PER: 10 A 31/01/2019",
       "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual."
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual.",
+      "regrasFrentes": [
+        {
+          "id": "regra-lobato-prainha",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Lobato",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "contemTodos": ["PRAINHA DO LOBATO"],
+          "trechoComprobatorio": "REQUALIFICAÇÃO E URB DA PRAINHA DO LOBATO CONTR 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas da Prainha do Lobato, Bairro Oficial Lobato."
+        },
+        {
+          "id": "regra-paripe-paraguai",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Paripe",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "contemTodos": ["RUA PARAGUAI", "PARIPE"],
+          "trechoComprobatorio": "INFRAESTRUTURA NA RUA PARAGUAI PARIPE CONTR 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas na Rua Paraguai, Bairro Oficial Paripe."
+        },
+        {
+          "id": "regra-coutos-golan",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "contemTodos": ["RUA GOLAN", "ALTO DE COUTOS"],
+          "trechoComprobatorio": "PAVIMENTAÇÃO E DRENAGEM DA RUA GOLAN ALTO DE COUTOS CONTR 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas na Rua Golan (Alto de Coutos), Bairro Oficial Coutos."
+        },
+        {
+          "id": "regra-ribeira-terminal",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ribeira",
+          "prefeituraBairro": "Cidade Baixa",
+          "contemTodos": ["TERMINAL MARITIMO DA RIBEIRA"],
+          "trechoComprobatorio": "RECUPERAÇÃO ESTRUTURAL DO TERMINAL MARITIMO DA RIBEIRA CONTR 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas no Terminal Marítimo da Ribeira, Bairro Oficial Ribeira."
+        },
+        {
+          "id": "regra-plataforma-formosa",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "contemTodos": ["FORMOSA", "PLATAFORMA"],
+          "trechoComprobatorio": "CONTENÇÃO DE ENCOSTA FORMOSA SÃO JOÃO (UNIDADE DE SAÚDE) PLATAFORMA CONTRATO 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas na Rua Formosa São João, Bairro Oficial Plataforma."
+        },
+        {
+          "id": "regra-plataforma-belo-monte",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Plataforma",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "contemTodos": ["BELO MONTE", "PLATAFORMA"],
+          "trechoComprobatorio": "ENCOSTA DE BELO MONTE RUA DOS TECELÕES - PLATAFORMA CONTR 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas na Encosta de Belo Monte, Bairro Oficial Plataforma."
+        },
+        {
+          "id": "regra-cajazeiras-x-assis-valente",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Cajazeiras X",
+          "prefeituraBairro": "Cajazeiras",
+          "contemTodos": ["ASSIS VALENTE", "CAJAZEIRAS X"],
+          "trechoComprobatorio": "EXEC ACESSO A AVENIDA ASSIS VALENTE CAJAZEIRAS X CONTR 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas na Av. Assis Valente, Bairro Oficial Cajazeiras X."
+        },
+        {
+          "id": "regra-ilha-de-mare-bananeiras",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Ilha de Maré",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "contemTodos": ["BANANEIRAS", "ILHA DE MARE"],
+          "trechoComprobatorio": "CONTR DE PIER DE ATRACAÇÃONO DISTRITO DE BANANEIRAS - ILHA DE MARÉ CONTRATO 034/2018",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas do Píer de Bananeiras, Bairro Oficial Ilha de Maré."
+        },
+        {
+          "id": "regra-monte-serrat-plinio",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Monte Serrat",
+          "prefeituraBairro": "Cidade Baixa",
+          "contemTodos": ["PLINIO LIMA", "MONTE SERRAT"],
+          "trechoComprobatorio": "EXEC. DO SERVIÇO DE INFRAESTRUTURA NA RUA PLINIO LIMA MONTE SERRAT CONTR. 034/18",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas na Rua Plínio Lima, Bairro Oficial Monte Serrat."
+        },
+        {
+          "id": "regra-sao-goncalo-travessa",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "São Gonçalo",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["TRAVESSA SAO GONCALO"],
+          "trechoComprobatorio": "EXEC. DO SERV. DE MACRODRENAGEM DA OBRA TRAVESSA SAO GONCALO CONT. 34/18",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 034/2018)",
+          "justificativa": "Regra auditada para medições limpas na Travessa São Gonçalo, Bairro Oficial São Gonçalo."
+        }
+      ]
     },
     "560002:2016CT000606": {
       "cdUnidadeGestora": "560002",
@@ -2793,7 +3079,86 @@
       "prefeituraBairro": null,
       "trechoComprobatorio": "Pagamento referente a serviço de modernização de campos de futebol com instalação e fornecimento de insumos de grama, manta drenante e embasamento granular. Contrato: 014/2020 - Nota Fiscal: 00000224 - Mês: Novembro/2021 - Processo: 201283/2021.",
       "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
-      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual."
+      "justificativa": "Contrato guarda-chuva com múltiplas frentes de medição em diferentes Bairros Oficiais e Prefeituras-Bairro nas notas de liquidação, mantido em Escopo Cidade para evitar rateio artificial do saldo contratual.",
+      "regrasFrentes": [
+        {
+          "id": "regra-baixa-de-quintas",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Baixa de Quintas",
+          "prefeituraBairro": "Liberdade/São Caetano",
+          "contemTodos": ["BAIXA DE QUINTAS"],
+          "trechoComprobatorio": "modernização de campos de futebol - BAIXA DE QUINTAS - BECO DO CIRILO - NOTA FISCAL: 0000255 - CONTRATO: 014/2020",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 014/2020)",
+          "justificativa": "Regra auditada para medições limpas de modernização de campo de futebol no Bairro Oficial Baixa de Quintas."
+        },
+        {
+          "id": "regra-candeal",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Candeal",
+          "prefeituraBairro": "Centro/Brotas",
+          "contemTodos": ["CANDEAL"],
+          "trechoComprobatorio": "modernização de campos de futebol - CANDEAL (GUETO SQUARE) - NOTA FISCAL: 000254 - CONTRATO: 014/2020",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 014/2020)",
+          "justificativa": "Regra auditada para medições limpas de modernização de campo de futebol no Bairro Oficial Candeal."
+        },
+        {
+          "id": "regra-itaigara",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Itaigara",
+          "prefeituraBairro": "Barra/Pituba",
+          "contemTodos": ["ITAIGARA"],
+          "trechoComprobatorio": "modernização de campos de futebol - CAMPO ITAIGARA - NOTA FISCAL: 0000256 - CONTRATO: 014/2020",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 014/2020)",
+          "justificativa": "Regra auditada para medições limpas de modernização de campo de futebol no Bairro Oficial Itaigara."
+        },
+        {
+          "id": "regra-aguas-claras",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Águas Claras",
+          "prefeituraBairro": "Cajazeiras",
+          "contemTodos": ["AGUAS CLARAS"],
+          "trechoComprobatorio": "modernização de campos de futebol - CAMPO CONDOR - AGUAS CLARAS - NOTA FISCAL: 0000265 - CONTRATO: 014/2020",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 014/2020)",
+          "justificativa": "Regra auditada para medições limpas de modernização de campo de futebol no Bairro Oficial Águas Claras."
+        },
+        {
+          "id": "regra-castelo-branco",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Castelo Branco",
+          "prefeituraBairro": "Pau da Lima",
+          "contemTodos": ["CASTELO BRANCO"],
+          "trechoComprobatorio": "modernização de campos de futebol - CAMPO BEIRA LIXO - CASTELO BRANCO - NOTA FISCAL: 0000266 - CONTRATO: 014/2020",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 014/2020)",
+          "justificativa": "Regra auditada para medições limpas de modernização de campo de futebol no Bairro Oficial Castelo Branco."
+        },
+        {
+          "id": "regra-calabetao",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Calabetão",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "contemTodos": ["CALABETAO"],
+          "trechoComprobatorio": "modernização de campos de futebol - CAMPO CALABETÃO - NOTA FISCAL: 0000272 - CONTRATO: 014/2020",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 014/2020)",
+          "justificativa": "Regra auditada para medições limpas de modernização de campo de futebol no Bairro Oficial Calabetão."
+        },
+        {
+          "id": "regra-rio-vermelho",
+          "status": "promovido",
+          "nivel": "Bairro",
+          "bairro": "Rio Vermelho",
+          "prefeituraBairro": "Barra/Pituba",
+          "contemTodos": ["RIO VERMELHO"],
+          "trechoComprobatorio": "modernização de campos de futebol - CAMPO RIO VERMELHO - NOTA FISCAL: 0000271 - CONTRATO: 014/2020",
+          "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 014/2020)",
+          "justificativa": "Regra auditada para medições limpas de modernização de campo de futebol no Bairro Oficial Rio Vermelho."
+        }
+      ]
     },
     "441010:2015CT000760": {
       "cdUnidadeGestora": "441010",
@@ -6275,6 +6640,64 @@
       "trechoComprobatorio": "Pagamento de Registro de Responsabilidade Técnica-RRTao Conselho de Arquitetura e Urbanismo-CAU, do Projeto Urbanístico de Praça com quadra de esporte.",
       "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
       "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    },
+    "590002:2017CT001807": {
+      "cdUnidadeGestora": "590002",
+      "nuContratoSigef": "2017CT001807",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Arraial do Retiro",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "trechoComprobatorio": "Construção de uma quadra poliesportiva no Arraial do Retiro / Cabula, SSA.",
+      "documentoOrigem": "dsObjeto (Contrato 009/2015) e descObsLiquidacao (8 Notas de Liquidação)",
+      "justificativa": "O objeto contratual e todas as 8 notas de liquidação identificam univocamente a construção da quadra poliesportiva no Bairro Oficial Arraial do Retiro (Prefeitura-Bairro Cabula/Tancredo Neves)."
+    },
+    "567002:2021CT003752": {
+      "cdUnidadeGestora": "567002",
+      "nuContratoSigef": "2021CT003752",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Pituba",
+      "prefeituraBairro": "Barra/Pituba",
+      "trechoComprobatorio": "SERVIÇO DE ELABORAÇÃO DO PROJETO PRELIMINAR DA PASSARELA DE ACESSO AO BRT(ESTAÇÃO PITUBA)",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 31/2021)",
+      "justificativa": "As duas notas de liquidação do contrato explicitam a elaboração do projeto da passarela de acesso à Estação Pituba do BRT, no Bairro Oficial Pituba."
+    },
+    "616002:2023CT009444": {
+      "cdUnidadeGestora": "616002",
+      "nuContratoSigef": "2023CT009444",
+      "status": "promovido",
+      "nivel": "Bairro",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "trechoComprobatorio": "execução das obras de Restauração e Requalificação do Elevador Lacerda - Praça Thomé de Souza ¿ Centro - Salvador/BA",
+      "documentoOrigem": "dsObjeto e dsObjetoAditivo (Contrato 043/2023)",
+      "justificativa": "O objeto, os termos aditivos e as 19 notas de liquidação tratam exclusivamente da restauração e requalificação do Elevador Lacerda na Praça Thomé de Souza, localizado dentro dos limites do Bairro Oficial Centro Histórico."
+    },
+    "301110:2016CT002900": {
+      "cdUnidadeGestora": "301110",
+      "nuContratoSigef": "2016CT002900",
+      "status": "lista_fechada",
+      "nivel": "Bairro",
+      "bairro": "São Gonçalo",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "trechoComprobatorio": "Construção de duas Unidades de Saúde da Família (LOTE1): USF SÃO GONÇALO e USF ARRAIAL DO RETIRO.",
+      "documentoOrigem": "dsObjeto (Contrato 046/2016)",
+      "justificativa": "Lista fechada exata com 2 Unidades de Saúde da Família explicitamente nomeadas em 2 bairros oficiais distintos (São Gonçalo e Arraial do Retiro).",
+      "cotas": [
+        {
+          "bairro": "São Gonçalo",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "unidades": 1,
+          "descricaoUnidades": "USF São Gonçalo"
+        },
+        {
+          "bairro": "Arraial do Retiro",
+          "prefeituraBairro": "Cabula/Tancredo Neves",
+          "unidades": 1,
+          "descricaoUnidades": "USF Arraial do Retiro"
+        }
+      ]
     }
   }
 }

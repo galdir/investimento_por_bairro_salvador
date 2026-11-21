@@ -5231,12 +5231,17 @@
     }
   },
   "590002_2017CT001807_239dc9c108d6e3f2": {
-    "nivel": "Regional (Prefeitura-Bairro)",
-    "bairro": null,
+    "nivel": "Bairro",
+    "bairro": "Arraial do Retiro",
     "prefeitura_bairro": "Cabula/Tancredo Neves",
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)"
+    "latitude": -12.944115,
+    "longitude": -38.466349,
+    "estagio": "Curadoria Territorial Auditável",
+    "lastro_curadoria": {
+      "trechoComprobatorio": "Construção de uma quadra poliesportiva no Arraial do Retiro / Cabula, SSA.",
+      "documentoOrigem": "dsObjeto (Contrato 009/2015) e descObsLiquidacao (8 Notas de Liquidação)",
+      "justificativa": "O objeto contratual e todas as 8 notas de liquidação identificam univocamente a construção da quadra poliesportiva no Bairro Oficial Arraial do Retiro (Prefeitura-Bairro Cabula/Tancredo Neves)."
+    }
   },
   "603002_2017CT002470_90f93e8322d3449b": {
     "nivel": "Bairro",
@@ -5620,12 +5625,41 @@
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
   },
   "301110_2016CT002900_9c9217249aeb9149": {
-    "nivel": "Regional (Prefeitura-Bairro)",
-    "bairro": null,
+    "nivel": "Bairro",
+    "bairro": "São Gonçalo",
     "prefeitura_bairro": "Cabula/Tancredo Neves",
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)"
+    "latitude": -12.950756,
+    "longitude": -38.466593,
+    "estagio": "Curadoria Territorial Auditável (Lista Fechada)",
+    "lastro_curadoria": {
+      "trechoComprobatorio": "Construção de duas Unidades de Saúde da Família (LOTE1): USF SÃO GONÇALO e USF ARRAIAL DO RETIRO.",
+      "documentoOrigem": "dsObjeto (Contrato 046/2016)",
+      "justificativa": "Lista fechada exata com 2 Unidades de Saúde da Família explicitamente nomeadas em 2 bairros oficiais distintos (São Gonçalo e Arraial do Retiro)."
+    },
+    "cotas_lista_fechada": [
+      {
+        "bairro": "São Gonçalo",
+        "prefeituraBairro": "Cabula/Tancredo Neves",
+        "unidades": 1,
+        "totalUnidades": 2,
+        "peso": 0.5,
+        "fracao": "1/2",
+        "latitude": -12.950756,
+        "longitude": -38.466593,
+        "descricaoUnidades": "USF São Gonçalo"
+      },
+      {
+        "bairro": "Arraial do Retiro",
+        "prefeituraBairro": "Cabula/Tancredo Neves",
+        "unidades": 1,
+        "totalUnidades": 2,
+        "peso": 0.5,
+        "fracao": "1/2",
+        "latitude": -12.944115,
+        "longitude": -38.466349,
+        "descricaoUnidades": "USF Arraial do Retiro"
+      }
+    ]
   },
   "301110_2016CT002901_2444335db792e069": {
     "nivel": "Bairro",
@@ -8969,12 +9003,17 @@
     }
   },
   "616002_2023CT009444_975c2273c8ea3e9c": {
-    "nivel": "Regional (Prefeitura-Bairro)",
-    "bairro": null,
+    "nivel": "Bairro",
+    "bairro": "Centro Histórico",
     "prefeitura_bairro": "Centro/Brotas",
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)"
+    "latitude": -12.973943,
+    "longitude": -38.510481,
+    "estagio": "Curadoria Territorial Auditável",
+    "lastro_curadoria": {
+      "trechoComprobatorio": "execução das obras de Restauração e Requalificação do Elevador Lacerda - Praça Thomé de Souza ¿ Centro - Salvador/BA",
+      "documentoOrigem": "dsObjeto e dsObjetoAditivo (Contrato 043/2023)",
+      "justificativa": "O objeto, os termos aditivos e as 19 notas de liquidação tratam exclusivamente da restauração e requalificação do Elevador Lacerda na Praça Thomé de Souza, localizado dentro dos limites do Bairro Oficial Centro Histórico."
+    }
   },
   "430002_2023CT001166_9677ebcb069729bc": {
     "nivel": "Pontual",
@@ -10024,12 +10063,17 @@
     "estagio": "Stage 1 (Bairro / Sublocalidade)"
   },
   "567002_2021CT003752_82fdcb2611c914f4": {
-    "nivel": "Escopo Cidade (Não-Localizado)",
-    "bairro": null,
-    "prefeitura_bairro": null,
-    "latitude": null,
-    "longitude": null,
-    "estagio": "Não-Localizado (Transparência Opaca)"
+    "nivel": "Bairro",
+    "bairro": "Pituba",
+    "prefeitura_bairro": "Barra/Pituba",
+    "latitude": -12.999274,
+    "longitude": -38.460677,
+    "estagio": "Curadoria Territorial Auditável",
+    "lastro_curadoria": {
+      "trechoComprobatorio": "SERVIÇO DE ELABORAÇÃO DO PROJETO PRELIMINAR DA PASSARELA DE ACESSO AO BRT(ESTAÇÃO PITUBA)",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 31/2021)",
+      "justificativa": "As duas notas de liquidação do contrato explicitam a elaboração do projeto da passarela de acesso à Estação Pituba do BRT, no Bairro Oficial Pituba."
+    }
   },
   "543002_2021CT003439_20a1128efacf22be": {
     "nivel": "Bairro",

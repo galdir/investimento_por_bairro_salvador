@@ -2201,12 +2201,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Regional (Prefeitura-Bairro)",
-  "bairro": null,
+  "nivel": "Bairro",
+  "bairro": "Arraial do Retiro",
   "prefeituraBairro": "Cabula/Tancredo Neves",
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)",
+  "latitude": -12.944115,
+  "longitude": -38.466349,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -2224,11 +2224,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Regional (Prefeitura-Bairro)",
-      "estagioAlocacao": "Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)",
-      "bairro": null,
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Arraial do Retiro",
       "prefeituraBairro": "Cabula/Tancredo Neves",
-      "origem": "Alocação em Cabula/Tancredo Neves via Stage 1 (Multi-Bairro Mesma Prefeitura-Bairro)"
+      "origem": "Alocação em Arraial do Retiro via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Construção de uma quadra poliesportiva no Arraial do Retiro / Cabula, SSA.",
+      "documentoOrigem": "dsObjeto (Contrato 009/2015) e descObsLiquidacao (8 Notas de Liquidação)",
+      "justificativa": "O objeto contratual e todas as 8 notas de liquidação identificam univocamente a construção da quadra poliesportiva no Bairro Oficial Arraial do Retiro (Prefeitura-Bairro Cabula/Tancredo Neves)."
     }
   },
   "cdUnidadeGestora": "590002",

@@ -4256,5 +4256,20 @@
     "dataInicio": "2017-01-01T03:00:00.000Z",
     "dataFim": "2020-12-31T03:00:00.000Z"
   },
+  "frentesMedicao": [
+    {
+      "notaLiquidacao": "2016NL004753",
+      "nivel": "Bairro",
+      "bairro": "Arraial do Retiro",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 191478.32,
+      "valorPago": 191478.32,
+      "dataLiquidacao": "29/08/2016",
+      "trechoComprobatorio": "Pagamento referente obra de contençao de encosta Arraial do Retiro,mediçao nº 05,contrato nº 40/2014",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 040/2014)",
+      "justificativa": "Regra auditada para medições limpas de contenção de encosta no Bairro Oficial Arraial do Retiro.",
+      "regraFrenteId": "regra-arraial-do-retiro"
+    }
+  ],
   "versaoDados": "34662fbbcd474af39e76577d7d378e99"
 }

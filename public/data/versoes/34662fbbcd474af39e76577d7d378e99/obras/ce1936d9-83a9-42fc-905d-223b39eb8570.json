@@ -953,12 +953,12 @@
     ],
     "deltaPercentualValor": 0.0
   },
-  "nivel": "Escopo Cidade (Não-Localizado)",
-  "bairro": null,
-  "prefeituraBairro": null,
-  "latitude": null,
-  "longitude": null,
-  "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
+  "nivel": "Bairro",
+  "bairro": "Pituba",
+  "prefeituraBairro": "Barra/Pituba",
+  "latitude": -12.999274,
+  "longitude": -38.460677,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
   "fontesOficiais": {
     "portalTransparencia": {
       "nome": "Portal da Transparência de Salvador",
@@ -976,11 +976,14 @@
     },
     "domAditivos": [],
     "lastroTerritorial": {
-      "nivel": "Escopo Cidade (Não-Localizado)",
-      "estagioAlocacao": "Não-Localizado (Transparência Opaca)",
-      "bairro": null,
-      "prefeituraBairro": null,
-      "origem": "Contrato sem localização territorial específica (Não-Localizado (Transparência Opaca))"
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Pituba",
+      "prefeituraBairro": "Barra/Pituba",
+      "origem": "Alocação em Pituba via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "SERVIÇO DE ELABORAÇÃO DO PROJETO PRELIMINAR DA PASSARELA DE ACESSO AO BRT(ESTAÇÃO PITUBA)",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação do Contrato 31/2021)",
+      "justificativa": "As duas notas de liquidação do contrato explicitam a elaboração do projeto da passarela de acesso à Estação Pituba do BRT, no Bairro Oficial Pituba."
     }
   },
   "cdUnidadeGestora": "567002",

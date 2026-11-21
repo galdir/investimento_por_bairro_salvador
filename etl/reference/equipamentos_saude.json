@@ -404,5 +404,54 @@
       "UBS PERIPERI",
       "UNIDADE BASICA DE SAUDE SEM ESTRATEGIA DE SAUDE DA FAMILIA E DO CENTRO DE ESPECIALIDADES ODONTOLOGICAS"
     ]
+  },
+  {
+    "id": 245,
+    "nome": "UNIDADE DE SAUDE DA FAMILIA - USF DORON",
+    "tipo": "USF",
+    "bairro": "Doron",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.959697,
+    "longitude": -38.442783,
+    "aliases": [
+      "USF DORON"
+    ]
+  },
+  {
+    "id": 246,
+    "nome": "UNIDADE DE SAUDE DA FAMILIA - USF CONJUNTO ACM",
+    "tipo": "USF",
+    "bairro": "Resgate",
+    "prefeitura_bairro": "Cabula/Tancredo Neves",
+    "latitude": -12.961708,
+    "longitude": -38.463643,
+    "aliases": [
+      "USF CONJUNTO ACM"
+    ]
+  },
+  {
+    "id": 247,
+    "nome": "UNIDADE DE SAUDE DA FAMILIA - USF CAJAZEIRAS V",
+    "tipo": "USF",
+    "bairro": "Cajazeiras V",
+    "prefeitura_bairro": "Cajazeiras",
+    "latitude": -12.8945,
+    "longitude": -38.4190,
+    "aliases": [
+      "USF CAJAZEIRAS V"
+    ]
+  },
+  {
+    "id": 248,
+    "nome": "UNIDADE DE SAUDE DA FAMILIA - USF MARECHAL RONDON",
+    "tipo": "USF",
+    "bairro": "Marechal Rondon",
+    "prefeitura_bairro": "Liberdade/São Caetano",
+    "latitude": -12.913336,
+    "longitude": -38.469098,
+    "aliases": [
+      "USF MARECHAL RONDON",
+      "USF MARECHAL RONDOM"
+    ]
   }
 ]

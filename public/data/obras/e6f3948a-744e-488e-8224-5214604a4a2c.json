@@ -11806,6 +11806,45 @@
       "trechoComprobatorio": "EXEC. DOS SERV. DE INFRAESTRUTURA, P030 - SERV. DE INFRA. NA RUA DIRETA DE MATA ESCURA",
       "documentoOrigem": "descObsLiquidacao (Nota de Liquidação 2024NL003112)",
       "justificativa": "Nota comprova infraestrutura na Rua Direta de Mata Escura, Bairro Oficial Mata Escura."
+    },
+    {
+      "notaLiquidacao": "2025NL006682",
+      "nivel": "Bairro",
+      "bairro": "Saramandaia",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 637493.39,
+      "valorPago": 608908.48,
+      "dataLiquidacao": "15/05/2025",
+      "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE CONTENÇÃO, E004 - SERV. DE CONTENÇÃO NA RUA AMARGOSA/SARAMANDAIA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação E004 do Contrato 038/2023)",
+      "justificativa": "Regra auditada para medições limpas da frente E004 (Rua Amargosa) no Bairro Oficial Saramandaia.",
+      "regraFrenteId": "regra-saramandaia-amargosa"
+    },
+    {
+      "notaLiquidacao": "2025NL006683",
+      "nivel": "Bairro",
+      "bairro": "Saramandaia",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 221394.11,
+      "valorPago": 221394.11,
+      "dataLiquidacao": "15/05/2025",
+      "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE CONTENÇÃO, E004 - SERV. DE CONTENÇÃO NA RUA AMARGOSA/SARAMANDAIA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação E004 do Contrato 038/2023)",
+      "justificativa": "Regra auditada para medições limpas da frente E004 (Rua Amargosa) no Bairro Oficial Saramandaia.",
+      "regraFrenteId": "regra-saramandaia-amargosa"
+    },
+    {
+      "notaLiquidacao": "2025NL012337",
+      "nivel": "Bairro",
+      "bairro": "Saramandaia",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "valorLiquidado": 1977320.77,
+      "valorPago": 1911512.9,
+      "dataLiquidacao": "07/07/2025",
+      "trechoComprobatorio": "EXECUÇÃO DOS SERV. DE CONTENÇÃO, E004 - SERV. DE CONTENÇÃO NA RUA AMARGOSA/SARAMANDAIA",
+      "documentoOrigem": "descObsLiquidacao (Notas de Liquidação E004 do Contrato 038/2023)",
+      "justificativa": "Regra auditada para medições limpas da frente E004 (Rua Amargosa) no Bairro Oficial Saramandaia.",
+      "regraFrenteId": "regra-saramandaia-amargosa"
     }
   ],
   "versaoDados": "34662fbbcd474af39e76577d7d378e99"
