@@ -166,5 +166,5 @@ Critério explícito e versionado vinculado a um contrato específico já audita
 _Avoid_: Regex global, extração automática irrestrita, classificação cega
 
 **Mapa de Calor de Obras Localizadas**:
-Camada visual de concentração espacial construída exclusivamente sobre Obras Públicas com localização identificada (`Pontual`, `Bairro`, Cota-Parte de Lista Fechada Contratual e, na métrica executada/paga, Frentes de Medição), ponderada em escala logarítmica para revelar manchas de concentração e vazios territoriais sem ratear contratos de `Escopo Cidade` nem transferir valores financeiros entre Bairros Oficiais.
-_Avoid_: Transbordamento financeiro, rateio por vizinhança, cobertura integral da cidade
+Camada visual de concentração espacial construída exclusivamente sobre Obras Públicas com localização identificada (`Pontual`, `Bairro`, Cota-Parte de Lista Fechada Contratual e, na métrica executada/paga, Frentes de Medição), ponderada em escala logarítmica sobre o valor absoluto em reais da métrica financeira ativa (e não em `R$/hab`) para revelar manchas de concentração e vazios territoriais sem ratear contratos de `Escopo Cidade` nem transferir valores financeiros entre Bairros Oficiais.
+_Avoid_: Transbordamento financeiro, rateio por vizinhança, cobertura integral da cidade, mapa de calor per capita
