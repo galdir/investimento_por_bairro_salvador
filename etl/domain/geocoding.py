@@ -20,6 +20,12 @@ import urllib.request
 from shapely.geometry import Point, shape
 
 from etl.domain.pagamentos import valor_informado_pagamento
+from etl.domain.regras_frentes import (
+    agrupar_pagamentos_por_nota,
+    avaliar_guardrails_nota_liquidacao,
+    selecionar_regra_frente,
+    validar_e_preparar_regras_frentes,
+)
 from etl.domain.territorio import normalizar_nome, normalizar_nome_prefeitura_bairro, parse_float
 
 # Diretório base dos dicionários de referência
@@ -1331,25 +1337,29 @@ def resolver_frentes_medicao(
         return []
 
     frentes_curadas = entrada.get("frentesMedicao")
-    if not isinstance(frentes_curadas, dict) or not frentes_curadas:
-        return []
+    if not isinstance(frentes_curadas, dict):
+        frentes_curadas = {}
 
     bairros_nomes, sublocalidades_norm, bairro_para_pb, bairro_para_pb_norm = _extrair_indices_territoriais(
         bairros_geojson
     )
 
-    pagamentos_por_nl: dict[str, Optional[float]] = {}
-    for pag in pagamentos or []:
-        if not isinstance(pag, dict):
-            continue
-        nl_pag = str(pag.get("notaLiquidacao") or "").strip()
-        if not nl_pag:
-            continue
-        valor = valor_informado_pagamento(pag)
-        if valor in (None, ""):
-            pagamentos_por_nl.setdefault(nl_pag, None)
-        else:
-            pagamentos_por_nl[nl_pag] = (pagamentos_por_nl.get(nl_pag) or 0.0) + parse_float(valor)
+    status_contrato = str(entrada.get("status") or "").strip().lower()
+    regras_preparadas: list[dict[str, Any]] = []
+    if status_contrato == "multi_frente" and entrada.get("regrasFrentes") is not None:
+        regras_preparadas = validar_e_preparar_regras_frentes(
+            entrada.get("regrasFrentes"),
+            bairros_nomes=bairros_nomes,
+            sublocalidades_norm=sublocalidades_norm,
+            bairro_para_pb=bairro_para_pb,
+            bairro_para_pb_norm=bairro_para_pb_norm,
+            reconciliar_bairro=reconciliar_bairro_canonico,
+        )
+
+    if not frentes_curadas and not regras_preparadas:
+        return []
+
+    pagamentos_por_nl = agrupar_pagamentos_por_nota(pagamentos)
 
     frentes_resolvidas: list[dict[str, Any]] = []
     for liq in liquidacoes or []:
@@ -1358,32 +1368,52 @@ def resolver_frentes_medicao(
         nl = str(liq.get("notaLiquidacao") or "").strip()
         if not nl:
             continue
-        frente_cfg = frentes_curadas.get(nl)
-        if not isinstance(frente_cfg, dict):
-            continue
-        if str(frente_cfg.get("status") or "").strip().lower() != "promovido":
-            continue
 
-        nivel = str(frente_cfg.get("nivel") or "").strip()
-        bairro_canonico: Optional[str] = None
-        pb_final: Optional[str] = None
+        regra_frente_id: Optional[str] = None
+        if nl in frentes_curadas:
+            frente_cfg = frentes_curadas.get(nl)
+            if not isinstance(frente_cfg, dict):
+                continue
+            if str(frente_cfg.get("status") or "").strip().lower() != "promovido":
+                continue
 
-        if nivel == "Bairro":
-            bairro_raw = str(frente_cfg.get("bairro") or "").strip()
-            bairro_canonico = reconciliar_bairro_canonico(bairro_raw, bairros_nomes, sublocalidades_norm) or bairro_raw
-            if not bairro_canonico:
+            nivel = str(frente_cfg.get("nivel") or "").strip()
+            bairro_canonico: Optional[str] = None
+            pb_final: Optional[str] = None
+
+            if nivel == "Bairro":
+                bairro_raw = str(frente_cfg.get("bairro") or "").strip()
+                bairro_canonico = reconciliar_bairro_canonico(bairro_raw, bairros_nomes, sublocalidades_norm) or bairro_raw
+                if not bairro_canonico:
+                    continue
+                pb_raw = (
+                    frente_cfg.get("prefeituraBairro")
+                    or bairro_para_pb.get(bairro_canonico)
+                    or bairro_para_pb_norm.get(normalizar_nome(bairro_canonico))
+                )
+                pb_final = normalizar_nome_prefeitura_bairro(str(pb_raw)) if pb_raw else None
+            elif nivel == "Regional (Prefeitura-Bairro)":
+                pb_raw = str(frente_cfg.get("prefeituraBairro") or "").strip()
+                pb_final = normalizar_nome_prefeitura_bairro(pb_raw) if pb_raw else None
+                if not pb_final:
+                    continue
+            else:
                 continue
-            pb_raw = (
-                frente_cfg.get("prefeituraBairro")
-                or bairro_para_pb.get(bairro_canonico)
-                or bairro_para_pb_norm.get(normalizar_nome(bairro_canonico))
-            )
-            pb_final = normalizar_nome_prefeitura_bairro(str(pb_raw)) if pb_raw else None
-        elif nivel == "Regional (Prefeitura-Bairro)":
-            pb_raw = str(frente_cfg.get("prefeituraBairro") or "").strip()
-            pb_final = normalizar_nome_prefeitura_bairro(pb_raw) if pb_raw else None
-            if not pb_final:
+            origem_frente = frente_cfg
+        elif regras_preparadas:
+            if avaliar_guardrails_nota_liquidacao(
+                liq,
+                pagamentos_por_nl=pagamentos_por_nl if pagamentos is not None else None,
+            ):
                 continue
+            regra_casada = selecionar_regra_frente(liq, regras_preparadas)
+            if regra_casada is None:
+                continue
+            nivel = regra_casada["nivel"]
+            bairro_canonico = regra_casada["bairro"]
+            pb_final = regra_casada["prefeituraBairro"]
+            regra_frente_id = regra_casada["id"]
+            origem_frente = regra_casada
         else:
             continue
 
@@ -1394,7 +1424,7 @@ def resolver_frentes_medicao(
         if val_liq == 0.0 and val_pago == 0.0:
             continue
 
-        frentes_resolvidas.append({
+        item_frente: dict[str, Any] = {
             "notaLiquidacao": nl,
             "nivel": nivel,
             "bairro": bairro_canonico,
@@ -1402,10 +1432,13 @@ def resolver_frentes_medicao(
             "valorLiquidado": round(val_liq, 2),
             "valorPago": round(val_pago, 2) if val_pago is not None else None,
             "dataLiquidacao": liq.get("dataLiquidacao"),
-            "trechoComprobatorio": frente_cfg.get("trechoComprobatorio"),
-            "documentoOrigem": frente_cfg.get("documentoOrigem"),
-            "justificativa": frente_cfg.get("justificativa"),
-        })
+            "trechoComprobatorio": origem_frente.get("trechoComprobatorio"),
+            "documentoOrigem": origem_frente.get("documentoOrigem"),
+            "justificativa": origem_frente.get("justificativa"),
+        }
+        if regra_frente_id is not None:
+            item_frente["regraFrenteId"] = regra_frente_id
+        frentes_resolvidas.append(item_frente)
 
     return frentes_resolvidas
 
