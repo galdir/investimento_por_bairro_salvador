@@ -3,12 +3,12 @@ import { HeatmapPoint } from "./heatmap";
 
 const HEATMAP_PANE_NAME = "heatmapPane";
 
-const WARM_COLOR_STOPS: Array<{ pos: number; r: number; g: number; b: number; a: number }> = [
+export const WARM_COLOR_STOPS: Array<{ pos: number; r: number; g: number; b: number; a: number }> = [
   { pos: 0.0, r: 254, g: 240, b: 138, a: 0 },
-  { pos: 0.25, r: 251, g: 191, b: 36, a: 140 },
-  { pos: 0.55, r: 249, g: 115, b: 22, a: 190 },
-  { pos: 0.8, r: 239, g: 68, b: 68, a: 220 },
-  { pos: 1.0, r: 185, g: 28, b: 28, a: 240 },
+  { pos: 0.25, r: 251, g: 191, b: 36, a: 72 },
+  { pos: 0.55, r: 249, g: 115, b: 22, a: 124 },
+  { pos: 0.8, r: 239, g: 68, b: 68, a: 162 },
+  { pos: 1.0, r: 185, g: 28, b: 28, a: 190 },
 ];
 
 export const HEATMAP_WARM_GRADIENT_CSS = `linear-gradient(to right, ${WARM_COLOR_STOPS.map(
@@ -19,7 +19,7 @@ export const HEATMAP_WARM_GRADIENT_CSS = `linear-gradient(to right, ${WARM_COLOR
  * Gera uma tabela de lookup RGBA de 256 níveis na rampa quente
  * (âmbar suave -> laranja -> vermelho-coral) distinta do verde coroplético e do roxo.
  */
-function buildWarmColorPalette(): Uint8ClampedArray {
+export function buildWarmColorPalette(): Uint8ClampedArray {
   const palette = new Uint8ClampedArray(256 * 4);
   const stops = WARM_COLOR_STOPS;
 
@@ -47,6 +47,21 @@ function buildWarmColorPalette(): Uint8ClampedArray {
 }
 
 const WARM_PALETTE = buildWarmColorPalette();
+
+const HEATMAP_POINT_MIN_ALPHA = 0.06;
+const HEATMAP_POINT_MAX_ALPHA = 0.38;
+
+/**
+ * Calcula a contribuição de opacidade individual de um ponto do Mapa de Calor a partir do seu peso global,
+ * mantendo pontos isolados em âmbar/laranja e reservando vermelho-coral para acúmulo espacial.
+ */
+export function computeHeatmapPointAlpha(weight: number): number {
+  const safeWeight = Number.isFinite(weight) ? Math.max(0, weight) : 0;
+  return Math.max(
+    HEATMAP_POINT_MIN_ALPHA,
+    Math.min(HEATMAP_POINT_MAX_ALPHA, safeWeight * HEATMAP_POINT_MAX_ALPHA)
+  );
+}
 
 /**
  * Camada `<canvas>` nativa sobre Leaflet para renderizar o Mapa de Calor sem dependências externas.
@@ -132,7 +147,7 @@ export class HeatmapCanvasLayer extends L.Layer {
 
     let ctx: CanvasRenderingContext2D | null = null;
     try {
-      ctx = canvas.getContext("2d");
+      ctx = canvas.getContext("2d", { willReadFrequently: true });
     } catch {
       return;
     }
@@ -161,7 +176,7 @@ export class HeatmapCanvasLayer extends L.Layer {
         continue;
       }
 
-      const alpha = Math.max(0.08, Math.min(0.95, pt.weight * 0.85));
+      const alpha = computeHeatmapPointAlpha(pt.weight);
       const gradient = ctx.createRadialGradient(
         projected.x,
         projected.y,

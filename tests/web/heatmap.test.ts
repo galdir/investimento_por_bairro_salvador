@@ -1,7 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
 import L from "leaflet";
 import { computeBairroCentroids, extractHeatmapPoints } from "../../src/utils/heatmap";
-import { HeatmapCanvasLayer } from "../../src/utils/heatmapLayer";
+import {
+  buildWarmColorPalette,
+  computeHeatmapPointAlpha,
+  HeatmapCanvasLayer,
+  WARM_COLOR_STOPS,
+} from "../../src/utils/heatmapLayer";
 import { ObraCompacta } from "../../src/types";
 
 describe("Mapa de Calor — centróides de GeoJSON e extrator puro de pontos", () => {
@@ -337,6 +342,97 @@ describe("Mapa de Calor — centróides de GeoJSON e extrator puro de pontos", (
     map.fire("zoomend");
     expect(redrawSpy).not.toHaveBeenCalled();
 
+    map.remove();
+    container.remove();
+  });
+
+  it("rampa quente tem paradas de alfa estritamente crescentes de 0 até teto ~75% (~190/255)", () => {
+    expect(WARM_COLOR_STOPS.length).toBeGreaterThanOrEqual(4);
+    expect(WARM_COLOR_STOPS[0].a).toBe(0);
+
+    for (let i = 1; i < WARM_COLOR_STOPS.length; i++) {
+      expect(WARM_COLOR_STOPS[i].pos).toBeGreaterThan(WARM_COLOR_STOPS[i - 1].pos);
+      expect(WARM_COLOR_STOPS[i].a).toBeGreaterThan(WARM_COLOR_STOPS[i - 1].a);
+    }
+
+    const maxAlphaStop = WARM_COLOR_STOPS[WARM_COLOR_STOPS.length - 1].a;
+    expect(maxAlphaStop).toBeGreaterThanOrEqual(185);
+    expect(maxAlphaStop).toBeLessThanOrEqual(195);
+
+    const palette = buildWarmColorPalette();
+    expect(palette).toHaveLength(256 * 4);
+    expect(palette[3]).toBe(0);
+    for (let i = 1; i < 256; i++) {
+      expect(palette[i * 4 + 3]).toBeGreaterThanOrEqual(palette[(i - 1) * 4 + 3]);
+    }
+    expect(palette[255 * 4 + 3]).toBe(maxAlphaStop);
+  });
+
+  it("computeHeatmapPointAlpha respeita piso ~0,06 e teto individual ~0,35–0,42", () => {
+    expect(computeHeatmapPointAlpha(0)).toBeCloseTo(0.06, 2);
+    expect(computeHeatmapPointAlpha(-0.5)).toBeCloseTo(0.06, 2);
+    expect(computeHeatmapPointAlpha(Number.NaN)).toBeCloseTo(0.06, 2);
+
+    const maxAlpha = computeHeatmapPointAlpha(1);
+    expect(maxAlpha).toBeGreaterThanOrEqual(0.35);
+    expect(maxAlpha).toBeLessThanOrEqual(0.42);
+    expect(computeHeatmapPointAlpha(2)).toBeCloseTo(maxAlpha, 5);
+
+    const midAlpha = computeHeatmapPointAlpha(0.5);
+    expect(midAlpha).toBeGreaterThan(0.06);
+    expect(midAlpha).toBeLessThan(maxAlpha);
+  });
+
+  it("HeatmapCanvasLayer inicializa contexto 2D com willReadFrequently: true e mantém alfa invariante a pontos fora da viewport", () => {
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+    const map = L.map(container, { center: [-12.9, -38.48], zoom: 12 });
+    vi.spyOn(map, "getSize").mockReturnValue(L.point(400, 300));
+    vi.spyOn(map, "latLngToContainerPoint").mockImplementation((latlng: any) => {
+      const lat = Array.isArray(latlng) ? latlng[0] : latlng.lat;
+      if (lat < -15) {
+        return L.point(2000, 2000); // fora da viewport
+      }
+      return L.point(200, 150); // visível no centro
+    });
+
+    const recordedStops: string[] = [];
+    const mockCtx = {
+      clearRect: vi.fn(),
+      createRadialGradient: vi.fn(() => ({
+        addColorStop: vi.fn((offset: number, color: string) => {
+          if (offset === 0) recordedStops.push(color);
+        }),
+      })),
+      beginPath: vi.fn(),
+      arc: vi.fn(),
+      fill: vi.fn(),
+      getImageData: vi.fn(() => ({ data: new Uint8ClampedArray(400 * 300 * 4) })),
+      putImageData: vi.fn(),
+      fillStyle: "",
+    } as unknown as CanvasRenderingContext2D;
+
+    const getContextSpy = vi
+      .spyOn(HTMLCanvasElement.prototype, "getContext")
+      .mockReturnValue(mockCtx as any);
+
+    const visiblePoint = { latitude: -12.9, longitude: -38.48, value: 1_000_000, weight: 0.75 };
+    const offscreenPoint = { latitude: -20.0, longitude: -40.0, value: 50_000_000, weight: 1.0 };
+
+    const layer = new HeatmapCanvasLayer([visiblePoint]);
+    layer.addTo(map);
+
+    expect(getContextSpy).toHaveBeenCalledWith("2d", { willReadFrequently: true });
+    expect(recordedStops).toHaveLength(1);
+    const alphaOnlyVisible = recordedStops[0];
+
+    recordedStops.length = 0;
+    layer.setPoints([visiblePoint, offscreenPoint]);
+    expect(recordedStops).toHaveLength(1);
+    expect(recordedStops[0]).toBe(alphaOnlyVisible);
+
+    getContextSpy.mockRestore();
+    layer.remove();
     map.remove();
     container.remove();
   });

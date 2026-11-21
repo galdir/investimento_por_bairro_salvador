@@ -494,4 +494,81 @@ describe("InteractiveMap — 3ª camada Mapa de Calor", () => {
     expect(screen.getByTestId("legenda-vulnerabilidade-fundo")).toBeInTheDocument();
     expect(legenda).not.toHaveTextContent("Isento");
   });
+
+  it("cria pinsPane (z-index 500) na inicialização, mantém hierarquia tooltipPane > pinsPane > heatmapPane > overlayPane e abre Ficha Limpa sem selecionar polígono", () => {
+    const onSelectTerritory = vi.fn();
+    const onSelectObra = vi.fn();
+    const mapSpy = vi.spyOn(L, "map");
+    const circleMarkerSpy = vi.spyOn(L, "circleMarker");
+    const geoJsonSpy = vi.spyOn(L, "geoJSON");
+    const stopPropagationSpy = vi.spyOn(L.DomEvent, "stopPropagation");
+
+    render(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={obrasMunicipais}
+        selectedTerritory={null}
+        onSelectTerritory={onSelectTerritory}
+        onSelectObra={onSelectObra}
+      />
+    );
+
+    const mapInstance = mapSpy.mock.results[mapSpy.mock.results.length - 1].value as L.Map;
+
+    // pinsPane já existe na inicialização mesmo com Pinos de Obras desligado
+    const pinsPane = mapInstance.getPane("pinsPane");
+    const overlayPane = mapInstance.getPane("overlayPane");
+    const tooltipPane = mapInstance.getPane("tooltipPane");
+    expect(pinsPane).toBeDefined();
+    expect(overlayPane).toBeDefined();
+    expect(tooltipPane).toBeDefined();
+    expect(pinsPane!.style.zIndex).toBe("500");
+
+    // Ativa Mapa de Calor e Pinos de Obras
+    fireEvent.click(screen.getByTestId("btn-camada-mapa-calor"));
+    fireEvent.click(screen.getByTestId("btn-toggle-pinos-obras"));
+
+    const heatmapPane = mapInstance.getPane("heatmapPane");
+    expect(heatmapPane).toBeDefined();
+
+    const zTooltip = Number(getComputedStyle(tooltipPane!).zIndex || tooltipPane!.style.zIndex || 650);
+    const zPins = Number(pinsPane!.style.zIndex);
+    const zHeatmap = Number(heatmapPane!.style.zIndex);
+    const zOverlay = Number(getComputedStyle(overlayPane!).zIndex || overlayPane!.style.zIndex || 400);
+
+    expect(zTooltip).toBeGreaterThan(zPins);
+    expect(zPins).toBeGreaterThan(zHeatmap);
+    expect(zHeatmap).toBeGreaterThan(zOverlay);
+
+    // Todos os circleMarkers dos pinos são criados no pinsPane
+    expect(circleMarkerSpy).toHaveBeenCalled();
+    for (const call of circleMarkerSpy.mock.calls) {
+      expect(call[1]?.pane).toBe("pinsPane");
+    }
+
+    // Simula clique no primeiro pino com originalEvent -> abre Ficha Limpa e interrompe propagação
+    const firstMarker = circleMarkerSpy.mock.results[0].value as L.CircleMarker;
+    const domClickEvent = new MouseEvent("click", { bubbles: true, cancelable: true });
+    firstMarker.fire("click", { originalEvent: domClickEvent });
+
+    expect(stopPropagationSpy).toHaveBeenCalled();
+    expect(onSelectObra).toHaveBeenCalledWith(expect.objectContaining({ id: 101 }));
+    expect(onSelectTerritory).not.toHaveBeenCalled();
+
+    // Clique em área sem pino continua selecionando o polígono mesmo com mapa de calor ativo
+    const createdGeoJson = geoJsonSpy.mock.results[geoJsonSpy.mock.results.length - 1].value as L.GeoJSON;
+    (createdGeoJson.getLayers()[1] as any).fire("click");
+    expect(onSelectTerritory).toHaveBeenCalledWith(
+      expect.objectContaining({ tipo: "bairro", nome: "Paripe" })
+    );
+
+    mapSpy.mockRestore();
+    circleMarkerSpy.mockRestore();
+    geoJsonSpy.mockRestore();
+    stopPropagationSpy.mockRestore();
+  });
 });

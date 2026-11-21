@@ -345,6 +345,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         zoomControl: false,
       });
 
+      const pinsPane = map.createPane("pinsPane");
+      pinsPane.style.zIndex = "500";
+
       L.control.zoom({ position: "bottomleft" }).addTo(map);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -877,6 +880,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           const corPino = status === "VERMELHO" ? "#EF4444" : status === "AMARELO" ? "#F59E0B" : "#10B981";
 
           const marker = L.circleMarker([lat, lon], {
+            pane: "pinsPane",
             radius: 6,
             fillColor: corPino,
             color: entry.isApproximate ? "#0f172a" : "#ffffff",
@@ -909,7 +913,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           `;
           marker.bindTooltip(tooltipContent, { direction: "top", offset: [0, -5] });
 
-          marker.on("click", () => {
+          marker.on("click", (e: L.LeafletMouseEvent) => {
+            L.DomEvent.stopPropagation(e?.originalEvent ?? (e as unknown as Event));
             if (onSelectObra) onSelectObra(obra);
           });
 
