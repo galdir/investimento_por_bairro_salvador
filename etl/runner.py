@@ -49,7 +49,11 @@ from etl.domain.mandato import (
     obter_chaves_candidatas_obra,
     resolver_datas_vigencia,
 )
-from etl.domain.semaforo import classificar_semaforo, recalcular_semaforo_pos_ficha
+from etl.domain.semaforo import (
+    classificar_semaforo,
+    contrato_cancelado_sem_gasto,
+    recalcular_semaforo_pos_ficha,
+)
 from etl.domain.tema import classificar_tema
 from etl.domain.vocacao import classificar_vocacao
 from etl.domain.territorio import (
@@ -829,7 +833,6 @@ def _executar_pipeline(
             apuracao_consolidada = copy.deepcopy(ficha_obra["apuracaoPagamentos"])
             apuracao_consolidada["pagamentosConsolidados"] = True
             ficha_obra["apuracaoPagamentos"] = apuracao_consolidada
-            limitacoes_conhecidas.update(apuracao_consolidada.get("limitacoesConhecidas") or [])
             _finalizar_ficha_obra(obra, ficha_obra)
             continue
 
@@ -872,7 +875,6 @@ def _executar_pipeline(
             isinstance(item, str) and item for item in resultado_pagamentos.limitacoes_conhecidas
         ):
             raise ValueError(f"Limitações de pagamentos inválidas: {obra_id}")
-        limitacoes_conhecidas.update(resultado_pagamentos.limitacoes_conhecidas)
         pagamentos_raw, repeticoes_coleta = incorporar_lotes_pagamentos(resultado_pagamentos)
         obra["janelaPagamentos"] = resultado_pagamentos.janela
 
@@ -983,6 +985,23 @@ def _executar_pipeline(
     if estado is not None and estado.get("contrato_em_andamento") is not None:
         raise ValueError("O contrato interrompido não foi retomado na carteira atual")
 
+    # 6b. Expurgo conservador de contratos Cancelados sem gasto e consolidação de limitações dos mantidos
+    obras_publicadas: list[dict[str, Any]] = []
+    contratos_expurgados: list[dict[str, Any]] = []
+    for obra in grid_obras:
+        obra_id_str = str(obra.get("id"))
+        ficha_atual = fichas_para_gravar.get(obra_id_str)
+        if contrato_cancelado_sem_gasto(obra, ficha_atual):
+            contratos_expurgados.append(obra)
+            fichas_para_gravar.pop(obra_id_str, None)
+            continue
+        obras_publicadas.append(obra)
+        if isinstance(ficha_atual, dict):
+            apuracao = ficha_atual.get("apuracaoPagamentos")
+            if isinstance(apuracao, dict):
+                limitacoes_conhecidas.update(apuracao.get("limitacoesConhecidas") or [])
+    grid_obras = obras_publicadas
+
     # 7. Unificação de Empreiteiras, gravação das fichas finais e expurgo de órfãos
     concentracao_map, _ = finalizar_acervo_obras(grid_obras, fichas_para_gravar, obras_dir)
 
@@ -1015,6 +1034,7 @@ def _executar_pipeline(
         obras_detalhadas=grid_obras,
         populacao_total_cidade=populacao_cidade,
         indicador_opacidade=opacidade,
+        obras_expurgadas=contratos_expurgados,
     )
 
     # 11. Geração do índice anual estático com concentração de empreiteiras e mandatos

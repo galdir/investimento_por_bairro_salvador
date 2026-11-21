@@ -31,7 +31,11 @@ from etl.domain.geocoding import (
 )
 from etl.domain.kpis import calcular_kpis_globais
 from etl.domain.mandato import cds_ug_compativeis, obter_chaves_candidatas_obra
-from etl.domain.semaforo import parse_iso_date, recalcular_semaforo_pos_ficha
+from etl.domain.semaforo import (
+    contrato_cancelado_sem_gasto,
+    parse_iso_date,
+    recalcular_semaforo_pos_ficha,
+)
 from etl.domain.territorio import calcular_rollup_territorial
 from etl.generator import (
     generate_bairros_geojson,
@@ -475,6 +479,16 @@ def reconciliar_acervo_local(
             fichas_consolidadas[str(obra["id"])],
             data_referencia=referencia_semaforo,
         )
+
+    obras_mantidas: list[dict[str, Any]] = []
+    for obra in obras_catalogo:
+        obra_id_str = str(obra["id"])
+        ficha_atual = fichas_consolidadas[obra_id_str]
+        if contrato_cancelado_sem_gasto(obra, ficha_atual):
+            fichas_consolidadas.pop(obra_id_str, None)
+            continue
+        obras_mantidas.append(obra)
+    obras_catalogo = obras_mantidas
 
     concentracao_map, orfaos_removidos = finalizar_acervo_obras(
         obras_catalogo,

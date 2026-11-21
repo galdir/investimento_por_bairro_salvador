@@ -6,10 +6,12 @@ em três estados hierárquicos: Vermelho (Crítica), Amarelo (Atenção) ou Verd
 
 import copy
 from datetime import date, datetime
+import math
 import re
 from typing import Any, Optional
 import unicodedata
 
+from etl.domain.pagamentos import valor_informado_pagamento
 from etl.domain.territorio import parse_float
 
 _LIMIAR_EXECUCAO_SUBSTANCIAL = 95.0
@@ -306,3 +308,106 @@ def recalcular_semaforo_pos_ficha(
     if isinstance(ficha, dict):
         ficha["semaforo"] = copy.deepcopy(semaforo)
     return semaforo
+
+
+def _parse_numero_estrito(valor: Any) -> Optional[float]:
+    """Converte número ou string monetária para float finito, retornando None se ausente ou inválido."""
+    if valor is None or isinstance(valor, bool):
+        return None
+    if isinstance(valor, (int, float)):
+        num = float(valor)
+        return num if math.isfinite(num) else None
+    if isinstance(valor, str):
+        texto = valor.strip().removeprefix("R$ ").strip()
+        if not texto:
+            return None
+        if "," in texto:
+            texto = texto.replace(".", "").replace(",", ".")
+        try:
+            num = float(texto)
+        except ValueError:
+            return None
+        return num if math.isfinite(num) else None
+    return None
+
+
+def contrato_cancelado_sem_gasto(
+    obra: dict[str, Any],
+    ficha: Optional[dict[str, Any]] = None,
+) -> bool:
+    """Indica se um contrato Cancelado comprovadamente não registrou gasto financeiro e é elegível a expurgo."""
+    ficha_dict = ficha if isinstance(ficha, dict) else {}
+
+    # 1. Situação cadastral consolidada da ficha (com fallback para o resumo da obra)
+    situacao_ficha = ficha_dict.get("situacao") or ficha_dict.get("dsSituacao")
+    situacao_raw = situacao_ficha if str(situacao_ficha or "").strip() else (
+        obra.get("dsSituacao") or obra.get("situacao")
+    )
+    situacao_norm = _normalizar_texto(situacao_raw)
+    if "cancelado" not in situacao_norm and "cancelada" not in situacao_norm:
+        return False
+
+    # 2. Apuração de pagamentos concluída
+    consulta_concluida = (
+        ficha_dict.get("consultaPagamentosConcluida")
+        if "consultaPagamentosConcluida" in ficha_dict
+        else obra.get("consultaPagamentosConcluida")
+    )
+    if consulta_concluida is not True:
+        return False
+
+    # 3. Valores consolidados: liquidado numérico <= 0 e pago numérico == 0
+    funil = ficha_dict.get("funilFinanceiro") if isinstance(ficha_dict.get("funilFinanceiro"), dict) else {}
+    if "valorLiquidado" in funil:
+        vl_liq_raw = funil.get("valorLiquidado")
+    elif "vlLiquidado" in ficha_dict:
+        vl_liq_raw = ficha_dict.get("vlLiquidado")
+    else:
+        vl_liq_raw = obra.get("vlLiquidado", obra.get("valorLiquidado"))
+
+    if "valorPago" in funil:
+        vl_pago_raw = funil.get("valorPago")
+    elif "vlPagoReal" in ficha_dict:
+        vl_pago_raw = ficha_dict.get("vlPagoReal")
+    elif "vlPagoReal" in obra:
+        vl_pago_raw = obra.get("vlPagoReal")
+    else:
+        vl_pago_raw = obra.get("vlPago", obra.get("valorPago"))
+
+    vl_liq = _parse_numero_estrito(vl_liq_raw)
+    vl_pago = _parse_numero_estrito(vl_pago_raw)
+    if vl_liq is None or vl_pago is None or vl_liq > 0.0 or vl_pago != 0.0:
+        return False
+
+    # 4. Movimentos de pagamento: nenhum valor positivo ou indisponível/inválido
+    pagamentos = ficha_dict.get("pagamentos") if "pagamentos" in ficha_dict else []
+    if pagamentos is None:
+        pagamentos = []
+    if not isinstance(pagamentos, list):
+        return False
+    for pag in pagamentos:
+        if not isinstance(pag, dict):
+            return False
+        val_pag = _parse_numero_estrito(valor_informado_pagamento(pag))
+        if val_pag is None or val_pag > 0.0:
+            return False
+
+    # 5. Liquidações: nenhum valor líquido ou bruto positivo nem ambos ausentes/inválidos
+    liquidacoes = ficha_dict.get("liquidacoes") if "liquidacoes" in ficha_dict else []
+    if liquidacoes is None:
+        liquidacoes = []
+    if not isinstance(liquidacoes, list):
+        return False
+    for liq in liquidacoes:
+        if not isinstance(liq, dict):
+            return False
+        raw_liq = liq.get("valLiqLiquidacao") if "valLiqLiquidacao" in liq else liq.get("valorLiquido")
+        raw_brut = liq.get("valBrutLiquidacao") if "valBrutLiquidacao" in liq else liq.get("valorBruto")
+        val_liq = _parse_numero_estrito(raw_liq)
+        val_brut = _parse_numero_estrito(raw_brut)
+        if (val_liq is not None and val_liq > 0.0) or (val_brut is not None and val_brut > 0.0):
+            return False
+        if val_liq is None and val_brut is None:
+            return False
+
+    return True

@@ -635,4 +635,303 @@ def test_pipeline_recalcula_semaforo_pos_ficha_com_data_referencia_e_pagamentos_
     assert ficha_2005_r2["semaforo"]["status"] == "AMARELO"
 
 
+def test_pipeline_expurga_cancelado_sem_gasto_e_blinda_kpis_e_limitacoes(tmp_path: Path) -> None:
+    """Contrato Cancelado sem gasto é expurgado do índice, rollups, KPIs e limitações (inclusive consolidado)."""
+    from etl.runner import ConsultaPagamentos, run_pipeline
+
+    data_ref = "2025-06-01"
+    grid_obras = [
+        {
+            "id": 3001,
+            "cdUnidadeGestora": "2401",
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "301/2025",
+            "dsObjeto": "Drenagem na Pituba",
+            "vlOriginal": 2000000.0,
+            "vlAtualizado": 2000000.0,
+            "vlEmpenhado": 1000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 30.0,
+            "dsSituacao": "Em Execução",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        },
+        {
+            "id": 3002,
+            "cdUnidadeGestora": "2401",
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "302/2025",
+            "dsObjeto": "Pavimentação na Pituba",
+            "vlOriginal": 5000000.0,
+            "vlAtualizado": 5000000.0,
+            "vlEmpenhado": 3000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 0.0,
+            "dsSituacao": "Cancelado",
+            "nmCredor": "EMP B LTDA",
+            "nuDocumentoCredor": "22.222.222/0001-22",
+        },
+    ]
+
+    def consulta_pagamentos(ug, contrato, referencia):
+        if str(contrato) == "302/2025":
+            return ConsultaPagamentos(
+                registros=[],
+                data_referencia=referencia,
+                concluida=True,
+                validada=True,
+                limitacoes_conhecidas=["limitacao_exclusiva_expurgado"],
+            )
+        return ConsultaPagamentos(
+            registros=[{"ordemBancaria": "OB1", "dataPagamento": "15/05/2025", "pago": 50000.0}],
+            data_referencia=referencia,
+            concluida=True,
+            validada=True,
+            limitacoes_conhecidas=["limitacao_contrato_ativo"],
+        )
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch(
+            "etl.sources.transparencia.fetch_totalizador",
+            return_value={
+                "totalObras": 2,
+                "valorTotal": 7000000.0,
+                "totalEmpenhado": 4000000.0,
+                "totalAtivas": 1,
+                "totalPago": 50000.0,
+            },
+        ),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=grid_obras),
+        patch("etl.sources.transparencia.fetch_detalhes_obra", return_value={}),
+        patch("etl.sources.transparencia.fetch_aditivos_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_dotacao_obra", return_value=[]),
+        patch(
+            "etl.sources.transparencia.fetch_empenhos_obra",
+            side_effect=lambda ug, contrato, year=2025: (
+                [{"valEmpenhado": 1000000.0}]
+                if str(contrato) == "301/2025"
+                else [{"valEmpenhado": 3000000.0}]
+            ),
+        ),
+        patch("etl.sources.transparencia.fetch_liquidacoes_obra", return_value=[]),
+    ):
+        resultado = run_pipeline(
+            output_dir=tmp_path,
+            year=2025,
+            consulta_pagamentos=consulta_pagamentos,
+            data_referencia_pagamentos=data_ref,
+        )
+
+    versao_dir = Path(resultado["versao_dir"])
+    indice = json.loads((versao_dir / "index_2025.json").read_text(encoding="utf-8"))
+
+    assert resultado["total_obras"] == 1
+    assert resultado["limitacoes_conhecidas"] == ["limitacao_contrato_ativo"]
+    assert [o["id"] for o in indice["obras"]] == [3001]
+    assert not (versao_dir / "obras" / "3002.json").exists()
+
+    assert indice["kpis_globais"]["totalObras"] == 1
+    assert indice["kpis_globais"]["valorTotal"] == 2000000.0
+    assert indice["kpis_globais"]["totalEmpenhado"] == 1000000.0
+    assert indice["kpis_globais"]["totalAtivas"] == 1
+    assert indice["kpis_globais"]["totalCriticas"] == 0
+
+    pituba_rollup = next(b for b in indice["bairros"] if b["nome"] == "Pituba")
+    assert pituba_rollup["totalObras"] == 1
+    assert pituba_rollup["valorTotal"] == 2000000.0
+
+
+def test_pipeline_carteira_100_por_cento_expurgada_zera_kpis_e_limitacoes(tmp_path: Path) -> None:
+    """Carteira com 100% dos contratos Cancelados sem gasto é tratada como completa e zerada."""
+    from etl.runner import ConsultaPagamentos, run_pipeline
+
+    grid_obras = [
+        {
+            "id": 3010,
+            "cdUnidadeGestora": "2401",
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": "310/2025",
+            "dsObjeto": "Contenção na Pituba",
+            "vlOriginal": 4000000.0,
+            "vlAtualizado": 4000000.0,
+            "vlEmpenhado": 2000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 0.0,
+            "dsSituacao": "Cancelado",
+            "nmCredor": "EMP C LTDA",
+            "nuDocumentoCredor": "33.333.333/0001-33",
+        },
+    ]
+
+    def consulta_pagamentos(ug, contrato, referencia):
+        return ConsultaPagamentos(
+            registros=[],
+            data_referencia=referencia,
+            concluida=True,
+            validada=True,
+            limitacoes_conhecidas=["limitacao_exclusiva_100_expurgada"],
+        )
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch(
+            "etl.sources.transparencia.fetch_totalizador",
+            return_value={
+                "totalObras": 1,
+                "valorTotal": 4000000.0,
+                "totalEmpenhado": 2000000.0,
+                "totalLiquidado": 0.0,
+                "totalPago": 0.0,
+                "totalAtivas": 0,
+            },
+        ),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=grid_obras),
+        patch("etl.sources.transparencia.fetch_detalhes_obra", return_value={}),
+        patch("etl.sources.transparencia.fetch_aditivos_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_dotacao_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_empenhos_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_liquidacoes_obra", return_value=[]),
+    ):
+        resultado = run_pipeline(
+            output_dir=tmp_path,
+            year=2025,
+            consulta_pagamentos=consulta_pagamentos,
+            data_referencia_pagamentos="2025-06-01",
+        )
+
+    versao_dir = Path(resultado["versao_dir"])
+    indice = json.loads((versao_dir / "index_2025.json").read_text(encoding="utf-8"))
+
+    assert resultado["total_obras"] == 0
+    assert resultado["limitacoes_conhecidas"] == []
+    assert indice["obras"] == []
+    assert not (versao_dir / "obras" / "3010.json").exists()
+    assert indice["kpis_globais"]["totalObras"] == 0
+    assert indice["kpis_globais"]["valorTotal"] == 0.0
+    assert indice["kpis_globais"]["totalEmpenhado"] == 0.0
+    assert indice["kpis_globais"]["totalLiquidado"] == 0.0
+    assert indice["kpis_globais"]["totalPago"] == 0.0
+    assert indice["kpis_globais"]["totalAtivas"] == 0
+    assert indice["kpis_globais"]["totalCriticas"] == 0
+
+
+def test_pipeline_preserva_cancelado_com_gasto_ou_incerteza_em_vermelho(tmp_path: Path) -> None:
+    """Casos conservadores de não-expurgo mantêm contratos Cancelados publicados em Vermelho (Crítica)."""
+    from etl.runner import ConsultaPagamentos, run_pipeline
+
+    def _obra_cancelada(obra_id: int, contrato: str) -> dict:
+        return {
+            "id": obra_id,
+            "cdUnidadeGestora": "2401",
+            "sgOrgao": "SUCOP",
+            "nuContratoSigef": contrato,
+            "dsObjeto": f"Obra Cancelada {obra_id} na Pituba",
+            "vlOriginal": 1000000.0,
+            "vlAtualizado": 1000000.0,
+            "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+            "dtFimVigenciaOriginal": "2026-12-31T00:00:00.000Z",
+            "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+            "percentualExecutado": 10.0,
+            "dsSituacao": "Cancelado",
+            "nmCredor": "EMP A LTDA",
+            "nuDocumentoCredor": "11.111.111/0001-11",
+        }
+
+    grid_obras = [
+        _obra_cancelada(4001, "401/2025"),  # pagamento registrado
+        _obra_cancelada(4002, "402/2025"),  # liquidação positiva e pagamento zero
+        _obra_cancelada(4003, "403/2025"),  # movimento positivo compensado por estorno
+        _obra_cancelada(4004, "404/2025"),  # valor pago indisponível (registro sem valor)
+    ]
+
+    def consulta_pagamentos(ug, contrato, referencia):
+        if str(contrato) == "401/2025":
+            registros = [{"ordemBancaria": "OB1", "dataPagamento": "10/03/2025", "pago": 1000.0}]
+        elif str(contrato) == "402/2025":
+            registros = []
+        elif str(contrato) == "403/2025":
+            registros = [
+                {"ordemBancaria": "OB3A", "dataPagamento": "10/03/2025", "pago": 500.0},
+                {"ordemBancaria": "OB3B", "dataPagamento": "12/03/2025", "pago": -500.0},
+            ]
+        else:
+            registros = [{"ordemBancaria": "OB4", "dataPagamento": "10/03/2025"}]
+        return ConsultaPagamentos(
+            registros=registros,
+            data_referencia=referencia,
+            concluida=True,
+            validada=True,
+            limitacoes_conhecidas=[],
+        )
+
+    def fetch_liquidacoes(ug, contrato, year=2025):
+        if str(contrato) == "402/2025":
+            return [{"notaLiquidacao": "NL-402", "valLiqLiquidacao": 500.0}]
+        return []
+
+    with (
+        patch("etl.sources.geosalvador.fetch_bairros_geojson", return_value=SAMPLE_GEOSALVADOR_BAIRROS),
+        patch("etl.sources.geosalvador.fetch_prefeituras_geojson", return_value=SAMPLE_GEOSALVADOR_PREFEITURAS),
+        patch("etl.sources.ibge_censo.fetch_demografia_censo_2022", return_value=SAMPLE_IBGE_CENSO_2022),
+        patch("etl.sources.transparencia.fetch_totalizador", return_value={"totalObras": 4, "valorTotal": 4000000.0}),
+        patch("etl.sources.transparencia.fetch_grid_detalhada", return_value=grid_obras),
+        patch("etl.sources.transparencia.fetch_detalhes_obra", return_value={}),
+        patch("etl.sources.transparencia.fetch_aditivos_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_dotacao_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_empenhos_obra", return_value=[]),
+        patch("etl.sources.transparencia.fetch_liquidacoes_obra", side_effect=fetch_liquidacoes),
+    ):
+        resultado = run_pipeline(
+            output_dir=tmp_path,
+            year=2025,
+            consulta_pagamentos=consulta_pagamentos,
+            data_referencia_pagamentos="2025-06-01",
+        )
+
+    versao_dir = Path(resultado["versao_dir"])
+    indice = json.loads((versao_dir / "index_2025.json").read_text(encoding="utf-8"))
+    obras_idx = {o["id"]: o for o in indice["obras"]}
+
+    assert set(obras_idx.keys()) == {4001, 4002, 4003, 4004}
+    for obra_id in (4001, 4002, 4003, 4004):
+        assert obras_idx[obra_id]["semaforo"]["status"] == "VERMELHO"
+        ficha = json.loads((versao_dir / "obras" / f"{obra_id}.json").read_text(encoding="utf-8"))
+        assert ficha["semaforo"]["status"] == "VERMELHO"
+
+    assert indice["kpis_globais"]["totalObras"] == 4
+    assert indice["kpis_globais"]["totalCriticas"] == 4
+
+
+def test_kpis_globais_desconta_expurgados_sem_quebrar_carteira_parcial() -> None:
+    """Desconto de expurgados impede fallback indevido na completa e preserva carteira genuinamente parcial."""
+    from etl.domain.kpis import calcular_kpis_globais
+
+    expurgada = [{"id": 99, "vlAtualizado": 5000000.0, "vlEmpenhado": 3000000.0, "dsSituacao": "Cancelado"}]
+    ativa = [{"id": 1, "vlAtualizado": 2000000.0, "vlEmpenhado": 1000000.0, "dsSituacao": "Em Execução", "vlPagoReal": 100000.0}]
+
+    # Carteira genuinamente parcial: API reporta 5 obras (10M), detalhe tem 1 ativa (2M) + 1 expurgada (5M)
+    # Após desconto da expurgada: restam 4 obras esperadas (5M) > 1 detalhada -> continua parcial!
+    kpis_parcial = calcular_kpis_globais(
+        totalizador_transparencia={"totalObras": 5, "valorTotal": 10000000.0, "totalEmpenhado": 6000000.0, "totalAtivas": 4},
+        obras_detalhadas=ativa,
+        populacao_total_cidade=100000,
+        obras_expurgadas=expurgada,
+    )
+    assert kpis_parcial["totalObras"] == 4
+    assert kpis_parcial["valorTotal"] == 5000000.0
+    assert kpis_parcial["totalEmpenhado"] == 3000000.0
+    assert kpis_parcial["totalAtivas"] == 4
+
+
 

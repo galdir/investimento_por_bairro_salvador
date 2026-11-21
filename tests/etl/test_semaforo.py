@@ -6,7 +6,11 @@ Cobre todos os gatilhos das cores Vermelho (Crítica), Amarelo (Atenção) e Ver
 from datetime import date
 import pytest
 
-from etl.domain.semaforo import classificar_semaforo, enriquecer_sinais_semaforo
+from etl.domain.semaforo import (
+    classificar_semaforo,
+    contrato_cancelado_sem_gasto,
+    enriquecer_sinais_semaforo,
+)
 
 
 def test_semaforo_vermelho_por_situacao_paralisada_rescindida_ou_cancelada():
@@ -288,3 +292,102 @@ def test_enriquecer_sinais_semaforo_filtros_aditivo_fallback_inicio_e_data_futur
     # Sem movimentações e sem data de início -> 0 dias
     res_zero = enriquecer_sinais_semaforo({"id": "4"}, {"vigencia": {}}, data_referencia="2025-05-01")
     assert res_zero["dias_desde_ultima_liquidacao_ou_pagamento"] == 0
+
+
+def test_contrato_cancelado_sem_gasto_elegivel_e_bordas_conservadoras():
+    """Predicado puro de expurgo exige cancelamento, apuração concluída e ausência estrita de gasto."""
+    obra_cancelada = {"id": "10", "dsSituacao": "Cancelado"}
+    ficha_elegivel = {
+        "situacao": "Cancelado",
+        "consultaPagamentosConcluida": True,
+        "funilFinanceiro": {"valorLiquidado": 0.0, "valorPago": 0.0},
+        "liquidacoes": [],
+        "pagamentos": [],
+    }
+    assert contrato_cancelado_sem_gasto(obra_cancelada, ficha_elegivel) is True
+
+    # Aceita Cancelada, liquidado <= 0, movimentos zerados/negativos e liquidação com líquido 0 e bruto 0
+    ficha_cancelada_estorno = {
+        "situacao": "Cancelada",
+        "consultaPagamentosConcluida": True,
+        "funilFinanceiro": {"valorLiquidado": -50.0, "valorPago": 0.0},
+        "liquidacoes": [{"valLiqLiquidacao": 0.0, "valBrutLiquidacao": 0.0}],
+        "pagamentos": [{"pago": "R$ 0,00"}, {"pago": -10.0}],
+    }
+    assert contrato_cancelado_sem_gasto({"id": "11"}, ficha_cancelada_estorno) is True
+
+    # 1. Apuração de pagamentos não concluída -> False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "consultaPagamentosConcluida": False},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {k: v for k, v in ficha_elegivel.items() if k != "consultaPagamentosConcluida"},
+    ) is False
+
+    # 2. Valor liquidado consolidado nulo/indisponível -> False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "funilFinanceiro": {"valorLiquidado": None, "valorPago": 0.0}},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "funilFinanceiro": {"valorPago": 0.0}},
+    ) is False
+
+    # 3. Valor pago consolidado nulo ou diferente de zero -> False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "funilFinanceiro": {"valorLiquidado": 0.0, "valorPago": None}},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "funilFinanceiro": {"valorLiquidado": 0.0, "valorPago": -1.0}},
+    ) is False
+
+    # 4. Movimento de pagamento com valor textual inválido, ausente ou positivo -> False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "pagamentos": [{"pago": "indisponivel"}]},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "pagamentos": [{"ordemBancaria": "OB1"}]},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "pagamentos": [{"pago": 100.0}, {"pago": -100.0}]},
+    ) is False
+
+    # 5. Liquidação com valor bruto positivo quando o líquido é zero/ausente, ou ambos ausentes/inválidos -> False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "liquidacoes": [{"valLiqLiquidacao": 0.0, "valBrutLiquidacao": 500.0}]},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "liquidacoes": [{"valBrutLiquidacao": 250.0}]},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "liquidacoes": [{"notaLiquidacao": "NL1"}]},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        obra_cancelada,
+        {**ficha_elegivel, "liquidacoes": [{"valLiqLiquidacao": "N/A", "valBrutLiquidacao": None}]},
+    ) is False
+
+    # 6. Situação divergente entre listagem inicial e ficha consolidada: prevalece a ficha (com fallback para obra)
+    assert contrato_cancelado_sem_gasto(
+        {"id": "12", "dsSituacao": "Cancelado"},
+        {**ficha_elegivel, "situacao": "Em Execução"},
+    ) is False
+    assert contrato_cancelado_sem_gasto(
+        {"id": "13", "dsSituacao": "Em Execução"},
+        {**ficha_elegivel, "situacao": "Cancelado"},
+    ) is True
+    assert contrato_cancelado_sem_gasto(
+        {"id": "14", "dsSituacao": "Cancelada"},
+        {k: v for k, v in ficha_elegivel.items() if k != "situacao"},
+    ) is True

@@ -16,6 +16,7 @@ def calcular_kpis_globais(
     obras_detalhadas: list[dict[str, Any]],
     populacao_total_cidade: int,
     indicador_opacidade: Optional[dict[str, Any]] = None,
+    obras_expurgadas: Optional[list[dict[str, Any]]] = None,
 ) -> dict[str, Any]:
     """Calcula os indicadores macroeconômicos e de transparência de Salvador.
 
@@ -106,9 +107,33 @@ def calcular_kpis_globais(
         ),
         2,
     )
+    # Desconta contratos expurgados (Cancelados sem gasto) dos totais brutos da API antes da avaliação de completude
+    expurgadas = obras_expurgadas or []
+    qtd_expurgada = len(expurgadas)
+    if qtd_expurgada > 0:
+        valor_expurgado = round(
+            sum(
+                parse_float(o.get("vlAtualizado") or o.get("valorContratualVigente") or o.get("vlOriginal") or 0.0)
+                for o in expurgadas
+            ),
+            2,
+        )
+        empenhado_expurgado = round(
+            sum(parse_float(o.get("vlEmpenhado") or o.get("valorEmpenhado") or 0.0) for o in expurgadas),
+            2,
+        )
+        total_obras_bruto = totalizador_transparencia.get("totalObras")
+        if total_obras_bruto is not None:
+            total_obras = max(0, int(total_obras_bruto) - qtd_expurgada)
+        else:
+            total_obras = len(obras_detalhadas)
+        valor_total = round(max(0.0, valor_total - valor_expurgado), 2)
+        total_empenhado = round(max(0.0, total_empenhado - empenhado_expurgado), 2)
+
     count_obras = len(obras_detalhadas)
-    carteira_completa = count_obras > 0 and (
-        total_obras == 0 or count_obras >= total_obras or soma_obras > valor_total
+    carteira_100_expurgada = count_obras == 0 and qtd_expurgada > 0 and total_obras == 0
+    carteira_completa = carteira_100_expurgada or (
+        count_obras > 0 and (total_obras == 0 or count_obras >= total_obras or soma_obras > valor_total)
     )
 
     if valor_total == 0.0 and obras_detalhadas:

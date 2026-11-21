@@ -2125,4 +2125,152 @@ def test_reconciliar_acervo_local_fallback_deterministico_sem_bloco_atualizacao(
     assert indice["obras"][0]["semaforo"]["status"] == "VERDE"
 
 
+def test_reconciliar_acervo_local_expurga_cancelado_sem_gasto_e_remove_ficha_orfa(
+    tmp_path: Path,
+) -> None:
+    """Reconciliação local expurga Cancelado sem gasto, remove ficha órfã e preserva Cancelado com gasto."""
+    from etl.reconcile import reconciliar_acervo_local
+
+    _criar_geo_minimo(tmp_path)
+    obras_dir = tmp_path / "obras"
+    obras_dir.mkdir(parents=True, exist_ok=True)
+
+    fichas = {
+        "ativo-1": {
+            "id": "ativo-1",
+            "unidadeGestora": "SUCOP",
+            "numeroContrato": "10/2025",
+            "situacao": "Em Execução",
+            "consultaPagamentosConcluida": True,
+            "apuracaoPagamentos": {"dataReferencia": "2025-06-01"},
+            "pagamentos": [{"ordemBancaria": "OB1", "dataPagamento": "15/05/2025", "pago": 50000.0}],
+            "liquidacoes": [],
+            "funilFinanceiro": {
+                "valorOriginal": 1000000.0,
+                "valorContratualVigente": 1000000.0,
+                "valorLiquidado": 0.0,
+                "valorPago": 50000.0,
+            },
+        },
+        "cancelado-sem-gasto": {
+            "id": "cancelado-sem-gasto",
+            "unidadeGestora": "SUCOP",
+            "numeroContrato": "11/2025",
+            "situacao": "Cancelado",
+            "consultaPagamentosConcluida": True,
+            "apuracaoPagamentos": {"dataReferencia": "2025-06-01"},
+            "pagamentos": [],
+            "liquidacoes": [],
+            "funilFinanceiro": {
+                "valorOriginal": 5000000.0,
+                "valorContratualVigente": 5000000.0,
+                "valorLiquidado": 0.0,
+                "valorPago": 0.0,
+            },
+        },
+        "cancelado-com-gasto": {
+            "id": "cancelado-com-gasto",
+            "unidadeGestora": "SUCOP",
+            "numeroContrato": "12/2025",
+            "situacao": "Cancelado",
+            "consultaPagamentosConcluida": True,
+            "apuracaoPagamentos": {"dataReferencia": "2025-06-01"},
+            "pagamentos": [{"ordemBancaria": "OB2", "dataPagamento": "10/04/2025", "pago": 100.0}],
+            "liquidacoes": [],
+            "funilFinanceiro": {
+                "valorOriginal": 2000000.0,
+                "valorContratualVigente": 2000000.0,
+                "valorLiquidado": 0.0,
+                "valorPago": 100.0,
+            },
+        },
+    }
+    for oid, ficha in fichas.items():
+        (obras_dir / f"{oid}.json").write_text(json.dumps(ficha, ensure_ascii=False), encoding="utf-8")
+
+    (tmp_path / "index_2025.json").write_text(
+        json.dumps(
+            {
+                "metadata": {
+                    "anoReferencia": 2025,
+                    "atualizacao": {"dataReferenciaPagamentos": "2025-06-01"},
+                },
+                "bairros": [{"nome": "Pituba", "prefeitura_bairro": "Barra/Pituba", "populacao": 57894}],
+                "prefeituras_bairro": [{"nome": "Barra/Pituba", "populacao_total": 66417}],
+                "obras": [
+                    {
+                        "id": "ativo-1",
+                        "cdUnidadeGestora": "2401",
+                        "unidadeGestora": "SUCOP",
+                        "numeroContrato": "10/2025",
+                        "objeto": "Obra Ativa na Pituba",
+                        "valorOriginal": 1000000.0,
+                        "valorContratualVigente": 1000000.0,
+                        "percentualExecutado": 50.0,
+                        "situacao": "Em Execução",
+                        "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+                        "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+                        "nivel": "Bairro",
+                        "bairro": "Pituba",
+                        "prefeitura_bairro": "Barra/Pituba",
+                    },
+                    {
+                        "id": "cancelado-sem-gasto",
+                        "cdUnidadeGestora": "2401",
+                        "unidadeGestora": "SUCOP",
+                        "numeroContrato": "11/2025",
+                        "objeto": "Obra Cancelada Sem Gasto",
+                        "valorOriginal": 5000000.0,
+                        "valorContratualVigente": 5000000.0,
+                        "percentualExecutado": 0.0,
+                        "situacao": "Cancelado",
+                        "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+                        "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+                        "nivel": "Bairro",
+                        "bairro": "Pituba",
+                        "prefeitura_bairro": "Barra/Pituba",
+                    },
+                    {
+                        "id": "cancelado-com-gasto",
+                        "cdUnidadeGestora": "2401",
+                        "unidadeGestora": "SUCOP",
+                        "numeroContrato": "12/2025",
+                        "objeto": "Obra Cancelada Com Gasto na Pituba",
+                        "valorOriginal": 2000000.0,
+                        "valorContratualVigente": 2000000.0,
+                        "percentualExecutado": 10.0,
+                        "situacao": "Cancelado",
+                        "dtInicioVigencia": "2025-01-10T00:00:00.000Z",
+                        "dtTerminoVigenciaAtualizado": "2026-12-31T00:00:00.000Z",
+                        "nivel": "Bairro",
+                        "bairro": "Pituba",
+                        "prefeitura_bairro": "Barra/Pituba",
+                    },
+                ],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    res = reconciliar_acervo_local(output_dir=tmp_path, year=2025, curadoria={})
+    indice = json.loads((tmp_path / "index_2025.json").read_text(encoding="utf-8"))
+    obras_idx = {o["id"]: o for o in indice["obras"]}
+
+    assert res["total_obras_ativas"] == 2
+    assert set(obras_idx.keys()) == {"ativo-1", "cancelado-com-gasto"}
+    assert not (obras_dir / "cancelado-sem-gasto.json").exists()
+    assert (obras_dir / "ativo-1.json").exists()
+    assert (obras_dir / "cancelado-com-gasto.json").exists()
+
+    assert obras_idx["cancelado-com-gasto"]["semaforo"]["status"] == "VERMELHO"
+    assert res["kpis_globais"]["totalObras"] == 2
+    assert res["kpis_globais"]["valorTotal"] == 3000000.0
+    assert res["kpis_globais"]["totalCriticas"] == 1
+
+    pituba_rollup = next(b for b in indice["bairros"] if b["nome"] == "Pituba")
+    assert pituba_rollup["totalObras"] == 2
+    assert pituba_rollup["valorTotal"] == 3000000.0
+
+
 
