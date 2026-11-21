@@ -105,4 +105,15 @@ describe("Contrato do Glossário Cidadão com CONTEXT.md", () => {
     );
     expect(hasZeroReaisKeyword).toBe(true);
   });
+
+  it("valida os critérios calibrados no verbete Semáforo da Obra", () => {
+    const semaforo = GLOSSARIO_VERBETES.find((v) => v.titulo === "Semáforo da Obra");
+    expect(semaforo).toBeDefined();
+
+    const textoCompleto = `${semaforo!.resumo} ${semaforo!.explicacao} ${semaforo!.exemploSalvador}`.toLowerCase();
+    expect(textoCompleto).toContain("95%");
+    expect(textoCompleto).toContain("90 dias");
+    expect(textoCompleto).toMatch(/cancelad[ao].*gasto/);
+    expect(textoCompleto).toContain("variação contratual acumulada");
+  });
 });

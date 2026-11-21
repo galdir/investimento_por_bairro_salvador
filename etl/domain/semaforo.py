@@ -4,11 +4,25 @@ Classifica o nível de risco e conformidade contratual de cada Obra Pública
 em três estados hierárquicos: Vermelho (Crítica), Amarelo (Atenção) ou Verde (No Prazo).
 """
 
+import copy
 from datetime import date, datetime
 import re
 from typing import Any, Optional
+import unicodedata
 
 from etl.domain.territorio import parse_float
+
+_LIMIAR_EXECUCAO_SUBSTANCIAL = 95.0
+_SITUACOES_CRITICAS = {
+    "PARALISADA",
+    "PARALISADO",
+    "SUSPENSA",
+    "SUSPENSO",
+    "RESCINDIDA",
+    "RESCINDIDO",
+    "CANCELADA",
+    "CANCELADO",
+}
 
 
 def parse_iso_date(data_str: Any) -> Optional[date]:
@@ -53,9 +67,94 @@ def parse_iso_date(data_str: Any) -> Optional[date]:
         return None
 
 
+def _normalizar_texto(texto: Any) -> str:
+    """Remove acentos e converte texto para minúsculas."""
+    decomposto = unicodedata.normalize("NFKD", str(texto or ""))
+    sem_acentos = "".join(c for c in decomposto if not unicodedata.combining(c))
+    return sem_acentos.strip().lower()
+
+
+def _aditivo_eh_prorrogacao_prazo(aditivo: dict[str, Any]) -> bool:
+    """Identifica se o aditivo formaliza prorrogação de prazo."""
+    tipo = _normalizar_texto(aditivo.get("dsTipoAlteracao") or aditivo.get("tipoAlteracao"))
+    return "prorrogacao" in tipo and "prazo" in tipo
+
+
+def _extrair_datas_movimentacao(ficha: dict[str, Any]) -> list[date]:
+    """Coleta datas válidas de liquidações e pagamentos da Ficha Limpa consolidada."""
+    datas: list[date] = []
+    for liq in ficha.get("liquidacoes") or []:
+        if isinstance(liq, dict):
+            dt = parse_iso_date(liq.get("dataLiquidacao") or liq.get("dtLiquidacao"))
+            if dt is not None:
+                datas.append(dt)
+    for pag in ficha.get("pagamentos") or []:
+        if isinstance(pag, dict):
+            dt = parse_iso_date(pag.get("dataPagamento") or pag.get("dtPagamento"))
+            if dt is not None:
+                datas.append(dt)
+    return datas
+
+
+def enriquecer_sinais_semaforo(
+    obra: dict[str, Any],
+    ficha: Optional[dict[str, Any]] = None,
+    data_referencia: Optional[date | str] = None,
+) -> dict[str, Any]:
+    """Enriquece uma cópia da obra com sinais de prazo e inatividade da Ficha Limpa.
+
+    Argumentos:
+        obra: Dicionário base do contrato de obra pública.
+        ficha: Ficha Limpa consolidada com vigência, aditivos, liquidações e pagamentos.
+        data_referencia: Data civil de corte (objeto date ou string válida; padrão: hoje).
+
+    Retornos:
+        Nova cópia do dicionário da obra pronta para o classificador, sem mutar as entradas.
+    """
+    enriquecida = copy.deepcopy(obra)
+    ficha_dict = ficha if isinstance(ficha, dict) else {}
+    vigencia = ficha_dict.get("vigencia")
+    vigencia_dict = vigencia if isinstance(vigencia, dict) else {}
+
+    if not enriquecida.get("dtFimVigenciaOriginal") and vigencia_dict.get("dataFimOriginal"):
+        enriquecida["dtFimVigenciaOriginal"] = vigencia_dict["dataFimOriginal"]
+
+    if (
+        not (enriquecida.get("dtTerminoVigenciaAtualizado") or enriquecida.get("dtFimVigenciaAtualizado"))
+        and vigencia_dict.get("dataTerminoAtualizado")
+    ):
+        enriquecida["dtTerminoVigenciaAtualizado"] = vigencia_dict["dataTerminoAtualizado"]
+
+    if not (enriquecida.get("dtInicioVigencia") or enriquecida.get("dataInicio")) and vigencia_dict.get("dataInicio"):
+        enriquecida["dtInicioVigencia"] = vigencia_dict["dataInicio"]
+
+    aditivos = ficha_dict.get("aditivos") or []
+    possui_aditivo_prazo = bool(
+        enriquecida.get("possui_aditivo_de_prazo") or enriquecida.get("possuiAditivoPrazo")
+    )
+    if any(isinstance(ad, dict) and _aditivo_eh_prorrogacao_prazo(ad) for ad in aditivos):
+        possui_aditivo_prazo = True
+    enriquecida["possui_aditivo_de_prazo"] = possui_aditivo_prazo
+
+    ref_date = parse_iso_date(data_referencia) or date.today()
+    datas_mov = _extrair_datas_movimentacao(ficha_dict)
+    if datas_mov:
+        dias_inatividade = max(0, (ref_date - max(datas_mov)).days)
+    else:
+        dt_inicio = parse_iso_date(
+            enriquecida.get("dtInicioVigencia")
+            or enriquecida.get("dataInicio")
+            or vigencia_dict.get("dataInicio")
+        )
+        dias_inatividade = max(0, (ref_date - dt_inicio).days) if dt_inicio is not None else 0
+
+    enriquecida["dias_desde_ultima_liquidacao_ou_pagamento"] = dias_inatividade
+    return enriquecida
+
+
 def classificar_semaforo(
     obra: dict[str, Any],
-    data_referencia: Optional[date] = None,
+    data_referencia: Optional[date | str] = None,
 ) -> dict[str, Any]:
     """Aplica a máquina de estados determinística do Semáforo da Obra.
 
@@ -63,22 +162,24 @@ def classificar_semaforo(
         Avalia as condições contratuais, temporais e financeiras para definir a cor do semáforo.
 
     Descrição Estendida:
-        A classificação é avaliada em ordem estrita de prioridade (Vermelho > Amarelo > Verde):
+        A classificação é avaliada em ordem estrita de prioridade (Vermelho > Amarelo > Verde),
+        preservando os motivos de atenção (Amarelo) após os motivos críticos em obras Vermelhas:
         1. Vermelho (Crítica):
-           - Situação cadastral paralisada, suspensa ou rescindida;
-           - Data de término de vigência atualizada vencida em relação à data de referência com execução física < 100%;
-           - Aditivo acumulado de valor superior a 25.0% em relação ao valor original contratado;
-           - Contrato em execução sem qualquer medição/liquidação ou pagamento há mais de 90 dias.
+           - Situação cadastral paralisada, suspensa, rescindida ou cancelada;
+           - Data de término de vigência efetiva vencida em relação à data de referência com execução física < 95%;
+           - Variação Contratual Acumulada superior a 25.0% em relação ao valor original contratado;
+           - Contrato em execução dentro da vigência efetiva (execução < 95%) sem liquidação ou pagamento há mais de 90 dias.
         2. Amarelo (Atenção):
            - Data de término de vigência atualizada estendida para além do término de vigência original;
            - Registro de termo aditivo de prorrogação de prazo;
-           - Aditivo acumulado de valor entre 10.0% e 25.0% (inclusive).
+           - Variação Contratual Acumulada entre 10.0% e 25.0% (inclusive).
         3. Verde (No Prazo):
-           - Todas as demais obras dentro do cronograma original e com aditivo de valor abaixo de 10.0%.
+           - Todas as demais obras dentro do cronograma vigente (ou com execução >= 95% sem outros alertas)
+             e com Variação Contratual Acumulada inferior a 10.0%.
 
     Argumentos:
         obra: Dicionário contendo os atributos do contrato de obra pública.
-        data_referencia: Data civil de corte para cálculo de atrasos (padrão: data de hoje).
+        data_referencia: Data civil de corte para cálculo de atrasos (objeto date ou string válida; padrão: hoje).
 
     Retornos:
         Dicionário com o resultado da classificação contendo:
@@ -90,13 +191,12 @@ def classificar_semaforo(
     Erros:
         Não lança exceções; trata valores ausentes com valores padrão seguros.
     """
-    hoje = data_referencia or date.today()
+    hoje = parse_iso_date(data_referencia) or date.today()
 
-    # 1. Extração e cálculo de valores financeiros
+    # 1. Extração e cálculo de valores financeiros (Variação Contratual Acumulada)
     vl_original = parse_float(obra.get("vlOriginal") or obra.get("valorOriginal") or 0.0)
     vl_atualizado = parse_float(obra.get("vlAtualizado") or obra.get("valorContratualVigente") or vl_original or 0.0)
 
-    # Cálculo da variação percentual de aditivos: ((vlAtualizado - vlOriginal) / vlOriginal) * 100
     delta_percentual_valor = 0.0
     if vl_original > 0:
         delta_percentual_valor = round(((vl_atualizado - vl_original) / vl_original) * 100.0, 2)
@@ -113,82 +213,75 @@ def classificar_semaforo(
 
     # 4. Inatividade financeira em dias
     dias_sem_pagamento = obra.get("dias_desde_ultima_liquidacao_ou_pagamento")
-    if dias_sem_pagamento is None:
-        dias_sem_pagamento = 0
-    else:
-        dias_sem_pagamento = int(dias_sem_pagamento)
+    dias_sem_pagamento = 0 if dias_sem_pagamento is None else int(dias_sem_pagamento)
 
     possui_aditivo_prazo = bool(obra.get("possui_aditivo_de_prazo") or obra.get("possuiAditivoPrazo"))
 
-    motivos: list[str] = []
+    motivos_criticos: list[str] = []
+    motivos_atencao: list[str] = []
 
     # -------------------------------------------------------------
     # GATILHOS DA COR VERMELHO (CRÍTICA)
     # -------------------------------------------------------------
-    # A. Situação cadastral problemática
-    situacoes_criticas = {"PARALISADA", "PARALISADO", "SUSPENSA", "SUSPENSO", "RESCINDIDA", "RESCINDIDO"}
-    if any(s in situacao for s in situacoes_criticas):
-        motivos.append(f"Contrato com situação cadastral de alerta ({obra.get('dsSituacao') or obra.get('situacao')})")
+    if any(s in situacao for s in _SITUACOES_CRITICAS):
+        motivos_criticos.append(
+            f"Contrato com situação cadastral de alerta ({obra.get('dsSituacao') or obra.get('situacao')})"
+        )
 
-    # B. Prazo de vigência atualizado vencido e obra com medição física incompleta (< 100%)
-    if dt_termino_atualizado and hoje > dt_termino_atualizado and percentual_executado < 100.0:
-        motivos.append(
+    if dt_termino_atualizado and hoje > dt_termino_atualizado and percentual_executado < _LIMIAR_EXECUCAO_SUBSTANCIAL:
+        motivos_criticos.append(
             f"Vigência expirada em {dt_termino_atualizado.strftime('%d/%m/%Y')} com execução física incompleta ({percentual_executado}%)"
         )
 
-    # C. Aditivo de valor acumulado superior a 25% do valor original
     if delta_percentual_valor > 25.0:
-        motivos.append(
-            f"Aditivo de valor superior a 25% (+{delta_percentual_valor}%) acumulado em relação ao contrato original"
+        motivos_criticos.append(
+            f"Variação Contratual Acumulada superior a 25% (+{delta_percentual_valor}%) em relação ao contrato original"
         )
 
-    # D. Obra ativa em execução sem liquidação ou pagamento há mais de 90 dias
-    if ("EXECUCAO" in situacao or "EXECUÇÃO" in situacao) and dias_sem_pagamento > 90:
-        motivos.append(
+    em_execucao = "EXECUCAO" in situacao or "EXECUÇÃO" in situacao
+    vigencia_ativa = dt_termino_atualizado is not None and hoje <= dt_termino_atualizado
+    if em_execucao and vigencia_ativa and percentual_executado < _LIMIAR_EXECUCAO_SUBSTANCIAL and dias_sem_pagamento > 90:
+        motivos_criticos.append(
             f"Obra em execução sem movimentação de liquidação ou pagamento há mais de 90 dias ({dias_sem_pagamento} dias)"
         )
-
-    if motivos:
-        return {
-            "status": "VERMELHO",
-            "rotulo": "Vermelho (Crítica)",
-            "motivos": motivos,
-            "deltaPercentualValor": delta_percentual_valor,
-        }
 
     # -------------------------------------------------------------
     # GATILHOS DA COR AMARELO (ATENÇÃO)
     # -------------------------------------------------------------
-    # A. Vigência atualizada postergada em relação ao prazo original contratado
     if dt_termino_atualizado and dt_fim_original and dt_termino_atualizado > dt_fim_original:
-        motivos.append(
+        motivos_atencao.append(
             f"Prorrogação de prazo concedida: término estendido de {dt_fim_original.strftime('%d/%m/%Y')} para {dt_termino_atualizado.strftime('%d/%m/%Y')}"
         )
 
-    # B. Registro de aditivo de prazo
     if possui_aditivo_prazo:
-        motivos.append("Contrato possui termo aditivo de prorrogação de prazo formalizado")
+        motivos_atencao.append("Contrato possui termo aditivo de prorrogação de prazo formalizado")
 
-    # C. Aditivo de valor expressivo entre 10% e 25%
     if 10.0 <= delta_percentual_valor <= 25.0:
-        motivos.append(
-            f"Aditivos de valor acumulados entre 10% e 25% (+{delta_percentual_valor}%) em relação ao contrato original"
+        motivos_atencao.append(
+            f"Variação Contratual Acumulada entre 10% e 25% (+{delta_percentual_valor}%) em relação ao contrato original"
         )
 
-    if motivos:
+    if motivos_criticos:
         return {
-            "status": "AMARELO",
-            "rotulo": "Amarelo (Atenção)",
-            "motivos": motivos,
+            "status": "VERMELHO",
+            "rotulo": "Vermelho (Crítica)",
+            "motivos": motivos_criticos + motivos_atencao,
             "deltaPercentualValor": delta_percentual_valor,
         }
 
-    # -------------------------------------------------------------
-    # GATILHO DA COR VERDE (NO PRAZO)
-    # -------------------------------------------------------------
+    if motivos_atencao:
+        return {
+            "status": "AMARELO",
+            "rotulo": "Amarelo (Atenção)",
+            "motivos": motivos_atencao,
+            "deltaPercentualValor": delta_percentual_valor,
+        }
+
     return {
         "status": "VERDE",
         "rotulo": "Verde (No Prazo)",
-        "motivos": ["Obra dentro do cronograma contratual vigente e com variação de aditivos inferior a 10%"],
+        "motivos": [
+            "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+        ],
         "deltaPercentualValor": delta_percentual_valor,
     }
