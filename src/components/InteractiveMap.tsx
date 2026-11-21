@@ -20,6 +20,8 @@ import {
   isZonaEspecial,
   normalizeName,
 } from "../utils/territory";
+import { computeBairroCentroids, extractHeatmapPoints } from "../utils/heatmap";
+import { HeatmapCanvasLayer, HEATMAP_WARM_GRADIENT_CSS } from "../utils/heatmapLayer";
 
 interface MapPinEntry {
   key: string;
@@ -141,6 +143,7 @@ interface InteractiveMapProps {
   bairrosGeoJson: any;
   prefeiturasGeoJson: any;
   obras: ObraCompacta[];
+  heatmapObras?: ObraCompacta[];
   selectedTerritory: TerritorySelection | null;
   onSelectTerritory: (territorio: TerritorySelection) => void;
   onSelectObra?: (obra: ObraCompacta) => void;
@@ -279,6 +282,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   bairrosGeoJson,
   prefeiturasGeoJson,
   obras,
+  heatmapObras,
   selectedTerritory,
   onSelectTerritory,
   onSelectObra,
@@ -292,6 +296,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const leafletMapRef = useRef<L.Map | null>(null);
   const geoJsonLayerRef = useRef<L.GeoJSON | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
+  const heatmapLayerRef = useRef<HeatmapCanvasLayer | null>(null);
   const selectedTerritoryRef = useRef<TerritorySelection | null>(selectedTerritory);
   selectedTerritoryRef.current = selectedTerritory;
   const prevLayerRef = useRef<"bairros" | "prefeituras" | null>(null);
@@ -311,6 +316,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const mapPinEntries = useMemo(
     () => buildMapPinEntries(obras, selectedTerritory),
     [obras, selectedTerritory]
+  );
+
+  const bairroCentroids = useMemo(
+    () => computeBairroCentroids(bairrosGeoJson),
+    [bairrosGeoJson]
+  );
+
+  const heatmapData = useMemo(
+    () => extractHeatmapPoints(heatmapObras ?? obras, bairroCentroids, metricType),
+    [heatmapObras, obras, bairroCentroids, metricType]
   );
 
   // Inicialização do Leaflet centrada em Salvador
@@ -355,6 +370,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         leafletMapRef.current = null;
         geoJsonLayerRef.current = null;
         markersLayerRef.current = null;
+        heatmapLayerRef.current = null;
       }
     };
   }, []);
@@ -529,6 +545,21 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               (dynamicPrefeitura && normalizeName(selectedTerritory.nome) === normalizeName(dynamicPrefeitura.nome)));
 
           const isSearchMatch = isFeatureSearchMatch(lookupKey, dynamicBairro, dynamicPrefeitura);
+
+          if (choroplethMetric === "mapaCalor") {
+            return {
+              fill: true,
+              fillColor: "#ffffff",
+              fillOpacity: 0,
+              weight: isSelected ? 3.5 : isSearchMatch ? 3.0 : 1.1,
+              opacity: isSelected || isSearchMatch ? 1 : !hasSearch ? 0.55 : 0.25,
+              color: isSelected
+                ? "#0f172a"
+                : isSearchMatch
+                  ? "#0369a1"
+                  : "#64748b",
+            };
+          }
 
           const isZonaEspecial = dynamicBairro
             ? !!(dynamicBairro.is_zona_especial_nao_residencial || dynamicBairro.isZonaEspecialNaoResidencial)
@@ -745,6 +776,32 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     normalizedSearch,
   ]);
 
+  // Gerenciamento da camada nativa de Mapa de Calor (<canvas>)
+  useEffect(() => {
+    const map = leafletMapRef.current;
+    if (!map) return;
+
+    if (choroplethMetric !== "mapaCalor") {
+      if (heatmapLayerRef.current) {
+        try {
+          map.removeLayer(heatmapLayerRef.current);
+        } catch { }
+        heatmapLayerRef.current = null;
+      }
+      return;
+    }
+
+    if (!heatmapLayerRef.current) {
+      const heatLayer = new HeatmapCanvasLayer(heatmapData.points);
+      try {
+        heatLayer.addTo(map);
+      } catch { }
+      heatmapLayerRef.current = heatLayer;
+    } else {
+      heatmapLayerRef.current.setPoints(heatmapData.points);
+    }
+  }, [choroplethMetric, heatmapData]);
+
   // Renderização dos Pinos de Obras Públicas com dispersão determinística anti-sobreposição
   useEffect(() => {
     const map = leafletMapRef.current;
@@ -888,6 +945,18 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             >
               Vulnerabilidade Social
             </button>
+            <button
+              type="button"
+              data-testid="btn-camada-mapa-calor"
+              aria-pressed={choroplethMetric === "mapaCalor"}
+              onClick={() => setChoroplethMetric("mapaCalor")}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 ${choroplethMetric === "mapaCalor"
+                  ? "bg-orange-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900"
+                }`}
+            >
+              Mapa de Calor
+            </button>
           </div>
 
           {/* Botão de Como é calculado? */}
@@ -964,9 +1033,36 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           <span className="font-bold text-slate-800 block mb-1.5 text-[11px] leading-tight">
             {choroplethMetric === "investimentoPorHabitante"
               ? `Investimento por Habitante — ${metricSubtitle}`
-              : "Índice de Vulnerabilidade (0,00 a 1,00)"}
+              : choroplethMetric === "vulnerabilidade"
+                ? "Índice de Vulnerabilidade (0,00 a 1,00)"
+                : `Mapa de Calor — ${metricType === "executado" ? "Valor Pago" : "Valor Contratual Vigente"}`}
           </span>
-          {choroplethMetric === "investimentoPorHabitante" ? (
+          {choroplethMetric === "mapaCalor" ? (
+            <div className="space-y-1.5 text-[10px] text-slate-700">
+              <div>
+                <div
+                  className="h-2.5 w-full rounded-full border border-slate-200"
+                  style={{
+                    background: HEATMAP_WARM_GRADIENT_CSS,
+                  }}
+                />
+                <div className="flex justify-between text-[10px] text-slate-600 mt-0.5 font-medium">
+                  <span>Menor</span>
+                  <span>Maior concentração</span>
+                </div>
+              </div>
+              <p className="font-semibold text-slate-800 tabular-nums">
+                {heatmapData.localizedObraCount}{" "}
+                {heatmapData.localizedObraCount === 1
+                  ? "obra localizada"
+                  : "obras localizadas"}{" "}
+                (pontuais ou por bairro)
+              </p>
+              <p className="text-slate-600 leading-snug">
+                Contratos regionais e em Escopo Cidade (Não-Localizado) não entram no calor.
+              </p>
+            </div>
+          ) : choroplethMetric === "investimentoPorHabitante" ? (
             <div className="grid grid-cols-2 gap-x-2.5 gap-y-1 text-[10px] text-slate-700 tabular-nums">
               {metricType === "executado" && <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-sm bg-[#be123c] shrink-0" />
@@ -1021,10 +1117,11 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               </div>
             </div>
           )}
-          {(activeLayer === "bairros" ||
-            (choroplethMetric === "investimentoPorHabitante" &&
-              (hasUnavailablePayment || hasUnavailablePopulation)) ||
-            (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
+          {choroplethMetric !== "mapaCalor" &&
+            (activeLayer === "bairros" ||
+              (choroplethMetric === "investimentoPorHabitante" &&
+                (hasUnavailablePayment || hasUnavailablePopulation)) ||
+              (choroplethMetric === "vulnerabilidade" && hasUnavailableVulnerability)) && (
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 pt-1 border-t border-slate-100 text-[10px]">
               {activeLayer === "bairros" && (
                 <div className="flex items-center gap-1 text-amber-800">

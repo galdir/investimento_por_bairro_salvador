@@ -299,7 +299,7 @@ export function obraOverlapsMandato(
 /**
  * Retorna a chave canônica do contrato (UG + contrato SIGEF) com fallback para id.
  */
-function getObraCanonicalKey(obra: ObraCompacta): string {
+export function getObraCanonicalKey(obra: ObraCompacta): string {
   const ug = obra.unidadeGestora;
   const contrato = obra.numeroContrato;
   if (ug && contrato && ug.trim() && contrato.trim()) {

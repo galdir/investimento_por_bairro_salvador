@@ -38,7 +38,7 @@ export const VOCACAO_BADGE_CLASS: Record<VocacaoObra, string> = {
 
 export type MetricType = "vigente" | "executado";
 
-export type ChoroplethMetric = "investimentoPorHabitante" | "vulnerabilidade";
+export type ChoroplethMetric = "investimentoPorHabitante" | "vulnerabilidade" | "mapaCalor";
 
 export type NivelAlocacaoTerritorial =
   | "Pontual"

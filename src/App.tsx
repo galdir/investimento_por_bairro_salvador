@@ -1037,6 +1037,7 @@ export const App: React.FC = () => {
                     bairrosGeoJson={bairrosGeo}
                     prefeiturasGeoJson={prefeiturasGeo}
                     obras={filteredObras}
+                    heatmapObras={topFilteredObras}
                     selectedTerritory={activeSelectedTerritory}
                     onSelectTerritory={handleSelectTerritoryFromMap}
                     onSelectObra={handleSelectObra}
