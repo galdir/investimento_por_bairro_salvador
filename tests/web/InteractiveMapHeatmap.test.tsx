@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import L from "leaflet";
 import { describe, expect, it, vi } from "vitest";
 import { InteractiveMap } from "../../src/components/InteractiveMap";
@@ -569,6 +569,184 @@ describe("InteractiveMap — 3ª camada Mapa de Calor", () => {
     mapSpy.mockRestore();
     circleMarkerSpy.mockRestore();
     geoJsonSpy.mockRestore();
+    stopPropagationSpy.mockRestore();
+  });
+
+  it("renderiza clusters neutros em pinsPane, reagrupa em zoomend, respeita borda tracejada/aria-label/teclado/tooltip e aproxima ao ativar", () => {
+    const onSelectTerritory = vi.fn();
+    const onSelectObra = vi.fn();
+    const mapSpy = vi.spyOn(L, "map");
+    const markerSpy = vi.spyOn(L, "marker");
+    const circleMarkerSpy = vi.spyOn(L, "circleMarker");
+    const stopPropagationSpy = vi.spyOn(L.DomEvent, "stopPropagation");
+
+    const obrasClusterMock: ObraCompacta[] = [
+      // Duas obras próximas na Pituba (coordenadas distintas -> cluster expansível, 1 pontual + 1 bairro)
+      {
+        ...(obrasMunicipais[0] as ObraCompacta),
+        id: 701,
+        objeto: "Drenagem Pituba Trecho A",
+        nivel: "Pontual",
+        latitude: -12.9960,
+        longitude: -38.4550,
+        semaforo: { status: "VERMELHO", rotulo: "Crítica", motivos: [] },
+      },
+      {
+        ...(obrasMunicipais[0] as ObraCompacta),
+        id: 702,
+        objeto: "Pavimentação Pituba Trecho B",
+        nivel: "Bairro",
+        latitude: -12.9980,
+        longitude: -38.4570,
+        semaforo: { status: "AMARELO", rotulo: "Atenção", motivos: [] },
+      },
+      // Duas obras exatamente no mesmo ponto em Paripe (100% aproximadas -> cluster indivisível com borda tracejada)
+      {
+        ...(obrasMunicipais[1] as ObraCompacta),
+        id: 703,
+        objeto: "Reforma Escola Paripe 1",
+        nivel: "Bairro",
+        latitude: -12.8250,
+        longitude: -38.4750,
+        semaforo: { status: "VERDE", rotulo: "No Prazo", motivos: [] },
+      },
+      {
+        ...(obrasMunicipais[1] as ObraCompacta),
+        id: 704,
+        objeto: "Reforma Escola Paripe 2",
+        nivel: "Bairro",
+        latitude: -12.8250,
+        longitude: -38.4750,
+        semaforo: undefined,
+      },
+    ];
+
+    render(
+      <InteractiveMap
+        activeLayer="bairros"
+        bairros={bairrosMock}
+        prefeituras={prefeiturasMock}
+        bairrosGeoJson={bairrosGeoJsonMock}
+        prefeiturasGeoJson={null}
+        obras={obrasClusterMock}
+        selectedTerritory={null}
+        onSelectTerritory={onSelectTerritory}
+        onSelectObra={onSelectObra}
+      />
+    );
+
+    const mapInstance = mapSpy.mock.results[mapSpy.mock.results.length - 1].value as L.Map;
+    fireEvent.click(screen.getByTestId("btn-toggle-pinos-obras"));
+
+    // No zoom 11, temos 2 clusters (2 obras cada) e nenhum circleMarker isolado
+    expect(markerSpy).toHaveBeenCalledTimes(2);
+    expect(circleMarkerSpy).not.toHaveBeenCalled();
+
+    for (const call of markerSpy.mock.calls) {
+      expect(call[1]?.pane).toBe("pinsPane");
+    }
+
+    const clusterPituba = markerSpy.mock.results[0].value as L.Marker;
+    const clusterParipe = markerSpy.mock.results[1].value as L.Marker;
+
+    const pitubaEl = clusterPituba.getElement()!;
+    const paripeEl = clusterParipe.getElement()!;
+    expect(pitubaEl).toBeTruthy();
+    expect(paripeEl).toBeTruthy();
+
+    // Estilo neutro escuro, diâmetro 28px (faixa 2-9) e borda sólida vs tracejada
+    expect(pitubaEl.innerHTML).toContain("background-color:#0f172a");
+    expect(pitubaEl.innerHTML).toContain("width:28px;height:28px");
+    expect(pitubaEl.innerHTML).toContain("border:2px solid #ffffff");
+    expect(pitubaEl.innerHTML).toContain(">2<");
+
+    expect(paripeEl.innerHTML).toContain("border:2px dashed #ffffff");
+    expect(paripeEl.innerHTML).toContain(">2<");
+
+    // Acessibilidade (aria-label)
+    expect(pitubaEl.getAttribute("aria-label")).toMatch(/2 obras/i);
+    expect(pitubaEl.getAttribute("aria-label")).toMatch(/aproximar/i);
+    expect(paripeEl.getAttribute("aria-label")).toMatch(/2 obras/i);
+
+    // Tooltips estruturados
+    const pitubaTooltip = String(clusterPituba.getTooltip()?.getContent() || "");
+    expect(pitubaTooltip).toMatch(/2 obras agrupadas/i);
+    expect(pitubaTooltip).toMatch(/Semáforo da Obra/i);
+    expect(pitubaTooltip).toMatch(/Amarelo 1/i);
+    expect(pitubaTooltip).toMatch(/Vermelho 1/i);
+    expect(pitubaTooltip).toMatch(/parcial/i);
+    expect(pitubaTooltip).not.toMatch(/Ponto compartilhado/i);
+
+    const paripeTooltip = String(clusterParipe.getTooltip()?.getContent() || "");
+    expect(paripeTooltip).toMatch(/Verde 2/i);
+    expect(paripeTooltip).toMatch(/100% aproximados/i);
+    expect(paripeTooltip).toMatch(/Ponto compartilhado/i);
+
+    // Clique no cluster indivisível interrompe propagação e não seleciona território
+    const domClick = new MouseEvent("click", { bubbles: true, cancelable: true });
+    clusterParipe.fire("click", { originalEvent: domClick });
+    expect(stopPropagationSpy).toHaveBeenCalled();
+    expect(onSelectTerritory).not.toHaveBeenCalled();
+
+    // Clique no cluster expansível interrompe propagação, não seleciona polígono e aproxima o mapa
+    const zoomBeforeClick = mapInstance.getZoom();
+    const expansibleClick = new MouseEvent("click", { bubbles: true, cancelable: true });
+    act(() => {
+      clusterPituba.fire("click", { originalEvent: expansibleClick });
+    });
+    expect(stopPropagationSpy).toHaveBeenCalled();
+    expect(onSelectTerritory).not.toHaveBeenCalled();
+    expect(mapInstance.getZoom()).toBeGreaterThanOrEqual(zoomBeforeClick + 1);
+
+    // Restaura zoom 11 para testar ativação por teclado (Enter) no cluster expansível
+    act(() => {
+      mapInstance.setZoom(11);
+      mapInstance.fire("zoomend");
+    });
+    const pitubaAfterReset = markerSpy.mock.results[markerSpy.mock.results.length - 2].value as L.Marker;
+    const pitubaElAfterReset = pitubaAfterReset.getElement()!;
+
+    // Ativação por teclado (Enter e Space) no cluster expansível aproxima o mapa
+    const setViewSpy = vi.spyOn(mapInstance, "setView");
+    const fitBoundsSpy = vi.spyOn(mapInstance, "fitBounds");
+    const zoomBefore = mapInstance.getZoom();
+
+    const enterEvent = new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true });
+    act(() => {
+      pitubaElAfterReset.dispatchEvent(enterEvent);
+    });
+    expect(enterEvent.defaultPrevented).toBe(true);
+    expect(fitBoundsSpy).toHaveBeenCalled();
+    expect(mapInstance.getZoom()).toBeGreaterThanOrEqual(zoomBefore + 1);
+
+    // Reagrupamento automático em zoomend: ao ir para zoom 17, Pituba desmembra em 2 circleMarkers e Paripe segue cluster indivisível
+    markerSpy.mockClear();
+    circleMarkerSpy.mockClear();
+    act(() => {
+      mapInstance.setZoom(17);
+      mapInstance.fire("zoomend");
+    });
+
+    expect(circleMarkerSpy).toHaveBeenCalledTimes(2);
+    expect(markerSpy).toHaveBeenCalledTimes(1);
+
+    // Space também ativa sem erro e previne default no cluster restante se expansível; aqui testamos em zoom 11 novamente
+    act(() => {
+      mapInstance.setZoom(11);
+      mapInstance.fire("zoomend");
+    });
+    const reclusteredPitubaEl = (markerSpy.mock.results[markerSpy.mock.results.length - 2].value as L.Marker).getElement()!;
+    const spaceEvent = new KeyboardEvent("keydown", { key: " ", bubbles: true, cancelable: true });
+    act(() => {
+      reclusteredPitubaEl.dispatchEvent(spaceEvent);
+    });
+    expect(spaceEvent.defaultPrevented).toBe(true);
+
+    setViewSpy.mockRestore();
+    fitBoundsSpy.mockRestore();
+    mapSpy.mockRestore();
+    markerSpy.mockRestore();
+    circleMarkerSpy.mockRestore();
     stopPropagationSpy.mockRestore();
   });
 });

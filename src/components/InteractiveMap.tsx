@@ -22,6 +22,13 @@ import {
 } from "../utils/territory";
 import { computeBairroCentroids, extractHeatmapPoints } from "../utils/heatmap";
 import { HeatmapCanvasLayer, HEATMAP_WARM_GRADIENT_CSS } from "../utils/heatmapLayer";
+import {
+  ClusterablePinEntry,
+  clusterPinEntries,
+  getPinCoordKey,
+  projectLatLngMercator,
+  resolveFiniteMaxZoom,
+} from "../utils/pinClustering";
 
 interface MapPinEntry {
   key: string;
@@ -100,10 +107,6 @@ function buildMapPinEntries(
       overlapCount: countsByCoord.get(coordKey) || 1,
     };
   });
-}
-
-function getPinCoordKey(latitude: number, longitude: number): string {
-  return `${latitude.toFixed(4)}_${longitude.toFixed(4)}`;
 }
 
 function formatPinMetricLabel(obra: ObraCompacta, metricType: MetricType, isCotaPin: boolean): string {
@@ -194,17 +197,18 @@ function focusSelectedLayerAndGetBounds(
  */
 export function getFitBoundsOptions(
   mapWidth: number,
-  isDesktopDrawerExpanded: boolean
+  isDesktopDrawerExpanded: boolean,
+  maxZoom = 14
 ): L.FitBoundsOptions {
   if (isDesktopDrawerExpanded && mapWidth >= 640) {
     return {
-      maxZoom: 14,
+      maxZoom,
       paddingTopLeft: [24, 56],
       paddingBottomRight: [Math.min(380, Math.round(mapWidth * 0.48)), 24],
     };
   }
   return {
-    maxZoom: 14,
+    maxZoom,
     padding: [40, 40],
   };
 }
@@ -312,6 +316,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const [choroplethMetric, setChoroplethMetric] = useState<ChoroplethMetric>("investimentoPorHabitante");
   const [showVulnerabilityUnderlay, setShowVulnerabilityUnderlay] = useState<boolean>(false);
   const [showPins, setShowPins] = useState<boolean>(false);
+  const [mapZoom, setMapZoom] = useState<number>(SALVADOR_DEFAULT_ZOOM);
   const normalizedSearch = normalizeName(territorySearch);
   const hasSearch = normalizedSearch.length > 0;
 
@@ -359,8 +364,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
       leafletMapRef.current = map;
 
+      const handleZoomEnd = () => {
+        try {
+          setMapZoom(map.getZoom());
+        } catch { }
+      };
+      map.on("zoomend", handleZoomEnd);
+
       // Garante enquadramento preciso no layout inicial e após estabilização do container
       recenterMap(map);
+      handleZoomEnd();
       t1 = setTimeout(() => recenterMap(map), 100);
       t2 = setTimeout(() => recenterMap(map), 300);
     } catch { }
@@ -836,7 +849,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
     }
   }, [choroplethMetric, heatmapData]);
 
-  // Renderização dos Pinos de Obras Públicas com dispersão determinística anti-sobreposição
+  // Renderização dos Pinos de Obras Públicas com agrupamento espacial nativo por zoom
   useEffect(() => {
     const map = leafletMapRef.current;
     if (!map) return;
@@ -852,34 +865,40 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
     try {
       const markersGroup = L.layerGroup();
+      const getSafeZoom = (fallback: number) =>
+        typeof map.getZoom === "function" ? map.getZoom() : fallback;
+      const currentZoom = getSafeZoom(mapZoom);
+      const finiteMaxZoom = resolveFiniteMaxZoom(
+        typeof map.getMaxZoom === "function" ? map.getMaxZoom() : undefined
+      );
 
-      // Agrupa pinos com coordenadas idênticas para aplicar dispersão radial
-      const entriesPorCoord: Record<string, MapPinEntry[]> = {};
-      for (const entry of mapPinEntries) {
-        const coordKey = getPinCoordKey(entry.latitude, entry.longitude);
-        if (!entriesPorCoord[coordKey]) entriesPorCoord[coordKey] = [];
-        entriesPorCoord[coordKey].push(entry);
-      }
+      const clusterableEntries: ClusterablePinEntry<MapPinEntry>[] = mapPinEntries.map((entry) => ({
+        key: entry.key,
+        latitude: entry.latitude,
+        longitude: entry.longitude,
+        isApproximate: entry.isApproximate,
+        semaforoStatus: entry.obra.semaforo?.status,
+        payload: entry,
+      }));
 
-      for (const coordGroup of Object.values(entriesPorCoord)) {
-        const total = coordGroup.length;
-        coordGroup.forEach((entry, idx) => {
+      const clusters = clusterPinEntries(clusterableEntries, {
+        zoom: currentZoom,
+        maxZoom: finiteMaxZoom,
+        project: (lat, lng, z) =>
+          typeof map.project === "function"
+            ? map.project([lat, lng], z)
+            : projectLatLngMercator(lat, lng, z),
+      });
+
+      for (const cluster of clusters) {
+        if (cluster.entries.length === 1) {
+          const entry = cluster.entries[0].payload;
           const { obra } = entry;
-          let lat = entry.latitude;
-          let lon = entry.longitude;
-
-          // Se houver mais de um pino no mesmo ponto exato/centróide, aplica dispersão circular
-          if (total > 1) {
-            const angulo = (idx * (2 * Math.PI)) / total;
-            const raio = 0.0015; // Aproximadamente 150m de dispersão visual
-            lat += Math.sin(angulo) * raio;
-            lon += Math.cos(angulo) * raio;
-          }
-
           const status = obra.semaforo?.status || "VERDE";
-          const corPino = status === "VERMELHO" ? "#EF4444" : status === "AMARELO" ? "#F59E0B" : "#10B981";
+          const corPino =
+            status === "VERMELHO" ? "#EF4444" : status === "AMARELO" ? "#F59E0B" : "#10B981";
 
-          const marker = L.circleMarker([lat, lon], {
+          const marker = L.circleMarker([entry.latitude, entry.longitude], {
             pane: "pinsPane",
             radius: 6,
             fillColor: corPino,
@@ -891,15 +910,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           });
 
           const valorPinText = formatPinMetricLabel(obra, metricType, Boolean(entry.fracao));
-
           const precisionText = entry.isApproximate
             ? "Local aproximado (centróide do bairro — não é endereço exato)"
             : "Ponto identificado (localização pontual/equipamento)";
-
-          const overlapText =
-            total > 1
-              ? `<br/><span style="color: #0369a1; font-size: 10px; font-weight: 600;">Ponto compartilhado com outras ${total - 1} obra(s) — acesse todas na lista de pinos</span>`
-              : "";
 
           const tooltipContent = `
             <div style="font-size: 11px; max-width: 240px;">
@@ -908,7 +921,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               <span style="font-weight: 600; color: ${corPino};">Semáforo: ${obra.semaforo?.rotulo || status}</span>
               ${entry.fracao ? `<br/><span style="color: #0f766e; font-size: 10px; font-weight: 600;">Cota-Parte (${entry.fracao})${entry.bairroLabel ? ` • ${entry.bairroLabel}` : ""}</span>` : ""}
               <br/><span style="color: ${entry.isApproximate ? "#b45309" : "#047857"}; font-size: 10px; font-weight: 600;">${precisionText}</span>
-              ${overlapText}
             </div>
           `;
           marker.bindTooltip(tooltipContent, { direction: "top", offset: [0, -5] });
@@ -919,13 +931,112 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           });
 
           marker.addTo(markersGroup);
+          continue;
+        }
+
+        const total = cluster.entries.length;
+        const size = total >= 50 ? 40 : total >= 10 ? 34 : 28;
+        const fontSize = total >= 50 ? 13 : total >= 10 ? 12 : 11;
+        const borderStyle = cluster.isAllApproximate ? "dashed" : "solid";
+
+        const icon = L.divIcon({
+          className: "obra-pin-cluster-icon",
+          html: `<div style="width:${size}px;height:${size}px;border-radius:9999px;background-color:#0f172a;color:#ffffff;border:2px ${borderStyle} #ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:${fontSize}px;line-height:1;box-shadow:0 2px 6px rgba(15,23,42,0.35);box-sizing:border-box;">${total}</div>`,
+          iconSize: [size, size],
+          iconAnchor: [size / 2, size / 2],
         });
+
+        const ariaLabel = cluster.isIndivisible
+          ? `Agrupamento com ${total} obras no mesmo ponto ou no zoom máximo. Consulte a lista de pinos para abrir as fichas.`
+          : `Agrupamento com ${total} obras. Clique ou pressione Enter para aproximar e expandir.`;
+
+        const clusterMarker = L.marker([cluster.latitude, cluster.longitude], {
+          pane: "pinsPane",
+          icon,
+          keyboard: true,
+          title: ariaLabel,
+        });
+
+        const approxNotice = cluster.hasApproximate
+          ? cluster.isAllApproximate
+            ? `<br/><span style="color: #b45309; font-size: 10px; font-weight: 600;">Locais aproximados (100% aproximados — não são endereços exatos)</span>`
+            : `<br/><span style="color: #b45309; font-size: 10px; font-weight: 600;">Inclui local aproximado (parcial — parte não é endereço exato)</span>`
+          : "";
+
+        const sharedNotice = cluster.sharesSameCoordKey
+          ? `<br/><span style="color: #0369a1; font-size: 10px; font-weight: 600;">Ponto compartilhado (${total} obras na mesma coordenada) — acesse todas na lista de pinos</span>`
+          : "";
+
+        const expandHint = !cluster.isIndivisible
+          ? `<br/><span style="color: #475569; font-size: 10px;">Clique para aproximar e expandir</span>`
+          : "";
+
+        const clusterTooltip = `
+          <div style="font-size: 11px; max-width: 260px;">
+            <strong style="color: #0f172a;">${total} obras agrupadas</strong><br/>
+            <span style="color: #334155; font-weight: 600;">Semáforo da Obra:</span>
+            <span style="color: #047857; font-weight: 600;">Verde ${cluster.semaforoCounts.VERDE}</span> •
+            <span style="color: #b45309; font-weight: 600;">Amarelo ${cluster.semaforoCounts.AMARELO}</span> •
+            <span style="color: #b91c1c; font-weight: 600;">Vermelho ${cluster.semaforoCounts.VERMELHO}</span>
+            ${approxNotice}
+            ${sharedNotice}
+            ${expandHint}
+          </div>
+        `;
+        clusterMarker.bindTooltip(clusterTooltip, { direction: "top", offset: [0, -Math.round(size / 2)] });
+
+        const activateCluster = () => {
+          if (cluster.isIndivisible) return;
+          const prevZoom = getSafeZoom(currentZoom);
+          const bounds = L.latLngBounds(
+            cluster.entries.map((item) => [item.latitude, item.longitude] as L.LatLngTuple)
+          );
+          const sizeX = typeof map.getSize === "function" ? map.getSize()?.x : 0;
+          const mapWidth = sizeX || mapContainerRef.current?.clientWidth || 0;
+          if (bounds.isValid()) {
+            map.fitBounds(
+              bounds,
+              getFitBoundsOptions(mapWidth, isDesktopDrawerExpandedRef.current, finiteMaxZoom)
+            );
+          }
+          const nextZoom = getSafeZoom(prevZoom);
+          if (nextZoom <= prevZoom && prevZoom < finiteMaxZoom) {
+            map.setView(
+              [cluster.latitude, cluster.longitude],
+              Math.min(finiteMaxZoom, prevZoom + 1)
+            );
+          }
+        };
+
+        clusterMarker.on("click", (e: L.LeafletMouseEvent) => {
+          if (e?.originalEvent) {
+            L.DomEvent.stopPropagation(e.originalEvent);
+          }
+          activateCluster();
+        });
+
+        clusterMarker.on("add", () => {
+          const el = clusterMarker.getElement();
+          if (!el) return;
+          el.setAttribute("aria-label", ariaLabel);
+          el.setAttribute("role", "button");
+          el.setAttribute("tabindex", "0");
+          el.addEventListener("keydown", (ev: KeyboardEvent) => {
+            if (ev.key === "Enter" || ev.key === " " || ev.key === "Spacebar") {
+              ev.preventDefault();
+              L.DomEvent.stopPropagation(ev);
+              activateCluster();
+            }
+          });
+        });
+
+        clusterMarker.addTo(markersGroup);
       }
 
       markersGroup.addTo(map);
       markersLayerRef.current = markersGroup;
     } catch { }
-  }, [mapPinEntries, showPins, onSelectObra, metricType]);
+  }, [mapPinEntries, showPins, onSelectObra, metricType, mapZoom]);
 
   const handleRecenter = () => {
     recenterMap(leafletMapRef.current);

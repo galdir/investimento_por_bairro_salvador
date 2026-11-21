@@ -4722,7 +4722,7 @@ describe("Seam 2: Painel Web do Mapa das Obras e Camada A (Justiça Territorial)
     });
 
     it("mantém pinos desligados inicialmente, torna obras sobrepostas acessíveis ao ativar e distingue locais aproximados de endereços exatos", async () => {
-      const bindTooltipSpy = vi.spyOn(L.CircleMarker.prototype, "bindTooltip");
+      const bindTooltipSpy = vi.spyOn(L.Marker.prototype, "bindTooltip");
 
       render(<App />);
 
