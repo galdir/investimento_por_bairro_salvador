@@ -1,0 +1,303 @@
+{
+  "id": "ee08d78e-29f0-4bd1-bf2a-a05a9498ec6f",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2019CT002363",
+  "numeroContratoOriginal": "000001/2019",
+  "nuProcesso": "003009/2018",
+  "objeto": "Contratação de empresa especializada para prestação \tde serviços de locação de praticáveis, mobiliários e equipamentos, incluindo montagem e desmontagem, para serem utilizados como bases operacionais da SEMPS \tdurante o Carnaval de 2019, de Salvador, conforme especificação e quantidades descritas no Anexo IX do Edital, solicitação no Processo Administrativo nº 3009-2018-SEMPS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "COELHO ENTRETENIMENTOS EIRELI",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 357571.04,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "2f2037f7-f539-411c-9d47-ed3dad67299d"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2019-02-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-05-10T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2019-02-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 177671.04,
+    "valorContratualVigente": 177671.04,
+    "valorEmpenhado": 177671.04,
+    "valorLiquidado": 168787.49,
+    "valorPago": 177671.04,
+    "percentualExecutado": 95.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação das Ações Estratégicas de Erradicação do Trabalho Infantil",
+      "fonteRecurso": "Transf. de Recursos do Fundo Nacional de Assistência - FNAS",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "9a9379d1-f175-40fd-b334-f53fea44ec98",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "cdUnGestora": "521010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "notaEmpenho": "2019NE000391",
+      "dataEmpenho": "29/03/2019",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "fonteRecurso": "Transf. de Recursos do Fundo Nacional de Assistência - FNAS",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "177.671,04",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "6eb1dcda-5451-4201-b264-c901d19a956c",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2019NL001700",
+      "notaLancamento": "2019NL001700",
+      "numProcesso": "00011142019",
+      "dataLiquidacao": "10/04/2019",
+      "valLiqLiquidacao": "177.671,04",
+      "valBrutLiquidacao": "177.671,04",
+      "valEmpenho": "177.671,04",
+      "descObsLiquidacao": "Despesas com locação de praticáveis, mobiliários e equipamentos, incluindo montagem e desmontagem para ser utilizados como Unidade Modular a Serviço da Assistência Social - SEMPS, durante o período do Carnaval de 2019. Contrato 001/2019, NF. 83/2019, Pr. 1114/2019.",
+      "pago": "0,00"
+    },
+    {
+      "id": "5e16c8f2-3081-484c-8e84-aca7a2b0b7e6",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2019NL001704",
+      "notaLancamento": "3440041",
+      "numProcesso": "2019NL001704",
+      "dataLiquidacao": "10/04/2019",
+      "valLiqLiquidacao": "-177.671,04",
+      "valBrutLiquidacao": "-177.671,04",
+      "valEmpenho": "177.671,04",
+      "descObsLiquidacao": " ",
+      "pago": "0,00"
+    },
+    {
+      "id": "a181f8a5-0590-4e8c-8a44-d9007bcb0c9b",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2019NL001705",
+      "notaLancamento": "2019NL001705",
+      "numProcesso": "00011142019",
+      "dataLiquidacao": "10/04/2019",
+      "valLiqLiquidacao": "168.787,49",
+      "valBrutLiquidacao": "177.671,04",
+      "valEmpenho": "177.671,04",
+      "descObsLiquidacao": "Pagamento de despesas com locação de praticáveis, mobiliários e equipamentos, incluindo montagem e desmontagem para ser utilizados como Unidade Modular a Serviço da Assistência Social - SEMPS, durante o período do Carnaval de 2019. Contrato 001/2019, NF. 83/2019, Pr. 1114/2019.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "ee1b565c-3048-4aea-88f2-f7d861ef2fd9",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019PP000713",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 177.671,04",
+      "dataPagamento": "10/04/2019",
+      "pago": "R$ 8.883,55",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "5a083841-e604-4d01-b1c4-129190f2a5db",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019PP000713",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 177.671,04",
+      "dataPagamento": "10/04/2019",
+      "pago": "R$ -8.883,55",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "f9b8ab1b-15c6-40ad-9d25-4e34c72c81aa",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019NL001705",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 177.671,04",
+      "dataPagamento": "10/04/2019",
+      "pago": "R$ 8.883,55",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "760b2fc3-5638-4910-8fa8-4746d63204a5",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2019NL001705",
+      "ordBancaria": "2019OB012023",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 177.671,04",
+      "dataPagamento": "10/04/2019",
+      "pago": "R$ 168.787,49",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "3bbdf4d2-4f29-4312-8692-aec4a8918a24",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019OB012023",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 177.671,04",
+      "dataPagamento": "12/04/2019",
+      "pago": "R$ -8.883,55",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "33f7ea0a-6f18-496c-b3a7-e7300dc17d45",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2019NE000391",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019OB012023",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 177.671,04",
+      "dataPagamento": "12/04/2019",
+      "pago": "R$ 8.883,55",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "521010",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2019CT002363"
+    },
+    "nuProcesso": "003009/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Contratação de empresa especializada para prestação \tde serviços de locação de praticáveis, mobiliários e equipamentos, incluindo montagem e desmontagem, para serem utilizados como bases operacionais da SEMPS \tdurante o Carnaval de 2019, de Salvador, conforme especificação e quantidades descritas no Anexo IX do Edital, solicitação no Processo Administrativo nº 3009-2018-SEMPS",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "521010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

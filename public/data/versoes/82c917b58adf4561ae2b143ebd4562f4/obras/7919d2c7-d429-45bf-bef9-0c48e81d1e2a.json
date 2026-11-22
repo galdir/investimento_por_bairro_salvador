@@ -1,0 +1,285 @@
+{
+  "id": "7919d2c7-d429-45bf-bef9-0c48e81d1e2a",
+  "unidadeGestora": "PGMS",
+  "numeroContrato": "2017CT004460",
+  "numeroContratoOriginal": "000113/2017",
+  "nuProcesso": "000973/2017",
+  "objeto": "Processo nº 973/2017 referente a contratação de prestação de serviços de adequação da rede elétrica com instalação de nova subestação no prédio da sede da PGMS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 291730.77,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "6cd5d6ab-d55f-4b8f-a763-90080f062fd9",
+      "8e668ee3-5abf-44f0-ad63-97a3904d7a1e"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-09-12T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-03-10T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-09-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 152602.87,
+    "valorContratualVigente": 152602.87,
+    "valorEmpenhado": 148991.5,
+    "valorLiquidado": 146766.24,
+    "valorPago": 148991.5,
+    "percentualExecutado": 96.18,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Tecnicos e Administrativos - PGMS",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "d1f1324c-478e-4dc4-b370-895d300c4c5c",
+      "descOrgao": "Procuradoria Geral do Município",
+      "cdUnGestora": "230002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "notaEmpenho": "2017NE000479",
+      "dataEmpenho": "14/12/2017",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Energia Elétrica",
+      "valEmpenhado": "152.602,87",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "d595dc81-e27e-41af-b0c6-78f241e29281",
+      "descOrgao": "Procuradoria Geral do Município",
+      "cdUnGestora": "230002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "notaEmpenho": "RP3271746",
+      "dataEmpenho": "14/12/2018",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Energia Elétrica",
+      "valEmpenhado": "-3.611,37",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "f09a59a0-8ba2-4e0c-88f7-a6ac5b794e80",
+      "descOrgao": "Procuradoria Geral do Município",
+      "siglaOrgao": "PGMS",
+      "notaEmpenho": "2017NE000479",
+      "codUnGestora": "230002",
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "siglaUnGestora": "PGMS",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "notaLiquidacao": "2018NL001236",
+      "notaLancamento": "2018NL001236",
+      "numProcesso": "00005492018",
+      "dataLiquidacao": "09/05/2018",
+      "valLiqLiquidacao": "146.766,24",
+      "valBrutLiquidacao": "148.991,50",
+      "valEmpenho": "152.602,87",
+      "descObsLiquidacao": "Processo n° 549/2018- referente ao pagamento da prestação de serviços de adequação da rede elétrica com instalação de nova subestação no prédio sede da PGMS. Conta contrato n° 7900225231",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "8e7467dc-67f3-4a30-b9a4-ddffab375061",
+      "descOrgao": "Procuradoria Geral do Município",
+      "siglaOrgao": "PGMS",
+      "notaEmpenho": "2017NE000479",
+      "codUnGestora": "230002",
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "siglaUnGestora": "PGMS",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP000703",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 152.602,87",
+      "dataPagamento": "09/05/2018",
+      "pago": "R$ 2.225,26",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "975bc78b-0d39-41f0-a5c0-ca9509ab1dea",
+      "descOrgao": "Procuradoria Geral do Município",
+      "siglaOrgao": "PGMS",
+      "notaEmpenho": "2017NE000479",
+      "codUnGestora": "230002",
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "siglaUnGestora": "PGMS",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP000703",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 152.602,87",
+      "dataPagamento": "09/05/2018",
+      "pago": "R$ -2.225,26",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "ece08319-606a-44c4-9bc5-f849a9fb6195",
+      "descOrgao": "Procuradoria Geral do Município",
+      "siglaOrgao": "PGMS",
+      "notaEmpenho": "2017NE000479",
+      "codUnGestora": "230002",
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "siglaUnGestora": "PGMS",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018NL001236",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 152.602,87",
+      "dataPagamento": "09/05/2018",
+      "pago": "R$ 2.225,26",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "17ef67cd-86a8-4b64-a65b-cefab97cc11d",
+      "descOrgao": "Procuradoria Geral do Município",
+      "siglaOrgao": "PGMS",
+      "notaEmpenho": "2017NE000479",
+      "codUnGestora": "230002",
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "siglaUnGestora": "PGMS",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "notaLiquidacao": "2018NL001236",
+      "ordBancaria": "2018OB012216",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 152.602,87",
+      "dataPagamento": "09/05/2018",
+      "pago": "R$ 146.766,24",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "9568372d-7a62-4b56-91ac-b4ad28a0a90f",
+      "descOrgao": "Procuradoria Geral do Município",
+      "siglaOrgao": "PGMS",
+      "notaEmpenho": "2017NE000479",
+      "codUnGestora": "230002",
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "siglaUnGestora": "PGMS",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB012223",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 152.602,87",
+      "dataPagamento": "10/05/2018",
+      "pago": "R$ -2.225,26",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "247adef7-3afb-4824-98b5-306566bfaf57",
+      "descOrgao": "Procuradoria Geral do Município",
+      "siglaOrgao": "PGMS",
+      "notaEmpenho": "2017NE000479",
+      "codUnGestora": "230002",
+      "descUnGestora": "UG PGMS - Procuradoria Geral do Município",
+      "siglaUnGestora": "PGMS",
+      "nomeCredor": "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA COELBA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB012223",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 152.602,87",
+      "dataPagamento": "10/05/2018",
+      "pago": "R$ 2.225,26",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.985173,
+  "longitude": -38.51879,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "230002",
+      "unidadeGestora": "PGMS",
+      "nuContratoSigef": "2017CT004460"
+    },
+    "nuProcesso": "000973/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "adequação da rede elétrica com instalação de nova subestação no prédio da sede da PGMS",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A sede da Procuradoria Geral do Município (PGMS) localiza-se no Bairro Oficial Centro."
+    }
+  },
+  "cdUnidadeGestora": "230002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

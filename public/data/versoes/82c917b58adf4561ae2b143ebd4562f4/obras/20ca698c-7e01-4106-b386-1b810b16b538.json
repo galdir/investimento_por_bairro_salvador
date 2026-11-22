@@ -1,0 +1,277 @@
+{
+  "id": "20ca698c-7e01-4106-b386-1b810b16b538",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2026CT004067",
+  "numeroContratoOriginal": "492026",
+  "nuProcesso": "1354902026",
+  "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA DE REFORMA DO \r\nDEPÓSITO DE FERRAMENTAS DOS ENCARREGADOS DA DESAL, LOCALIZADO NA SEDE DA DESAL, NO MUNICÍPIO \r\nDE SALVADOR.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+    "cnpj": "39.926.521/0001-00",
+    "totalObras": 4,
+    "totalObrasAtivas": 4,
+    "valorTotalContratado": 273679.91,
+    "outrasObrasCount": 3,
+    "outrasObrasIds": [
+      "e3c5f054-829c-47f5-a281-a115cbb30420",
+      "e4d3b9e9-bd5f-4d73-b489-d99260a869ef",
+      "4c971a8b-f22a-4762-8c0e-ee07feb96345"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2026-06-26T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-09-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-06-26T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 95061.41,
+    "valorContratualVigente": 95061.41,
+    "valorEmpenhado": 94000.0,
+    "valorLiquidado": 89817.3,
+    "valorPago": 94000.0,
+    "percentualExecutado": 94.48,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "cdUnGestora": "567002",
+      "dataEmpenho": "01/09/2026",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "id": "942decff-28af-4f86-b4db-1ed0bf1b4d46",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE001080",
+      "pago": null,
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "-1.061,41"
+    },
+    {
+      "cdUnGestora": "567002",
+      "dataEmpenho": "07/08/2026",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "id": "fff408b3-da74-4770-b842-363d42446fc8",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE001008",
+      "pago": null,
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "1.061,41"
+    },
+    {
+      "cdUnGestora": "567002",
+      "dataEmpenho": "08/07/2026",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "id": "8bb0fc51-0b66-4189-921a-2b8fdeb228b3",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE000789",
+      "pago": null,
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "94.000,00"
+    }
+  ],
+  "liquidacoes": [
+    {
+      "codUnGestora": "567002",
+      "dataLiquidacao": "10/07/2026",
+      "descObsLiquidacao": "2 DG SERVIÇOS - REFORMA DO DEPÓSITO DE FERRAMENTAS DA DESAL - PROC 148792/2026 - NF 18",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "id": "cb3a7e82-1714-4cef-8072-169b76a8fd99",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE000789",
+      "notaLancamento": "2026NL005235",
+      "notaLiquidacao": "2026NL005235",
+      "numProcesso": "01487922026",
+      "pago": "0,00",
+      "siglaOrgao": "SEMAN",
+      "siglaUnGestora": "DESAL",
+      "valBrutLiquidacao": "94.000,00",
+      "valEmpenho": "94.000,00",
+      "valLiqLiquidacao": "89.864,00"
+    },
+    {
+      "codUnGestora": "567002",
+      "dataLiquidacao": "07/08/2026",
+      "descObsLiquidacao": "2DG SERVIÇOS - REFORMA DE DEPÓSITO DE FERRAMENTAS DA DESAL - PROC 175200/2026 - NF 19",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "id": "8c4f0a02-ab49-480e-969b-b46a5e649efa",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE001008",
+      "notaLancamento": "2026NL006262",
+      "notaLiquidacao": "2026NL006262",
+      "numProcesso": "01752002026",
+      "pago": "0,00",
+      "siglaOrgao": "SEMAN",
+      "siglaUnGestora": "DESAL",
+      "valBrutLiquidacao": "1.061,41",
+      "valEmpenho": "1.061,41",
+      "valLiqLiquidacao": "1.014,71"
+    },
+    {
+      "codUnGestora": "567002",
+      "dataLiquidacao": "07/08/2026",
+      "descObsLiquidacao": " ",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "id": "c2001836-f563-44aa-8bf1-d7b323dde752",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE001008",
+      "notaLancamento": "18212514",
+      "notaLiquidacao": "2026NL006583",
+      "numProcesso": "2026NL006583",
+      "pago": "0,00",
+      "siglaOrgao": "SEMAN",
+      "siglaUnGestora": "DESAL",
+      "valBrutLiquidacao": "-1.061,41",
+      "valEmpenho": "1.061,41",
+      "valLiqLiquidacao": "-1.061,41"
+    }
+  ],
+  "pagamentos": [
+    {
+      "codUnGestora": "567002",
+      "dataPagamento": "13/07/2026",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "detalhamento": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "id": "ba1e0503-519b-4b56-bc39-0c6930f68c12",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE000789",
+      "notaLiquidacao": "2026NL005235",
+      "ordBancaria": "2026OB041027",
+      "pago": "R$ 87.984,00",
+      "processoPagamento": null,
+      "siglaOrgao": "SEMAN",
+      "siglaUnGestora": "DESAL",
+      "valEmpenhado": "R$ 94.000,00"
+    },
+    {
+      "codUnGestora": "567002",
+      "dataPagamento": "13/07/2026",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "detalhamento": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "id": "9daa0086-c263-46b8-ba51-732489e68bfe",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE000789",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB041030",
+      "pago": "R$ 1.880,00",
+      "processoPagamento": null,
+      "siglaOrgao": "SEMAN",
+      "siglaUnGestora": "DESAL",
+      "valEmpenhado": "R$ 94.000,00"
+    },
+    {
+      "codUnGestora": "567002",
+      "dataPagamento": "18/08/2026",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "detalhamento": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "id": "ea229f6e-933b-4583-ad7d-984d3e4a45f9",
+      "nomeCredor": "2DG SERVICOS E SOLUCOES EM CONSTRUCOES LTDA",
+      "notaEmpenho": "2026NE000789",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB048869",
+      "pago": "R$ 4.136,00",
+      "processoPagamento": null,
+      "siglaOrgao": "SEMAN",
+      "siglaUnGestora": "DESAL",
+      "valEmpenhado": "R$ 94.000,00"
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 23/09/2026 com execução física incompleta (94.48%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Porto Seco Pirajá",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.91001,
+  "longitude": -38.454366,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2026CT004067"
+    },
+    "nuProcesso": "1354902026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Porto Seco Pirajá via Cache"
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataFim": "2028-12-31T03:00:00.000Z",
+    "dataInicio": "2025-01-01T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

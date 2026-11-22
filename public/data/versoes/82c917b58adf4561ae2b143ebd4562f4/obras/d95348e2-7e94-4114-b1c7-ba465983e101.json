@@ -1,0 +1,107 @@
+{
+  "id": "d95348e2-7e94-4114-b1c7-ba465983e101",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2022CT002639",
+  "numeroContratoOriginal": "000014/2022",
+  "nuProcesso": "025037/2022",
+  "objeto": "Objeto da presente licitação a contratação de empresa para execução as obras de Recuperação Estrutural dos Viadutos do Túnel Américo Simas, Comércio ¿ Salvador/Ba",
+  "situacao": "Rescindido",
+  "empreiteira": {
+    "razaoSocial": "MB CONSTRUCAO E SERVICOS LTDA",
+    "cnpj": "07.443.264/0001-69",
+    "totalObras": 7,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 7794082.59,
+    "outrasObrasCount": 6,
+    "outrasObrasIds": [
+      "58ab1474-64d7-4125-9c8c-b5bce0ad807f",
+      "5efcdfb9-1822-463d-9be0-e9b1ead1076c",
+      "87af8306-19d3-4b09-af08-0fdae04290a6",
+      "2339f704-7dee-4915-a9ef-ca25e37bb2fa",
+      "1e6f77b5-ac81-4f81-86de-77ad2feb5c7f",
+      "9ae8f7fb-9bdd-4545-8762-33997b6aea52"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2022-05-19T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2022-09-15T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2022-05-19T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 654108.68,
+    "valorContratualVigente": 654108.68,
+    "valorEmpenhado": 654108.68,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Mobilidade Estrutural e Orlas",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Contrato com situação cadastral de alerta (Rescindido)",
+      "Vigência expirada em 15/09/2022 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.9632,
+  "longitude": -38.507445,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT002639"
+    },
+    "nuProcesso": "025037/2022",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Comércio via Cache"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

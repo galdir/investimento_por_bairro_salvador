@@ -1,0 +1,196 @@
+{
+  "id": "78620433-a505-437f-9738-13481cc91f18",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2016CT004427",
+  "numeroContratoOriginal": "0000172016",
+  "nuProcesso": "0002932016",
+  "objeto": "AQUISIÇÃO DE AREIA GROSSA, AREIA ARTIFICIAL (PÓ DE PEDRA, BRITA 3/8 E BRITA 5/8.)",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ALDENER GONCALVES DE OLIVEIRA",
+    "cnpj": "",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 1647767.79,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "73287507-88b2-448d-9da3-c3314dd1b4f0",
+      "8ba5c35d-f086-49d2-88cf-2a2c5c3306ba",
+      "d85774be-3884-45bf-858c-285c8a45cfe4",
+      "ef7a1cd3-f318-4fa8-aaa2-2b20a8cef257",
+      "045c1b67-12a2-4fb6-8c9c-207bbb7b81ab",
+      "7f62eef7-dbce-4540-b8f7-4e4d1d15718a",
+      "f8b569f8-f65e-404d-b4c7-9a956e9cb471",
+      "0ffdb62f-8c5d-4c0e-bb6a-fb7c7453779a"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-11-29T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-01-28T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-11-29T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 41799.0,
+    "valorContratualVigente": 41799.0,
+    "valorEmpenhado": 25314.33,
+    "valorLiquidado": 25314.33,
+    "valorPago": 25314.33,
+    "percentualExecutado": 60.56,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "c5c429a1-101d-429b-8dc8-ff09ea6cd7e6",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2016NE000301",
+      "dataEmpenho": "05/12/2016",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "41.799,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "17734ec7-7e94-4d02-aa50-e553cc92a2d1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "RP1087504",
+      "dataEmpenho": "19/05/2017",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-16.484,67",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "c00add36-d69d-4115-8426-84f21b055298",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000301",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2017NL000189",
+      "notaLancamento": "2017NL000189",
+      "numProcesso": "00000012017",
+      "dataLiquidacao": "14/02/2017",
+      "valLiqLiquidacao": "25.314,33",
+      "valBrutLiquidacao": "25.314,33",
+      "valEmpenho": "41.799,00",
+      "descObsLiquidacao": "PAGAMENTO ALDENER (AREIA GROSSA) - NF 343 - PR. 1/2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "a09b1e81-aa6a-4271-aa1e-1bc3c6311cf3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000301",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2017NL000189",
+      "ordBancaria": "2017OB002568",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 41.799,00",
+      "dataPagamento": "14/02/2017",
+      "pago": "R$ 25.314,33",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 28/01/2017 com execução física incompleta (60.56%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2016CT004427"
+    },
+    "nuProcesso": "0002932016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE AREIA GROSSA, AREIA ARTIFICIAL (PÓ DE PEDRA, BRITA 3/8 E BRITA 5/8.)",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

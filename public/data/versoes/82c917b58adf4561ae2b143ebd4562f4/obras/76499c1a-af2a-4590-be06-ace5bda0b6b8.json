@@ -1,0 +1,99 @@
+{
+  "id": "76499c1a-af2a-4590-be06-ace5bda0b6b8",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2025CT006146",
+  "numeroContratoOriginal": "3782025",
+  "nuProcesso": "107563/2024",
+  "objeto": "Ampliação da Unidade de Saúde da Família Úrsula Catarino. Lote 02",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "MACJ ENGENHARIA E CONSTRUCAO LTDA",
+    "cnpj": "47.465.824/0001-09",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 333986.06,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2025-06-18T00:00:00.000Z",
+    "dataFimOriginal": "2026-06-17T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-06-17T00:00:00.000Z",
+    "prazoOriginal": "364",
+    "prazoAtualizado": "364"
+  },
+  "dom": {
+    "nuDom": "9063",
+    "dataPublicacao": "2025-11-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 333986.06,
+    "valorContratualVigente": 333986.06,
+    "valorEmpenhado": 333986.06,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 17/06/2026 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Garcia",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.99013,
+  "longitude": -38.50783,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2025CT006146"
+    },
+    "nuProcesso": "107563/2024",
+    "domContrato": {
+      "nuDom": "9063",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Cache",
+      "bairro": "Garcia",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Garcia via Cache"
+    }
+  },
+  "cdUnidadeGestora": "301110",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataFim": "2028-12-31T03:00:00.000Z",
+    "dataInicio": "2025-01-01T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

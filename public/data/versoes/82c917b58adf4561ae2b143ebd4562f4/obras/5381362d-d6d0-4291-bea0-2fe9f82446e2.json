@@ -1,0 +1,273 @@
+{
+  "id": "5381362d-d6d0-4291-bea0-2fe9f82446e2",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2023CT005369",
+  "numeroContratoOriginal": "014/2023",
+  "nuProcesso": "073996/2023",
+  "objeto": "AVALIAÇÃO DE IMOVEIS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+    "cnpj": "49.559.417/0001-88",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 40000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2023-07-14T00:00:00.000Z",
+    "dataFimOriginal": "2024-07-14T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-07-14T00:00:00.000Z",
+    "prazoOriginal": "366",
+    "prazoAtualizado": "731"
+  },
+  "dom": {
+    "nuDom": "8580",
+    "dataPublicacao": "2023-07-20T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 20000.0,
+    "valorContratualVigente": 40000.0,
+    "valorEmpenhado": 40000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 20000.0,
+    "deltaPercentualAditivos": 100.0
+  },
+  "aditivos": [
+    {
+      "nuAditivo": "1",
+      "dsTipoAlteracao": "Prorrogação de prazo com acréscimo de valor",
+      "dsObjetoAditivo": "AVALIAÇÃO DE IMOVEIS",
+      "dtAssinatura": "13/08/2024",
+      "dtTerminoVigencia": "14/07/2025",
+      "dtPublicacao": "13/08/2024",
+      "nuDom": "8843",
+      "vlAditivo": 20000.0
+    }
+  ],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "be979d11-4f28-4198-88ec-1704bc416a95",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2024NE000399",
+      "dataEmpenho": "01/03/2024",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "45ca77c0-5f80-4080-9416-9ac3f73a878b",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2025NE000097",
+      "dataEmpenho": "02/01/2025",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "1.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "22b61291-2e27-4447-8091-74eab9265360",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2024NE001777",
+      "dataEmpenho": "10/12/2024",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "17232ada-cd4d-4869-bdd8-744b18ec58dd",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2024NE001776",
+      "dataEmpenho": "10/12/2024",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "cab8f1f5-86e9-4432-91e9-6856dc8b5f19",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2024NE001156",
+      "dataEmpenho": "13/08/2024",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "aa4e6700-1e71-4f33-8480-325c14f70f69",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2023NE000836",
+      "dataEmpenho": "14/07/2023",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9f8fadf9-9bfa-426f-ad49-913ae691fa7e",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2025NE002086",
+      "dataEmpenho": "18/12/2025",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-1.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "d307a24c-e34f-4d9b-b28b-9483546bf924",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2023NE001696",
+      "dataEmpenho": "28/12/2023",
+      "nomeCredor": "LC PERICIAS, AVALIACOES E CONSULTORIAS LTDA",
+      "fonteRecurso": "Recursos Provenientes de Taxas, Contribuições e Preços Públicos - Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Juridica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 14/07/2025 com execução física incompleta (0.0%)",
+      "Variação Contratual Acumulada superior a 25% (+100.0%) em relação ao contrato original",
+      "Prorrogação de prazo concedida: término estendido de 14/07/2024 para 14/07/2025",
+      "Contrato possui termo aditivo de prorrogação de prazo formalizado"
+    ],
+    "deltaPercentualValor": 100.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2023CT005369"
+    },
+    "nuProcesso": "073996/2023",
+    "domContrato": {
+      "nuDom": "8580",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [
+      {
+        "nuAditivo": "1",
+        "nuDom": "8843",
+        "dtPublicacao": "13/08/2024",
+        "url": "https://dom.salvador.ba.gov.br/"
+      }
+    ],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

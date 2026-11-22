@@ -1,0 +1,119 @@
+{
+  "id": "eb9ef3ca-c5e8-443f-949a-e334b524e9f3",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2026CT005291",
+  "numeroContratoOriginal": "0152026",
+  "nuProcesso": "1443202026",
+  "objeto": "Contratação de empresa capacitada para fornecimento e instalação de arquibancadas retráteis e seus assentos para o Complexo Multiuso Arena Salvador, localizado Avenida Otávio Mangabeira ¿ Boca do Rio - Salvador/BA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RECOMA CONSTRUCOES, COMERCIO E INDUSTRIA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 5990000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2026-09-15T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2027-03-13T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-09-15T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 5990000.0,
+    "valorContratualVigente": 5990000.0,
+    "valorEmpenhado": 5990000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "cdUnGestora": "616002",
+      "dataEmpenho": "15/09/2026",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Obras e Instalações",
+      "fonteRecurso": "Recursos de Operações de Crédito Interna - Principal - Tesouro",
+      "id": "f851e56a-48d4-46dc-8702-6eba48c0d9bf",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "RECOMA CONSTRUCOES, COMERCIO E INDUSTRIA LTDA",
+      "notaEmpenho": "2026NE001157",
+      "pago": null,
+      "subElemDespesa": "Construção e Ampliação de Edifícios Públicos",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "5.990.000,00"
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Boca do Rio",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.975454,
+  "longitude": -38.428853,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2026CT005291"
+    },
+    "nuProcesso": "1443202026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Boca do Rio",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Boca do Rio via Cache"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataFim": "2028-12-31T03:00:00.000Z",
+    "dataInicio": "2025-01-01T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

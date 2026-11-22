@@ -1,0 +1,263 @@
+{
+  "id": "ee6c63b7-c7ff-4570-80fe-5d31b9612d62",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2017CT003374",
+  "numeroContratoOriginal": "000436/2017",
+  "nuProcesso": "000291/2017",
+  "objeto": "Concessão de apoio para realização do Projeto ¿2ª Etapa de Campeonato Brasileiro de Stand Up Paddle 2017¿, a ser realizado no dia 05 de agosto de 2017, pela ASSOCIAÇÃO BAHIANA DE STAND UP PADDLE - ABASUP, neste\r\nMunicípio.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 30000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-07-13T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-12-13T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-07-13T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 30000.0,
+    "valorContratualVigente": 30000.0,
+    "valorEmpenhado": 30000.0,
+    "valorLiquidado": 28500.0,
+    "valorPago": 30000.0,
+    "percentualExecutado": 95.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Realização do Calendário Anual de Eventos e Festas Populares",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "2aa40d6f-4b74-4619-8c75-0fda909c97e3",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "cdUnGestora": "547002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "notaEmpenho": "2017NE000798",
+      "dataEmpenho": "19/07/2017",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Patrocínio de Eventos",
+      "valEmpenhado": "30.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "c746d13f-7d93-4400-9a65-f34e4fa12061",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2017NE000798",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "notaLiquidacao": "2017NL004640",
+      "notaLancamento": "2017NL004640",
+      "numProcesso": "00012642017",
+      "dataLiquidacao": "22/08/2017",
+      "valLiqLiquidacao": "28.500,00",
+      "valBrutLiquidacao": "30.000,00",
+      "valEmpenho": "30.000,00",
+      "descObsLiquidacao": "PAGAMENTO REFERENTE APOIO FINANCEIRO MEDIANTE COTA DE PATROCÍNIO PELA REALIZAÇÃO DO PROJETO 2ª ETAPA DO CAMPEONATO BRASILEIRO DE STAND UP PADDLE 2017, 05/08/2017, CONTRATO Nº 436/2017, NFS-E Nº 00000001/2017.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "1eff5135-acc2-4636-84c4-e498c7d0b01d",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2017NE000798",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017NL004640",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 30.000,00",
+      "dataPagamento": "22/08/2017",
+      "pago": "R$ 1.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b064cb79-ddbd-4f4f-9d2e-1e569838cc41",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2017NE000798",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "notaLiquidacao": "2017NL004640",
+      "ordBancaria": "2017OB021543",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 30.000,00",
+      "dataPagamento": "22/08/2017",
+      "pago": "R$ 28.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "80840bdf-b03b-4ac3-859c-90a34df02d08",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2017NE000798",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017PP002856",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 30.000,00",
+      "dataPagamento": "25/08/2017",
+      "pago": "R$ -1.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8105dfe6-20c2-4490-859b-9e718c18b8a7",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2017NE000798",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017PP002856",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 30.000,00",
+      "dataPagamento": "25/08/2017",
+      "pago": "R$ 1.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "98350a98-96e8-43ea-a5ef-b58cc323c52c",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2017NE000798",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017OB021545",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 30.000,00",
+      "dataPagamento": "28/08/2017",
+      "pago": "R$ 1.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "81b7f340-5ba1-4d57-8801-8a515d7a4c9e",
+      "descOrgao": "Secretaria Municipla de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2017NE000798",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "ASSOCIACAO BAHIANA DE STAND UP PADDLE - ABASUP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2017OB021545",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 30.000,00",
+      "dataPagamento": "28/08/2017",
+      "pago": "R$ -1.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "547002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2017CT003374"
+    },
+    "nuProcesso": "000291/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Concessão de apoio para realização do Projeto ¿2ª Etapa de Campeonato Brasileiro de Stand Up Paddle 2017¿, a ser realizado no dia 05 de agosto de 2017, pela ASSOCIAÇÃO BAHIANA DE STAND UP PADDLE - ABASUP, neste  Município.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "547002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

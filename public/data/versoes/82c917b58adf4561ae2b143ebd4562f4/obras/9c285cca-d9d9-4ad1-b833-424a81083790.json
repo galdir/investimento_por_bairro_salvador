@@ -1,0 +1,263 @@
+{
+  "id": "9c285cca-d9d9-4ad1-b833-424a81083790",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2021CT003439",
+  "numeroContratoOriginal": "000002/2021",
+  "nuProcesso": "140615/2021",
+  "objeto": "Para realização de estudo técnico para identificação de problemas na estrutura física da Casa do Benin, Espaço Cultural da Barroquinha, Teatro Gregório deMattos e sede da Fundação Gregório de Mattos, bem como dos equipamentos de iluminação cênica e sonorização do Espaço Cultural da Barroquinha e Teatro Gregório de Matto",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CLA ENGENHARIA EIRELI",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 17500.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2021-08-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2021-10-10T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2021-08-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 17500.0,
+    "valorContratualVigente": 17500.0,
+    "valorEmpenhado": 17500.0,
+    "valorLiquidado": 17500.0,
+    "valorPago": 17500.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Espaços Culturais",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "488497db-b2cc-411d-90c1-c6c13edd985b",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "cdUnGestora": "543002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "notaEmpenho": "2021NE000266",
+      "dataEmpenho": "16/08/2021",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "17.500,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "75dddd0c-8c6b-4d9f-a5cc-2310697be2f2",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2021NE000266",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "notaLiquidacao": "2021NL004504",
+      "notaLancamento": "2021NL004504",
+      "numProcesso": "01406152021",
+      "dataLiquidacao": "30/11/2021",
+      "valLiqLiquidacao": "17.500,00",
+      "valBrutLiquidacao": "17.500,00",
+      "valEmpenho": "17.500,00",
+      "descObsLiquidacao": "NFS-e nº 00000139 ref. serviços para realização de estudo técnico para identificação de problemas na estrutura física da Casa do Benin, Espaço Cultural da Barroquinha, Teatro Gregório de Mattos e sede da Fundação Gregório de Mattos, bem como dos equipamentos de iluminação cênica e sonorização do Espaço Cultural da Barroquinha e Teatro Gregório de Mattos.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "ef258c06-593f-40f1-82ec-3047a6552079",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2021NE000266",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021PP002108",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 17.500,00",
+      "dataPagamento": "03/12/2021",
+      "pago": "R$ 875,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "9e9c2a87-a23c-4b93-a689-35b40618277f",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2021NE000266",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021PP002109",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 17.500,00",
+      "dataPagamento": "03/12/2021",
+      "pago": "R$ 875,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "f04bf774-9bad-4b80-b372-1638a50e6c62",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2021NE000266",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021PP002109",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 17.500,00",
+      "dataPagamento": "03/12/2021",
+      "pago": "R$ -875,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "ee30bf38-16eb-4351-8296-982a4cd5d309",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2021NE000266",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "notaLiquidacao": "2021NL004504",
+      "ordBancaria": "2021OB054224",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 17.500,00",
+      "dataPagamento": "06/12/2021",
+      "pago": "R$ 16.625,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "23b6e616-1d09-44bd-9166-2ee6a1e1cc13",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2021NE000266",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021OB054225",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 17.500,00",
+      "dataPagamento": "06/12/2021",
+      "pago": "R$ 875,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "9560ca2d-07f7-4e4f-9399-5936598cf7e9",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2021NE000266",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "CLA ENGENHARIA EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2021OB054225",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 17.500,00",
+      "dataPagamento": "06/12/2021",
+      "pago": "R$ -875,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Centro Histórico",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.973943,
+  "longitude": -38.510481,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "543002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2021CT003439"
+    },
+    "nuProcesso": "140615/2021",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Centro Histórico",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Centro Histórico via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Casa do Benin, Espaço Cultural da Barroquinha, Teatro Gregório deMattos e sede da Fundação Gregório de Mattos",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Todos os 4 equipamentos culturais objeto do estudo técnico (Casa do Benin no Pelourinho e complexo Espaço Cultural/Teatro Gregório de Mattos/sede FGM na Ladeira da Barroquinha nº 02) situam-se no polígono do Bairro Oficial Centro Histórico."
+    }
+  },
+  "cdUnidadeGestora": "543002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

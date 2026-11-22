@@ -1,0 +1,105 @@
+{
+  "id": "c733ae6d-530a-4cde-b249-dd55b57a2193",
+  "unidadeGestora": "SEMGE",
+  "numeroContrato": "2015CT000552",
+  "numeroContratoOriginal": "124/2015",
+  "nuProcesso": "1841/2015",
+  "objeto": "Contratação de serviços de perícias técnicas e fiscalização, compreendendo vistorias, emissão de laudo técnico com proposições de medidas corretivas, bem como a verificação dos serviços elaborados visando a intervenção nas residências precárias nos bairros e ilhas do Município de Salvador, para atendimento ao Projeto Morar Melhor",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "GLOBO ENGENHARIA EIRELI",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 44297810.6,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "aad1c46c-467b-4842-bd69-ecbfe241172e"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2015-08-10T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-08-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2015-08-10T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 6389890.0,
+    "valorContratualVigente": 22620210.6,
+    "valorEmpenhado": 22620210.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 16230320.6,
+    "deltaPercentualAditivos": 254.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 09/08/2018 com execução física incompleta (0.0%)",
+      "Variação Contratual Acumulada superior a 25% (+254.0%) em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 254.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "410002",
+      "unidadeGestora": "SEMGE",
+      "nuContratoSigef": "2015CT000552"
+    },
+    "nuProcesso": "1841/2015",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Contratação de serviços de perícias técnicas e fiscalização, compreendendo vistorias, emissão de laudo técnico com proposições de medidas corretivas, bem como a verificação dos serviços elaborados visando a intervenção nas residências precárias nos bairros e ilhas do Município de Salvador, para atendimento ao Projeto Morar Melhor",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "410002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

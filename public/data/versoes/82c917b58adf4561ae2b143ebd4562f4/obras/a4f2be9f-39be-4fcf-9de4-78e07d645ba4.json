@@ -1,0 +1,168 @@
+{
+  "id": "a4f2be9f-39be-4fcf-9de4-78e07d645ba4",
+  "unidadeGestora": "SEDUR",
+  "numeroContrato": "2017CT004035",
+  "numeroContratoOriginal": "000006/2017",
+  "nuProcesso": "000452/2017",
+  "objeto": "Pagamento de Registro de Responsabilidade Técnica-RRTao Conselho de Arquitetura e Urbanismo-CAU, do Projeto Urbanístico de Praça com quadra de esporte.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CONSELHO DE ARQUITETURA E URBANISMO DA BAHIA - CAU - BA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 89.75,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-08-16T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-12-31T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-08-16T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 89.75,
+    "valorContratualVigente": 89.75,
+    "valorEmpenhado": 89.75,
+    "valorLiquidado": 89.75,
+    "valorPago": 89.75,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - FMLF",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "2804db17-4626-4ce5-a450-87a87653c959",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento e Urbanismo",
+      "cdUnGestora": "603002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMLF - Fundação Mário Leal Ferreira",
+      "notaEmpenho": "2017NE000349",
+      "dataEmpenho": "29/08/2017",
+      "nomeCredor": "CONSELHO DE ARQUITETURA E URBANISMO DA BAHIA - CAU - BA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Preço Público e taxas Obrigatórias",
+      "valEmpenhado": "89,75",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "aaabf26f-b8f1-42f0-af6a-90b6f91c2642",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento e Urbanismo",
+      "siglaOrgao": "SEDUR",
+      "notaEmpenho": "2017NE000349",
+      "codUnGestora": "603002",
+      "descUnGestora": "UG FMLF - Fundação Mário Leal Ferreira",
+      "siglaUnGestora": "FMLF",
+      "nomeCredor": "CONSELHO DE ARQUITETURA E URBANISMO DA BAHIA - CAU - BA",
+      "notaLiquidacao": "2017NL002053",
+      "notaLancamento": "2017NL002053",
+      "numProcesso": "00004522017",
+      "dataLiquidacao": "29/08/2017",
+      "valLiqLiquidacao": "89,75",
+      "valBrutLiquidacao": "89,75",
+      "valEmpenho": "89,75",
+      "descObsLiquidacao": "PAGAMENTO  DE REGISTRO DE RESPONSABILIDADE TECNICA - RTT , DO PROJETO URBANISTICO  DE PRAÇA COM QUADRA DE ESPORTES - PROC. 452/2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "bb19d06d-6e94-4a6f-bf79-835e170f61a9",
+      "descOrgao": "Secretaria Municipal de Desenvolvimento e Urbanismo",
+      "siglaOrgao": "SEDUR",
+      "notaEmpenho": "2017NE000349",
+      "codUnGestora": "603002",
+      "descUnGestora": "UG FMLF - Fundação Mário Leal Ferreira",
+      "siglaUnGestora": "FMLF",
+      "nomeCredor": "CONSELHO DE ARQUITETURA E URBANISMO DA BAHIA - CAU - BA",
+      "notaLiquidacao": "2017NL002053",
+      "ordBancaria": "2017OB022025",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 89,75",
+      "dataPagamento": "29/08/2017",
+      "pago": "R$ 89,75",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "603002",
+      "unidadeGestora": "SEDUR",
+      "nuContratoSigef": "2017CT004035"
+    },
+    "nuProcesso": "000452/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Pagamento de Registro de Responsabilidade Técnica-RRTao Conselho de Arquitetura e Urbanismo-CAU, do Projeto Urbanístico de Praça com quadra de esporte.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "603002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

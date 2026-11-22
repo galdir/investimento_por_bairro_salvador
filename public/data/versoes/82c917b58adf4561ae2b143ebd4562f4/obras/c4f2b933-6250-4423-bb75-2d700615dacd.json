@@ -1,0 +1,180 @@
+{
+  "id": "c4f2b933-6250-4423-bb75-2d700615dacd",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2016CT001985",
+  "numeroContratoOriginal": "000006/2016",
+  "nuProcesso": "000190/2016",
+  "objeto": "FORNECIMENTO DE MATERIAIS DE CONSTRUÇÃO (TELA ELETROSOLDADA), CONF. LOTE III",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PODIUM DISTRIBUIDORA LTDA",
+    "cnpj": "",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 1524874.62,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "d63747ad-b8b0-4bb7-ba6e-694a5fad5976",
+      "19082b32-dba1-468a-8959-d960cd7d7002",
+      "7173c9b2-7a5e-4f97-98fa-5840329c148a",
+      "ad0b156d-6377-4437-b611-4f420de9f526",
+      "856487f7-a8e5-41d0-9e95-f9d2e2493743",
+      "811c1a71-4356-418f-8a60-05f69b762e91",
+      "991f8e21-c926-4016-9954-743429ec1c8a",
+      "551e2fd4-8ccf-4eef-8191-3a5e96328e4f",
+      "5c01f983-3913-4a93-a5aa-b7bc63599ea6",
+      "16165255-0a1d-4a41-b40c-476df5d80ed3",
+      "93ae0d9d-0a6f-4b3c-a1fc-64b75e7cf93d"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-05-09T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-05-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-05-09T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 208300.0,
+    "valorContratualVigente": 208300.0,
+    "valorEmpenhado": 208300.0,
+    "valorLiquidado": 208300.0,
+    "valorPago": 208300.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "6f962854-ad1b-424c-b4b9-cbdafa5c525d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2016NE000258",
+      "dataEmpenho": "30/05/2016",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "208.300,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "08389ffc-06c7-402f-9a10-5e94997e3ddd",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000258",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2016NL003213",
+      "notaLancamento": "2016NL003213",
+      "numProcesso": "00007332016",
+      "dataLiquidacao": "25/07/2016",
+      "valLiqLiquidacao": "208.300,00",
+      "valBrutLiquidacao": "208.300,00",
+      "valEmpenho": "208.300,00",
+      "descObsLiquidacao": "Despesa com aquisição de telas eletros soldada galvanizada, tela MF 138, tela MF 196, contrato nº:006/2016, conforme nota fiscal nº: 4.483.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "fb0902c4-5de6-444f-a90c-24dd282b8fab",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000258",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2016NL003213",
+      "ordBancaria": "2016OB019384",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 208.300,00",
+      "dataPagamento": "25/07/2016",
+      "pago": "R$ 208.300,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2016CT001985"
+    },
+    "nuProcesso": "000190/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "FORNECIMENTO DE MATERIAIS DE CONSTRUÇÃO (TELA ELETROSOLDADA), CONF. LOTE III",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

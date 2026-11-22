@@ -1,0 +1,260 @@
+{
+  "id": "bb48e01a-ee9c-4213-b62b-14c4dcf8538b",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2018CT007518",
+  "numeroContratoOriginal": "572/2018",
+  "nuProcesso": "402/2018",
+  "objeto": "O presente contrato tem por objeto a contratação de pessoa\r\njurídica especializada em serviço de adequações de instalações da nova sede da SECULT/SALTUR\r\nno bairro do Comércio.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "TUPINANQUIM ARQUITETURA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 89678.41,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-12-21T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-06-21T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-12-21T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 89678.41,
+    "valorContratualVigente": 89678.41,
+    "valorEmpenhado": 89678.41,
+    "valorLiquidado": 87875.87,
+    "valorPago": 89678.41,
+    "percentualExecutado": 97.99,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - SALTUR",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "3466372a-03e8-4eab-97d4-0010fef815f0",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "cdUnGestora": "547002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "notaEmpenho": "2018NE001228",
+      "dataEmpenho": "26/12/2018",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
+      "valEmpenhado": "89.678,41",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "7b9dea79-613f-4bc9-85af-57a10b995d91",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE001228",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "notaLiquidacao": "2019NL000448",
+      "notaLancamento": "2019NL000448",
+      "numProcesso": "00001052019",
+      "dataLiquidacao": "04/02/2019",
+      "valLiqLiquidacao": "87.875,87",
+      "valBrutLiquidacao": "89.678,41",
+      "valEmpenho": "89.678,41",
+      "descObsLiquidacao": "PAGAMENTO REFERENTE AO SERVIÇO DE ADEQUAÇÕES DE INSTALAÇÕES DA NOVA SEDE SECULT/SALTUR, NO BAIRRO DO COMÉRCIO, CONTRATO Nº 572-D/2018, NFS-E Nº 00000005/2019.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "374b0306-0f57-48fa-a8c7-0036a5e4d904",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE001228",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "notaLiquidacao": "2019NL000448",
+      "ordBancaria": "2019OB002402",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 89.678,41",
+      "dataPagamento": "04/02/2019",
+      "pago": "R$ 87.875,87",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "49e646d0-adec-442f-8449-b5ebc6bd4be7",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE001228",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019PP000325",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 89.678,41",
+      "dataPagamento": "04/02/2019",
+      "pago": "R$ -1.802,54",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "de0150ab-a4a2-4185-8977-ab3510153ee7",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE001228",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019PP000325",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 89.678,41",
+      "dataPagamento": "04/02/2019",
+      "pago": "R$ 1.802,54",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b9eca548-01fc-4a32-9570-c618e469c69b",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE001228",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019NL000448",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 89.678,41",
+      "dataPagamento": "04/02/2019",
+      "pago": "R$ 1.802,54",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "69333f2d-8583-48b0-90b4-3200fbb85134",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE001228",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019OB002403",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 89.678,41",
+      "dataPagamento": "05/02/2019",
+      "pago": "R$ -1.802,54",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "5efe4821-fa29-4208-9941-a8fc09d656f5",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE001228",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "TUPINANQUIM ARQUITETURA LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2019OB002403",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 89.678,41",
+      "dataPagamento": "05/02/2019",
+      "pago": "R$ 1.802,54",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.9632,
+  "longitude": -38.507445,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "547002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2018CT007518"
+    },
+    "nuProcesso": "402/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Comércio via Cache"
+    }
+  },
+  "cdUnidadeGestora": "547002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

@@ -1,0 +1,176 @@
+{
+  "id": "c2e367da-163b-49ae-82b6-3a4c7e12c65d",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT003889",
+  "numeroContratoOriginal": "000029/2018",
+  "nuProcesso": "000026/2018",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE DILUENTE: MONÔMETRO DE ESTIRENO PARA SETOR DE FIBRA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 1565042.0,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "5dd4c7f9-8dae-45aa-aa4d-e02897433130",
+      "a942ae46-fdac-4b08-a447-e05b6691271e",
+      "398998e5-994a-4744-80e8-62baf7c0bce2",
+      "0081ba3e-0374-4862-aafe-04851cc2bc23",
+      "c66c95de-b469-4962-9cea-25eeeae1607b",
+      "e98994b5-c1dc-4306-976d-f7b4b6eb84c6",
+      "7c2d28ac-6a71-466d-b266-38fe9f07e320"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-07-23T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-07-22T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-07-23T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 14115.6,
+    "valorContratualVigente": 14115.6,
+    "valorEmpenhado": 14115.6,
+    "valorLiquidado": 14115.6,
+    "valorPago": 14115.6,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Argamassa e Concreto",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "5986c66a-027b-4973-aa55-692e223651b3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000390",
+      "dataEmpenho": "30/07/2018",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "14.115,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "163de2ff-a474-4a72-a51d-18202d40453a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000390",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL004022",
+      "notaLancamento": "2018NL004022",
+      "numProcesso": "00008122018",
+      "dataLiquidacao": "01/10/2018",
+      "valLiqLiquidacao": "14.115,60",
+      "valBrutLiquidacao": "14.115,60",
+      "valEmpenho": "14.115,60",
+      "descObsLiquidacao": "BAHIA FORTE - FORNECIMENTO DILUENTE DE ESTIRENO - NF 956 - CT 029/2018 - PROCESSO 956/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "8ca9ead7-9854-405b-bcec-5aa46b5ead9f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000390",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL004022",
+      "ordBancaria": "2018OB029454",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 14.115,60",
+      "dataPagamento": "01/10/2018",
+      "pago": "R$ 14.115,60",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT003889"
+    },
+    "nuProcesso": "000026/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE DILUENTE: MONÔMETRO DE ESTIRENO PARA SETOR DE FIBRA",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

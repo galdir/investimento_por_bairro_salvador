@@ -1,0 +1,150 @@
+{
+  "id": "ab320193-abf9-409a-a0ec-a39dcb795aa7",
+  "unidadeGestora": "SUCOM",
+  "numeroContrato": "2016CT004473",
+  "numeroContratoOriginal": "0000052016",
+  "nuProcesso": "0003302016",
+  "objeto": "Contratação de Empresa para Elaboração de projeto Executivo de Arquitetura e Restauração e Complementares de Requalificação do Mercado Modelo",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DOMO ARQUITETURA ENGENHARIA E PROJETOS CULTURAIS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 564245.45,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2016-11-23T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-09-16T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-11-23T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 477425.63,
+    "valorContratualVigente": 564245.45,
+    "valorEmpenhado": 26387.41,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 86819.82,
+    "deltaPercentualAditivos": 18.18
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Elaboração de Projetos Especiais",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Serviços de Consultoria "
+    },
+    {
+      "subacao": "Elaboração de Projetos Especiais",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "classificacao": "Serviços de Consultoria "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "5a538a72-1ba8-4941-9131-e5327c0fd9a6",
+      "descOrgao": "Secretaria Municipal de Urbanismo",
+      "cdUnGestora": "553002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMLF - Fundação Mario Leal Ferreira",
+      "notaEmpenho": "2016NE000411",
+      "dataEmpenho": "07/12/2016",
+      "nomeCredor": "DOMO ARQUITETURA ENGENHARIA E PROJETOS CULTURAIS LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Serviços de Consultoria ",
+      "subElemDespesa": "Consultoria de Engenharia e Arquitetura PJ",
+      "valEmpenhado": "16.838,82",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "5b69b599-6180-4cf0-bb6d-776cf246b9ee",
+      "descOrgao": "Secretaria Municipal de Urbanismo",
+      "cdUnGestora": "553002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMLF - Fundação Mario Leal Ferreira",
+      "notaEmpenho": "2016NE000410",
+      "dataEmpenho": "07/12/2016",
+      "nomeCredor": "DOMO ARQUITETURA ENGENHARIA E PROJETOS CULTURAIS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Serviços de Consultoria ",
+      "subElemDespesa": "Consultoria de Engenharia e Arquitetura PJ",
+      "valEmpenhado": "9.548,59",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 16/09/2019 com execução física incompleta (0.0%)",
+      "Variação Contratual Acumulada entre 10% e 25% (+18.18%) em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 18.18
+  },
+  "nivel": "Pontual",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.97297,
+  "longitude": -38.51399,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "553002",
+      "unidadeGestora": "SUCOM",
+      "nuContratoSigef": "2016CT004473"
+    },
+    "nuProcesso": "0003302016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Cache",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Comércio via Cache"
+    }
+  },
+  "cdUnidadeGestora": "553002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

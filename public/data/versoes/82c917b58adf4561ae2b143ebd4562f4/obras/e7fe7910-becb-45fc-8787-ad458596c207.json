@@ -1,0 +1,170 @@
+{
+  "id": "e7fe7910-becb-45fc-8787-ad458596c207",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000523",
+  "numeroContratoOriginal": "000039/2017",
+  "nuProcesso": "000407/2017",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE LÂMINA DE SERRA- CT-39/2017",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "FERGAVI COMERCIAL LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 64957.88,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "849ef271-5ef4-45c5-86b4-56f58e7869b1"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-26T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-02-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-26T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1252.0,
+    "valorContratualVigente": 1252.0,
+    "valorEmpenhado": 1252.0,
+    "valorLiquidado": 1252.0,
+    "valorPago": 1252.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "5d4ffd7e-19af-4249-b4cd-ea2c7205f82a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000080",
+      "dataEmpenho": "30/01/2018",
+      "nomeCredor": "FERGAVI COMERCIAL LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "1.252,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "076effbc-1926-422b-a53e-672615e6b1ab",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000080",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "FERGAVI COMERCIAL LTDA",
+      "notaLiquidacao": "2018NL000897",
+      "notaLancamento": "2018NL000897",
+      "numProcesso": "00001932018",
+      "dataLiquidacao": "23/03/2018",
+      "valLiqLiquidacao": "1.252,00",
+      "valBrutLiquidacao": "1.252,00",
+      "valEmpenho": "1.252,00",
+      "descObsLiquidacao": "PAGAMENTO FERGAVI NF:7662- (SERRA MANUAL) PR. 193/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "447c4a1c-a76d-4bdd-9370-636168d82380",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000080",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "FERGAVI COMERCIAL LTDA",
+      "notaLiquidacao": "2018NL000897",
+      "ordBancaria": "2018OB007749",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 1.252,00",
+      "dataPagamento": "23/03/2018",
+      "pago": "R$ 1.252,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000523"
+    },
+    "nuProcesso": "000407/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE LÂMINA DE SERRA- CT-39/2017",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

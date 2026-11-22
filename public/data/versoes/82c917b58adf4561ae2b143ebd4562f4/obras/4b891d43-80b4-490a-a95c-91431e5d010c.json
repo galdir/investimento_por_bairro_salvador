@@ -1,0 +1,216 @@
+{
+  "id": "4b891d43-80b4-490a-a95c-91431e5d010c",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2024CT000203",
+  "numeroContratoOriginal": "02/2024",
+  "nuProcesso": "187731/2023",
+  "objeto": "1.1\tContratação de empresa especializada para prestação de serviços de Locação de Praticáveis,  mobiliários equipamentos (tendas/disciplinadores) incluindo, montagem e desmontagem com fornecimento de  cobertura, instalação elétrica, sanitário químico,  hidrossanitária, telefonia e lógica,  climatização, cercamento (fechamento externo), caixa d¿água e estrutura metálica de apoio, para ser utilizado",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "T J E LOCACAO DE TOLDOS LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 488999.98,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2023-12-15T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2024-03-13T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2023-12-15T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 488999.98,
+    "valorContratualVigente": 488999.98,
+    "valorEmpenhado": 488999.98,
+    "valorLiquidado": 488999.98,
+    "valorPago": 488999.98,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "118b8729-aa22-4731-8885-317bafdd2caf",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2024NE000108",
+      "dataEmpenho": "10/01/2024",
+      "nomeCredor": "T J E LOCACAO DE TOLDOS LTDA",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Locação de Espaço e Equipamentos para Eventos",
+      "valEmpenhado": "488.999,98",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "adc172ce-757a-471b-af3b-c7c1c71ecfd6",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2024NE000108",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "T J E LOCACAO DE TOLDOS LTDA",
+      "notaLiquidacao": "2024NL004820",
+      "notaLancamento": "2024NL004820",
+      "numProcesso": "00514262024",
+      "dataLiquidacao": "15/03/2024",
+      "valLiqLiquidacao": "488.999,98",
+      "valBrutLiquidacao": "488.999,98",
+      "valEmpenho": "488.999,98",
+      "descObsLiquidacao": "Pagamento referente a locação de praticáveis, mobiliários e equipamentos, incluindo montag",
+      "pago": "0,00"
+    },
+    {
+      "id": "e8ecf1c6-6e39-45ca-a80e-ded8a15c6329",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2024NE000108",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "T J E LOCACAO DE TOLDOS LTDA",
+      "notaLiquidacao": "2024NL004966",
+      "notaLancamento": "5440072",
+      "numProcesso": "2024NL004966",
+      "dataLiquidacao": "15/03/2024",
+      "valLiqLiquidacao": "-488.999,98",
+      "valBrutLiquidacao": "-488.999,98",
+      "valEmpenho": "488.999,98",
+      "descObsLiquidacao": " ",
+      "pago": "0,00"
+    },
+    {
+      "id": "470ea8a2-fa41-4741-b552-3b317d170a88",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2024NE000108",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "T J E LOCACAO DE TOLDOS LTDA",
+      "notaLiquidacao": "2024NL004971",
+      "notaLancamento": "2024NL004971",
+      "numProcesso": "00514262024",
+      "dataLiquidacao": "18/03/2024",
+      "valLiqLiquidacao": "488.999,98",
+      "valBrutLiquidacao": "488.999,98",
+      "valEmpenho": "488.999,98",
+      "descObsLiquidacao": "Pagamento referente a locação de praticáveis, mobiliários e equipamentos, incluindo montag",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "9b0375f1-6c50-4ca0-86c6-fff6b4d369e8",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2024NE000108",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "T J E LOCACAO DE TOLDOS LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB018778",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 488.999,98",
+      "dataPagamento": "19/03/2024",
+      "pago": "R$ 2.445,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8c833ae8-0eab-4895-be0e-f65275695e99",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2024NE000108",
+      "codUnGestora": "520002",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "siglaUnGestora": "SEMPRE",
+      "nomeCredor": "T J E LOCACAO DE TOLDOS LTDA",
+      "notaLiquidacao": "2024NL004971",
+      "ordBancaria": "2024OB018777",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 488.999,98",
+      "dataPagamento": "19/03/2024",
+      "pago": "R$ 486.554,98",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2024CT000203"
+    },
+    "nuProcesso": "187731/2023",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

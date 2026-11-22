@@ -1,0 +1,180 @@
+{
+  "id": "551e2fd4-8ccf-4eef-8191-3a5e96328e4f",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000859",
+  "numeroContratoOriginal": "000057/2018",
+  "nuProcesso": "000871/2017",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE TELHA TRAPEZOIDAL, APOSTILADO DA SEMAN PARA DESAL CONFORME TERMO DE APOSTILAMENTO Nº09/2018 DOM 7032 DE 30/01/18. CT-57/2018.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PODIUM DISTRIBUIDORA LTDA",
+    "cnpj": "",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 1524874.62,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "d63747ad-b8b0-4bb7-ba6e-694a5fad5976",
+      "19082b32-dba1-468a-8959-d960cd7d7002",
+      "7173c9b2-7a5e-4f97-98fa-5840329c148a",
+      "ad0b156d-6377-4437-b611-4f420de9f526",
+      "856487f7-a8e5-41d0-9e95-f9d2e2493743",
+      "811c1a71-4356-418f-8a60-05f69b762e91",
+      "991f8e21-c926-4016-9954-743429ec1c8a",
+      "5c01f983-3913-4a93-a5aa-b7bc63599ea6",
+      "16165255-0a1d-4a41-b40c-476df5d80ed3",
+      "93ae0d9d-0a6f-4b3c-a1fc-64b75e7cf93d",
+      "c4f2b933-6250-4423-bb75-2d700615dacd"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-18T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-03-17T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-18T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 69993.0,
+    "valorContratualVigente": 69993.0,
+    "valorEmpenhado": 69993.0,
+    "valorLiquidado": 69993.0,
+    "valorPago": 69993.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "0165bbf0-9090-445d-a5f8-921039adce1a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000088",
+      "dataEmpenho": "30/01/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "69.993,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "2bcaefd2-d319-4029-8e38-48efcea41327",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000088",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002175",
+      "notaLancamento": "2018NL002175",
+      "numProcesso": "00004622018",
+      "dataLiquidacao": "19/06/2018",
+      "valLiqLiquidacao": "69.993,00",
+      "valBrutLiquidacao": "69.993,00",
+      "valEmpenho": "69.993,00",
+      "descObsLiquidacao": "PODIUM - AQUISIÇÃO COM ENTREGA INCLUSA DE TELHA TRAPEZOIDAL NF 4572 PROCESSO 462/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "ebd5b7f6-0dda-4a52-a87c-0ee248f21a75",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000088",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL002175",
+      "ordBancaria": "2018OB017557",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 69.993,00",
+      "dataPagamento": "19/06/2018",
+      "pago": "R$ 69.993,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000859"
+    },
+    "nuProcesso": "000871/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE TELHA TRAPEZOIDAL, APOSTILADO DA SEMAN PARA DESAL CONFORME TERMO DE APOSTILAMENTO Nº09/2018 DOM 7032 DE 30/01/18. CT-57/2018.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

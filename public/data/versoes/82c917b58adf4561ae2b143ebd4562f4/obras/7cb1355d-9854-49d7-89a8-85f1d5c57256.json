@@ -1,0 +1,101 @@
+{
+  "id": "7cb1355d-9854-49d7-89a8-85f1d5c57256",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2015CT000654",
+  "numeroContratoOriginal": "2015CT000654",
+  "nuProcesso": "4809/2014",
+  "objeto": "CT 035/2015- Contratação de empresa especializada para construção do Centro de Educação Integral Pirajá -Pr. 4809/2014",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "AIF BRASIL CONSTRUTORA LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 21240656.44,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "05a143ae-997e-41d4-9c83-81a9ea5b8377"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2015-08-20T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-02-21T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2015-08-20T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 14277259.59,
+    "valorContratualVigente": 14277259.59,
+    "valorEmpenhado": 14277259.59,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 21/02/2017 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Pirajá",
+  "prefeituraBairro": "Valéria",
+  "latitude": -12.888251,
+  "longitude": -38.457286,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2015CT000654"
+    },
+    "nuProcesso": "4809/2014",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Pirajá",
+      "prefeituraBairro": "Valéria",
+      "origem": "Alocação em Pirajá via Cache"
+    }
+  },
+  "cdUnidadeGestora": "441010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

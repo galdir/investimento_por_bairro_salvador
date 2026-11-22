@@ -1,0 +1,216 @@
+{
+  "id": "144182cb-776b-49f8-9a02-86e2b13132f0",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2025CT004659",
+  "numeroContratoOriginal": "4392025",
+  "nuProcesso": "203774/2024",
+  "objeto": "Construção do Centro de Atenção Psicossocial - CAPS III, São Caetano.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CONSTRUTORA ATLANTICO NORTE LTDA",
+    "cnpj": "07.103.372/0001-92",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 1706775.53,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2025-08-11T00:00:00.000Z",
+    "dataFimOriginal": "2026-10-10T00:00:00.000Z",
+    "dataTerminoAtualizado": "2026-10-10T00:00:00.000Z",
+    "prazoOriginal": "425",
+    "prazoAtualizado": "425"
+  },
+  "dom": {
+    "nuDom": "9088",
+    "dataPublicacao": "2025-08-13T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1706775.53,
+    "valorContratualVigente": 1706775.53,
+    "valorEmpenhado": 11399.12,
+    "valorLiquidado": 10897.56,
+    "valorPago": 11399.12,
+    "percentualExecutado": 0.64,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "cdUnGestora": "301110",
+      "dataEmpenho": "05/11/2025",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Obras e Instalações",
+      "fonteRecurso": "Transfer. Fundo a Fundo de Rec SUS Gov Fed- B. de Invest - Estrut Unid Especializada",
+      "id": "7165b96d-0956-477f-8cc3-663bceef61c0",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
+      "notaEmpenho": "2025NE020475",
+      "pago": null,
+      "subElemDespesa": "Construção e Ampliação de Hospitais e Unidades de Saúde",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "11.399,12"
+    }
+  ],
+  "liquidacoes": [
+    {
+      "codUnGestora": "301110",
+      "dataLiquidacao": "05/11/2025",
+      "descObsLiquidacao": "0439/2025#2025CT004659 NFTS 19817 - NFE  361776 - OBRAS/REFORMAS - CONSTRUÇÃO DO CENTRO DE",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "id": "37d53baf-0747-45cd-ab50-962866833af1",
+      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
+      "notaEmpenho": "2025NE020475",
+      "notaLancamento": "2025NL136664",
+      "notaLiquidacao": "2025NL136664",
+      "numProcesso": "02002042025",
+      "pago": "0,00",
+      "siglaOrgao": "SMS",
+      "siglaUnGestora": "FMS",
+      "valBrutLiquidacao": "11.399,12",
+      "valEmpenho": "11.399,12",
+      "valLiqLiquidacao": "10.897,56"
+    }
+  ],
+  "pagamentos": [
+    {
+      "codUnGestora": "301110",
+      "dataPagamento": "18/11/2025",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "detalhamento": null,
+      "elemDespesa": "Obras e Instalações",
+      "id": "9eb5268c-cf21-47b4-92d7-2c34f64ae845",
+      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
+      "notaEmpenho": "2025NE020475",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2025OB066159",
+      "pago": "R$ 501,56",
+      "processoPagamento": null,
+      "siglaOrgao": "SMS",
+      "siglaUnGestora": "FMS",
+      "valEmpenhado": "R$ 11.399,12"
+    },
+    {
+      "codUnGestora": "301110",
+      "dataPagamento": "08/12/2025",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "detalhamento": null,
+      "elemDespesa": "Obras e Instalações",
+      "id": "fbb417b1-7b5a-4044-b0e8-5729140e6a90",
+      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
+      "notaEmpenho": "2025NE020475",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2025OB069736",
+      "pago": "R$ 227,98",
+      "processoPagamento": null,
+      "siglaOrgao": "SMS",
+      "siglaUnGestora": "FMS",
+      "valEmpenhado": "R$ 11.399,12"
+    },
+    {
+      "codUnGestora": "301110",
+      "dataPagamento": "08/12/2025",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "detalhamento": null,
+      "elemDespesa": "Obras e Instalações",
+      "id": "7bee2303-66a3-4246-b798-de684a3966e2",
+      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
+      "notaEmpenho": "2025NE020475",
+      "notaLiquidacao": "2025NL136664",
+      "ordBancaria": "2025OB069736",
+      "pago": "R$ 10.532,79",
+      "processoPagamento": null,
+      "siglaOrgao": "SMS",
+      "siglaUnGestora": "FMS",
+      "valEmpenhado": "R$ 11.399,12"
+    },
+    {
+      "codUnGestora": "301110",
+      "dataPagamento": "08/12/2025",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "detalhamento": null,
+      "elemDespesa": "Obras e Instalações",
+      "id": "1cff2e39-a251-4044-aebf-1b85e69f3ebd",
+      "nomeCredor": "CONSTRUTORA ATLANTICO NORTE LTDA",
+      "notaEmpenho": "2025NE020475",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2025OB069736",
+      "pago": "R$ 136,79",
+      "processoPagamento": null,
+      "siglaOrgao": "SMS",
+      "siglaUnGestora": "FMS",
+      "valEmpenhado": "R$ 11.399,12"
+    }
+  ],
+  "tema": "Saúde",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 10/10/2026 com execução física incompleta (0.64%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "São Caetano",
+  "prefeituraBairro": "Liberdade/São Caetano",
+  "latitude": -12.9342,
+  "longitude": -38.4792,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2025CT004659"
+    },
+    "nuProcesso": "203774/2024",
+    "domContrato": {
+      "nuDom": "9088",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Cache",
+      "bairro": "São Caetano",
+      "prefeituraBairro": "Liberdade/São Caetano",
+      "origem": "Alocação em São Caetano via Cache"
+    }
+  },
+  "cdUnidadeGestora": "301110",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataFim": "2028-12-31T03:00:00.000Z",
+    "dataInicio": "2025-01-01T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

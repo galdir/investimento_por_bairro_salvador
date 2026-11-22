@@ -1,0 +1,155 @@
+{
+  "id": "c79b7075-e9d9-419f-9bc6-be0d7bfb1d2b",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2021CT004128",
+  "numeroContratoOriginal": "000033/2020",
+  "nuProcesso": "115746/2021",
+  "objeto": "Execução dos serviços remanescentes de construção e de recuperação de quadras e campos de\r\nfutebol localizados no município do Salvador/BA, LOTE 03- Prefeituras Bairros: III, V e VI, sob regime de\r\nempreitada por preços unitários, com fornecimento de mão de obra, materiais, equipamentos, e o que for\r\nnecessário para a execução destes serviços",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "ROBLE SERVICOS LTDA",
+    "cnpj": "05.874.949/0001-34",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 308515355.48,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "84258ba2-888b-46a6-9efd-c0e244c72292",
+      "8c1d4462-d8e9-4ef9-969c-4fc09da8a440",
+      "47c41d46-9dcf-494c-803c-d382934f9e19",
+      "93a0f127-feb6-4026-b442-e02260bd1bc5",
+      "7ce8b8f3-c5a5-48ed-bf1e-35d8aa563d09",
+      "0c837fff-3b48-4153-9d2d-4e1b00b4a62c",
+      "1de3a157-0a89-412e-8466-1505302c3276"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2021-05-11T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2021-11-07T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2021-05-11T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 17764.14,
+    "valorContratualVigente": 17764.14,
+    "valorEmpenhado": 17764.14,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Revitalização e Requalificação de Equipamentos Esportivos e de Lazer",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a77f9f52-5ebb-4af9-a432-dd0d89f6c30f",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2021NE002131",
+      "dataEmpenho": "22/12/2021",
+      "nomeCredor": "ROBLE SERVICOS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "-17.764,14",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b224c492-1c5c-429c-82e9-7f6febcebc96",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "cdUnGestora": "520002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "notaEmpenho": "2021NE001443",
+      "dataEmpenho": "30/09/2021",
+      "nomeCredor": "ROBLE SERVICOS LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "17.764,14",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 07/11/2021 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2021CT004128"
+    },
+    "nuProcesso": "115746/2021",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "LOTE 03- Prefeituras Bairros: III, V e VI",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Apesar de citar LOTE 03, o objeto explicita abrangência em três Prefeituras-Bairro (III, V e VI)."
+    }
+  },
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

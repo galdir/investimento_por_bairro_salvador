@@ -1,0 +1,263 @@
+{
+  "id": "5ae30710-06f7-4bb4-bbae-08dc126fae06",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2018CT003510",
+  "numeroContratoOriginal": "000005/2018",
+  "nuProcesso": "000259/2018",
+  "objeto": "Restauros de Monumentos",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 187792.5,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-06-13T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-10-12T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-06-13T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 187792.5,
+    "valorContratualVigente": 187792.5,
+    "valorEmpenhado": 187792.5,
+    "valorLiquidado": 179135.27,
+    "valorPago": 187792.5,
+    "percentualExecutado": 95.39,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Recuperação e Requalificação de Monumentos Públicos e Espaços Culturais",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "4db2fc84-b212-43d7-81f4-0628d3f3ffc3",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "cdUnGestora": "543002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "notaEmpenho": "2018NE000300",
+      "dataEmpenho": "02/07/2018",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços Técnicos Profissionais",
+      "valEmpenhado": "187.792,50",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "39d9bc84-8d58-4391-9f23-bd25f352b8db",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000300",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "notaLiquidacao": "2018NL004248",
+      "notaLancamento": "2018NL004248",
+      "numProcesso": "00007872018",
+      "dataLiquidacao": "27/11/2018",
+      "valLiqLiquidacao": "179.135,27",
+      "valBrutLiquidacao": "187.792,50",
+      "valEmpenho": "187.792,50",
+      "descObsLiquidacao": "Pagtº de NFS-e nº 00000132 ref. serviços especializados de limpeza e restauração dos manumentos públicos: Meninas do Brasil, Símbolos do 2 de Julho(caboclos e suas carruagens), Estátua Visconde de Cairu, Monumento à Riachuelo.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "847e4021-12ab-4858-ac03-a68604695d87",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000300",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018NL004248",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 187.792,50",
+      "dataPagamento": "27/11/2018",
+      "pago": "R$ 8.657,23",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "8aada3be-43b0-42c8-8efc-66b50c8e9451",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000300",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "notaLiquidacao": "2018NL004248",
+      "ordBancaria": "2018OB036173",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 187.792,50",
+      "dataPagamento": "27/11/2018",
+      "pago": "R$ 179.135,27",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "d116ad1f-776a-4328-9671-9141b9529d91",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000300",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP002157",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 187.792,50",
+      "dataPagamento": "28/11/2018",
+      "pago": "R$ 8.657,23",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "08f6ef0c-1f98-4edd-851d-4c9ad04cd592",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000300",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP002157",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 187.792,50",
+      "dataPagamento": "28/11/2018",
+      "pago": "R$ -8.657,23",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b64f8bc3-5b6a-4f95-864e-b45074f9b214",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000300",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB036175",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 187.792,50",
+      "dataPagamento": "29/11/2018",
+      "pago": "R$ 8.657,23",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "dabb2531-b6c1-4227-8e69-297d942a8564",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2018NE000300",
+      "codUnGestora": "543002",
+      "descUnGestora": "UG FGM - Fundação Gregório de Matos",
+      "siglaUnGestora": "FGM",
+      "nomeCredor": "STUDIO ARGOLO ANTIGUIDADES E RESTAURACOES LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB036175",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 187.792,50",
+      "dataPagamento": "29/11/2018",
+      "pago": "R$ -8.657,23",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "543002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2018CT003510"
+    },
+    "nuProcesso": "000259/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Restauros de Monumentos",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "543002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

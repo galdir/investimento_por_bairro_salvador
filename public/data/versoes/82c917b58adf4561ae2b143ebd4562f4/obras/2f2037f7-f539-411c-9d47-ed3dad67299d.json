@@ -1,0 +1,327 @@
+{
+  "id": "2f2037f7-f539-411c-9d47-ed3dad67299d",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2020CT001139",
+  "numeroContratoOriginal": "000002/2020",
+  "nuProcesso": "002318/2019",
+  "objeto": "Contratação de empresa especializada para prestação de serviços de locação de praticáveis ,mobiliários e equipamentos,incluindo montagem e desmontagem para serem utilizados como bases operacionais da SEMPRE durante o carnaval de 2020,de Salvador",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "COELHO ENTRETENIMENTOS EIRELI",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 357571.04,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "ee08d78e-29f0-4bd1-bf2a-a05a9498ec6f"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2020-02-10T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2020-05-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2020-02-10T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 179900.0,
+    "valorContratualVigente": 179900.0,
+    "valorEmpenhado": 179900.0,
+    "valorLiquidado": 179900.0,
+    "valorPago": 179900.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação das Ações Estratégicas de Erradicação do Trabalho Infantil",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    },
+    {
+      "subacao": "Implementação das Ações Estratégicas de Erradicação do Trabalho Infantil",
+      "fonteRecurso": "Transf. de Recursos do Fundo Nacional de Assistência - FNAS",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "c9310b2c-11ed-48c1-8d8f-135d9a468e9b",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "cdUnGestora": "521010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "notaEmpenho": "2020NE000085",
+      "dataEmpenho": "13/02/2020",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "fonteRecurso": "Transf. de Recursos do Fundo Nacional de Assistência - FNAS",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "100.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "3a80c479-7cb5-4f91-af2b-21919a72b0b5",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "cdUnGestora": "521010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "notaEmpenho": "2020NE000084",
+      "dataEmpenho": "13/02/2020",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "79.900,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "7b393826-2550-45e3-a51a-284b7f078cc0",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000084",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2020NL001471",
+      "notaLancamento": "2020NL001471",
+      "numProcesso": "00006752020",
+      "dataLiquidacao": "11/03/2020",
+      "valLiqLiquidacao": "79.900,00",
+      "valBrutLiquidacao": "79.900,00",
+      "valEmpenho": "79.900,00",
+      "descObsLiquidacao": "Despesa com contratação de empresa especializada  em locação de unidade modular para serviços da assistência social, com fornecimento, montagem e desmontagem dos módulos habitáveis. STANDS para o Carnaval de 2020. Proc. 675/2020.",
+      "pago": "0,00"
+    },
+    {
+      "id": "5fd3267c-ad5d-4dc9-822c-6192bd8c13af",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000085",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2020NL001472",
+      "notaLancamento": "2020NL001472",
+      "numProcesso": "00006752020",
+      "dataLiquidacao": "11/03/2020",
+      "valLiqLiquidacao": "100.000,00",
+      "valBrutLiquidacao": "100.000,00",
+      "valEmpenho": "100.000,00",
+      "descObsLiquidacao": "Despesas com contratação de empresa especializada  em locação de unidade modular para serviços da assistência social, com fornecimento, montagem e desmontagem dos módulos habitáveis. STANDS para o Carnaval de 2020. Proc. 675/2020.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "2b44cc57-5224-4dfd-8d60-4b24a80b5c1f",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000085",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2020PP000533",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "11/03/2020",
+      "pago": "R$ 8.995,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "5600640b-92bf-4e78-9b95-cb27252c85dd",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000085",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2020PP000533",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "11/03/2020",
+      "pago": "R$ -8.995,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "73c940ca-9caf-4b6b-8f19-63b094000f25",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000085",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2020PP000529",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "11/03/2020",
+      "pago": "R$ 8.995,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "49f65199-0a5c-4fc1-9d5a-f06b53181bed",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000085",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2020OB009037",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "13/03/2020",
+      "pago": "R$ -8.995,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "f015c615-29b2-4220-a133-4f9e5b878d30",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000085",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2020NL001472",
+      "ordBancaria": "2020OB009037",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "13/03/2020",
+      "pago": "R$ 91.005,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b65279ee-b9e4-4344-8c19-513ce9c42652",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000085",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2020OB009037",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 100.000,00",
+      "dataPagamento": "13/03/2020",
+      "pago": "R$ 8.995,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "485d7d8f-9ed8-43fd-84cb-36f5e91cb784",
+      "descOrgao": "Secretaria Municipal de Promoção Social  e Combate à Pobreza",
+      "siglaOrgao": "SEMPRE",
+      "notaEmpenho": "2020NE000084",
+      "codUnGestora": "521010",
+      "descUnGestora": "UG FMAS - Fundo Municipal de Assistência Social",
+      "siglaUnGestora": "FMAS",
+      "nomeCredor": "COELHO ENTRETENIMENTOS EIRELI",
+      "notaLiquidacao": "2020NL001471",
+      "ordBancaria": "2020OB008873",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 79.900,00",
+      "dataPagamento": "16/03/2020",
+      "pago": "R$ 79.900,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "521010",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2020CT001139"
+    },
+    "nuProcesso": "002318/2019",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Contratação de empresa especializada para prestação de serviços de locação de praticáveis ,mobiliários e equipamentos,incluindo montagem e desmontagem para serem utilizados como bases operacionais da SEMPRE durante o carnaval de 2020,de Salvador",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "521010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

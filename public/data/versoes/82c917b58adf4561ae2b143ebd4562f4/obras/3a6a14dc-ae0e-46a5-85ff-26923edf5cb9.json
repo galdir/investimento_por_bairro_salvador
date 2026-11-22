@@ -1,0 +1,222 @@
+{
+  "id": "3a6a14dc-ae0e-46a5-85ff-26923edf5cb9",
+  "unidadeGestora": "SMS",
+  "numeroContrato": "2016CT002331",
+  "numeroContratoOriginal": "000034/2016",
+  "nuProcesso": "010477/2015",
+  "objeto": "elaboração dos Projetos Básicos e Projetos Executivos de Arquitetura, Engenharia e Execução da Obra de construção do HOSPITAL MUNICIPAL DE SALVADOR, incluindo obras e serviços de urbanização, macro e micro drenagem e infraestrutura em terreno situado na Via Coletora B, s/nº, Bairro Boca da Mata, Distrito Sanitário de Cajazeiras.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "AXXO CONSTRUTORA LTDA",
+    "cnpj": "01.327.233/0001-66",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 183401050.97,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "7b2865dd-2958-4d26-a8a0-e0e871d6c485"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-06-10T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-06-09T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-06-10T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 78460000.0,
+    "valorContratualVigente": 78460000.0,
+    "valorEmpenhado": 78460000.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Implantação do Hospital Municipal",
+      "fonteRecurso": "Alienações de Bens",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "46ca20c3-9350-43e4-9c2a-0f4288617e3b",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2016NE008626",
+      "dataEmpenho": "01/12/2016",
+      "nomeCredor": "AXXO CONSTRUTORA LTDA",
+      "fonteRecurso": "Alienações de Bens",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção de Prédios Públicos",
+      "valEmpenhado": "-15.800.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "62e435e7-68e4-41d8-a8e1-9858684c7135",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2016NE008624",
+      "dataEmpenho": "01/12/2016",
+      "nomeCredor": "AXXO CONSTRUTORA LTDA",
+      "fonteRecurso": "Alienações de Bens",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção de Prédios Públicos",
+      "valEmpenhado": "15.800.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "947154a0-328b-4fe2-a6a9-2e6c8f1eb052",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2016NE007135",
+      "dataEmpenho": "07/10/2016",
+      "nomeCredor": "AXXO CONSTRUTORA LTDA",
+      "fonteRecurso": "Alienações de Bens",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção de Prédios Públicos",
+      "valEmpenhado": "-1.000.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "569f7ffb-8801-4d34-b3f8-e13b783b0026",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2016NE008976",
+      "dataEmpenho": "14/12/2016",
+      "nomeCredor": "AXXO CONSTRUTORA LTDA",
+      "fonteRecurso": "Alienações de Bens",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção de Prédios Públicos",
+      "valEmpenhado": "-443.389,64",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "8a652703-89a5-43b1-bd74-c1fea02b45b0",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2016NE008959",
+      "dataEmpenho": "14/12/2016",
+      "nomeCredor": "AXXO CONSTRUTORA LTDA",
+      "fonteRecurso": "Alienações de Bens",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção de Prédios Públicos",
+      "valEmpenhado": "443.389,64",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "920a4c2f-2df5-487a-8254-d2944eb257b3",
+      "descOrgao": "Secretaria Municipal da Saúde",
+      "cdUnGestora": "301110",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FMS - Fundo Municipal de Saúde",
+      "notaEmpenho": "2016NE004791",
+      "dataEmpenho": "20/06/2016",
+      "nomeCredor": "AXXO CONSTRUTORA LTDA",
+      "fonteRecurso": "Alienações de Bens",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção de Prédios Públicos",
+      "valEmpenhado": "1.000.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Saúde",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 09/06/2018 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Boca da Mata",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.89761,
+  "longitude": -38.38987,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "301110",
+      "unidadeGestora": "SMS",
+      "nuContratoSigef": "2016CT002331"
+    },
+    "nuProcesso": "010477/2015",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Cache",
+      "bairro": "Boca da Mata",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Boca da Mata via Cache"
+    }
+  },
+  "cdUnidadeGestora": "301110",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

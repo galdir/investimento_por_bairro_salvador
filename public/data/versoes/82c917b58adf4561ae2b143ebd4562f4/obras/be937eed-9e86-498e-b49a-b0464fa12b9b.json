@@ -1,0 +1,307 @@
+{
+  "id": "be937eed-9e86-498e-b49a-b0464fa12b9b",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000348",
+  "numeroContratoOriginal": "000049/2017",
+  "nuProcesso": "000587/2017",
+  "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA AQUISIÇÃO (COM ENTREGA INCLUSA) DE TORAS DE PILAR, TERÇA E CAIBROS DE EUCALIPTO CITRIODORO, TRATADO E LIXADO. CONFORME TERMO DE APOSTILAMENTO SEMAN PARA DESAL Nº006/2018 DOM Nº7030 DE 26/01/2018.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA LTDA",
+    "cnpj": "07.107.558/0001-10",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 2825127.1,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "d3330da1-dcd4-4166-8b9c-713a87aa9100",
+      "d564e212-3d55-4917-964d-c49cde345bde",
+      "5cd984c2-e3d5-4cc1-83d2-628a2df0e83f",
+      "acb24592-7f2a-4831-94d5-7c0a4e598c00",
+      "54c82405-da37-440d-b946-ea91f9b3def6"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-04T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-04T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-04T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 248784.0,
+    "valorContratualVigente": 248784.0,
+    "valorEmpenhado": 248555.63,
+    "valorLiquidado": 248555.63,
+    "valorPago": 248555.63,
+    "percentualExecutado": 99.91,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Obras e Serviços em Espaços e Equipamentos Públicos",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "86f828bc-910a-40db-93a9-93ff673f94bb",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000733",
+      "dataEmpenho": "21/12/2018",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "-228,37",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "aba4ba79-bb3a-40bc-913a-8eda1b9d3c02",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000068",
+      "dataEmpenho": "29/01/2018",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "248.784,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "5090355a-f7af-4302-b2e1-4e027e390da2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000299",
+      "notaLancamento": "2018NL000299",
+      "numProcesso": "00000632018",
+      "dataLiquidacao": "06/02/2018",
+      "valLiqLiquidacao": "88.997,00",
+      "valBrutLiquidacao": "88.997,00",
+      "valEmpenho": "248.784,00",
+      "descObsLiquidacao": "PAGAMENTO POLIANA SICUPIRA - NF 579 - PR. 63/2018 - CT 49/2017 APOSTILADO SEMAN DESAL",
+      "pago": "0,00"
+    },
+    {
+      "id": "2701d73f-b9b4-4609-8c34-092a0221978f",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000356",
+      "notaLancamento": "2018NL000356",
+      "numProcesso": "00000842018",
+      "dataLiquidacao": "16/02/2018",
+      "valLiqLiquidacao": "37.719,40",
+      "valBrutLiquidacao": "37.719,40",
+      "valEmpenho": "248.784,00",
+      "descObsLiquidacao": "PAGAMENTO POLIANA SICUPIRA - ND 583 - PR. 84/2018 - CONTRATO APOSTILADO SEMAN 049/2017",
+      "pago": "0,00"
+    },
+    {
+      "id": "ba3a44fc-a089-46eb-ae1f-6d9f8be6cdb4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000712",
+      "notaLancamento": "2018NL000712",
+      "numProcesso": "00001442018",
+      "dataLiquidacao": "08/03/2018",
+      "valLiqLiquidacao": "64.746,73",
+      "valBrutLiquidacao": "64.746,73",
+      "valEmpenho": "248.784,00",
+      "descObsLiquidacao": "PAGAMENTO POLIANA. NF:595; (TORA E CAIBRO) PR.144/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "045fcf94-8c09-41c0-80ba-8bb3ce678e32",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000974",
+      "notaLancamento": "2018NL000974",
+      "numProcesso": "00002052018",
+      "dataLiquidacao": "26/03/2018",
+      "valLiqLiquidacao": "57.092,50",
+      "valBrutLiquidacao": "57.092,50",
+      "valEmpenho": "248.784,00",
+      "descObsLiquidacao": "PAGAMENTO POLIANA FARIA CALDAS NF:600 (TORA DE EUCALIPTO) PR.205/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "dc7fa865-0eb9-4eb3-bfe1-2551cd268b8e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000299",
+      "ordBancaria": "2018OB002214",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 248.784,00",
+      "dataPagamento": "06/02/2018",
+      "pago": "R$ 88.997,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "19ef2849-2f9c-473e-8aed-186052420794",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000356",
+      "ordBancaria": "2018OB003503",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 248.784,00",
+      "dataPagamento": "16/02/2018",
+      "pago": "R$ 37.719,40",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "dd705770-9236-4170-a0b9-2ff29341befe",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000712",
+      "ordBancaria": "2018OB005543",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 248.784,00",
+      "dataPagamento": "08/03/2018",
+      "pago": "R$ 64.746,73",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "fb99e624-8529-446e-8ff3-9fb326831dc4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000068",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "LLP INDUSTRIA E COMERCIO DE ARTEFATOS DE MADEIRA EIRELI",
+      "notaLiquidacao": "2018NL000974",
+      "ordBancaria": "2018OB008642",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 248.784,00",
+      "dataPagamento": "26/03/2018",
+      "pago": "R$ 57.092,50",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000348"
+    },
+    "nuProcesso": "000587/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA AQUISIÇÃO (COM ENTREGA INCLUSA) DE TORAS DE PILAR, TERÇA E CAIBROS DE EUCALIPTO CITRIODORO, TRATADO E LIXADO. CONFORME TERMO DE APOSTILAMENTO SEMAN PARA DESAL Nº006/2018 DOM Nº7030 DE 26/01/2018.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

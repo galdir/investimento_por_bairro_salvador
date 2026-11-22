@@ -1,0 +1,216 @@
+{
+  "id": "fe14d418-5fdf-4bb7-b0de-a1d02eeaedac",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2016CT003692",
+  "numeroContratoOriginal": "049/2016",
+  "nuProcesso": "598/2016",
+  "objeto": "AQUISIÇÃO (COM ENTREGA) DE CHAPA INOX",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "DRIMATEC COMERCIO E SERVICOS LTDA",
+    "cnpj": "",
+    "totalObras": 10,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 1325740.69,
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
+      "9ecb65ff-4c4a-4423-afd9-9abca6628db0",
+      "de93f82f-271b-471b-98d5-0c014656a990",
+      "b8f24b4b-f0f8-444f-b87d-a12559d4f2bb",
+      "95c9b1f5-b7d4-454c-a1a9-8165a4a21a1b",
+      "4168031c-1db3-4d80-a3f0-5dda9ff56765",
+      "842d0b03-0471-4525-825c-b5310eacf170",
+      "23c11524-caff-4bcb-8826-5fada694386f",
+      "2b55d2ed-5258-4d7d-98a1-ce60f56fee33",
+      "2bd7b043-c1d3-4953-9105-bd56b68f1660"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-10-03T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-01-30T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-10-03T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 26960.0,
+    "valorContratualVigente": 26960.0,
+    "valorEmpenhado": 26960.0,
+    "valorLiquidado": 26960.0,
+    "valorPago": 26960.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "79a5cb17-899a-495b-bf78-961657265e52",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2016NE000487",
+      "dataEmpenho": "10/10/2016",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material Educativo e Esportivo",
+      "valEmpenhado": "-26.960,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "6f66f75e-7c58-4ab3-a198-c52c4c058479",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2016NE000488",
+      "dataEmpenho": "10/10/2016",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material Educativo e Esportivo",
+      "valEmpenhado": "26.960,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "7a551208-35cb-483f-b93e-c9d11eeb59a1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2016NE000484",
+      "dataEmpenho": "10/10/2016",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material Educativo e Esportivo",
+      "valEmpenhado": "26.960,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "c68f34cc-b67e-45e9-842a-ee435e57ba88",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000488",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "notaLiquidacao": "2016NL005845",
+      "notaLancamento": "2016NL005845",
+      "numProcesso": "00014302016",
+      "dataLiquidacao": "07/12/2016",
+      "valLiqLiquidacao": "26.960,00",
+      "valBrutLiquidacao": "26.960,00",
+      "valEmpenho": "26.960,00",
+      "descObsLiquidacao": "Valor de aquisição de chapa Inox 304, contrato nº: 49/2016, conforme nota fiscal nº: 147.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "5c7c9da9-1f19-48b8-8833-a9ba064791b1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2016NE000488",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "notaLiquidacao": "2016NL005845",
+      "ordBancaria": "2016OB032737",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 26.960,00",
+      "dataPagamento": "07/12/2016",
+      "pago": "R$ 26.960,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2016CT003692"
+    },
+    "nuProcesso": "598/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO (COM ENTREGA) DE CHAPA INOX",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

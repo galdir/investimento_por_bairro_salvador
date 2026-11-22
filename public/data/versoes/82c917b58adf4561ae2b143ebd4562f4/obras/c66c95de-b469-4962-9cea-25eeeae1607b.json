@@ -1,0 +1,271 @@
+{
+  "id": "c66c95de-b469-4962-9cea-25eeeae1607b",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006392",
+  "numeroContratoOriginal": "38/2017",
+  "nuProcesso": "000420/2017",
+  "objeto": "aquisição de piso cerâmico, rejunte e porta de alumínio para quiosques",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 1565042.0,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "5dd4c7f9-8dae-45aa-aa4d-e02897433130",
+      "a942ae46-fdac-4b08-a447-e05b6691271e",
+      "398998e5-994a-4744-80e8-62baf7c0bce2",
+      "c2e367da-163b-49ae-82b6-3a4c7e12c65d",
+      "0081ba3e-0374-4862-aafe-04851cc2bc23",
+      "e98994b5-c1dc-4306-976d-f7b4b6eb84c6",
+      "7c2d28ac-6a71-466d-b266-38fe9f07e320"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-14T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-14T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-14T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 40126.9,
+    "valorContratualVigente": 40126.9,
+    "valorEmpenhado": 40126.9,
+    "valorLiquidado": 43726.9,
+    "valorPago": 40126.9,
+    "percentualExecutado": 108.97,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "ad6ac207-a9fd-4afd-8e84-125082c0293b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000426",
+      "dataEmpenho": "15/12/2017",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "40.126,90",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "1276231a-f3a5-4625-a3d5-0015ff495ea3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000426",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2017NL002469",
+      "notaLancamento": "2017NL002469",
+      "numProcesso": "00005042017",
+      "dataLiquidacao": "18/12/2017",
+      "valLiqLiquidacao": "6.526,10",
+      "valBrutLiquidacao": "6.526,10",
+      "valEmpenho": "40.126,90",
+      "descObsLiquidacao": "PAGAMENTO BAHIA FORTE - NF 924 - PR 504/2017",
+      "pago": "0,00"
+    },
+    {
+      "id": "f6eecf23-bf61-4a19-ac63-03c9c1255cf2",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000426",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000024",
+      "notaLancamento": "2018NL000024",
+      "numProcesso": "00000062018",
+      "dataLiquidacao": "15/01/2018",
+      "valLiqLiquidacao": "30.000,00",
+      "valBrutLiquidacao": "30.000,00",
+      "valEmpenho": "40.126,90",
+      "descObsLiquidacao": "PAGAMENTO BAHIA FORTE - NF 925 - PR. 6/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "8e5eef1d-d2c8-4661-954c-6e6c635c4873",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000426",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000872",
+      "notaLancamento": "2018NL000872",
+      "numProcesso": "00001942018",
+      "dataLiquidacao": "22/03/2018",
+      "valLiqLiquidacao": "3.600,00",
+      "valBrutLiquidacao": "3.600,00",
+      "valEmpenho": "40.126,90",
+      "descObsLiquidacao": "PAGAMENTO BAHA FORTE NF:933 (PORTA DE ALUMINIO) PR.194/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "09ad15ef-e2b3-47b7-a2de-9906d0396ae9",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000426",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000875",
+      "notaLancamento": "2018NL000875",
+      "numProcesso": "00001942018",
+      "dataLiquidacao": "22/03/2018",
+      "valLiqLiquidacao": "3.600,80",
+      "valBrutLiquidacao": "3.600,80",
+      "valEmpenho": "40.126,90",
+      "descObsLiquidacao": "PAGAMENTO BAHA FORTE NF:933 (PORTA DE ALUMINIO) PR.194/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "028a8ed2-d3fe-4d70-91c7-1f13c2650cb8",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000426",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2017NL002469",
+      "ordBancaria": "2017OB035120",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 40.126,90",
+      "dataPagamento": "18/12/2017",
+      "pago": "R$ 6.526,10",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "00340f7b-e4e8-422f-97b0-0c99999a07ea",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000426",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000024",
+      "ordBancaria": "2018OB000307",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 40.126,90",
+      "dataPagamento": "15/01/2018",
+      "pago": "R$ 30.000,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6837c017-fe0f-4cde-b75a-c30c4968432a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000426",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL000875",
+      "ordBancaria": "2018OB007749",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 40.126,90",
+      "dataPagamento": "22/03/2018",
+      "pago": "R$ 3.600,80",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006392"
+    },
+    "nuProcesso": "000420/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "aquisição de piso cerâmico, rejunte e porta de alumínio para quiosques",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

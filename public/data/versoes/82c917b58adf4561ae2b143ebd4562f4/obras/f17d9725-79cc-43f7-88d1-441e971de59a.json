@@ -1,0 +1,171 @@
+{
+  "id": "f17d9725-79cc-43f7-88d1-441e971de59a",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT003311",
+  "numeroContratoOriginal": "000020/2018",
+  "nuProcesso": "000250/2018",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE ELETRODOS E ARAMES",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "D FORMA INSTALACOES E DIVISORIAS LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 61021.48,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "d7a4cc00-537b-47e7-bc06-457200a0b181",
+      "84e3fad9-e0ef-44da-b35e-eb6ac25217a4"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-06-08T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-10-05T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-06-08T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 16690.0,
+    "valorContratualVigente": 16690.0,
+    "valorEmpenhado": 16690.0,
+    "valorLiquidado": 16690.0,
+    "valorPago": 16690.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "f8d8d135-fb99-4653-ae9a-1a6edcc30bbd",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000314",
+      "dataEmpenho": "15/06/2018",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "16.690,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "d57b2668-125a-4955-a34b-8c56ada97664",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000314",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "notaLiquidacao": "2018NL002938",
+      "notaLancamento": "2018NL002938",
+      "numProcesso": "00006092018",
+      "dataLiquidacao": "03/08/2018",
+      "valLiqLiquidacao": "16.690,00",
+      "valBrutLiquidacao": "16.690,00",
+      "valEmpenho": "16.690,00",
+      "descObsLiquidacao": "D FORMAS INSTALAÇÕES E DIVISORIAS - FORNECIMENTO ELETRODO, SOLDA, ARAME ETC. NF 112 PROCESSO 609/2018 CT 020/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "d97db8a2-0233-4f20-8d06-57ded927b18a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000314",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "D FORMA INSTALACOES E DIVISORIAS EIRELI",
+      "notaLiquidacao": "2018NL002938",
+      "ordBancaria": "2018OB022807",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 16.690,00",
+      "dataPagamento": "03/08/2018",
+      "pago": "R$ 16.690,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT003311"
+    },
+    "nuProcesso": "000250/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE ELETRODOS E ARAMES",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

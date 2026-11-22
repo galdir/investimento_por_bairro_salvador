@@ -1,0 +1,168 @@
+{
+  "id": "18bf6d85-d4cc-4ffd-aaaf-d32accb410eb",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT003706",
+  "numeroContratoOriginal": "000007/2017",
+  "nuProcesso": "000160/2017",
+  "objeto": "AQUISIÇÃO DE CINTA PARA ELEVAÇÃO DE CARGA EM POLIESTER",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PANMERCO COMERCIAL LTDA - EPP",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 8461.23,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-08-02T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-11-30T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-08-02T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 8461.23,
+    "valorContratualVigente": 8461.23,
+    "valorEmpenhado": 8461.23,
+    "valorLiquidado": 8461.23,
+    "valorPago": 8461.23,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "4d8903bb-2adb-453f-b598-26bbf8f3aebe",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000229",
+      "dataEmpenho": "08/08/2017",
+      "nomeCredor": "PANMERCO COMERCIAL LTDA - EPP",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material de Proteção e Segurança",
+      "valEmpenhado": "8.461,23",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "48e7a124-3286-4ed5-92ff-f9861dfad73e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000229",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PANMERCO COMERCIAL LTDA - EPP",
+      "notaLiquidacao": "2017NL001643",
+      "notaLancamento": "2017NL001643",
+      "numProcesso": "00003062017",
+      "dataLiquidacao": "18/09/2017",
+      "valLiqLiquidacao": "8.461,23",
+      "valBrutLiquidacao": "8.461,23",
+      "valEmpenho": "8.461,23",
+      "descObsLiquidacao": "PAGAMENTO PANMERCO - NF 103 - PR. 306/2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "96234a9d-ae41-42b7-b9c3-91d9690f142a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000229",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PANMERCO COMERCIAL LTDA - EPP",
+      "notaLiquidacao": "2017NL001643",
+      "ordBancaria": "2017OB024344",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 8.461,23",
+      "dataPagamento": "18/09/2017",
+      "pago": "R$ 8.461,23",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT003706"
+    },
+    "nuProcesso": "000160/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE CINTA PARA ELEVAÇÃO DE CARGA EM POLIESTER",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

@@ -1,0 +1,163 @@
+{
+  "id": "e2dfcbe9-1713-423c-9616-441a908b2d0b",
+  "unidadeGestora": "SEINFRA",
+  "numeroContrato": "2022CT003515",
+  "numeroContratoOriginal": "005/2022",
+  "nuProcesso": "007915/2022",
+  "objeto": "Proc. Licitatório nº 7915/22 (TP003) - Requalificação de Ruas - Rua Direta Éden do Vale - Mata Escura",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "A J CONSTRUTORA LTDA",
+    "cnpj": "",
+    "totalObras": 6,
+    "totalObrasAtivas": 6,
+    "valorTotalContratado": 11051923.34,
+    "outrasObrasCount": 5,
+    "outrasObrasIds": [
+      "f5c4b5ef-b1da-47f9-be68-56a9cddff575",
+      "8908bc41-93d3-4ade-a87f-c4743ff0d322",
+      "a5d4391f-87b4-4298-ab54-d78008083d15",
+      "0b040353-6271-4a2d-b92e-63c3cb5d11b6",
+      "56848dd0-ac3c-4606-8bc5-be993cfeeb15"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2022-06-22T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2022-10-19T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2022-06-22T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 1014290.81,
+    "valorContratualVigente": 1014290.81,
+    "valorEmpenhado": 1014290.81,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "c469576a-adf4-416f-b796-c628dc424819",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "2022NE000728",
+      "dataEmpenho": "22/06/2022",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Transferências de Convênio - Outros",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "955.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "e7e7e95b-b18e-4422-8d5b-aff9e6cfc671",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP8252496",
+      "dataEmpenho": "22/12/2023",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Outras Tranf de Convênios ou Instrumentos Congêneres da União - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "-955.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "b41a49b8-0618-4c42-8021-df27755ff2ba",
+      "descOrgao": "Secretaria Municipal de Infraestrutura e Obras Públicas",
+      "cdUnGestora": "616002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Obras Públicas de Salvador",
+      "notaEmpenho": "RP8545971",
+      "dataEmpenho": "31/12/2023",
+      "nomeCredor": "A J CONSTRUTORA LTDA",
+      "fonteRecurso": "Outras Tranf de Convênios ou Instrumentos Congêneres da União - Tesouro",
+      "elemDespesa": "Obras e Instalações",
+      "subElemDespesa": "Construção e Pavimentação de Ruas e Vias de Acesso",
+      "valEmpenhado": "0,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 19/10/2022 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Mata Escura",
+  "prefeituraBairro": "Cabula/Tancredo Neves",
+  "latitude": -12.932852,
+  "longitude": -38.458147,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "616002",
+      "unidadeGestora": "SEINFRA",
+      "nuContratoSigef": "2022CT003515"
+    },
+    "nuProcesso": "007915/2022",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Mata Escura",
+      "prefeituraBairro": "Cabula/Tancredo Neves",
+      "origem": "Alocação em Mata Escura via Cache"
+    }
+  },
+  "cdUnidadeGestora": "616002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

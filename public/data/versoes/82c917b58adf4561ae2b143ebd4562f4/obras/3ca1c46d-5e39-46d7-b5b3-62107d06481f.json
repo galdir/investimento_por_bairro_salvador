@@ -1,0 +1,282 @@
+{
+  "id": "3ca1c46d-5e39-46d7-b5b3-62107d06481f",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT003350",
+  "numeroContratoOriginal": "000009/2018",
+  "nuProcesso": "000464/2018",
+  "objeto": "AQUISIÇÃO DE GRAVILHÕES PARA USO EXCLUSIVO DA PRODUÇÃO. PR.464/2018",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 6200.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-06-21T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-31T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-06-21T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 6200.0,
+    "valorContratualVigente": 6200.0,
+    "valorEmpenhado": 6200.0,
+    "valorLiquidado": 6200.0,
+    "valorPago": 6200.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Argamassa e Concreto",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "24fbba2c-032c-474d-aa10-ec8faf3de776",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000319",
+      "dataEmpenho": "21/06/2018",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "6.200,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "b3cb7806-7dbe-4536-be5e-a0847360a12c",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002447",
+      "notaLancamento": "2018NL002447",
+      "numProcesso": "00004912018",
+      "dataLiquidacao": "28/06/2018",
+      "valLiqLiquidacao": "1.550,00",
+      "valBrutLiquidacao": "1.550,00",
+      "valEmpenho": "6.200,00",
+      "descObsLiquidacao": "L F - AQUISIÇÃO DE GRAVILHOES 3/8 -  5/8 - NF 1640 PROCESSO 491 DISPENSA DE LICITAÇÃO 09/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "c1d95482-b212-4ada-b8be-7ddec63ec9ea",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002449",
+      "notaLancamento": "2018NL002449",
+      "numProcesso": "00004922018",
+      "dataLiquidacao": "28/06/2018",
+      "valLiqLiquidacao": "1.550,00",
+      "valBrutLiquidacao": "1.550,00",
+      "valEmpenho": "6.200,00",
+      "descObsLiquidacao": "G L F - AQUISIÇÃO DE GRAVILHOES 3/8 -  5/8 - NF 1641 PROCESSO 492 DISPENSA DE LICITAÇÃO 09/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "1b5e5093-343e-4683-8924-c0ad2aed123e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002451",
+      "notaLancamento": "2018NL002451",
+      "numProcesso": "00004932016",
+      "dataLiquidacao": "28/06/2018",
+      "valLiqLiquidacao": "1.550,00",
+      "valBrutLiquidacao": "1.550,00",
+      "valEmpenho": "6.200,00",
+      "descObsLiquidacao": "F - AQUISIÇÃO DE GRAVILHOES 3/8 -  5/8 - NF 1642 PROCESSO 493 DISPENSA DE LICITAÇÃO 09/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "fcad864b-6053-4ce3-9e36-9e2b9fe9c93a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002455",
+      "notaLancamento": "2018NL002455",
+      "numProcesso": "00004942018",
+      "dataLiquidacao": "28/06/2018",
+      "valLiqLiquidacao": "1.550,00",
+      "valBrutLiquidacao": "1.550,00",
+      "valEmpenho": "6.200,00",
+      "descObsLiquidacao": "G L F - AQUISIÇÃO DE GRAVILHOES 3/8 -  5/8 - NF 1643 PROCESSO 494 DISPENSA DE LICITAÇÃO 09/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "9ee5dfb1-75b2-48c4-ba0e-0cb16fc92da9",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002455",
+      "ordBancaria": "2018OB019868",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 6.200,00",
+      "dataPagamento": "28/06/2018",
+      "pago": "R$ 1.550,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "5c6623fc-035d-4075-bc06-10d8c004baf3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002447",
+      "ordBancaria": "2018OB019868",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 6.200,00",
+      "dataPagamento": "28/06/2018",
+      "pago": "R$ 1.550,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "5c1bd337-9118-4d3f-a7a2-1d2f6cbd2df8",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002449",
+      "ordBancaria": "2018OB019868",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 6.200,00",
+      "dataPagamento": "28/06/2018",
+      "pago": "R$ 1.550,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "87f67fb2-8adc-4201-826d-aa57307d34e4",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000319",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "G L F MATERIAIS DE CONSTRUCAO EIRELI",
+      "notaLiquidacao": "2018NL002451",
+      "ordBancaria": "2018OB019868",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 6.200,00",
+      "dataPagamento": "28/06/2018",
+      "pago": "R$ 1.550,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT003350"
+    },
+    "nuProcesso": "000464/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE GRAVILHÕES PARA USO EXCLUSIVO DA PRODUÇÃO. PR.464/2018",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

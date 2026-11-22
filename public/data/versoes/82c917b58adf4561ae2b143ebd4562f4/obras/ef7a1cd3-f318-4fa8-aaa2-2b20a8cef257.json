@@ -1,0 +1,177 @@
+{
+  "id": "ef7a1cd3-f318-4fa8-aaa2-2b20a8cef257",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000516",
+  "numeroContratoOriginal": "000041/2017",
+  "nuProcesso": "000410/2017",
+  "objeto": "CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO E ASSENTAMENTO DE PEÇAS DE GRANITO PARA BANCADAS DOS QUIOSQUES A SEREM IMPLANTADOS EM SALVADOR",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "ALDENER GONCALVES DE OLIVEIRA",
+    "cnpj": "",
+    "totalObras": 9,
+    "totalObrasAtivas": 9,
+    "valorTotalContratado": 1647767.79,
+    "outrasObrasCount": 8,
+    "outrasObrasIds": [
+      "73287507-88b2-448d-9da3-c3314dd1b4f0",
+      "8ba5c35d-f086-49d2-88cf-2a2c5c3306ba",
+      "d85774be-3884-45bf-858c-285c8a45cfe4",
+      "045c1b67-12a2-4fb6-8c9c-207bbb7b81ab",
+      "7f62eef7-dbce-4540-b8f7-4e4d1d15718a",
+      "f8b569f8-f65e-404d-b4c7-9a956e9cb471",
+      "78620433-a505-437f-9738-13481cc91f18",
+      "0ffdb62f-8c5d-4c0e-bb6a-fb7c7453779a"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-26T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-02-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-26T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 11999.99,
+    "valorContratualVigente": 11999.99,
+    "valorEmpenhado": 11999.99,
+    "valorLiquidado": 11999.99,
+    "valorPago": 11999.99,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Obras e Serviços em Espaços e Equipamentos Públicos",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "40002e76-8d44-4986-bfb2-f6c965806313",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000079",
+      "dataEmpenho": "30/01/2018",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "11.999,99",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "7d139aee-5cf9-400b-9fb9-e13293ccac5e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000079",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL000493",
+      "notaLancamento": "2018NL000493",
+      "numProcesso": "00001112018",
+      "dataLiquidacao": "23/02/2018",
+      "valLiqLiquidacao": "11.999,99",
+      "valBrutLiquidacao": "11.999,99",
+      "valEmpenho": "11.999,99",
+      "descObsLiquidacao": "PAGAMENTO  DE ALDENER GONÇALVES NF 1007 CONTRATO 41/2017 PROC. 111/18 REFERENTE PEÇAS DE GRANITO",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "2d5059a7-ce3f-46fd-8075-75e9e14e1fe0",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000079",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "ALDENER GONCALVES DE OLIVEIRA",
+      "notaLiquidacao": "2018NL000493",
+      "ordBancaria": "2018OB004423",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 11.999,99",
+      "dataPagamento": "23/02/2018",
+      "pago": "R$ 11.999,99",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000516"
+    },
+    "nuProcesso": "000410/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO E ASSENTAMENTO DE PEÇAS DE GRANITO PARA BANCADAS DOS QUIOSQUES A SEREM IMPLANTADOS EM SALVADOR",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

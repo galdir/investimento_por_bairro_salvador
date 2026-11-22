@@ -1,0 +1,149 @@
+{
+  "id": "399c0d8f-6841-46f1-8e8a-7a6a36195d1d",
+  "unidadeGestora": "SEMTEL",
+  "numeroContrato": "2019CT003309",
+  "numeroContratoOriginal": "000002/2019",
+  "nuProcesso": "000613/2017",
+  "objeto": "Construção de salas multiuso anexas ao Centro de Iniciação ao Esporte - CEI de Itapuã.",
+  "situacao": "Ajustar Cronograma",
+  "empreiteira": {
+    "razaoSocial": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+    "cnpj": "",
+    "totalObras": 5,
+    "totalObrasAtivas": 5,
+    "valorTotalContratado": 3323919.86,
+    "outrasObrasCount": 4,
+    "outrasObrasIds": [
+      "0f38872a-4801-4bf5-9f09-c2228a7cb20f",
+      "80b4e9e0-2ed5-4f14-9281-90348f990c05",
+      "f049f2af-cfbe-46e1-b740-c88ba2ab1ed5",
+      "72faf9c4-e2cd-4e3a-9ce9-55a209f34ac5"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2019-01-29T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2020-01-28T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2019-01-29T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 447022.6,
+    "valorContratualVigente": 447022.6,
+    "valorEmpenhado": 447022.6,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção de Equipamentos de Esporte e Lazer nas Comunidades",
+      "fonteRecurso": "Tesouro",
+      "classificacao": " Obras e Instalações"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "80180ccf-2a6c-421d-8a02-f27cf4a7b86f",
+      "descOrgao": "Secretaria Municipal do Trabalho, Esportes e Lazer",
+      "cdUnGestora": "590002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMTEL - Secretaria Municipal do Trabalho, Esportes e Lazer",
+      "notaEmpenho": "2019NE000398",
+      "dataEmpenho": "07/05/2019",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "447.022,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "dbb70ac9-575f-4d31-912e-5a88dc0e6930",
+      "descOrgao": "Secretaria Municipal do Trabalho, Esportes e Lazer",
+      "cdUnGestora": "590002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMTEL - Secretaria Municipal do Trabalho, Esportes e Lazer",
+      "notaEmpenho": "2019NE000898",
+      "dataEmpenho": "30/10/2019",
+      "nomeCredor": "TOP4 PROJETOS, ENGENHARIA E CONSULTORIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valEmpenhado": "-447.022,60",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 28/01/2020 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Itapuã",
+  "prefeituraBairro": "Itapuã/Ipitanga",
+  "latitude": -12.939631,
+  "longitude": -38.358185,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "590002",
+      "unidadeGestora": "SEMTEL",
+      "nuContratoSigef": "2019CT003309"
+    },
+    "nuProcesso": "000613/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Cache",
+      "bairro": "Itapuã",
+      "prefeituraBairro": "Itapuã/Ipitanga",
+      "origem": "Alocação em Itapuã via Cache"
+    }
+  },
+  "cdUnidadeGestora": "590002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

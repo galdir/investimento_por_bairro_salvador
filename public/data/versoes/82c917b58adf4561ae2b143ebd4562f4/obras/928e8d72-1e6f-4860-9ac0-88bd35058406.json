@@ -1,0 +1,235 @@
+{
+  "id": "928e8d72-1e6f-4860-9ac0-88bd35058406",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2026CT000016",
+  "numeroContratoOriginal": "0712026",
+  "nuProcesso": "0092692026",
+  "objeto": "O presente contrato tem como objeto a Contratação de empresa especializada em serviços de arquitetura e geotecnologia, com expertise em mapeamento técnico, georreferenciamento e elaboração de plantas operacionais, para atualizações e inovações do Masterplan do Carnaval de Salvador 2026, abrangendo, aspectos de logística, segurança, mobilidade, trânsito, saúde, infraestrutura e tecnologia. conforme",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "A M DE CASTRO DRONES E ASSESSORIA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 49900.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2026-01-22T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2026-07-20T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-01-22T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 49900.0,
+    "valorContratualVigente": 49900.0,
+    "valorEmpenhado": 49900.0,
+    "valorLiquidado": 49900.0,
+    "valorPago": 49900.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "cdUnGestora": "547002",
+      "dataEmpenho": "28/01/2026",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "id": "bc884c7a-96da-4e23-b34e-1c5ce2804853",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "A M DE CASTRO DRONES E ASSESSORIA",
+      "notaEmpenho": "2026NE000151",
+      "pago": null,
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "49.900,00"
+    }
+  ],
+  "liquidacoes": [
+    {
+      "codUnGestora": "547002",
+      "dataLiquidacao": "19/02/2026",
+      "descObsLiquidacao": "PGTO REF À ( 50% ) PELOS  SERVIÇOS DE ARQUITETURA E GEOTECNOLOGIA, COM MAPEAMENTO TÉCNICO,",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "id": "61df366e-3e6f-4d6c-9491-00de733b6e07",
+      "nomeCredor": "A M DE CASTRO DRONES E ASSESSORIA",
+      "notaEmpenho": "2026NE000151",
+      "notaLancamento": "2026NL002669",
+      "notaLiquidacao": "2026NL002669",
+      "numProcesso": "00307962026",
+      "pago": "0,00",
+      "siglaOrgao": "SECULT",
+      "siglaUnGestora": "SALTUR",
+      "valBrutLiquidacao": "24.950,00",
+      "valEmpenho": "49.900,00",
+      "valLiqLiquidacao": "24.950,00"
+    },
+    {
+      "codUnGestora": "547002",
+      "dataLiquidacao": "15/06/2026",
+      "descObsLiquidacao": "PAGAMENTO REFERENTE SALDO (50%) SERVIÇO DE ARQUITETURA E GEOTECNOLOGIA, COM EXPERTISE EM M",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "id": "3c08f7e5-0f8b-4ca6-9cc3-0bfb10e30a20",
+      "nomeCredor": "A M DE CASTRO DRONES E ASSESSORIA",
+      "notaEmpenho": "2026NE000151",
+      "notaLancamento": "2026NL012935",
+      "notaLiquidacao": "2026NL012935",
+      "numProcesso": "01281722026",
+      "pago": "0,00",
+      "siglaOrgao": "SECULT",
+      "siglaUnGestora": "SALTUR",
+      "valBrutLiquidacao": "24.950,00",
+      "valEmpenho": "49.900,00",
+      "valLiqLiquidacao": "24.950,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "codUnGestora": "547002",
+      "dataPagamento": "26/02/2026",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "detalhamento": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "id": "eb2f1063-583c-42b5-a9d7-8fd46704008b",
+      "nomeCredor": "A M DE CASTRO DRONES E ASSESSORIA",
+      "notaEmpenho": "2026NE000151",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB009549",
+      "pago": "R$ 501,50",
+      "processoPagamento": null,
+      "siglaOrgao": "SECULT",
+      "siglaUnGestora": "SALTUR",
+      "valEmpenhado": "R$ 49.900,00"
+    },
+    {
+      "codUnGestora": "547002",
+      "dataPagamento": "26/02/2026",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "detalhamento": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "id": "c8423ec4-fd5b-4572-bb31-391e0d1ae63b",
+      "nomeCredor": "A M DE CASTRO DRONES E ASSESSORIA",
+      "notaEmpenho": "2026NE000151",
+      "notaLiquidacao": "2026NL002669",
+      "ordBancaria": "2026OB008068",
+      "pago": "R$ 24.448,50",
+      "processoPagamento": null,
+      "siglaOrgao": "SECULT",
+      "siglaUnGestora": "SALTUR",
+      "valEmpenhado": "R$ 49.900,00"
+    },
+    {
+      "codUnGestora": "547002",
+      "dataPagamento": "26/06/2026",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "detalhamento": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "id": "502643b6-3ec7-4064-8aec-dd661b5f707a",
+      "nomeCredor": "A M DE CASTRO DRONES E ASSESSORIA",
+      "notaEmpenho": "2026NE000151",
+      "notaLiquidacao": "2026NL012935",
+      "ordBancaria": "2026OB036412",
+      "pago": "R$ 24.448,50",
+      "processoPagamento": null,
+      "siglaOrgao": "SECULT",
+      "siglaUnGestora": "SALTUR",
+      "valEmpenhado": "R$ 49.900,00"
+    },
+    {
+      "codUnGestora": "547002",
+      "dataPagamento": "13/07/2026",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "descTipoPagamento": null,
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "detalhamento": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "id": "a8273fd8-3474-456e-83f5-c48aa57febc6",
+      "nomeCredor": "A M DE CASTRO DRONES E ASSESSORIA",
+      "notaEmpenho": "2026NE000151",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2026OB038523",
+      "pago": "R$ 501,50",
+      "processoPagamento": null,
+      "siglaOrgao": "SECULT",
+      "siglaUnGestora": "SALTUR",
+      "valEmpenhado": "R$ 49.900,00"
+    }
+  ],
+  "tema": "Saúde",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "547002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2026CT000016"
+    },
+    "nuProcesso": "0092692026",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "547002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataFim": "2028-12-31T03:00:00.000Z",
+    "dataInicio": "2025-01-01T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

@@ -1,0 +1,235 @@
+{
+  "id": "aa9618a7-2a95-4ad6-9ad8-1f1af431d077",
+  "unidadeGestora": "SINDEC",
+  "numeroContrato": "2015CT000190",
+  "numeroContratoOriginal": "014/2015",
+  "nuProcesso": "522/2015",
+  "objeto": "REFORMA DOS BANHEIROS DO MERCADO MODELO - TP 003/2015 - PAULUS EMPREENDIMENTOS LTDA.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 210223.46,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2015-05-29T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-03-17T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2015-05-29T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 210223.46,
+    "valorContratualVigente": 210223.46,
+    "valorEmpenhado": 210223.46,
+    "valorLiquidado": 35858.4,
+    "valorPago": 0.0,
+    "percentualExecutado": 17.06,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "7647d8cb-788d-4105-957a-bc9739376c41",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "cdUnGestora": "516002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "notaEmpenho": "2016NE000484",
+      "dataEmpenho": "15/08/2016",
+      "nomeCredor": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "38.350,33",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "721bb31c-c07e-48ed-8c11-03b435b5960c",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "cdUnGestora": "516002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "notaEmpenho": "2016NE000650",
+      "dataEmpenho": "21/11/2016",
+      "nomeCredor": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": " Obras e Instalações",
+      "subElemDespesa": "Outras Obras Infra-Estrutura e Urbanismo",
+      "valEmpenhado": "-38.350,33",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "743ee036-a9db-433d-95ab-a62cb96c4927",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "siglaOrgao": "SINDEC",
+      "notaEmpenho": "2016NE000484",
+      "codUnGestora": "516002",
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+      "notaLiquidacao": "2016NL005406",
+      "notaLancamento": "2016NL005406",
+      "numProcesso": "00013022016",
+      "dataLiquidacao": "26/09/2016",
+      "valLiqLiquidacao": "35.858,40",
+      "valBrutLiquidacao": "38.350,33",
+      "valEmpenho": "38.350,33",
+      "descObsLiquidacao": "Pagamento 3ª mediçao do contrato 14/2015,nf-e nº 022,CT,repasse nº 783266/2013,reforma dos banheiros do Mercado Modelo em Salvador,periodo de 01/03 a 16/03/2016",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "17f4f010-b273-4d2d-8411-3a98aea822e8",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "siglaOrgao": "SINDEC",
+      "notaEmpenho": "2016NE000484",
+      "codUnGestora": "516002",
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2016NL005406",
+      "elemDespesa": " Obras e Instalações",
+      "valEmpenhado": "R$ 38.350,33",
+      "dataPagamento": "26/09/2016",
+      "pago": "R$ 1.342,26",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "7c5c68a3-5969-4185-8b7a-5152131ef399",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "siglaOrgao": "SINDEC",
+      "notaEmpenho": "2016NE000484",
+      "codUnGestora": "516002",
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2016NL005406",
+      "elemDespesa": " Obras e Instalações",
+      "valEmpenhado": "R$ 38.350,33",
+      "dataPagamento": "26/09/2016",
+      "pago": "R$ 1.149,67",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "c37659fc-db56-4f23-8023-cd759cee2cfc",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "siglaOrgao": "SINDEC",
+      "notaEmpenho": "2016NE000484",
+      "codUnGestora": "516002",
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2016NL005981",
+      "elemDespesa": " Obras e Instalações",
+      "valEmpenhado": "R$ 38.350,33",
+      "dataPagamento": "26/09/2016",
+      "pago": "R$ -1.342,26",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "64ac967e-5549-4e1c-a855-a46f16fba0eb",
+      "descOrgao": "Secretaria Municipal de InfraEstrutura, Habitação e Defesa Civil",
+      "siglaOrgao": "SINDEC",
+      "notaEmpenho": "2016NE000484",
+      "codUnGestora": "516002",
+      "descUnGestora": "UG SUCOP - Superintendência de Conservação e Obras Públicas do Salvador",
+      "siglaUnGestora": "SUCOP",
+      "nomeCredor": "PAULUS EMPREENDIMENTOS LTDA - EPP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2016NL005981",
+      "elemDespesa": " Obras e Instalações",
+      "valEmpenhado": "R$ 38.350,33",
+      "dataPagamento": "26/09/2016",
+      "pago": "R$ -1.149,67",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Equipamentos e Marcos da Cidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 17/03/2017 com execução física incompleta (17.06%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Pontual",
+  "bairro": "Comércio",
+  "prefeituraBairro": "Centro/Brotas",
+  "latitude": -12.97297,
+  "longitude": -38.51399,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "516002",
+      "unidadeGestora": "SINDEC",
+      "nuContratoSigef": "2015CT000190"
+    },
+    "nuProcesso": "522/2015",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Pontual",
+      "estagioAlocacao": "Cache",
+      "bairro": "Comércio",
+      "prefeituraBairro": "Centro/Brotas",
+      "origem": "Alocação em Comércio via Cache"
+    }
+  },
+  "cdUnidadeGestora": "516002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

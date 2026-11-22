@@ -1,0 +1,256 @@
+{
+  "id": "856487f7-a8e5-41d0-9e95-f9d2e2493743",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT001279",
+  "numeroContratoOriginal": "000005/2018",
+  "nuProcesso": "000920/2017",
+  "objeto": "AQUISIÇÃO COM ENTREGA INCLUSA DE  CHAPAS DE AÇO E CHAPAS GALVANIZADAS. PR-920/2017-APOSTILADO DA SEMAN PARA DESAL PUBLICAÇÃO DOM Nº7053 DE 22/02/2018.TERMO Nº23/2018 E Nº23/2018.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PODIUM DISTRIBUIDORA LTDA",
+    "cnpj": "",
+    "totalObras": 12,
+    "totalObrasAtivas": 12,
+    "valorTotalContratado": 1524874.62,
+    "outrasObrasCount": 11,
+    "outrasObrasIds": [
+      "d63747ad-b8b0-4bb7-ba6e-694a5fad5976",
+      "19082b32-dba1-468a-8959-d960cd7d7002",
+      "7173c9b2-7a5e-4f97-98fa-5840329c148a",
+      "ad0b156d-6377-4437-b611-4f420de9f526",
+      "811c1a71-4356-418f-8a60-05f69b762e91",
+      "991f8e21-c926-4016-9954-743429ec1c8a",
+      "551e2fd4-8ccf-4eef-8191-3a5e96328e4f",
+      "5c01f983-3913-4a93-a5aa-b7bc63599ea6",
+      "16165255-0a1d-4a41-b40c-476df5d80ed3",
+      "93ae0d9d-0a6f-4b3c-a1fc-64b75e7cf93d",
+      "c4f2b933-6250-4423-bb75-2d700615dacd"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-02-02T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-06-02T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-02-02T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 172723.0,
+    "valorContratualVigente": 172723.0,
+    "valorEmpenhado": 172723.0,
+    "valorLiquidado": 172723.0,
+    "valorPago": 172723.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "3a5c2879-05e9-4362-b295-405b08de75b6",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000140",
+      "dataEmpenho": "26/02/2018",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "172.723,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "914764c8-9700-436a-9adf-60f95af80308",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000140",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000887",
+      "notaLancamento": "2018NL000887",
+      "numProcesso": "00001812018",
+      "dataLiquidacao": "22/03/2018",
+      "valLiqLiquidacao": "90.400,00",
+      "valBrutLiquidacao": "90.400,00",
+      "valEmpenho": "172.723,00",
+      "descObsLiquidacao": "PAGAMENTO PODIUM NF:4561 (CHAPAS GALVANIZADAS) PR.181/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "0c577d30-b94b-441e-aa07-2774068a7dd1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000140",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000889",
+      "notaLancamento": "2018NL000889",
+      "numProcesso": "00001922018",
+      "dataLiquidacao": "22/03/2018",
+      "valLiqLiquidacao": "54.068,90",
+      "valBrutLiquidacao": "54.068,90",
+      "valEmpenho": "172.723,00",
+      "descObsLiquidacao": "PAGAMENTO PODIUM NF:4562 E NF:4568 (CHAPAS DE FERRO E GALVANIZADAS) PR.192/2018",
+      "pago": "0,00"
+    },
+    {
+      "id": "2a4218b0-a12e-49ec-85fd-ef5ef76d98e1",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000140",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000890",
+      "notaLancamento": "2018NL000890",
+      "numProcesso": "00001922018",
+      "dataLiquidacao": "22/03/2018",
+      "valLiqLiquidacao": "28.254,10",
+      "valBrutLiquidacao": "28.254,10",
+      "valEmpenho": "172.723,00",
+      "descObsLiquidacao": "PAGAMENTO PODIUM NF:4562 E NF:4568 (CHAPAS DE FERRO E GALVANIZADAS) PR.192/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "bd36cf67-cbaa-4104-ad9f-23d3f590328d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000140",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000889",
+      "ordBancaria": "2018OB007749",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 172.723,00",
+      "dataPagamento": "22/03/2018",
+      "pago": "R$ 54.068,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "07b1f7d2-b2e4-4d76-887a-1b82a31b4b3d",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000140",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000887",
+      "ordBancaria": "2018OB007749",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 172.723,00",
+      "dataPagamento": "22/03/2018",
+      "pago": "R$ 90.400,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "b9f31cb6-4518-41ae-8d2d-b6e35fc29a9b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000140",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "PODIUM DISTRIBUIDORA EIRELI",
+      "notaLiquidacao": "2018NL000890",
+      "ordBancaria": "2018OB007749",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 172.723,00",
+      "dataPagamento": "22/03/2018",
+      "pago": "R$ 28.254,10",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT001279"
+    },
+    "nuProcesso": "000920/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO COM ENTREGA INCLUSA DE  CHAPAS DE AÇO E CHAPAS GALVANIZADAS. PR-920/2017-APOSTILADO DA SEMAN PARA DESAL PUBLICAÇÃO DOM Nº7053 DE 22/02/2018.TERMO Nº23/2018 E Nº23/2018.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

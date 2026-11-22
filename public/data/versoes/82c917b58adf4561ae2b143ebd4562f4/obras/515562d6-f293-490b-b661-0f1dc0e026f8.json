@@ -1,0 +1,206 @@
+{
+  "id": "515562d6-f293-490b-b661-0f1dc0e026f8",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT000519",
+  "numeroContratoOriginal": "000034/2017",
+  "nuProcesso": "000351/2017",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS DE ENGENNHARIA PARA ELABORAÇÃO DE RELATÓRIO DIAGNÓSTICO DE AVALIAÇÃO DAS INSTALAÇÕES ELÉTRICAS DO PRÉDIO ADMINISTRATIVO E GALPÕES FABRIS DA DESAL/SEMAN - CONTRATO DESAL 34/2017",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "MORAN PROJETOS E MONTAGENS ELETRICAS LTDA - EPP",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 36136.19,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-26T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-04-26T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-26T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 36136.19,
+    "valorContratualVigente": 36136.19,
+    "valorEmpenhado": 36136.19,
+    "valorLiquidado": 36136.19,
+    "valorPago": 36136.19,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Técnicos e Administrativos - DESAL",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "73aec2dd-9037-4643-9b74-7f7a12c0249a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000082",
+      "dataEmpenho": "31/01/2018",
+      "nomeCredor": "MORAN PROJETOS E MONTAGENS ELETRICAS LTDA - EPP",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços Técnicos Profissionais",
+      "valEmpenhado": "36.136,19",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "14ffdb2d-4198-498e-a192-9526b7f67050",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000082",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "MORAN PROJETOS E MONTAGENS ELETRICAS LTDA - EPP",
+      "notaLiquidacao": "2018NL003144",
+      "notaLancamento": "2018NL003144",
+      "numProcesso": "00006502018",
+      "dataLiquidacao": "14/08/2018",
+      "valLiqLiquidacao": "36.136,19",
+      "valBrutLiquidacao": "36.136,19",
+      "valEmpenho": "36.136,19",
+      "descObsLiquidacao": "MORAN PROJETOS E MONTAGENS ELETRICAS - ELABORAÇÃO DE RELATORIO DIAGNOSTICO DE AVALIAÇÃO DAS INSTALAÇÕES ELETRICAS DO PREDIO ADMINISTRATIVO E GALPOES FABRIS DA DESAL - PROCESSO 650/2018 - NF 236 - CT 034/2017 - MEDIÇÃO 01",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "294243bf-588a-4341-8df5-4326a3a552ab",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000082",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "MORAN PROJETOS E MONTAGENS ELETRICAS LTDA - EPP",
+      "notaLiquidacao": "2018NL003144",
+      "ordBancaria": "2018OB025502",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 36.136,19",
+      "dataPagamento": "14/08/2018",
+      "pago": "R$ 36.136,19",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "3e3fb05a-f7ed-4d5a-a2cf-5e83603536bc",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000082",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "MORAN PROJETOS E MONTAGENS ELETRICAS LTDA - EPP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP001584",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 36.136,19",
+      "dataPagamento": "23/08/2018",
+      "pago": "R$ 1.680,33",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "f6bcbd57-0f13-404d-9582-f925da0cf65c",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000082",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "MORAN PROJETOS E MONTAGENS ELETRICAS LTDA - EPP",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018NL003410",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 36.136,19",
+      "dataPagamento": "28/08/2018",
+      "pago": "R$ -1.680,33",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Porto Seco Pirajá",
+  "prefeituraBairro": "Pau da Lima",
+  "latitude": -12.91001,
+  "longitude": -38.454366,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT000519"
+    },
+    "nuProcesso": "000351/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Porto Seco Pirajá",
+      "prefeituraBairro": "Pau da Lima",
+      "origem": "Alocação em Porto Seco Pirajá via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "AVALIAÇÃO DAS INSTALAÇÕES ELÉTRICAS DO PRÉDIO ADMINISTRATIVO E GALPÕES FABRIS DA DESAL/SEMAN",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Os prédios e galpões da DESAL localizam-se no Bairro Oficial Porto Seco Pirajá."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

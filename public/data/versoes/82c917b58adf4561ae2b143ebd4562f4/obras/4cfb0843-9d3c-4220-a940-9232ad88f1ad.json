@@ -1,0 +1,206 @@
+{
+  "id": "4cfb0843-9d3c-4220-a940-9232ad88f1ad",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT006409",
+  "numeroContratoOriginal": "31/2017",
+  "nuProcesso": "000387/2017",
+  "objeto": "AQUISIÇÃO DE EQUIPAMENTOS (LOTE 1)PARA ATENDER AO SETOR DE PRODUÇÃO (PLANA, LIXADEIRA, ESMERILHADEIRA ETC)",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "VIVIANE CRESTAN DE OLIVEIRA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 71750.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-12-14T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-02-11T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-12-14T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 71750.0,
+    "valorContratualVigente": 71750.0,
+    "valorEmpenhado": 71750.0,
+    "valorLiquidado": 71750.0,
+    "valorPago": 71750.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Equipamentos e Material Permanente"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "6e9731b7-4d82-4183-a5e0-10eb9d175d83",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000433",
+      "dataEmpenho": "15/12/2017",
+      "nomeCredor": "VIVIANE CRESTAN DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Bens Móveis - Máquinas, Tratores e Ferramentas",
+      "valEmpenhado": "71.750,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "126637a0-4f54-4eb3-8d5b-de623f6b9fe3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000447",
+      "dataEmpenho": "18/12/2017",
+      "nomeCredor": "VIVIANE CRESTAN DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Bens Móveis - Máquinas, Tratores e Ferramentas",
+      "valEmpenhado": "-71.750,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "e91060c9-b154-4142-989a-3ca7f5b9f26a",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000078",
+      "dataEmpenho": "30/01/2018",
+      "nomeCredor": "VIVIANE CRESTAN DE OLIVEIRA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "subElemDespesa": "Bens Móveis - Máquinas, Tratores e Ferramentas",
+      "valEmpenhado": "71.750,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "ba12cae1-2a4a-482b-8de9-d7ee813c1376",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "VIVIANE CRESTAN DE OLIVEIRA",
+      "notaLiquidacao": "2018NL000501",
+      "notaLancamento": "2018NL000501",
+      "numProcesso": "00001122018",
+      "dataLiquidacao": "26/02/2018",
+      "valLiqLiquidacao": "71.750,00",
+      "valBrutLiquidacao": "71.750,00",
+      "valEmpenho": "71.750,00",
+      "descObsLiquidacao": "PAGAMENTO VIVIANE CRESTAN - NF 906 - PR. 112/2018 -  CT 31/2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "e554bd64-e324-4393-bbf5-36f3f51e90eb",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000078",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "VIVIANE CRESTAN DE OLIVEIRA",
+      "notaLiquidacao": "2018NL000501",
+      "ordBancaria": "2018OB004423",
+      "elemDespesa": "Equipamentos e Material Permanente",
+      "valEmpenhado": "R$ 71.750,00",
+      "dataPagamento": "26/02/2018",
+      "pago": "R$ 71.750,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT006409"
+    },
+    "nuProcesso": "000387/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE EQUIPAMENTOS (LOTE 1)PARA ATENDER AO SETOR DE PRODUÇÃO (PLANA, LIXADEIRA, ESMERILHADEIRA ETC)",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

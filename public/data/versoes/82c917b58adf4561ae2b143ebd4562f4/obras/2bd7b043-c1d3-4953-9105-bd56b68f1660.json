@@ -1,0 +1,178 @@
+{
+  "id": "2bd7b043-c1d3-4953-9105-bd56b68f1660",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT005068",
+  "numeroContratoOriginal": "000016/2017",
+  "nuProcesso": "000281/2017",
+  "objeto": "AQUISIÇÃO DE MATERIAIS PARA SERVIÇOS DIVERSOS DA METALURGIA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DRIMATEC COMERCIO E SERVICOS LTDA",
+    "cnpj": "",
+    "totalObras": 10,
+    "totalObrasAtivas": 10,
+    "valorTotalContratado": 1325740.69,
+    "outrasObrasCount": 9,
+    "outrasObrasIds": [
+      "9ecb65ff-4c4a-4423-afd9-9abca6628db0",
+      "de93f82f-271b-471b-98d5-0c014656a990",
+      "b8f24b4b-f0f8-444f-b87d-a12559d4f2bb",
+      "95c9b1f5-b7d4-454c-a1a9-8165a4a21a1b",
+      "4168031c-1db3-4d80-a3f0-5dda9ff56765",
+      "842d0b03-0471-4525-825c-b5310eacf170",
+      "23c11524-caff-4bcb-8826-5fada694386f",
+      "2b55d2ed-5258-4d7d-98a1-ce60f56fee33",
+      "fe14d418-5fdf-4bb7-b0de-a1d02eeaedac"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-10-25T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-02-21T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-10-25T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 13399.95,
+    "valorContratualVigente": 13399.95,
+    "valorEmpenhado": 13399.95,
+    "valorLiquidado": 13399.95,
+    "valorPago": 13399.95,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "7e36c789-f261-4e30-98be-adb4a1d99b13",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000299",
+      "dataEmpenho": "27/10/2017",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Ferramentas",
+      "valEmpenhado": "13.399,95",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "0d24ff6d-7bfe-4c9e-b33f-0d2e61da5915",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000299",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "notaLiquidacao": "2017NL002224",
+      "notaLancamento": "2017NL002224",
+      "numProcesso": "00004382017",
+      "dataLiquidacao": "28/11/2017",
+      "valLiqLiquidacao": "13.399,95",
+      "valBrutLiquidacao": "13.399,95",
+      "valEmpenho": "13.399,95",
+      "descObsLiquidacao": "PAGAMENTO DRIMATEC NF:165- MATERIAS SETOR METALURGIA-PR- 438/2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "e68a8974-1243-4aa6-9316-8e26ed46df09",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000299",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "DRIMATEC COMERCIO E SERVICOS EIRELI",
+      "notaLiquidacao": "2017NL002224",
+      "ordBancaria": "2017OB031747",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 13.399,95",
+      "dataPagamento": "28/11/2017",
+      "pago": "R$ 13.399,95",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT005068"
+    },
+    "nuProcesso": "000281/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE MATERIAIS PARA SERVIÇOS DIVERSOS DA METALURGIA",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

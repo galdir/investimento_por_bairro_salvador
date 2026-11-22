@@ -1,0 +1,169 @@
+{
+  "id": "1af8ec06-0bd6-4e16-b58f-67d6b1dcc206",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2016CT004728",
+  "numeroContratoOriginal": "0000332016",
+  "nuProcesso": "0020162594",
+  "objeto": "Reforma de adequação para funcionamento da(s) unidade(s) escolar (es) ¿ ESCOLA MUNICIPAL ELISA SALDANHA, LOTE 09.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "BMV CONSTRUCOES E INCORPORACOES LTDA",
+    "cnpj": "00.965.611/0001-74",
+    "totalObras": 28,
+    "totalObrasAtivas": 28,
+    "valorTotalContratado": 146510383.42,
+    "outrasObrasCount": 27,
+    "outrasObrasIds": [
+      "7fed9338-b1be-4595-9291-3a2e653529ff",
+      "4c9a6587-de01-434d-9f0f-ab6c72a4930b",
+      "cc14d8c0-2c20-4bd0-aa3b-df2f6b38e026",
+      "4a520369-4d6e-4fb0-bc1f-c63e991bc712",
+      "7fd9af82-e65a-460a-aadb-6d46272aed17",
+      "23faa700-d177-4be2-993e-d3b2f16ed916",
+      "cf471ffb-edad-4d22-8a83-c6184462543f",
+      "69959a3f-1f69-49a3-9b2f-9f776a4cad6b",
+      "86204885-a441-4240-af79-588836fce3e3",
+      "fbf71a34-8a99-4a2a-9246-e8eeb7762385",
+      "ed6b5a96-ef25-4062-8225-df5c21f3f701",
+      "ed10abc2-0e30-4198-b677-fd4f6cfe7c86",
+      "d30398ae-96ca-4261-9dba-12da1a054f93",
+      "bc48fbc5-c67d-4729-ac8f-cdc7ad5deb86",
+      "b2315e6d-74d1-4ac0-a809-aeb04bb2f03d",
+      "c19042b8-9f7a-449a-9d39-cde4003e1424",
+      "1210a2d2-6c53-427f-8a9d-c1501a06637c",
+      "9ad5cbb4-ae9a-4282-a9db-54007f013a4d",
+      "6babef06-3f1f-4f50-a043-131789051d27",
+      "9f9e5b19-16e7-4972-bb55-8d2c31989abb",
+      "30a2193b-b7aa-414b-96b5-0690b29ae342",
+      "279e352a-e20f-4672-b544-7f118fd111c7",
+      "1ffc8ee9-a5fc-4a58-abc0-4431a3ccc5ef",
+      "cc7bb00d-9d45-4697-ad26-639954666d42",
+      "0fd29017-0e4f-4726-ab34-87dbd3cdcf5d",
+      "7651e351-8fae-427a-9957-03904c716cce",
+      "41a7f1f6-b810-4b21-be37-9dd1bae514da"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2016-11-18T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-07-17T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2016-11-18T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 126414.03,
+    "valorContratualVigente": 126414.03,
+    "valorEmpenhado": 126414.03,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "84e61260-bd07-4098-abe6-ea3b174cc10b",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2017NE001458",
+      "dataEmpenho": "14/06/2017",
+      "nomeCredor": "BMV CONSTRUCOES E INCORPORACOES EIRELI",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
+      "valEmpenhado": "126.414,02",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "8d92de59-c997-48a5-9d53-57113f00878b",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2017NE003246",
+      "dataEmpenho": "23/11/2017",
+      "nomeCredor": "BMV CONSTRUCOES E INCORPORACOES EIRELI",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Manutenção e Conservação de bens imóveis",
+      "valEmpenhado": "-126.414,02",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 17/07/2017 com execução física incompleta (0.0%)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Fazenda Grande III",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.904271,
+  "longitude": -38.395514,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2016CT004728"
+    },
+    "nuProcesso": "0020162594",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Fazenda Grande III",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Fazenda Grande III via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Reforma de adequação para funcionamento da(s) unidade(s) escolar (es) ¿ ESCOLA MUNICIPAL ELISA SALDANHA, LOTE 09",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "A Escola Municipal Professora Elisa Saldanha localiza-se no Bairro Oficial Fazenda Grande III."
+    }
+  },
+  "cdUnidadeGestora": "441010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

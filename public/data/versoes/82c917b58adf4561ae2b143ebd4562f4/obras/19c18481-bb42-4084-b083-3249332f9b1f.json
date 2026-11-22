@@ -1,0 +1,216 @@
+{
+  "id": "19c18481-bb42-4084-b083-3249332f9b1f",
+  "unidadeGestora": "SECULT",
+  "numeroContrato": "2024CT010183",
+  "numeroContratoOriginal": "19982024",
+  "nuProcesso": "256672/2024",
+  "objeto": "Contratação de empresa especializada em serviço de Arquitetura para Elaboração dos Projetos de Infra Estrutura do Réveillon 2024/2025 - Layout para aproveitamento de espaço para alocação dos ambientes: área",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
+    "cnpj": "03.249.978/0001-80",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 49000.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2024-12-11T00:00:00.000Z",
+    "dataFimOriginal": "2025-06-11T00:00:00.000Z",
+    "dataTerminoAtualizado": "2025-06-11T00:00:00.000Z",
+    "prazoOriginal": "182",
+    "prazoAtualizado": "182"
+  },
+  "dom": {
+    "nuDom": "8931/2024",
+    "dataPublicacao": "2024-12-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 49000.0,
+    "valorContratualVigente": 49000.0,
+    "valorEmpenhado": 49000.0,
+    "valorLiquidado": 49000.0,
+    "valorPago": 49000.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "id": "6dc7eab0-d828-4e35-b035-fa9d62a6efa2",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "cdUnGestora": "547002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "notaEmpenho": "2024NE002761",
+      "dataEmpenho": "17/12/2024",
+      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
+      "fonteRecurso": "Ex. Anterior - Recursos Não Vinculados de Impostos - Tesouro Principal",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "49.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "463ea3d0-df37-480e-834b-16d85cdce994",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2024NE002761",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
+      "notaLiquidacao": "2024NL020664",
+      "notaLancamento": "2024NL020664",
+      "numProcesso": "02641752024",
+      "dataLiquidacao": "26/12/2024",
+      "valLiqLiquidacao": "49.000,00",
+      "valBrutLiquidacao": "49.000,00",
+      "valEmpenho": "49.000,00",
+      "descObsLiquidacao": "PAGAMENTO REFERENTE PARCELA ÚNICA DA EMPRESA ESPECIALIZADA EM SERVIÇO DE\r\nARQUITETURA, ELA",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "acf32f05-352e-410b-a4d4-21781693bfc0",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2024NE002761",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2024OB092828",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 49.000,00",
+      "dataPagamento": "30/12/2024",
+      "pago": "R$ 2.450,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "936189fc-dd93-4bb5-b5a8-97e87818aed2",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2024NE002761",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
+      "notaLiquidacao": "2024NL020664",
+      "ordBancaria": "2024OB092822",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 49.000,00",
+      "dataPagamento": "30/12/2024",
+      "pago": "R$ 43.536,50",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "4227f13d-572a-484f-b164-35fc08b7abfa",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2024NE002761",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2025OB000273",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 49.000,00",
+      "dataPagamento": "20/01/2025",
+      "pago": "R$ 2.278,50",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1044a6da-98bf-4f66-ac44-2653868525ac",
+      "descOrgao": "Secretaria Municipal de Cultura e Turismo",
+      "siglaOrgao": "SECULT",
+      "notaEmpenho": "2024NE002761",
+      "codUnGestora": "547002",
+      "descUnGestora": "UG SALTUR - Empresa Salvador Turismo",
+      "siglaUnGestora": "SALTUR",
+      "nomeCredor": "GIUSEPPE MAZZONI & ASSOCIADOS S/S LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2025OB000273",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 49.000,00",
+      "dataPagamento": "20/01/2025",
+      "pago": "R$ 735,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "547002",
+      "unidadeGestora": "SECULT",
+      "nuContratoSigef": "2024CT010183"
+    },
+    "nuProcesso": "256672/2024",
+    "domContrato": {
+      "nuDom": "8931/2024",
+      "url": "https://dom.salvador.ba.gov.br/"
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "547002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2021-01-01T03:00:00.000Z",
+    "dataFim": "2024-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

@@ -1,0 +1,168 @@
+{
+  "id": "65a691fb-7dd4-4353-b354-4325bdac23da",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT001906",
+  "numeroContratoOriginal": "000008/2018",
+  "nuProcesso": "001326/2017",
+  "objeto": "Aquisição Asfalto pré-misturado a frio - Aplicação nos serviços de Tapa Buracos e revestimentos",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CB-PAV INDUSTRIA E COMERCIO LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 44600.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-03-20T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-09-15T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-03-20T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 44600.0,
+    "valorContratualVigente": 44600.0,
+    "valorEmpenhado": 44600.0,
+    "valorLiquidado": 44600.0,
+    "valorPago": 44600.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Conservação da Malha Viária",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "c3306094-7b5f-49fd-bde1-5e711e70c296",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2018NE000338",
+      "dataEmpenho": "03/04/2018",
+      "nomeCredor": "CB-PAV INDUSTRIA E COMERCIO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "44.600,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "e9ce3519-24a0-4091-bb56-8dd0c5b84815",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000338",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "CB-PAV INDUSTRIA E COMERCIO LTDA",
+      "notaLiquidacao": "2018NL003007",
+      "notaLancamento": "2018NL003007",
+      "numProcesso": "00007012018",
+      "dataLiquidacao": "29/06/2018",
+      "valLiqLiquidacao": "44.600,00",
+      "valBrutLiquidacao": "44.600,00",
+      "valEmpenho": "44.600,00",
+      "descObsLiquidacao": "VALOR REF. AQUISIÇÃO DE MASSA ASFALTICA, CT 08/2018, CONFORME NF 5787",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "7b9490b8-8ac6-42ae-93c6-d821ac8eeb00",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000338",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "CB-PAV INDUSTRIA E COMERCIO LTDA",
+      "notaLiquidacao": "2018NL003007",
+      "ordBancaria": "2018OB019017",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 44.600,00",
+      "dataPagamento": "29/06/2018",
+      "pago": "R$ 44.600,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT001906"
+    },
+    "nuProcesso": "001326/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Aquisição Asfalto pré-misturado a frio - Aplicação nos serviços de Tapa Buracos e revestimentos",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

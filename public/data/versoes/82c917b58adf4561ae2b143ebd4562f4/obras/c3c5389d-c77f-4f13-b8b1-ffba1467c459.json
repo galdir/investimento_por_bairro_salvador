@@ -1,0 +1,168 @@
+{
+  "id": "c3c5389d-c77f-4f13-b8b1-ffba1467c459",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT003396",
+  "numeroContratoOriginal": "000010/2018",
+  "nuProcesso": "000382/2018",
+  "objeto": "AQUISIÇÃO DE CIMENTO BRANCO ESTRUTURAL PARA SETOR FABRIL. PR.382/2018",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "CASCATEL INDUSTRIA E COMERCIO DE TELHA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 2200.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2018-06-21T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-12-31T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-06-21T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 2200.0,
+    "valorContratualVigente": 2200.0,
+    "valorEmpenhado": 2200.0,
+    "valorLiquidado": 2200.0,
+    "valorPago": 2200.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Argamassa e Concreto",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "e897fb92-375e-4619-8350-f92f9f3ad66b",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000323",
+      "dataEmpenho": "25/06/2018",
+      "nomeCredor": "CASCATEL INDUSTRIA E COMERCIO DE TELHA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "2.200,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "c37feed4-0b46-478e-944a-e84cd16b855e",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000323",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "CASCATEL INDUSTRIA E COMERCIO DE TELHA LTDA",
+      "notaLiquidacao": "2018NL002651",
+      "notaLancamento": "2018NL002651",
+      "numProcesso": "00003822018",
+      "dataLiquidacao": "16/07/2018",
+      "valLiqLiquidacao": "2.200,00",
+      "valBrutLiquidacao": "2.200,00",
+      "valEmpenho": "2.200,00",
+      "descObsLiquidacao": "CASCATEL - FORNECIMENTO DE CIMENTO BRANCO  ESTRUTURAL ÁRA SETOR FABRIL PORTLAND 25 KG - NF 21102 - PROCESSO 382/2018 - DISPENSA DE LICITAÇÃO Nº 010/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "7cb61ea4-f182-451c-b69c-4dfd4b672ded",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000323",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "CASCATEL INDUSTRIA E COMERCIO DE TELHA LTDA",
+      "notaLiquidacao": "2018NL002651",
+      "ordBancaria": "2018OB020117",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 2.200,00",
+      "dataPagamento": "16/07/2018",
+      "pago": "R$ 2.200,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT003396"
+    },
+    "nuProcesso": "000382/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE CIMENTO BRANCO ESTRUTURAL PARA SETOR FABRIL. PR.382/2018",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

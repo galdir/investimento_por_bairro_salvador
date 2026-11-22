@@ -1,0 +1,168 @@
+{
+  "id": "1804e765-6eeb-408f-83e5-53384f176ece",
+  "unidadeGestora": "SEMOP",
+  "numeroContrato": "2017CT000139",
+  "numeroContratoOriginal": "000042/2016",
+  "nuProcesso": "003506/2016",
+  "objeto": "Reforma dos boxes 94 e 95 do Mercado de Cajazeira, para instalação do SIMM e Casa do Trabalhador.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "SHIRLEY OLIVEIRA MENEZES FERNANDES 81562713515",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 3800.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-01-25T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-02-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-01-25T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 3800.0,
+    "valorContratualVigente": 3800.0,
+    "valorEmpenhado": 3800.0,
+    "valorLiquidado": 3800.0,
+    "valorPago": 3800.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção dos Serviços Tecnicos e Administrativos - SEMOP",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "d90a4240-8d02-42ce-9f9f-60f1157b767c",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "cdUnGestora": "450002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "notaEmpenho": "2017NE000046",
+      "dataEmpenho": "25/01/2017",
+      "nomeCredor": "SHIRLEY OLIVEIRA MENEZES FERNANDES 81562713515",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Outros Serviços de Manutenção e Conservação",
+      "valEmpenhado": "3.800,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "d4096304-4e7f-456b-9fc5-39e64ce32a25",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2017NE000046",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "SHIRLEY OLIVEIRA MENEZES FERNANDES 81562713515",
+      "notaLiquidacao": "2017NL000072",
+      "notaLancamento": "2017NL000072",
+      "numProcesso": "00002162017",
+      "dataLiquidacao": "27/01/2017",
+      "valLiqLiquidacao": "3.800,00",
+      "valBrutLiquidacao": "3.800,00",
+      "valEmpenho": "3.800,00",
+      "descObsLiquidacao": "Pgto de Shirley Oliveira Menezes, NF 0009, reforma de dos boxes 94 e 95 do Mercado de Cajazeiras para a intalação do SIMM e Casa do Trabalhador.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "7e52147c-2e80-444e-b652-49054c27ebcf",
+      "descOrgao": "Secretaria Municipal de Ordem Pública",
+      "siglaOrgao": "SEMOP",
+      "notaEmpenho": "2017NE000046",
+      "codUnGestora": "450002",
+      "descUnGestora": "UG SEMOP - Secretaria Municipal de Ordem Pública",
+      "siglaUnGestora": "SEMOP",
+      "nomeCredor": "SHIRLEY OLIVEIRA MENEZES FERNANDES 81562713515",
+      "notaLiquidacao": "2017NL000072",
+      "ordBancaria": "2017OB000410",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 3.800,00",
+      "dataPagamento": "27/01/2017",
+      "pago": "R$ 3.800,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Cajazeiras X",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.893074,
+  "longitude": -38.411086,
+  "estagioAlocacao": "Curadoria Territorial Auditável",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "450002",
+      "unidadeGestora": "SEMOP",
+      "nuContratoSigef": "2017CT000139"
+    },
+    "nuProcesso": "003506/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável",
+      "bairro": "Cajazeiras X",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Cajazeiras X via Curadoria Territorial Auditável",
+      "trechoComprobatorio": "Reforma dos boxes 94 e 95 do Mercado de Cajazeira, para instalação do SIMM e Casa do Trabalhador",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "O Mercado Municipal de Cajazeiras situa-se no Bairro Oficial Cajazeiras X."
+    }
+  },
+  "cdUnidadeGestora": "450002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

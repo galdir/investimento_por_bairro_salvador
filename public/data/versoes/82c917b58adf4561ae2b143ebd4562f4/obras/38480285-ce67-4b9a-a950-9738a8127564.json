@@ -1,0 +1,189 @@
+{
+  "id": "38480285-ce67-4b9a-a950-9738a8127564",
+  "unidadeGestora": "SEMPRE",
+  "numeroContrato": "2026CT005609",
+  "numeroContratoOriginal": "262026",
+  "nuProcesso": "0918222025",
+  "objeto": "Contratação de empresa de engenharia para a realização de obras de requalificação e modernização da quadra poliesportiva da Rua Lourival Costa com a Rua Joinville, Águas Claras - Salvador/BA, e do campo de futebol da Rua Almirante Mourão de Sá, Fazenda Coutos - Salvador/BA, da SEMPRE.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RCTJ ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 298565.78,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2026-06-18T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2027-06-17T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-06-18T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 298565.78,
+    "valorContratualVigente": 298565.78,
+    "valorEmpenhado": 298565.78,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "cdUnGestora": "520002",
+      "dataEmpenho": "03/11/2026",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Obras e Instalações",
+      "fonteRecurso": "Ex Ant - Outras Tranf de Conv ou Instrumentos Cong da União - Emenda Individual Federal",
+      "id": "bec3f1a8-da23-46ca-ab0a-9e1a39b622b3",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "RCTJ ENGENHARIA LTDA",
+      "notaEmpenho": "2026NE004808",
+      "pago": null,
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "296.683,47"
+    },
+    {
+      "cdUnGestora": "520002",
+      "dataEmpenho": "15/10/2026",
+      "descOrgao": "Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "descUnGestora": "UG SEMPRE - Secretaria Municipal de Promoção Social, Combate à Pobreza, Esportes e Lazer",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Obras e Instalações",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Principal",
+      "id": "ee52edc8-28a3-4860-9327-96e8add4890f",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "RCTJ ENGENHARIA LTDA",
+      "notaEmpenho": "2026NE004687",
+      "pago": null,
+      "subElemDespesa": "Construção e Ampliação de Praças e Áreas de Lazer",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "1.882,31"
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Praças, Esporte e Lazer",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Obra em execução sem movimentação de liquidação ou pagamento há mais de 90 dias (155 dias)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Bairro",
+  "bairro": "Águas Claras",
+  "prefeituraBairro": "Cajazeiras",
+  "latitude": -12.890699,
+  "longitude": -38.435616,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "520002",
+      "unidadeGestora": "SEMPRE",
+      "nuContratoSigef": "2026CT005609"
+    },
+    "nuProcesso": "0918222025",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Bairro",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Lista Fechada)",
+      "bairro": "Águas Claras",
+      "prefeituraBairro": "Cajazeiras",
+      "origem": "Alocação em Águas Claras via Curadoria Territorial Auditável (Lista Fechada)",
+      "trechoComprobatorio": "requalificação e modernização da quadra poliesportiva da Rua Lourival Costa com a Rua Joinville, Águas Claras - Salvador/BA, e do campo de futebol da Rua Almirante Mourão de Sá, Fazenda Coutos - Salvador/BA",
+      "documentoOrigem": "dsObjeto (Contrato)",
+      "justificativa": "Lista fechada exata com 2 equipamentos esportivos explícitos: Quadra em Águas Claras e Campo em Fazenda Coutos.",
+      "cotasListaFechada": [
+        {
+          "bairro": "Águas Claras",
+          "prefeituraBairro": "Cajazeiras",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.890699,
+          "longitude": -38.435616,
+          "descricaoUnidades": "Quadra Poliesportiva Rua Lourival Costa x Rua Joinville (Águas Claras)"
+        },
+        {
+          "bairro": "Fazenda Coutos",
+          "prefeituraBairro": "Subúrbio/Ilhas",
+          "unidades": 1,
+          "totalUnidades": 2,
+          "peso": 0.5,
+          "fracao": "1/2",
+          "latitude": -12.847682,
+          "longitude": -38.461693,
+          "descricaoUnidades": "Campo de Futebol Rua Almirante Mourão de Sá (Fazenda Coutos)"
+        }
+      ]
+    }
+  },
+  "cotasListaFechada": [
+    {
+      "bairro": "Águas Claras",
+      "prefeituraBairro": "Cajazeiras",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.890699,
+      "longitude": -38.435616,
+      "descricaoUnidades": "Quadra Poliesportiva Rua Lourival Costa x Rua Joinville (Águas Claras)"
+    },
+    {
+      "bairro": "Fazenda Coutos",
+      "prefeituraBairro": "Subúrbio/Ilhas",
+      "unidades": 1,
+      "totalUnidades": 2,
+      "peso": 0.5,
+      "fracao": "1/2",
+      "latitude": -12.847682,
+      "longitude": -38.461693,
+      "descricaoUnidades": "Campo de Futebol Rua Almirante Mourão de Sá (Fazenda Coutos)"
+    }
+  ],
+  "cdUnidadeGestora": "520002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataFim": "2028-12-31T03:00:00.000Z",
+    "dataInicio": "2025-01-01T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

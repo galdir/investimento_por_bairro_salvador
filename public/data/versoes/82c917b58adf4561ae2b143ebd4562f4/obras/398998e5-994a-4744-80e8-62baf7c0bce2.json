@@ -1,0 +1,176 @@
+{
+  "id": "398998e5-994a-4744-80e8-62baf7c0bce2",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2018CT004214",
+  "numeroContratoOriginal": "000033/2018",
+  "nuProcesso": "000031/2018",
+  "objeto": "AQUISIÇÃO DE FERRO CA 60 E ARAME RECOZIDO COM ENTREGA CIF PARA USO NA ARAMAÇÃO E DEMAIS DEMANDAS DA CONTRATANTE",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+    "cnpj": "",
+    "totalObras": 8,
+    "totalObrasAtivas": 8,
+    "valorTotalContratado": 1565042.0,
+    "outrasObrasCount": 7,
+    "outrasObrasIds": [
+      "5dd4c7f9-8dae-45aa-aa4d-e02897433130",
+      "a942ae46-fdac-4b08-a447-e05b6691271e",
+      "c2e367da-163b-49ae-82b6-3a4c7e12c65d",
+      "0081ba3e-0374-4862-aafe-04851cc2bc23",
+      "c66c95de-b469-4962-9cea-25eeeae1607b",
+      "e98994b5-c1dc-4306-976d-f7b4b6eb84c6",
+      "7c2d28ac-6a71-466d-b266-38fe9f07e320"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-08-06T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-08-05T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-08-06T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 108785.0,
+    "valorContratualVigente": 108785.0,
+    "valorEmpenhado": 108785.0,
+    "valorLiquidado": 108785.0,
+    "valorPago": 108785.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manufatura de Produtos para Comercialização e para Suporte a Projetos da Prefeitura - Peças Metálicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a00e8969-3258-4a8e-a701-a3b2b6341600",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2018NE000418",
+      "dataEmpenho": "15/08/2018",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "108.785,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "c9725fd5-1ea7-44f4-bcab-641284aea0c7",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000418",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL003585",
+      "notaLancamento": "2018NL003585",
+      "numProcesso": "00007212018",
+      "dataLiquidacao": "11/09/2018",
+      "valLiqLiquidacao": "108.785,00",
+      "valBrutLiquidacao": "108.785,00",
+      "valEmpenho": "108.785,00",
+      "descObsLiquidacao": "BAHIA FORTE - FORNECIMENTO DE FERRO CA E ARAME RECOZIDO - NF 954 - PROCESSO 721/2018- CT 033/2018",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "7e6fb6f2-e322-441b-8c2a-2d118c939362",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2018NE000418",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "BAHIA FORTE DISTRIBUIDORA E COMERCIO EIRELI",
+      "notaLiquidacao": "2018NL003585",
+      "ordBancaria": "2018OB027259",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 108.785,00",
+      "dataPagamento": "11/09/2018",
+      "pago": "R$ 108.785,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2018CT004214"
+    },
+    "nuProcesso": "000031/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE FERRO CA 60 E ARAME RECOZIDO COM ENTREGA CIF PARA USO NA ARAMAÇÃO E DEMAIS DEMANDAS DA CONTRATANTE",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

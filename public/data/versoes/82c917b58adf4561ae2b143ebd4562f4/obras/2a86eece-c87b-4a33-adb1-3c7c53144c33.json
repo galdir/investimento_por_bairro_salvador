@@ -1,0 +1,265 @@
+{
+  "id": "2a86eece-c87b-4a33-adb1-3c7c53144c33",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2018CT002280",
+  "numeroContratoOriginal": "000004/2018",
+  "nuProcesso": "001016/2018",
+  "objeto": "Prestação de serviços de plotagem e cópias de plantas arquitetônicas e de projetos complementares para obras de construção.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "COPIADORA EXEMPLO LTDA",
+    "cnpj": "",
+    "totalObras": 2,
+    "totalObrasAtivas": 2,
+    "valorTotalContratado": 15834.6,
+    "outrasObrasCount": 1,
+    "outrasObrasIds": [
+      "cc7e8fae-66bb-4dc0-9830-e72ff8444bca"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2018-04-04T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2019-04-03T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2018-04-04T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 7917.3,
+    "valorContratualVigente": 7917.3,
+    "valorEmpenhado": 7917.3,
+    "valorLiquidado": 7582.4,
+    "valorPago": 7917.3,
+    "percentualExecutado": 95.77,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Manutenção das Unidades de Ensino",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica "
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "02e9dcfa-4dca-44be-8605-9db76b51dcc9",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "cdUnGestora": "441010",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "notaEmpenho": "2018NE000801",
+      "dataEmpenho": "23/04/2018",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "fonteRecurso": "Rec. de Impostos e Transferências de Impostos - Educação",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços Gráficos",
+      "valEmpenhado": "7.917,30",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "74847db9-7a95-454e-a4db-9e5cce3cc6d4",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2018NE000801",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": "2018NL005270",
+      "notaLancamento": "2018NL005270",
+      "numProcesso": "00024792018",
+      "dataLiquidacao": "08/05/2018",
+      "valLiqLiquidacao": "7.582,40",
+      "valBrutLiquidacao": "7.917,30",
+      "valEmpenho": "7.917,30",
+      "descObsLiquidacao": "PR 2479/2018,CT 04/2018,NF 14204,SERVIÇOS DE PLOTAGEM E CÓPIAS DE PLANTAS ARQUITETONICAS E DE PROJETOS COMPLEMENTARES PARA OBRAS.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "a757ee39-4faa-400e-ae16-7b30ab0295cc",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2018NE000801",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": "2018NL005270",
+      "ordBancaria": "2018OB012578",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "08/05/2018",
+      "pago": "R$ 7.582,40",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "6620f6ff-2b14-443d-bec4-dc2a95045eb2",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2018NE000801",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018NL005270",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "08/05/2018",
+      "pago": "R$ 334,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "23bad0c6-7d69-42b0-b074-831c3b9bc3e7",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2018NE000801",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP003313",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "10/05/2018",
+      "pago": "R$ -334,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "81fa2d1f-e35b-4fc3-bf92-fb4f1b11afbe",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2018NE000801",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018PP003313",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "10/05/2018",
+      "pago": "R$ 334,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "c6682691-a230-4fc7-8943-2ad2dd73797c",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2018NE000801",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB012795",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "16/05/2018",
+      "pago": "R$ -334,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "1b05fc5d-a626-46ec-a519-7699177bce7c",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "siglaOrgao": "SMED",
+      "notaEmpenho": "2018NE000801",
+      "codUnGestora": "441010",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "siglaUnGestora": "FME",
+      "nomeCredor": "COPIADORA EXEMPLO LTDA",
+      "notaLiquidacao": " ",
+      "ordBancaria": "2018OB012795",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "valEmpenhado": "R$ 7.917,30",
+      "dataPagamento": "16/05/2018",
+      "pago": "R$ 334,90",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2018CT002280"
+    },
+    "nuProcesso": "001016/2018",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "Prestação de serviços de plotagem e cópias de plantas arquitetônicas e de projetos complementares para obras de construção.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "441010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

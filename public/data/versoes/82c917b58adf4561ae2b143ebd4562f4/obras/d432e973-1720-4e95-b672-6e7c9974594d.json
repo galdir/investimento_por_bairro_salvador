@@ -1,0 +1,305 @@
+{
+  "id": "d432e973-1720-4e95-b672-6e7c9974594d",
+  "unidadeGestora": "SEFAZ",
+  "numeroContrato": "2017CT002187",
+  "numeroContratoOriginal": "000007/2017",
+  "nuProcesso": "052680/2016",
+  "objeto": "SERVIÇOS DE AVALIAÇÃO DE IMOVEIS",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "APICE ENGENHARIA LTDA",
+    "cnpj": "",
+    "totalObras": 3,
+    "totalObrasAtivas": 3,
+    "valorTotalContratado": 781600.0,
+    "outrasObrasCount": 2,
+    "outrasObrasIds": [
+      "6ab6fae9-b4bf-4b65-98de-d59192e59579",
+      "c1b1c97a-eb52-4919-93d3-97d9f2bfdbba"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-04-27T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2021-04-27T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-04-27T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 10000.0,
+    "valorContratualVigente": 231600.0,
+    "valorEmpenhado": 1200.0,
+    "valorLiquidado": 1200.0,
+    "valorPago": 1200.0,
+    "percentualExecutado": 0.52,
+    "valorAditivos": 221600.0,
+    "deltaPercentualAditivos": 2216.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Salvador Legal - Execução de Ações para Combater a Inadimplência e a Sonegação de Tributos",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Outros Serviços de Terceiros - Pessoa Jurídica"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "07f3e653-4b65-4933-bacd-1b2fe8f3a6a5",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2021NE000127",
+      "dataEmpenho": "02/01/2021",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "9d75e7fe-5ca4-4ae9-9fb4-065e94b661e1",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2017NE000306",
+      "dataEmpenho": "04/05/2017",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "2.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "af641204-86c5-404f-b69a-50307575ba58",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2018NE000460",
+      "dataEmpenho": "04/05/2018",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "2278c8bf-3e85-4f2b-bc11-3db58653082a",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "RP1661379",
+      "dataEmpenho": "13/07/2018",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-800,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "1c1c0cc9-41d9-42d0-89b7-1df3d8e9faa4",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2020NE000554",
+      "dataEmpenho": "15/06/2020",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "15.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "649143b5-a2e9-428a-8c28-dee49bbdc30c",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2020NE001263",
+      "dataEmpenho": "21/12/2020",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-15.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "3a1d6dbc-4323-4203-8697-3cea8a07490c",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "2021NE001344",
+      "dataEmpenho": "23/12/2021",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    },
+    {
+      "id": "295cc6bc-f0cc-4642-9565-421a0acf1165",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "cdUnGestora": "270002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "notaEmpenho": "RP2828643",
+      "dataEmpenho": "27/08/2019",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica ",
+      "subElemDespesa": "Serviços de Arquitetura e Engenharia",
+      "valEmpenhado": "-5.000,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "03bd24ff-564c-4c5a-a3f9-238d93630eae",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2017NE000306",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "notaLiquidacao": "2017NL005973",
+      "notaLancamento": "2017NL005973",
+      "numProcesso": "00535752017",
+      "dataLiquidacao": "09/11/2017",
+      "valLiqLiquidacao": "1.200,00",
+      "valBrutLiquidacao": "1.200,00",
+      "valEmpenho": "2.000,00",
+      "descObsLiquidacao": "PAGTº DA NF: 201700000000043 - REF. À SERVIÇOS DE AVALIAÇÃO DE IMÓVEIS URBANOS DO MUNICÍPIO DE SALVADOR-BA. MÊS10/2017.",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "4f0a90d0-6524-410a-aa37-56bb98bc919d",
+      "descOrgao": "Secretaria Municipal da Fazenda",
+      "siglaOrgao": "SEFAZ",
+      "notaEmpenho": "2017NE000306",
+      "codUnGestora": "270002",
+      "descUnGestora": "UG SEFAZ - Secretaria Municipal da Fazenda",
+      "siglaUnGestora": "SEFAZ",
+      "nomeCredor": "APICE ENGENHARIA LTDA",
+      "notaLiquidacao": "2017NL005973",
+      "ordBancaria": "2017OB029222",
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "valEmpenhado": "R$ 2.000,00",
+      "dataPagamento": "09/11/2017",
+      "pago": "R$ 1.200,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Vigência expirada em 27/04/2021 com execução física incompleta (0.52%)",
+      "Variação Contratual Acumulada superior a 25% (+2216.0%) em relação ao contrato original"
+    ],
+    "deltaPercentualValor": 2216.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "270002",
+      "unidadeGestora": "SEFAZ",
+      "nuContratoSigef": "2017CT002187"
+    },
+    "nuProcesso": "052680/2016",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "SERVIÇOS DE AVALIAÇÃO DE IMOVEIS",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "270002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

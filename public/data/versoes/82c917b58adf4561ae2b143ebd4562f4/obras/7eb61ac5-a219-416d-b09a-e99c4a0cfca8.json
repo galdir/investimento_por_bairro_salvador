@@ -1,0 +1,168 @@
+{
+  "id": "7eb61ac5-a219-416d-b09a-e99c4a0cfca8",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT003655",
+  "numeroContratoOriginal": "000010/2017",
+  "nuProcesso": "000161/2017",
+  "objeto": "AQUISIÇÃO DE CATACRA E CINTA EM POLIESTER PARA AMARRAÇÃO DER CARGA , MANILHA ÂNCORA MA-032 E 035-PR, CONE DE TRÂNSITO PARA SINALIZAÇÃO E SINALIZADOR COM ENCAIXE.",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "RJCLEAN COMERCIO DE EQUIPAMENTOS LTDA  - ME",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 4677.98,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2017-07-27T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2017-11-23T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-07-27T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 4677.98,
+    "valorContratualVigente": 4677.98,
+    "valorEmpenhado": 4677.98,
+    "valorLiquidado": 4677.98,
+    "valorPago": 4677.98,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Implementação de Ações a Cargo da Desal",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "a7cd12d5-41ff-44f6-802f-d7efa5b84857",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "567002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "notaEmpenho": "2017NE000223",
+      "dataEmpenho": "04/08/2017",
+      "nomeCredor": "RJCLEAN COMERCIO DE EQUIPAMENTOS LTDA  - ME",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material de Proteção e Segurança",
+      "valEmpenhado": "4.677,98",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "91845364-b326-4a17-85d5-f2a100681d77",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000223",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "RJCLEAN COMERCIO DE EQUIPAMENTOS LTDA  - ME",
+      "notaLiquidacao": "2017NL002042",
+      "notaLancamento": "2017NL002042",
+      "numProcesso": "00003972017",
+      "dataLiquidacao": "07/11/2017",
+      "valLiqLiquidacao": "4.677,98",
+      "valBrutLiquidacao": "4.677,98",
+      "valEmpenho": "4.677,98",
+      "descObsLiquidacao": "PAGAMENTO RJCLEAN - NF 632 - PR. 397/2017",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "47fe9dca-e32b-4609-bf9b-0d7139823e98",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000223",
+      "codUnGestora": "567002",
+      "descUnGestora": "UG DESAL - Companhia de Desenvolvimento Urbano de Salvador",
+      "siglaUnGestora": "DESAL",
+      "nomeCredor": "RJCLEAN COMERCIO DE EQUIPAMENTOS LTDA  - ME",
+      "notaLiquidacao": "2017NL002042",
+      "ordBancaria": "2017OB028580",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 4.677,98",
+      "dataPagamento": "07/11/2017",
+      "pago": "R$ 4.677,98",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Mobilidade, Pavimentação e Drenagem",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "567002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT003655"
+    },
+    "nuProcesso": "000161/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO DE CATACRA E CINTA EM POLIESTER PARA AMARRAÇÃO DER CARGA , MANILHA ÂNCORA MA-032 E 035-PR, CONE DE TRÂNSITO PARA SINALIZAÇÃO E SINALIZADOR COM ENCAIXE.",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "567002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

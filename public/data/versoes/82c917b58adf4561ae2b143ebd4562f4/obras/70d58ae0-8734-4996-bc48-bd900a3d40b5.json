@@ -1,0 +1,119 @@
+{
+  "id": "70d58ae0-8734-4996-bc48-bd900a3d40b5",
+  "unidadeGestora": "SMED",
+  "numeroContrato": "2026CT004845",
+  "numeroContratoOriginal": "3132026",
+  "nuProcesso": "1760892024",
+  "objeto": "Prestação de serviços de manutenção de extintores de incêndio, fornecimento e instalação de extintores, iluminação de emergência e placas de sinalização de segurança contra incêndio e pânico, destinados ao\r\natendimento das unidades escolares e administrativas da Secretaria Municipal da Educação ¿\r\nSMED",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
+    "cnpj": "",
+    "totalObras": 1,
+    "totalObrasAtivas": 1,
+    "valorTotalContratado": 209325.0,
+    "outrasObrasCount": 0,
+    "outrasObrasIds": []
+  },
+  "vigencia": {
+    "dataInicio": "2026-08-12T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2027-08-12T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2026-08-12T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 209325.0,
+    "valorContratualVigente": 209325.0,
+    "valorEmpenhado": 209325.0,
+    "valorLiquidado": 0,
+    "valorPago": 0.0,
+    "percentualExecutado": 0.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [],
+  "empenhos": [
+    {
+      "cdUnGestora": "441010",
+      "dataEmpenho": "19/08/2026",
+      "descOrgao": "Secretaria Municipal da Educação",
+      "descUnGestora": "UG FME - Fundo Municipal de Educação",
+      "dsCategoriaEconomica": null,
+      "elemDespesa": "Outros Serviços de Terceiros - Pessoa Jurídica",
+      "fonteRecurso": "Recursos Não Vinculados de Impostos - Tesouro - Educação",
+      "id": "52b0b343-9591-40f9-b168-3b19c65ce0f7",
+      "nmFuncao": null,
+      "nmGrupoDespesa": null,
+      "nmSubFuncao": null,
+      "nomeCredor": "PHM CONSTRUCOES E COMBATE A INCENDIO LTDA",
+      "notaEmpenho": "2026NE006694",
+      "pago": null,
+      "subElemDespesa": "Manutenção e Conservação de Máquinas e Equipamentos",
+      "valBrutLiquidacao": null,
+      "valEmpenhado": "209.325,00"
+    }
+  ],
+  "liquidacoes": [],
+  "pagamentos": [],
+  "tema": "Educação e Escolas",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERMELHO",
+    "rotulo": "Vermelho (Crítica)",
+    "motivos": [
+      "Obra em execução sem movimentação de liquidação ou pagamento há mais de 90 dias (100 dias)"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Cache",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "441010",
+      "unidadeGestora": "SMED",
+      "nuContratoSigef": "2026CT004845"
+    },
+    "nuProcesso": "1760892024",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Cache",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Cache)"
+    }
+  },
+  "cdUnidadeGestora": "441010",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": false,
+    "situacao": "sem_registros"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataFim": "2028-12-31T03:00:00.000Z",
+    "dataInicio": "2025-01-01T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}

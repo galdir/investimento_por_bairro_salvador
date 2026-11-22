@@ -1,0 +1,220 @@
+{
+  "id": "7a92f059-83dc-42ab-8dde-6b1388b75fe4",
+  "unidadeGestora": "SEMAN",
+  "numeroContrato": "2017CT005412",
+  "numeroContratoOriginal": "000032/2017",
+  "nuProcesso": "000588/2017",
+  "objeto": "AQUISIÇÃO (com entrega inclusa) DE MADEIRAS PAU D¿ARCO APARELHADOS, ASSOALHO PARA DECK E RIPA TRATADA",
+  "situacao": "Em Execução",
+  "empreiteira": {
+    "razaoSocial": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+    "cnpj": "",
+    "totalObras": 14,
+    "totalObrasAtivas": 14,
+    "valorTotalContratado": 739367.12,
+    "outrasObrasCount": 13,
+    "outrasObrasIds": [
+      "cbc9b5dc-36e6-468f-995e-a85c9d77308f",
+      "a2978f86-4e62-43ac-a33c-aed9ca3f3381",
+      "8d386f83-dc8f-444c-b5e2-648a5a7ff56c",
+      "394a165b-0873-45dd-98e1-7ff356414799",
+      "d8e1ed1d-1b0e-49a3-a5c8-f68eccc92696",
+      "de0df8e9-7ab4-422d-b86d-f3df7ae0fee2",
+      "78e766d2-4dda-43ea-8f77-df30fc518582",
+      "b5042f60-8f26-41fe-8a64-f236536d5581",
+      "5e719a43-0cc3-48d1-a436-6fa6dcfe62d8",
+      "19c78f5d-4e5f-47c8-9356-bb05b15bbc46",
+      "53cc655e-9db7-4251-b4c4-b49f8065ae6a",
+      "ad32d833-abb2-4e41-a33a-c90c7d590b34",
+      "b15b7c75-8f25-48df-bcdd-6dbd44cac0ca"
+    ]
+  },
+  "vigencia": {
+    "dataInicio": "2017-11-01T00:00:00.000Z",
+    "dataFimOriginal": null,
+    "dataTerminoAtualizado": "2018-01-29T00:00:00.000Z",
+    "prazoOriginal": "Conforme Contrato",
+    "prazoAtualizado": "Conforme Contrato"
+  },
+  "dom": {
+    "nuDom": "Não informado",
+    "dataPublicacao": "2017-11-01T00:00:00.000Z"
+  },
+  "funilFinanceiro": {
+    "valorOriginal": 51480.0,
+    "valorContratualVigente": 51480.0,
+    "valorEmpenhado": 51480.0,
+    "valorLiquidado": 51480.0,
+    "valorPago": 51480.0,
+    "percentualExecutado": 100.0,
+    "valorAditivos": 0.0,
+    "deltaPercentualAditivos": 0.0
+  },
+  "aditivos": [],
+  "dotacao": [
+    {
+      "subacao": "Construção e Requalificação de Espaços Urbanos e Praças Públicas",
+      "fonteRecurso": "Tesouro",
+      "classificacao": "Material de Consumo"
+    }
+  ],
+  "empenhos": [
+    {
+      "id": "83841a2d-deb1-4311-8232-a6c51d638107",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "cdUnGestora": "560002",
+      "nmFuncao": null,
+      "nmSubFuncao": null,
+      "dsCategoriaEconomica": null,
+      "nmGrupoDespesa": null,
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "notaEmpenho": "2017NE000715",
+      "dataEmpenho": "14/11/2017",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "fonteRecurso": "Tesouro",
+      "elemDespesa": "Material de Consumo",
+      "subElemDespesa": "Material para Construção e Reforma",
+      "valEmpenhado": "51.480,00",
+      "valBrutLiquidacao": null,
+      "pago": null
+    }
+  ],
+  "liquidacoes": [
+    {
+      "id": "746913f3-136a-42d5-93de-836836375717",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000715",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2017NL006088",
+      "notaLancamento": "2017NL006088",
+      "numProcesso": "00013352017",
+      "dataLiquidacao": "18/12/2017",
+      "valLiqLiquidacao": "28.980,00",
+      "valBrutLiquidacao": "28.980,00",
+      "valEmpenho": "51.480,00",
+      "descObsLiquidacao": "AQUISIÇÃO DE MADEIRA, CT 32/2017, CONFORME NF 3917",
+      "pago": "0,00"
+    },
+    {
+      "id": "c6f29b1c-9eef-4cc1-88fe-88c1563f5320",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000715",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL001136",
+      "notaLancamento": "2018NL001136",
+      "numProcesso": "00002032018",
+      "dataLiquidacao": "19/03/2018",
+      "valLiqLiquidacao": "22.500,00",
+      "valBrutLiquidacao": "22.500,00",
+      "valEmpenho": "51.480,00",
+      "descObsLiquidacao": "REFERENTE A AQUISIÇÃO DE ASSOALHO DECK ,CT 032/2017 CONFORME NF4003",
+      "pago": "0,00"
+    }
+  ],
+  "pagamentos": [
+    {
+      "id": "6a0742c9-7796-4d0c-8309-6e034d713870",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000715",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2017NL006088",
+      "ordBancaria": "2017OB035482",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 51.480,00",
+      "dataPagamento": "18/12/2017",
+      "pago": "R$ 28.980,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    },
+    {
+      "id": "a3e06386-a4b6-43b5-be80-bc30b2cac9b3",
+      "descOrgao": "Secretaria Municipal de Manutenção da Cidade",
+      "siglaOrgao": "SEMAN",
+      "notaEmpenho": "2017NE000715",
+      "codUnGestora": "560002",
+      "descUnGestora": "UG SEMAN - Secretaria Municipal de Manutenção da Cidade",
+      "siglaUnGestora": "SEMAN",
+      "nomeCredor": "DEPAU COMERCIO DE MADEIRAS E MATERIAIS DE CONSTRUCAO LTDA",
+      "notaLiquidacao": "2018NL001136",
+      "ordBancaria": "2018OB008547",
+      "elemDespesa": "Material de Consumo",
+      "valEmpenhado": "R$ 51.480,00",
+      "dataPagamento": "19/03/2018",
+      "pago": "R$ 22.500,00",
+      "descTipoPagamento": null,
+      "processoPagamento": null,
+      "detalhamento": null
+    }
+  ],
+  "tema": "Manutenção Urbana e Outros",
+  "vocacao": "Vizinhança e Comunidade",
+  "semaforo": {
+    "status": "VERDE",
+    "rotulo": "Verde (No Prazo)",
+    "motivos": [
+      "Obra dentro do cronograma contratual vigente e com Variação Contratual Acumulada inferior a 10%"
+    ],
+    "deltaPercentualValor": 0.0
+  },
+  "nivel": "Escopo Cidade (Não-Localizado)",
+  "bairro": null,
+  "prefeituraBairro": null,
+  "latitude": null,
+  "longitude": null,
+  "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+  "fontesOficiais": {
+    "portalTransparencia": {
+      "nome": "Portal da Transparência de Salvador",
+      "url": "https://www.transparencia.salvador.ba.gov.br/"
+    },
+    "chaveCanonica": {
+      "cdUnidadeGestora": "560002",
+      "unidadeGestora": "SEMAN",
+      "nuContratoSigef": "2017CT005412"
+    },
+    "nuProcesso": "000588/2017",
+    "domContrato": {
+      "nuDom": null,
+      "url": null
+    },
+    "domAditivos": [],
+    "lastroTerritorial": {
+      "nivel": "Escopo Cidade (Não-Localizado)",
+      "estagioAlocacao": "Curadoria Territorial Auditável (Ambíguo)",
+      "bairro": null,
+      "prefeituraBairro": null,
+      "origem": "Contrato sem localização territorial específica (Curadoria Territorial Auditável (Ambíguo))",
+      "trechoComprobatorio": "AQUISIÇÃO (com entrega inclusa) DE MADEIRAS PAU D¿ARCO APARELHADOS, ASSOALHO PARA DECK E RIPA TRATADA",
+      "documentoOrigem": "dsObjeto (Contrato) e descObsLiquidacao (Notas de Liquidação)",
+      "justificativa": "Auditoria documental (objeto e notas de liquidação disponíveis) confirma ausência de localização em Bairro Oficial único ou Prefeitura-Bairro única (contrato de escopo municipal, lote em múltiplas Prefeituras-Bairro, eixo viário multi-bairro ou fornecimento/serviço sem endereço específico)."
+    }
+  },
+  "cdUnidadeGestora": "560002",
+  "consultaPagamentosConcluida": true,
+  "apuracaoPagamentos": {
+    "registrosSemValor": 0,
+    "limitacoesConhecidas": [],
+    "dataReferencia": "2026-11-20",
+    "pagamentosConsolidados": true,
+    "situacao": "saldo_registrado"
+  },
+  "repeticoesColeta": [],
+  "janelaPagamentos": {
+    "dataInicio": "2017-01-01T03:00:00.000Z",
+    "dataFim": "2020-12-31T03:00:00.000Z"
+  },
+  "versaoDados": "82c917b58adf4561ae2b143ebd4562f4"
+}
